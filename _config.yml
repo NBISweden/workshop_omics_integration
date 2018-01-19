@@ -1,0 +1,11 @@
+title: "Test course"
+
+# where things are
+layouts_dir: ./course-common/layouts
+includes_dir: ./course-common/includes
+sass:
+  sass_dir: ./course-common/sass
+
+defaults:
+  - values:
+      logosnav: true
