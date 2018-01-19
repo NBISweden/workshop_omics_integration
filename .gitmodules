@@ -1,3 +1,3 @@
 [submodule "course-common"]
 	path = course-common
-	url = git@github.com:NBISweden/course-common.git
+	url = https://github.com/NBISweden/course-common.git
