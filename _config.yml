@@ -9,3 +9,14 @@ sass:
 defaults:
   - values:
       logosnav: true
+
+menu:
+  - title: Schedule
+    url: schedule
+  - title: Labs
+    submenus:
+      - title: ChIP-seq data processing
+        url: labs/processing
+      - title: Down-stream analysis
+        url: labs/diffBinding
+  
