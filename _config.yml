@@ -12,11 +12,11 @@ defaults:
 
 menu:
   - title: Schedule
-    url: /course-test/schedule
+    url: schedule
   - title: Labs
     submenus:
       - title: ChIP-seq data processing
-        url: /course-test/labs/processing
+        url: labs/processing
       - title: Down-stream analysis
-        url: /course-test/labs/diffBinding
+        url: labs/diffBinding
   
