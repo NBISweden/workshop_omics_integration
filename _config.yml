@@ -12,12 +12,21 @@ defaults:
       logosnav: true
 
 menu:
+  - title: Overview
+    url: index
   - title: Schedule
     url: schedule
+  - title: Pre-course material
+    url: precourse
+  - title: Travel info
+    url: travel
   - title: Labs
     submenus:
       - title: ChIP-seq data processing
         url: labs/processing
       - title: Down-stream analysis
         url: labs/diffBinding
-  
+      - title: csaw
+        url: labs/csaw
+      - title: deepTools visualisation
+        url: labs/vis
