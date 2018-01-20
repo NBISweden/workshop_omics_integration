@@ -1,4 +1,5 @@
 title: "Test course"
+baseurl: /course-test
 
 # where things are
 layouts_dir: ./course-common/layouts
