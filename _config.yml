@@ -13,7 +13,7 @@ defaults:
 
 menu:
   - title: Overview
-    url: index
+    url:
   - title: Schedule
     url: schedule
   - title: Pre-course material
