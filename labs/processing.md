@@ -35,6 +35,7 @@ We will use data that come from [ENCODE](www.encodeproject.org) project. These a
 | 2  | ENCSR000BOT |  HepG2    | hepatocellular carcinoma (Homo sapiens, 15 year male)  |
 | 3  | ENCSR000BOZ |  SK-N-SH  | neuroblastoma (Homo sapiens, 4 year female)            |
 | 4  | ENCSR000BTV |  neural   | in vitro differentiated (Homo sapiens, embryonic male) |
+{: .striped .border }
 
 Table 1. ENCODE accession numbers for data sets used in this tutorial.
 
@@ -49,6 +50,7 @@ Table 1. ENCODE accession numbers for data sets used in this tutorial.
 | 6  | ENCFF000OWM | neural    | 2         | ENCFF000OXE |
 | 7  | ENCFF000RAG | SK-N-SH   | 1         | ENCFF000RBT |
 | 8  | ENCFF000RAH | SK-N-SH   | 2         | ENCFF000RBU |
+{: .striped }
 
 Table 2. ENCODE accession numbers for samples used.
 
