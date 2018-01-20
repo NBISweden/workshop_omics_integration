@@ -5,24 +5,24 @@ title:  'ChIP-seq down-stream analysis'
 
 # ChIP-seq down-stream analysis
 
-## Introduction <a name="Introduction"></a>
+## Introduction
 Welcome back to the second part of the tutorial. In the first part we have learnt how to access the quality of ChIP-seq data. We now know can tell whether the ChiP has worked or not. We have also learnt how to find in a simple way a consensus peakset for down-stream analysis. In this part we will learn i) how to identify sites that are differentially bound between two sample groups and ii) how to place these regions in a biological context
 
 This tutorial has two R exercise that can be run either on Uppmax or locally using R Studio. We recommend transferring files to computer and working locally, it is so much easier to experiment with the code and look at the plots. 
 
 ## Content
-- [Introduction](#Introduction)
-- [Data & Methods](#DataMethods)
-- [Setting-up](#Setting-up)
-- [Differential bidning](#DB)
-- [Functional analysis](#FA)
-- [Concluding remarks and next steps](#Next)
-- [Appendix: figures](#Next)
+- [Introduction](#introduction)
+- [Data & Methods](#data--methods)
+- [Setting-up](#setting-up)
+- [Differential bidning](#differential-binding)
+- [Functional analysis](#functional-analysis)
+- [Concluding remarks and next steps](#concluding-remarks-and-next-steps)
+- [Appendix: figures](#appendix-figures)
 
-## Data & Methods <a name="DataMethods">
+## Data & Methods
 We will continue using the same data as in the first part of the tutorial. Please note that usually three biological replicates are the minimum requirement for statistical analysis such as in factor occupancy. The ENCODE data we are using have only two replicates and we are using them to demonstrate the tools and methodologies. No biological conclusions should be drawn from from them, or any other dataset with duplicates only. Remember: just because it computes does not make it right! 
 
-## Setting-up  <a name="Setting-up">
+## Setting-up
 If you are choosing to run scripts locally you can skip this part. Refer back to [pre-course](../precourse) preparations on installing R and R-Studio if you have not done this already, 
 
 If you are choosing to run scripts on Uppmax, the setting-up is the same as for the first part of this tutorial. If  you have not logged out from Uppmax you can simply skip this part. If you have logged out: log back in, open interactive session, and run `chipseq_env.sh` script. Note to change reservation name to FRI if it is no longer Thursday. 
@@ -35,7 +35,7 @@ source ~/chipseq_env.sh
 
 ```
 
-## Differential binding <a name="DB">
+## Differential binding
 
 We will usage Bioconductor package [DiffBind](http://bioconductor.org/packages/release/bioc/html/DiffBind.html) to identify sites that are differentially bound between two sample groups. The package includes "functions to support the processing of peak sets, including overlapping and merging peak sets, counting sequencing reads overlapping intervals in peak sets, and identifying statistically significantly differentially bound sites based on evidence of binding affinity (measured by differences in read densities). To this end it uses statistical routines developed in an RNA-Seq context (primarily the Bioconductor packages edgeR and DESeq2 ). Additionally, the package builds on Rgraphics routines to provide a set of standardized plots to aid in binding analysis." This means that we will repeat finding a consensus peakset in a more powerful way before identifying differentially bound sites. Actually, defying the consensus peaks is an important step that takes up entire chapter in the DiffBind manual. Read section [6.2](http://bioconductor.org/packages/devel/bioc/vignettes/DiffBind/inst/doc/DiffBind.pdf) if you like to even more. 
 
@@ -45,7 +45,7 @@ Follow Uppmax or local version to go further
 * [Uppmax version](#DB_uppmax)
 * [Local version](#DB_local)
 
-### Uppmax version <a name="DB_uppmax">
+### Uppmax version
 
 Let's load [R packges module](https://www.uppmax.uu.se/support/user-guides/r_packages-module-guide/) that has a bunch of R packages, including DiffBind package, installed on Uppmax. And let's go to the right directory given you are keeping files structure as for the first part of the tutorial. 
 
@@ -148,7 +148,7 @@ dev.off()
 save.image("diffBind.RData")
 ```
 
-### Local version <a name="DB_local">
+### Local version
 
 Create a separate directory on your local computer where you would like to work and name it e.g. `diffBind`.
 
@@ -252,7 +252,7 @@ dev.off()
 save.image("diffBind.RData")
 ```
 
-## Functional analysis <a name="FA">
+## Functional analysis
 
 So now we have list of differentially bound sites for comparisons of interest but we do not know much about them beside the genomic location. It is time to find out more. To do so, in this section we will use another Bioconductor package, [ChIPpeakAnno](http://bioconductor.org/packages/release/bioc/vignettes/ChIPpeakAnno/inst/doc/pipeline.html). 
 
@@ -260,7 +260,7 @@ ChIPpeakAnno "is for facilitating the downstream analysis for ChIP-seq experimen
 
 Here, we will annotate deferentially bound sites, summarize the in a genomic feature context and obtain enriched GO terms and pathways. Note this part requires usage of annotation packages that are not all available on Uppmax. The Uppmax version contains only peaks annotations, whereas the local version contains GO and pathways analysis. 
 
-### Uppmax version <a name="FA_uppmax">
+### Uppmax version
 
 We will continue our R session. If you have logged-out or lost connection or simply want to start fresh: check pathways to R libraries and re-set if needed, navigate to R directory, load R packages, open R and load back the data saved in the differential binding session. We will build on them. 
 
@@ -304,7 +304,7 @@ head(data.peaksAnno)
 write.table(data.peaksAnno, file="peaks_HeLa_vs_neuronal.txt", sep="\t", row.names=F)
 ```
 
-### Local version <a name="FA_local">
+### Local version
 
 We will continue our R-Studio session. If you have logged-out or lost connection or simply want to start fresh follow setting up instructions for running DiffBind locally. 
 
@@ -404,7 +404,7 @@ print(unique(peaks.pathways$PATH))
 Feel free to build more on the exercises. Follow the [ChIPpeakAnno tutorial](http://bioconductor.org/packages/release/bioc/vignettes/ChIPpeakAnno/inst/doc/pipeline.html#annotate-peaks) for ideas. 
 
 
-## Concluding remarks and next steps <a name="Next">
+## Concluding remarks and next steps
 
 The workflow presented in the tutorials is quite common and it includes recommended steps for analysis of ChIP-seq data. Naturally, there may be different tools or ways to preform similar tasks. New tools are being developed all the time and no single tool can do it all. 
 
@@ -414,7 +414,7 @@ Also, there are more types of analyses one can do beyond the one presented here.
 
 Above all, we recommend that you keep trying to analyze your own data. Practice makes perfect :)
 
-## Appendix: figures <a name="Appendix">
+## Appendix: figures
 
 ![correlation_librarires_normalised](../figures/lab-diffBinding/correlation_libraries_normalised.pdf)
 
