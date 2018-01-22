@@ -7,6 +7,9 @@ includes_dir: ./course-common/includes
 sass:
   sass_dir: ./course-common/sass
 
+plugins:
+  - jemoji
+
 defaults:
   - values:
       logosnav: true
