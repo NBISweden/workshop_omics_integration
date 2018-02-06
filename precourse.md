@@ -1,12 +1,41 @@
 ---
 layout: default
-title:  'Pre-course material'
+title:  Pre-course material
 ---
 
 # Pre-course
-There are few things to do and think about before the course starts. Please read carefully and follow the instructions so we can all have a good start to the course. Contact course organisers in case anything in unclear.
 
-During the course we will be using Uppsala University's high performance computer (Uppmax) as well as run scripts locally on laptops using R and R-Studio. To be able to follow exercises we ask you to configure access to Uppmax and install both R and R-Studio on your laptop. Also, having IGV (Integrative Genomics Viewer) installed will come handy during the course.
+There are few things to do and think about before the course starts. Please
+read carefully and follow the instructions so we can all have a good start to
+the course. Contact course organisers in case anything in unclear.
+
+If you are just going to make quick, small edits you can skip the rest of this
+and go directly to Lesson X; edit on github.
+
+## Prerequisites
+
+If you are going to develop a full course or have to do extensive edits, it's
+recommended to run jekyll locally. If you are just going to do a few small
+edits it's probably easier to just edit diretcly on the github website.
+
+There are two main ways to run the course website on your own computer. Github
+pages uses jekyll which is a "static site generator". We use markdown files
+that are converted into HTML files for the site, there are also a few other
+files that are important for setting up the site. Images, pdfs and other
+smallish files can also be put directly in the repo.
+
+### Git
+
+You need git to work with this locally. Seriously.
+
+
+
+
+During the course we will be using Uppsala University's high performance
+computer (Uppmax) as well as run scripts locally on laptops using R and
+R-Studio. To be able to follow exercises we ask you to configure access to
+Uppmax and install both R and R-Studio on your laptop. Also, having IGV
+(Integrative Genomics Viewer) installed will come handy during the course.
 
 # Uppmax
 The computational resources are provided by SNIC_UPPMAX. To be able to use them
