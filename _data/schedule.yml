@@ -1,0 +1,66 @@
+- day: Thursday 2017-10-23
+  room: Gamma 6, Pascal
+  timeslots:
+      - start: "08:45"
+        end: "09:00"
+        title: Pre-course coffee
+      - start: "09:00"
+        end: "09:30"
+        title: Welcome, inc. getting to know each other
+        link: lectures/welcome.pdf
+        tas: Olga Dethlefsen, Agata Smialowska
+      - start: "09:30"
+        end:   "10:30"
+        title: Lecture, ChIP-seq data analysis principles
+        link: lectures/abc.pdf
+        tas: Jakub Westholm
+      - start: "10:30"
+        end: "12:00"
+        title: "Practicals: ChIP-seq data processing"
+        link: labs/processing
+        tas: Olga, Jakub, Verena Kutschera
+      - start: "12:00"
+        end: "13:00"
+        title: _Lunch_
+      - start: "13:00"
+        end: "16:15"
+        title: "Practicals: ChIP-seq data processing"
+        link: labs/processing
+        tas: Olga, Jakub, Verena
+      - start: "16:15"
+        end: "17:00"
+        title: "Group discussion: ChIP-seq data processing"
+        tas: Olga, Verena
+- day: Friday 2017-10-24
+  room: Gamma 6, Pascal
+  timeslots:
+      - start: "09:00"
+        end: "09:30"
+        title: Welcome to day 2
+        tas: Olga
+      - start: "09:30"
+        end: "12:00"
+        title: "Practicals: down-stream analysis"
+        link: labs/diffBinding
+        tas: Olga, Agata, Jakub, Verena
+      - start: "12:00"
+        end: "13:00"
+        title: _Lunch_
+      - start: "13:00"
+        end: "14:00"
+        title: Introduction to SciLifeLab NGI ChIP-seq pipeline
+        link: lectures/Phil Ewels - NBIS ChIP-seq course.pdf
+        tas: Phil Ewels
+      - start: "14:00"
+        end: "15:00"
+        title: "Practicals: down-stream analysis"
+        link: labs/diffBinding
+        tas: Olga, Agata, Jakub, Verena
+      - start: "15:00"
+        end: "16:00"
+        title: "Group discussion: what have we learned and what is next"
+        tas: Olga, Agata, Jakub, Verena
+      - start: "16:00"
+        end: "17:00"
+        title: Wrap-up
+        tas: Olga, Agata, Jakub, Verena
