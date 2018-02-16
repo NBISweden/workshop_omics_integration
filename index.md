@@ -14,10 +14,9 @@ Held online, right here, 2018-01-24 - 2018-01-30
 
 ## Labs links
 
-*Main*
 * [Run offline](labs/run_offline)
 * [New course](labs/new_course)
-* [Edit course](labs/update_course)
+* [Edit course](labs/edit_course)
 * [Archive course](labs/archive_course)
 * [Quick fixing](labs/quick_fix)
 
