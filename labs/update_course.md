@@ -44,43 +44,6 @@ the `.html` ending is optional). Subdirectories in the repository will end up
 as subdirectories on the site, just remember to not start your directory names
 with `_` (underscore) since those are special and reserved for jekyll.
 
-### Page formatting
-
-Jekyll uses fairly standard markdown format. Here is a quick refrence
-
-
-    This is a simple paragraph with **bold** and _italic_ text.
-
-    Lists:
-
-    * One
-    * More
-    * Bullet
-
-    - Hypens
-    - Work
-
-    1. Numbered list
-    2. More numbers
-    5. The numbers don't matter
-
-
-This is a simple paragraph with **bold** and _italic_ text.
-
-Lists:
-
-* One
-* More
-* Bullet
-- Hypens
-- Work
-- Too
-
-1. Numbered list
-2. More numbers
-5. The numbers don't matter
-
-
 
 ## Images
 
@@ -88,9 +51,75 @@ It might be a good idea to put the images in the `img/` subdirectory and
 reference them from there to reduce clutter.
 
 
+## Page formatting
 
-* File hierarchy of stuff
-* Edit the menu structure in config.yml 
-* Edit files
-    * Features available
-    * Which `<code>` tags to use.
+Jekyll uses fairly standard markdown format. Below is a quick refrence for most
+of the features. **N.B** when adding code blocks, it's better to use the 
+<code>{% raw %}{% highlight language %}{% endraw %}</code> construct than backticks <code>```</code>.
+
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+    eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
+    in culpa qui officia deserunt mollit anim id est laborum.
+
+    It's possible to have **bold**, _italic_ and `code` text.
+
+    Lists:
+
+    * Bulleted list
+    * with asterisks
+    - or hyphens
+
+    1. Numbered list
+    2. More numbers
+    5. The numbers don't matter
+
+    {% raw %}
+    {% highlight R %}
+    library(lib2)
+
+    p <- read.csv("file.csv")
+
+    plot(p[1,2])
+    {% endhighlight %}
+    {% endraw %}
+
+    {% raw %}{% {% endraw %} raw %}
+    {% raw %}Inside of `raw`/`endraw` it's possible to use {{, }}, {% and %} without problems.{% endraw %}
+    {% raw %}{% {% endraw %} endraw %}
+
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
+in culpa qui officia deserunt mollit anim id est laborum.
+
+It's possible to have **bold**, _italic_ and `code` text.
+
+Lists:
+
+* Bulleted list
+* with asterisks
+- or hyphens
+
+1. Numbered list
+2. More numbers
+5. The numbers don't matter
+
+
+{% highlight R %}
+library(lib2)
+
+p <- read.csv("file.csv")
+
+plot(p[1,2])
+{% endhighlight %}
+
+{% raw %}Inside of `raw`/`endraw` it's possible to use {{, }}, {% and %} without problems.{% endraw %}
