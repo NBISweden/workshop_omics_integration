@@ -7,6 +7,7 @@ title: Edit course content
 
 ## File hierarchy
 
+
 You can basically invent your own structure for the course but a good template
 is the following:
 
@@ -54,19 +55,29 @@ reference them from there to reduce clutter.
 ## Page formatting
 
 Jekyll uses fairly standard markdown format. Below is a quick refrence for most
-of the features. **N.B** when adding code blocks, it's better to use the 
+of the features. **N.B** when adding code blocks, it's better to use the
 <code>{% raw %}{% highlight language %}{% endraw %}</code> construct than backticks <code>```</code>.
 
+
+    Paragraphs are separated by one empty row.
 
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
     incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
     nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-    eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-    in culpa qui officia deserunt mollit anim id est laborum.
+    Indenting a paragraph a level gives a black box, like this:
 
-    It's possible to have **bold**, _italic_ and `code` text.
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+        eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
+        in culpa qui officia deserunt mollit anim id est laborum.
+
+    It's possible to have **bold**, _italic_ and `code` text. Dividers can be
+    done by three or more hyphens or underscores:
+
+    ---
+
+    ___
+
 
     Lists:
 
@@ -77,6 +88,12 @@ of the features. **N.B** when adding code blocks, it's better to use the
     1. Numbered list
     2. More numbers
     5. The numbers don't matter
+    3. You can have paragraphs in lists too
+
+       As long as you indent properly.
+
+    1. Again, it just needs to _be_ a number, markdown figures it out _what_
+       number it should be for you.
 
     {% raw %}
     {% highlight R %}
@@ -93,15 +110,25 @@ of the features. **N.B** when adding code blocks, it's better to use the
     {% raw %}{% {% endraw %} endraw %}
 
 
+Paragraphs are separated by one empty row.
+
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
 nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-in culpa qui officia deserunt mollit anim id est laborum.
+Indenting a paragraph a level gives a black box, like this:
 
-It's possible to have **bold**, _italic_ and `code` text.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+    eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
+    in culpa qui officia deserunt mollit anim id est laborum.
+
+It's possible to have **bold**, _italic_ and `code` text. Dividers can be
+done by three or more hyphens or underscores:
+
+---
+
+___
+
 
 Lists:
 
@@ -112,8 +139,14 @@ Lists:
 1. Numbered list
 2. More numbers
 5. The numbers don't matter
+3. You can have paragraphs in lists too
 
+   As long as you indent properly.
 
+1. Again, it just needs to _be_ a number, markdown figures it out _what_
+   number it should be for you.
+
+{% raw %}
 {% highlight R %}
 library(lib2)
 
@@ -121,5 +154,8 @@ p <- read.csv("file.csv")
 
 plot(p[1,2])
 {% endhighlight %}
+{% endraw %}
 
+{% raw %}{% {% endraw %} raw %}
 {% raw %}Inside of `raw`/`endraw` it's possible to use {{, }}, {% and %} without problems.{% endraw %}
+{% raw %}{% {% endraw %} endraw %}
