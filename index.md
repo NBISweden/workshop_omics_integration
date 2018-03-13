@@ -19,7 +19,7 @@ Held online, right here, 2018-01-24 - 2018-01-30
 * [Edit course](labs/edit_course)
 * [Archive course](labs/archive_course)
 * [Quick fixing](labs/quick_fix)
-
+* [Move SciLifeLab course](labs/move_scilife_course)
 
 
 ## Address and travel suggestions
