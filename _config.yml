@@ -1,5 +1,5 @@
-title: "Test course"
-baseurl: /course-test
+title: "Workshop howto"
+baseurl: /workshop-howto
 
 # where things are
 layouts_dir: ./workshop-common/layouts
@@ -25,11 +25,15 @@ menu:
     url: travel
   - title: Labs
     submenus:
-      - title: ChIP-seq data processing
-        url: labs/processing
-      - title: Down-stream analysis
-        url: labs/diffBinding
-      - title: csaw
-        url: labs/csaw
-      - title: deepTools visualisation
-        url: labs/vis
+      - title: New course
+        url: labs/new_course
+      - title: Edit course
+        url: labs/edit_course
+      - title: Quick fix
+        url: labs/quick_fix
+      - title: Run offline
+        url: labs/run_offline
+      - title: Archive course
+        url: labs/archive_course
+      - title: Move scilife course
+        url: labs/move_scilife_course
