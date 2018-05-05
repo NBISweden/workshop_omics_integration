@@ -2,10 +2,10 @@ title: "Test course"
 baseurl: /course-test
 
 # where things are
-layouts_dir: ./course-common/layouts
-includes_dir: ./course-common/includes
+layouts_dir: ./workshop-common/layouts
+includes_dir: ./workshop-common/includes
 sass:
-  sass_dir: ./course-common/sass
+  sass_dir: ./workshop-common/sass
 
 plugins:
   - jemoji
