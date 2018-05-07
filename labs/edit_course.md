@@ -145,7 +145,6 @@ Lists:
 1. Again, it just needs to _be_ a number, markdown figures it out _what_
    number it should be for you.
 
-{% raw %}
 {% highlight R %}
 library(lib2)
 
@@ -153,8 +152,5 @@ p <- read.csv("file.csv")
 
 plot(p[1,2])
 {% endhighlight %}
-{% endraw %}
 
-{% raw %}{% {% endraw %} raw %}
 {% raw %}Inside of `raw`/`endraw` it's possible to use {{, }}, {% and %} without problems.{% endraw %}
-{% raw %}{% {% endraw %} endraw %}
