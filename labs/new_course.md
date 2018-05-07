@@ -8,7 +8,7 @@ title: Create a new course
 
 There are three steps to bootstrapping a new course:
 
-1. Create a new repo on github
+1. Create a new repo on the NBIS github
 2. Add the base template for a course
 3. Enable github-pages on github
 
@@ -19,7 +19,7 @@ There are three steps to bootstrapping a new course:
 To setup a completely new course, start by adding a new repository on github.
 Go to [repository creation page](https://github.com/organizations/NBISweden/repositories/new)
 
-Please use a name that starts with `course-` for example: `course-proteomics`,
+Please use a name that starts with `workshop-` for example: `workshop-proteomics`,
 make it public and do not initialize the repository with a README.
 
 
@@ -37,8 +37,8 @@ Then create a base `_config.yml` to tell Jekyll to look for layout stuff inside
 the workshop-common folder and some other configuration options:
 
 {% highlight yaml %}
-title: "name of course"
-baseurl: /workshop-name-of-course
+title: "Proteomics workshop"
+baseurl: /workshop-proteomics
 
 # where things are
 layouts_dir: ./workshop-common/layouts
