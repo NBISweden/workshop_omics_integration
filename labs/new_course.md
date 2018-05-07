@@ -27,16 +27,16 @@ make it public and do not initialize the repository with a README.
 
 Add the common layout github repository as a submodule
 
-```bash
+{% highlight bash %}
 git submodule add https://github.com/NBISweden/workshop-common.git workshop-common
 git submodule init
 git submodule sync
-```
+{% endhighlight %}
 
 Then create a base `_config.yml` to tell Jekyll to look for layout stuff inside
 the workshop-common folder and some other configuration options:
 
-```
+{% highlight yaml %}
 title: "name of course"
 baseurl: /workshop-name-of-course
 
@@ -68,16 +68,16 @@ menu:
         url: labs/lab1
       - title: Lab 2
         url: labs/lab2
-```
+{% endhighlight %}
 
 
 Don't forget to commit and push:
 
-```bash
+{% highlight bash %}
 git add _config.yml
 git commit -m 'Base course template'
 git push
-```
+{% endhighlight %}
 
 ## Step 3. Enable GitHub Pages
 
