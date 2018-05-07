@@ -7,8 +7,6 @@ title: Edit course content
 
 ## File hierarchy
 
-:key:
-
 You can basically invent your own structure for the course but a good template
 is the following:
 
