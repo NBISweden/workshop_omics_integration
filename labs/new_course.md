@@ -22,7 +22,7 @@ Go to [repository creation page](https://github.com/organizations/NBISweden/repo
 Please use a name that starts with `workshop-` for example: `workshop-proteomics`,
 make it public and do not initialize the repository with a README.
 
-![](../img/create-repo.png)
+![Create repo](../img/create-repo-big.png){: .center-image}{:width=600}
 
 And then clone it to your local computer like this:
 
@@ -32,7 +32,7 @@ git clone git@github.com:NBISweden/workshop-[Your workshop repo thingy].git
 
 You find the url here:
 
-![](../img/clone-url.png)
+![Clone URL](../img/clone-url-big.png){: .center-image}{:width=600}
 
 
 ## Step 2. Add base template
