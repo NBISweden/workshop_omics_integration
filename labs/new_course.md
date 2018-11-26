@@ -22,7 +22,7 @@ Go to [repository creation page](https://github.com/organizations/NBISweden/repo
 Please use a name that starts with `workshop-` for example: `workshop-proteomics`,
 make it public and do not initialize the repository with a README.
 
-![Create repo](../img/create-repo-big.png){: .center-image}{:width=600}
+![Create repo](../img/create-repo-big.png){: .center-image}{:width="600"}
 
 And then clone it to your local computer like this:
 
@@ -32,7 +32,7 @@ git clone git@github.com:NBISweden/workshop-[Your workshop repo thingy].git
 
 You find the url here:
 
-![Clone URL](../img/clone-url-big.png){: .center-image}{:width=600}
+![Clone URL](../img/clone-url-big.png){: .center-image}{:width="600"}
 
 
 ## Step 2. Add base template
@@ -96,3 +96,5 @@ git push
 Go to the settings on github for your newly created repo to enable GitHub
 Pages. Almost at the bottom of that page there is a section devoted to GitHub
 Pages, the source should be `master branch`, ignore all other settings.
+
+![Enable Github pages](../img/github-pages.png){: .center-image}{:width="600"}
