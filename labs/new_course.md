@@ -22,6 +22,18 @@ Go to [repository creation page](https://github.com/organizations/NBISweden/repo
 Please use a name that starts with `workshop-` for example: `workshop-proteomics`,
 make it public and do not initialize the repository with a README.
 
+![](../img/create-repo.png)
+
+And then clone it to your local computer like this:
+
+{% highlight bash %}
+git clone git@github.com:NBISweden/workshop-[Your workshop repo thingy].git
+{% endhighlight %}
+
+You find the url here:
+
+![](../img/clone-url.png)
+
 
 ## Step 2. Add base template
 
@@ -37,8 +49,8 @@ Then create a base `_config.yml` to tell Jekyll to look for layout stuff inside
 the workshop-common folder and some other configuration options:
 
 {% highlight yaml %}
-title: "Proteomics workshop"
-baseurl: /workshop-proteomics
+title: "TBA workshop"
+baseurl: /workshop-tba
 
 # where things are
 layouts_dir: ./workshop-common/layouts
