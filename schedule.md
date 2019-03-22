@@ -2,52 +2,107 @@
 layout: default
 title:  'Schedule'
 ---
+# NBIS course Omics Integration and Systems Biology
 
-Course is held at SciLifeLab, Tomtebodavagen 23A, 171 65 Solna
+9 - 12 September 2019
 
-Contact: [olga.dethlefsen@nbis.se](olga.dethlefsen@gmail.com); 0720 492 082
+SciLifeLab, Tomtebodavagen 23A, 171 65 Solna
+
+Contact: [rui.benfeitas@scilifelab.se](rui.benfeitas@scilifelab.se)
 
 ----
 
-### Thursday 2017-10-23
+### Monday 2019-09-09
 
-Room: Gamma 6, Pascal
+Room: Air, Alfa 2
 
-**08.45 - 9.00** pre-course coffee
+**08.30 - 9.00** Introduction
 
-**09:00 - 09.30** [Welcome, incl. getting to know each other](lectures/welcome.pdf) (Olga Dethlefsen, Agata Smialowska)
+**09:00 - 10.00** 
 
-**09.30 - 10.30** [Lecture: ChIP-seq data analysis principles](lectures/ChIP-seq_AS_JW.pdf) (Jakub Westholm)
+**10.00 - 10.30** Coffee Break
 
-**10.30 - 12.00** [Practicals: ChIP-seq data processing](labs/processing) (Olga, Jakub, Verena Kutschera)
+**10.30 - 12.00** 
 
 **12.00 - 13.00** _lunch_
 
-**13.00 - 16.15** [Practicals: ChIP-seq data processing](labs/processing) (Olga, Verena, Jakub)
+**13.00 - 14.00** 
 
-**16.15 - 17.00** Group discussion: ChIP-seq data processing (Olga, Verena)
+**14.00 - 15.00** 
+
+**15.00 - 15.30** Cofee Break
+
+**15.30 - 17.00** 
 
 ----
 
-### Friday 2017-10-24
+### Tuesday 2019-09-10
 
-Room: Gamma 6, Pascal
+Room: Air, Alfa 2
 
-**09.00 - 09.30** Welcome to day 2 (Olga)
+**08.30 - 10.00** 
 
-**09.30 - 12.00** [Practicals: down-stream analysis](labs/diffBinding) and optional [extras](index) (Olga, Agata, Jakub, Verena)
+**10.00 - 10.30** Coffee Break
+
+**10.30 - 12.00** 
 
 **12.00 - 13.00** _lunch_
 
-**13.00 - 14.00** [Introduction to SciLifeLab NGI ChIP-seq pipeline](lectures/Phil Ewels - NBIS ChIP-seq course.pdf) (Phil Ewels)
+**13.00 - 14.00** 
 
-**14.00 - 15.00** [Practicals: down-stream analysis](labs/diffBinding) and optional [extras](index) (Olga, Agata, Jakub, Verena)
+**14.00 - 15.00** 
 
-**15.00 - 16.00** Group discussion: what have we learned and what is next (Olga, Agata, Jakub, Verena)
+**15.00 - 15.30** Cofee Break
 
-**16.00 - 17.00** Wrap-up (Olga, Agata, Jakub, Verena)
+**15.30 - 17.00** 
+
+**18.00 - ...** Course dinner
 
 ----
+
+### Wednesday 2019-09-11
+
+Room: Air, Alfa 2
+
+**08.30 - 10.00** 
+
+**10.00 - 10.30** Coffee Break
+
+**10.30 - 12.00** 
+
+**12.00 - 13.00** _lunch_
+
+**13.00 - 14.00** 
+
+**14.00 - 15.00** 
+
+**15.00 - 15.30** Cofee Break
+
+**15.30 - 17.00** 
+
+----
+
+### Tuesday 2019-09-12
+
+Room: Air, Alfa 2
+
+**08.30 - 10.00** 
+
+**10.00 - 10.30** Coffee Break
+
+**10.30 - 12.00** 
+
+**12.00 - 13.00** _lunch_
+
+**13.00 - 14.00** 
+
+**14.00 - 15.00** 
+
+**15.00 - 15.30** Cofee Break
+
+**15.30 - 17.00** 
+
+**17.00 - 17.15** Recap and farewell
 
 _coffee and snacks will arrive twice a day_
 
