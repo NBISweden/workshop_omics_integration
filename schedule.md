@@ -2,13 +2,13 @@
 layout: default
 title:  'Schedule'
 ---
-# NBIS course Omics Integration and Systems Biology
+# My awsome course
 
 9 - 12 September 2019
 
 SciLifeLab, Tomtebodavagen 23A, 171 65 Solna
 
-Contact: [rui.benfeitas@scilifelab.se](rui.benfeitas@scilifelab.se)
+Contact: [nbis.teacher@scilifelab.se](nbis.teacher@scilifelab.se)
 
 ----
 
