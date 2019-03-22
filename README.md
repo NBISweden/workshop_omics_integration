@@ -1,3 +1,4 @@
-# Workshop howto
+# NBIS training
+A repository for all the reference training materials at NBIS. It was adapted from the workshop-howto/
 
-This is a set of github pages about how to setup a workshop in NBIS.
+To do:
