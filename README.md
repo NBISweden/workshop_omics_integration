@@ -11,3 +11,5 @@ NT-RR-19
 ## To do:
 - Add templates to `/templates/` folder
 - Add FAQs
+
+Consider adding pink template
