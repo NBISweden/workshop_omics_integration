@@ -19,9 +19,10 @@ The various techniques are discussed in terms of their rationale and applicabili
 Will be indicated soon
 
 ***Important Dates***
-Application opens: 1 May  (link to application form indicated soon)  
+Application opens: 1 May  ([apply here](https://forms.gle/FQCF7FSiyUeP8MjX8))  
 Application closes: 28 June  
 Confirmation to accepted students: 5 July  
+
 
 ***Responsible teachers***
 - [Rui Benfeitas](https://nbis.se/about/staff/rui-benfeitas) (rui.benfeitas[at]scilifelab.se), SciLifeLab, Stockholm
