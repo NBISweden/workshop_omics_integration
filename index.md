@@ -10,9 +10,7 @@ title: Howto make a github course
 
 Course open for PhD students, postdocs, and researchers looking for an introduction to multi-omics integration and systems biology.
 
-The aim of this workshop is to provide a fundamental integrated analysis of
-1. biological network construction and integration;
-2. how modelling and multi-omics integration may be used to generate hypotheses and gain novel comprehensive biological insight.
+The aim of this workshop is to provide an integrated view of biological network construction and integration, constraint-based modelling, multi-omics integration and hypothesis generation.
 
 A general description of dierent methods for analysing dierent omics data (e.g. transcriptomics and genomics) will be presented with some of the lectures discussing several integration, clustering, and machine learning tools including supervised and unsupervised methods. 
 The various techniques are discussed in terms of their rationale and applicability, with a particular focus on possible confounding factors. Attendants will further gethands-on experience with analysis of processed high throughput data using modelling,biological network and topology analysis, and supervised/unsupervised methods.While basic understanding of NGS techniques is desirable it is not essential to fully followthe course. Further details about the course content will be indicated soon. 
@@ -22,7 +20,7 @@ The various techniques are discussed in terms of their rationale and applicabili
 
 
 ## Important Dates
-Application opens: 1 May  (link to application form indicated soon)
+Application opens: 1 May  (link to application form indicated soon)  
 Application closes: 28 June  
 Confirmation to accepted students: 5 July  
 
