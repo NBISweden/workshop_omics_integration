@@ -5,10 +5,7 @@ title:  Pre-course material
 
 # Pre-course materials
 
-The following articles are suggested reading before course start:
-- [article 1]
-- [article 2]
-- ...
+[placeholder]
 
 # Pre-course software
 Before starting the course, please install the following software in your laptop:
