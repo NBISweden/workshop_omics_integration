@@ -10,10 +10,18 @@ title: Omics Integration and Sys Biol
 
 Course open for PhD students, postdocs, and researchers looking for an introduction to multi-omics integration and systems biology.
 
-The aim of this workshop is to provide an integrated view of biological network construction and integration, constraint-based modelling, multi-omics integration and hypothesis generation. 
+The aim of this workshop is to provide an integrated view of biological network construction and integration, constraint-based modelling, multi-omics integration and hypothesis generation. \par
+A general description of different methods for analysing different omics data (e.g. transcriptomics and genomics) will be presented with some of the lectures discussing key methods in omics integration. The various techniques are discussed in terms of their rationale and applicability, with a particular focus on possible confounding factors. Attendants will further get hands-on experience in their application. 
+Some of the covered topics include:\par
+\begin{itemize}
+  \item Condition-specific and personalized metabolic modeling based on integration of transcriptomic and proteomic data;
+  \item Identification of potential biomarkers and targetable genes;
+  \item Co-expression and association networks, gene modules, and network topology analysis;
+  \item Multi-omics integration, clustering and dimensionality reduction;
+  \item Application of key machine learning methods for multi-omics analysis
+\end{itemize}
 
-A general description of dierent methods for analysing dierent omics data (e.g. transcriptomics and genomics) will be presented with some of the lectures discussing several integration, clustering, and machine learning tools including supervised and unsupervised methods. 
-The various techniques are discussed in terms of their rationale and applicability, with a particular focus on possible confounding factors. Attendants will further gethands-on experience with analysis of processed high throughput data using modelling,biological network and topology analysis, and supervised/unsupervised methods.While basic understanding of NGS techniques is desirable it is not essential to fully followthe course. Further details about the course content will be indicated soon. 
+While basic understanding of NGS techniques is desirable it is not essential to fully follow the course. Further details about the course content may be found on the course homepage at \url{\courseURL} . 
 
 ***Syllabus***
 Will be indicated soon
