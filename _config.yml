@@ -2,10 +2,11 @@ title: "Omics Integration and Systems Biology"
 baseurl: /workshop_omics_integration
 
 # where things are
-layouts_dir: ./workshop_omics_integration/layouts
-includes_dir: ./workshop_omics_integration/includes
+# where things are
+layouts_dir: ./workshop-common/layouts
+includes_dir: ./workshop-common/includes
 sass:
-  sass_dir: ./workshop_omics_integration/sass
+  sass_dir: ./workshop-common/sass
 
 plugins:
   - jemoji
