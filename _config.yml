@@ -20,6 +20,8 @@ menu:
     url:
   - title: Schedule
     url: schedule
+  - title: Detailed syllabus
+    url: syllabus
   - title: Pre-course material
     url: precourse
   - title: Travel info
