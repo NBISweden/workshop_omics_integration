@@ -1,11 +1,11 @@
 title: "Omics Integration and Systems Biology"
-baseurl: /testomicscourse
+baseurl: /workshop_omics_integration
 
 # where things are
-layouts_dir: ./testomicscourse/layouts
-includes_dir: ./testomicscourse/includes
+layouts_dir: ./workshop_omics_integration/layouts
+includes_dir: ./workshop_omics_integration/includes
 sass:
-  sass_dir: ./testomicscourse/sass
+  sass_dir: ./workshop_omics_integration/sass
 
 plugins:
   - jemoji
