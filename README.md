@@ -1,7 +1,8 @@
 # Omics Integration and Systems Biology 
-**Stockholm 2019-09-09 to 2019-09-12**
+2019-09-09 to 2019-09-12
+SciLifeLab, Tomtebodavagen 23A, 171 65 Stocholm
 
-**Address SciLifeLab, Tomtebodavagen 23A, 171 65 Solna**
+**Attention! Any information in this website is subject to change**
 
 Course open for PhD students, postdocs, and researchers looking for an introduction to multi-omics integration and systems biology.
 
