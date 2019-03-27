@@ -10,18 +10,15 @@ title: Omics Integration and Sys Biol
 
 Course open for PhD students, postdocs, and researchers looking for an introduction to multi-omics integration and systems biology.
 
-The aim of this workshop is to provide an integrated view of biological network construction and integration, constraint-based modelling, multi-omics integration and hypothesis generation. \par
-A general description of different methods for analysing different omics data (e.g. transcriptomics and genomics) will be presented with some of the lectures discussing key methods in omics integration. The various techniques are discussed in terms of their rationale and applicability, with a particular focus on possible confounding factors. Attendants will further get hands-on experience in their application. 
-Some of the covered topics include:\par
-\begin{itemize}
-  \item Condition-specific and personalized metabolic modeling based on integration of transcriptomic and proteomic data;
-  \item Identification of potential biomarkers and targetable genes;
-  \item Co-expression and association networks, gene modules, and network topology analysis;
-  \item Multi-omics integration, clustering and dimensionality reduction;
-  \item Application of key machine learning methods for multi-omics analysis
-\end{itemize}
+The aim of this workshop is to provide an integrated view of biological network construction and integration, constraint-based modelling, multi-omics integration and hypothesis generation.   
+A general description of different methods for analysing different omics data (e.g. transcriptomics and genomics) will be presented with some of the lectures discussing key methods in omics integration. The various techniques are discussed in terms of their rationale and applicability, with a particular focus on possible confounding factors. Attendants will further get hands-on experience in their application.  
+Some of the covered topics include:  
+- Condition-specific and personalized metabolic modeling based on integration of transcriptomic and proteomic data;  
+- Identification of potential biomarkers and targetable genes;  
+- Co-expression and association networks, gene modules, and network topology analysis;  
+- Multi-omics integration, clustering and dimensionality reduction;  
+- Application of key machine learning methods for multi-omics analysis. 
 
-While basic understanding of NGS techniques is desirable it is not essential to fully follow the course. Further details about the course content may be found on the course homepage at \url{\courseURL} . 
 
 ***Syllabus***
 Will be indicated soon
