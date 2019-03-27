@@ -1,11 +1,11 @@
-title: "Workshop howto"
-baseurl: /workshop-howto
+title: "Omics Integration and Systems Biology"
+baseurl: /testomicscourse
 
 # where things are
-layouts_dir: ./workshop-common/layouts
-includes_dir: ./workshop-common/includes
+layouts_dir: ./testomicscourse/layouts
+includes_dir: ./testomicscourse/includes
 sass:
-  sass_dir: ./workshop-common/sass
+  sass_dir: ./testomicscourse/sass
 
 plugins:
   - jemoji
