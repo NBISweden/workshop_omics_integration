@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Howto make a github course
+title: Omics Integration and Sys Biol
 ---
 
 # Omics Integration and Systems Biology
