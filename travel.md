@@ -7,6 +7,6 @@ title: 'Travel'
 
 The course is held at SciLifeLab, Tomtebodavägen 23A, 17165 Solna
 
-We are at number 23a in [Solna Campus Map](files/karta_campus_solna_16_11_14.pdf)
+[placeholder]
 
 To travel in Stockholm see [https://sl.se/en/](https://sl.se/en/).
