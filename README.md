@@ -1,25 +1,40 @@
-# NBIS training
-A repository for all the reference training materials at NBIS. Thanks to @viklund for all the github and gitpages as found in his [workshop-howto/](https://github.com/NBISweden/workshop-howto/tree/master/labs).
+# Omics Integration and Systems Biology 
+**Stockholm 2019-09-09 to 2019-09-12**
 
-## ToC
-- Link to course list
+**Address SciLifeLab, Tomtebodavagen 23A, 171 65 Solna**
 
-## Checklist
+National course open for PhD students, postdocs, researchers and other employees inneed of multi-omics integration and introductory systems biology skills within all Swedish universities.
 
-## To do:
-### Add templates to `/templates/` folder (ongoing)
-- `NBIS_announcement_and_emails.Rnw` (previously `a - NBIS_SciLifeLab website announcement.md`. `knitr/sweave` file **ready**)
-- [b - NBIS course application template](https://drive.google.com/open?id=1fgj97lJRxk0_7rCL_AiuMJrXi3aJHEaxWiIVxCQDPyI) (`google form`, currently only found online)
-- `c - NBIS Emails to participants.md` (**obsolete**, now found in `NBIS_announcement_and_emails.Rnw`)
-- `d - Apply for Uppmax account.md` (built, to check)
-- `e1 - Final list with invoice info.tsv` (built, to check)
-- `e2 - Processed list of applicants.tsv` (built, to check)
-- `e3 - Attendance sheet.tsv` (built, to check)
-- [f - NBIS SHORT Term Feedback (STF) Survey Template (preferably the last day of the course): Template](https://drive.google.com/open?id=1KdWT2S0JBuYI5iDdINSpM9ISnqRTxa2r2_QceJVcX0I) (`google form`, currently only found online)
-- `g - NBIS Course certificate Template.md` (built, to check)
-- `h1 - budget clarification README.md` (built, to check)
-- `h2 course budget.md` (built, to check)
+The aim of this workshop is to provide a fundamental integrated analysis of 1) biologicalnetwork construction and integration and 2) how modelling and multi-omics integrationmay be used to generate hypotheses and gain novel comprehensive biological insight.A general description of dierent methods for analysing dierent omics data (e.g. tran-scriptomics and genomics) will be presented with some of the lectures discussing several integration, clustering, and machine learning tools including supervised and unsupervised methods. 
 
-### Add FAQs
+The various techniques are discussed in terms of their rationale and applicability, with a particular focus on possible confounding factors. Attendants will further gethands-on experience with analysis of processed high throughput data using modelling,biological network and topology analysis, and supervised/unsupervised methods.While basic understanding of NGS techniques is desirable it is not essential to fully followthe course. Further details about the course content will be indicated soon. 
 
+
+## Important Dates
+Application opens: 1 May
+Application closes: 28 June
+Confirmation to accepted students: 5 July
+
+Rui Benfeitas, Nikolay Oskolkov, Ashfaq Ali
+
+If you do not receive information according to the above dates please contact:  RuiBenfeitas(rui.benfeitas@scilifelab.se), Nikolay Oskolkov(nikolay.oskolkov@scilifelab.se), or Ashfaq Ali(ashfaq.ali@nbis.se)
+
+## Course fee
+A course fee of 2000SEK will be invoiced to accepted participants. This includes lunches,coffee, snacks and course dinner. Please note that NBIS cannot invoice individualsCourse content
+Contact RuiBenfeitas(rui.benfeitas@scilifelab.se) should you have urgent questions.
+
+## Entry requirements
+The course is aimed at M.Sc., PhD- or postdoc-level students with at least basic codingexperience (e.g.  R, Python).  We will not discuss how to process the raw omics dataand the students are referred to other NBIS courses for this matter (http://nbis.se/training/events.html). 
+
+### Required
+- Basic programming/scripting experience in R, Python or Linux programming
+- Ability to bring your own laptop with R/Python installed for the practical exercises
+
+### Desirable
+- Experience with NGS data analyses
+- Basic statistics understanding
+- Completing NBIS courses "Introduction to Bioinformatics using NGS data"
+
+## Application form
+TBD
 
