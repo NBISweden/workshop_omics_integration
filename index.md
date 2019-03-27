@@ -7,7 +7,7 @@ title: Howto make a github course
 2019-09-09 to 2019-09-12
 SciLifeLab, Tomtebodavagen 23A, 171 65 Stocholm
 
-**Attention! Any information in this website is subject to change**
+**<span style="color:blue">Attention! Any information in this website is subject to change</span>**
 
 Course open for PhD students, postdocs, and researchers looking for an introduction to multi-omics integration and systems biology.
 
@@ -23,7 +23,7 @@ The various techniques are discussed in terms of their rationale and applicabili
 
 
 ## Important Dates
-Application opens: 1 May  
+Application opens: 1 May  (link to application form indicated soon)
 Application closes: 28 June  
 Confirmation to accepted students: 5 July  
 
@@ -33,19 +33,3 @@ Confirmation to accepted students: 5 July
 - [Ashfaq Ali](https://nbis.se/about/staff/ashfaq-ali/) (ashfaq.ali[at]nbis.se), Lund University, Lund
 
 Please contact the course leaders should you have any questions.
-
-## Entry requirements
-The course is aimed at M.Sc., PhD- or postdoc-level students with at least basic codingexperience (e.g.  R, Python).  We will not discuss how to process the raw omics dataand the students are referred to other NBIS courses for this matter (http://nbis.se/training/events.html). 
-
-### Required
-- Basic programming/scripting experience in R, Python or Linux programming
-- Ability to bring your own laptop with R/Python installed for the practical exercises
-
-### Desirable
-- Experience with NGS data analyses
-- Basic statistics understanding
-- Completing NBIS courses "Introduction to Bioinformatics using NGS data"
-
-## Application form
-TBD
-
