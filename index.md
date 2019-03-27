@@ -3,11 +3,10 @@ layout: default
 title: Howto make a github course
 ---
 
-# Omics Integration and Systems Biology 
-2019-09-09 to 2019-09-12
-SciLifeLab, Tomtebodavagen 23A, 171 65 Stocholm
+# Omics Integration and Systems Biology
+9 - 12 September 2019, SciLifeLab, Tomtebodavagen 23A, 171 65 Stocholm
 
-**<span style="color:blue">Attention! Any information in this website is subject to change</span>**
+**<span style="color:blue">Attention! Any information in this website is subject to change.</span>**
 
 Course open for PhD students, postdocs, and researchers looking for an introduction to multi-omics integration and systems biology.
 
