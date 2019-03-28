@@ -27,8 +27,8 @@ Confirmation to accepted students: 5 July
 
 
 ***Responsible teachers***
-- [Rui Benfeitas](https://nbis.se/about/staff/rui-benfeitas) (rui.benfeitas[at]scilifelab.se), SciLifeLab, Stockholm
-- [Nikolay Oskolkov](https://nbis.se/about/staff/nikolay-oskolkov) (nikolay.oskolkov[at]scilifelab.se), Lund University, Lund
-- [Ashfaq Ali](https://nbis.se/about/staff/ashfaq-ali/) (ashfaq.ali[at]nbis.se), Lund University, Lund
+- [Rui Benfeitas](https://nbis.se/about/staff/rui-benfeitas), PhD., (rui.benfeitas[at]scilifelab.se), SciLifeLab, Stockholm
+- [Nikolay Oskolkov](https://nbis.se/about/staff/nikolay-oskolkov), PhD., (nikolay.oskolkov[at]scilifelab.se), Lund University, Lund
+- [Ashfaq Ali](https://nbis.se/about/staff/ashfaq-ali/), PhD., (ashfaq.ali[at]nbis.se), Lund University, Lund
 
 Please contact the course leaders should you have any questions.
