@@ -9,7 +9,7 @@ title:  'Schedule'
 SciLifeLab, Tomtebodavagen 23A, 171 65 Stockholm
 Room: Air, Alfa 2
 
-[placeholder]
+[under construction]
 
 ----
 

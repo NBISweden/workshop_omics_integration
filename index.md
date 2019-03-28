@@ -6,7 +6,7 @@ title: Omics Integration and Sys Biol
 # Omics Integration and Systems Biology
 9 - 12 September 2019, SciLifeLab, Tomtebodavagen 23A, 171 65 Stocholm
 
-**<span style="color:blue">Attention! Any information in this website is subject to change.</span>**
+**<span style="color:blue">Attention! Website under construction, information may change.</span>**
 
 Course open for PhD students, postdocs, and researchers looking for an introduction to multi-omics integration and systems biology.
 
