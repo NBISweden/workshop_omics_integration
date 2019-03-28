@@ -21,7 +21,7 @@ Some of the covered topics include:
 
 
 ***Important Dates***  
-Application opens: 1 May  ([apply here](https://forms.gle/FQCF7FSiyUeP8MjX8))  
+Application open! [Apply here](https://forms.gle/FQCF7FSiyUeP8MjX8))  
 Application closes: 28 June  
 Confirmation to accepted students: 5 July  
 
