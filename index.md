@@ -25,6 +25,8 @@ Application open! [Apply here](https://forms.gle/FQCF7FSiyUeP8MjX8)
 Application closes: 28 June  
 Confirmation to accepted students: 5 July  
 
+***Course fee***
+A course fee of 2000SEK will be invoiced to accepted participants. This includes lunches, coffee, snacks, and course dinner. ***Please note that NBIS cannot invoice individuals.***
 
 ***Responsible teachers***
 - [Rui Benfeitas](https://nbis.se/about/staff/rui-benfeitas), PhD., (rui.benfeitas[at]scilifelab.se), SciLifeLab, Stockholm
