@@ -15,6 +15,7 @@ Course open for PhD students, postdocs, and researchers looking for an introduct
 The aim of this workshop is to provide an integrated view of biological network construction and integration, constraint-based modelling, multi-omics integration and data-driven hypothesis generation.  A general description of different methods for analysing different omics data (e.g. transcriptomics and genomics) will be presented with some of the lectures discussing key methods in omics integration. The various techniques are discussed in terms of their rationale and applicability, with a particular focus on possible confounding factors. Many of the techniques presented in the workshop may be applied to different omics (e.g. transcriptomics, genomics, proteomics, metabolomics). Some of the covered topics include:  
 - Condition-specific and personalized metabolic modeling based on integration of transcriptomic and proteomic data;  
 - Identification of potential biomarkers and targetable genes;  
+- Functional and pathway associations (e.g. gene set enrichment analysis);  
 - Co-expression and association networks, gene modules, and network topology analysis;  
 - Multi-omics integration, clustering and dimensionality reduction;  
 - Application of key machine learning methods for multi-omics analysis. 
