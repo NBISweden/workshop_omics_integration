@@ -25,6 +25,13 @@ Application open! [Apply here](https://forms.gle/FQCF7FSiyUeP8MjX8)
 Application closes: 28 June  
 Confirmation to accepted students: 5 July  
 
+***Learning objectives***
+At the end of the course, students should:
+- Be able to integrate different omics and simulate biological functions using constraint-based models and [FBA](https://en.wikipedia.org/wiki/Flux_balance_analysis).
+- Build biological networks based on different omics data, as well as integrated multi-omics networks, and perform basic topology analyses.
+- Identify key methods for analysis and integration of omics data based on a given dataset.
+- Be aware of important confounding factors and sources of bias.
+
 ***Course fee***
 A course fee of 2000SEK will be invoiced to accepted participants. This includes lunches, coffee, snacks, and course dinner. ***Please note that NBIS cannot invoice individuals.***
 
@@ -33,4 +40,4 @@ A course fee of 2000SEK will be invoiced to accepted participants. This includes
 - [Nikolay Oskolkov](https://nbis.se/about/staff/nikolay-oskolkov), PhD., (nikolay.oskolkov[at]scilifelab.se), Lund University, Lund
 - [Ashfaq Ali](https://nbis.se/about/staff/ashfaq-ali/), PhD., (ashfaq.ali[at]nbis.se), Lund University, Lund
 
-Please contact the course leaders should you have any questions.
+Please contact the course leaders should you have any questions. Suggestions are also warmly welcomed!
