@@ -1,0 +1,1 @@
+This is a folder that may contain all information that is to be hidden. Put here all the existing materials while building them if necessary.
