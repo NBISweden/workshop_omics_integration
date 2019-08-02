@@ -49,7 +49,7 @@ Course dinner, Tuesday 10th Sep
 
 **15.30 - 15.45** Coffee break
 
-**15.45 - 16.45** *Seminar:* Adil Mardinoglu (to confirm)
+**15.45 - 17.00** *Workshop:* network topology
 
 **18.00 - ...** Course dinner
 
@@ -87,7 +87,7 @@ Course dinner, Tuesday 10th Sep
 
 **15.00 - 15.15** Coffee Break
 
-**15.15 - 16.00** *Workshop*
+**15.15 - 16.00** *Seminar:* Adil Mardinoglu (to confirm)
 
 **16.00 - 16.45** *Seminar:* Lukas Käll
 
