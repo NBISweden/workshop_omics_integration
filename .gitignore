@@ -1,7 +1,8 @@
 #Folders
-_hidden
 _site
 Gemfile.lock
 
 #Files
 ~*
+*~
+.DS_Store
