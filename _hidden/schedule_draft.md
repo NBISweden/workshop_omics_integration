@@ -77,18 +77,18 @@ Room: Air, Alfa 2
 
 **13.00 - 14.00** *Workshop:* Biological network analysis
 
-**14.00 - 15.10** *Seminar:* Invited speaker 1
+**14.00 - 15.00** *Seminar:* [Linn Farberg][1]
 
-**15.10 - 15.15** Coffee Break
+**15.00 - 15.15** Coffee Break
 
 **15.15 - 16.00** *Seminar:* Invited speaker 2
 
-**16.00 - 16.45** *Seminar:* [Lukas Käll][1]
+**16.00 - 16.45** *Seminar:* [Lukas Käll][2]
 
 **16.50 - 17.00** Wrap up
 
 
-
-[1]: http://kaell.org/
+[1]: https://www.kth.se/kcap/the-kth-center-for-applied-precision-medicine-kcap-1.639039
+[2]: http://kaell.org/
 
 
