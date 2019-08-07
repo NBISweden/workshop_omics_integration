@@ -9,8 +9,6 @@ title:  'Schedule'
 SciLifeLab, Tomtebodavagen 23A, 171 65 Stockholm
 Room: Air, Alfa 2
 
-Monday to Thursday 08.30 - 17.00
-Course dinner, Tuesday 10th Sep
 
 ### Monday 2019-09-09
 

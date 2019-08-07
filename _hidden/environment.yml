@@ -1,0 +1,33 @@
+channels:
+    - bioconda
+    - conda-forge
+    - defaults
+dependencies:
+
+    # Python packages
+    - python=3.6
+    - cobra=0.10
+    - jupyter=1.0
+    - keras=2.2
+
+    # R packages
+    - r=3.5.1
+    - rstudio=1.1
+    - r-enrichr=1.0
+    - r-igraph=1.2
+    - r-hiver=0.3
+    - bioconductor-biostrings=2.50
+    - bioconductor-biomart=2.38
+    - bioconductor-bsgenome=1.50
+    - bioconductor-genomicalignments=1.18
+    - bioconductor-genomicfeatures=1.34
+    - bioconductor-genomicranges=1.34
+    - bioconductor-mixomics=6.8
+    - bioconductor-omiccircos=1.20
+    - bioconductor-piano=1.22
+    - bioconductor-rsamtools=1.34
+
+    # Missing packages
+    # mofa (R)
+    # cytoscape
+    # Some package for tSNE (R)
