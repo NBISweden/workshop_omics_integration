@@ -1,2 +1,7 @@
+#Folders
+_hidden
 _site
 Gemfile.lock
+
+#Files
+~*
