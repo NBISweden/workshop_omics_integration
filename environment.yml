@@ -12,13 +12,14 @@ dependencies:
     - seaborn=0.9.0 
     - matplotlib=3.1.1
     - numpy=1.17.0
-    - scipyi=1.3.0
+    - scipy=1.3.0
       
     # Topology session
     - rise=5.5.1 # Jupyter presentations
+    - jupyter_nbextensions_configurator=0.4.1 # Jupyter presentations
     - gseapy=0.9.15
     - leidenalg=0.7.0
-    - igraph=0.7.1.post7
+    - python-igraph=0.7.1.post7
 
 
 
