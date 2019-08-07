@@ -16,86 +16,78 @@ Course dinner, Tuesday 10th Sep
 
 **08.45 - 09.00** Pre-course coffee
 
-**09.00 - 09.10** Welcome
+**09.00 - 09.10** Welcome (Rui, Ashfaq, Nikolay)
 
-**09.10 - 10.00** Omics Data Management
-
-**10.00 - 10.15** Coffee Break
-
-**10.15 - 12.00** FBA and GEMs
-
-**12.00 - 13.00** Lunch
-
-**13.00 - 15.00** FBA and GEMs
-
-**15.00 - 15.15** Coffee Break
-
-**15.15 - 17.00** *Workshop:* GEMs and Metabolic Atlas
-
-
-### Tuesday 2019-09-10
-
-**09.00 - 10.00** Intro to biological network analysis
+**09.10 - 10.00** Omics Data Management (Ashfaq)
 
 **10.00 - 10.15** Coffee Break
 
-**10.15 - 12.00** Network topology and community
+**10.15 - 12.00** Intro, Unsupervised methods (Nikolay)
 
 **12.00 - 13.00** Lunch
 
-**13.00 - 14.00** Functional analysis and visualization
-
-**14.00 - 15.30** *Workshop:* network topology
-
-**15.30 - 15.45** Coffee break
-
-**15.45 - 17.00** *Workshop:* network topology
-
-**18.00 - ...** Course dinner
-
-
-
-### Wednesday 2019-09-11
-
-**09.00 - 10.00** *Workshop:* network topology (wrap up)   <- may be adjusted ->
-
-**10.00 - 10.15** Coffee Break
-
-**10.15 - 12.00** Intro 
-
-**12.00 - 13.00** Lunch
-
-**13.00 - 15.00** Dimensionality reduction
+**13.00 - 15.00** *Workshop*: Unsupervised methods
 
 **15.00 - 15.15** Coffee Break
 
 **15.15 - 17.00** Supervised methods
 
 
+### Tuesday 2019-09-10
 
-### Thursday 2019-09-12
+**09.00 - 11.00** *Workshop*: Supervised methods (Nikolay)
 
-**09.00 - 10.00** Unsupervised methods
-
-**10.00 - 10.15** Coffee Break
-
-**10.15 - 12.00** ...
+**11.00 - 12.00** Intro to Flux Balance Analysis (Ashfaq)
 
 **12.00 - 13.00** Lunch
 
-**13.00 - 15.00** ...
+**13.00 - 15.00** Flux Balance Analysis and Genome-scale Metabolic Models
 
 **15.00 - 15.15** Coffee Break
 
-**15.15 - 16.00** *Seminar:* Adil Mardinoglu (to confirm)
+**15.15 - 17.00** *Workshop:* FBA, GEMs, and Metabolic Atlas
 
-**16.00 - 16.45** *Seminar:* Lukas Käll
-
-**16.45 - 17.00** Wrap up
+**18.00 - ...** Course dinner
 
 
+### Wednesday 2019-09-11
+
+**09.00 - 10.00** Intro to Flux Balance Analysis (Ashfaq)
+
+**10.00 - 10.15** Coffee Break
+
+**10.15 - 12.00** Flux Balance Analysis and Genome-scale Metabolic Models
+
+**12.00 - 13.00** Lunch
+
+**13.00 - 15.00** *Workshop*: FBA, GEMs, and Metabolic Atlas
+
+**15.00 - 15.15** Coffee Break
+
+**15.15 - 17.00** *Workshop:* FBA, GEMs, and Metabolic Atlas
 
 
+### Thursday 2019-09-12
+
+**09.00 - 10.00** Intro to biological network analysis
+
+**10.00 - 10.15** Coffee Break
+
+**10.15 - 12.00** Network topology and community analysis
+
+**12.00 - 13.00** Lunch
+
+**13.00 - 14.00** *Workshop:* Biological network analysis
+
+**14.00 - 15.10** *Seminar:* Invited speaker 1
+
+**15.10 - 15.15** Coffee Break
+
+**15.15 - 16.00** *Seminar:* Invited speaker 2
+
+**16.00 - 16.45** *Seminar:* [Lukas Käll](http://kaell.org/)
+
+**16.50 - 17.00** Wrap up
 
 
 
