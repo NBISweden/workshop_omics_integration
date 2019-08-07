@@ -85,10 +85,12 @@ Course dinner, Tuesday 10th Sep
 
 **15.15 - 16.00** *Seminar:* Invited speaker 2
 
-**16.00 - 16.45** *Seminar:* [Lukas Käll](http://kaell.org/)
+**16.00 - 16.45** *Seminar:* [Lukas Käll][1]
 
 **16.50 - 17.00** Wrap up
 
 
+
+[1]: http://kaell.org/
 
 
