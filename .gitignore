@@ -1,8 +1,10 @@
 #Folders
 _site
-Gemfile.lock
+*.ipynb_checkpoints/
+*-env/
 
 #Files
 ~*
 *~
 .DS_Store
+Gemfile.lock
