@@ -52,11 +52,11 @@ Room: Air, Alfa 2
 
 ### Wednesday 2019-09-11
 
-**09.00 - 10.00** Intro to Flux Balance Analysis (Ashfaq)
+**09.00 - 10.00** Introduction to metabolic modeling (Ashfaq)
 
 **10.00 - 10.15** Coffee Break
 
-**10.15 - 12.00** Flux Balance Analysis and Genome-scale Metabolic Models
+**10.15 - 12.00** Omics data integration with human metabolic models
 
 **12.00 - 13.00** Lunch
 
@@ -64,7 +64,7 @@ Room: Air, Alfa 2
 
 **15.00 - 15.15** Coffee Break
 
-**15.15 - 17.00** Flux Balance Analysis and Genome-scale Metabolic Models
+**15.15 - 17.00** **Worlshop** Omics data integration with human metabolic Models
 
 
 ### Thursday 2019-09-12
