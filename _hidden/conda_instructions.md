@@ -31,20 +31,15 @@ download the course Conda file and put it in your working folder. Note that ther
 **Create and activate the environment**
 
 In terminal, `cd` to your working folder and create an environment called `project_scRNA` from the 
-`environment.yaml` file. This may take a few minutes:
+`environment.yaml` file:
 
 ```
 conda env create -p project_scRNA -f environment.yaml
 ```
-  
+
+This may take several minutes to run, and at the end you should see something like this:
+
 ```
-##Collecting package metadata: done
-##Solving environment: done
-##
-##Downloading and Extracting Packages
-##libcblas-3.8.0       | 6 KB      | ############################################################################# | 100%
-##liblapack-3.8.0      | 6 KB      | ############################################################################# | 100%
-##...
 ##Preparing transaction: done
 ##Verifying transaction: done
 ##Executing transaction: done
@@ -58,15 +53,14 @@ conda env create -p project_scRNA -f environment.yaml
 ###     $ conda deactivate
 ```
 
-Then activate it:
+You then need to activate your environment, like so:
+
 ```
-conda activate ./project_scRNA
+conda activate project_scRNA
 ```
 
-From this point on you can run any of the contents from the course. For instance, you can directly launch RStudio by 
-typing `rstudio`.
+This enables you to run any of the software that was installed into your environment; from this point on you can run any of the contents from the course. For instance, you can directly launch RStudio by typing `rstudio`.
 
 **Deactivate the environment**
 
 After you've ran all your analyses, deactivate the environment by typing `conda deactivate`.
-
