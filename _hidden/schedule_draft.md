@@ -69,15 +69,15 @@ Room: Air, Alfa 2
 
 ### Thursday 2019-09-12
 
-**09.00 - 10.00** Flux Balance Analysis and Genome-scale Metabolic Models
+**09.00 - 10.00** Integrated data visualization techniques and **workshop**
 
 **10.00 - 10.15** Coffee Break
 
-**10.15 - 12.00** *Workshop:* FBA, GEMs, and Metabolic Atlas
+**10.15 - 12.00** *Workshop:* FBA, GEMs, Metabolic Atlas, Visualization
 
 **12.00 - 13.00** Lunch
 
-**13.00 - 14.00** *Workshop:* FBA, GEMs, and Metabolic Atlas
+**13.00 - 14.00** *Workshop:* FBA, GEMs, Metabolic Atlas, Visualization
 
 **14.00 - 15.00** *Seminar:* [Linn Farberg][1]
 
