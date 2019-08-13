@@ -14,11 +14,11 @@ Room: Air, Alfa 2
 
 **08.45 - 09.00** Pre-course coffee
 
-**09.00 - 09.10** Welcome (Rui, Ashfaq, Nikolay)
+**09.00 - 09.20** Welcome (Rui, Ashfaq, Nikolay)
 
-**09.10 - 10.00** Omics Data Management (Ashfaq)
+**09.20 - 10.00** Omics Data Management (Ashfaq)
 
-**10.00 - 10.15** Coffee Break
+**10.00 - 10.15** Break
 
 **10.15 - 12.00** Intro, Unsupervised methods (Nikolay)
 
@@ -33,17 +33,19 @@ Room: Air, Alfa 2
 
 ### Tuesday 2019-09-10
 
-**09.00 - 11.00** *Workshop*: Supervised methods (Nikolay)
+**09.00 - 10.45** *Workshop*: Supervised methods (Nikolay)
 
-**11.00 - 12.00** Intro to Flux Balance Analysis (Ashfaq)
+**10.45 - 11.00** Coffee Break
+
+**11.00 - 12.00** Intro to biological network analysis (Rui)
 
 **12.00 - 13.00** Lunch
 
-**13.00 - 15.00** Flux Balance Analysis and Genome-scale Metabolic Models
+**13.00 - 15.00** Network topology, community analysis, and visualization (Rui)
 
 **15.00 - 15.15** Coffee Break
 
-**15.15 - 17.00** *Workshop:* FBA, GEMs, and Metabolic Atlas
+**15.15 - 17.00** *Workshop:* Biological network analysis
 
 **18.00 - ...** Course dinner
 
@@ -58,24 +60,24 @@ Room: Air, Alfa 2
 
 **12.00 - 13.00** Lunch
 
-**13.00 - 15.00** *Workshop*: FBA, GEMs, and Metabolic Atlas
+**13.00 - 14.00** Metabolic Atlas (Mihail Anton)
 
 **15.00 - 15.15** Coffee Break
 
-**15.15 - 17.00** *Workshop:* FBA, GEMs, and Metabolic Atlas
+**15.15 - 17.00** Flux Balance Analysis and Genome-scale Metabolic Models
 
 
 ### Thursday 2019-09-12
 
-**09.00 - 10.00** Intro to biological network analysis
+**09.00 - 10.00** Flux Balance Analysis and Genome-scale Metabolic Models
 
 **10.00 - 10.15** Coffee Break
 
-**10.15 - 12.00** Network topology and community analysis
+**10.15 - 12.00** *Workshop:* FBA, GEMs, and Metabolic Atlas
 
 **12.00 - 13.00** Lunch
 
-**13.00 - 14.00** *Workshop:* Biological network analysis
+**13.00 - 14.00** *Workshop:* FBA, GEMs, and Metabolic Atlas
 
 **14.00 - 15.00** *Seminar:* [Linn Farberg][1]
 
