@@ -60,7 +60,7 @@ Room: Air, Alfa 2
 
 **12.00 - 13.00** Lunch
 
-**13.00 - 14.00** Metabolic Atlas (Mihail Anton)
+**13.00 - 14.00** Metabolic Atlas (Mihail Anton) - to confirm
 
 **15.00 - 15.15** Coffee Break
 
