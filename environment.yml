@@ -20,8 +20,8 @@ dependencies:
     - gseapy=0.9.15
     - leidenalg=0.7.0
     - python-igraph=0.7.1.post7
-
-
+    - pycairo=1.18.1
+    - glpk=4.65
 
     #    # Python packages
     #    - python=3.6
