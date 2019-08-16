@@ -7,7 +7,7 @@ title:  'Schedule'
 9 - 12 September 2019
 
 SciLifeLab, Tomtebodavagen 23A, 171 65 Stockholm
-Room: Air, Alfa 2
+Room: Air, Gamma 2
 
 
 
