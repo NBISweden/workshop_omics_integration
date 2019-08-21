@@ -93,6 +93,11 @@ Room: Air, Alfa 2
 - [Rui Benfeitas][5]
 
 
+**Teaching assistants:**
+- [Erik Fasterius][8]
+- [Lokeshwaran Manoharan][9]
+- [Roy Francis][10]
+
 
 [1]: https://www.kth.se/kcap/the-kth-center-for-applied-precision-medicine-kcap-1.639039
 [2]: http://kaell.org/
@@ -101,5 +106,6 @@ Room: Air, Alfa 2
 [5]: https://nbis.se/about/staff/rui-benfeitas/
 [6]: https://nbis.se/about/staff/ashfaq-ali/
 [7]: https://nbis.se/about/staff/nikolay-oskolkov/
-
-
+[8]: https://nbis.se/about/staff/erik-fasterius/
+[9]: https://nbis.se/about/staff/lokeshwaran-manoharan/
+[10]: https://nbis.se/about/staff/roy-francis/
