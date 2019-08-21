@@ -25,7 +25,7 @@ Room: Air, Alfa 2
 
 **12.00 - 13.00** Lunch
 
-**13.00 - 15.00** **Worlshop** Supervised methods ([Nikolay][7])
+**13.00 - 15.00** **Workshop:** Supervised methods ([Nikolay][7])
 
 **15.00 - 15.15** Coffee Break
 
@@ -34,7 +34,7 @@ Room: Air, Alfa 2
 
 ### Tuesday 2019-09-10
 
-**09.00 - 10.45** **Worlshop** Unsupervised methods ([Nikolay][7])
+**09.00 - 10.45** **Workshop:** Unsupervised methods ([Nikolay][7])
 
 **10.45 - 11.00** Coffee Break
 
@@ -46,7 +46,7 @@ Room: Air, Alfa 2
 
 **15.00 - 15.15** Coffee Break
 
-**15.15 - 17.00** **Worlshop** Biological network analysis ([Rui][5])
+**15.15 - 17.00** **Workshop:** Biological network analysis ([Rui][5])
 
 **18.00 - ...** Course dinner
 
@@ -61,28 +61,28 @@ Room: Air, Alfa 2
 
 **12.00 - 13.00** Lunch
 
-**13.00 - 14.00** **Seminar** The Human Metabolic Atlas - [Jonathan Robinson][3] & [Mihail Anton][4]
+**13.00 - 14.00** **Seminar:** The Human Metabolic Atlas - [Jonathan Robinson][3] & [Mihail Anton][4]
 
 **15.00 - 15.15** Coffee Break
 
-**15.15 - 17.00** **Worlshop** Omics data integration with human metabolic Models ([Ashfaq][6])
+**15.15 - 17.00** **Workshop:** Omics data integration with human metabolic Models ([Ashfaq][6])
 
 
 ### Thursday 2019-09-12
 
-**09.00 - 10.00** **Workshop** Integrated data visualization techniques ([Ashfaq][6])
+**09.00 - 10.00** **Workshop:** Integrated data visualization techniques ([Ashfaq][6])
 
 **10.00 - 10.15** Coffee Break
 
-**10.15 - 12.00** **Workshop** FBA, GEMs, Metabolic Atlas, Visualization ([Ashfaq][6])
+**10.15 - 12.00** **Workshop:** FBA, GEMs, Metabolic Atlas, Visualization ([Ashfaq][6])
 
 **12.00 - 13.00** Lunch
 
 **13.00 - 14.00** **Workshop**  FBA, GEMs, Metabolic Atlas, Visualization ([Ashfaq][6])
 
-**14.00 - 15.00** **Seminar** [Linn Farberg][1]
+**14.00 - 15.00** **Seminar:** [Linn Farberg][1]
 
-**15.00 - 16.00** **Seminar** [Lukas Käll][2]
+**15.00 - 16.00** **Seminar:** [Lukas Käll][2]
 
 **16.00 - 16.20** Wrap up
 
