@@ -38,11 +38,11 @@ Room: Air, Alfa 2
 
 **10.45 - 11.00** Coffee Break
 
-**11.00 - 12.00** Intro to biological network analysis ([Rui][5])
+**11.00 - 12.00** Intro to biological network analysis and terminology ([Rui][5])
 
 **12.00 - 13.00** Lunch
 
-**13.00 - 15.00** Network topology, community analysis, and visualization ([Rui][5])
+**13.00 - 15.00** Key properties in biological networks, community analysis, and visualization ([Rui][5])
 
 **15.00 - 15.15** Coffee Break
 
