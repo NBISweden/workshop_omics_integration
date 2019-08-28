@@ -78,7 +78,9 @@ Room: Air, Alfa 2
 
 **12.00 - 13.00** Lunch
 
-**13.00 - 14.00** **Workshop**  FBA, GEMs, Metabolic Atlas, Visualization ([Ashfaq][6])
+**13.00 - 13.45** **Workshop**  FBA, GEMs, Metabolic Atlas, Visualization ([Ashfaq][6])
+
+**13.45 - 14.00** Coffee Break
 
 **14.00 - 15.00** **Seminar:** [Linn Farberg][1]
 
