@@ -2,6 +2,13 @@
 
 ...[Leiden algorithm](https://leidenalg.readthedocs.io/en/latest/reference.html#optimiser) vs Louvain
 
+add iris:
+
+from sklearn import datasets
+iris=datasets.load_iris()
+iris.data
+
+
 
 The resources below present several well-known databases for [PPIs](#ppis), [Gene Regulatory Networks](#gene-regulatory-networks), [Metabolic](#metabolic) and [mixed interactions](#mixed). This is far from being an exaustive list.
 
