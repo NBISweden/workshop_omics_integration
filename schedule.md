@@ -48,7 +48,7 @@ Room: Air, Alfa 2
 
 **15.15 - 17.00** **Workshop:** Biological network analysis ([Rui][5])
 
-**18.00 - ...** Course dinner
+**18.30 - ...** Course dinner at [Grappa Bar](7)
 
 
 ### Wednesday 2019-09-11
@@ -82,7 +82,7 @@ Room: Air, Alfa 2
 
 **13.45 - 14.00** Coffee Break
 
-**14.00 - 15.00** **Seminar:** [Linn Farberg][1]
+**14.00 - 15.00** **Seminar:** [Linn Farberg][1] - "Longitudinal wellness profiling"
 
 **15.00 - 16.00** **Seminar:** [Lukas Käll][2]
 
@@ -107,6 +107,7 @@ Room: Air, Alfa 2
 [4]: https://www.chalmers.se/en/staff/Pages/mihail-anton.aspx
 [5]: https://nbis.se/about/staff/rui-benfeitas/
 [6]: https://nbis.se/about/staff/ashfaq-ali/
+[7]: http://www.grappabar.nu/
 [7]: https://nbis.se/about/staff/nikolay-oskolkov/
 [8]: https://nbis.se/about/staff/erik-fasterius/
 [9]: https://nbis.se/about/staff/lokeshwaran-manoharan/
