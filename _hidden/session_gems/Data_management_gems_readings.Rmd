@@ -19,16 +19,16 @@ browseVignettes("MultiAssayExperiment")
 
 
 ## Metabolic Modelling and Gene sets
-1) Metabolics Models [HMR and Metabolic Atlas](https://www.metabolicatlas.org), [RECON3](https://www.ncbi.nlm.nih.gov/pubmed/29457794)
-2) Tools for Metabolic modelling [RAVEN](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6207324/), [COBRA](https://www.nature.com/articles/s41596-018-0098-2), [openCOBRA](https://opencobra.github.io/cobratoolbox/stable), [PIANO](https://www.ncbi.nlm.nih.gov/pubmed/23444143)
-3) Applications in Data integration [pan cancer](https://www.biorxiv.org/content/10.1101/050187v2), [Obesity and diabetes](https://www.ncbi.nlm.nih.gov/pubmed/23630502)
+1) Metabolics Models [HMR and Metabolic Atlas](https://www.metabolicatlas.org), [RECON3](https://www.ncbi.nlm.nih.gov/pubmed/29457794)  
+2) Tools for Metabolic modelling [RAVEN](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6207324/), [COBRA](https://www.nature.com/articles/s41596-018-0098-2), [openCOBRA](https://opencobra.github.io/cobratoolbox/stable), [PIANO](https://www.ncbi.nlm.nih.gov/pubmed/23444143)  
+3) Applications in Data integration [pan cancer](https://www.biorxiv.org/content/10.1101/050187v2), [Obesity and diabetes](https://www.ncbi.nlm.nih.gov/pubmed/23630502)  
 
 ## Data visualization
 
-Following tools will be used for plotting and visulizations. You read more about these by following the links.
-1) Circos plots in [command line](), *R* [circlize](https://jokergoo.github.io/circlize_book/book/), [DIABLO](http://www.biorxiv.org/content/biorxiv/early/2016/08/03/067611.full.pdf),and [web gui](http://mkweb.bcgsc.ca/tableviewer/visualize/)
-2) HivePlot: [Introduction](http://hiveplot.com), [HiveR](https://github.com/bryanhanson/HiveR)
-3) Cytoscape, communicate through R with [RCy3 Package](https://bioconductor.org/packages/release/bioc/vignettes/RCy3/inst/doc/Overview-of-RCy3.html)
+Following tools will be used for plotting and visulizations. You read more about these by following the links.  
+1) Circos plots in [command line](), *R* [circlize](https://jokergoo.github.io/circlize_book/book/), [DIABLO](http://www.biorxiv.org/content/biorxiv/early/2016/08/03/067611.full.pdf),and [web gui](http://mkweb.bcgsc.ca/tableviewer/visualize/)  
+2) HivePlot: [Introduction](http://hiveplot.com), [HiveR](https://github.com/bryanhanson/HiveR)  
+3) Cytoscape, communicate through R with [RCy3 Package](https://bioconductor.org/packages/release/bioc/vignettes/RCy3/inst/doc/Overview-of-RCy3.html)  
 
 
 ****Enjoy Reading****
