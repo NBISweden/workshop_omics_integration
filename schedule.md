@@ -57,11 +57,15 @@ Room: Air, Alfa 2
 
 **10.00 - 10.15** Coffee Break
 
-**10.15 - 12.00** Omics data integration with human metabolic models ([Ashfaq][6])
+**10.15 - 11.00** Introduction to metabolic modeling ([Ashfaq][6])
+
+**11.00 - 12.00** **Seminar:** [Jonathan Robinson][3] - *"Context specific analysis in metabolic modeling"*
 
 **12.00 - 13.00** Lunch
 
-**13.00 - 14.00** **Seminar:** The Human Metabolic Atlas - [Jonathan Robinson][3] & [Mihail Anton][4]
+**13.00 - 14.00** **Seminar:** [Jonathan Robinson][3] & [Mihail Anton][4] - *"The Human Metabolic Atlas"*
+
+**14.00 - 15.00** Omics data integration with human metabolic Models ([Ashfaq][6])
 
 **15.00 - 15.15** Coffee Break
 
@@ -82,7 +86,7 @@ Room: Air, Alfa 2
 
 **13.45 - 14.00** Coffee Break
 
-**14.00 - 15.00** **Seminar:** [Linn Fagerberg][1] - "Longitudinal wellness profiling"
+**14.00 - 15.00** **Seminar:** [Linn Fagerberg][1] - *"Longitudinal wellness profiling"*
 
 **15.00 - 16.00** **Seminar:** [Lukas Käll][2]
 
