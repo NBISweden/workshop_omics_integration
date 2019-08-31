@@ -3,20 +3,38 @@ layout: default
 title:  Pre-course material
 ---
 
+This page contains [recommended reading materials](#pre-course-materials) and details about some of 
+the [software](#software) that will be used in the course.
+
 # Pre-course materials
 
-We advise you to have a look at the following materials prior to the course. 
-While none of them are essential in order to be able to follow the classes, it is advisable if you can 
-go through them beforehand.
+We advise you to have a look at the following matereials prior to the course.
 
+**Data management and data structures**
+- [FAIR data guidelines][11]
+- [Summarized Experiments][12] and [practical guide][28]
+- [Multi Assay Experiments][13] and [practical guide][15]
+- [Genomic Ranges][14]
 
-1) Feature selection https://towardsdatascience.com/select-features-for-omics-integration-511390b7e7fd
+**Integration**
+- [Feature selection][7]
+- [Dimensionality reduction][8] 
+- [Supervised Omics integration][9]
+- [Unsupervised Omics integration][10] 
 
-2) Dimensionality reduction https://towardsdatascience.com/reduce-dimensions-for-single-cell-4224778a2d67
+**Network Topology**
+-
+- Functional analysis with [PIANO][18]
 
-3) Supervised Omics integration https://towardsdatascience.com/supervised-omics-integration-2158e1a6d23f
+**Genome-scale metabolic modeling**
+- Metabolics Models: [HMR and Metabolic Atlas][16] and [RECON3][17]  
+- Tools for Metabolic modelling: [RAVEN][21], [COBRA][22], [openCOBRA][23] 
+- Applications in Data integration: [pan cancer][19], [Obesity and diabetes][20] 
 
-4) Unsupervised Omics integration https://medium.com/@nikolay.oskolkov/unsupervised-omics-integration-688bf8fa49bf
+**Data visualization**
+- Circos plots in [command line with Circos][24], [R with circlize][25] or [DIABLO][26], and through [a web gui][27]  
+- HivePlot [introduction][29] and [R tool with HiveR][30]  
+- Cytoscape [introduction][31] and communicate through R with [RCy3 Package][32]  
 
 
 
@@ -30,16 +48,19 @@ The course will be taught using different programming languages depending on the
 - R Studio (preferably version 1.2)
 - Cytoscape
 
-You do not need to know how to program in both R or Python to follow the lessons, as we will demonstrate how to perform the analyses. All the materials 
-will be openly available after the course, so you will be able to run them on your own.
+You do not need to know how to program in both R or Python to follow the lessons, as we will demonstrate
+ how to perform the analyses. If you want to get started in one of the programming languages please have 
+ a look at the [bonus material below][#bonus]. 
 
-We also provide a conda environment that contains part of the software and packages that we will use. This has not been fully tested in all operating systems. 
+We also provide a conda environment that contains part of the software and packages that we will use. 
+This has not been fully tested in all operating systems. 
 You can find instructions [here][6].
 
-# Bonus
+## Bonus
 
 **Programming in R and Python**
-If you would like to get started in one of the programming languages that we use, we regularly offer courses in [R and Python][1]. For instance:
+If you would like to get started in one of the programming languages that we use, we regularly offer 
+courses in [R and Python][1]. For instance:
 - [Python programming with applications to bioinformatics][2] - Introductory Python course
 
 You may also look at the following online materials:
@@ -54,3 +75,29 @@ You may also look at the following online materials:
 [4]: https://datacarpentry.org/python-ecology-lesson/
 [5]: https://datacarpentry.org/genomics-r-intro/
 [6]: ./conda_instructions.md
+[7]: https://towardsdatascience.com/select-features-for-omics-integration-511390b7e7fd
+[8]: https://towardsdatascience.com/reduce-dimensions-for-single-cell-4224778a2d67
+[9]: https://towardsdatascience.com/supervised-omics-integration-2158e1a6d23f
+[10]: https://medium.com/@nikolay.oskolkov/unsupervised-omics-integration-688bf8fa49bf
+[11]: https://www.nature.com/articles/sdata201618
+[12]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4509590/
+[13]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5679241/
+[14]: https://bioconductor.org/packages/release/bioc/vignettes/GenomicRanges/inst/doc/GenomicRangesIntroduction.html
+[15]: http://bioconductor.org/packages/release/bioc/vignettes/MultiAssayExperiment/inst/doc/MultiAssayExperiment.html
+[16]: https://www.metabolicatlas.org
+[17]: https://www.ncbi.nlm.nih.gov/pubmed/29457794
+[18]: https://www.ncbi.nlm.nih.gov/pubmed/23444143
+[19]: https://www.biorxiv.org/content/10.1101/050187v2
+[20]: https://www.ncbi.nlm.nih.gov/pubmed/23630502
+[21]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6207324/
+[22]: https://www.nature.com/articles/s41596-018-0098-2
+[23]: https://opencobra.github.io/cobratoolbox/stable
+[24]: http://circos.ca/documentation/course/
+[25]: https://jokergoo.github.io/circlize_book/book/
+[26]: http://www.biorxiv.org/content/biorxiv/early/2016/08/03/067611.full.pdf
+[27]: http://mkweb.bcgsc.ca/tableviewer/visualize/
+[28]: https://bioconductor.org/packages/release/bioc/vignettes/SummarizedExperiment/inst/doc/SummarizedExperiment.html
+[29]: http://hiveplot.com
+[30]: https://github.com/bryanhanson/HiveR
+[31]: https://cytoscape.org/cytoscape-tutorials/protocols/tour-of-cytoscape/#/
+[32]: https://bioconductor.org/packages/release/bioc/vignettes/RCy3/inst/doc/Overview-of-RCy3.html
