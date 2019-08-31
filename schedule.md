@@ -48,7 +48,7 @@ Room: Air, Alfa 2
 
 **15.15 - 17.00** **Workshop:** Biological network analysis ([Rui][5])
 
-**18.30 - ...** Course dinner at [Grappa Bar][12]
+**18.30 - .....** Course dinner at [Grappa Bar][12]
 
 
 ### Wednesday 2019-09-11
