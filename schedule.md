@@ -23,7 +23,7 @@ Room: Air, Alfa 2
 
 **10.15 - 12.00** Intro, Supervised methods ([Nikolay][7])
 
-**12.00 - 13.00** Lunch
+**12.00 - 13.00** Lunch at [Nanna Svartz][11] 
 
 **13.00 - 15.00** **Workshop:** Supervised methods ([Nikolay][7])
 
@@ -40,7 +40,7 @@ Room: Air, Alfa 2
 
 **11.00 - 12.00** Intro to biological network analysis and terminology ([Rui][5])
 
-**12.00 - 13.00** Lunch
+**12.00 - 13.00** Lunch at [Nanna Svartz][11] 
 
 **13.00 - 15.00** Key properties in biological networks, community analysis, and visualization ([Rui][5])
 
@@ -48,7 +48,7 @@ Room: Air, Alfa 2
 
 **15.15 - 17.00** **Workshop:** Biological network analysis ([Rui][5])
 
-**18.30 - ...** Course dinner at [Grappa Bar](7)
+**18.30 - ...** Course dinner at [Grappa Bar][12]
 
 
 ### Wednesday 2019-09-11
@@ -61,7 +61,7 @@ Room: Air, Alfa 2
 
 **11.00 - 12.00** **Seminar:** [Jonathan Robinson][3] - *"Context specific analysis in metabolic modeling"*
 
-**12.00 - 13.00** Lunch
+**12.00 - 13.00** Lunch at [Nanna Svartz][11] 
 
 **13.00 - 14.00** **Seminar:** [Jonathan Robinson][3] & [Mihail Anton][4] - *"The Human Metabolic Atlas"*
 
@@ -80,7 +80,7 @@ Room: Air, Alfa 2
 
 **10.15 - 12.00** **Workshop:** FBA, GEMs, Metabolic Atlas, Visualization ([Ashfaq][6])
 
-**12.00 - 13.00** Lunch
+**12.00 - 13.00** Lunch at [Nanna Svartz][11] 
 
 **13.00 - 13.45** **Workshop**  FBA, GEMs, Metabolic Atlas, Visualization ([Ashfaq][6])
 
@@ -111,8 +111,9 @@ Room: Air, Alfa 2
 [4]: https://www.chalmers.se/en/staff/Pages/mihail-anton.aspx
 [5]: https://nbis.se/about/staff/rui-benfeitas/
 [6]: https://nbis.se/about/staff/ashfaq-ali/
-[7]: http://www.grappabar.nu/
 [7]: https://nbis.se/about/staff/nikolay-oskolkov/
 [8]: https://nbis.se/about/staff/erik-fasterius/
 [9]: https://nbis.se/about/staff/lokeshwaran-manoharan/
 [10]: https://nbis.se/about/staff/roy-francis/
+[11]: https://restaurang-ns.ki.se/restaurang-nanna-svartz/
+[12]: http://www.grappabar.nu/
