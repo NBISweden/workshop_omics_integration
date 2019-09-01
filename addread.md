@@ -6,7 +6,7 @@ title:  Reading materials
 This page contains [recommended reading materials](#reading-materials) and details about some of 
 the [software](#software) that will be used in the course.
 
-# Reading materials
+#### Reading materials
 
 The following materials support the contents taught at the course. **! - recommended read before the course**
 
@@ -59,7 +59,7 @@ We also provide a conda environment that contains part of the software and packa
 This has not been fully tested in all operating systems. 
 You can find instructions [here][6].
 
-## Bonus
+#### Bonus
 
 **Programming in R and Python**
 If you would like to get started in one of the programming languages that we use, we regularly offer 
