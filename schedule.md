@@ -2,7 +2,7 @@
 layout: default
 title:  'Schedule'
 ---
-# Course schedule
+#### Course schedule
 
 9 - 12 September 2019
 
@@ -11,7 +11,7 @@ Room: Air, Alfa 2
 
 
 
-### Monday 2019-09-09
+##### Monday 2019-09-09
 
 **08.45 - 09.00** Pre-course coffee
 
@@ -32,7 +32,7 @@ Room: Air, Alfa 2
 **15.15 - 17.00** Unsupervised methods ([Nikolay][7])
 
 
-### Tuesday 2019-09-10
+##### Tuesday 2019-09-10
 
 **09.00 - 10.45** **Workshop:** Unsupervised methods ([Nikolay][7])
 
@@ -53,7 +53,7 @@ Room: Air, Alfa 2
 **18.30 - .....** Course dinner at [Grappa Bar][12]
 
 
-### Wednesday 2019-09-11
+##### Wednesday 2019-09-11
 
 **09.00 - 10.00** Introduction to metabolic modeling ([Ashfaq][6])
 
@@ -74,7 +74,7 @@ Room: Air, Alfa 2
 **15.15 - 17.00** **Workshop:** Omics data integration with human metabolic Models ([Ashfaq][6])
 
 
-### Thursday 2019-09-12
+##### Thursday 2019-09-12
 
 **09.00 - 10.00** **Workshop:** Integrated data visualization techniques ([Ashfaq][6])
 
