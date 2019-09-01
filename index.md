@@ -22,17 +22,17 @@ Some of the covered topics include:
 - Multi-omics integration, clustering and dimensionality reduction;  
 - Application of key machine learning methods for multi-omics analysis. 
 
-***Learning objectives***
-At the end of the course, students should:
+***Learning objectives***  
+At the end of the course, students should:  
 - Be able to integrate different omics and simulate biological functions using constraint-based models and [FBA](https://en.wikipedia.org/wiki/Flux_balance_analysis).
 - Build biological networks based on different omics data, as well as integrated multi-omics networks, and perform basic topology analyses.
 - Identify key methods for analysis and integration of omics data based on a given dataset.
 - Be aware of important confounding factors and sources of bias.
 
-***Course fee***
+***Course fee***  
 A course fee of 2000SEK will be invoiced to accepted participants. This includes lunches, coffee, snacks, and course dinner. ***Please note that NBIS cannot invoice individuals.***
 
-***Responsible teachers***
+***Responsible teachers***  
 - [Rui Benfeitas](https://nbis.se/about/staff/rui-benfeitas), PhD., (rui.benfeitas[at]scilifelab.se), SciLifeLab, Stockholm
 - [Nikolay Oskolkov](https://nbis.se/about/staff/nikolay-oskolkov), PhD., (nikolay.oskolkov[at]scilifelab.se), Lund University, Lund
 - [Ashfaq Ali](https://nbis.se/about/staff/ashfaq-ali/), PhD., (ashfaq.ali[at]nbis.se), Lund University, Lund
