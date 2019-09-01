@@ -24,5 +24,7 @@ menu:
     url: syllabus
   - title: Reading materials
     url: reading_materials
+  - title: Software
+    url: software
   - title: Practical information
     url: practical
