@@ -3,7 +3,7 @@ layout: default
 title: Omics Integration and Systems Biology
 ---
 
-# Omics Integration and Systems Biology
+### Omics Integration and Systems Biology
 9 - 12 September 2019, SciLifeLab, Tomtebodavagen 23A, 171 65 Stocholm
 
 ***Overview***
