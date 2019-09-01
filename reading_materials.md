@@ -44,22 +44,6 @@ the [software](#software) that will be used in the course. **! - recommended rea
   <br/><br/>
   
 
-#### Software
-The course will be taught using different programming languages depending on the required tools. We suggest you to install the following:
-
-- Python 3.7 or higher
-- Jupyter
-- R 3.5 or higher
-- R Studio (preferably version 1.2)
-- Cytoscape
-
-You do not need to know how to program in both R or Python to follow the lessons. If you would like to get started in one of the programming languages 
-have a look at the [bonus material below][#bonus]. 
-
-We also provide a conda environment that contains part of the software and packages that we will use. 
-This has not been fully tested in all operating systems. 
-You can find instructions [here][6].
-
 #### Bonus
 
 **Programming in R and Python**
@@ -78,7 +62,7 @@ You may also look at the following online materials:
 [3]: https://nbisweden.github.io/RaukR-2019/
 [4]: https://datacarpentry.org/python-ecology-lesson/
 [5]: https://datacarpentry.org/genomics-r-intro/
-[6]: ./conda_instructions.md
+
 [7]: https://towardsdatascience.com/select-features-for-omics-integration-511390b7e7fd
 [8]: https://towardsdatascience.com/reduce-dimensions-for-single-cell-4224778a2d67
 [9]: https://towardsdatascience.com/supervised-omics-integration-2158e1a6d23f
