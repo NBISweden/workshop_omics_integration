@@ -24,6 +24,10 @@ These are fixed by replacing a few lines in the `/igraph/drawing/__init__.py`. S
 
 Unfortunately, the current conda version (`0.7.1.post7`) still contains these bugs and they need to be manually fixed.
 
+# Comparison of centrality measures
+- [CINNA in R](https://bmcsystbiol.biomedcentral.com/articles/10.1186/s12918-018-0598-2)
+
+
 # Databases
 
 The resources below present several well-known databases for [PPIs](#ppis), [Gene Regulatory Networks](#gene-regulatory-networks), [Metabolic](#metabolic) and [mixed interactions](#mixed). This is far from being an exaustive list.
