@@ -7,7 +7,6 @@ This page contains [recommended reading materials](#reading-materials) and detai
 the [software](#software) that will be used in the course.
 
 #### Reading materials
-
 The following materials support the contents taught at the course. **! - recommended read before the course**
 
 **Data management and data structures**
@@ -15,6 +14,7 @@ The following materials support the contents taught at the course. **! - recomme
 - [Summarized Experiments][12] and [practical guide][28]
 - [Multi Assay Experiments][13] and [practical guide][15]
 - [Genomic Ranges][14]
+  
 
 **Integration**
 - [Feature selection][7] **!**
@@ -22,28 +22,31 @@ The following materials support the contents taught at the course. **! - recomme
 - [Supervised Omics integration][9] **!**
 - [Unsupervised Omics integration][10] **!**
 - [Multi-omics approaches to disease][36]
-
+  
+  
 **Biological Network Analysis and Network Topology**
 - [Network biology: understanding the cell's functional organization][34] **!**
 - [Network medicine: a network-based approach to human disease][39] **!**
 - [Deriving functions from gene sets][35] and functional analysis with [PIANO][18]
 - [Gene co-expression analysis and conserved modules][38]
-
+  
+  
 **Genome-scale metabolic modeling**
 - [Overview of genome-scale metabolic models][40] **!**
 - [A Systematic Evaluation of Methods for Tailoring Genome-Scale Metabolic Models][33]
 - Metabolic Models: [HMR and Metabolic Atlas][16] and [RECON3][17]  **!**
 - Tools for Metabolic modelling: [RAVEN][21], [COBRA][22], [openCOBRA][23] 
 - Applications in Data integration: [pan cancer][19], [Obesity and diabetes][20] 
-
+  
+  
 **Data visualization**
 - Circos plots in [command line with Circos][24], [R with circlize][25] or [DIABLO][26], and through [a web gui][27]  
 - HivePlot [introduction][29] and [R tool with HiveR][30]  
 - Cytoscape [introduction][31] **!** and communicate through R with [RCy3 Package][32]  
-
+  
+  
 
 #### Software
-
 The course will be taught using different programming languages depending on the required tools. We suggest you to install the following:
 
 - Python 3.7 or higher
