@@ -20,9 +20,9 @@ menu:
     url:
   - title: Schedule
     url: schedule
-  - title: Detailed syllabus
+  - title: Syllabus
     url: syllabus
-  - title: Rading materials
-    url: addread
+  - title: Reading materials
+    url: reading_materials
   - title: Practical information
     url: practical
