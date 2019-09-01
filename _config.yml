@@ -22,7 +22,7 @@ menu:
     url: schedule
   - title: Detailed syllabus
     url: syllabus
-  - title: Pre-course material
-    url: precourse
+  - title: Rading materials
+    url: addread
   - title: Travel info
     url: travel

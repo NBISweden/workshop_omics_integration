@@ -42,11 +42,13 @@ Room: Air, Alfa 2
 
 **12.00 - 13.00** Lunch at [Nanna Svartz][11] 
 
-**13.00 - 15.00** Key properties in biological networks, community analysis, and visualization ([Rui][5])
+**13.00 - 15.00** Network inference, key properties, and community analysis ([Rui][5])
 
 **15.00 - 15.15** Coffee Break
 
-**15.15 - 17.00** **Workshop:** Biological network analysis ([Rui][5])
+**15.15 - 16.00** Functional analysis and Network visualization ([Rui][5])
+
+**16.00 - 17.00** **Workshop:** Biological network analysis ([Rui][5])
 
 **18.30 - .....** Course dinner at [Grappa Bar][12]
 
