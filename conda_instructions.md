@@ -5,8 +5,7 @@ and ready to run everything.
 
 Briefly, conda allows users to run pieces of code just like the developer created them.
 
-![conda illustration](img/conda_illustration.png)
-
+<img src="img/conda_illustration.png" width="48">
 
 If you want to install the same software on your own laptop after the course, you can follow the 
 instructions below to do so. These rely on [Conda environments](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/environments.html), a self-contained directory that 
