@@ -21,20 +21,33 @@ We advise you to have a look at the following matereials prior to the course.
 - [Dimensionality reduction][8] 
 - [Supervised Omics integration][9]
 - [Unsupervised Omics integration][10] 
+- [Multi-omics approaches to disease][36]
 
-**Network Topology**
--
-- Functional analysis with [PIANO][18]
+**Biological Network Analysis and Network Topology**
+- [Network biology: understanding the cell's functional organization][34]
+- [Gene co-expression analysis and conserved modules][38]
+- [Deriving functions from gene sets][35] and functional analysis with [PIANO][18]
+- [Graph theory and networks in Biology][37] - extended read
+
 
 **Genome-scale metabolic modeling**
 - Metabolics Models: [HMR and Metabolic Atlas][16] and [RECON3][17]  
 - Tools for Metabolic modelling: [RAVEN][21], [COBRA][22], [openCOBRA][23] 
 - Applications in Data integration: [pan cancer][19], [Obesity and diabetes][20] 
+- [A Systematic Evaluation of Methods for Tailoring Genome-Scale Metabolic Models][33]
+
+[33]: https://www.cell.com/fulltext/S2405-4712(17)30010-8
+[34]: https://www.nature.com/articles/nrg1272
+[35]: stke.sciencemag.org/content/4/190/tr4?ijkey=W33OsCqwQHZ5k
+[36]: https://link.springer.com/content/pdf/10.1186/s13059-017-1215-1.pdf
+[37]: http://mural.maynoothuniversity.ie/1885/1/HamiltonMasonGraphTheory.pdf
+[38]: https://science.sciencemag.org/content/302/5643/249.full
 
 **Data visualization**
 - Circos plots in [command line with Circos][24], [R with circlize][25] or [DIABLO][26], and through [a web gui][27]  
 - HivePlot [introduction][29] and [R tool with HiveR][30]  
 - Cytoscape [introduction][31] and communicate through R with [RCy3 Package][32]  
+
 
 
 
