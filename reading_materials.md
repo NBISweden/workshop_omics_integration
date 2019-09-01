@@ -3,10 +3,11 @@ layout: default
 title:  Reading materials
 ---
 
+#### Reading materials 
+
 This page contains [recommended reading materials](#reading-materials) and details about some of 
 the [software](#software) that will be used in the course. **! - recommended read before the course**
 
-#### Reading materials
 **Data management and data structures**
 - [FAIR data guidelines][11]
 - [Summarized Experiments][12] and [practical guide][28]
