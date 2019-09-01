@@ -14,6 +14,7 @@ The aim of this workshop is to provide an integrated view of biological network 
 
 Some of the covered topics include:  
 
+- Data management in omics studies;
 - Condition-specific and personalized metabolic modeling based on integration of transcriptomic and proteomic data;  
 - Identification of potential biomarkers and targetable genes;  
 - Identification of key biological functions and pathways (e.g. gene set enrichment analysis);  
