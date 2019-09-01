@@ -94,7 +94,7 @@ Room: Air, Alfa 2
 
 **16.00 - 16.20** Wrap up
 
-
+  
 **Teachers:**
 - [Ashfaq Ali][6]
 - [Nikolay Oskolkov][7]
