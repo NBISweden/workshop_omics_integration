@@ -6,7 +6,8 @@ title:  Reading materials
 #### Reading materials 
 
 This page contains [recommended reading materials](#reading-materials) and details about some of 
-the [software](#software) that will be used in the course. **! - recommended read before the course**
+the [software](#software) that will be used in the course.  
+**! - recommended read before the course**
 
 **Data management and data structures**
 - [FAIR data guidelines][11]
@@ -16,25 +17,25 @@ the [software](#software) that will be used in the course. **! - recommended rea
   <br/><br/>
 
 **Integration**
-- [Feature selection][7] **!**
-- [Dimensionality reduction][8] **!**
-- [Supervised Omics integration][9] **!**
-- [Unsupervised Omics integration][10] **!**
+- **!**[Feature selection][7] 
+- **!**[Dimensionality reduction][8] 
+- **!**[Supervised Omics integration][9] 
+- **!**[Unsupervised Omics integration][10] 
 - [Multi-omics approaches to disease][36]
   <br/><br/>
   
 **Biological Network Analysis and Network Topology**
-- [Network biology: understanding the cell's functional organization][34] **!**
-- [Network medicine: a network-based approach to human disease][39] **!**
+- **!**[Network biology: understanding the cell's functional organization][34] 
+- **!**[Network medicine: a network-based approach to human disease][39] 
 - [Network biology concepts in complex disease comorbidities][41]
 - [Deriving functions from gene sets][35] and functional analysis with [PIANO][18]
 - [Gene co-expression analysis and conserved modules][38]
   <br/><br/>
   
 **Genome-scale metabolic modeling**
-- [Overview of genome-scale metabolic models][40] **!**
+- **!**[Overview of genome-scale metabolic models][40] 
 - [A Systematic Evaluation of Methods for Tailoring Genome-Scale Metabolic Models][33]
-- Metabolic Models: [HMR and Metabolic Atlas][16] and [RECON3][17]  **!**
+- **!**Metabolic Models: [HMR and Metabolic Atlas][16] and [RECON3][17]  
 - Tools for Metabolic modelling: [RAVEN][21], [COBRA][22], [openCOBRA][23] 
 - Applications in Data integration: [pan cancer][19], [Obesity and diabetes][20] 
   <br/><br/>
