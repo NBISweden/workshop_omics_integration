@@ -26,6 +26,7 @@ the [software](#software) that will be used in the course. **! - recommended rea
 **Biological Network Analysis and Network Topology**
 - [Network biology: understanding the cell's functional organization][34] **!**
 - [Network medicine: a network-based approach to human disease][39] **!**
+- [Network biology concepts in complex disease comorbidities][41]
 - [Deriving functions from gene sets][35] and functional analysis with [PIANO][18]
 - [Gene co-expression analysis and conserved modules][38]
   <br/><br/>
@@ -56,6 +57,7 @@ You may also look at the following online materials:
 - [RaukR 2019][3] - a comprehensive R course. New edition (Summer 2020) to be announced soon
 - [Data Analysis and Visualization in Python][4] - an introductory course for Python
 - [Intro to R and RStudio for Genomics][5]
+
 
 
 [1]: https://nbis.se/training/events.html
@@ -98,3 +100,4 @@ You may also look at the following online materials:
 [38]: https://science.sciencemag.org/content/302/5643/249.full
 [39]: https://www.nature.com/articles/nrg2918
 [40]: https://www.frontiersin.org/articles/10.3389/fphys.2015.00413/full
+[41]: https://www.nature.com/articles/nrg.2016.87.pdf
