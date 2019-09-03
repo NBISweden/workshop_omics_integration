@@ -61,13 +61,13 @@ Room: Air, Alfa 2
 
 **10.15 - 11.00** Introduction to metabolic modeling ([Ashfaq][6])
 
-**11.00 - 12.00** **Seminar:** [Jonathan Robinson][3] - *"Context specific analysis in metabolic modeling"*
+**11.00 - 12.00** Omics data integration with human metabolic Models ([Ashfaq][6])
 
 **12.00 - 13.00** Lunch at [Nanna Svartz][11] 
 
-**13.00 - 14.00** **Seminar:** [Jonathan Robinson][3] & [Mihail Anton][4] - *"The Human Metabolic Atlas"*
+**13.00 - 14.00** **Seminar:** [Jonathan Robinson][3] - *"Context specific analysis in metabolic modeling"*
 
-**14.00 - 15.00** Omics data integration with human metabolic Models ([Ashfaq][6])
+**14.00 - 15.00** **Seminar:** [Jonathan Robinson][3] & [Mihail Anton][4] - *"The Human Metabolic Atlas"*
 
 **15.00 - 15.15** Coffee Break
 
