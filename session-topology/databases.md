@@ -3,6 +3,9 @@
 The resources below present several well-known databases for [PPIs](#ppis), [Gene Regulatory Networks](#gene-regulatory-networks), [Metabolic](#metabolic) and [mixed interactions](#mixed). This is far from being an exaustive list.
 
 
+##### Database collection
+- [NAR Database issue][6] - a collection of databases by topic
+
 
 ##### PPIs
 - [Database of Interacting Proteins][5]
