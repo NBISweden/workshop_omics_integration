@@ -29,6 +29,9 @@ At the end of the course, students should:
 - Identify key methods for analysis and integration of omics data based on a given dataset.
 - Be aware of important confounding factors and sources of bias.
 
+***Materials***
+You can find all the [reading materials here][1].
+
 ***Course fee***  
 A course fee of 2000SEK will be invoiced to accepted participants. This includes lunches, coffee, snacks, and course dinner. ***Please note that NBIS cannot invoice individuals.***
 
@@ -38,3 +41,5 @@ A course fee of 2000SEK will be invoiced to accepted participants. This includes
 - [Ashfaq Ali](https://nbis.se/about/staff/ashfaq-ali/), PhD., (ashfaq.ali[at]nbis.se), Lund University, Lund
 
 Please contact the course leaders should you have any questions.
+
+[1]: reading_materials.md
