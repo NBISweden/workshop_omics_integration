@@ -67,11 +67,11 @@ Room: Air, Alfa 2
 
 **13.00 - 14.00** **Seminar:** [Jonathan Robinson][3] - *"Context specific analysis in metabolic modeling"*
 
-**14.00 - 15.00** **Seminar:** [Jonathan Robinson][3] & [Mihail Anton][4] - *"The Human Metabolic Atlas"*
+**14.00 - 14.30** **Seminar:** [Jonathan Robinson][3] - *"Metabolic Atlas"*
 
-**15.00 - 15.15** Coffee Break
+**14.30 - 14.45** Coffee Break
 
-**15.15 - 17.00** **Workshop:** Omics data integration with human metabolic Models ([Ashfaq][6])
+**14.45 - 17.00** **Workshop:** Omics data integration with human metabolic Models ([Ashfaq][6])
 
 
 ##### Thursday 2019-09-12
@@ -105,6 +105,7 @@ Room: Air, Alfa 2
 - [Erik Fasterius][8]
 - [Lokeshwaran Manoharan][9]
 - [Roy Francis][10]
+- [Mihail Anton][4]
 
 
 [1]: https://www.kth.se/kcap/the-kth-center-for-applied-precision-medicine-kcap-1.639039
