@@ -1,6 +1,6 @@
 #### Databases
 
-The resources below present several well-known databases for [PPIs](#ppis), [Gene Regulatory Networks](#gene-regulatory-networks), [Metabolic](#metabolic) and [mixed interactions](#mixed). This is far from being an exaustive list.
+The resources below present some well-known databases for [PPIs](#ppis), [Gene Regulatory Networks](#gene-regulatory-networks), [Metabolic](#metabolic) and [mixed interactions](#mixed).
 
 
 ##### Database collection
@@ -41,4 +41,4 @@ The resources below present several well-known databases for [PPIs](#ppis), [Gen
 [3]: http://biocyc.org/
 [4]: https://home.ndexbio.org/index/
 [5]: https://dip.doe-mbi.ucla.edu/dip/Main.cgi
-
+[6]: 
