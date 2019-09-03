@@ -5,7 +5,7 @@ The resources below present several well-known databases for [PPIs](#ppis), [Gen
 
 
 ##### PPIs
-- [Database of Interacting Proteins][https://dip.doe-mbi.ucla.edu/dip/Main.cgi]
+- [Database of Interacting Proteins][5]
 - [EBI Intact database](http://string-db.org/)
 - [Human protein reference database](http://www.hprd.org/)
 - [Human protein interaction database](http://wilab.inha.ac.kr/hpid/webforms/intro.aspx)
@@ -37,3 +37,5 @@ The resources below present several well-known databases for [PPIs](#ppis), [Gen
 [2]: https://www.vmh.life/#home
 [3]: http://biocyc.org/
 [4]: https://home.ndexbio.org/index/
+[5]: https://dip.doe-mbi.ucla.edu/dip/Main.cgi
+
