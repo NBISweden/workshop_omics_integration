@@ -90,7 +90,7 @@ Room: Air, Alfa 2
 
 **14.00 - 15.00** **Seminar:** [Linn Fagerberg][1] - *"Longitudinal wellness profiling"*
 
-**15.00 - 16.00** **Seminar:** [Lukas Käll][2] - *"Novel methods for pathway analysis"*
+**15.00 - 16.00** **Seminar:** [Lukas Käll][2] - *"Data integration on proteomics and elsewhere"*
 
 **16.00 - 16.20** Wrap up
 
