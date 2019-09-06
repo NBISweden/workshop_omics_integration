@@ -1,0 +1,272 @@
+---
+title: "Supervised OMICs Integration"
+author: "Nikolay Oskolkov"
+date: "8/16/2019"
+output: html_document
+abstract: |
+  In this work we will integrate gene expression, methylation, mutation and drug response data from 200 human individuals with Chronic Lymphocytic Leukemia (CLL). The phenotype of interest for demonstration purpose will be Gender.
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_knit$set(root.dir="/home/nikolay/Documents/Medium/SupervisedOMICsIntegration/")
+```
+
+
+## Exploratory Analysis
+
+We will start with reading and imputing missing values using median imputation:
+
+```{r,fig.width=10,fig.height=8}
+expr <- as.data.frame(t(read.delim("CLL_mRNA.txt", header = TRUE, sep="\t")))
+for(i in 1:ncol(expr)){expr[,i][is.na(expr[,i])]<-median(expr[,i],na.rm=TRUE)}
+expr[1:5,1:5]
+
+mut <- as.data.frame(t(read.delim("CLL_Mutations.txt", header = TRUE, sep="\t")))
+for(i in 1:ncol(mut)){mut[,i][is.na(mut[,i])]<-median(mut[,i],na.rm=TRUE)}
+mut[1:5,1:5]
+
+meth <- as.data.frame(t(read.delim("CLL_Methylation.txt", header = TRUE, sep="\t")))
+for(i in 1:ncol(meth)){meth[,i][is.na(meth[,i])]<-median(meth[,i],na.rm=TRUE)}
+meth[1:5,1:5]
+
+drug <- as.data.frame(t(read.delim("CLL_Drugs.txt", header = TRUE, sep="\t")))
+for(i in 1:ncol(drug)){drug[,i][is.na(drug[,i])]<-median(drug[,i],na.rm=TRUE)}
+drug[1:5,1:5]
+```
+
+Now let us have a look at the phenotypic data, extract Geneder and convert it to a variable Y that is going to be used later when running PLS-DA analysis:
+
+```{r,fig.width=10,fig.height=8}
+phen <- read.delim("CLL_Covariates.txt", header = TRUE, sep="\t")
+head(phen)
+Y<-factor(phen$Gender)
+summary(Y)
+```
+
+Let us split the data set into train and test sub-sets. We select 60 samples (30%) for testing. Since we have more males than females (fraction of females is approximately 0.4) we select 36 males and 24 females.
+
+```{r,fig.width=10,fig.height=8}
+set.seed(1234)
+female_sample<-rownames(expr)[as.character(phen$Gender)=="f"][sample(1:length(rownames(expr)[as.character(phen$Gender)=="f"]),24)]
+female_sample
+male_sample<-rownames(expr)[as.character(phen$Gender)=="m"][sample(1:length(rownames(expr)[as.character(phen$Gender)=="m"]),36)]
+male_sample
+
+expr_test<-expr[match(c(female_sample,male_sample),rownames(expr)),]
+expr_test[1:5,1:5]
+meth_test<-meth[match(c(female_sample,male_sample),rownames(meth)),]
+meth_test[1:5,1:5]
+mut_test<-mut[match(c(female_sample,male_sample),rownames(mut)),]
+mut_test[1:5,1:5]
+drug_test<-drug[match(c(female_sample,male_sample),rownames(drug)),]
+drug_test[1:5,1:5]
+
+Y.test<-Y[match(c(female_sample,male_sample),rownames(phen))]
+Y.test
+summary(Y.test)
+length(Y.test)
+
+expr<-expr[!rownames(expr)%in%rownames(expr_test),]
+meth<-meth[!rownames(meth)%in%rownames(meth_test),]
+mut<-mut[!rownames(mut)%in%rownames(mut_test),]
+drug<-drug[!rownames(drug)%in%rownames(drug_test),]
+
+Y<-Y[!rownames(phen)%in%c(female_sample,male_sample)]
+Y
+length(Y)
+summary(Y)
+```
+
+Since mutations represent a binary data, there is always a lack of variation due to coding with 0 and 1. Therefore, we will prefilter the mutation matrix by excluding sites with variance across individuals close to zero:
+
+```{r filter methylation matrix}
+library("mixOmics")
+library("matrixStats")
+my_nearZeroVar<-nearZeroVar(mut)
+head(my_nearZeroVar$Metrics)
+dim(my_nearZeroVar$Metrics)
+mut <- mut[,-which(colnames(mut)%in%rownames(my_nearZeroVar$Metrics))]
+mut[1:5,1:5]
+dim(mut)
+mut_test<-subset(mut_test,select=colnames(mut))
+```
+
+Therefore we end up with just a few mutations which have enough variation for the PLS-DA model. Later perhaps it makes sense to include all of them and not select informative ones using the sparse PLS-DA algorithm.
+
+
+### Feature Selection for OMICs Integration
+
+Right now we can not integrate the OMICs data sets since at least expression and methylation data are high-dimensional so we need to perform a feature selection for those two OMICs. Here we use LASSO for doing feature selection for gene expression data:
+
+```{r,fig.width=10,fig.height=8}
+library("glmnet")
+lasso_fit <- cv.glmnet(as.matrix(expr), Y, family = "binomial", alpha = 1)
+plot(lasso_fit)
+coef <- predict(lasso_fit, s = "lambda.min", type = "nonzero")
+colnames(expr)[unlist(coef)]
+result_expr <- data.frame(GENE = names(as.matrix(coef(lasso_fit, s = "lambda.min"))
+                                [as.matrix(coef(lasso_fit, s = "lambda.min"))[,1]!=0, 1])[-1], 
+                   SCORE = as.numeric(as.matrix(coef(lasso_fit, s = "lambda.min"))
+                                      [as.matrix(coef(lasso_fit, 
+                                                      s = "lambda.min"))[,1]!=0, 1])[-1])
+result_expr <- result_expr[order(-abs(result_expr$SCORE)),]
+print(head(result_expr,10))
+print(as.character(result_expr$GENE))
+expr <- subset(expr, select = as.character(result_expr$GENE))
+expr_test<-subset(expr_test,select=colnames(expr))
+
+ens2gs<-read.delim("ENSEMBLE_TO_GENE_SYMBOL_COORD.txt",header=TRUE,sep="\t")
+ens2gs<-ens2gs[match(colnames(expr),as.character(ens2gs$ensembl_gene_id)),]
+colnames(expr)<-ens2gs$external_gene_name
+colnames(expr_test)<-ens2gs$external_gene_name
+```
+
+We have also converted the Ensembl gene IDs into gene names on the fly for clarity. Next we proceed with LASSO feature selection for methylation data:
+
+```{r,fig.width=10,fig.height=8}
+library("glmnet")
+lasso_fit <- cv.glmnet(as.matrix(meth), Y, family = "binomial", alpha = 1)
+plot(lasso_fit)
+coef <- predict(lasso_fit, s = "lambda.min", type = "nonzero")
+colnames(meth)[unlist(coef)]
+result_meth <- data.frame(CPG = names(as.matrix(coef(lasso_fit, s = "lambda.min"))
+                                      [as.matrix(coef(lasso_fit, s = "lambda.min"))[,1]!=0, 1])[-1], 
+                          SCORE = as.numeric(as.matrix(coef(lasso_fit, s = "lambda.min"))
+                                             [as.matrix(coef(lasso_fit, s = "lambda.min"))[,1]!=0, 1])[-1])
+result_meth <- result_meth[order(-abs(result_meth$SCORE)),]
+print(head(result_meth,10))
+print(as.character(result_meth$CPG))
+meth <- subset(meth, select = as.character(result_meth$CPG))
+meth_test <- subset(meth_test, select = as.character(result_meth$CPG))
+```
+
+We can see that we dramatically decreased the number of dimensions / features in the gene expression and methylation data sets. Now we can proceed with OMICs integration via PLS-DA algorithm.
+
+### Integrative OMICs Analysis
+
+Now we will start integrating the four OMICs: 1) gene expression, 2) methylation and 3) mutations and 4) drug response. For this purpose we will concatenate gene expression, methylation, mutation and drug response matrices into X matrix and use the Gender as Y variable, so it is a typical Machine Learning setup: y=f(x), where x is the input, y is the class labels of individuals and the f-function is learnt from the data. Note that the f-function is a-priori linear for PLS-DA and non-linear for e.g. artificial neural networks.
+
+```{r,fig.width=10,fig.height=8}
+data<-list(expr=expr,mut=mut,meth=meth,drug=drug)
+names(data)
+lapply(data, dim) 
+```
+
+First, we fit a DIABLO model without variable selection to assess the global performance and choose the number of components for the final DIABLO model. The function perf is run with nfold-fold cross validation repeated nrepeat times. The matrix design sets sexpected covariance between the OMICs. The values may range between 0 (no correlation) to 1 (correlation to maximize) and the design can be chosen based on prior knowledge. Here due to the lack of prior knowledge we select a strong correlation 1 between the OMICs.
+
+```{r perf,fig.width=10,fig.height=8}
+library("mixOmics")
+design=matrix(1,ncol=length(data),nrow=length(data),dimnames=list(names(data),names(data)))
+diag(design)=0
+design
+
+splsda.res = block.splsda(X = data, Y = Y, ncomp = 8, design = design)
+perf.diablo = perf(splsda.res, validation = 'Mfold', folds = 2, nrepeat = 5, progressBar=FALSE, cpus=4)
+perf.diablo
+plot(perf.diablo,overlay='dist',sd=TRUE)
+```
+
+The BER (balanced error rate, which is our case since we have more males than females) mahalanobis distance seems to reach its minimum / plateau at ncomp=2 and does not seem to change further, we will use this number as an optimal number of PLS components to keep in the further downstream analysis.
+
+Let us perform tuning of the model which implies selecting most informative variables in all layers of the data by LASSO algorithm. For this purpose we will need to define a design matrix which shows a-priori correlation between phenotypes and gene expression. We assume strong correlation, but one can in principle play with this parameter and find out how it influences the final result. Further, we will concentrate on the first two principal components for simplicity, the more precise number of principal components to select can be investigated via minimizing the balanced error rate in the cross-validation procedure.
+
+```{r tune block splsda,fig.width=10,fig.height=8}
+library("mixOmics")
+test.keepX=list("expr"=c(1:5),"mut"=c(1:5),"meth"=c(1:5),"drug"=c(1:5))
+ptm<-proc.time()
+tune.omics=tune.block.splsda(X=data,Y=Y,ncomp=2,test.keepX=test.keepX,design=design,cpus=4,progressBar=FALSE,validation="Mfold",folds=2,nrepeat=5,near.zero.var=FALSE,dist = "mahalanobis.dist")
+my_time<-proc.time()-ptm
+print(paste0("Thus it takes ",as.numeric(my_time["elapsed"])/3600,"h to run this piece of code"))
+```
+
+LASSO selected the following numbers of most informative variables from the loading vectors for each OMICs data set for each of the two principal components:
+
+```{r,fig.width=10,fig.height=8}
+tune.omics$choice.keepX
+```
+
+Now let us perform the final sPLS-DA modelling and display PCA plots and loadings. Here for simplicity we will use all available mutations due to its special binary structure.
+
+```{r,fig.width=10,fig.height=8}
+#list.keepX=list("expr"=tune.omics$choice.keepX$expr,"mut"=tune.omics$choice.keepX$mut,"meth"=tune.omics$choice.keepX$meth,"drug"=tune.omics$choice.keepX$drug)
+list.keepX=list("expr"=tune.omics$choice.keepX$expr,"mut"=c(dim(mut)[2],dim(mut)[2]),"meth"=tune.omics$choice.keepX$meth,"drug"=tune.omics$choice.keepX$drug)
+res=block.splsda(X=data,Y=Y,ncomp=2,keepX=list.keepX,design=design,near.zero.var=FALSE)
+selectVar(res,block='expr',comp=1)$expr$name
+plotIndiv(res,legend=TRUE,title="CLL Omics",ellipse=FALSE,ind.names=FALSE,cex=2)
+```
+
+Let us look at the loadings:
+
+```{r,fig.width=10,fig.height=8}
+plotLoadings(res,comp=1,contrib='max',method='median')
+plotLoadings(res,comp=2,contrib='max',method='median')
+```
+
+Now we will diplay each individual on the plot of each of the OMICs against each other which are defined by the top loadings from their respective prrincipal components.
+
+```{r,fig.width=10,fig.height=8}
+plotDiablo(res,ncomp=1)
+plotDiablo(res,ncomp=2)
+```
+
+Now let us display so-called “arrow plot” which demonstrates the samples (individuals) in a superimposed manner where each sample will be indicated using an arrow. The start of the arrow indicates the location of the sample in X in one plot, and the tip the location of the sample in Y in the other plot. Short arrows indicate a strong agreement between the matching data sets, long arrows a disagreement between the matching data sets. Such graphic highlight the agreement between all data sets at the sample level, when modelled with DIABLO.
+
+```{r,fig.width=10,fig.height=8}
+plotArrow(res,ind.names=FALSE,legend=TRUE,title="CLL Omics Integration")
+```
+
+The Arrow Plot can be viewed as a Consensus Plot between all the OMICs, the X and Y coordiantes correspond to common latent variables between the OMICs, i.e. we projected the OMICs into some common latent space where they loose information about their technological origin and hence can be superimposed onto each other.
+
+Now we will display the correlation circle plot, where top loadings variables from each of the OMICs are superimposed. Clustering of variables around the poles of the circle implies strong correlation between the variables from the OMICs data sets. Variables on the opposite poles of the correlation circle plot imply strong anti-correlation.
+
+```{r,fig.width=10,fig.height=8}
+plotVar(res,var.names=TRUE,style='graphics',legend=TRUE,pch=c(16,17,18,19),cex=c(0.8,0.8,0.8,0.8),col=c('blue','red2',"darkgreen","darkorange"))
+```
+
+For further visualization of the results of integration, we will calculate the so-called “circos plot” that diaplays variable correlation among different OMICs dat sets. Please note that the variables for this plot were selected simultaneously from all the OMICs, i.e. they are not equavivalent to those obtained from each individual OMIC separately.
+
+```{r,fig.width=10,fig.height=8}
+circosPlot(res,cutoff=0.7,line=FALSE,size.variables=0.5)
+```
+
+Correlation network is another way to demostrate correlations between top loadings of the OMICs data sets in a pairwise fashion.
+
+```{r,fig.width=10,fig.height=8}
+network(res,blocks=c(1,2),cex.node.name=0.6,color.node=c('blue','red2'),breaks=NULL)
+network(res,blocks=c(1,3),cex.node.name=0.6,color.node=c('blue','darkgreen'),breaks=NULL)
+network(res,blocks=c(1,4),cex.node.name=0.6,color.node=c('blue','darkorange'),breaks=NULL)
+network(res,blocks=c(2,3),cex.node.name=0.6,color.node=c('red2','darkgreen'),breaks=NULL)
+network(res,blocks=c(2,4),cex.node.name=0.6,color.node=c('red2','darkorange'),breaks=NULL)
+network(res,blocks=c(3,4),cex.node.name=0.6,color.node=c('darkgreen','darkorange'),breaks=NULL)
+```
+
+Finally the correlation heatmap displays strongly correlated blocks of gene expression, methylation and clinical variables markers that provide clustering of individuals into females and males.
+
+```{r,fig.width=10,fig.height=8}
+cimDiablo(res,margins=c(11,18))
+```
+
+### Predict Gender from OMICs Integration
+
+Now it is time for prediction. Once we have trained the PLS-DA model, we can use it and utilize the 60 test samples for making prediction of their geneder and accessing the accuracy of the prediction:
+
+```{r,fig.width=10,fig.height=8}
+data.test<-list(expr=expr_test,mut=mut_test,meth=meth_test,drug=drug_test)
+lapply(data.test, dim) 
+
+predict.diablo=predict(res,newdata=data.test,dist='mahalanobis.dist')
+auroc.diablo=auroc(res,newdata=data.test,outcome.test=Y.test,plot=TRUE,roc.comp=c(1),roc.block=c(1,2,3,4))
+data.frame(predict.diablo$class,Truth=Y.test)
+
+table(predict.diablo$MajorityVote$mahalanobis.dist[,1],Y.test)
+round((sum(diag(table(predict.diablo$MajorityVote$mahalanobis.dist[,1],Y.test)))/sum(table(predict.diablo$MajorityVote$mahalanobis.dist[,1],Y.test)))*100)
+```
+
+Therefore the the success rate of the first predictive component is `r round((sum(diag(table(predict.diablo$MajorityVote$mahalanobis.dist[,1],Y.test)))/sum(table(predict.diablo$MajorityVote$mahalanobis.dist[,1],Y.test)))*100)`%, it is quite high and provides new candidate bio-markers (see the variable plot) for understanding of mechanisms CLL pathogenesis.
+
+```{r,fig.width=10,fig.height=8}
+sessionInfo()
+```
+
+
