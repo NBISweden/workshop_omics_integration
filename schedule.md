@@ -21,7 +21,7 @@ Room: Air, Alfa 2
 
 **10.00 - 10.15** Break
 
-**10.15 - 12.00** Intro, Supervised methods ([Nikolay][7])
+**10.15 - 12.00** Intro, Supervised methods ([Nikolay][7], [lecture][13] and [feature selection][15])
 
 **12.00 - 13.00** Lunch at [Nanna Svartz][11] 
 
@@ -29,7 +29,7 @@ Room: Air, Alfa 2
 
 **15.00 - 15.15** Coffee Break
 
-**15.15 - 17.00** Unsupervised methods ([Nikolay][7])
+**15.15 - 17.00** Unsupervised methods ([Nikolay][7], [lecture][14] and [dimensionality reduction][16])
 
 
 ##### Tuesday 2019-09-10
@@ -38,15 +38,15 @@ Room: Air, Alfa 2
 
 **10.45 - 11.00** Coffee Break
 
-**11.00 - 12.00** Intro to biological network analysis and terminology ([Rui][5])
+**11.00 - 12.00** Intro to biological network analysis and terminology ([Rui][5], [all topology lectures][17])
 
 **12.00 - 13.00** Lunch at [Nanna Svartz][11] 
 
-**13.00 - 15.00** Network inference, key properties, and community analysis ([Rui][5])
+**13.00 - 15.00** Network inference, key properties ([Rui][5])
 
 **15.00 - 15.15** Coffee Break
 
-**15.15 - 16.00** Functional analysis and Network visualization ([Rui][5])
+**15.15 - 16.00** Community analysis and Network visualization ([Rui][5])
 
 **16.00 - 17.00** **Workshop:** Biological network analysis ([Rui][5])
 
@@ -120,3 +120,8 @@ Room: Air, Alfa 2
 [10]: https://nbis.se/about/staff/roy-francis/
 [11]: https://restaurang-ns.ki.se/restaurang-nanna-svartz/
 [12]: http://www.grappabar.nu/
+[13]: session_ml/SupervisedOMICsIntegration/supervised_omics_integr_CLL.html
+[14]: session_ml/UnsupervisedOMICsIntegration/UnsupervisedOMICsIntegration.html
+[15]: session_ml/FeatureSelectionIntegrOMICs/RaukR_GeneralStats_FeatureSelection.html
+[16]: session_ml/DimReductSingleCell/RaukR_GeneralStats_DimensionalityReduction.html
+[17]: session_topology/Lecture_topology.pdf
