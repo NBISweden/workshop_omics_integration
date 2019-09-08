@@ -4,7 +4,7 @@ channels:
     - defaults
 dependencies:
     
-    # Python
+    # Python and general packages
     - python=3.7
     - jupyter=1.0
     - pandas=0.25.0
@@ -15,38 +15,11 @@ dependencies:
     - scipy=1.3.0
       
     # Topology session
-    - rise=5.5.1 # Jupyter presentations
-    - jupyter_nbextensions_configurator=0.4.1 # Jupyter presentations
     - gseapy=0.9.15
     - leidenalg=0.7.0
     - python-igraph=0.7.1.post7
     - pycairo=1.18.1
     - glpk=4.65
-
-    #    # Python packages
-    #    - python=3.6
-    #    - cobra=0.10
-    #    - jupyter=1.0
-    #    - keras=2.2
-    #
-    #    # R packages
-    #    - r=3.5.1
-    #    - rstudio=1.1
-    #    - r-enrichr=1.0
-    #    - r-igraph=1.2
-    #    - r-hiver=0.3
-    #    - bioconductor-biostrings=2.50
-    #    - bioconductor-biomart=2.38
-    #    - bioconductor-bsgenome=1.50
-    #    - bioconductor-genomicalignments=1.18
-    #    - bioconductor-genomicfeatures=1.34
-    #    - bioconductor-genomicranges=1.34
-    #    - bioconductor-mixomics=6.8
-    #    - bioconductor-omiccircos=1.20
-    #    - bioconductor-piano=1.22
-    #    - bioconductor-rsamtools=1.34
-    #
-    # Missing packages
-    # mofa (R)
-    # cytoscape
-    # Some package for tSNE (R)
+    - scikit-learn=0.21.3
+    #- rise=5.5.1 # Jupyter presentations
+    #- jupyter_nbextensions_configurator=0.4.1 # Jupyter presentations
