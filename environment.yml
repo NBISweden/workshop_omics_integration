@@ -1,9 +1,16 @@
 channels:
     - bioconda
     - conda-forge
+    - r
+    - rdonnelly
     - defaults
 dependencies:
     
+    #R
+    - r-base
+    - rstudio=1.2.502 #rdonnelly channel
+    - cytoscape
+
     # Python and general packages
     - python=3.7
     - jupyter=1.0
