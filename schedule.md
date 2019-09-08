@@ -6,11 +6,11 @@ title:  'Schedule'
 
 9 - 12 September 2019
 
-SciLifeLab, Tomtebodavagen 23A, 171 65 Stockholm
-Room: Air, Alfa 2
-
-
-
+SciLifeLab, Tomtebodavagen 23A, 171 65 Stockholm. 
+Room: Air, Alfa 2  
+  
+  
+  
 ##### Monday 2019-09-09
 
 **08.45 - 09.00** Pre-course coffee
