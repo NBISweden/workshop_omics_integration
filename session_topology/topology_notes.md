@@ -1,12 +1,13 @@
 
 In this workshop you will use [Python igraph][1] to analyse a gene expression network. To get all the
-necessary software you can use the [conda environment file](../environment.yml). See the quick conda 
-[instructions below](#conda-instructions).
+necessary software you can use the [conda environment file](../environment.yml). See the instructions
+for [the jupyter notebook](#accessing-the-workshop-notebook) and how to [acess the data](#accessing-the-data).
 
 
 #### Accessing the workshop notebook
 
-After downloading the conda *environment.yml*, create the conda environment by running
+You will use the [jupyter notebook](lab.ipynb) ([html](lab.html)) to run all analyses. This is more
+easily done using the conda [*environment.yml*](../environment.yml). After download, create the conda environment by running
 ```
 	conda env create -f environment.yml -p top-env
 	conda activate top-env
@@ -27,7 +28,7 @@ pip3 install pandas numpy cairo python-igraph seaborn matplotlib leidenalg scipy
 ```
 
 #### Accessing the data
-Retrieve the data [from the data folder](data/). You will start with the file [data/gene_expression.tsv](data/gene_expression.tsv), which contains the [TPMs][7] of 843 genes, and 48 samples.
+Retrieve the data [from the data folder](data.zip). You will start with the file [data/gene_expression.tsv](data/gene_expression.tsv), which contains the [TPMs][7] of 843 genes, and 48 samples.
 
 #### Python igraph
 
