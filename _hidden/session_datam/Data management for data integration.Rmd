@@ -1,0 +1,277 @@
+---
+title: "Omics Data management"
+subtitle: "Some useful tools and strategies"
+author: "Ashfaq Ali"
+institute: "NBIS, SciLife lab, Lund University, Sweden"
+date: "2019/08/14 (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    encoding: 'UTF-8'
+    self_contained: false
+    chakra: 'assets/remark-latest.min.js'
+    css: 'assets/presentation.css'
+    lib_dir: libs
+    nature:
+      ratio: '4:3'
+      highlightLanguage: r
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      slideNumberFormat: "Omics-Integration 2019 • %current%/%total%"
+       
+---
+exclude: true
+count: false
+
+```{r,echo=FALSE,child="assets/header-presentation.Rmd"}
+library(GenomicRanges)
+```
+
+---
+class: inverse, left, middle
+## Why have a data management strategy?
+
+**It leads us to follow basic scietific pronciples**
+
+ -- *Repoducibility*
+  
+ -- *Avoid redunduancy*   
+ 
+ -- *Productivity*  
+ 
+ -- *Collaboration*
+  
+ -- *Creativity* 
+---
+class: inverse, left, middle
+## Outline: Data Management Lecture 
+
+
+--**Background, Basics and resources**
+ - Componenets of data for reporduciple research
+ - Basic data types in R (Vectors, matrices, data frames and Lists). [Tutorial](link)
+ - RMarkdown, Rdata, RDS objects to store and access data on disk 
+
+-- **Bioconductor packages and objects useful for omics data analyses**
+
+ - S3 and S4 class objects and methods 
+ - IRAnges, GRanges, GenomicsRanges, BSGenomes, , BSGenome, BioMArt
+ - ExpressionSet, SummarisedExperiments, MultiAssayExperiments
+
+-- **Data structures and manipulation in Python (Rui Benfeitas)** 
+
+
+
+.footnote[
+*Complementary tutorial is available with some practical examples and R codes.* 
+
+*Here we donot cover pre-processing of data from different platforms and assume that we will work with the processed data.*  
+]
+
+---
+class: inverse, left, middle
+## Componenets of data for reporduciple research
+
+ - **FAIR data guidelins**
+Findability, Accessibility, Interoperability, and Reusability [FAIR](https://www.nature.com/articles/sdata201618)
+
+ - **Raw Data**
+ Raw data represent data from the facility where the data was obtaned from. Raw reads, spectra, images, counts etc. This depends on at what stage you boarded the ship.  
+ 
+ - **Tiday Data**
+Organized and it's shareable and ready to be used.   
+More on it later.
+
+ - **Code Book**
+ This would represent things like a) What 0,1 codes represent b) Measurement scales (cm, ng/ml etc).  
+ R has an excellent way of storing this information in the form of factors (tutorial)  
+ 
+ - **Scripts, Codes, Recipie, Github**
+ An easy way to keep your analyses 'recipe' is by documentin the whole analyses or set of analyses in a script.   
+ A text/lig file for steps in ***GUI's*** (Cytoscape, MZmine etc).
+ [NBIS Course](https://nbis-reproducible-research.readthedocs.io/en/latest/)
+
+ - **Sensitive data and GDPR compliance**
+ Be aware of the rules about person ***senstive data***.
+ Read more about at these pages [NBIS Website](https://nbis.se/support/human-data.html), [GDPR](https://gdpr-info.eu), [Data Protection](https://ec.europa.eu/info/law/law-topic/data-protection/reform_en).
+
+
+---
+class: inverse, left, middle
+## Basic data types in R
+
+ - **Vectors**: Represent a set of single type of data such as string,    Numerics an dintegers  
+ 
+  - ***Fctors*** are special vectors in R that allow dummy  
+  coding of elements. *Very helpful but source of confuion at times.*
+
+ - **Matrices** hold numerical data in two dimensions. 
+ 
+ - **Arrays** Multodimensional 
+ 
+ - **Data Frame**  can hold any kind of data.   
+ 
+ - **Lists** are very useful data structure for Bioindormatics
+  Hold any type of data with any dimention.
+  
+ - **S3 and S4 system** are very central to R programming: 
+allowing to create objects to represent any data types,
+ access and manupulate data using ***accessor*** functions. More later
+  
+
+
+---
+class: inverse, left, middle
+## A well known example linear model
+
+```{r}
+mat<- matrix(rnorm(100), 25,4)
+dat<- as.data.frame(cbind(rowSums( c(0.01, 0.02, 0.03, 0.04)* mat),mat))
+colnames(dat) <- c("y","x1","x2","x3","x4")
+fit<- lm(data = as.data.frame(dat), formula = y~x1+x2+x3+x4)
+print(class(fit) ); print(typeof(fit))
+```
+All functions applicable to lists are useable but it is reccomened to use class specific functions. Try `methods(summary)` on your computer. or try `methods(class="GRanges")`
+```{r}
+summary(fit)
+```
+
+
+---
+class: inverse, left, middle
+## Bioconductor packages and objects useful for omics data analyses
+
+```{r, include=FALSE}
+suppressMessages(library(IRanges))
+```
+
+**IRanges class to represent data that occurs in a sequence.**
+
+An IRanges **constructor** can be used to create and object  
+of ***IRanges class***
+
+```{r , echo = TRUE, warning=FALSE}
+ir <- IRanges(start=c(8, 12, 17, 21), width=c(4, 5, 4, 10),   
+              names = c("Morning", "Afternoon", "Evening", "Night"))
+print(ir[1:2,])
+
+```
+
+One can apply class specific methods to objects.
+
+---
+class: inverse, left, middle
+## GenomicsRAnges
+
+Extention of `IRanges`
+
+```{r}
+
+gr <- GRanges( seqnames = Rle(c("chr1", "chr2", "chr1", "chr3"), c(1, 3, 2, 4)),
+    ranges = IRanges(101:110, end = 111:120, names = head(letters, 10)),
+    strand = Rle(strand(c("-", "+", "*", "+", "-")), c(1, 2, 2, 3, 2)),
+    score = 1:10,
+    GC = seq(1, 0, length=10))
+gr [1:4,]
+```
+
+```{r, eval=FALSE, include=FALSE}
+help(package="GenomicRanges")
+vignette(package="GenomicRanges")
+vignette(package="GenomicRanges", "GenomicRangesHOWTOs")
+
+```
+
+
+---
+
+## SummarizedExperiment class in R
+
+.pull-left-80[<img src="Figures/DataManagement/SummarizedExperiment.png" class="fancyimage size-60">]
+.pull-right-30[**A visual overiview of a SummarizedExperiment. Notice the similarity to and *ExpressionSet* class. The *ExpressionSet* Class is the source of inspiration form Bioconductor *SummarizedExperimet* and *MultiAssayExperiment* owing to it's success.**]
+
+
+---
+## Demonstrate with real data
+
+
+### Annotations from BioMart for Feature data
+
+  - *txdb from biomart*
+  - *Gene annotations from biomart*
+ 
+
+
+### Summarized Experiment
+
+ - *RowData from txdb object such as genomic coordinates and gene/transcript annotations*
+ - *PhenoData such as patient IDs and characteristics*
+ - *Assays such as counts, intensities, normalized counts*
+ - *MetaData such as nature of experiment, how wa it performed*
+
+### MultiAssayExperiment
+ - *Create differnet experiments*
+
+---
+##  Multi Assay Experiment 
+<img src="Figures/DataManagement/MultiAssayExperiment.png" class="fancyimage size-150">
+.pull-right-50[*ExperimentList*. *colData"*: **“primary”**, *sampleMap*, *metaData* ]
+
+```{r}
+mes<- MultiAssayExperiment::MultiAssayExperiment()
+slotNames(mes)
+```
+---
+
+## Create MultiAssayExperiment
+ - *Create differnet experiments*
+ 
+ - *ExperimentList*
+ The datasets contained in elements of the ExperimentList can have:
+  - column names (required)
+  - row names (optional)
+  
+ - *colData"*: **“primary”**
+  - metadata that describes the ‘biological unit’ which can refer to   
+  specimens, experimental subjects, patients, etc. 
+  - colData dataset must contain patient identifiers.
+---
+
+# Multi Assay Experiment (Cont)
+ - *sampleMap* 
+  - The sampleMap is a DataFrame that relates the “primary” data (colData) to the experimental 
+  
+  - assays:assay provides the names of the different experiments / assays performed. These are user-defined, with the only requirement that the names of the ExperimentList, where the experimental assays are stored, must be contained in this column.
+  
+  - primary provides the “primary” sample names. All values in this column must also be present in the rownames of - colData(MultiAssayExperiment). 
+  
+  - colname provides the sample names used by experimental datasets, which in practice are often different than the primary sample names. For each assay, all column names must be found in this column. 
+  
+ - *metadata*
+  - Metadata can be added at different levels of the MultiAssayExperiment.
+ Can be of ANY class, for storing study-wide metadata, such as citation information. 
+
+---
+## Save and loading the data (demonstration)
+
+RMarkdown, Rdata, RDS objects to store and access data on disk
+```{r}
+fil <- tempfile("women", fileext = ".rds")
+#save a single object to file
+#saveRDS(women, fil)
+## restore it under a different name
+#women2 <- readRDS(fil)
+#identical(women, women2)
+## or examine the object via a connection, which will be opened as needed.
+#con <- gzfile(fil)
+#readRDS(con)
+#close(con)
+```
+
+---
+
+---
+## Thank You
+
+**[Feedback form](https://forms.gle/DLFaw2c7DAx3gmDs9)**
+
