@@ -1,6 +1,6 @@
 
 In this workshop you will use [Python igraph][1] to analyse a gene expression network. To get all the
-necessary software you can use the [conda environment file][../environment.yml]. See the quick conda 
+necessary software you can use the [conda environment file](../environment.yml). See the quick conda 
 [instructions below](#conda-instructions).
 
 
