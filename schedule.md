@@ -15,7 +15,7 @@ Room: Air, Alfa 2
 
 **08.45 - 09.00** Pre-course coffee
 
-**09.00 - 09.20** Welcome ([Rui][5], [Ashfaq][6], [Nikolay][7])
+**09.00 - 09.20** Welcome ([Rui][5], [Ashfaq][6], [Nikolay][7], [slides][23])
 
 **09.20 - 10.00** Omics Data Management (Ashfaq)
 
@@ -131,3 +131,4 @@ Room: Air, Alfa 2
 [20]: session_topology/lab.ipynb
 [21]: session_topology/2Inference.pdf
 [22]: session_topology/3Community.pdf
+[23]: session_dm/welcome.pdf
