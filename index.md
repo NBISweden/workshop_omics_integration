@@ -29,7 +29,7 @@ At the end of the course, students should:
 - Identify key methods for analysis and integration of omics data based on a given dataset.
 - Be aware of important confounding factors and sources of bias.
 
-***Materials***
+***Materials***  
 You can find all the [reading materials here][1].
 
 ***Course fee***  
@@ -40,6 +40,16 @@ A course fee of 2000SEK will be invoiced to accepted participants. This includes
 - [Nikolay Oskolkov](https://nbis.se/about/staff/nikolay-oskolkov), PhD., (nikolay.oskolkov[at]scilifelab.se), Lund University, Lund
 - [Ashfaq Ali](https://nbis.se/about/staff/ashfaq-ali/), PhD., (ashfaq.ali[at]nbis.se), Lund University, Lund
 
+***TAs***
+- [Erik Fasterius][3]
+- [Lokeshwaran Manoharan][4]
+- [Roy Francis][5]
+- [Mihail Anton][2]
+
 Please contact the course leaders should you have any questions.
 
 [1]: reading_materials.md
+[2]: https://www.chalmers.se/en/staff/Pages/mihail-anton.aspx
+[3]: https://nbis.se/about/staff/erik-fasterius/
+[4]: https://nbis.se/about/staff/lokeshwaran-manoharan/
+[5]: https://nbis.se/about/staff/roy-francis/
