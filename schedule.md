@@ -2,93 +2,100 @@
 layout: default
 title:  'Schedule'
 ---
-# Course schedule
+#### Course schedule
 
 9 - 12 September 2019
 
-SciLifeLab, Tomtebodavagen 23A, 171 65 Stockholm
-Room: Air, Alfa 2
-
-
-
-### Monday 2019-09-09
+SciLifeLab, Tomtebodavagen 23A, 171 65 Stockholm. 
+Room: Air, Alfa 2  
+  
+  
+  
+##### Monday 2019-09-09
 
 **08.45 - 09.00** Pre-course coffee
 
-**09.00 - 09.20** Welcome ([Rui][5], [Ashfaq][6], [Nikolay][7])
+**09.00 - 09.20** Welcome ([Rui][5], [Ashfaq][6], [Nikolay][7], [slides][23])
 
-**09.20 - 10.00** Omics Data Management ([Ashfaq][6])
+**09.20 - 10.00** Omics Data Management (Ashfaq)
 
 **10.00 - 10.15** Break
 
-**10.15 - 12.00** Intro, Supervised methods ([Nikolay][7])
+**10.15 - 12.00** Intro, Supervised methods (Nikolay, [lecture][13] and [feature selection notes][15])
 
-**12.00 - 13.00** Lunch
+**12.00 - 13.00** Lunch at [Nanna Svartz][11] 
 
-**13.00 - 15.00** **Workshop:** Supervised methods ([Nikolay][7])
+**13.00 - 15.00** **Workshop:** Supervised methods (Nikolay)
 
 **15.00 - 15.15** Coffee Break
 
-**15.15 - 17.00** Unsupervised methods ([Nikolay][7])
+**15.15 - 17.00** Unsupervised methods (Nikolay, [lecture][14] and [dimensionality reduction notes][16])
 
 
-### Tuesday 2019-09-10
+##### Tuesday 2019-09-10
 
-**09.00 - 10.45** **Workshop:** Unsupervised methods ([Nikolay][7])
+**09.00 - 10.45** **Workshop:** Unsupervised methods (Nikolay)
 
 **10.45 - 11.00** Coffee Break
 
-**11.00 - 12.00** Intro to biological network analysis and terminology ([Rui][5])
+**11.00 - 12.00** Intro to biological network analysis and terminology (Rui, [lecture][17])
 
-**12.00 - 13.00** Lunch
+**12.00 - 13.00** Lunch at [Nanna Svartz][11] 
 
-**13.00 - 15.00** Key properties in biological networks, community analysis, and visualization ([Rui][5])
-
-**15.00 - 15.15** Coffee Break
-
-**15.15 - 17.00** **Workshop:** Biological network analysis ([Rui][5])
-
-**18.00 - ...** Course dinner
-
-
-### Wednesday 2019-09-11
-
-**09.00 - 10.00** Introduction to metabolic modeling ([Ashfaq][6])
-
-**10.00 - 10.15** Coffee Break
-
-**10.15 - 12.00** Omics data integration with human metabolic models ([Ashfaq][6])
-
-**12.00 - 13.00** Lunch
-
-**13.00 - 14.00** **Seminar:** The Human Metabolic Atlas - [Jonathan Robinson][3] & [Mihail Anton][4]
+**13.00 - 15.00** Network inference, key properties (Rui, [lecture][21])
 
 **15.00 - 15.15** Coffee Break
 
-**15.15 - 17.00** **Workshop:** Omics data integration with human metabolic Models ([Ashfaq][6])
+**15.15 - 15.45** Community analysis and Network visualization (Rui, [lecture][22])
+
+**15.45 - 17.00** **Workshop:** Biological network analysis (Rui, [jupyter.ipynb][20], [html][18], and [instructions][19])
+
+**18.00 - 24.00** Course dinner at [Grappa Bar][12]
 
 
-### Thursday 2019-09-12
 
-**09.00 - 10.00** **Workshop:** Integrated data visualization techniques ([Ashfaq][6])
+##### Wednesday 2019-09-11
+
+**09.00 - 10.00** Introduction to metabolic modeling (Ashfaq)
 
 **10.00 - 10.15** Coffee Break
 
-**10.15 - 12.00** **Workshop:** FBA, GEMs, Metabolic Atlas, Visualization ([Ashfaq][6])
+**10.15 - 11.00** Introduction to metabolic modeling (Ashfaq)
 
-**12.00 - 13.00** Lunch
+**11.00 - 12.00** Omics data integration with human metabolic Models (Ashfaq)
 
-**13.00 - 13.45** **Workshop**  FBA, GEMs, Metabolic Atlas, Visualization ([Ashfaq][6])
+**12.00 - 13.00** Lunch at [Nanna Svartz][11] 
+
+**13.00 - 14.00** **Seminar:** [Jonathan Robinson][3] - *"Context specific analysis in metabolic modeling"*
+
+**14.00 - 14.30** **Seminar:** [Jonathan Robinson][3] - *"Metabolic Atlas"*
+
+**14.30 - 14.45** Coffee Break
+
+**14.45 - 17.00** **Workshop:** Omics data integration with human metabolic Models (Ashfaq)
+
+
+##### Thursday 2019-09-12
+
+**09.00 - 10.00** **Workshop:** Integrated data visualization techniques (Ashfaq)
+
+**10.00 - 10.15** Coffee Break
+
+**10.15 - 12.00** **Workshop:** FBA, GEMs, Metabolic Atlas, Visualization (Ashfaq)
+
+**12.00 - 13.00** Lunch at [Nanna Svartz][11] 
+
+**13.00 - 13.45** **Workshop**  FBA, GEMs, Metabolic Atlas, Visualization (Ashfaq)
 
 **13.45 - 14.00** Coffee Break
 
-**14.00 - 15.00** **Seminar:** [Linn Farberg][1]
+**14.00 - 15.00** **Seminar:** [Linn Fagerberg][1] - *"Longitudinal wellness profiling"*
 
-**15.00 - 16.00** **Seminar:** [Lukas Käll][2]
+**15.00 - 16.00** **Seminar:** [Lukas Käll][2] - *"Machine learning methods for data integration"*
 
 **16.00 - 16.20** Wrap up
 
-
+  
 **Teachers:**
 - [Ashfaq Ali][6]
 - [Nikolay Oskolkov][7]
@@ -99,6 +106,7 @@ Room: Air, Alfa 2
 - [Erik Fasterius][8]
 - [Lokeshwaran Manoharan][9]
 - [Roy Francis][10]
+- [Mihail Anton][4]
 
 
 [1]: https://www.kth.se/kcap/the-kth-center-for-applied-precision-medicine-kcap-1.639039
@@ -111,3 +119,16 @@ Room: Air, Alfa 2
 [8]: https://nbis.se/about/staff/erik-fasterius/
 [9]: https://nbis.se/about/staff/lokeshwaran-manoharan/
 [10]: https://nbis.se/about/staff/roy-francis/
+[11]: https://restaurang-ns.ki.se/restaurang-nanna-svartz/
+[12]: http://www.grappabar.nu/
+[13]: session_ml/SupervisedOMICsIntegration/supervised_omics_integr_CLL.html
+[14]: session_ml/UnsupervisedOMICsIntegration/UnsupervisedOMICsIntegration.html
+[15]: session_ml/FeatureSelectionIntegrOMICs/RaukR_GeneralStats_FeatureSelection.html
+[16]: session_ml/DimReductSingleCell/RaukR_GeneralStats_DimensionalityReduction.html
+[17]: session_topology/1Intro.pdf
+[18]: session_topology/lab.html
+[19]: session_topology/topology_notes.md
+[20]: session_topology/lab.ipynb
+[21]: session_topology/2Inference.pdf
+[22]: session_topology/3Community.pdf
+[23]: session_dm/welcome.pdf

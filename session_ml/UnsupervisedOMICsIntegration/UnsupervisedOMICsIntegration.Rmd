@@ -1,0 +1,230 @@
+---
+title: "Multi-OMICs Factor Analysis (MOFA) and Unsupervised Data Learning"
+author: "Nikolay Oskolkov, SciLifeLab, NBIS Long Term Support, nikolay.oskolkov@scilifelab.se"
+date: "January 16, 2018"
+output:
+  html_document:
+    toc: yes
+  pdf_document:
+    toc: yes
+abstract: |
+  Here we will talk about supervised vs. unsupervised manifold learning and introduce [Multi-OMICs Factor Analysis (MOFA)](https://www.nature.com/articles/s41467-018-03149-4) as an example of unsupervised data exploration. Further, we will perform integrative OMICs analysis of chromatin accessibility, DNA methylation and transcriptome profiling data from the scNMT-seq (single-cell nucleosome, methylation and transcription sequencing) using MOFA.
+  
+  &nbsp;
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_knit$set(root.dir="/home/nikolay/Documents/Medium/UnsupervisedOMICsIntegration/")
+```
+
+
+### Supervised vs. Unsupervised Analysis
+
+To compare supervised and unsupervise analyses is like comparing The Beatles and The Velvet Underground music. Both are good, just good in different ways. While supervised model is dominating in the modern research since it provides guaranteed but slow progress, the unsupervised strategy has always been considered as a "high risk high gain" approach.  
+
+![](SupervisedVsUnsupervisedAnalysis.png)
+
+### Multi-OMICs Factor Analysis (MOFA)
+
+MOFA is a typical hypothesis-free data exploration framework, [https://www.embopress.org/doi/10.15252/msb.20178124](https://www.embopress.org/doi/10.15252/msb.20178124). It allows data integration by extracting common axes of variation from the multiple OMICs layers. Given several data matrices with measurements of multiple ‘omics data types on the same or on
+overlapping sets of samples, MOFA infers a low-dimensional data representation in
+terms of (hidden) factors which can be then visualized and interpreted.
+
+![](workflow.png)
+
+Importantly, MOFA disentangles whether the underlying axes of heterogeneity are unique to a single data modality or are manifested in multiple modalities, thereby identifying links between the different ‘omics. Once trained, the model output can be used for a range of downstream analyses, including
+
+* **Visualisation of samples in factor space**
+* **Annotation of factors using (gene set) enrichment analysis**
+* **Imputation of missing values**
+* **<span style="color:red">Support of sparse data</span>**
+* **<span style="color:red">Support of OMICs with non-Gaussian distribution including binary and count data</span>**
+
+How does a typical MOFA output look like? In the MOFA paper they applied this method to Chronic Lymphocytic Leukaemia (CLL) on 200 human patients that combined 1) drug response, 2) somatic mutations (targeted sequencing), 3) RNAseq data, and 4) Methylation array data.
+
+![](MOFA_Output.png)
+
+Notably, nearly **40% of the 200 samples were profiled with some but not all OMICs types**; such a missing value scenario is not uncommon in large cohort studies, and MOFA is designed to cope with it. 
+
+One can inspect loadings of MOFA hidden factors and observe known bio-markers fo CLL. Specifically, factor 1 was aligned with the somatic mutation status of the immunoglobulin heavy-chain variable region gene (IGHV), while Factor 2 aligned with trisomy of chromosome 12.
+
+**Loadings from each factor can be used for pathway enrichment analysis. Interestingly, markers from diffeerent OMICs co-varying in a certain MOFA factor can be shown to be coupled to the same biological pathway**. For CLL data, factor 5 demonstrates co-variation between drug response and mRNA levels. This factor tagged a set of genes that were highly enriched for oxidative stress and senescence pathways. Consistent with the annotation based on the mRNA view, it is observed that the drugs with the strongest weights on Factor 5 were associated with response to oxidative stress, such as target reactive oxygen species, DNA damage response and apoptosis.
+
+Next MOFA can perform efficient imputation of missing values including imputation of "missing patients", i.e. when a patient is present in one OMICs layer but absent in another, this absent layer can be reconstructed for the patient, i.e. gray bars in the panel a) of the figure above can be filled.
+
+![](MOFA_Imputation.png)
+
+Finally, latent factors inferred by MOFA are predictive of clinical outcomes. The authors of MOFa paper assessed the prediction performance when combining the **10 MOFA factors** in a multivariate Cox regression model (assessed using cross-validation). Notably, this model yielded **higher prediction accuracy than the 10 factors derived from conventional PCA or using the individual features**.
+
+![](MOFA_Prediction.png)
+
+Important to realize that despite the results of PCA and Factor Analysis visually look very similar, as they both provide linear variance-covariance matrix decomposition, they have quite a different math behind. While PCA is a pure matrix factorization technique which splits the total variance into orthogonal Principal Components (PCs), Factor Analysis seeks to construct hidden latent variables that generate the observed data, therefore Factor Analysis is a generative model.
+
+&nbsp;
+
+## Prepare scNMT Data Set for MOFA
+
+In this section we will apply MOFA to the single cell multi-OMICs data set [scNMT](https://www.nature.com/articles/s41467-018-03149-4) which profiles chromatine accessebility (scATACseq), DNA methylation (scBSseq) and gene expression (scRNAseq) information from the same biological cell belonging to two types: differentiating mouse embryonic stem cells (ESCs) and embrionic bodies (EBs). We will start with reading and having a look at the individual OMICs data sets:
+
+```{r,fig.width=10,fig.height=8}
+scRNAseq<-read.delim("scRNAseq.txt", header = TRUE, check.names = FALSE, row.names = 1, sep="\t")
+ens2genesymbol<-read.delim("ENSEMBLE_TO_GENE_SYMBOL_MOUSE.txt")
+ens2genesymbol<-ens2genesymbol[match(colnames(scRNAseq),as.character(ens2genesymbol$ensembl_gene_id)),]
+colnames(scRNAseq)<-ens2genesymbol$external_gene_name
+scRNAseq<-as.data.frame(t(scRNAseq))
+scRNAseq[1:5,1:5]
+
+scBSseq<-read.delim("scBSseq.txt", header = TRUE, check.names = FALSE, row.names = 1, sep="\t")
+scBSseq<-as.data.frame(t(scBSseq))
+scBSseq[1:5,1:5]
+
+scATACseq<-read.delim("scATACseq.txt", header = TRUE, check.names = FALSE, row.names = 1, sep="\t")
+scATACseq<-as.data.frame(t(scATACseq))
+scATACseq[1:5,1:5]
+```
+
+For scRNAseq OMIC layer we will only select highly expressed genes in order to remove the noisy genes which might contaminate the further downstream analysis. We will also perform log-transform of the data which can be seen as a mild normalization:
+
+```{r,fig.width=10,fig.height=8}
+scRNAseq<-scRNAseq[rowMeans(scRNAseq)>=1,]
+scRNAseq<-log10(scRNAseq + 1)
+scRNAseq[1:5,1:5]
+dim(scRNAseq)
+```
+
+Since scBSseq and scATACseq OMIC layers should be almost a binary (methylated vs unmethylated for scBSseq and open vs. close for scATACseq) data sets, a good way to get rid of redundancy in the scBSseq and scATACseq data and thus perform feature pre-selection and reduce dimensions is to select only features with high variability:
+
+
+```{r,fig.width=10,fig.height=8}
+library("mixOmics")
+my_nearZeroVar<-nearZeroVar(as.data.frame(t(scBSseq)))
+head(my_nearZeroVar$Metrics)
+dim(my_nearZeroVar$Metrics)
+scBSseq <- scBSseq[-which(rownames(scBSseq)%in%rownames(my_nearZeroVar$Metrics)),]
+scBSseq[1:5,1:5]
+dim(scBSseq)
+
+my_nearZeroVar<-nearZeroVar(as.data.frame(t(scATACseq)), uniqueCut = 1)
+head(my_nearZeroVar$Metrics)
+dim(my_nearZeroVar$Metrics)
+scATACseq <- scATACseq[-which(rownames(scATACseq)%in%rownames(my_nearZeroVar$Metrics)),]
+scATACseq[1:5,1:5]
+dim(scATACseq)
+```
+
+Let us now have a look at the histograms of individual OMICs layers in order to decide which distribution they follow and how we should model these distributions with MOFA:
+
+```{r,fig.width=10,fig.height=8}
+hist(rowMeans(scRNAseq),breaks=100, main = "scRNAseq")
+hist(rowMeans(scBSseq), breaks = 100, main = "scBSseq")
+hist(rowMeans(scATACseq), breaks = 100, main = "scATACseq")
+```
+
+We conclude that while scRNAseq data look fairly Gaussian, we should probably model the scBSseq and scATACseq data as following Bernoulli distribution as they look quite bimodal indicating the binary nature of the data, i.e. methylated vs. unmethylated for scBSseq and open vs. close for scATACseq. We will further make the scBSseq and scATACseq data sets purely binary by encoding values below 50 as 0 and above 50 as 1, we need to remove low-variance features in this case again:
+
+```{r,fig.width=10,fig.height=8}
+scBSseq<-ifelse(scBSseq<50,0,1)
+scBSseq[1:5,1:5]
+my_nearZeroVar<-nearZeroVar(as.data.frame(t(scBSseq)))
+head(my_nearZeroVar$Metrics)
+dim(my_nearZeroVar$Metrics)
+scBSseq <- as.data.frame(scBSseq[-which(rownames(scBSseq)%in%rownames(my_nearZeroVar$Metrics)),])
+scBSseq[1:5,1:5]
+dim(scBSseq)
+
+scATACseq<-ifelse(scATACseq<50,0,1)
+my_nearZeroVar<-nearZeroVar(as.data.frame(t(scATACseq)))
+head(my_nearZeroVar$Metrics)
+dim(my_nearZeroVar$Metrics)
+scATACseq <- as.data.frame(scATACseq[-which(rownames(scATACseq)%in%rownames(my_nearZeroVar$Metrics)),])
+scATACseq[1:5,1:5]
+dim(scATACseq)
+```
+
+
+
+## Run MOFA on scNMT Data Set
+
+Let us continue with creating MOFA object:
+
+```{r,fig.width=10,fig.height=8}
+library("MOFA")
+omics<-list(scRNAseq=scRNAseq,scBSseq=scBSseq,scATACseq=scATACseq)
+lapply(omics,dim)
+MOFAobject <- createMOFAobject(omics)
+plotDataOverview(MOFAobject)
+```
+
+```{r,fig.width=10,fig.height=8}
+#DEFINE DATA OPTIONS
+DataOptions <- getDefaultDataOptions()
+DataOptions
+
+#DEFINE MODEL OPTIONS
+ModelOptions <- getDefaultModelOptions(MOFAobject)
+mydistr<-c("gaussian","bernoulli","bernoulli")
+names(mydistr)<-c("scRNAseq","scBSseq","scATACseq")
+ModelOptions$likelihood<-mydistr
+ModelOptions$numFactors<-20
+ModelOptions
+
+#DEFINE TRAIN OPTIONS
+TrainOptions <- getDefaultTrainOptions()
+TrainOptions$seed <- 2018
+# Automatically drop factors that explain less than 1% of variance in all omics
+TrainOptions$DropFactorThreshold <- 0.03
+TrainOptions$tolerance <- 0.1
+TrainOptions$maxiter<-1000
+TrainOptions$verbose<-TRUE
+TrainOptions
+```
+
+Let us run MOFA:
+
+```{r,fig.width=10,fig.height=8}
+MOFAobject <- prepareMOFA(MOFAobject, DataOptions = DataOptions, 
+                          ModelOptions = ModelOptions, TrainOptions = TrainOptions)
+MOFAobject <- runMOFA(MOFAobject)
+```
+
+Let us check the covariance of the OMICs layers:
+
+```{r,fig.width=10,fig.height=8}
+#ANALYZE RESULTS OF MOFA INTEGRATION
+r2 <- calculateVarianceExplained(MOFAobject)
+r2$R2Total
+head(r2$R2PerFactor)
+plotVarianceExplained(MOFAobject)
+```
+
+We can see that scRNAseq provides the largest variation (13%) in the total integrative OMICs scNMT data set, scBSseq and scATACseq contribute around 5% of variation. We also observe that MOFA selected 3 Latent Factors (LFs), scRNAseq contributes to all of them while second LF is driven by scBSseq and scATACseq contributes only to the first LF, scRNAseq covaries with scATACseq in the first LF while scRNAseq covary with scBSseq in the second LF. Now let us interpret the LFs by displaying the features associated with each LF:
+
+```{r,fig.width=10,fig.height=8}
+NumFactors<-dim(getFactors(MOFAobject))[2]
+
+plotWeights(MOFAobject, view = "scRNAseq", factor = 1)
+plotTopWeights(object = MOFAobject, view = "scRNAseq", factor = 1, nfeatures = 10)
+plotDataHeatmap(object = MOFAobject, view = "scRNAseq", factor = "LF1", features = 10, transpose = TRUE, show_colnames=TRUE, show_rownames=TRUE,cluster_cols = TRUE)
+
+plotWeights(MOFAobject, view = "scBSseq", factor = 2)
+plotTopWeights(object = MOFAobject, view = "scBSseq", factor = 2, nfeatures = 10)
+plotDataHeatmap(object = MOFAobject, view = "scBSseq", factor = "LF2", features = 10, transpose = TRUE, show_colnames=TRUE, show_rownames=TRUE,cluster_cols = TRUE)
+
+plotWeights(MOFAobject, view = "scATACseq", factor = 1)
+plotTopWeights(object = MOFAobject, view = "scATACseq", factor = 1, nfeatures = 10)
+plotDataHeatmap(object = MOFAobject, view = "scATACseq", factor = "LF1", features = 10, transpose = TRUE, show_colnames=TRUE, show_rownames=TRUE,cluster_cols = TRUE)
+```
+
+Let us also display the cells in the low-dimensional latent space:
+
+```{r,fig.width=10,fig.height=8}
+controls<-c("EB_P1D12","EB_P1E12","EB_P1F12","EB_P1G12","EB_P2B12","EB_P2D12","EB_P2E12","EB_P2F12","EB_P2G12",
+            "ESC_B12","ESC_C12","ESC_D12")
+colnames(scRNAseq)<-ifelse(colnames(scRNAseq)%in%controls,"CONTROL_CELL",colnames(scRNAseq))
+cell_types<-matrix(unlist(strsplit(colnames(scRNAseq),"_")),ncol=2,byrow=TRUE)[,1]
+
+plotFactorScatter(MOFAobject, factors = 1:2, color_by = as.factor(cell_types))
+```
+
+We conclude that the integrative OMICs approach can distinguish between all three types of cells: ESCs, EBs and Controls.
