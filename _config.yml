@@ -20,9 +20,13 @@ menu:
     url:
   - title: Schedule
     url: schedule
-  - title: Detailed syllabus
+  - title: Syllabus
     url: syllabus
-  - title: Pre-course material
-    url: precourse
-  - title: Travel info
-    url: travel
+  - title: Reading materials
+    url: reading_materials
+  - title: Software
+    url: software
+  - title: Practical information
+    url: practical
+  - title: Contact
+    url: contact
