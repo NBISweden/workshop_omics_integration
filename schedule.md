@@ -125,5 +125,5 @@ Room: Air, Alfa 2
 [15]: session_ml/FeatureSelectionIntegrOMICs/RaukR_GeneralStats_FeatureSelection.html
 [16]: session_ml/DimReductSingleCell/RaukR_GeneralStats_DimensionalityReduction.html
 [17]: session_topology/Lecture_topology.pdf
-[18]: session_topology/lab.ipynb
+[18]: session_topology/lab.html
 [19]: session_topology/topology_notes.md
