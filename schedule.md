@@ -38,19 +38,20 @@ Room: Air, Alfa 2
 
 **10.45 - 11.00** Coffee Break
 
-**11.00 - 12.00** Intro to biological network analysis and terminology (Rui, [all topology lectures][17])
+**11.00 - 12.00** Intro to biological network analysis and terminology (Rui, [lecture][17])
 
 **12.00 - 13.00** Lunch at [Nanna Svartz][11] 
 
-**13.00 - 15.00** Network inference, key properties (Rui)
+**13.00 - 15.00** Network inference, key properties (Rui, [lecture][21])
 
 **15.00 - 15.15** Coffee Break
 
-**15.15 - 15.45** Community analysis and Network visualization (Rui)
+**15.15 - 15.45** Community analysis and Network visualization (Rui, [lecture][22])
 
-**15.45 - 17.00** **Workshop:** Biological network analysis (Rui, [notebook][18] and [instructions][19])
+**15.45 - 17.00** **Workshop:** Biological network analysis (Rui, [jupyter.ipynb][20], [html][18], and [instructions][19])
 
-**18.00 - .....** Course dinner at [Grappa Bar][12]
+**18.00 - 24.00** Course dinner at [Grappa Bar][12]
+
 
 
 ##### Wednesday 2019-09-11
@@ -124,6 +125,9 @@ Room: Air, Alfa 2
 [14]: session_ml/UnsupervisedOMICsIntegration/UnsupervisedOMICsIntegration.html
 [15]: session_ml/FeatureSelectionIntegrOMICs/RaukR_GeneralStats_FeatureSelection.html
 [16]: session_ml/DimReductSingleCell/RaukR_GeneralStats_DimensionalityReduction.html
-[17]: session_topology/Lecture_topology.pdf
+[17]: session_topology/1Intro.pdf
 [18]: session_topology/lab.html
 [19]: session_topology/topology_notes.md
+[20]: session_topology/lab.ipynb
+[21]: session_topology/2Inference.pdf
+[22]: session_topology/3Community.pdf
