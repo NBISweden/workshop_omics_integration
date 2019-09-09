@@ -17,11 +17,11 @@ Room: Air, Alfa 2
 
 **09.00 - 09.20** Welcome ([Rui][5], [Ashfaq][6], [Nikolay][7], [slides][23])
 
-**09.20 - 10.00** Omics Data Management (Ashfaq)
+**09.20 - 10.00** Omics Data Management (Ashfaq, [lecture][24])
 
 **10.00 - 10.15** Break
 
-**10.15 - 12.00** Intro, Supervised methods (Nikolay, [lecture][13] and [feature selection notes][15])
+**10.15 - 12.00** Introduction, Supervised methods ([lecture][13] and [files][25]), feature selection ([lecture][15] and [files][26]) (Nikolay)
 
 **12.00 - 13.00** Lunch at [Nanna Svartz][11] 
 
@@ -29,7 +29,7 @@ Room: Air, Alfa 2
 
 **15.00 - 15.15** Coffee Break
 
-**15.15 - 17.00** Unsupervised methods (Nikolay, [lecture][14] and [dimensionality reduction notes][16])
+**15.15 - 17.00** Unsupervised methods ([lecture][14] and [files][27]), dimensionality reduction ([lecture][16] and [files][28]), and deep learning ([files][29]) (Nikolay)
 
 
 ##### Tuesday 2019-09-10
@@ -132,3 +132,9 @@ Room: Air, Alfa 2
 [21]: session_topology/2Inference.pdf
 [22]: session_topology/3Community.pdf
 [23]: session_dm/welcome.pdf
+[24]: session_dm/Data-management-for-data-integration.html
+[25]: session_ml/SupervisedOMICsIntegration.zip
+[26]: session_ml/FeatureSelectionIntegrOMICs.zip
+[27]: session_ml/UnsupervisedOMICsIntegration.zip
+[28]: session_ml/DimReductSingleCell.zip
+[29]: session_ml/DeepLearningDataIntegration.zip
