@@ -17,7 +17,7 @@ Room: Air, Alfa 2
 
 **09.00 - 09.20** Welcome ([Rui][5], [Ashfaq][6], [Nikolay][7], [slides][23])
 
-**09.20 - 10.00** Omics Data Management (Ashfaq, [Lecture][24])
+**09.20 - 10.00** Omics Data Management (Ashfaq, [lecture][24])
 
 **10.00 - 10.15** Break
 
