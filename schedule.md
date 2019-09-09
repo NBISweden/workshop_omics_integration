@@ -29,7 +29,7 @@ Room: Air, Alfa 2
 
 **15.00 - 15.15** Coffee Break
 
-**15.15 - 17.00** Unsupervised methods (Nikolay: [unsupervised methods lecture][14] and [files][27]; [dimensionality reduction notes][16] and [files][28])
+**15.15 - 17.00** Unsupervised methods ([lecture][14] and [files][27]), dimensionality reduction ([lecture][16] and [files][28]), and deep learning ([files][29]) (Nikolay)
 
 
 ##### Tuesday 2019-09-10
@@ -137,3 +137,4 @@ Room: Air, Alfa 2
 [26]: session_ml/FeatureSelectionIntegrOMICs.zip
 [27]: session_ml/UnsupervisedOMICsIntegration.zip
 [28]: session_ml/DimReductSingleCell.zip
+[29]: session_ml/DeepLearningDataIntegration.zip
