@@ -31,7 +31,11 @@ Room: Air, Alfa 2
 
 **15.00 - 15.15** Coffee Break
 
-**15.15 - 17.00** Unsupervised methods ([lecture][32], [code][14] and [files][27]), dimensionality reduction ([lecture][33], [code][16] and [files][28]), and deep learning ([files][29]) (Nikolay)
+**15.15 - 16.00** Unsupervised methods ([lecture][32], [code][14] and [files][27]), dimensionality reduction ([lecture][33], [code][16] and [files][28]), and deep learning ([files][29]) (Nikolay)
+
+**16.00 - 16.05** Break
+
+**16.05 - 17.00** Unsupervised methods, dimensionality reduction, and deep learning - Part II (Nikolay)
 
 **<b>\*</b> Note:** if you cannot see one of the pages because you've reached the free member preview,
 open the page in "Private Browsing" mode in your web browser.  
@@ -47,7 +51,11 @@ open the page in "Private Browsing" mode in your web browser.
 
 **12.00 - 13.00** Lunch at [Nanna Svartz][11] 
 
-**13.00 - 15.00** Network inference, key properties (Rui, [lecture][21])
+**13.00 - 14.00** Network inference, key properties (Rui, [lecture][21])
+
+**14.00 - 14.05** Break
+
+**14.05 - 15.00** Network inference, key properties - Part II
 
 **15.00 - 15.15** Coffee Break
 
@@ -67,11 +75,15 @@ open the page in "Private Browsing" mode in your web browser.
 
 **10.15 - 11.00** Introduction to metabolic modeling (Ashfaq)
 
-**11.00 - 12.00** Omics data integration with human metabolic Models (Ashfaq)
+**11.00 - 11.05** Break
+
+**11.05 - 12.00** Omics data integration with human metabolic Models (Ashfaq)
 
 **12.00 - 13.00** Lunch at [Nanna Svartz][11] 
 
 **13.00 - 14.00** **Seminar:** [Jonathan Robinson][3] - *"Context specific analysis in metabolic modeling"*
+
+**14.00 - 14.05** Break
 
 **14.00 - 14.30** **Seminar:** [Jonathan Robinson][3] - *"Metabolic Atlas"*
 
