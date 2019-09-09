@@ -1,0 +1,22 @@
+channels:
+
+  - bioconda
+  - conda-forge
+  - defaults
+  - r
+  - rdonnelly
+
+dependencies:
+  
+    # Base installations  
+  - r-base=3.6
+  - rstudio=1.1
+
+  # Packages
+  - r-base=3.6
+  - bioconductor-mofa=1.0
+  - mofapy=1.2
+  - r-glmnet=2.0
+  - r-matrixstats=0.55
+  - r-reticulate=1.13
+  - r-rtsne=0.15
