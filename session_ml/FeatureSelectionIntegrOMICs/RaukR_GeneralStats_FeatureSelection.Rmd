@@ -43,8 +43,14 @@ Y<-read.table("GTEX_SkeletalMuscles_157Samples_Gender.txt",header=TRUE,sep="\t")
 summary(Y)
 length(Y)
 ```
+The data set used here includes 99 Males and 58 Females, it is not perfectly balanced but still not too bad. To visualize the samples, let us display a PCA plot of the 157 samples. We will use the package `mixOmics` to do this. 
+```{r}
+##Download the file "mixOmics_6.3.1.tar.gz"
+##Install it in R using:
+install.packages(mixOmics_6.3.1.tar.gz, repos = NULL, type="source")
+```
 
-The data set used here includes 99 Males and 58 Females, it is not perfectly balanced but still not too bad. To visualize the samples, let us display a PCA plot of the 157 samples.
+Now we run the PCA:
 
 ```{r PCA,fig.width=10,fig.height=8}
 library("mixOmics")
