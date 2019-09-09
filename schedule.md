@@ -9,10 +9,13 @@ title:  'Schedule'
 SciLifeLab, Tomtebodavagen 23A, 171 65 Stockholm. 
 Room: Air, Alfa 2  
   
-  
+
   
 ##### Monday 2019-09-09
-
+  
+Note: if you cannot see one of the pages because you've reached the free member preview,
+open the page in "Private Browsing" mode in your web browser.  
+  
 **08.45 - 09.00** Pre-course coffee
 
 **09.00 - 09.20** Welcome ([Rui][5], [Ashfaq][6], [Nikolay][7], [slides][23])
@@ -21,7 +24,7 @@ Room: Air, Alfa 2
 
 **10.00 - 10.15** Break
 
-**10.15 - 12.00** Introduction, Supervised methods ([lecture][13] and [files][25]), feature selection ([lecture][15] and [files][26]) (Nikolay)
+**10.15 - 12.00** Introduction, Supervised methods ([lecture][31], [code][13] and [files][25]), feature selection ([lecture][30], [code][15] and [files][26]) (Nikolay)
 
 **12.00 - 13.00** Lunch at [Nanna Svartz][11] 
 
@@ -29,7 +32,7 @@ Room: Air, Alfa 2
 
 **15.00 - 15.15** Coffee Break
 
-**15.15 - 17.00** Unsupervised methods ([lecture][14] and [files][27]), dimensionality reduction ([lecture][16] and [files][28]), and deep learning ([files][29]) (Nikolay)
+**15.15 - 17.00** Unsupervised methods ([lecture][32], [code][14] and [files][27]), dimensionality reduction ([lecture][33], [code][16] and [files][28]), and deep learning ([files][29]) (Nikolay)
 
 
 ##### Tuesday 2019-09-10
@@ -138,3 +141,7 @@ Room: Air, Alfa 2
 [27]: session_ml/UnsupervisedOMICsIntegration.zip
 [28]: session_ml/DimReductSingleCell.zip
 [29]: session_ml/DeepLearningDataIntegration.zip
+[30]: https://towardsdatascience.com/select-features-for-omics-integration-511390b7e7fd
+[31]: https://towardsdatascience.com/supervised-omics-integration-2158e1a6d23f
+[32]: https://towardsdatascience.com/unsupervised-omics-integration-688bf8fa49bf
+[33]: https://towardsdatascience.com/reduce-dimensions-for-single-cell-4224778a2d67
