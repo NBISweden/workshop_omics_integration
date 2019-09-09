@@ -1,0 +1,301 @@
+---
+title: "Tutorial"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Omics data management introduction
+
+
+While there is no formal definition of "Omics" data refers to any data produced from high throughput experiments from biological and clinical samples. There are wide range of technologies including but not exclusive to Next Gneration sequencing, microarrays, mass spectrometry and flourescent/antibody assays. The most pouplar types of data inludes transcriptomics, genomics, proteomics, metabolomics and methylation. There are data processing piplines available for each of the platforms and all of these platforms have their limitations and strengths. Throughput for each of these platforms and spatiotemporal biological effects lead to incomplete and in certain cases contrasting information. For example transcriptomics measurement may only give a snapshot of the tissue's transcriptome at a given time and may not agree with results from proteomics due tranlation or localization of protein. Technical differences such as dynamic range and coverage may also lead to data that is hopefully complementary across different omics technology.
+
+## Basic types in R
+There are three major classes of object in base R including 1) Vectors 2) Matrices and 3) Lists 
+
+1) Vectors are objects containing sets of elements. The elements in these sets can be numbers, integers, strings and chanracters.
+
+### Create a vector of ten elemenst (numbers) and find class 
+```{r, warning=FALSE}
+suppressMessages(library(tidyverse))
+suppressMessages(library(biomaRt))
+suppressMessages(library(GenomicFeatures))
+suppressMessages(library(GenomicRanges))
+suppressMessages(library(BSgenome))
+suppressMessages(library(DESeq2))
+library(IRanges)
+library(MultiAssayExperiment)
+library(SummarizedExperiment)
+```
+
+
+```{r}
+x <- c("1.1","2.5","5")
+print(x)
+```
+
+```{r}
+as.numeric(x)
+```
+
+```{r}
+as.numeric(factor(x))
+```
+
+```{r}
+# Vectors 
+x <- c(1:10)
+class(x)
+as.numeric(x) %>% class()
+```
+
+```{r}
+x1 <- sample(LETTERS[1:5], 10, replace = TRUE)
+names(x) <-x1
+str(x)
+str(as.factor(x))
+```
+
+R has a special class of vectors called factors. Factors hold categorical data and are used in dummy coding of variables for statitical analyses. The reason for dummy coding is that the group names can be long and a suroce of bugs/confusion in data analyses. When a vector of strings (group names) is converted into factors, it assigns dummy codes in an alphabetical order, not in the order they appear. This can lead to confusion and wrong comparisons if the reference group (e.g., "control") starting with letter "c" woulld be given a code 3 if there are two groups names starting with letter "a" and "b". R allows explicit way to code your factor variables. This is relevant when we create design matices for Limma and several other statitical analyses.
+
+### Convert a vector into factor and Explicitly change labels for the levels.
+
+Here is a way overcome the problem of levels assignment when you convetr a variable into a factor for statitical analyses.
+ 
+```{r}
+
+# Create a factor variable with explicit names 
+x2 <- factor(x1, 
+       levels = c("A", "B", "C", "D", "E"),
+       labels = c("g", "h", "i", "j", "k")
+         )
+str(x2) # observe the assignment of levels
+
+# change the level assignemens
+x3 <- factor(x1, 
+       levels = c("E", "D", "C", "B", "A"),
+       labels = c("5", "4", "3", "2", "1")
+         )
+str(x3)
+x4 <- factor(x1, 
+       levels = c("A", "B", "C", "D", "E"),
+       labels = c("1", "2", "3", "4", "5")
+         )
+```
+
+```{r}
+y <- sample(c(1:5), 10, replace = TRUE)
+
+y1 <- factor(y, 
+       levels = c("1", "2", "3", "4", "5"),
+       labels = c("A", "B", "C", "D", "E")
+         )
+```
+
+## S3 and S4 classes 
+
+**The S3 and S4 object system**
+R has three object oriented (OO) systems: [[S3]], [[S4]] and [[R5]]. We will cover S3 and S4 in this tutorials.
+
+Central to any object-oriented system are the concepts of class and method. A class defines a type of object, describing what properties it possesses, how it behaves, and how it relates to other types of objects. Every object must be an instance of some class. A method is a function associated with a particular type of object.
+
+S3 implements a style of object oriented programming called generic-function OO. This is different to most programming languages, like Java, C++ and C#, which implement message-passing OO. In message-passing style, messages (methods) are sent to objects and the object determines which function to call. Typically this object has a special appearance in the method call, usually appearing before the name of the method/message: e.g. canvas.drawRect("blue"). S3 is different. While computations are still carried out via methods, a special type of function called a generic function decides which method to call. Methods are defined in the same way as a normal function, but are called in a different way, as we’ll see shortly.
+
+The primary use of OO programming in R is for print, summary and plot methods. These methods allow us to have one generic function, e.g. print(), that displays the object differently depending on its type: printing a linear model is very different to printing a data frame."
+
+**The S4 object system**
+
+### Example S3 class object
+
+Write the R code required to add two plus two:
+
+```{r two-plus-two, exercise=TRUE}
+
+X <- matrix(rnorm(30*4),30,4) 
+
+X.coefs <- matrix(rnorm(30*4),30,4)
+
+Y<- rowSums(X*X.coefs)
+
+fit<- lm(Y~X)
+
+summary(fit)
+```
+Our aim here is some data structures to handle output from different platforms and framework for manipulation from 
+
+### Methods for S3 and S4 classes
+
+
+## IRAnges and GRanges objects : GRanges-class {GenomicRanges}
+When analyzing data with particular sequences such as letters a to z, we are often interested in extracting subsequences for variou purposes. Iranges and Granges objects and associated methods/functions provide easy way of manipulating such data.
+Two central classes are available in Bioconductor for representing ranges: the IRanges class defined in the IRanges package for representing ranges defined on a single space, and the GRanges class defined in the GenomicRanges package for representing ranges defined on multiple spaces.
+
+```{r}
+
+ir1 <- IRanges(start=1:10, width=10:1)
+ir1
+ir2 <- IRanges(start=1:10, end=11)
+ir3 <- IRanges(end=11, width=10:1)
+start(ir1)
+end(ir1)
+ir3
+```
+
+
+### SummarizedExperiment: RangedSummarizedExperiment objects
+
+We almost alwasy get genomics ranges from database such as bioMart.
+
+-- Lets CREATE A TXDB DATABASE FROM BIOMART FROM A SET OF GENES 
+
+We learn  `makeTxDbFromBiomart``
+
+-- SAVE THE DATA TO A LOCAL DRIVE- REMOVE FROM THE ENVIROMNET AND LOAD THE DATABSE AGAIN.
+
+`SaveDB`and `loadDb`
+
+-- 
+```{r add-function, exercise=TRUE, exercise.lines = 5}
+
+
+Testes_genes<- c("ENSG00000175646", "ENSG00000122304", "ENSG00000228075", "ENSG00000234186","ENSG00000203784","ENSG00000170777","ENSG00000118245","ENSG00000164113","ENSG00000198033")
+
+HouseKeeping_genes<-c("ENSG00000131473","ENSG00000122729","ENSG00000100412","ENSG00000062485","ENSG00000150768","ENSG00000091140","ENSG00000119689","ENSG00000091483","ENSG00000138413","ENSG00000182054")
+
+my_filter <- list(ensembl_gene_id=c(Testes_genes,HouseKeeping_genes))
+
+if (interactive()) {
+    txdb_1 <- makeTxDbFromBiomart(biomart = "ENSEMBL_MART_ENSEMBL",    
+                                 dataset="hsapiens_gene_ensembl", 
+                                filter =my_filter
+                                )
+    txdb_1  # note that these annotations match the GRCh38 genome assembly
+}
+
+#saveDb(txdb_1, file = "~/Documents/Courses/Multiomics/DataManagementTutorial/Rxdb_houseKeepingTestes_1.Rdata")
+
+rm(txdb_1)
+
+```
+
+```{r}
+methods(class = "SummarizedExperiment")
+```
+
+
+# Load txdb object and create summarized Experiment
+
+```{r}
+
+### Here we load the the txdb we created earlier
+txdb_1<-loadDb("~/Documents/Courses/Multiomics/DataManagementTutorial/Rxdb_houseKeepingTestes_1.Rdata")
+
+
+### Now we extract the genomic ranges from the txdb to 
+GRList <- genes(txdb_1)
+
+Hiseq_Phen<- read.table("~/Documents/Courses/Multiomics/Data/Phenotypes.txt" , stringsAsFactors = FALSE)
+
+counts<- read.table("~/Documents/Courses/Multiomics/Data/Counts.txt" , stringsAsFactors = FALSE)
+TPMs<- read.table("~/Documents/Courses/Multiomics/Data/TPMs.txt" , stringsAsFactors = FALSE)
+
+rse <- SummarizedExperiment(assays=SimpleList(counts=counts, TPM=TPMs),rowRanges=GRList, colData=Hiseq_Phen)
+
+```
+
+## Subset, cbind, rbind, findoverlaps## Acess Subset by Phenotype, ## Access and subset by Row data
+
+```{r}
+rse_hk <- rse[rownames(rse) %in% HouseKeeping_genes,]
+  
+rse_hk_symp <- rse[rownames(rse) %in% HouseKeeping_genes, rse$sympt_asympt=="Symptomatic"]
+
+```
+
+
+## Multi Assay Experiment
+
+```{r}
+RNA_seq<-read_rds("/Users/cob-aaf/Documents/Projects/PP_4730/Data_Integration_Paper/Pladues_Modelling/RNA_seq/tximport_salmon.RData")
+Phenotypes<- read_rds("/Users/cob-aaf/Documents/Projects/PP_4730/Data_Integration_Paper/Pladues_Modelling/RNA_seq/phenotypes.RData")
+Big_database<-readRDS("/Users/cob-aaf/Documents/Projects/PP_4730/Big_database/Omics_plaques.RDS")
+
+txdb_RNAse<-loadDb("~/Documents/Courses/Multiomics/Data/txdb_RNAseq_1.Rdata")
+
+ensemblID = str_split(rownames(RNA_seq$abundance), "[.]", simplify= TRUE)[,1]
+
+rownames(RNA_seq$abundance)<-ensemblID
+rownames(RNA_seq$counts)<-ensemblID
+GRList <- genes(txdb_RNAse)
+
+
+x<-names(GRList)
+
+rse <- SummarizedExperiment(assays=SimpleList(counts=RNA_seq$counts[x,], TPM=RNA_seq$abundance[x,]),rowRanges=GRList, colData=Phenotypes)
+
+#Hiseq<-  dates[rowData(dates)$month == "January", ]# subset(rse, rse$npd=="R")
+Hiseq<- rse[, rse$npd=="R"]
+Nextseq<- rse[, rse$npd!="R"]
+
+HMR_genes <- read.table("~/Documents/Courses/Multiomics/Data/HMR_genes.txt", quote="'", comment.char="", stringsAsFactors=FALSE,col.names = c("ensembleID"))
+
+HMR_genes_teste<-c(HMR_genes$ensembleID,Teste_genes)
+HiSeq_HMR_testes<-Hiseq[rownames(Hiseq)%in%HMR_genes_teste,]
+
+```
+
+
+
+```{r}
+
+patient.data <- as.data.frame(Big_database$Clinical)
+
+rownames(patient.data)<-patient.data$Patientcode
+
+(exprmap_Hiseq <- data.frame(primary=as.character(Hiseq$patientcode),
+                       colname=as.character(Hiseq$sample_id),
+                       stringsAsFactors = FALSE))
+
+(exprmap_NextSeq <- data.frame(primary=as.character(Nextseq$patientcode),
+                       colname=as.character(Nextseq$sample_id),
+                       stringsAsFactors = FALSE))
+
+
+
+Biomarkers_Plaques<-Big_database$Biomarkers_Plaques[Big_database$Biomarkers_Plaques %>% is.na() %>% rowSums() < 92,]
+
+(plq_biomarker_map <- data.frame(primary=Biomarkers_Plaques$Patientcode,
+                       colname=Biomarkers_Plaques$Patientcode,
+                       stringsAsFactors = FALSE))
+
+Biomarkers_Plaques<-Biomarkers_Plaques[,-1] %>% as.matrix()
+rownames(Biomarkers_Plaques)<-plq_biomarker_map$primary
+
+
+```
+
+
+```{r}
+listmap1 <- list(exprmap_Hiseq, exprmap_NextSeq,plq_biomarker_map)
+names(listmap1)<- c("Hiseq_RNAseq", "NextSeq_RNAseq","plaque_biomarkers")
+objlist1 <- list("Hiseq_RNAseq" = Hiseq, "NextSeq_RNAseq"= Nextseq, "plaque_biomarkers"=Biomarkers_Plaques[,-1])
+dfmap1 <- listToMap(listmap1)
+myMultiAssay1 <- MultiAssayExperiment(objlist1, patient.data, dfmap1)
+
+methods(class="MultiAssayExperiment")
+
+```
+
+```{r}
+myMultiAssay2<-myMultiAssay1[complete.cases(myMultiAssay1)]
+```
+
+
+
+
+
+
