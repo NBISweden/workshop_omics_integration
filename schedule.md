@@ -20,7 +20,7 @@ open the page in "Private Browsing" mode in your web browser.
 
 **09.00 - 09.20** Welcome ([Rui][5], [Ashfaq][6], [Nikolay][7], [slides][23])
 
-**09.20 - 10.00** Omics Data Management (Ashfaq, [lecture][24])
+**09.20 - 10.00** Omics Data Management (Ashfaq, [lecture][24], [tutorial][34], and [files][35])
 
 **10.00 - 10.15** Break
 
@@ -145,3 +145,5 @@ open the page in "Private Browsing" mode in your web browser.
 [31]: https://towardsdatascience.com/supervised-omics-integration-2158e1a6d23f
 [32]: https://towardsdatascience.com/unsupervised-omics-integration-688bf8fa49bf
 [33]: https://towardsdatascience.com/reduce-dimensions-for-single-cell-4224778a2d67
+[34]: session_dm/DataManagementTutorial.Rmd
+[35]: session_dm/dm_data.zip
