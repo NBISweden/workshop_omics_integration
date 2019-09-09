@@ -21,7 +21,7 @@ Room: Air, Alfa 2
 
 **10.00 - 10.15** Break
 
-**10.15 - 12.00** Intro, Supervised methods (Nikolay: [supervised methods lecture][13] and [files][25]; [feature selection notes][15] and [files][26])
+**10.15 - 12.00** Introduction, Supervised methods ([lecture][13] and [files][25]), feature selection ([lecture][15] and [files][26]) (Nikolay)
 
 **12.00 - 13.00** Lunch at [Nanna Svartz][11] 
 
