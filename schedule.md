@@ -17,7 +17,7 @@ Room: Air, Alfa 2
 
 **09.00 - 09.20** Welcome ([Rui][5], [Ashfaq][6], [Nikolay][7], [slides][23])
 
-**09.20 - 10.00** Omics Data Management (Ashfaq, [Lecture](https://github.com/NBISweden/workshop_omics_integration/blob/master/_hidden/session_datam/Data-management-for-data-integration.html))
+**09.20 - 10.00** Omics Data Management (Ashfaq, [Lecture][24])
 
 **10.00 - 10.15** Break
 
@@ -132,3 +132,4 @@ Room: Air, Alfa 2
 [21]: session_topology/2Inference.pdf
 [22]: session_topology/3Community.pdf
 [23]: session_dm/welcome.pdf
+[24]: session_dm/Data-management-for-data-integration.html
