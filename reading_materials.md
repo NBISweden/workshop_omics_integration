@@ -17,6 +17,8 @@ the [software](#software) that will be used in the course.
   <br/><br/>
 
 **Integration**
+Note: if you cannot see one of the pages because you've reached the free member preview,
+open the page in "Private Browsing" mode in your web browser.
 - **!** [Feature selection][7] 
 - **!** [Dimensionality reduction][8] 
 - **!** [Supervised Omics integration][9] 
