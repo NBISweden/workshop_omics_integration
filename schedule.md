@@ -13,8 +13,7 @@ Room: Air, Alfa 2
   
 ##### Monday 2019-09-09
   
-Note: if you cannot see one of the pages because you've reached the free member preview,
-open the page in "Private Browsing" mode in your web browser.  
+
   
 **08.45 - 09.00** Pre-course coffee
 
@@ -24,7 +23,7 @@ open the page in "Private Browsing" mode in your web browser.
 
 **10.00 - 10.15** Break
 
-**10.15 - 12.00** Introduction, Supervised methods ([lecture][31], [code][13] and [files][25]), feature selection ([lecture][30], [code][15] and [files][26]) (Nikolay)
+**10.15 - 12.00** Introduction, Supervised methods ([lecture][31]<b>\*</b>, [code][13] and [files][25]), feature selection ([lecture][30], [code][15] and [files][26]) (Nikolay)
 
 **12.00 - 13.00** Lunch at [Nanna Svartz][11] 
 
@@ -33,6 +32,9 @@ open the page in "Private Browsing" mode in your web browser.
 **15.00 - 15.15** Coffee Break
 
 **15.15 - 17.00** Unsupervised methods ([lecture][32], [code][14] and [files][27]), dimensionality reduction ([lecture][33], [code][16] and [files][28]), and deep learning ([files][29]) (Nikolay)
+
+**<b>\*</b> Note:** if you cannot see one of the pages because you've reached the free member preview,
+open the page in "Private Browsing" mode in your web browser.  
 
 
 ##### Tuesday 2019-09-10
