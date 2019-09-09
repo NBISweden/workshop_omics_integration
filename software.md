@@ -5,7 +5,13 @@ title:  Software
 
 #### Software
 The course will be taught using different programming languages depending on the tools available. You'll need to run
-different software, which is easier if you use our [conda environment](environment.yml) (further instructions [here][6]). 
+different software, which is easier if you use our conda environments (further instructions [here][6]). For each session, use
+the following:
+
+- [env-machine-learning.yml][1]
+- [env-networks.yml][2]
+- [env-modeling.yml][3]
+
 
 If you prefer manual installation, we suggest the installation of the following:
 
@@ -18,8 +24,11 @@ If you prefer manual installation, we suggest the installation of the following:
 If you have not used python, a good option is to install [Conda][7].
 
 You do not need to know how to program in both R or Python to follow the lessons. If you would like to get started in one of the programming languages 
-have a look at the bonus material in the [Reading Materials page][reading_materials.md]. 
+have a look at the bonus material in the [Reading Materials page](reading_materials.md). 
 
+[1]: env-machine-learning.yml
+[2]: env-networks.yml
+[3]: env-modeling.yml
 [6]: conda_instructions.md
 [7]: https://docs.conda.io/projects/conda/en/latest/user-guide/install/download.html
 [41]: https://www.python.org/downloads/
