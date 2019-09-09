@@ -128,7 +128,7 @@ open the page in "Private Browsing" mode in your web browser.
 [12]: http://www.grappabar.nu/
 [13]: session_ml/SupervisedOMICsIntegration/supervised_omics_integr_CLL.html
 [14]: session_ml/UnsupervisedOMICsIntegration/UnsupervisedOMICsIntegration.html
-[15]: session_ml/FeatureSelectionIntegrOMICs/RaukR_GeneralStats_FeatureSelection.html
+[15]: session_ml/FeatureSelectionIntegrOMICs/OmicsInt_GeneralStats_FeatureSelection.html
 [16]: session_ml/DimReductSingleCell/RaukR_GeneralStats_DimensionalityReduction.html
 [17]: session_topology/1Intro.pdf
 [18]: session_topology/lab.html
