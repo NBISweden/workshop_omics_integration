@@ -5,7 +5,7 @@ title:  Software
 
 #### Software
 The course will be taught using different programming languages depending on the tools available. You'll need to run
-different software, which is easier if you use our conda environments (further instructions [here][6]). For each session, use
+different software, which is much easier if you use a conda environment (further instructions [here][6]). For each session, use
 the following:
 
 - [env-machine-learning.yml][1]

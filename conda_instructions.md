@@ -24,7 +24,11 @@ You can [read more](https://nbis-reproducible-research.readthedocs.io/en/latest/
 
 You should start by installing Conda. We suggest installing either Miniconda, or Anaconda if storage is 
 not an issue. After [installing Conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html), 
-download the [Conda environment file][1] and put it in your working folder. 
+download one of the Conda environment files and put it in your working folder. You will be using one of the following:
+
+- [env-machine-learning.yml][2]
+- [env-networks.yml][3]
+- [env-modeling.yml][4]
 
 **Create and activate the environment**
 
@@ -63,4 +67,7 @@ This enables you to run any of the software that was installed into your environ
 
 After you've ran all your analyses, deactivate the environment by typing `conda deactivate`.
 
-[1]: https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/master/environment.yml?token=AGCOMEWG2R7VSPVYIVTDVIC5OOVBC
+[2]: env-machine-learning.yml
+[3]: env-networks.yml
+[4]: env-modeling.yml
+
