@@ -13,6 +13,7 @@ dependencies:
   - rstudio
 
   # Packages
+  - asmeurer::r-rgl
   - bioconductor-mofa
   - mofapy
   - r-corpcor
@@ -25,6 +26,3 @@ dependencies:
   - r-reticulate
   - r-rtsne
   - r-tidyr
-  
-  # Incompatible packages (r-base <= 3.5.2)
-  # - r-rgl
