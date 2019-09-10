@@ -61,6 +61,9 @@ You then need to activate your environment, like so:
 conda activate project_myproject
 ```
 
+In windows you need to specify the full directory: `conda activate c:/path/to/my/project_myproject`
+
+
 This enables you to run any of the software that was installed into your environment; from this point on you can run any of the contents from the course. For instance, you can directly launch RStudio by typing `rstudio`.
 
 **Deactivate the environment**

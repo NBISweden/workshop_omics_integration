@@ -20,3 +20,9 @@ dependencies:
   - r-matrixstats=0.55
   - r-reticulate=1.13
   - r-rtsne=0.15
+  - bioconductor-mofa
+
+  #needed for installing mixomics from source:
+  - r-tidyr
+  - r-rarpack
+  - r-rgl
