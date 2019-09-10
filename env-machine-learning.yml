@@ -9,14 +9,20 @@ channels:
 dependencies:
   
     # Base installations  
-  - r-base=3.6
-  - rstudio=1.1
+  - r-base
+  - rstudio
 
   # Packages
-  - r-base=3.6
-  - bioconductor-mofa=1.0
-  - mofapy=1.2
-  - r-glmnet=2.0
-  - r-matrixstats=0.55
-  - r-reticulate=1.13
-  - r-rtsne=0.15
+  - asmeurer::r-rgl
+  - bioconductor-mofa
+  - mofapy
+  - r-corpcor
+  - r-ellipse
+  - r-glmnet
+  - r-gridextra
+  - r-igraph
+  - r-matrixstats
+  - r-rarpack
+  - r-reticulate
+  - r-rtsne
+  - r-tidyr

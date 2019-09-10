@@ -61,7 +61,7 @@ open the page in "Private Browsing" mode in your web browser.
 
 **15.15 - 15.45** Community analysis and Network visualization (Rui, [lecture][22])
 
-**15.45 - 17.00** **Workshop:** Biological network analysis (Rui, [jupyter.ipynb][20], [html][18], and [instructions][19])
+**15.45 - 17.00** **Workshop:** Biological network analysis (Rui, [jupyter.ipynb][20], [html][18], [data](session_topology/data.zip) and [instructions][19]. Optionally [lab.Rmd](session_topology/lab.Rmd))
 
 **18.00 - 24.00** Course dinner at [Grappa Bar][12]
 
@@ -141,7 +141,7 @@ open the page in "Private Browsing" mode in your web browser.
 [13]: session_ml/SupervisedOMICsIntegration/supervised_omics_integr_CLL.html
 [14]: session_ml/UnsupervisedOMICsIntegration/UnsupervisedOMICsIntegration.html
 [15]: session_ml/FeatureSelectionIntegrOMICs/OmicsInt_GeneralStats_FeatureSelection.html
-[16]: session_ml/DimReductSingleCell/RaukR_GeneralStats_DimensionalityReduction.html
+[16]: session_ml/DimReductSingleCell/OmicsInt_GeneralStats_DimensionalityReduction.html
 [17]: session_topology/1Intro.pdf
 [18]: session_topology/lab.html
 [19]: session_topology/topology_notes.md
