@@ -9,7 +9,7 @@ different software, which is much easier if you use a conda environment (further
 the following:
 
 - [env-machine-learning.yml][1]
-- [env-networks.yml][2] (for Unix/OSX), and [env-networks.yml][4]
+- [env-networks.yml][2] (for Unix/OSX), and [env-networks.yml][4] (for windows)
 - [env-modeling.yml][3]
 
 [Google Doc](https://docs.google.com/document/d/1N2yNX8FTAY0W3Y7ypOrWHU577Ri7Y5LxAu-jIAe2b7Y/edit?usp=sharing) to share text.
