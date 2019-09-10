@@ -27,7 +27,7 @@ not an issue. After [installing Conda](https://docs.conda.io/projects/conda/en/l
 download one of the Conda environment files and put it in your working folder. You will be using one of the following:
 
 - [env-machine-learning.yml][2]
-- [env-networks.yml][3]
+- [env-networks.yml][3] (for Unix/OSX), and [env-networks.yml][1] (for windows)
 - [env-modeling.yml][4]
 
 **Create and activate the environment**
@@ -67,6 +67,7 @@ This enables you to run any of the software that was installed into your environ
 
 After you've ran all your analyses, deactivate the environment by typing `conda deactivate`.
 
+[1]: env-networks_windows.yml
 [2]: env-machine-learning.yml
 [3]: env-networks.yml
 [4]: env-modeling.yml
