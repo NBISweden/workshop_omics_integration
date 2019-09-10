@@ -9,7 +9,7 @@ different software, which is much easier if you use a conda environment (further
 the following:
 
 - [env-machine-learning.yml][1]
-- [env-networks.yml][2]
+- [env-networks.yml][2] (for Unix/OSX), and [env-networks.yml][4]
 - [env-modeling.yml][3]
 
 
@@ -29,6 +29,7 @@ have a look at the bonus material in the [Reading Materials page](reading_materi
 [1]: env-machine-learning.yml
 [2]: env-networks.yml
 [3]: env-modeling.yml
+[4]: env-networks_windows.yml
 [6]: conda_instructions.md
 [7]: https://docs.conda.io/projects/conda/en/latest/user-guide/install/download.html
 [41]: https://www.python.org/downloads/
