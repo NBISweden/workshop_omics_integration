@@ -11,7 +11,6 @@ dependencies:
     #R
     - r-base=3.5.1
     - rstudio=1.2.502 #rdonnelly channel
-    - cytoscape=3.7.2
 
     # Python and general packages
     - python=3.7
