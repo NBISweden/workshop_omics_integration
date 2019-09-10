@@ -24,6 +24,7 @@ open the page in "Private Browsing" mode in your web browser.
 - **!** [Supervised Omics integration][9] 
 - **!** [Unsupervised Omics integration][10] 
 - [Multi-omics approaches to disease][36]
+- [Nikolay's notes from the board][42]
   <br/><br/>
   
 **Biological Network Analysis and Network Topology**
@@ -105,3 +106,4 @@ You may also look at the following online materials:
 [39]: https://www.nature.com/articles/nrg2918
 [40]: https://www.frontiersin.org/articles/10.3389/fphys.2015.00413/full
 [41]: https://www.nature.com/articles/nrg.2016.87.pdf
+[42]: https://github.com/NBISweden/workshop_omics_integration/blob/master/img/Nikolay_board.jpg
