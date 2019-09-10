@@ -12,6 +12,7 @@ the following:
 - [env-networks.yml][2] (for Unix/OSX), and [env-networks.yml][4]
 - [env-modeling.yml][3]
 
+[Google Doc](https://docs.google.com/document/d/1N2yNX8FTAY0W3Y7ypOrWHU577Ri7Y5LxAu-jIAe2b7Y/edit?usp=sharing) to share text.
 
 If you prefer manual installation, we suggest the installation of the following:
 
