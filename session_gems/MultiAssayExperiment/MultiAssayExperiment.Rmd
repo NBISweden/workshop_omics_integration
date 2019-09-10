@@ -1,0 +1,207 @@
+---
+title: "Tutorial"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+```{r}
+browseVignettes("MultiAssayExperiment")
+```
+
+## Load the package
+
+```{r}
+## ---- echo=FALSE, warning=FALSE--------------------------------------------
+suppressPackageStartupMessages({
+    library(MultiAssayExperiment)
+    library(S4Vectors)
+    })
+
+```
+
+
+## Load and have a look at the objects in the MultiAssayExperiment 
+The miniACC is a small dataset from the cancer genome atlas provided for demostration purpose. 
+
+```{r}
+data(miniACC)
+miniACC
+```
+
+Have a quick look at the functions available for the MultiAssayExperiment (MAE) class. We will explore some of these functions.
+
+```{r}
+methods(class = "MultiAssayExperiment")
+
+```
+
+```{r}
+## --------------------------------------------------------------------------
+colData(miniACC)[1:4, 1:4]
+table(miniACC$race)
+```
+
+As you can see, the object contains 5 different experiments, four of which are SummarizedExperiments.
+There is also a Matrix with 198 rows and 90 columns. Other ojects have different number of rows and coulmns. This is an important distinction that allows data sets with different row and column dimensions. Such capabiliti is not summported in the SummarizedExperiment of ExpressionSet classes.
+
+```{r}
+## --------------------------------------------------------------------------
+experiments(miniACC)
+## --------------------------------------------------------------------------
+```
+
+# SampleMap
+SampleMap is the key feature in the MAE class that allows us to keep track of samples across differnet experiments. The primary column serves as a key to different data objects stored in the data. 
+One important aspect here is that the primary data should be present in colData of the relevant experiments.
+
+```{r}
+sampleMap(miniACC)
+```
+
+```{r}
+x <- sampleMap(miniACC)[[2]] 
+# x %>% duplicated() %>% table()
+```
+
+
+```{r}
+y <- rownames(colData(miniACC["RNASeq2GeneNorm"])) 
+
+```
+
+## --------------------------------------------------------------------------
+```{r}
+metadata(miniACC)
+```
+
+# Subset by rows
+```{r}
+miniACC[c("MAPK14", "IGFBP2"), , ]
+```
+
+# Subset by columns
+
+```{r}
+miniACC[, miniACC$pathologic_stage == "stage iv", ]
+```
+
+# Subset by experiment
+
+## --------------------------------------------------------------------------
+```{r}
+miniACC[[1]]  #or equivalently, miniACC[["RNASeq2GeneNorm"]]
+```
+
+## --------------------------------------------------------------------------
+```{r}
+summary(complete.cases(miniACC))
+
+## --------------------------------------------------------------------------
+```
+
+```{r}
+accmatched = intersectColumns(miniACC)
+```
+
+## --------------------------------------------------------------------------
+```{r}
+colnames(accmatched)
+```
+
+## Overlapping datasets
+```{r}
+accmatched2 <- intersectRows(miniACC[, , c("RNASeq2GeneNorm",
+                                           "gistict",
+                                           "Mutations")])
+
+```
+
+
+```{r}
+rownames(accmatched2)
+
+## --------------------------------------------------------------------------
+class(assay(miniACC))
+
+## --------------------------------------------------------------------------
+assays(miniACC)
+```
+
+```{r}
+## --------------------------------------------------------------------------
+longFormat(miniACC[c("TP53", "CTNNB1"), , ], 
+           colDataCols = c("vital_status", "days_to_death"))
+
+## --------------------------------------------------------------------------
+wideFormat(miniACC[c("TP53", "CTNNB1"), , ], 
+           colDataCols = c("vital_status", "days_to_death"))
+
+
+```
+
+
+## To construct MultiAssa
+```{r}
+
+
+MultiAssayExperiment(experiments=experiments(miniACC),
+    colData=colData(miniACC),
+    sampleMap=sampleMap(miniACC),
+    metadata=metadata(miniACC))
+
+
+```
+
+## Add New experiment to the 
+```{r}
+miniACC2 <- c(miniACC, log2rnaseq = log2(assays(miniACC)$RNASeq2GeneNorm), mapFrom=1L)
+assays(miniACC2)
+```
+
+
+
+## Try on your own
+
+```{r}
+## --------------------------------------------------------------------------
+library(UpSetR)
+upsetSamples(miniACC)
+
+## --------------------------------------------------------------------------
+suppressPackageStartupMessages({
+  library(survival)
+  library(survminer)
+})
+coldat <- as.data.frame(colData(miniACC))
+coldat$y <- Surv(miniACC$days_to_death, miniACC$vital_status)
+colData(miniACC) <- DataFrame(coldat)
+
+## --------------------------------------------------------------------------
+miniACC <- miniACC[, complete.cases(coldat$y), ]
+coldat <- as(colData(miniACC), "data.frame")
+
+## --------------------------------------------------------------------------
+fit <- survfit(y ~ pathology_N_stage, data = coldat)
+ggsurvplot(fit, data = coldat, risk.table = TRUE)
+
+## --------------------------------------------------------------------------
+wideacc <- wideFormat(miniACC["EZH2", , ], 
+    colDataCols = c("vital_status", "days_to_death", "pathology_N_stage"))
+wideacc$y <- Surv(wideacc$days_to_death, wideacc$vital_status)
+head(wideacc)
+
+## --------------------------------------------------------------------------
+coxph(Surv(days_to_death, vital_status) ~ gistict_EZH2 +
+          log2(RNASeq2GeneNorm_EZH2) + pathology_N_stage,  data=wideacc)
+
+## --------------------------------------------------------------------------
+sessionInfo()
+```
+
+
