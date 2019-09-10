@@ -61,7 +61,7 @@ open the page in "Private Browsing" mode in your web browser.
 
 **15.15 - 15.45** Community analysis and Network visualization (Rui, [lecture][22])
 
-**15.45 - 17.00** **Workshop:** Biological network analysis (Rui, [jupyter.ipynb][20], [html][18], and [instructions][19]. Optionally [lab.Rmd](https://nbisweden.github.io/workshop_omics_integration/session_topology/lab.ipynb))
+**15.45 - 17.00** **Workshop:** Biological network analysis (Rui, [jupyter.ipynb][20], [html][18], and [instructions][19]. Optionally [lab.Rmd](session_topology/lab.Rmd))
 
 **18.00 - 24.00** Course dinner at [Grappa Bar][12]
 
