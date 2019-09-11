@@ -69,15 +69,11 @@ open the page in "Private Browsing" mode in your web browser.
 
 ##### Wednesday 2019-09-11
 
-**09.00 - 10.00** Introduction to metabolic modeling (Ashfaq, [Lecture](session_gems/GenomeScaleModelling_2.html), [Rmd][36])
+**09.00 - 10.25** **Workshop:** Biological network analysis (Rui)
 
-**10.00 - 10.15** Coffee Break
+**10.25 - 10.35** Coffee Break
 
-**10.15 - 11.00** Introduction to metabolic modeling (Ashfaq)
-
-**11.00 - 11.05** Break
-
-**11.05 - 12.00** Omics data integration with human metabolic Models (Ashfaq)
+**10.35 - 12.00** Introduction to metabolic modeling (Ashfaq, [Lecture](session_gems/GenomeScaleModelling_2.html), [Rmd][36])
 
 **12.00 - 13.00** Lunch at [Nanna Svartz][11] 
 
