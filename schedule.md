@@ -85,7 +85,7 @@ open the page in "Private Browsing" mode in your web browser.
 
 **14.30 - 14.45** Coffee Break
 
-**14.45 - 17.00** **Workshop:** Omics data integration with human metabolic Models (Ashfaq)
+**14.45 - 17.00** **Workshop:** Omics data integration with human metabolic Models (Ashfaq, [Rmd][38], [Data][39])
 
 
 ##### Thursday 2019-09-12
@@ -159,3 +159,5 @@ open the page in "Private Browsing" mode in your web browser.
 [35]: session_dm/dm_data.zip
 [36]: session_gems/GenomeScaleModelling_2.Rmd
 [37]: https://www.metabolicatlas.org/
+[38]: session_gems/Piano_tutorial_rmrkd.Rmd
+[39]: session_gems/Data.zip
