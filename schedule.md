@@ -69,7 +69,7 @@ open the page in "Private Browsing" mode in your web browser.
 
 ##### Wednesday 2019-09-11
 
-**09.00 - 10.00** Introduction to metabolic modeling (Ashfaq, [Lecture](session_gems/GenomeScaleModelling_2.html))
+**09.00 - 10.00** Introduction to metabolic modeling (Ashfaq, [Lecture](session_gems/GenomeScaleModelling_2.html), [Rmd][36])
 
 **10.00 - 10.15** Coffee Break
 
@@ -161,3 +161,4 @@ open the page in "Private Browsing" mode in your web browser.
 [33]: https://towardsdatascience.com/reduce-dimensions-for-single-cell-4224778a2d67
 [34]: session_dm/DataManagementTutorial.Rmd
 [35]: session_dm/dm_data.zip
+[36]: session_gems/GenomeScaleModelling_2.Rmd
