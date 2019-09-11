@@ -77,11 +77,11 @@ open the page in "Private Browsing" mode in your web browser.
 
 **12.00 - 13.00** Lunch at [Nanna Svartz][11] 
 
-**13.00 - 14.00** **Seminar:** [Jonathan Robinson][3] - *"Context specific analysis in metabolic modeling"*
+**13.00 - 14.00** **Seminar:** [Jonathan Robinson][3] - *"Context specific analysis in metabolic modeling"* (slides to be added soon)
 
 **14.00 - 14.05** Break
 
-**14.00 - 14.30** **Seminar:** [Jonathan Robinson][3] - *"Metabolic Atlas"*
+**14.00 - 14.30** **Seminar:** [Jonathan Robinson][3] - *"Metabolic Atlas"* ([webpage])
 
 **14.30 - 14.45** Coffee Break
 
@@ -158,3 +158,4 @@ open the page in "Private Browsing" mode in your web browser.
 [34]: session_dm/DataManagementTutorial.Rmd
 [35]: session_dm/dm_data.zip
 [36]: session_gems/GenomeScaleModelling_2.Rmd
+[37]: https://www.metabolicatlas.org/
