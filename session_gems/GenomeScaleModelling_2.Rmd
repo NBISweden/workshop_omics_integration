@@ -219,7 +219,10 @@ _Notes_.
   
 
 *Cell Systems 4, 318–329, March 22, 2017*
+---
+## HMR in excel format
 
+<img src ="Figures/HMR-Excel.png" class= "fancyimage size-105">
 ---
 ## An overview of human genome scale metabolic models (GEMs) and their applications in Clinical Science
 
@@ -229,8 +232,13 @@ _Notes_.
 <img src ="Figures/Fundamentals_ofGems.png" class="fancyimage size-80">
 
 ---
+## Philosophy of COBRA
+<img src ="Figures/Philosophy_COBRA.jpg" class="fancyimage size-50">
 
-# Phylogeny of COBRA/RAVEN toolbox
+Nature Protocols volume 6, pages 1290–1307 (2011)
+---
+
+## Phylogeny of COBRA/RAVEN toolbox
 <img src ="Figures/PhylogenyOfCBM.png" class="fancyimage size-80">
 
 _[There exists a plethora of tools to create an analyze GEMs]_.
@@ -249,6 +257,10 @@ RAVEN was significantly enhanced for de novo draft model reconstruction by integ
 ## Model Extraction Algorithms
 
 <img src="Figures/MEMS.png" class="fancyimage size-85">
+---
+## Model Extraction Algorithms
+
+<img src="Figures/Reconstructions_tINIT.jpg" class="fancyimage size-85">
 ---
 ## The performance of model extraction algorithms and parameter 
 
