@@ -261,7 +261,11 @@ Extraction method most strongly affected accuracy of gene essentiality predictio
 <img src="Figures/Context_specific_models.png" class="fancyimage size-100">
 
 ---
+## Flux distribution across samples specific models.
 
+<img src="Figures/flux_distribution.png" class="fancyimage size-100">
+
+---
 ## Analyses of functionalities based on gene expression data with diferent algorithms.
 
 
