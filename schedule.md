@@ -69,7 +69,7 @@ open the page in "Private Browsing" mode in your web browser.
 
 ##### Wednesday 2019-09-11
 
-**09.00 - 10.00** Introduction to metabolic modeling (Ashfaq, [Lecture](./session_gems/GenomeScaleModelling_2.html))
+**09.00 - 10.00** Introduction to metabolic modeling (Ashfaq, [Lecture](session_gems/GenomeScaleModelling_2.html))
 
 **10.00 - 10.15** Coffee Break
 
