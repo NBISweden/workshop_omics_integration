@@ -73,7 +73,7 @@ open the page in "Private Browsing" mode in your web browser.
 
 **10.25 - 10.35** Coffee Break
 
-**10.35 - 12.00** Introduction to metabolic modeling (Ashfaq, [Lecture](session_gems/GenomeScaleModelling_2.html), [Rmd][36], [Tutorial](https://github.com/NBISweden/workshop_omics_integration/blob/master/session_gems/Piano_tutorial_rmrkd.Rmd))
+**10.35 - 12.00** Introduction to metabolic modeling (Ashfaq, [Lecture](session_gems/GenomeScaleModelling_2.html), [Rmd][36], [Tutorial](session_gems/Piano_tutorial_rmrkd.Rmd))
 
 **12.00 - 13.00** Lunch at [Nanna Svartz][11] 
 
