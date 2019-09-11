@@ -81,7 +81,7 @@ open the page in "Private Browsing" mode in your web browser.
 
 **14.00 - 14.05** Break
 
-**14.00 - 14.30** **Seminar:** [Jonathan Robinson][3] - *"Metabolic Atlas"* ([webpage][37])
+**14.00 - 14.30** **Seminar:** [Jonathan Robinson][3] - *"Metabolic Atlas"* demo ([webpage][37])
 
 **14.30 - 14.45** Coffee Break
 
