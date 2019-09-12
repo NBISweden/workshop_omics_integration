@@ -90,7 +90,7 @@ open the page in "Private Browsing" mode in your web browser.
 
 ##### Thursday 2019-09-12
 
-**09.00 - 10.00** **Workshop:** Integrated data visualization techniques (Ashfaq) [useful links][41]
+**09.00 - 10.00** **Workshop:** Integrated data visualization techniques (Ashfaq; [useful links][41])
 
 **10.00 - 10.15** Coffee Break
 
