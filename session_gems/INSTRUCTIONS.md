@@ -1,4 +1,4 @@
-Useful links:
+# Useful links
  * [Ensembl BioMart][biomart]
  * Downloadable data at the [Human Protein Atlas][hpa]
 
