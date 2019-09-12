@@ -49,7 +49,7 @@ We really appreciate if you can fill in the course's [feedback form][6], as we w
 - [Roy Francis][5]
 - [Mihail Anton][2]
 
-Please contact the course leaders should you have any questions.
+Please contact the course leaders should you have any questions, or in [our Slack channel][7]
 
 [1]: reading_materials.md
 [2]: https://www.chalmers.se/en/staff/Pages/mihail-anton.aspx
@@ -57,3 +57,4 @@ Please contact the course leaders should you have any questions.
 [4]: https://nbis.se/about/staff/lokeshwaran-manoharan/
 [5]: https://nbis.se/about/staff/roy-francis/
 [6]: https://forms.gle/beDNyRoGib9jmFfz8
+[7]: https://join.slack.com/t/omicsintegration/shared_invite/enQtNzQ1MDIzOTkxNTg2LThhMzlkZWY4MDgyM2NjOGVkNmU3YTgxMWE2MWIyNTMwODNmZjJlM2RlY2FhNDViMTU2YjQzMmE5YmUxOTY5ZmU
