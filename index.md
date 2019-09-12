@@ -35,6 +35,9 @@ You can find all the [reading materials here][1].
 ***Course fee***  
 A course fee of 2000SEK will be invoiced to accepted participants. This includes lunches, coffee, snacks, and course dinner. ***Please note that NBIS cannot invoice individuals.***
 
+***Feedback form***
+We really appreciate if you can fill in the course's [feedback form][6], as we will use this information to further improve our course.
+
 ***Responsible teachers***  
 - [Rui Benfeitas](https://nbis.se/about/staff/rui-benfeitas) (rui.benfeitas[at]scilifelab.se)
 - [Nikolay Oskolkov](https://nbis.se/about/staff/nikolay-oskolkov) (nikolay.oskolkov[at]scilifelab.se)
@@ -53,3 +56,4 @@ Please contact the course leaders should you have any questions.
 [3]: https://nbis.se/about/staff/erik-fasterius/
 [4]: https://nbis.se/about/staff/lokeshwaran-manoharan/
 [5]: https://nbis.se/about/staff/roy-francis/
+[6]: https://forms.gle/TBTocphDWwPWNzGV6

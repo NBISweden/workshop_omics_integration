@@ -106,7 +106,7 @@ open the page in "Private Browsing" mode in your web browser.
 
 **15.00 - 16.00** **Seminar:** [Lukas Käll][2] - *"Machine learning methods for data integration"*
 
-**16.00 - 16.20** Wrap up
+**16.00 - 16.20** Wrap up ([feedback form][40])
 
   
 **Teachers:**
@@ -161,3 +161,4 @@ open the page in "Private Browsing" mode in your web browser.
 [37]: https://www.metabolicatlas.org/
 [38]: session_gems/Piano_tutorial_rmrkd.Rmd
 [39]: session_gems/Data.zip
+[40]: https://forms.gle/TBTocphDWwPWNzGV6
