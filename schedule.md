@@ -90,7 +90,7 @@ open the page in "Private Browsing" mode in your web browser.
 
 ##### Thursday 2019-09-12
 
-**09.00 - 10.00** **Workshop:** Integrated data visualization techniques (Ashfaq; [useful links][41], [R code][42])
+**09.00 - 10.00** **Workshop:** Integrated data visualization techniques (Ashfaq; [useful links][41], [R code][42], [Annotation code][43])
 
 **10.00 - 10.15** Coffee Break
 
@@ -164,3 +164,4 @@ open the page in "Private Browsing" mode in your web browser.
 [40]: https://forms.gle/TBTocphDWwPWNzGV6
 [41]: session_gems/INSTRUCTIONS.md
 [42]: session_gems/Data_visulalization_tutorial/Data_visulalization_tutorial.Rmd
+[43]: session_gems/Annotate_genes/Annotate_genes.Rmd
