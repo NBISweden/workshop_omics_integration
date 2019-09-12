@@ -104,7 +104,7 @@ open the page in "Private Browsing" mode in your web browser.
 
 **14.00 - 15.00** **Seminar:** [Linn Fagerberg][1] - *"Longitudinal wellness profiling"*
 
-**15.00 - 16.00** **Seminar:** [Lukas Käll][2] - *"Machine learning methods for data integration"*
+**15.00 - 16.00** **Seminar:** [Lukas Käll][2] - *"Machine learning methods for data integration"* ([percolator][44])
 
 **16.00 - 16.20** Wrap up ([feedback form][40])
 
@@ -165,3 +165,4 @@ open the page in "Private Browsing" mode in your web browser.
 [41]: session_gems/INSTRUCTIONS.md
 [42]: session_gems/Data_visulalization_tutorial/Data_visulalization_tutorial.Rmd
 [43]: session_gems/Annotate_genes/Annotate_genes.Rmd
+[44]: http://percolator.ms/
