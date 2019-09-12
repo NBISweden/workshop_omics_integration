@@ -9,21 +9,23 @@ channels:
 dependencies:
   
   # Base installations  
-  - r-base=3.6
-  - rstudio=1.1
+  - r-base
+  - rstudio
 
   # GEMs and Visualization session
-  - bioconductor-annotationdbi=1.46
-  - bioconductor-biomart=2.40
-  - bioconductor-deseq2=1.24
-  - bioconductor-genomicfeatures=1.36
-  - bioconductor-genomicranges=1.36
-  - bioconductor-iranges=2.18
-  - bioconductor-multiassayexperiment=1.10
-  - bioconductor-piano=2.0
-  - bioconductor-rcy3=2.4
-  - bioconductor-summarizedexperiment=1.14
-  - r-biocircos=0.3
-  - r-data.table=1.12
-  - r-hmisc=4.2
-  - r-tidyverse=1.2
+  - bioconductor-annotationdbi
+  - bioconductor-biomart
+  - bioconductor-deseq2
+  - bioconductor-genomicfeatures
+  - bioconductor-genomicranges
+  - bioconductor-iranges
+  - bioconductor-multiassayexperiment
+  - bioconductor-piano
+  - bioconductor-rcy3
+  - bioconductor-summarizedexperiment
+  - r-biocircos
+  - r-data.table
+  - r-hmisc
+  - r-tidyverse
+  - asmeurer::r-rgl
+  - r-hiver
