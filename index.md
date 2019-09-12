@@ -56,4 +56,4 @@ Please contact the course leaders should you have any questions.
 [3]: https://nbis.se/about/staff/erik-fasterius/
 [4]: https://nbis.se/about/staff/lokeshwaran-manoharan/
 [5]: https://nbis.se/about/staff/roy-francis/
-[6]: https://forms.gle/TBTocphDWwPWNzGV6
+[6]: https://forms.gle/beDNyRoGib9jmFfz8
