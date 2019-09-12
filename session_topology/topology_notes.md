@@ -7,7 +7,11 @@ for [the jupyter notebook](#accessing-the-workshop-notebook) and how to [acess t
 #### Accessing the workshop notebook
 
 You will use the [jupyter notebook](lab.ipynb) ([html](lab.html)) to run all analyses. This is more
-easily done using the conda [*environment.yml*](../environment.yml). After download, create the conda environment by running
+easily done using the conda environment below.
+
+- [env-networks.yml][19] (for Unix/OSX), and [env-networks.yml][17] (for windows)
+
+After download, create the conda environment by running
 ```
 	conda env create -f environment.yml -p top-env
 	conda activate top-env
@@ -91,3 +95,5 @@ The resources below present some well-known databases for [PPIs](#ppis), [Gene R
 [14]: https://metacyc.org/
 [15]: https://www.genome.jp/kegg/
 [16]: https://www.metabolicatlas.org/
+[17]: env-networks_windows.yml
+[19]: env-networks.yml
