@@ -35,7 +35,7 @@ You can find all the [reading materials here][1].
 ***Course fee***  
 A course fee of 2000SEK will be invoiced to accepted participants. This includes lunches, coffee, snacks, and course dinner. ***Please note that NBIS cannot invoice individuals.***
 
-***Feedback form***
+***Feedback form***  
 We really appreciate if you can fill in the course's [feedback form][6], as we will use this information to further improve our course.
 
 ***Responsible teachers***  
