@@ -46,7 +46,7 @@ A course fee of 2000SEK will be invoiced to accepted participants. This includes
 - [Roy Francis][5]
 - [Mihail Anton][2]
 
-Please contact [Rui Benfeitas][] for questions about the course, or through [our Slack channel][7]
+Please contact [Rui Benfeitas][8] for questions about the course, or through [our Slack channel][7]
 
 [1]: reading_materials.md
 [2]: https://www.chalmers.se/en/staff/Pages/mihail-anton.aspx
