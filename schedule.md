@@ -106,7 +106,7 @@ open the page in "Private Browsing" mode in your web browser.
 
 **15.00 - 16.00** **Seminar:** [Lukas Käll][2] - *"Machine learning methods for data integration"* ([percolator][44])
 
-**16.00 - 16.20** Wrap up ([feedback form][40])
+**16.00 - 16.20** Wrap up
 
   
 **Teachers:**
