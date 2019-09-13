@@ -77,7 +77,7 @@ open the page in "Private Browsing" mode in your web browser.
 
 **12.00 - 13.00** Lunch at [Nanna Svartz][11] 
 
-**13.00 - 14.00** **Seminar:** [Jonathan Robinson][3] - *"Context specific analysis in metabolic modeling"* (slides to be added soon)
+**13.00 - 14.00** **Seminar:** [Jonathan Robinson][3] - *"Context specific analysis in metabolic modeling"* ([45])
 
 **14.00 - 14.05** Break
 
@@ -166,3 +166,4 @@ open the page in "Private Browsing" mode in your web browser.
 [42]: session_gems/Data_visulalization_tutorial/Data_visulalization_tutorial.Rmd
 [43]: session_gems/Annotate_genes/Annotate_genes.Rmd
 [44]: http://percolator.ms/
+[45]: session_gems/MetabModel_JLR_distrib.pdf
