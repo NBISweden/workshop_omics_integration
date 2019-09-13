@@ -36,7 +36,7 @@ You can find all the [reading materials here][1].
 A course fee of 2000SEK will be invoiced to accepted participants. This includes lunches, coffee, snacks, and course dinner. ***Please note that NBIS cannot invoice individuals.***
 
 ***Responsible teachers***  
-- [Rui Benfeitas](https://nbis.se/about/staff/rui-benfeitas) (rui.benfeitas[at]scilifelab.se)
+- [Rui Benfeitas][8] (rui.benfeitas[at]scilifelab.se)
 - [Nikolay Oskolkov](https://nbis.se/about/staff/nikolay-oskolkov) (nikolay.oskolkov[at]scilifelab.se)
 - [Ashfaq Ali](https://nbis.se/about/staff/ashfaq-ali/) (ashfaq.ali[at]nbis.se)
 
@@ -46,7 +46,7 @@ A course fee of 2000SEK will be invoiced to accepted participants. This includes
 - [Roy Francis][5]
 - [Mihail Anton][2]
 
-Please contact [Rui Benfeitas] for questions about the course, or through [our Slack channel][7]
+Please contact [Rui Benfeitas][] for questions about the course, or through [our Slack channel][7]
 
 [1]: reading_materials.md
 [2]: https://www.chalmers.se/en/staff/Pages/mihail-anton.aspx
@@ -55,3 +55,4 @@ Please contact [Rui Benfeitas] for questions about the course, or through [our S
 [5]: https://nbis.se/about/staff/roy-francis/
 [6]: https://forms.gle/beDNyRoGib9jmFfz8
 [7]: https://join.slack.com/t/omicsintegration/shared_invite/enQtNzQ1MDIzOTkxNTg2LThhMzlkZWY4MDgyM2NjOGVkNmU3YTgxMWE2MWIyNTMwODNmZjJlM2RlY2FhNDViMTU2YjQzMmE5YmUxOTY5ZmU
+[8]: https://nbis.se/about/staff/rui-benfeitas
