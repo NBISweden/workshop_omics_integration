@@ -29,6 +29,10 @@ At the end of the course, students should:
 - Identify key methods for analysis and integration of omics data based on a given dataset.
 - Be aware of important confounding factors and sources of bias.
 
+***Course credits***  
+While NBIS does not formally provide university credits, we estimate a total of 3 ECTS for this course which comprise about 32 hours of course lectures, hands-on exercises, and technical discussions, as well as additional pre-course reading materials.  
+It is the responsability of the appropriate departments and universities to decide whether to consider these formal credits or not.
+
 ***Materials***  
 You can find all the [reading materials here][1].
 
