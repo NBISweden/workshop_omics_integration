@@ -4,7 +4,10 @@ title: Omics Integration and Systems Biology
 ---
 
 #### Omics Integration and Systems Biology
-9 - 12 September 2019, SciLifeLab, Tomtebodavagen 23A, 171 65 Stocholm
+20 - 24 April 2020, Lund
+
+[Sign up][9] if you want to be notified when a new course application opens. 
+
 
 ***Overview***
 
@@ -60,3 +63,4 @@ Please contact [Rui Benfeitas][8] for questions about the course, or through [ou
 [6]: https://forms.gle/beDNyRoGib9jmFfz8
 [7]: https://join.slack.com/t/omicsintegration/shared_invite/enQtNzQ1MDIzOTkxNTg2LThhMzlkZWY4MDgyM2NjOGVkNmU3YTgxMWE2MWIyNTMwODNmZjJlM2RlY2FhNDViMTU2YjQzMmE5YmUxOTY5ZmU
 [8]: https://nbis.se/about/staff/rui-benfeitas
+[9]: https://forms.gle/YMwtm3XRQVCj8Z5c8
