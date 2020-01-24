@@ -6,7 +6,7 @@ title: Omics Integration and Systems Biology
 #### Omics Integration and Systems Biology
 20 - 24 April 2020, Lund
 
-[Sign up][1] if you want to be notified when a new course application opens. 
+[Course application][1] is open. Deadline for registration: 19/03/2020
 
 
 ***Overview***
@@ -43,6 +43,6 @@ A course fee of 2000SEK will be invoiced to accepted participants. This includes
 
 Please contact [Rui Benfeitas][2] for questions about the course, or through [our Slack channel][3]
 
-[1]: https://forms.gle/QfLMskUo8X3uYY3MA
+[1]: https://forms.gle/x3DCxb8dPW6ZjGFT6
 [2]: https://nbis.se/about/staff/rui-benfeitas
 [3]: https://join.slack.com/t/omicsintegration/shared_invite/enQtNzQ1MDIzOTkxNTg2LThhMzlkZWY4MDgyM2NjOGVkNmU3YTgxMWE2MWIyNTMwODNmZjJlM2RlY2FhNDViMTU2YjQzMmE5YmUxOTY5ZmU
