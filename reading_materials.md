@@ -4,9 +4,10 @@ title:  Reading materials
 ---
 
 #### Reading materials 
+This page contains some [recommended reading materials](#reading-materials) and details about some of 
+the [software](#software) that was covered in a previous course edition. **This will be updated soon**
 
-This page contains [recommended reading materials](#reading-materials) and details about some of 
-the [software](#software) that will be used in the course.  
+
 **! - recommended read before the course**
 
 **Data management and data structures**
