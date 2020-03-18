@@ -3,12 +3,12 @@ layout: default
 title:  'Schedule'
 ---
 #### Course schedule
-2020-04-20 to 2020-04-24
+5 - 9 October 2020
 Lund University, Department of Biology
 
 The course will include lectures, hands-on exercises, and invited speaker seminars.
 
-**Confirmed speakers: [Prof. Paul Franks][1]**
+
 
 Some of the topics covered include:
 - Omics data wrangling in R
