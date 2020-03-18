@@ -7,7 +7,7 @@ title: Omics Integration and Systems Biology
 5 - 9 October 2020
 Lund University, Department of Biology
 
-***Notice: the April edition of our course has been cancelled due to the ongoing Coronavirus issues. The next edition of the course will take place in Lund in October.***
+***Notice: the April edition of our course has been cancelled due to the ongoing Covid-19 pandemic. The next edition of the course will take place in Lund in October.***
 
 [Course application][1] is open. Deadline for registration: 21/08/2020
 
