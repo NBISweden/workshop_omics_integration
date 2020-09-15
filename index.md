@@ -7,11 +7,6 @@ title: Omics Integration and Systems Biology
 5 - 9 October 2020
 Lund University, Department of Biology
 
-***Notice: the April edition of our course has been cancelled due to the ongoing Covid-19 pandemic. The next edition of the course will take place in Lund in October.***
-
-[Course application][1] is open. Deadline for registration: 21/08/2020
-
-
 ***Overview***
 
 Course open for PhD students, postdocs, and researchers looking for an introduction to multi-omics integration and systems biology.
@@ -20,7 +15,6 @@ The aim of this workshop is to provide an integrated view of biological network 
 
 Some of the covered topics include:  
 
-- Data wrangling in omics studies;
 - Condition-specific and personalized modeling through Genome-scale Metabolic models based on integration of transcriptomic, proteomic and metabolomic data;  
 - Biological network inference, community and topology analysis and visualization
 - Identification of key biological functions and pathways;  
@@ -44,8 +38,7 @@ At the end of the course, students should:
 A course fee of 2000SEK will be invoiced to accepted participants. This includes lunches, coffee breaks, and a course dinner. Please note that NBIS cannot invoice individuals.
 
 
-Please contact [Rui Benfeitas][2] for questions about the course, or through [our Slack channel][3] (accessible if you have an email address from a swedish university)
+Please contact [Rui Benfeitas][2] for questions about the course.
 
 [1]: https://forms.gle/obADRduLuoWZUeUbA
 [2]: https://nbis.se/about/staff/rui-benfeitas
-[3]: https://join.slack.com/t/omicsintegration/shared_invite/enQtNzQ1MDIzOTkxNTg2LThhMzlkZWY4MDgyM2NjOGVkNmU3YTgxMWE2MWIyNTMwODNmZjJlM2RlY2FhNDViMTU2YjQzMmE5YmUxOTY5ZmU
