@@ -31,10 +31,68 @@ nav {
     }
 }
 
+
+#toc-sidebar {
+    @media screen and (min-width: 992px) {
+        position: absolute;
+        top: 85px;
+        right: 23px;
+        width: 22%;
+    }
+    @media screen and (max-width: 992px) {
+        display: none;
+    }
+
+    &.fix-scroll {
+        position: fixed;
+        top: 7px;
+    }
+
+    padding: 3px;
+
+    a {
+        color: #666
+    }
+    a:hover {
+        text-decoration: underline;
+        font-weight: bold;
+    }
+
+    ul {
+        li {
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        margin-bottom: 0px;
+        .selected {
+            font-weight: bold;
+        }
+        .H1 {
+            margin-left: 0px;
+        }
+        .H2 {
+            margin-left: 10px;
+        }
+        .H3 {
+            margin-left: 20px;
+        }
+    }
+}
+
 .content {
     background-color: white;
     padding-bottom: 64px;
     margin-bottom: 64px;
+    ul {
+        margin-left: 1.2rem;
+        li {
+            list-style-type: disc;
+        }
+    }
+    dl {
+        margin-left:10px;
+    }
 }
 
 .dropdown-content li > a, .dropdown-content li > span {
@@ -62,7 +120,7 @@ h3 {
 
 footer.page-footer {
     margin: 0;
-    background-color: $textgray;
+    background-color: $scilifegreen;
 }
 
 .row {
@@ -195,4 +253,29 @@ img.flip {
 
 .compact td {
     padding: 5px;
+}
+
+.panel-info {
+    border: 1px solid black;
+
+    .panel-heading {
+        background-color: $textgray;
+        color: white;
+        h3 {
+            font-size: 2rem;
+            margin-top: 0px;
+        }
+    }
+
+    .panel-body {
+        padding-left: 1em;
+        .row {
+            margin-bottom: 5px;
+        }
+        ul {
+            margin-top: 2px;
+            margin-bottom: 2px;
+            margin-left: 2rem;
+        }
+    }
 }
