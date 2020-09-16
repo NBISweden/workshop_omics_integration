@@ -38,7 +38,5 @@ At the end of the course, students should:
 A course fee of 2000SEK will be invoiced to accepted participants. This includes lunches, coffee breaks, and a course dinner. Please note that NBIS cannot invoice individuals.
 
 
-Please contact [Rui Benfeitas][2] for questions about the course.
-
 [1]: https://forms.gle/obADRduLuoWZUeUbA
 [2]: https://nbis.se/about/staff/rui-benfeitas
