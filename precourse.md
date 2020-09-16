@@ -10,8 +10,8 @@ We will be using conda environments for each session to ensure reproducibility. 
 <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> **Programming with R and Python**  
 The course will be taught using both R and Python depending on the tools available. While you will be able to follow all lectures
 and exercises conceptually, it is easier if you get acquainted with programming in both languages:  
-- [Quick introduction to R][2]
-- [Quick][3] and [extended][4] introduction to Python
+- [1-day][2] and [5-day][6] introduction to R
+- [1-day][3] and [5-day][4] introduction to Python
 
 <img border="0" src="https://www.svgrepo.com/show/26916/book.svg" width="15" height="15"> **Additional reading materials**  
 For additional information on some of the topics that we will discuss, refer to the [reading materials][5].
@@ -21,3 +21,4 @@ For additional information on some of the topics that we will discuss, refer to 
 [3]: https://datacarpentry.org/python-ecology-lesson/
 [4]: https://nbisweden.github.io/workshop-python/ht19/
 [5]: reading_materials.md
+[6]: https://nbisweden.github.io/workshop-r/
