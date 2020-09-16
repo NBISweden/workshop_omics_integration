@@ -6,9 +6,9 @@ title:  'Schedule'
 5 - 9 October 2020
 Lund University, Department of Biology
 
-- <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="10" height="10"> - lecture
-- <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="10" height="10"> - hands-on workshop
-- <img border="0" src="https://www.svgrepo.com/show/307069/public-speaking-speak-tell-talk.svg" width="10" height="10"> - invited speaker seminar
+- <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> - lecture
+- <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> - hands-on workshop
+- <img border="0" src="https://www.svgrepo.com/show/307069/public-speaking-speak-tell-talk.svg" width="15" height="15"> - invited speaker seminar
 
 
 
@@ -16,7 +16,7 @@ Lund University, Department of Biology
 
 **09.00 - 10.00** Installation help and pre-course coffee
 
-**10.00 - 11.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="10" height="10"> Introduction and contextualization ([Rui][6]) 
+**10.00 - 11.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Introduction and contextualization ([Rui][6]) 
 
 **11.00 - 11.15** Break
 

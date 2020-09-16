@@ -3,8 +3,7 @@ layout: default
 title: Syllabus
 ---
 
-#### Course syllabus
-
+#### <img border="0" src="https://www.svgrepo.com/show/26916/book.svg" width="25" height="25"> Course syllabus
 This course will be divided in 4 main themes:
 
 **1. Constraint-based modeling** - How transcriptomic, proteomic and metabolomic data may be integrated with genome-scale metabolic models to generate context-specific or persontalized models. Basic concepts about flux balance analysis and metabolic modeling will be provided. Identification of key metabolites, metabolic genes and pathways, including potential biomarkers and targetable genes will be discussed.  
