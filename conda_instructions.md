@@ -172,9 +172,8 @@ Unfortunately, not all packages available on conda are compatible with windows m
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 ```
 
-5. Inside MobaXterm, type the commands below to install Conda. Follow the instructions for the installation there.
+5. Inside MobaXterm, type the command below to install Conda. Follow the instructions for the installation there.
 ```
-cd ~/Downloads
 sh Miniconda3-latest-Linux-x86_64.sh
 ```
 
@@ -187,8 +186,8 @@ sudo apt-get install libgl1-mesa-glx libegl1-mesa libxrandr2 libxrandr2 libxss1 
 
 7. Close Terminal to apply the CONDA updates. Then you can create a course folder, download the environment file and create the environment:
 ```
-mkdir ~/Desktop/course
-cd ~/Desktop/course
+mkdir /mnt/Desktop/course
+cd /mnt/Desktop/course
 wget https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/master/env-networks.yml
 conda env create -n envnetworks -f env-networks.yml
 ```
@@ -196,6 +195,8 @@ conda env create -n envnetworks -f env-networks.yml
 8. You can then follow the instructions above to activate/deactivate the environment.
 ```
 conda activate envnetworks
+jupyter-notebook &
+#or for rstudio
 rstudio &
 ```
 
