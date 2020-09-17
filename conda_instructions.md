@@ -186,8 +186,8 @@ sudo apt-get install libgl1-mesa-glx libegl1-mesa libxrandr2 libxrandr2 libxss1 
 
 7. Close Terminal to apply the CONDA updates. Then you can create a course folder, download the environment file and create the environment:
 ```
-mkdir /mnt/Desktop/course
-cd /mnt/Desktop/course
+mkdir /mnt/c/Users/[your_username]/Desktop/course
+cd /mnt/c/Users/[your_username]/Desktop/course
 wget https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/master/env-networks.yml
 conda env create -n envnetworks -f env-networks.yml
 ```
