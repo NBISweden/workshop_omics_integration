@@ -1,33 +1,27 @@
 channels:
-- conda-forge
-- bioconda
-- rdonnelly
-- defaults
+  - bioconda
+  - conda-forge
+  - r
+  - rdonnelly
+  - defaults
 
 dependencies:
-### Python
-- python
-- jupyter_core
-- pandas
-- scipy
-- seaborn
-- matplotlib
-- nb_conda_kernels
-- numpy
-- pip
-- pip:
-    - pca
-- rpy2
-- scipy
-- scikit-learn=0.23.2
-- statsmodels
-- umap-learn
-
-  ### R
-- bioconductor-geoquery
-- bioconductor-limma
-- r-base 
-- rstudio=1.2.502
-- r-reticulate
-- r-rmarkdown
-
+  # Python and general packages
+  - python
+  - jupyter
+  - pandas
+  - scipy
+  - seaborn
+  - matplotlib
+  - numpy
+  - scipy
+    
+  # Topology session
+  - gseapy
+  - leidenalg
+  - python-igraph
+  - pycairo
+  - glpk
+  - scikit-learn
+  #- rise=5.5.1 # Jupyter presentations
+  #- jupyter_nbextensions_configurator=0.4.1 # Jupyter presentations
