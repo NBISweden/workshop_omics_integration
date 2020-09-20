@@ -1,0 +1,33 @@
+channels:
+- conda-forge
+- bioconda
+- rdonnelly
+- defaults
+
+dependencies:
+### Python
+- python
+- jupyter_core
+- pandas
+- scipy
+- seaborn
+- matplotlib
+- nb_conda_kernels
+- numpy
+- pip
+- pip:
+    - pca
+- rpy2
+- scipy
+- scikit-learn=0.23.2
+- statsmodels
+- umap-learn
+
+  ### R
+- bioconductor-geoquery
+- bioconductor-limma
+- r-base 
+- rstudio=1.2.502
+- r-reticulate
+- r-rmarkdown
+
