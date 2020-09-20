@@ -247,6 +247,7 @@ sh Miniconda3-latest-Linux-x86_64.sh
 ```
 
 10. Close Terminal to apply the CONDA updates. Then you can create a course folder, download the environment file and create the environment:  
+<br/>
 ```
 mkdir ~/Desktop/course
 cd ~/Desktop/course
@@ -255,7 +256,8 @@ wget https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/mast
 conda env create -n envnetworks -f env-networks.yml
 ```
 
-11. You can then follow the instructions above to activate/deactivate the environment.
+11. You can then follow the instructions above to activate/deactivate the environment.  
+<br/>
 ```
 conda activate envnetworks
 rstudio &
