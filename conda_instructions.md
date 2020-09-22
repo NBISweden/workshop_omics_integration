@@ -247,13 +247,12 @@ sh Miniconda3-latest-Linux-x86_64.sh
 ```
 
 10. Close Terminal to apply the CONDA updates. Then you can create a course folder, download the environment file and create the environment.
-```
+```  
 mkdir ~/Desktop/course
 cd ~/Desktop/course
-
 wget https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/master/session_topology/202010/env-topology.yaml
 conda env create -n envtopology -f env-topology.yaml
-```
+```  
 
 11. You can then follow the instructions above to activate/deactivate the environment.
 ```
