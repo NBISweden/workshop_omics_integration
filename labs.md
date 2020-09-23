@@ -12,7 +12,6 @@ title:  'Labs'
 #Linux
 wget https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/master/session_topology/data/met_genes.tsv
 wget https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/master/session_topology/data/proteinatlas.tsv
-
 #MacOSX
 curl -o met_genes.tsv https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/master/session_topology/data/met_genes.tsv
 curl -o proteinatlas.tsv https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/master/session_topology/data/proteinatlas.tsv
@@ -23,7 +22,6 @@ curl -o proteinatlas.tsv https://raw.githubusercontent.com/NBISweden/workshop_om
 # Linux
 wget https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/master/session_topology/env-topology.yaml
 wget https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/master/session_topology/lab.ipynb
-
 # MacOSX
 curl -o env-topology.yaml https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/master/session_topology/env-topology.yaml
 curl -o lab.ipynb https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/master/session_topology/lab.ipynb
