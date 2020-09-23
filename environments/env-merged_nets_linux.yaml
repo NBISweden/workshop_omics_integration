@@ -28,8 +28,8 @@ dependencies:
   - r-base
   - rstudio
   - bioconductor-rcy3
-  - bioconductor-biocgenerics >=0.34.0,<0.35.0
-  - bioconductor-graph >=1.66.0,<1.67.0
+  - bioconductor-biocgenerics #>=0.34.0,<0.35.0
+  - bioconductor-graph #>=1.66.0,<1.67.0
   - r-httr
   - r-igraph
   - r-r.utils
