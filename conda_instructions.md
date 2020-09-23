@@ -90,8 +90,11 @@ Several packages are not available for Windows. However, on windows10 we can run
 To download an environment file such as `env-topology.yaml` using the command on Terminal:
 
 ```
-#Ubuntu / MacOSX
+#Ubuntu
 wget https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/master/session_topology/env-topology.yaml
+
+#MacOSX
+curl -o env-topology.yaml https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/master/session_topology/env-topology.yaml
 ```
 
 After this, you should have a file named `env-topology.yaml` in your directory (it does not matter where, you can save on Downloads folder for example). Next, type:
