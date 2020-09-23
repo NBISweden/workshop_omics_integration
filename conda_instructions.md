@@ -148,6 +148,11 @@ After you've ran all your analyses, you can deactivate the environment by typing
 conda deactivate
 ```
 
+Remember to occasionally clean the downloaded conda packages
+```
+conda clean --all
+```
+
 <br/>
 
 <br/>
