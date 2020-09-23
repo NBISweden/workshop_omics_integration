@@ -35,3 +35,8 @@ jupyter-notebook
 ```
 
 If you get an error `Not a directory: 'xdg-settings'` please [check this for a solution](https://github.com/jupyter/notebook/issues/3746#issuecomment-444957821).
+
+4. At the end, deactivate the environment
+```
+conda deactivate
+```
