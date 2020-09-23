@@ -1,0 +1,16 @@
+name: gsa-env
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
+  - bioconductor-org.hs.eg.db #=3.11.4
+  - bioconductor-piano #=2.4.0
+  - bioconductor-tcgabiolinks #=2.16.0
+  - r-base #=4.0.2
+  - r-ggplot2 #=3.3.2
+  - r-pheatmap #=1.0.12
+  - r-tidyr #=1.1.2
+  - rstudio #=1.1.456
+  - r-tidyverse #=1.3.0
+
