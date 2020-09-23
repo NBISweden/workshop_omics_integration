@@ -5,7 +5,7 @@ title:  'Labs'
 
 #### <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="25" height="25"> Lab instructions
 
-##### Topology lab
+##### Network topology lab
 
 1. Download the data
 ```
