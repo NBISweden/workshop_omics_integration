@@ -90,11 +90,8 @@ Several packages are not available for Windows. However, on windows10 we can run
 To download an environment file such as `env-topology.yaml` using the command on Terminal:
 
 ```
-#Ubuntu
-wget https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/master/session_topology/202010/env-topology.yaml
-
-#MacOSX
-curl -o env-topology.yaml https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/master/session_topology/202010/env-topology.yaml
+#Ubuntu / MacOSX
+wget https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/master/session_topology/env-topology.yaml
 ```
 
 After this, you should have a file named `env-topology.yaml` in your directory (it does not matter where, you can save on Downloads folder for example). Next, type:
@@ -189,7 +186,7 @@ sudo apt-get install libgl1-mesa-glx libegl1-mesa libxrandr2 libxrandr2 libxss1 
 ```
 mkdir /mnt/c/Users/[your_username]/Desktop/course
 cd /mnt/c/Users/[your_username]/Desktop/course
-wget https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/master/session_topology/202010/env-topology.yaml
+wget https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/master/session_topology/env-topology.yaml
 conda env create -n envtopology -f env-topology.yaml
 ```
 
@@ -250,7 +247,7 @@ sh Miniconda3-latest-Linux-x86_64.sh
 ```  
 mkdir ~/Desktop/course
 cd ~/Desktop/course
-wget https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/master/session_topology/202010/env-topology.yaml
+wget https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/master/session_topology/env-topology.yaml
 conda env create -n envtopology -f env-topology.yaml
 ```  
 
