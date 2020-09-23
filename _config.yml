@@ -22,6 +22,8 @@ menu:
     url: schedule
   - title: Syllabus
     url: syllabus
+  - title: Labs
+    url: labs
   - title: Reading materials
     url: reading_materials
   - title: Pre-course
