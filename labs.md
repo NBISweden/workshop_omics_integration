@@ -26,7 +26,7 @@ conda env create -n envnets -f env-merged_nets.yaml
 
 3. Activate the environment
 ```
-conda activate envtopology
+conda activate envnets
 ```
 
 From this point, follow the instructions below in each respective session. At the end deactivate the environment with `conda deactivate`.
