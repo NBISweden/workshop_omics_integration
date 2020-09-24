@@ -52,7 +52,7 @@ wget https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/mast
 curl -o lab.ipynb https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/master/session_topology/lab.ipynb
 ```
 
-3. Activate the environment and start the jupyter notebook
+3. Start the jupyter notebook
 ```
 jupyter-notebook
 ```
