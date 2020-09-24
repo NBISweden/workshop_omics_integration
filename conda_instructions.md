@@ -87,21 +87,22 @@ Several packages are not available for Windows. However, on windows10 we can run
 #### <img border="0" src="https://www.svgrepo.com/show/4795/installation-symbol.svg" width="20" height="20"> Create a Conda environment from file
 ***
 
-To download an environment file such as `env-topology.yaml` using the command on Terminal:
+In the [labs](labs.md) page, we provide links for each environment for each hands-on session. To download an environment file such as `env-merged_nets.yaml` using the command on Terminal:
 
 ```
 #Ubuntu
-wget https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/master/session_topology/env-topology.yaml
-
+wget https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/master/environments/env-merged_nets_linux.yaml
 #MacOSX
-curl -o env-topology.yaml https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/master/session_topology/env-topology.yaml
+curl -o env-merged_nets.yaml https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/master/environments/env-merged_nets.yaml
 ```
 
 After this, you should have a file named `env-topology.yaml` in your directory (it does not matter where, you can save on Downloads folder for example). Next, type:
 
 ```
-#MacOSX / Ubuntu
-conda env create -p envtopology -f env-topology.yaml
+#Ubuntu
+conda env create -n envnets -f env-merged_nets_linux.yaml
+#MacOSX
+conda env create -n envnets -f env-merged_nets.yaml
 ```
 
 Several messages will show up on your screen and will tell you about the installation process. This may take a few minutes depending on how many packages are to be installed.
@@ -127,7 +128,7 @@ Several messages will show up on your screen and will tell you about the install
 Once the environment is created, we need to activate it in order to use the softwares and packages inside it. To activate an environment type:
 
 ```
-source activate ./envtopology
+conda activate envnets
 ```
 
 From this point on you can run any of the contents from a given environment. For instance, you can directly launch RStudio by
@@ -194,16 +195,16 @@ sudo apt-get install libgl1-mesa-glx libegl1-mesa libxrandr2 libxrandr2 libxss1 
 ```
 mkdir /mnt/c/Users/[your_username]/Desktop/course
 cd /mnt/c/Users/[your_username]/Desktop/course
-wget https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/master/session_topology/env-topology.yaml
-conda env create -n envtopology -f env-topology.yaml
+wget https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/master/environments/env-merged_nets_linux.yaml
+conda env create -n envnets -f env-merged_nets_linux.yaml
 ```
 
 8. You can then follow the instructions to activate/deactivate the environment and launch rstudio / jupyter
 ```
-conda activate envtopology
+conda activate envnets
 rstudio &
 #for jupyter:
-jupyter-notebook &
+jupyter-notebook
 ```
 
 <br/>
@@ -255,8 +256,8 @@ sh Miniconda3-latest-Linux-x86_64.sh
 ```  
 mkdir ~/Desktop/course
 cd ~/Desktop/course
-wget https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/master/session_topology/env-topology.yaml
-conda env create -n envtopology -f env-topology.yaml
+wget https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/master/environments/env-merged_nets_linux.yaml
+conda env create -n envnets -f env-merged_nets_linux.yaml
 ```  
 
 11. You can then follow the instructions above to activate/deactivate the environment.
