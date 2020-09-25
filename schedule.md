@@ -105,7 +105,7 @@ title:  'Schedule'
 
 **15.00 - 15.30** <img border="0" src="https://www.svgrepo.com/show/307069/public-speaking-speak-tell-talk.svg" width="15" height="15"> Webinar [Marju Orho-Melander][3]: Omics interplay for cardiometabolic disease
 
-**15.30 - 16.45** [Jakob Willforss][10]: Rapid, interactive visualization of tabular multi-omics data [using OmicLoupe][11]
+**15.30 - 16.45** <img border="0" src="https://www.svgrepo.com/show/307069/public-speaking-speak-tell-talk.svg" width="15" height="15"> [Jakob Willforss][10]: Rapid, interactive visualization of tabular multi-omics data [using OmicLoupe][11]
 
 **16.45 - 17.00** Wrap up
 
