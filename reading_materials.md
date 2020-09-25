@@ -7,10 +7,10 @@ title:  Reading materials
 This page will contain some recommended reading materials in addition to the [pre-course content][1]. **Under update**
 
 **Biological Network Analysis and Network Topology**
-- **!** [Network biology: understanding the cell's functional organization][34] 
-- **!** [Network medicine: a network-based approach to human disease][39] 
+- **!** [Network biology: understanding the cell's functional organization][13] 
+- **!** [Network medicine: a network-based approach to human disease][14] 
 - [Network biology concepts in complex disease comorbidities][41]
-- [Gene co-expression analysis and conserved modules][38]
+- [Gene co-expression analysis and conserved modules][16]
   <br/><br/>
 
 **Genome-scale metabolic modeling**
@@ -35,4 +35,7 @@ This page will contain some recommended reading materials in addition to the [pr
 [10]: https://opencobra.github.io/cobrapy/
 [11]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6207324/
 [12]: https://www.nature.com/articles/s41596-018-0098-2
-
+[13]: https://www.nature.com/articles/nrg1272
+[14]: https://www.nature.com/articles/nrg2918
+[15]: https://www.nature.com/articles/nrg.2016.87.pdf
+[16]: https://science.sciencemag.org/content/302/5643/249.full
