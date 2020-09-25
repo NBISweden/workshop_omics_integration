@@ -9,7 +9,7 @@ This page will contain some recommended reading materials in addition to the [pr
 **Biological Network Analysis and Network Topology**
 - **!** [Network biology: understanding the cell's functional organization][13] 
 - **!** [Network medicine: a network-based approach to human disease][14] 
-- [Network biology concepts in complex disease comorbidities][41]
+- [Network biology concepts in complex disease comorbidities][15]
 - [Gene co-expression analysis and conserved modules][16]
   <br/><br/>
 
