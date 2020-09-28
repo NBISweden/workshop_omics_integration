@@ -4,7 +4,9 @@ title:  Reading materials
 ---
 
 #### <img border="0" src="https://www.svgrepo.com/show/26916/book.svg" width="25" height="25"> Reading materials  
-This page will contain some recommended reading materials in addition to the [pre-course content][1]. **Under update**
+This page will contain some recommended reading materials in addition to the [pre-course content][1]. 
+
+**!** - important
 
 **Integration**  
 Note: if you cannot see one of the pages because you've reached the free member preview,
