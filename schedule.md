@@ -4,9 +4,9 @@ title:  'Schedule'
 ---
 #### <img border="0" src="https://www.svgrepo.com/show/20800/event-date-and-time-symbol.svg" width="25" height="25"> Course schedule
 
-<img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> - lecture
-<img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> - hands-on workshop
-<img border="0" src="https://www.svgrepo.com/show/307069/public-speaking-speak-tell-talk.svg" width="15" height="15"> - invited speaker seminar
+<img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> - lecture; 
+<img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> - hands-on workshop;
+<img border="0" src="https://www.svgrepo.com/show/307069/public-speaking-speak-tell-talk.svg" width="15" height="15"> - invited seminar
 
 
 ##### Monday 2020-10-05
@@ -25,7 +25,7 @@ title:  'Schedule'
 
 **14.45 - 15.00** Coffee Break
 
-**15.15 - 16.00** <img border="0" src="https://www.svgrepo.com/show/307069/public-speaking-speak-tell-talk.svg" width="15" height="15"> Webinar [Lars Juhl Jensen][1]: Network-based omics integration, analysis, and visualization
+**15.15 - 16.00** <img border="0" src="https://www.svgrepo.com/show/307069/public-speaking-speak-tell-talk.svg" width="15" height="15"> Webinar [Prof. Lars Juhl Jensen][1]: Network-based omics integration, analysis, and visualization
 
 **16.00 - 16.05** Break
 
@@ -106,7 +106,7 @@ title:  'Schedule'
 
 **14.50 - 15.00** Coffee Break
 
-**15.00 - 15.30** <img border="0" src="https://www.svgrepo.com/show/307069/public-speaking-speak-tell-talk.svg" width="15" height="15"> Webinar [Marju Orho-Melander][3]: Omics interplay for cardiometabolic disease
+**15.00 - 15.30** <img border="0" src="https://www.svgrepo.com/show/307069/public-speaking-speak-tell-talk.svg" width="15" height="15"> Webinar [Prof. Marju Orho-Melander][3]: Omics interplay for cardiometabolic disease
 
 **15.30 - 16.45** <img border="0" src="https://www.svgrepo.com/show/307069/public-speaking-speak-tell-talk.svg" width="15" height="15"> [Jakob Willforss][10]: Rapid, interactive visualization of tabular multi-omics data [using OmicLoupe][11]
 
