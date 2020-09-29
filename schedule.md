@@ -89,7 +89,7 @@ title:  'Schedule'
 
 **16.25 - 16.30** Coffee Break
 
-**16.30 - 17.00** Metabolic Atlas ([Mihail][9])
+**16.30 - 17.00** <img border="0" src="https://www.svgrepo.com/show/307069/public-speaking-speak-tell-talk.svg" width="15" height="15"> [Mihail][9]: [Metabolic Atlas][12]
 
 
 ##### Friday 2020-10-09
@@ -136,3 +136,4 @@ title:  'Schedule'
 [9]: https://www.chalmers.se/en/staff/Pages/mihail-anton.aspx
 [10]: https://www.linkedin.com/in/jakobwillforss
 [11]: https://github.com/ComputationalProteomics/OmicLoupe
+[12]: https://www.metabolicatlas.org/
