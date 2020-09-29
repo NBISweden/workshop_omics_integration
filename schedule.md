@@ -2,8 +2,11 @@
 layout: default
 title:  'Schedule'
 ---
-#### <img border="0" src="https://www.svgrepo.com/show/20800/event-date-and-time-symbol.svg" width="25" height="25"> Preliminary course schedule
+#### <img border="0" src="https://www.svgrepo.com/show/20800/event-date-and-time-symbol.svg" width="25" height="25"> Course schedule
 
+<img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> - lecture
+<img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> - hands-on workshop
+<img border="0" src="https://www.svgrepo.com/show/307069/public-speaking-speak-tell-talk.svg" width="15" height="15"> - invited speaker seminar
 
 
 ##### Monday 2020-10-05
@@ -121,11 +124,6 @@ title:  'Schedule'
 **Teaching assistants:**
 - [Lokeshwaran Manoharan][8]
 
-
-
-- <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> - lecture
-- <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> - hands-on workshop
-- <img border="0" src="https://www.svgrepo.com/show/307069/public-speaking-speak-tell-talk.svg" width="15" height="15"> - invited speaker seminar
 
 [1]: https://jensenlab.org/people/larsjuhljensen/
 [2]: https://nbis.se/about/staff/ashfaq-ali/
