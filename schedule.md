@@ -25,7 +25,7 @@ title:  'Schedule'
 
 **14.45 - 15.00** Coffee Break
 
-**15.15 - 16.00** <img border="0" src="https://www.svgrepo.com/show/307069/public-speaking-speak-tell-talk.svg" width="15" height="15"> Webinar [Prof. Lars Juhl Jensen][1]: Network-based omics integration, analysis, and visualization
+**15.00 - 16.00** <img border="0" src="https://www.svgrepo.com/show/307069/public-speaking-speak-tell-talk.svg" width="15" height="15"> Webinar [Prof. Lars Juhl Jensen][1]: Network-based omics integration, analysis, and visualization
 
 **16.00 - 16.05** Break
 
