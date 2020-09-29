@@ -58,17 +58,17 @@ title:  'Schedule'
 
 **10.25 - 10.35** Coffee Break
 
-**10.35 - 12.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Network inference, key properties [Rui][6]
+**10.35 - 12.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Network inference, key properties ([Rui][6])
 
 **12.00 - 13.00** Lunch
 
-**13.00 - 14.30** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Network inference, key properties II [Rui][6]
+**13.00 - 14.30** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Network inference, key properties II ([Rui][6])
 
 **14.30 - 14.45** Coffee Break
 
-**14.45 - 16.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Community analysis [Rui][6]
+**14.45 - 16.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Community analysis ([Rui][6])
 
-**16.00 - 17.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Network visualization with Cytoscape using R [Ashfaq][2]
+**16.00 - 17.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Network visualization with Cytoscape using R ([Ashfaq][2])
 
 
 
@@ -86,7 +86,7 @@ title:  'Schedule'
 
 **16.25 - 16.30** Coffee Break
 
-**16.30 - 17.00** Metabolic Atlas [Mihail][9]
+**16.30 - 17.00** Metabolic Atlas ([Mihail][9])
 
 
 ##### Friday 2020-10-09
