@@ -18,11 +18,11 @@ title:  'Schedule'
 
 **12.00 - 13.00** Lunch
 
-**13.00 - 15.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Supervised Omics integration ([Nikolay][5])
+**13.00 - 14.45** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Supervised Omics integration ([Nikolay][5])
 
-**15.00 - 15.15** Coffee Break
+**14.45 - 15.00** Coffee Break
 
-**15.15 - 16.00** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Supervised Omics integration ([Nikolay][5])
+**15.15 - 16.00** <img border="0" src="https://www.svgrepo.com/show/307069/public-speaking-speak-tell-talk.svg" width="15" height="15"> Webinar [Lars Juhl Jensen][1]: Network-based omics integration, analysis, and visualization
 
 **16.00 - 16.05** Break
 
@@ -116,17 +116,18 @@ title:  'Schedule'
 - [Nikolay Oskolkov][5]
 - [Rui Benfeitas][6]
 - [Sergiu Netotea][7]
+- [Mihail Anton][9]
 
 **Teaching assistants:**
 - [Lokeshwaran Manoharan][8]
-- [Mihail Anton][9]
+
 
 
 - <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> - lecture
 - <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> - hands-on workshop
 - <img border="0" src="https://www.svgrepo.com/show/307069/public-speaking-speak-tell-talk.svg" width="15" height="15"> - invited speaker seminar
 
-
+[1]: https://jensenlab.org/people/larsjuhljensen/
 [2]: https://nbis.se/about/staff/ashfaq-ali/
 [3]: https://www.ludc.lu.se/marju-orho-melander-professor-of-genetic-epidemiology-pi
 [4]: https://nbis.se/about/staff/jonathan-robinson/
