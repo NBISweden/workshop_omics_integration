@@ -2,8 +2,10 @@
 _site
 *.ipynb_checkpoints/
 *-env/
+admin_docs/
 
 #Files
+.Rhistory
 ~*
 *~
 .DS_Store

@@ -1,0 +1,28 @@
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+  - r
+  - rdonnelly
+
+dependencies:
+  
+    # Base installations  
+  - r-base
+  - rstudio
+
+  # Packages
+  - asmeurer::r-rgl
+  - bioconductor-mofa
+  - mofapy
+  - r-corpcor
+  - r-ellipse
+  - r-glmnet
+  - r-gridextra
+  - r-igraph
+  - r-matrixstats
+  #- r-mixomics #=6.3.1
+  - r-rarpack
+  - r-reticulate
+  - r-rtsne
+  - r-tidyr
