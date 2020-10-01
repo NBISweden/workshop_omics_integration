@@ -45,7 +45,7 @@ From this point, follow the instructions below in each respective session. At th
 
 
 ##### Network topology lab
-All data is inside the `/session_topology/data/` folder. After creating and activating the environment, launch jupyter
+After creating and activating the environment, launch jupyter
 ```
 jupyter-notebook
 ```
