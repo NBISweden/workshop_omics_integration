@@ -5,26 +5,38 @@ title:  'Labs'
 
 #### <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="25" height="25"> Lab instructions
 
+##### Clone the course repository
+
+Retrieve the entire repository including all datasets and notebooks.
+```
+git clone https://github.com/NBISweden/workshop_omics_integration.git
+```
+
+Change to the newly created directory
+```
+cd workshop_omics_integration
+```
+
+You can find the following reference files:  
+- session_ml - the machine learning sessions, days 1 and 2  
+- session_topology - the network topology analysis, day 3  
+- session_nmf - session on matrix factorization, SNF and recommender systems, day 4 morning  
+- session_gems - the genome-scale modeling session, day 4 afternoon and day 5 morning  
+- session_visualization - cytoscape session day 3 afternoon, circos and hive plots day 5  
+
+You will need to create specific [conda environments as indicated below](#environments)
+
 ##### Environments
-For the [network topology lab](#network-topology-lab), [network visualization lab](#network-visualization-lab), [metabolic modeling lab](#metabolic-modeling-lab), and [GSA-lab](#gsa-lab) you will need a single conda environment.
-
-1. Download the conda environment
-```
-# Linux
-wget https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/master/environments/env-merged_nets_linux.yaml
-# MacOSX
-curl -o env-merged_nets.yaml https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/master/environments/env-merged_nets.yaml
-```
-
-2. Create the environment
+- **Network topology, visualization, metabolic modeling and GSA labs**
+Create the environment
 ```
 #Linux
-conda env create -n envnets -f env-merged_nets_linux.yaml
+conda env create -n envnets -f environments/env-merged_nets_linux.yaml
 #MacOSX
-conda env create -n envnets -f env-merged_nets.yaml
+conda env create -n envnets -f environments/env-merged_nets.yaml
 ```
 
-3. Activate the environment
+Activate the environment
 ```
 conda activate envnets
 ```
@@ -33,28 +45,8 @@ From this point, follow the instructions below in each respective session. At th
 
 
 ##### Network topology lab
-
-1. Download the data
-```
-#Linux
-wget https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/master/session_topology/data/met_genes.tsv
-wget https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/master/session_topology/data/proteinatlas.tsv
-#MacOSX
-curl -o met_genes.tsv https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/master/session_topology/data/met_genes.tsv
-curl -o proteinatlas.tsv https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/master/session_topology/data/proteinatlas.tsv
-```
-
-2. Download the jupyter notebook
-```
-# Linux
-wget https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/master/session_topology/lab.ipynb
-# MacOSX
-curl -o lab.ipynb https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/master/session_topology/lab.ipynb
-```
-
-3. Start the jupyter notebook
+All data is inside the `/session_topology/data/` folder. After creating and activating the environment, launch jupyter
 ```
 jupyter-notebook
 ```
-
-If you get an error `Not a directory: 'xdg-settings'` please [check this for a solution](https://github.com/jupyter/notebook/issues/3746#issuecomment-444957821).
+Inside jupyter, open the file `/session_topology/lab.ipynb`.
