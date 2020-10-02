@@ -49,3 +49,8 @@ dependencies:
   - pip #>=20.0.2
   - pip:
     - cobra
+  
+  # Visualization
+  - r-circlize
+  - r-janitor
+    #  - r-hiver
