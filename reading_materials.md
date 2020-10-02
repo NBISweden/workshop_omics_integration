@@ -8,7 +8,7 @@ This page contains recommended reading materials in addition to the [pre-course 
 
 **!** - important
 
-**Integration**  
+**Machine Learning approaches in Integration**  
 Note: if you cannot see one of the pages because you've reached the free member preview,
 open the page in "Private Browsing" mode in your web browser.
 - **!** [Feature selection][17] 
