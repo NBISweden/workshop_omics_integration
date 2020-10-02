@@ -50,18 +50,14 @@ jupyter-notebook
 ```
 Inside jupyter, open the file `/session_topology/lab.ipynb`.
 
-##### GEM simulation and analysis lab (days 4 and 5)
-
-**GEM structure and simulation with Cobrapy (day 4)**
-
+##### GEM structure and simulation with Cobrapy (day 4)
 After activating the `envnets` environment, launch jupyter
 ```
 jupyter-notebook
 ```
 Inside jupyter, open the file `/session_gems/COBRApy_tutorial.ipynb`.
 
-**GEM-based gene set analysis (day 5)**
-
+##### GEM-based gene set analysis (day 5)
 After activating the `envnets` environment, launch jupyter
 ```
 jupyter-notebook
