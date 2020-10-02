@@ -133,7 +133,7 @@ title:  'Schedule'
 [6]: https://nbis.se/about/staff/rui-benfeitas/
 [7]: https://nbis.se/about/staff/sergiu-netotea/
 [8]: https://nbis.se/about/staff/lokeshwaran-manoharan/
-[9]: https://www.chalmers.se/en/staff/Pages/mihail-anton.aspx
+[9]: https://nbis.se/about/staff/mihail-anton
 [10]: https://www.linkedin.com/in/jakobwillforss
 [11]: https://github.com/ComputationalProteomics/OmicLoupe
 [12]: https://www.metabolicatlas.org/
