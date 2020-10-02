@@ -1,0 +1,12 @@
+# Mac DS_Store files
+.DS_Store
+
+# raw TCGA data files
+/data/TCGA_data/TCGA-BRCA/
+
+# Rmarkdown cache files
+/GEM_GSA_cache/
+/GEM_GSA_files/
+
+# Jupyter notebook checkpoint files
+.ipynb_checkpoints
