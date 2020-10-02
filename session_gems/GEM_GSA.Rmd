@@ -74,9 +74,9 @@ Setup
 
 **In your terminal/command prompt**
 
-`r sn<-sn+1; paste0(sn,"\\. ")` Activate the conda environment for this exercise
+`r sn<-sn+1; paste0(sn,"\\. ")` If you have not done so already, activate the `envnets` conda environment
 ```{bash, eval=F}
-$ conda activate gsa-env
+$ conda activate envnets
 ```
 </br>
 
