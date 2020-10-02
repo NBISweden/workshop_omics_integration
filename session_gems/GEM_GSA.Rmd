@@ -48,7 +48,7 @@ div.answer { display: true;}
 </style>
 
 ```{r setup, include=F}
-knitr::opts_chunk$set(echo=T, tidy=F, eval=T, cache=T)
+knitr::opts_chunk$set(echo=T, tidy=F, eval=T, cache=F)
 qn <- sn <- 0
 ```
 
@@ -116,7 +116,7 @@ library(org.Hs.eg.db)
 
 `r sn<-sn+1; paste0(sn,"\\. ")` Specify the location of the main tutorial directory
 ```{r}
-main_dir = '/Users/jonrob/Documents/NBIS/teaching/GEM_tutorial/'
+main_dir = '/Users/jonrob/Documents/NBIS/teaching/workshop_omics_integration/session_gems'
 ```
 </br>
 
@@ -215,15 +215,6 @@ invisible(gc())
 
 Differential expression analysis
 ================================
-
-<!-- `r sn<-sn+1; paste0(sn,"\\. ")` To reduce computation time, only include the first 20 subjects -->
-<!-- ```{r, eval=RunAll} -->
-<!-- keep <- subject_id %in% levels(subject_id)[1:20] -->
-<!-- subject_id <- droplevels(subject_id[keep]) -->
-<!-- sample_type <- droplevels(sample_type[keep]) -->
-<!-- counts <- counts[, keep] -->
-<!-- ``` -->
-<!-- </br> -->
 
 `r sn<-sn+1; paste0(sn,"\\. ")` Create DGEList object from the counts matrix
 ```{r, eval=RunAll}
