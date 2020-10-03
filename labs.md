@@ -27,7 +27,23 @@ Inside you will find the following folders:
 You will need to create specific [conda environments as indicated below](#environments)  
 
 ##### Environments
-- **Network topology, visualization, metabolic modeling and GSA labs**   
+- **Machine learning (days 1 and 2)**  
+Create the environment for day 1:  
+```
+#Linux
+conda env create -n envml -f environments/env-ml_linux.yaml
+#MacOSX
+conda env create -n envml -f environments/env-ml.yaml
+```
+
+Activate the environment
+```
+conda activate envml
+```
+
+From this point, follow the instructions below in each respective session. At the end deactivate the environment with `conda deactivate`.
+
+- **Network topology, visualization, metabolic modeling and GSA labs (days 3-5)**   
 Create the environment
 ```
 #Linux
@@ -43,21 +59,60 @@ conda activate envnets
 
 From this point, follow the instructions below in each respective session. At the end deactivate the environment with `conda deactivate`.
 
-##### Network topology lab (day 3)
+##### Day 1: Supervised integration and feature selection
+After activating the environment as above, launch Rstudio with `rstudio &` and install `mixomics` within R:
+```
+install.packages("session_ml/mixOmics_6.3.1.tar.gz", repos = NULL, type="source", dependencies = TRUE)
+```
+if you get the error `ERROR: dependency ‘rgl’ is not available for package ‘mixOmics’` please install `rgl` before:
+```
+install.packages('session_ml/rgl_0.100.54.tgz', repos = NULL, type="source", dependencies = TRUE)
+```
+
+**Supervised integration:** data, [Rmd](./session_ml/SupervisedOMICsIntegration/supervised_omics_integr_CLL.Rmd) and [.html](./session_ml/SupervisedOMICsIntegration/supervised_omics_integr_CLL.html) are within folder `session_ml/SupervisedOMICsIntegration/`.
+
+**Feature selection:** data, [Rmd](./session_ml/FeatureSelectionIntegrOMICs/OmicsIntegration_FeatureSelection.Rmd) and [.html](./session_ml/FeatureSelectionIntegrOMICs/OmicsIntegration_FeatureSelection.html) are within folder `session_ml/FeatureSelectionIntegrOMICs/`.
+
+##### Day 2: Unsupervised integration, dimensionality reduction, deep learning, single-cell omics integration
+After activating the environment as above, open the `.Rmd` below by launching Rstudio with `rstudio &` or the jupyter notebooks with `jupyter-notebook`.
+
+**Unsupervised integration:** data, [Rmd](./session_ml/UnsupervisedOMICsIntegration/UnsupervisedOMICsIntegration.Rmd) and [.html](./session_ml/UnsupervisedOMICsIntegration/UnsupervisedOMICsIntegration.html) are within folder `session_ml/UnsupervisedOMICsIntegration/`.
+
+**Dimensionality reduction:** data, [Rmd](./session_ml/DimReductSingleCell/OmicsIntegration_DimensionReduction.Rmd) and [.html](./session_ml/DimReductSingleCell/OmicsIntegration_DimensionReduction.html) are within folder `session_ml/DimReductSingleCell/`.
+
+**UMAP for data integration** data, [jupyter notebook](./session_ml/UMAP_integration/UMAP_DataIntegration.ipynb) and [.html](./session_ml/UMAP_integration/UMAP_DataIntegration.html) are within folder `session_ml/UMAP_integration/`. Note that the data needs to be decompressed before running the notebook:
+```
+gunzip scRNAseq.csv.gz
+gunzip scProteomics.csv.gz
+```
+
+**Deep learning:** data, [jupyter notebook](./session_ml/DeepLearningDataIntegration/DeepLearningDataIntegration.ipynb) and [.html](./session_ml/DeepLearningDataIntegration/DeepLearningDataIntegration.html) are within folder `session_ml/DeepLearningDataIntegration/`.
+
+
+conda install -c conda-forge xorg-libx11
+
+
+/Users/rui.benfeitas/GitHub/workshop_omics_integration/session_ml/DimReductSingleCell/OmicsIntegration_DimensionReduction.Rmd
+ can launch Rstudio with `rstudio &` or 
+
+./session_ml/UnsupervisedOMICsIntegration/UnsupervisedOMICsIntegration.
+
+
+##### Day 3: Network topology
 After creating and activating the environment, launch jupyter
 ```
 jupyter-notebook
 ```
 Inside jupyter, open the file `/session_topology/lab.ipynb`.
 
-##### GEM structure and simulation with Cobrapy (day 4)
+##### Day 4: GEM structure and simulation with Cobrapy
 After activating the `envnets` environment, launch jupyter
 ```
 jupyter-notebook
 ```
 Inside jupyter, open the file `/session_gems/COBRApy_tutorial.ipynb`.
 
-##### GEM-based gene set analysis (day 5)
+##### Day 5: GEM-based gene set analysis
 After activating the `envnets` environment, launch jupyter
 ```
 jupyter-notebook
