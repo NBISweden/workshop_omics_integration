@@ -88,16 +88,6 @@ gunzip scProteomics.csv.gz
 
 **Deep learning:** data, [jupyter notebook](./session_ml/DeepLearningDataIntegration/DeepLearningDataIntegration.ipynb) and [.html](./session_ml/DeepLearningDataIntegration/DeepLearningDataIntegration.html) are within folder `session_ml/DeepLearningDataIntegration/`.
 
-
-conda install -c conda-forge xorg-libx11
-
-
-/Users/rui.benfeitas/GitHub/workshop_omics_integration/session_ml/DimReductSingleCell/OmicsIntegration_DimensionReduction.Rmd
- can launch Rstudio with `rstudio &` or 
-
-./session_ml/UnsupervisedOMICsIntegration/UnsupervisedOMICsIntegration.
-
-
 ##### Day 3: Network topology
 After creating and activating the environment, launch jupyter
 ```
