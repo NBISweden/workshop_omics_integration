@@ -1,0 +1,29 @@
+channels:
+- bioconda
+- r
+- conda-forge
+- rdonnelly
+- defaults
+
+
+dependencies:
+### Base installations
+- r-base >=3.5
+- rstudio
+#
+#### Supervised integration
+#- r-rgl
+- r-glmnet
+- r-matrixstats
+- r-corpcor
+- r-ellipse
+- r-igraph
+- r-rcolorbrewer
+- r-ggplot2
+- r-gridextra
+- r-plyr
+#- r-rarpack
+#- r-rcpp
+#- r-reshape2
+- r-tidyr
+- r-mixomics #=6.3.1
