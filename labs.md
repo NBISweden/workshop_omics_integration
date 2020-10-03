@@ -49,3 +49,23 @@ After creating and activating the environment, launch jupyter
 jupyter-notebook
 ```
 Inside jupyter, open the file `/session_topology/lab.ipynb`.
+
+##### GEM structure and simulation with Cobrapy (day 4)
+After activating the `envnets` environment, launch jupyter
+```
+jupyter-notebook
+```
+Inside jupyter, open the file `/session_gems/COBRApy_tutorial.ipynb`.
+
+##### GEM-based gene set analysis (day 5)
+After activating the `envnets` environment, launch jupyter
+```
+jupyter-notebook
+```
+Inside jupyter, open the file `/session_gems/GEM_GSC_extraction.ipynb`.
+
+When you are done with the `GEM_GSC_extraction.ipynb` notebook, close jupyter.
+
+Open the `/session_gems/GEM_GSA.html` file in the browser of your choice (Chrome, Firefox, etc.), and follow the instructions provided in that document.
+
+
