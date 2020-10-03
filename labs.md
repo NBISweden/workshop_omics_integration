@@ -69,24 +69,30 @@ if you get the error `ERROR: dependency ‘rgl’ is not available for package �
 install.packages('session_ml/rgl_0.100.54.tgz', repos = NULL, type="source", dependencies = TRUE)
 ```
 
-**Supervised integration:** data, [Rmd](./session_ml/SupervisedOMICsIntegration/supervised_omics_integr_CLL.Rmd) and [.html](./session_ml/SupervisedOMICsIntegration/supervised_omics_integr_CLL.html) are within folder `session_ml/SupervisedOMICsIntegration/`.
+- **Supervised integration:**  
+data, [Rmd](./session_ml/SupervisedOMICsIntegration/supervised_omics_integr_CLL.Rmd) and [.html](./session_ml/SupervisedOMICsIntegration/supervised_omics_integr_CLL.html) are within folder `session_ml/SupervisedOMICsIntegration/`.
 
-**Feature selection:** data, [Rmd](./session_ml/FeatureSelectionIntegrOMICs/OmicsIntegration_FeatureSelection.Rmd) and [.html](./session_ml/FeatureSelectionIntegrOMICs/OmicsIntegration_FeatureSelection.html) are within folder `session_ml/FeatureSelectionIntegrOMICs/`.
+- **Feature selection:**  
+data, [Rmd](./session_ml/FeatureSelectionIntegrOMICs/OmicsIntegration_FeatureSelection.Rmd) and [.html](./session_ml/FeatureSelectionIntegrOMICs/OmicsIntegration_FeatureSelection.html) are within folder `session_ml/FeatureSelectionIntegrOMICs/`.
 
 ##### Day 2: Unsupervised integration, dimensionality reduction, deep learning, single-cell omics integration
 After activating the environment as above, open the `.Rmd` below by launching Rstudio with `rstudio &` or the jupyter notebooks with `jupyter-notebook`.
 
-**Unsupervised integration:** data, [Rmd](./session_ml/UnsupervisedOMICsIntegration/UnsupervisedOMICsIntegration.Rmd) and [.html](./session_ml/UnsupervisedOMICsIntegration/UnsupervisedOMICsIntegration.html) are within folder `session_ml/UnsupervisedOMICsIntegration/`.
+- **Unsupervised integration:**  
+data, [Rmd](./session_ml/UnsupervisedOMICsIntegration/UnsupervisedOMICsIntegration.Rmd) and [.html](./session_ml/UnsupervisedOMICsIntegration/UnsupervisedOMICsIntegration.html) are within folder `session_ml/UnsupervisedOMICsIntegration/`.
 
-**Dimensionality reduction:** data, [Rmd](./session_ml/DimReductSingleCell/OmicsIntegration_DimensionReduction.Rmd) and [.html](./session_ml/DimReductSingleCell/OmicsIntegration_DimensionReduction.html) are within folder `session_ml/DimReductSingleCell/`.
+- **Dimensionality reduction:**  
+data, [Rmd](./session_ml/DimReductSingleCell/OmicsIntegration_DimensionReduction.Rmd) and [.html](./session_ml/DimReductSingleCell/OmicsIntegration_DimensionReduction.html) are within folder `session_ml/DimReductSingleCell/`.
 
-**UMAP for data integration** data, [jupyter notebook](./session_ml/UMAP_integration/UMAP_DataIntegration.ipynb) and [.html](./session_ml/UMAP_integration/UMAP_DataIntegration.html) are within folder `session_ml/UMAP_integration/`. Note that the data needs to be decompressed before running the notebook:
+- **UMAP for data integration**  
+data, [jupyter notebook](./session_ml/UMAP_integration/UMAP_DataIntegration.ipynb) and [.html](./session_ml/UMAP_integration/UMAP_DataIntegration.html) are within folder `session_ml/UMAP_integration/`. Note that the data needs to be decompressed before running the notebook:
 ```
 gunzip scRNAseq.csv.gz
 gunzip scProteomics.csv.gz
 ```
 
-**Deep learning:** data, [jupyter notebook](./session_ml/DeepLearningDataIntegration/DeepLearningDataIntegration.ipynb) and [.html](./session_ml/DeepLearningDataIntegration/DeepLearningDataIntegration.html) are within folder `session_ml/DeepLearningDataIntegration/`.
+- **Deep learning:**  
+data, [jupyter notebook](./session_ml/DeepLearningDataIntegration/DeepLearningDataIntegration.ipynb) and [.html](./session_ml/DeepLearningDataIntegration/DeepLearningDataIntegration.html) are within folder `session_ml/DeepLearningDataIntegration/`.
 
 ##### Day 3: Network topology
 After creating and activating the environment, launch jupyter
