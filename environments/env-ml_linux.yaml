@@ -1,29 +1,26 @@
 channels:
-- bioconda
-- r
-- conda-forge
 - rdonnelly
+- bioconda
+- conda-forge
 - defaults
 
 
 dependencies:
 ### Base installations
-- r-base >=3.5
-- rstudio
-#
+- r-base >= 3.5
+- rstudio >= 1.2
+
 #### Supervised integration
-#- r-rgl
-- r-glmnet
-- r-matrixstats
 - r-corpcor
 - r-ellipse
+- r-glmnet
 - r-igraph
-- r-rcolorbrewer
-- r-ggplot2
-- r-gridextra
-- r-plyr
-#- r-rarpack
-#- r-rcpp
-#- r-reshape2
+- r-matrixstats
+- r-rarpack
+- r-rgl
 - r-tidyr
-- r-mixomics #=6.3.1
+- bioconda::bioconductor-mixomics
+
+### Feature selection
+#- bioconda::bioconductor-mixomics 
+#- r-glmnet
