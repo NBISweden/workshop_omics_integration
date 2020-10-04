@@ -60,11 +60,9 @@ conda activate envnets
 From this point, follow the instructions below in each respective session. At the end deactivate the environment with `conda deactivate`.
 
 ##### Day 1: Supervised integration and feature selection
-After activating the environment as above, launch Rstudio with `rstudio &` and install `mixomics` within R:
-```
-install.packages("session_ml/mixOmics_6.3.1.tar.gz", repos = NULL, type="source", dependencies = TRUE)
-```
-if you get the error `ERROR: dependency ‘rgl’ is not available for package ‘mixOmics’` please install `rgl` before:
+After activating the environment as above, launch Rstudio with `rstudio &`. 
+
+In MacOSX, you also need to install [XQuartz](https://www.xquartz.org/). If you get errors related with `rgl` after launching mixomics, please install it:
 ```
 install.packages('session_ml/rgl_0.100.54.tgz', repos = NULL, type="source", dependencies = TRUE)
 ```
