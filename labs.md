@@ -27,8 +27,8 @@ Inside you will find the following folders:
 You will need to create specific [conda environments as indicated below](#environments)  
 
 ##### Environments
-- **Machine learning (days 1 and 2)**  
-Create the environment for day 1:  
+- **Machine learning Day 1**  
+Create the environment:  
 ```
 #Linux
 conda env create -n envml -f environments/env-ml_linux.yaml
@@ -42,6 +42,23 @@ conda activate envml
 ```
 
 From this point, follow the instructions below in each respective session. At the end deactivate the environment with `conda deactivate`.
+
+- **Machine learning Day 2**  
+Create the environment:  
+```
+#Linux
+conda env create -n envml_day2 -f environments/env-ml_day2_linux.yaml
+#MacOSX
+conda env create -n envml_day2 -f environments/env-ml_day2.yaml
+```
+
+Activate the environment
+```
+conda activate envml_day2
+```
+
+From this point, follow the instructions below in each respective session. At the end deactivate the environment with `conda deactivate`.
+
 
 - **Network topology, visualization, metabolic modeling and GSA labs (days 3-5)**   
 Create the environment

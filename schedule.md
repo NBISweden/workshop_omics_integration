@@ -35,7 +35,7 @@ title:  'Schedule'
 
 ##### Tuesday 2020-10-06
 
-**08.30 - 10.45** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Unsupervised Omics integration ([Nikolay][5], [slides](./session_ml/UnsupervisedOMICsIntegration/UnsupervisedOmicsIntegration_Oskolkov.pdf))
+**08.45 - 10.45** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Unsupervised Omics integration ([Nikolay][5], [slides](./session_ml/UnsupervisedOMICsIntegration/UnsupervisedOmicsIntegration_Oskolkov.pdf))
 
 **10.45 - 11.00** Coffee Break
 
@@ -58,7 +58,7 @@ title:  'Schedule'
 
 ##### Wednesday 2020-10-07
 
-**08.30 - 10.25** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Introduction to biological network analysis and terminology([Rui][6])
+**08.45 - 10.25** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Introduction to biological network analysis and terminology([Rui][6])
 
 **10.25 - 10.35** Coffee Break
 

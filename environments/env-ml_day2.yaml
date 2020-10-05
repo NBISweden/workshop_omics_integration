@@ -1,0 +1,41 @@
+channels:
+- bioconda
+- conda-forge
+- r
+- defaults
+
+
+dependencies:
+### Base installations  
+- r-base #>=3.6
+- rstudio
+- jupyter
+- python
+
+### Unsupervised integration (day2)
+- r-glmnet
+- r-matrixstats
+- bioconda::bioconductor-mixomics 
+- bioconductor-mofa
+- mofapy
+
+### UMAP data integration (day2)
+- keras
+- matplotlib
+- nb_conda_kernels
+- numpy
+- pandas
+- scipy
+- scikit-learn
+- umap
+
+### Dim reduction (day2)
+- r-rtsne
+- r-uwot
+
+### Deep learning (day2)
+#same as UMAP
+- tensorflow
+
+### single cell Integration (day2)
+- r-seurat=3.2.2
