@@ -13,7 +13,7 @@ title:  'Schedule'
 
 **09.00 - 10.00** Installation help and pre-course coffee
 
-**10.00 - 11.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Introduction and contextualization ([Rui][6], [slides](./session_intro/course_intro.key)) 
+**10.00 - 11.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Introduction and contextualization ([Rui][6], [slides](./session_intro/course_intro.pdf)) 
 
 **11.00 - 11.15** Break
 
