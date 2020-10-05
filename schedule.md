@@ -30,7 +30,7 @@ title:  'Schedule'
 
 **16.00 - 16.05** Break
 
-**16.05 - 17.00** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Supervised Omics integration ([Nikolay][5], [notebook](./session_ml/SupervisedOMICsIntegration/supervised_omics_integr_CLL.html))
+**16.05 - 17.00** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Supervised Omics integration ([notebook](./session_ml/SupervisedOMICsIntegration/supervised_omics_integr_CLL.html)) and Feature Selection ([notebook](./session_ml/FeatureSelectionIntegrOMICs/OmicsIntegration_FeatureSelection.html)) [Nikolay][5]
 
 
 ##### Tuesday 2020-10-06
