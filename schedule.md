@@ -17,11 +17,11 @@ title:  'Schedule'
 
 **11.00 - 11.15** Break
 
-**11.15 - 12.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Machine Learning view of Omics integration ([Nikolay][5])
+**11.15 - 12.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Machine Learning view of Omics integration ([Nikolay][5], [slides](./session_ml/MachineLearningViewOmicsIntegration_Oskolkov.pdf))
 
 **12.00 - 13.00** Lunch
 
-**13.00 - 14.45** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Supervised Omics integration ([Nikolay][5])
+**13.00 - 14.45** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Supervised Omics integration ([Nikolay][5], [slides](./session_ml/SupervisedOMICsIntegration/SupervisedOmicsIntegration_Oskolkov.pdf))
 
 **14.45 - 15.00** Coffee Break
 
@@ -29,12 +29,12 @@ title:  'Schedule'
 
 **16.00 - 16.05** Break
 
-**16.05 - 17.00** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Supervised Omics integration ([Nikolay][5])
+**16.05 - 17.00** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Supervised Omics integration ([Nikolay][5], [notebook](./session_ml/SupervisedOMICsIntegration/supervised_omics_integr_CLL.html))
 
 
 ##### Tuesday 2020-10-06
 
-**08.30 - 10.45** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Unsupervised Omics integration ([Nikolay][5])
+**08.30 - 10.45** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Unsupervised Omics integration ([Nikolay][5], [slides](./session_ml/UnsupervisedOMICsIntegration/UnsupervisedOmicsIntegration_Oskolkov.pdf))
 
 **10.45 - 11.00** Coffee Break
 
