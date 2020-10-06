@@ -7,17 +7,17 @@ channels:
 
 dependencies:
 ### Base installations  
-- r-base #>=3.6
+- r-base=3.6.1
 - rstudio
-- jupyter
+- jupyter=1.0.0
 - python
 
 ### Unsupervised integration (day2)
-- r-glmnet
-- r-matrixstats
+- r-glmnet=4.0_2
+- r-matrixstats=0.57.0
 - bioconda::bioconductor-mixomics=6.10.1
 - bioconductor-mofa=1.2.0
-- mofapy
+- mofapy=1.2
 
 ### UMAP data integration (day2)
 - keras=2.3.1
@@ -27,7 +27,7 @@ dependencies:
 - pandas
 - scipy
 - scikit-learn
-- umap
+- umap=1.1.1
 
 ### Dim reduction (day2)
 - r-rtsne=0.15
