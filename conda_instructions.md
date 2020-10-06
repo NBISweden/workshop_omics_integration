@@ -13,13 +13,15 @@ In this workshop you will use conda environments to run the exercises. This is b
 
 
 [Conda environments](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/environments.html) are a self-contained directory that
-you can use in order to reproduce all your results.
+you can use in order to reproduce all your results. 
 
 Briefly, you need to:  
 
 1. Install Conda and download the `.yml` file
 2. Create and activate the environment
 3. Deactivate the environment after running your analyses
+
+Refer to this [conda cheat sheet](https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf)
 
 <br/>
 
