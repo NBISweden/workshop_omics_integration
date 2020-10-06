@@ -32,6 +32,8 @@ At the end of the course, students should:
 - Understand strengths and pitfalls of key machine learning techniques in multi-omic analysis;
 - Be aware of important confounding factors and sources of bias.
 
+<img border="0" src="https://www.svgrepo.com/show/305241/github.svg" width="20" height="20"> [Github repository][3]
 
 [1]: https://forms.gle/obADRduLuoWZUeUbA
 [2]: https://nbis.se/about/staff/rui-benfeitas
+[3]: https://github.com/NBISweden/workshop_omics_integration
