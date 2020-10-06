@@ -1,0 +1,348 @@
+/* CSS Bootstrap custom style for course */
+/* 2019 Roy Francis */
+
+/* define font */
+@import url('https://fonts.googleapis.com/css?family=Roboto|Source+Sans+Pro:300,400,600|Ubuntu+Mono&subset=latin-ext');
+
+:root {
+  --primary: #0093BD;
+  --color-border: #ccc;
+  --color-text: #424949;
+  --color-code-bg: #f9f9f9;
+  --color-code-inline: #5d6d7e;
+  --font-base: 'Source Sans Pro';
+  --font-highlight: 'Source Sans Pro';
+  --font-code: 'Ubuntu Mono';
+}
+
+/* body font */
+/* body font family */
+body,p,h1,h2,h3,h4,h5,h6 { 
+  font-family: var(--font-base, 'Roboto', 'DIN', 'Helvetica', sans-serif);
+  color: var(--color-text);
+  font-weight: 400;
+  font-size: 17.5px;
+  line-height: 1.55;
+}
+
+/* title font family, weight and size */
+h1,h2 { 
+  font-family: var(--font-highlight, 'Roboto', 'DIN', 'Helvetica', sans-serif);
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 1.802em;
+}
+
+h2 {
+  font-size: 1.602em;
+}
+
+h3 {
+  font-size: 1.424em;
+}
+
+h4 {
+  font-size: 1.266em;
+}
+
+h5 {
+  font-size: 1.266em;
+}
+
+h6 {
+  font-size: 1.125em;
+}
+
+.section h1 {
+    padding-top: 90px !important;
+}
+
+.section h2 {
+    padding-top: 70px !important;
+}
+
+/* code style */
+pre {
+  font-family: var(--font-code,"Menlo","Monaco", "Consolas","Liberation Mono", "Courier New", monospace);
+  background-color: var(--color-code-bg);
+  border: 1px solid var(--color-border);
+  font-size: 15px;
+}
+
+/* report title style */
+.title {
+  /* margin-top: 11px; */
+  margin-bottom: 0;
+  font-size: 1.9em;
+}
+
+/* report subtitle style */
+.subtitle {
+  margin-top: -10px;
+  margin-bottom: 0;
+  font-size: 1.7em;
+}
+
+/* report author style */
+.author {
+  font-size: 1em;
+  margin-top: -6px;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+/* report date style */
+.date {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+/* new font size classes */
+.largest { font-size: 2.488em; }
+.larger { font-size: 2.074em; }
+.large { font-size: 1.44em;}
+.medium { font-size: 1.2em;}
+.small { font-size: 0.833em; }
+.smaller { font-size: 0.694em; }
+.smallest{ font-size: 0.579em; }
+
+blockquote {
+  border-left: 5px solid var(--primary);
+  background: var(--color-code-bg);
+  padding: 10px;
+  padding-left: 12px;
+  margin-left: 16px;
+  margin-right: 0;
+  border-radius: 0px 4px 4px 0px;
+}
+
+/* abstract paragraph style */
+.abstract {
+    line-height: 170%;
+}
+
+/* kbd */
+.kbd {
+  padding: 2px 5px;
+  font-family: var(--font-code,"Menlo","Monaco", "Consolas","Liberation Mono", "Courier New", monospace);
+}
+
+/* danger alert text style */
+
+.danger {
+  color: #721c24;
+  display: block;
+  background: #f8d7da;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+/* div styles --------------------------------------------------------------- */
+
+/** div style for instrauctions **/
+.instruction {
+ border: 1px solid var(--primary);
+ border-left: 6px solid var(--primary);
+ border-radius: 4px 4px 4px 4px;
+ padding: 10px 10px 0px 10px;
+ margin: 20px 0px 10px 0px;
+}
+
+.optional {
+ border: 1px solid #EF7C00;
+ border-left: 6px solid #EF7C00;
+ border-radius: 4px 4px 4px 4px;
+ padding: 10px 10px 0px 10px;
+ margin: 20px 0px 10px 0px;
+}
+
+/* IMAGES ------------------------------------------------------------------- */
+
+/* image styling */
+img {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.fancyimage {
+  box-shadow: 1px 1px 5px grey;
+  border-radius: 2px;
+}
+
+.logo-navbar {
+  height: 33px;
+  margin-top: 0px;
+  margin-right: 20px;
+}
+
+.logo-one {
+  position: relative;
+  height: 50px;
+  top: -105px;
+  float: right;
+}
+
+.logo-two {
+  position: relative;
+  height: 50px;
+  top: -146px;
+  float: right;
+}
+
+.logo-three {
+  position: relative;
+  height: 50px;
+  top: -168px;
+  float: right;
+}
+
+.figure {
+ margin-bottom: 12px; 
+}
+
+/* Buttons and Links -------------------------------------------------------- */
+/* link colour */
+a, table a{
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover, table a:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+/* floating bar highlight */
+.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+  z-index: 2;
+  background-color: var(--primary);
+  border-color: var(--border-color);
+}
+
+/* table even shading colour */
+.even {
+    background-color: var(--color-code-bg);
+}
+
+/* schedule table */
+.table-schedule {
+  display: inline-block;
+  padding: 25px;
+  border-radius: 4px;
+  -webkit-box-shadow: 1px 1px 6px #E0E0E0;
+  -moz-box-shadow: 1px 1px 6px #E0E0E0;
+  box-shadow:1px 1px 6px #E0E0E0;
+  margin-bottom: 20px;
+}
+
+button.btn-collapse {
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+button.btn-collapse-normal {
+  color: white;
+  border-color: var(--primary);
+  background-color: var(--primary);
+}
+
+button.btn-collapse-normal:hover {
+    background-color: white;
+    color: var(--primary);
+    border-color: white;
+    box-shadow: 0px 3px 40px -9px var(--primary);
+    -webkit-box-shadow: 0px 3px 40px -9px var(--primary);
+    -moz-box-shadow: 0px 3px 40px -9px var(--primary);
+}
+
+button.btn-collapse-optional {
+  color: white;
+  border-color: #EF7C00;
+  background-color: #EF7C00;
+}
+
+button.btn-collapse-optional:hover {
+    background-color: white;
+    color: #EF7C00;
+    border-color: white;
+    box-shadow: 0px 3px 30px -9px #EF7C00;
+    -webkit-box-shadow: 0px 3px 30px -9px #EF7C00;
+    -moz-box-shadow: 0px 3px 30px -9px #EF7C00;
+}
+
+button.btn.collapsed:before
+{
+    content: '+' ;
+    display: block;
+    width: 15px;
+    font-size: 120%;
+    font-weight: bold;
+}
+
+button.btn:before
+{
+    content: '-' ;
+    display: block;
+    width: 15px;
+    font-size: 120%;
+    font-weight: bold;
+}
+
+/** top title code **/
+div.block-title {
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: var(--color-border);
+  border-top: 1px solid var(--color-border);
+  border-left: 1px solid var(--color-border);
+  border-right: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: 2px 2px 2px 10px;
+  margin-top: auto;
+  margin-bottom: auto;
+  color: white;
+}
+
+/* navbar ------------------------------------------------------------------- */
+
+div.navbar-default {
+  background-color: var(--primary);
+}
+
+ul.nav a:hover { 
+  color: lightgrey !important; 
+}
+
+.navbar-header a:hover { 
+  color: lightgrey !important; 
+}
+
+/* footer ------------------------------------------------------------------- */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 35px;
+  background-color: var(--primary);
+}
+
+.footer p {
+  color: white;
+}
+
+.footer a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: lightgrey;
+  text-decoration: none;
+}

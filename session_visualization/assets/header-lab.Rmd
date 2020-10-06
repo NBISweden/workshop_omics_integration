@@ -1,0 +1,61 @@
+<!-- rmd lab header -->
+
+<!-- custom fonts -->
+<link href="https://fonts.googleapis.com/css?family=Roboto|Source+Sans+Pro:300,400,600|Ubuntu+Mono&amp;subset=latin-ext" rel="stylesheet">
+
+```{r,include=FALSE,cache=FALSE}
+# load libraries
+library(knitr) # runs pandoc
+library(bookdown) # for markdown
+library(captioner) # for table and figure captions
+```
+
+```{r,include=FALSE,cache=FALSE}
+# prepare captions
+tc <- captioner::captioner(prefix="<b>Tab. </b>")
+fc <- captioner::captioner(prefix="<b>Fig. </b>")
+# knitr options
+knitr::opts_knit$set(progress=TRUE,verbose=TRUE)
+knitr::opts_chunk$set(dev="svg",results="hold",fig.show="hold",fig.align="left",
+                      echo=TRUE,warning=FALSE,message=FALSE,accordion=NULL,
+                      block.title=TRUE)
+```
+
+```{r,include=FALSE,cache=FALSE}
+# custom hooks
+## collapsible panel
+knitr::knit_hooks$set(accordion=function(before,options,envir) {
+  if(before) {
+    id <- paste0("acc",format(Sys.time(),"%Y%m%d%H%S"),sample(c(0:9),1),sample(c(0:9),1),sample(c(0:9),1),sample(c(0:9),1))
+    if(is.null(options$btntype)) {btntype <- "normal"}else{btntype <- options$btntype}
+    paste0('<p>',
+          '<button class="btn btn-sm btn-primary btn-collapse btn-collapse-',btntype,' collapsed" type="button" data-toggle="collapse" data-target="#',id,'" aria-expanded="false" aria-controls="',id,'">',
+          '</button>',
+          '</p>',
+          '<div class="collapse" id="',id,'">',
+          '<div class="card card-body">')
+  }else{
+    paste0("</div>","</div>")
+  }
+})
+
+## show title for code
+knitr::knit_hooks$set(block.title=function(before,options,envir) {
+
+out_class <- NULL
+if(is.null(options$class.output)) {
+if(options$echo) out_class <- options$engine
+if((!options$echo) & (options$results != "hide")) out_class <- "Output"
+}else{
+  out_class <- options$class.output
+}
+
+  if(before) {
+    paste0('<div class="block-title-parent"><div class="block-title small">',out_class,'</div>')
+  }else{
+    paste0('</div>')
+  }
+})
+```
+
+<br>
