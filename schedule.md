@@ -30,24 +30,24 @@ title:  'Schedule'
 
 **16.00 - 16.05** Break
 
-**16.05 - 17.00** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Supervised Omics integration ([notebook](./session_ml/SupervisedOMICsIntegration/supervised_omics_integr_CLL.html)) and Feature Selection ([notebook](./session_ml/FeatureSelectionIntegrOMICs/OmicsIntegration_FeatureSelection.html)) [Nikolay][5]
+**16.05 - 17.00** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Supervised Omics integration ([Nikolay][5], [notebook](./session_ml/SupervisedOMICsIntegration/supervised_omics_integr_CLL.html)) and Feature Selection ([notebook](./session_ml/FeatureSelectionIntegrOMICs/OmicsIntegration_FeatureSelection.html))
 
 
 ##### Tuesday 2020-10-06
 
-**08.45 - 10.45** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Unsupervised Omics integration ([Nikolay][5], [slides](./session_ml/UnsupervisedOMICsIntegration/UnsupervisedOmicsIntegration_Oskolkov.pdf))
+**08.45 - 10.45** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Unsupervised Omics integration ([Nikolay][5], [slides](./session_ml/UnsupervisedOMICsIntegration/UnsupervisedOmicsIntegration_Oskolkov.pdf), [notebook])
 
 **10.45 - 11.00** Coffee Break
 
-**11.00 - 12.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Dimensionality reduction and clustering for Omics integration ([Nikolay][5])
+**11.00 - 12.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Dimensionality reduction and clustering for Omics integration ([Nikolay][5], [slides](./session_ml/DimReductSingleCell/DimensionReduction_Oskolkov.pdf), [notebook](./session_ml/DimReductSingleCell/OmicsIntegration_DimensionReduction.html))
 
 **12.00 - 13.00** Lunch
 
-**13.00 - 14.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Deep learning for omics integration ([Nikolay][5])
+**13.00 - 14.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Deep learning for omics integration ([Nikolay][5], [slides](./session_ml/DeepLearningDataIntegration/DeepLearningOmicsIntegration_Oskolkov.pdf), [notebook](./session_ml/DeepLearningDataIntegration/DeepLearningDataIntegration.html), and [notebook for DL in single cell](./session_ml/DeepLearningDataIntegration/DeepLearning_SingleCell_10X_1.3Mcells.html))
 
 **14.00 - 14.05** Break
 
-**14.05 - 15.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Single cell omics integration ([Nikolay][5])
+**14.05 - 15.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Single cell omics integration ([Nikolay][5], [slides](./session_ml/SingleCell/SingleCellOmicsIntegration_Oskolkov.pdf), [notebook](./session_ml/SingleCell/SingleCell_OmicsIntegration.html), [data](https://drive.google.com/file/d/1hBeh2L5PC-T87YObCmJv4Qcm59IqkkOf/view?usp=sharing))
 
 **15.00 - 15.15** Coffee Break
 
