@@ -70,7 +70,7 @@ title:  'Schedule'
 
 **14.10 - 14.25** Coffee Break
 
-**14.25 - 16.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Community analysis ([Rui][6], [slides](https://github.com/NBISweden/workshop_omics_integration/raw/master/session_topology/3Community_analysis.pdf))
+**14.25 - 16.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Community analysis ([Rui][6], [slides](./session_topology/3Community_analysis.pdf))
 
 **16.00 - 17.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Network visualization with Cytoscape using R ([notebook](./session_visualization/Cytoscape_tutorial.html), [Ashfaq][2])
 
