@@ -35,7 +35,7 @@ title:  'Schedule'
 
 ##### Tuesday 2020-10-06
 
-**08.45 - 10.45** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Unsupervised Omics integration ([Nikolay][5], [slides](https://github.com/NBISweden/workshop_omics_integration/raw/master/session_ml/UnsupervisedOMICsIntegration/UnsupervisedOmicsIntegration_Oskolkov.pdf), [notebook])
+**08.45 - 10.45** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Unsupervised Omics integration ([Nikolay][5], [slides](https://github.com/NBISweden/workshop_omics_integration/raw/master/session_ml/UnsupervisedOMICsIntegration/UnsupervisedOmicsIntegration_Oskolkov.pdf), [notebook](https://github.com/NBISweden/workshop_omics_integration/raw/master/session_ml/UnsupervisedOMICsIntegration/UnsupervisedOMICsIntegration.html))
 
 **10.45 - 11.00** Coffee Break
 
