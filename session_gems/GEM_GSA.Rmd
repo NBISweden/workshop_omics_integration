@@ -120,21 +120,20 @@ main_dir = '/Users/jonrob/Documents/NBIS/teaching/workshop_omics_integration/ses
 ```
 </br>
 
-`r sn<-sn+1; paste0(sn,"\\. ")` Create a `TCGA_data/` subdirectory within `data/` (if it does not yet exist) and set the working directory to that location
+`r sn<-sn+1; paste0(sn,"\\. ")` Create a `TCGA_data/` subdirectory within `data/` (if it does not yet exist)
 ```{r}
 tcga_dir <- file.path(main_dir, 'data', 'TCGA_data')
 if (!dir.exists(tcga_dir)) { dir.create(tcga_dir) }
-setwd(tcga_dir)
 ```
 
 
 Retrieve RNA-Seq data
 =====================
 
-> **Note:** If the GDC or Ensembl database is slow/unavailable, or you are very comfortable with differential expression analysis, you can skip ahead to the *Gene set analysis* section below. The processed count matrix and differential expression analysis result files are available in the `data/TCGA_data/` directory.
+> **Note:** This and the **Differential expression analysis** section below are **optional**! If the GDC or Ensembl database is slow/unavailable, or you are comfortable with differential expression analysis, you can skip ahead to the **Gene set analysis** section below. The processed count matrix and differential expression analysis result files are already available in the `data/TCGA_data/` directory.
 
 ```{r, echo=F}
-RunAll <- F
+RunAll <- F  # in case we don't want to re-run the TCGA data retrieval and DE analysis (quite slow)
 ```
 
 `r sn<-sn+1; paste0(sn,"\\. ")` Query the TCGA database (hosted by GDC). Specifically, we are querying for RNA-Seq gene counts associated with the breast cancer project, and filtering to include only sample types `Primary Tumor` and `Solid Tissue Normal`.
@@ -179,6 +178,8 @@ GDCdownload(query, directory=tcga_dir)
 ```
 </br>
 
+> **Note**: Even though we specify the directory `tcga_dir` where we want the files to be downloaded, it will still place a `MANIFEST.txt` file in your current working directory. You can just delete that file.
+
 `r sn<-sn+1; paste0(sn,"\\. ")` Load the RNA-Seq gene counts from the downloaded files.
 ```{r, message=F, warning=F, results='hide', eval=RunAll}
 # loaded as a "SummarizedExperiment" object
@@ -186,7 +187,7 @@ TCGAdata <- GDCprepare(query, directory=tcga_dir)
 ```
 </br>
 
-`r sn<-sn+1; paste0(sn,"\\. ")` Further filter the data to only include subjects with the Luminal B subtype of breast cancer
+`r sn<-sn+1; paste0(sn,"\\. ")` Further filter the data to only include subjects with the Luminal B subtype (`LumB`) of breast cancer
 ```{r, message=F, warning=F, results='hide', eval=RunAll}
 meta <- colData(TCGAdata)
 keep_subjects <- meta$patient[meta$paper_BRCA_Subtype_PAM50 %in% 'LumB']
@@ -216,7 +217,9 @@ invisible(gc())
 Differential expression analysis
 ================================
 
-`r sn<-sn+1; paste0(sn,"\\. ")` Create DGEList object from the counts matrix
+> **Note**: The differential expression (DE) analysis here will be performed using the **edgeR** package. Since the focus of this workshop is not on DE analysis, we don't provide much detail surrounding the commands below. However, you can find a lot of examples and detail in the very helpful edgeR [User's Guide](https://bioconductor.org/packages/release/bioc/vignettes/edgeR/inst/doc/edgeRUsersGuide.pdf). Another excellent tool for DE analysis is **DESeq2**, which also has a fantastic [User Guide](https://bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html).
+
+`r sn<-sn+1; paste0(sn,"\\. ")` Create DGEList object from the gene counts matrix
 ```{r, eval=RunAll}
 y <- DGEList(counts=counts)
 ```
@@ -289,7 +292,7 @@ write.table(median_cpm, file=file.path(tcga_dir, 'median_cpm.txt'), quote=F, sep
 Gene set analysis
 =================
 
-Piano is an R-package for performing gene-set analysis (see more info <a href="https://varemo.github.io/piano/" target="_blank">here</a>).
+There are many different methods for performing gene set analysis (GSA), but Piano is convenient in that it implements many of these variants in a single package (see more info [here](https://varemo.github.io/piano/)). In this example, we will use one of the gene set collections (GSCs) we extracted from Human-GEM to explore which areas of metabolism are enriched in significant expression changes between normal and tumor samples.
 
 `r sn<-sn+1; paste0(sn,"\\. ")` Load DE results (if not already loaded)
 ```{r}
@@ -297,7 +300,7 @@ de.res <- read.delim(file.path(tcga_dir, 'DE_results.txt'), row.names=1)
 ```
 </br>
 
-`r sn<-sn+1; paste0(sn,"\\. ")` Load the GEM-derived gene set collection (GSC)
+`r sn<-sn+1; paste0(sn,"\\. ")` Load one of the GEM-derived gene set collections
 ```{r}
 gsc <- loadGSC(file.path(main_dir, 'data', 'gene_set_collections', 'HumanGEM_subsystem_GSC.gmt'))
 # gsc <- loadGSC(file.path(main_dir, 'data', 'gene_set_collections', 'HumanGEM_metabolite_GSC.gmt'))
@@ -316,7 +319,7 @@ Overrepresentation analysis
 
 We will first use Piano to perform an overrepresentation analysis - i.e., given a list of "interesting" genes, which gene sets (if any) contain more of these genes than one would expect due to random chance? This overrepresentation or enrichment effect can be quantified using the hypergeometric test.
 
-`r sn<-sn+1; paste0(sn,"\\. ")` Generate a list of "interesting" genes. In this case, we (arbitrarily) selected genes that are differentially expressed with an FDR < 0.01 and an absolute log2(fold-change) > 2.
+`r sn<-sn+1; paste0(sn,"\\. ")` Generate a list of "interesting" genes. In this case, we (arbitrarily) select genes that are differentially expressed with an FDR < 0.01 and an absolute log2(fold-change) > 2.
 ```{r}
 selected_genes = rownames(de.res)[de.res$FDR < 0.01 & abs(de.res$logFC) > 2]
 length(selected_genes)  # see how many genes are in our list
@@ -371,9 +374,7 @@ networkPlot2(res,
 Reporter metabolite/pathway analysis
 ------------------------------------
 
-For the overrepresentation analysis, we evaluated the enrichment of a list of genes among a collection of gene sets. However, if we want to use the information from *all* of the genes in our data 
-
-, we can also evaluate the enrichment of our DE results in the context of the metabolic network. One such approach is reporter metabolite analysis, as described in <a href="https://www.pnas.org/content/102/8/2685" target="_blank">Patil & Nielsen, *PNAS* 2005</a>. Reporter metabolite analysis is essentially the same as a typical gene-set analysis, but the gene sets are metabolites (e.g., NADH, glucose, citrate, etc.) instead of GO terms. Here we'll try out the reporter metabolite analysis using gene-metabolite associations derived from the yeast genome-scale metabolic model, <a href="https://github.com/SysBioChalmers/yeast-GEM" target="_blank">Yeast-GEM</a>.
+For the overrepresentation analysis, we evaluated the enrichment of a list of genes among different gene sets. However, if we want to use the information from *all* of the genes in our DE results, we can perform a GSA using one of the methods available in Piano.
 
 `r sn<-sn+1; paste0(sn,"\\. ")` Extract p-values and log2fold-changes from DE results dataframe
 ```{r}
@@ -382,7 +383,7 @@ logfc <- de.res$logFC %>% setNames(rownames(de.res))
 ```
 </br>
 
-`r sn<-sn+1; paste0(sn,"\\. ")` Run a gene set analysis (GSA) using the "Reporter" statistic
+`r sn<-sn+1; paste0(sn,"\\. ")` Run a gene set analysis (GSA) using the "Reporter" statistic. To understand the meaning of each parameter, view the help information for the `runGSA` function.
 ```{r, message=F, results='hide'}
 gsaRes <- runGSA(geneLevelStats=pval,
                  directions=logfc,
@@ -408,7 +409,7 @@ View(gsaRes_table)
 
 `r sn<-sn+1; paste0(sn,"\\. ")` Visualize the top most significant gene sets using a heatmap.
 
-> **Note:** The `GSAheatmap` function often errors with `figure margins too large` when using the default `colorkey=TRUE`. If you get this error, **reset the plot window using the `dev.off()` command**. You can then try to resize your plot window to a larger size before re-running the `GSAheatmap` function, or turn the key off (`colorkey=FALSE`), or skip this command and continue with the custom heatmap generation in the next step.
+> **Note:** The `GSAheatmap` function often has a `figure margins too large` error when using the default `colorkey=TRUE`. If you get this error, **reset the plot window using the `dev.off()` command**. You can then try to resize your plot window to a larger size before re-running the `GSAheatmap` function, or turn the key off (`colorkey=FALSE`), or skip this command and continue with the custom heatmap generation in the next step.
 
 ```{r, fig.width=4, fig.height=6.5}
 # include top 3 gene sets of each directional category, and print the
@@ -417,6 +418,8 @@ GSAheatmap(gsaRes, cutoff=3, adjusted=T, cellnote='rank', colorkey=F,
            cex=1, ncharLabel=50)
 ```
 </br></br>
+
+> **Note:** There are many repeated numbers in the heatmap (e.g., rank 1 is repeated very often). This is because these gene sets have identical p-values, and therefore have equal ranks. We could re-run the GSA with more permutations (`nPerm`) to obtain a higher resolution on the p-values and potentially begin to separate some of these gene sets, but it will come at the cost of increased computation time.
 
 Another option is to generate our own custom heatmap. Although the setup is a bit more involved, it allows for  more flexibility and customization.
 
@@ -444,8 +447,9 @@ pheatmap(-log10(table_sel),  # log-transform p-values
 ```
 </br>
 
-`r sn<-sn+1; paste0(sn,"\\. ")` Visualize the results as an interactive network
+`r sn<-sn+1; paste0(sn,"\\. ")` We can also visualize the results as an interactive network
 ```{r, fig.width=7}
+# define custom palette where blue = expression decrease and red = expression increase
 pal <- colorRampPalette(brewer.pal(11, 'RdBu'))
 networkPlot2(gsaRes,
              class='distinct',
@@ -470,15 +474,15 @@ exploreGSAres(gsaRes)
 
 
 
-
 Gene set enrichment analysis
 ----------------------------
 
-One of the gene set analysis algorithms included in the Piano package is named (perhaps confusingly) gene set enrichment analysis (GSEA), and is described in <a href="https://www.pnas.org/content/102/43/15545.abstract" target="_blank">Subramanian et al. *PNAS* 2005</a>.
+One of the gene set analysis algorithms included in the Piano package is named (perhaps confusingly) gene set enrichment analysis (GSEA), and is described in [Subramanian et al. *PNAS* 2005](https://www.pnas.org/content/102/43/15545.abstract).
 
 GSEA is one of the more commonly used gene set analysis algorithms. Although the method can be called from Piano's `runGSA` function (`geneSetStat='gsea'` or `geneSetStat='fgsea'`), we will use functions from the `fgsea` package directly because they offer some additional features.
 
 Similar to the reporter analysis above, GSEA uses information from *all* genes in the dataset, not just a list of interesting or significant genes.
+</br>
 
 `r sn<-sn+1; paste0(sn,"\\. ")` Load DE results from text file
 ```{r}
@@ -521,7 +525,7 @@ fgseaRes <- fgseaRes[order(pval), ]  # sort by gene set significance
 ```
 </br>
 
-`r sn<-sn+1; paste0(sn,"\\. ")` Create an enrichment plot for the top 3 "positive" and top 3 "negative" gene sets. Gene sets with a *positive* **Enrichment Score** (ES) represent those that are enriched with genes that are *increased* in abundance relative to the control, whereas those with a *negative* ES are enriched with genes that have *decreased* in abundance.
+`r sn<-sn+1; paste0(sn,"\\. ")` Create an enrichment plot for the top 3 "positive" and top 3 "negative" gene sets. Gene sets with a *positive* **Enrichment Score** (ES) represent those that are enriched with genes that are *increased* in abundance in tumor samples relative to the healthy controls, whereas those with a *negative* ES are enriched with genes that have *decreased* in abundance.
 ```{r, fig.height=6}
 # get top 3 positive and negative gene sets
 gs_select <- c(head(fgseaRes$pathway[fgseaRes$NES > 0], 3),
@@ -538,7 +542,7 @@ do.call(grid.arrange, c(p, list(ncol=3)))
 
 `r sn<-sn+1; paste0(sn,"\\. ")` For contrast, create an enrichment plot for one of the non-significant gene sets
 ```{r, fig.width=3, fig.height=3}
-ns_pathway <- tail(fgseaRes$pathway[fgseaRes$size > 50], 1)
+ns_pathway <- tail(fgseaRes$pathway[fgseaRes$size > 50], 1)  # select one with >50 genes
 plotEnrichment(gsc_fgsea[[ns_pathway]], gene_scores) + ggtitle(ns_pathway)
 ```
 </br>
@@ -566,11 +570,12 @@ edge_select[4:6]
 topPathwaysUp <- fgseaRes[ES > 0][head(order(pval), n=10), pathway]
 topPathwaysDown <- fgseaRes[ES < 0][head(order(pval), n=10), pathway]
 topPathways <- c(topPathwaysUp, rev(topPathwaysDown))
+
 plotGseaTable(gsc_fgsea[topPathways], gene_scores, fgseaRes, gseaParam=0.5)
 ```
 </br>
 
-`r sn<-sn+1; paste0(sn,"\\. ")` For GSCs with gene sets that are subsets of each other or are largely overlapping, create a table using only independent gene sets
+`r sn<-sn+1; paste0(sn,"\\. ")` For GSCs with gene sets that are subsets of each other or are largely overlapping (very common with gene-metabolite associations), create a table using only independent gene sets
 ```{r}
 # determine which pathways are largely a subset of another pathway
 collapsedPathways <- collapsePathways(fgseaRes[order(pval)][padj < 0.05], gsc_fgsea, gene_scores)
@@ -592,6 +597,7 @@ Revisiting gene-level data
 ==========================
 
 It is always good to go back to the original gene-level data when interpreting GSA results. Here we will use a heatmap to visualize gene-level data for selected gene-sets.
+</br>
 
 `r sn<-sn+1; paste0(sn,"\\. ")` Load the RNA-Seq gene count matrix
 ```{r}
@@ -599,7 +605,7 @@ counts <- read.table(file.path(tcga_dir, 'count_matrix.txt'), row.names=1, heade
 ```
 </br>
 
-`r sn<-sn+1; paste0(sn,"\\. ")` Subset the count matrix to include only genes in a specific gene set. We will choose an example gene set that appeared as significant in many of the results above - Serotonin and melatonin biosynthesis.
+`r sn<-sn+1; paste0(sn,"\\. ")` Subset the count matrix to include only genes in a specific gene set. We will choose an example gene set that appeared as significant in many of the results above: **Serotonin and melatonin biosynthesis**.
 ```{r}
 cs <- counts[row.names(counts) %in% gsc$gsc$`Serotonin and melatonin biosynthesis`, ]
 ```
@@ -657,6 +663,8 @@ pheatmap(log2(cs+1),
 
 > **Note:** We scaled the rows (genes) so the colors will reflect the difference for each gene individually, which means that the values are **not** comparable across genes.
 
+Do the gene-level data shown in the heatmap seem reasonable given that this gene set was identified as significantly enriched in genes that decreased in expression? And regarding the subset of genes annotated as part of the "Leading Edge" identified by GSEA - does it make sense that these genes are more "responsible" for the gene set being identified as significant than some of the other genes?
+
 
 Exploration using Metabolic Atlas
 =================================
@@ -671,7 +679,7 @@ Data overlay on 2D maps
 
 Metabolic Atlas contains manually drawn 2D maps of metabolic compartments and subsystems (pathways) corresponding to those in the Human-GEM model. The maps allow users to overlay pre-loaded mRNA expression data from the [Human Protein Atlas](https://www.proteinatlas.org/), as well as user-provided data.
 
-To demonstrate the data overlay function, we will use the median gene CPM values generated during the initial retrieval of the TCGA data (`median_cpm.txt`). Note that detailed information on using the data overlay function can be found in the Metabolic Atlas [Documentation](https://www.metabolicatlas.org/documentation#Data-overlay).
+To demonstrate the data overlay function, we will use the median gene CPM values generated during the initial retrieval of the TCGA data (`median_cpm.txt`). Note that more detailed information on using the data overlay function can be found in the Metabolic Atlas [Documentation](https://www.metabolicatlas.org/documentation#Data-overlay).
 
 </br>
 
@@ -691,7 +699,7 @@ knitr::include_graphics('img/MA_subystem_menu.png')
 
 </br>
 
-`r sn<-sn+1; paste0(sn,"\\. ")` Near the top of the overlay menu, press the **Choose a file** button, and use the file browser to navigate to the `data/TCGA_data/` subdirectory of the Exercise repository and select the `median_cpm.txt` file.
+`r sn<-sn+1; paste0(sn,"\\. ")` Near the top of the overlay menu, select **Choose a file**, and use the file browser to navigate to the `session_gems/data/TCGA_data/` subdirectory and select the `median_cpm.txt` file that should be there.
 
 </br>
 
@@ -719,7 +727,7 @@ knitr::include_graphics('img/MA_button_fullscreen.png')
 ```
 </br>
 
-The map should now look something like this:
+The map should look something like this:
 
 </br>
 ```{r, echo=FALSE, fig.align='center'}
