@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Ashfaq Ali" />
+
+
+<title>Cytoscape_R</title>
+
+<script src="Cytoscape_tutorial_files/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="Cytoscape_tutorial_files/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="Cytoscape_tutorial_files/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="Cytoscape_tutorial_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="Cytoscape_tutorial_files/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="Cytoscape_tutorial_files/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="Cytoscape_tutorial_files/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="Cytoscape_tutorial_files/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="Cytoscape_tutorial_files/navigation-1.1/tabsets.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+      a.sourceLine { display: inline-block; line-height: 1.25; }
+  a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+  a.sourceLine:empty { height: 1.2em; }
+  .sourceCode { overflow: visible; }
+  code.sourceCode { white-space: pre; position: relative; }
+  div.sourceCode { margin: 1em 0; }
+  pre.sourceCode { margin: 0; }
+  @media screen {
+  div.sourceCode { overflow: auto; }
+  }
+  @media print {
+  code.sourceCode { white-space: pre-wrap; }
+  a.sourceLine { text-indent: -1em; padding-left: 1em; }
+  }
+  pre.numberSource a.sourceLine
+    { position: relative; left: -4em; }
+  pre.numberSource a.sourceLine::before
+    { content: attr(data-line-number);
+      position: relative; left: -1em; text-align: right; vertical-align: baseline;
+      border: none; pointer-events: all; display: inline-block;
+      -webkit-touch-callout: none; -webkit-user-select: none;
+      -khtml-user-select: none; -moz-user-select: none;
+      -ms-user-select: none; user-select: none;
+      padding: 0 4px; width: 4em;
+      color: #aaaaaa;
+    }
+  pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+  div.sourceCode
+    { background-color: #f8f8f8; }
+  @media screen {
+  a.sourceLine::before { text-decoration: underline; }
+  }
+  code span.al { color: #ef2929; } /* Alert */
+  code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+  code span.at { color: #c4a000; } /* Attribute */
+  code span.bn { color: #0000cf; } /* BaseN */
+  code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+  code span.ch { color: #4e9a06; } /* Char */
+  code span.cn { color: #000000; } /* Constant */
+  code span.co { color: #8f5902; font-style: italic; } /* Comment */
+  code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+  code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+  code span.dt { color: #204a87; } /* DataType */
+  code span.dv { color: #0000cf; } /* DecVal */
+  code span.er { color: #a40000; font-weight: bold; } /* Error */
+  code span.ex { } /* Extension */
+  code span.fl { color: #0000cf; } /* Float */
+  code span.fu { color: #000000; } /* Function */
+  code span.im { } /* Import */
+  code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+  code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+  code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+  code span.ot { color: #8f5902; } /* Other */
+  code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+  code span.sc { color: #000000; } /* SpecialChar */
+  code span.ss { color: #4e9a06; } /* SpecialString */
+  code span.st { color: #4e9a06; } /* String */
+  code span.va { color: #000000; } /* Variable */
+  code span.vs { color: #4e9a06; } /* VerbatimString */
+  code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="assets/lab.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Cytoscape_R</h1>
+<h4 class="author">Ashfaq Ali</h4>
+<h4 class="date">21/09/2020</h4>
+
+</div>
+
+
+<!-- rmd lab header -->
+<!-- custom fonts -->
+<p><link href="https://fonts.googleapis.com/css?family=Roboto|Source+Sans+Pro:300,400,600|Ubuntu+Mono&amp;subset=latin-ext" rel="stylesheet"></p>
+<p><br></p>
+<p>This tutorial will cover R API for cytoscape through RCy3 package. People who are interested in Cytoscape GUI with can follow Lars Juhl Jensen’s labs tutorial(<a href="https://jensenlab.org/training/stringapp/" class="uri">https://jensenlab.org/training/stringapp/</a>).</p>
+<div id="installation-and-testing-the-setup" class="section level1">
+<h1><span class="header-section-number">1</span> Installation and testing the setup</h1>
+<div id="conda-environment" class="section level2">
+<h2><span class="header-section-number">1.1</span> Conda Environment</h2>
+<p>If you have the course conda environment set up, please activate and use that for this session. Otherwise use “env-cytoscape.yml” file to create the environment.</p>
+<div class="block-title-parent">
+<div class="block-title small">
+bash
+</div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="ex">conda</span> env create -f env-cytoscape.yml</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="ex">conda</span> activate cyto</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co">## If you have the course conda environment set up, please use that for this session.</span></a></code></pre></div>
+</div>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">suppressMessages</span>(<span class="kw">library</span>(dplyr))</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">suppressMessages</span>(<span class="kw">library</span>(RCy3))</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw">suppressMessages</span>(<span class="kw">library</span>(readxl))</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="kw">suppressMessages</span>(<span class="kw">library</span>(tidyverse))</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="kw">suppressMessages</span>(<span class="kw">library</span>(readxl))</a></code></pre></div>
+</div>
+Start the cytoscape app and rstudio using following commands
+<div class="block-title-parent">
+<div class="block-title small">
+bash
+</div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="ex">rstudio</span> <span class="kw">&amp;</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="ex">cytoscape</span> <span class="kw">&amp;</span></a></code></pre></div>
+</div>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">cytoscapePing</span>()</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw">cytoscapeVersionInfo</span>()</a></code></pre></div>
+<pre><code>## [1] &quot;You are connected to Cytoscape!&quot;
+##       apiVersion cytoscapeVersion 
+##             &quot;v1&quot;          &quot;3.8.0&quot;</code></pre>
+</div>
+</div>
+<div id="installation-of-cytoscape-apps-using-r" class="section level2">
+<h2><span class="header-section-number">1.2</span> Installation of cytoscape apps using R</h2>
+<p>To install cytoscape apps one can use the Cytoscape GUI through app manager or can install directly from R using the following code.</p>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">installation_responses &lt;-<span class="st"> </span><span class="kw">c</span>()</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co">#list of app to install</span></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4">cyto_app_toinstall &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;clustermaker2&quot;</span>, <span class="st">&quot;enrichmentmap&quot;</span>, <span class="st">&quot;autoannotate&quot;</span>, <span class="st">&quot;wordcloud&quot;</span>, <span class="st">&quot;stringapp&quot;</span>, <span class="st">&quot;aMatReader&quot;</span>, <span class="st">&quot;yFiles Layout Algorithms&quot;</span>, <span class="st">&quot;enhancedGraphics&quot;</span>)</a>
+<a class="sourceLine" id="cb6-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb6-6" data-line-number="6">cytoscape_version &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="kw">strsplit</span>( <span class="kw">cytoscapeVersionInfo</span>()[<span class="st">&#39;cytoscapeVersion&#39;</span>],<span class="dt">split =</span> <span class="st">&quot;</span><span class="ch">\\</span><span class="st">.&quot;</span>))</a>
+<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="cf">if</span>(<span class="kw">length</span>(cytoscape_version) <span class="op">==</span><span class="st"> </span><span class="dv">3</span> <span class="op">&amp;&amp;</span><span class="st"> </span><span class="kw">as.numeric</span>(cytoscape_version[<span class="dv">1</span>]<span class="op">&gt;=</span><span class="dv">3</span>) </a>
+<a class="sourceLine" id="cb6-8" data-line-number="8">   <span class="op">&amp;&amp;</span><span class="st"> </span><span class="kw">as.numeric</span>(cytoscape_version[<span class="dv">2</span>]<span class="op">&gt;=</span><span class="dv">7</span>)){</a>
+<a class="sourceLine" id="cb6-9" data-line-number="9">  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(cyto_app_toinstall)){</a>
+<a class="sourceLine" id="cb6-10" data-line-number="10">    <span class="co">#check to see if the app is installed.  Only install it if it hasn&#39;t been installed</span></a>
+<a class="sourceLine" id="cb6-11" data-line-number="11">    <span class="cf">if</span>(<span class="op">!</span><span class="kw">grep</span>(<span class="kw">commandsGET</span>(<span class="kw">paste</span>(<span class="st">&quot;apps status app=</span><span class="ch">\&quot;</span><span class="st">&quot;</span>, cyto_app_toinstall[<span class="dv">1</span>],<span class="st">&quot;</span><span class="ch">\&quot;</span><span class="st">&quot;</span>, <span class="dt">sep=</span><span class="st">&quot;&quot;</span>)), </a>
+<a class="sourceLine" id="cb6-12" data-line-number="12">             <span class="dt">pattern =</span> <span class="st">&quot;status: Installed&quot;</span>)){</a>
+<a class="sourceLine" id="cb6-13" data-line-number="13">      installation_response &lt;-<span class="kw">commandsGET</span>(<span class="kw">paste</span>(<span class="st">&quot;apps install app=</span><span class="ch">\&quot;</span><span class="st">&quot;</span>, </a>
+<a class="sourceLine" id="cb6-14" data-line-number="14">                                                cyto_app_toinstall[i],<span class="st">&quot;</span><span class="ch">\&quot;</span><span class="st">&quot;</span>, <span class="dt">sep=</span><span class="st">&quot;&quot;</span>))</a>
+<a class="sourceLine" id="cb6-15" data-line-number="15">      installation_responses &lt;-<span class="st"> </span><span class="kw">c</span>(installation_responses,installation_response)</a>
+<a class="sourceLine" id="cb6-16" data-line-number="16">    } <span class="cf">else</span>{</a>
+<a class="sourceLine" id="cb6-17" data-line-number="17">      installation_responses &lt;-<span class="st"> </span><span class="kw">c</span>(installation_responses,<span class="st">&quot;already installed&quot;</span>)</a>
+<a class="sourceLine" id="cb6-18" data-line-number="18">    }</a>
+<a class="sourceLine" id="cb6-19" data-line-number="19">  }</a>
+<a class="sourceLine" id="cb6-20" data-line-number="20">  installation_summary &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">name =</span> cyto_app_toinstall, </a>
+<a class="sourceLine" id="cb6-21" data-line-number="21">                                     <span class="dt">status =</span> installation_responses)</a>
+<a class="sourceLine" id="cb6-22" data-line-number="22">  </a>
+<a class="sourceLine" id="cb6-23" data-line-number="23">  knitr<span class="op">::</span><span class="kw">kable</span>(<span class="kw">list</span>(installation_summary),</a>
+<a class="sourceLine" id="cb6-24" data-line-number="24">  <span class="dt">booktabs =</span> <span class="ot">TRUE</span>, <span class="dt">caption =</span> <span class="st">&#39;A Summary of automated app installation&#39;</span></a>
+<a class="sourceLine" id="cb6-25" data-line-number="25">)</a>
+<a class="sourceLine" id="cb6-26" data-line-number="26">}</a></code></pre></div>
+</div>
+</div>
+<div id="intuition-behind-using-rcy3-to-analyze-networks-with-cytoscape." class="section level2">
+<h2><span class="header-section-number">1.3</span> Intuition behind using RCy3 to analyze networks with cytoscape.</h2>
+<p>Cytoscape(www.cytoscape.org) is probably the most popular applications for network analysis and visualization with GUI. In this session, we will learn about new capabilities to integrate Cytoscape into programmatic workflows and pipelines using R. Apart from programmatic workflow, the access through R allows direct access to network analyses as being part of an ongoing analyses instead of a separate instance. This also makes analyses steps more explicit hence more reproducible. There are community provided scripts available for various kinds of analyses at (<a href="https://github.com/cytoscape/cytoscape-automation/tree/master/for-scripters/R/notebooks" class="uri">https://github.com/cytoscape/cytoscape-automation/tree/master/for-scripters/R/notebooks</a>). If you are interested in the type of analyses that suits your project more, you may find some scripts related to that here. This tutorial is just a quick hands on introduction to using Cytoscape using from R. Cytoscape has amazing amount of functionality and only a fraction of it can be covered here.</p>
+<p>We have already been introduced to network biology themes and concepts, therefor we will translate these into Cytoscape terms for practical applications. This tutorial will be a hands-on session working towards accessing and controlling Cytoscape from R to perform a network analysis. We will go through the following themes that are usually required in network visualization and analyses.</p>
+<ul>
+<li>retrieve networks for Genes/ proteins of interest</li>
+<li>layout and visually style the resulting networks</li>
+<li>import external data and map them onto a network</li>
+<li>filter networks and customize styling</li>
+<li>perform co-expression analyses and create your own co-expression network</li>
+<li>visualize the results and map attributes to user created networks</li>
+</ul>
+</div>
+</div>
+<div id="data-preparation" class="section level1">
+<h1><span class="header-section-number">2</span> Data preparation</h1>
+<p>We will be using data from the Charge consortium in which they have analyzed quite large cohort with association of methylation and gene expression with Age. We will use some of the results for visualization in Cytoscape. In addition there is a list of proteins and coefficients from a proteomics data-set provided in the <strong>/Data/AgeingTopProteins.txt</strong>. All these data aim to identify markers associated with age. We can try and find overlaps in these data-sets using network analyses in cytoscape.</p>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">setwd</span>(<span class="st">&quot;/Users/cob-aaf/Documents/GitHub/session_visualization/&quot;</span>)</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">AgeingExpMeth &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;./Data/AgeExpMethSig.xlsx&quot;</span>,   <span class="dt">skip =</span> <span class="dv">0</span>) <span class="co">## Provide the path to the file with data</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">Age_prot &lt;-<span class="st"> </span><span class="kw">read_table2</span>(<span class="st">&quot;./Data/AgeingTopProteins.txt&quot;</span>)</a>
+<a class="sourceLine" id="cb7-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb7-6" data-line-number="6">Age_exp &lt;-<span class="st"> </span>AgeingExpMeth <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">arrange</span>(<span class="st">`</span><span class="dt">ExpAgeP-value</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">slice_head</span>(<span class="dt">n=</span><span class="dv">100</span>)</a>
+<a class="sourceLine" id="cb7-7" data-line-number="7">Age_meth &lt;-<span class="st"> </span>AgeingExpMeth <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="st">`</span><span class="dt">MethAgeP-value</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">slice_head</span>(<span class="dt">n=</span><span class="dv">100</span>)</a>
+<a class="sourceLine" id="cb7-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb7-9" data-line-number="9"><span class="kw">rownames</span>(Age_exp) &lt;-<span class="st"> </span>Age_exp<span class="op">$</span>Gene</a></code></pre></div>
+</div>
+</div>
+<div id="get-help" class="section level1">
+<h1><span class="header-section-number">3</span> Get help</h1>
+<p>To get an overview of what commands and functions are available through “RCy3”, please have a look at the help pages. More details with examples are also available through package vignettes.</p>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">help</span>(<span class="dt">package=</span>RCy3)</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="kw">browseVignettes</span>(<span class="st">&quot;RCy3&quot;</span>)</a></code></pre></div>
+</div>
+</div>
+<div id="retrieve-networks-for-genesproteins-of-interest" class="section level1">
+<h1><span class="header-section-number">4</span> Retrieve networks for genes/proteins of interest</h1>
+<p>To retrieve a network from the StringDB based on your own genes/proteins of interest from your own data, you need to construct a query command as following.</p>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">AgeingExpe_string_interaction_cmd &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&#39;string protein query taxonID=9606 cutoff=0.9 query=&#39;</span>, <span class="kw">paste</span>(Age_exp<span class="op">$</span>Gene, <span class="dt">collapse=</span><span class="st">&quot;,&quot;</span>),<span class="st">&#39;&quot;&#39;</span>,<span class="dt">sep=</span><span class="st">&quot;&quot;</span>)</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="kw">commandsGET</span>(AgeingExpe_string_interaction_cmd )</a></code></pre></div>
+<pre><code>## [1] &quot;Loaded network &#39;String Network - 5&#39; with 109 nodes and 98 edges&quot;</code></pre>
+</div>
+<p>To get a better understanding of how StringDB can be constructed, read the <code>commandsGET</code> help pages.</p>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">?commandsGET</a></code></pre></div>
+</div>
+<p>One can set a name to the retrieved network, as cytoscape gives your network a generic name. And if you have retrieved several networks, it may get confusing after a while.</p>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw">renameNetwork</span>(<span class="st">&quot;AgeingExpeNet&quot;</span>)</a></code></pre></div>
+</div>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">AgeingMeth_string_interaction_cmd &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&#39;string protein query taxonID=9606 cutoff=0.9 query=&#39;</span>, <span class="kw">paste</span>(Age_meth<span class="op">$</span>Gene, <span class="dt">collapse=</span><span class="st">&quot;,&quot;</span>),<span class="st">&#39;&quot;&#39;</span>,<span class="dt">sep=</span><span class="st">&quot;&quot;</span>)</a>
+<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="kw">commandsGET</span>(AgeingMeth_string_interaction_cmd)</a>
+<a class="sourceLine" id="cb13-3" data-line-number="3"><span class="kw">renameNetwork</span>(<span class="st">&quot;AgeingMethNet&quot;</span>)</a></code></pre></div>
+</div>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1">AgeingProt_string_interaction_cmd &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&#39;string protein query taxonID=9606 limit=150 cutoff=0.9 query=&#39;</span>, <span class="kw">paste</span>(Age_prot<span class="op">$</span>protein, <span class="dt">collapse=</span><span class="st">&quot;,&quot;</span>),<span class="st">&#39;&quot;&#39;</span>,<span class="dt">sep=</span><span class="st">&quot;&quot;</span>)</a>
+<a class="sourceLine" id="cb14-2" data-line-number="2">test &lt;-<span class="kw">commandsGET</span>(AgeingProt_string_interaction_cmd)</a>
+<a class="sourceLine" id="cb14-3" data-line-number="3"><span class="kw">renameNetwork</span>(<span class="st">&quot;AgeingProtNet&quot;</span>)</a></code></pre></div>
+</div>
+<p>To get an overview of what networks are present in cytoscape workspace use following:</p>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw">getNetworkList</span>()</a></code></pre></div>
+<pre><code>## [1] &quot;AgeingExpeNet&quot;                  &quot;AgeingProtNet&quot;                 
+## [3] &quot;String Network&quot;                 &quot;AgeingMethNet&quot;                 
+## [5] &quot;Ageing: highly connected nodes&quot; &quot;String Network - 5&quot;            
+## [7] &quot;Coexpression_network&quot;           &quot;String Network - 1&quot;</code></pre>
+</div>
+<p>To work with a respective network, we need to set the environment we wish to work with.</p>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="kw">setCurrentNetwork</span>(<span class="dt">network=</span><span class="st">&quot;AgeingExpeNet&quot;</span>)</a></code></pre></div>
+</div>
+<p>Save the original network to a file.</p>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1">path &lt;-<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">getwd</span>(), <span class="st">&quot;/Data/&quot;</span>,<span class="st">&quot;ExpnetworkOriginal.png&quot;</span>)</a>
+<a class="sourceLine" id="cb18-2" data-line-number="2"><span class="co"># initial_string_network_png_file_name &lt;- file.path(getwd(), &quot;/Path/to/your/network.png&quot;)</span></a>
+<a class="sourceLine" id="cb18-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb18-4" data-line-number="4"><span class="kw">exportImage</span>(path, <span class="dt">type =</span> <span class="st">&quot;png&quot;</span>, <span class="dt">resolution =</span> <span class="dv">300</span>)</a></code></pre></div>
+<pre><code>##                                                                                file 
+## &quot;/Users/cob-aaf/Documents/GitHub/session_visualization/Data/ExpnetworkOriginal.png&quot;</code></pre>
+</div>
+<p><strong><em>Cytoscape will hang waiting for user response if the network file already exists. You have to remove it first</em></strong></p>
+</div>
+<div id="do-on-your-own" class="section level1">
+<h1><span class="header-section-number">5</span> Do on your own</h1>
+<ol style="list-style-type: decimal">
+<li>Can you save the <strong>“AgeingMethNet”</strong> and <strong>“AgeingProtNet”</strong> to the respective files?</li>
+<li>Use your desired node attributes among the cytoscape network columns to improve visualization.</li>
+</ol>
+</div>
+<div id="change-network-layout-and-visually-style-the-networks" class="section level1">
+<h1><span class="header-section-number">6</span> Change network layout and visually style the networks</h1>
+<p>Now that we have a few networks loaded in cytoscape, let us work with those based on our interest e.g., change the layout of the network and save to a new file.</p>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1">layouts &lt;-<span class="st"> </span><span class="kw">getLayoutNames</span>() <span class="co">## Access the available lyouts in cytoscape</span></a>
+<a class="sourceLine" id="cb20-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb20-3" data-line-number="3"><span class="kw">layoutNetwork</span>(layouts[<span class="dv">3</span>]) <span class="co">## Change the layout to circular</span></a>
+<a class="sourceLine" id="cb20-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb20-5" data-line-number="5"><span class="kw">exportImage</span>(path, <span class="dt">type =</span> <span class="st">&quot;png&quot;</span>, <span class="dt">resolution =</span> <span class="dv">300</span>) <span class="co">## Cytoscape will hang as you are trying to overwite an existing file</span></a>
+<a class="sourceLine" id="cb20-6" data-line-number="6">path &lt;-<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">getwd</span>(), <span class="st">&quot;/Data/&quot;</span>,<span class="st">&quot;ExpnetworkOriginalCircular.png&quot;</span>) <span class="co"># update the path</span></a>
+<a class="sourceLine" id="cb20-7" data-line-number="7"><span class="kw">exportImage</span>(path, <span class="dt">type =</span> <span class="st">&quot;png&quot;</span>, <span class="dt">resolution =</span> <span class="dv">300</span>) <span class="co">## Cytoscape will hang as you are trying to overwite an existing file</span></a></code></pre></div>
+<pre><code>##                                                                                file 
+## &quot;/Users/cob-aaf/Documents/GitHub/session_visualization/Data/ExpnetworkOriginal.png&quot; 
+##                                                                                        file 
+## &quot;/Users/cob-aaf/Documents/GitHub/session_visualization/Data/ExpnetworkOriginalCircular.png&quot;</code></pre>
+</div>
+<p>Get available parameters for a specific layout.</p>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="kw">getLayoutPropertyNames</span>(<span class="dt">layout.name=</span><span class="st">&#39;force-directed&#39;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;Available arguments for &#39;layout force-directed&#39;:&quot;
+##  [1] &quot;defaultEdgeWeight&quot;        &quot;defaultNodeMass&quot;         
+##  [3] &quot;defaultSpringCoefficient&quot; &quot;defaultSpringLength&quot;     
+##  [5] &quot;edgeAttribute&quot;            &quot;isDeterministic&quot;         
+##  [7] &quot;maxWeightCutoff&quot;          &quot;minWeightCutoff&quot;         
+##  [9] &quot;network&quot;                  &quot;nodeAttribute&quot;           
+## [11] &quot;nodeList&quot;                 &quot;numIterations&quot;           
+## [13] &quot;singlePartition&quot;          &quot;type&quot;</code></pre>
+</div>
+<p>Apply the layout by changing parameters again</p>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="kw">layoutNetwork</span>(<span class="st">&#39;force-directed defaultSpringCoefficient=0.0000008 defaultSpringLength=70&#39;</span>)</a></code></pre></div>
+</div>
+<p>Overlay our expression data on the String network.
+To do this we will be using the loadTableData function from RCy3. It is important to make sure that that your identifiers types match up. You can check what is used by String by pulling in the column names of the node attribute table.</p>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="kw">getTableColumnNames</span>(<span class="st">&#39;node&#39;</span>)</a></code></pre></div>
+<pre><code>##  [1] &quot;SUID&quot;                                &quot;shared name&quot;                        
+##  [3] &quot;name&quot;                                &quot;selected&quot;                           
+##  [5] &quot;stringdb::canonical name&quot;            &quot;display name&quot;                       
+##  [7] &quot;stringdb::full name&quot;                 &quot;stringdb::database identifier&quot;      
+##  [9] &quot;stringdb::description&quot;               &quot;@id&quot;                                
+## [11] &quot;stringdb::namespace&quot;                 &quot;stringdb::node type&quot;                
+## [13] &quot;query term&quot;                          &quot;stringdb::sequence&quot;                 
+## [15] &quot;stringdb::species&quot;                   &quot;stringdb::STRING style&quot;             
+## [17] &quot;stringdb::enhancedLabel Passthrough&quot; &quot;compartment::cytoskeleton&quot;          
+## [19] &quot;compartment::cytosol&quot;                &quot;compartment::endoplasmic reticulum&quot; 
+## [21] &quot;compartment::endosome&quot;               &quot;compartment::extracellular&quot;         
+## [23] &quot;compartment::golgi apparatus&quot;        &quot;compartment::lysosome&quot;              
+## [25] &quot;compartment::mitochondrion&quot;          &quot;compartment::nucleus&quot;               
+## [27] &quot;compartment::peroxisome&quot;             &quot;compartment::plasma membrane&quot;       
+## [29] &quot;stringdb::interactor score&quot;          &quot;stringdb::structures&quot;               
+## [31] &quot;target::development level&quot;           &quot;target::family&quot;                     
+## [33] &quot;tissue::adrenal gland&quot;               &quot;tissue::blood&quot;                      
+## [35] &quot;tissue::bone&quot;                        &quot;tissue::bone marrow&quot;                
+## [37] &quot;tissue::eye&quot;                         &quot;tissue::gall bladder&quot;               
+## [39] &quot;tissue::heart&quot;                       &quot;tissue::intestine&quot;                  
+## [41] &quot;tissue::kidney&quot;                      &quot;tissue::liver&quot;                      
+## [43] &quot;tissue::lung&quot;                        &quot;tissue::muscle&quot;                     
+## [45] &quot;tissue::nervous system&quot;              &quot;tissue::pancreas&quot;                   
+## [47] &quot;tissue::saliva&quot;                      &quot;tissue::skin&quot;                       
+## [49] &quot;tissue::spleen&quot;                      &quot;tissue::stomach&quot;                    
+## [51] &quot;tissue::thyroid gland&quot;               &quot;tissue::urine&quot;                      
+## [53] &quot;degree.layout&quot;                       &quot;Gene&quot;                               
+## [55] &quot;ExpAgeP-value&quot;                       &quot;ExpAgeDirection&quot;                    
+## [57] &quot;MethAgeP-value&quot;                      &quot;MethAgeDirection&quot;                   
+## [59] &quot;ExpMethP-value&quot;                      &quot;ExpMethDirection&quot;                   
+## [61] &quot;TopMediator&quot;                         &quot;Z-score&quot;                            
+## [63] &quot;MedP-value&quot;                          &quot;NoCpGsTested&quot;                       
+## [65] &quot;NoBonferroniSig&quot;</code></pre>
+</div>
+<p>The column “display name” contains gene names which are also found in our Ageing Expression data-set.
+To import our expression data we will match our data-set to the “display name” node attribute.</p>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1">?loadTableData</a>
+<a class="sourceLine" id="cb27-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb27-3" data-line-number="3"><span class="kw">loadTableData</span>(<span class="dt">data=</span> <span class="kw">as.data.frame</span>(Age_exp),  <span class="dt">table.key.column =</span> <span class="st">&quot;display name&quot;</span>, <span class="dt">data.key.column=</span> <span class="st">&quot;Gene&quot;</span>)  <span class="co">#default data.frame key is row.names</span></a></code></pre></div>
+<pre><code>## [1] &quot;Success: Data loaded in defaultnode table&quot;</code></pre>
+</div>
+<p>Modify the Visual Style Create your own visual style to visualize your expression data on the String network.</p>
+<p>Start with a default style</p>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" data-line-number="1">my.style.name =<span class="st"> &quot;AgeingStyle&quot;</span></a>
+<a class="sourceLine" id="cb29-2" data-line-number="2">defaults.list &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">NODE_SHAPE=</span><span class="st">&quot;ellipse&quot;</span>,</a>
+<a class="sourceLine" id="cb29-3" data-line-number="3">                 <span class="dt">NODE_SIZE=</span><span class="dv">60</span>,</a>
+<a class="sourceLine" id="cb29-4" data-line-number="4">                 <span class="dt">NODE_FILL_COLOR=</span><span class="st">&quot;#AAAAAA&quot;</span>,</a>
+<a class="sourceLine" id="cb29-5" data-line-number="5">                 <span class="dt">EDGE_TRANSPARENCY=</span><span class="dv">120</span>)</a>
+<a class="sourceLine" id="cb29-6" data-line-number="6">node.label.map &lt;-<span class="st"> </span><span class="kw">mapVisualProperty</span>(<span class="st">&#39;node label&#39;</span>,<span class="st">&#39;display name&#39;</span>,<span class="st">&#39;p&#39;</span>) <span class="co"># p for passthrough; nothing else needed</span></a>
+<a class="sourceLine" id="cb29-7" data-line-number="7"><span class="kw">createVisualStyle</span>(my.style.name, defaults.list, <span class="kw">list</span>(node.label.map))</a>
+<a class="sourceLine" id="cb29-8" data-line-number="8"><span class="kw">setVisualStyle</span>(<span class="dt">style.name=</span>my.style.name)</a></code></pre></div>
+<pre><code>##                 message 
+## &quot;Visual Style applied.&quot;</code></pre>
+</div>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" data-line-number="1">min.Exp.zscore =<span class="st"> </span><span class="kw">min</span>(Age_exp<span class="op">$</span><span class="st">`</span><span class="dt">Z-score</span><span class="st">`</span>, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb31-2" data-line-number="2">max.Exp.zscore  =<span class="st"> </span><span class="kw">max</span>(Age_exp<span class="op">$</span><span class="st">`</span><span class="dt">Z-score</span><span class="st">`</span>, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb31-3" data-line-number="3"><span class="co">#mid..Exp.zscore = mean</span></a>
+<a class="sourceLine" id="cb31-4" data-line-number="4">data.values =<span class="st"> </span><span class="kw">c</span>(min.Exp.zscore, <span class="kw">mean</span>(min.Exp.zscore,max.Exp.zscore) ,max.Exp.zscore)</a></code></pre></div>
+</div>
+<p>Next, we use the RColorBrewer package to help us pick good colors to pair with our data values.</p>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1"><span class="kw">library</span>(RColorBrewer)</a>
+<a class="sourceLine" id="cb32-2" data-line-number="2"><span class="kw">display.brewer.all</span>(<span class="kw">length</span>(data.values), <span class="dt">colorblindFriendly=</span><span class="ot">TRUE</span>, <span class="dt">type=</span><span class="st">&quot;div&quot;</span>) <span class="co"># div,qual,seq,all</span></a>
+<a class="sourceLine" id="cb32-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb32-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb32-5" data-line-number="5">node.colors &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rev</span>(<span class="kw">brewer.pal</span>(<span class="kw">length</span>(data.values), <span class="st">&quot;RdYlBu&quot;</span>)))</a></code></pre></div>
+<img src="Cytoscape_tutorial_files/figure-html/external_data_color-1.svg" width="672" style="display: block; margin: auto auto auto 0;" />
+</div>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" data-line-number="1"><span class="kw">setNodeColorMapping</span>(<span class="st">&quot;Z-score&quot;</span>, data.values, node.colors, <span class="dt">style.name=</span>my.style.name)</a></code></pre></div>
+</div>
+<p>Change the size of the node to be correlated with the Age p-value.</p>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" data-line-number="1"><span class="kw">setNodeSizeMapping</span>(<span class="dt">table.column =</span> <span class="st">&#39;ExpAgeP-value&#39;</span>, </a>
+<a class="sourceLine" id="cb34-2" data-line-number="2">                   <span class="dt">table.column.values =</span> <span class="kw">c</span>(<span class="kw">min</span>(Age_exp<span class="op">$</span><span class="st">`</span><span class="dt">ExpAgeP-value</span><span class="st">`</span>), </a>
+<a class="sourceLine" id="cb34-3" data-line-number="3">                                           <span class="kw">mean</span>(Age_exp<span class="op">$</span><span class="st">`</span><span class="dt">ExpAgeP-value</span><span class="st">`</span>), </a>
+<a class="sourceLine" id="cb34-4" data-line-number="4">                                           <span class="kw">max</span>(Age_exp<span class="op">$</span><span class="st">`</span><span class="dt">ExpAgeP-value</span><span class="st">`</span>)), </a>
+<a class="sourceLine" id="cb34-5" data-line-number="5">                   <span class="dt">sizes =</span> <span class="kw">c</span>(<span class="dv">30</span>, <span class="dv">60</span>, <span class="dv">150</span>), <span class="dt">mapping.type =</span> <span class="st">&quot;c&quot;</span>, <span class="dt">style.name =</span> my.style.name)</a></code></pre></div>
+</div>
+<div id="creating-a-degree-filter" class="section level2">
+<h2><span class="header-section-number">6.1</span> Creating a degree filter</h2>
+<p>Every node in a network has a Degree property, which corresponds to the number of edges connecting the node to other nodes, either as a target or source. Filtering based on node degree is a useful way to remove nodes with too few (or too many) connections.</p>
+<p>In this example we want to exclude low degree nodes, e.g., those with only 0, 1 or 2 connections:</p>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" data-line-number="1"><span class="kw">createDegreeFilter</span>(<span class="st">&#39;degree filter&#39;</span>, <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">2</span>), <span class="st">&#39;IS_NOT_BETWEEN&#39;</span>)</a></code></pre></div>
+<pre><code>## $nodes
+##  [1] &quot;9606.ENSP00000263253&quot; &quot;9606.ENSP00000341551&quot; &quot;9606.ENSP00000348461&quot;
+##  [4] &quot;9606.ENSP00000441543&quot; &quot;9606.ENSP00000304697&quot; &quot;9606.ENSP00000360532&quot;
+##  [7] &quot;9606.ENSP00000332973&quot; &quot;9606.ENSP00000360609&quot; &quot;9606.ENSP00000357307&quot;
+## [10] &quot;9606.ENSP00000398124&quot; &quot;9606.ENSP00000355759&quot; &quot;9606.ENSP00000346088&quot;
+## [13] &quot;9606.ENSP00000352995&quot; &quot;9606.ENSP00000221801&quot; &quot;9606.ENSP00000278616&quot;
+## [16] &quot;9606.ENSP00000265165&quot; &quot;9606.ENSP00000479618&quot; &quot;9606.ENSP00000368880&quot;
+## [19] &quot;9606.ENSP00000225916&quot; &quot;9606.ENSP00000312397&quot; &quot;9606.ENSP00000272317&quot;
+## [22] &quot;9606.ENSP00000388107&quot; &quot;9606.ENSP00000262367&quot;
+## 
+## $edges
+## [1] NA</code></pre>
+</div>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1"><span class="kw">createSubnetwork</span>(<span class="dt">subnetwork.name =</span><span class="st">&#39;Ageing: highly connected nodes&#39;</span>)</a></code></pre></div>
+<pre><code>## network 
+##   20628</code></pre>
+</div>
+</div>
+<div id="creating-a-column-filter" class="section level2">
+<h2><span class="header-section-number">6.2</span> Creating a column filter</h2>
+<p>We could also filter the network based on any of the column data available. Let us filter nodes that come from “target” database belonging to “family” “TF”.</p>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" data-line-number="1"><span class="kw">createColumnFilter</span>(<span class="dt">filter.name=</span><span class="st">&#39;transcription factors&#39;</span>, <span class="dt">column=</span><span class="st">&quot;target::family&quot;</span>, <span class="st">&quot;TF&quot;</span>, <span class="st">&quot;IS&quot;</span>, <span class="dt">network =</span> <span class="st">&quot;Ageing: highly connected nodes&quot;</span>)</a></code></pre></div>
+<pre><code>## $nodes
+## [1] &quot;9606.ENSP00000341551&quot; &quot;9606.ENSP00000265165&quot; &quot;9606.ENSP00000360532&quot;
+## [4] &quot;9606.ENSP00000332973&quot; &quot;9606.ENSP00000479618&quot; &quot;9606.ENSP00000368880&quot;
+## [7] &quot;9606.ENSP00000398124&quot;
+## 
+## $edges
+## [1] NA</code></pre>
+</div>
+<p>Now we will select the nodes from the family and color them differently in the network.</p>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" data-line-number="1">nodes &lt;-<span class="st"> </span><span class="kw">getSelectedNodes</span>()</a>
+<a class="sourceLine" id="cb41-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb41-3" data-line-number="3"><span class="kw">setNodeColorBypass</span>(nodes,<span class="dt">new.colors=</span><span class="st">&#39;#FF0088&#39;</span>)</a></code></pre></div>
+</div>
+<p>Here the string matching is based on discrete values but it can be from a continuous variable?</p>
+<p><strong>Can you select a few nodes based on your favorite column and see whether you can map some column as node attributes?</strong></p>
+</div>
+<div id="generate-own-networks-using-co-expression-analyse" class="section level2">
+<h2><span class="header-section-number">6.3</span> Generate own networks using co-expression analyse</h2>
+<p>With the following block of code one can perform co-expression analyses. Here you are already provided with correlation matrix that you can use to follow the steps.</p>
+<p><strong>This part will not work if you try to copy and paste in the R console, you have to provide the expression matrix of your own data</strong></p>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" data-line-number="1"><span class="co">#scale the data if required</span></a>
+<a class="sourceLine" id="cb42-2" data-line-number="2">RNASeq_expression &lt;-<span class="st"> </span><span class="kw">scale</span>(NASeq_expression, <span class="dt">center =</span> <span class="ot">TRUE</span>, <span class="dt">scale =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb42-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb42-4" data-line-number="4"><span class="co">#rownames(RNASeq_expression) &lt;- RNASeq_expression_matrix$Name</span></a>
+<a class="sourceLine" id="cb42-5" data-line-number="5">RNAseq_correlation_matrix &lt;-<span class="st"> </span><span class="kw">cor</span>(<span class="kw">t</span>(RNASeq_expression), <span class="dt">method=</span><span class="st">&quot;pearson&quot;</span>)</a>
+<a class="sourceLine" id="cb42-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb42-7" data-line-number="7"><span class="co">#set the diagonal of matrix to zero - eliminate self-correlation</span></a>
+<a class="sourceLine" id="cb42-8" data-line-number="8">RNAseq_correlation_matrix[ <span class="kw">row</span>(RNAseq_correlation_matrix) <span class="op">==</span><span class="st"> </span><span class="kw">col</span>(RNAseq_correlation_matrix) ] &lt;-<span class="st"> </span><span class="dv">0</span></a>
+<a class="sourceLine" id="cb42-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb42-10" data-line-number="10"><span class="co"># set all correlations that are less than 0.7 to zero</span></a>
+<a class="sourceLine" id="cb42-11" data-line-number="11">RNAseq_correlation_matrix[<span class="kw">which</span>(RNAseq_correlation_matrix<span class="op">&lt;</span><span class="fl">0.60</span>)] &lt;-<span class="st"> </span><span class="dv">0</span></a>
+<a class="sourceLine" id="cb42-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb42-13" data-line-number="13"><span class="co">#get rid of rows and columns that have no correlations with the above thresholds</span></a>
+<a class="sourceLine" id="cb42-14" data-line-number="14">RNAseq_correlation_matrix &lt;-<span class="st"> </span>RNAseq_correlation_matrix[<span class="kw">which</span>(<span class="kw">rowSums</span>(RNAseq_correlation_matrix) <span class="op">!=</span><span class="st"> </span><span class="dv">0</span>),</a>
+<a class="sourceLine" id="cb42-15" data-line-number="15">                          <span class="kw">which</span>(<span class="kw">colSums</span>(RNAseq_correlation_matrix) <span class="op">!=</span><span class="dv">0</span>)]</a>
+<a class="sourceLine" id="cb42-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb42-17" data-line-number="17"><span class="co">#correlation_filename &lt;- file.path(getwd(),  &quot;Data&quot;, &quot;Protein_correlation_matrix.txt&quot;)</span></a>
+<a class="sourceLine" id="cb42-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb42-19" data-line-number="19"><span class="kw">write.table</span>( RNAseq_correlation_matrix ,  <span class="dt">file =</span> correlation_filename, <span class="dt">col.names  =</span> <span class="ot">TRUE</span>, <span class="dt">row.names =</span> <span class="ot">FALSE</span>, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">quote=</span><span class="ot">FALSE</span>)</a></code></pre></div>
+</div>
+<p>Use the CyRest call to access the aMatReader functionality.</p>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" data-line-number="1">correlation_filename &lt;-<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">getwd</span>(),  <span class="st">&quot;Data&quot;</span>, <span class="st">&quot;Protein_correlation_matrix.txt&quot;</span>) </a>
+<a class="sourceLine" id="cb43-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb43-3" data-line-number="3">amat_url &lt;-<span class="st"> &quot;aMatReader/v1/import&quot;</span></a>
+<a class="sourceLine" id="cb43-4" data-line-number="4">amat_params =<span class="st"> </span><span class="kw">list</span>(<span class="dt">files =</span> <span class="kw">list</span>(correlation_filename),</a>
+<a class="sourceLine" id="cb43-5" data-line-number="5">                   <span class="dt">delimiter =</span> <span class="st">&quot;TAB&quot;</span>,</a>
+<a class="sourceLine" id="cb43-6" data-line-number="6">                   <span class="dt">undirected =</span> <span class="ot">FALSE</span>,</a>
+<a class="sourceLine" id="cb43-7" data-line-number="7">                   <span class="dt">ignoreZeros =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb43-8" data-line-number="8">                   <span class="dt">interactionName =</span> <span class="st">&quot;correlated with&quot;</span>,</a>
+<a class="sourceLine" id="cb43-9" data-line-number="9">                   <span class="dt">rowNames =</span> <span class="ot">FALSE</span></a>
+<a class="sourceLine" id="cb43-10" data-line-number="10">                   )</a>
+<a class="sourceLine" id="cb43-11" data-line-number="11"> </a>
+<a class="sourceLine" id="cb43-12" data-line-number="12">response &lt;-<span class="st"> </span><span class="kw">cyrestPOST</span>(<span class="dt">operation =</span> amat_url, <span class="dt">body =</span> amat_params, <span class="dt">base.url =</span> <span class="st">&quot;http://localhost:1234&quot;</span>)</a>
+<a class="sourceLine" id="cb43-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb43-14" data-line-number="14">current_network_id &lt;-<span class="st"> </span>response<span class="op">$</span>data[<span class="st">&quot;suid&quot;</span>]</a></code></pre></div>
+</div>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" data-line-number="1"><span class="kw">layoutNetwork</span>(<span class="st">&#39;cose&#39;</span>,<span class="dt">network =</span> <span class="kw">as.numeric</span>(current_network_id))</a>
+<a class="sourceLine" id="cb44-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb44-3" data-line-number="3"><span class="kw">renameNetwork</span>(<span class="dt">title =</span> <span class="st">&quot;Coexpression_network&quot;</span>,</a>
+<a class="sourceLine" id="cb44-4" data-line-number="4">              <span class="dt">network =</span> current_network_id)</a></code></pre></div>
+</div>
+<p>One can map column attributes as we did in case of string database based on our desired attributes.</p>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" data-line-number="1">?loadTableData</a>
+<a class="sourceLine" id="cb45-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb45-3" data-line-number="3"><span class="kw">loadTableData</span>(<span class="dt">data=</span> <span class="kw">as.data.frame</span>(Age_prot),  <span class="dt">table.key.column =</span> <span class="st">&quot;name&quot;</span>, <span class="dt">data.key.column=</span> <span class="st">&quot;protein&quot;</span>)  <span class="co">#default data.frame key is row.names</span></a></code></pre></div>
+<pre><code>## [1] &quot;Failed to load data: Please check data.key.column&quot;</code></pre>
+</div>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" data-line-number="1"><span class="kw">createColumnFilter</span>(<span class="dt">filter.name=</span><span class="st">&#39;Fold change&#39;</span>, <span class="dt">column=</span><span class="st">&quot;logFC&quot;</span>, <span class="fl">0.01</span>, <span class="st">&quot;GREATER_THAN&quot;</span>, <span class="dt">network =</span> <span class="st">&quot;Coexpression_network&quot;</span>)</a></code></pre></div>
+<pre><code>## $nodes
+##  [1] &quot;Q9Y6R7&quot; &quot;P04275&quot; &quot;P10643&quot; &quot;P02741&quot; &quot;P23142&quot; &quot;Q06033&quot; &quot;Q14118&quot; &quot;P61626&quot;
+##  [9] &quot;Q9UBX5&quot; &quot;P36222&quot; &quot;P41222&quot; &quot;P02760&quot; &quot;Q12805&quot; &quot;P08493&quot; &quot;P39060&quot; &quot;P01034&quot;
+## [17] &quot;Q14767&quot; &quot;P08294&quot; &quot;P00746&quot; &quot;P20774&quot; &quot;P61769&quot;
+## 
+## $edges
+## [1] NA</code></pre>
+</div>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" data-line-number="1">nodes &lt;-<span class="st"> </span><span class="kw">getSelectedNodes</span>()</a>
+<a class="sourceLine" id="cb49-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb49-3" data-line-number="3"><span class="kw">setNodeColorBypass</span>(nodes,<span class="dt">new.colors=</span><span class="st">&#39;#FF0088&#39;</span>)</a></code></pre></div>
+</div>
+</div>
+<div id="bonus-exercises" class="section level2">
+<h2><span class="header-section-number">6.4</span> Bonus exercises</h2>
+<p>Create consensus scores to the respective gene and methylation data-sets, create and network based on string db. Map attributes where both gene expression and methylation data agrees most.</p>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" data-line-number="1"><span class="co">## Create attributes for the &quot;Age&quot; dataset</span></a>
+<a class="sourceLine" id="cb50-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb50-3" data-line-number="3">AgeingExpMeth<span class="op">$</span>ExpAgeUp &lt;-<span class="st"> </span>AgeingExpMeth<span class="op">$</span>ExpAgeDirection <span class="op">%&gt;%</span><span class="st"> </span>stringi<span class="op">::</span><span class="kw">stri_count</span>( <span class="dt">regex =</span> <span class="st">&quot;[+]&quot;</span>)</a>
+<a class="sourceLine" id="cb50-4" data-line-number="4">AgeingExpMeth<span class="op">$</span>ExpAgeDown &lt;-<span class="st"> </span>AgeingExpMeth<span class="op">$</span>ExpAgeDirection <span class="op">%&gt;%</span><span class="st"> </span>stringi<span class="op">::</span><span class="kw">stri_count</span>( <span class="dt">regex =</span> <span class="st">&quot;[-]&quot;</span>)</a>
+<a class="sourceLine" id="cb50-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb50-6" data-line-number="6">AgeingExpMeth<span class="op">$</span>MethAgeUp &lt;-<span class="st"> </span>AgeingExpMeth<span class="op">$</span>MethAgeDirection <span class="op">%&gt;%</span><span class="st"> </span>stringi<span class="op">::</span><span class="kw">stri_count</span>( <span class="dt">regex =</span> <span class="st">&quot;[+]&quot;</span>)</a>
+<a class="sourceLine" id="cb50-7" data-line-number="7">AgeingExpMeth<span class="op">$</span>MethAgeDown &lt;-<span class="st"> </span>AgeingExpMeth<span class="op">$</span>MethAgeDirection <span class="op">%&gt;%</span><span class="st"> </span>stringi<span class="op">::</span><span class="kw">stri_count</span>( <span class="dt">regex =</span> <span class="st">&quot;[-]&quot;</span>)</a>
+<a class="sourceLine" id="cb50-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb50-9" data-line-number="9">AgeingExpMeth<span class="op">$</span>ExpMethUp &lt;-<span class="st"> </span>AgeingExpMeth<span class="op">$</span>ExpMethDirection <span class="op">%&gt;%</span><span class="st"> </span>stringi<span class="op">::</span><span class="kw">stri_count</span>( <span class="dt">regex =</span> <span class="st">&quot;[+]&quot;</span>)</a>
+<a class="sourceLine" id="cb50-10" data-line-number="10">AgeingExpMeth<span class="op">$</span>ExpMethDown &lt;-<span class="st"> </span>AgeingExpMeth<span class="op">$</span>ExpMethDirection <span class="op">%&gt;%</span><span class="st"> </span>stringi<span class="op">::</span><span class="kw">stri_count</span>( <span class="dt">regex =</span> <span class="st">&quot;[-]&quot;</span>)</a></code></pre></div>
+</div>
+<hr />
+</div>
+<div id="end-the-session" class="section level2">
+<h2><span class="header-section-number">6.5</span> End the session</h2>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
