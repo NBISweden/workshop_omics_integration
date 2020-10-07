@@ -58,11 +58,11 @@ title:  'Schedule'
 
 ##### Wednesday 2020-10-07
 
-**08.45 - 10.25** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Introduction to biological network analysis and terminology([Rui][6], [slides](https://github.com/NBISweden/workshop_omics_integration/raw/master/session_topology/1Introduction.key))
+**08.45 - 10.25** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Introduction to biological network analysis and terminology([Rui][6], [slides](https://github.com/NBISweden/workshop_omics_integration/raw/master/session_topology/1Introduction.pdf))
 
 **10.25 - 10.35** Coffee Break
 
-**10.35 - 12.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Network inference, key properties ([Rui][6], [slides](https://github.com/NBISweden/workshop_omics_integration/raw/master/session_topology/2Network_inference.key), [notebook](https://github.com/NBISweden/workshop_omics_integration/raw/master/session_topology/lab.html))
+**10.35 - 12.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Network inference, key properties ([Rui][6], [slides](https://github.com/NBISweden/workshop_omics_integration/raw/master/session_topology/2Network_inference.pdf), [notebook](https://github.com/NBISweden/workshop_omics_integration/raw/master/session_topology/lab.html))
 
 **12.00 - 13.00** Lunch
 
@@ -70,7 +70,7 @@ title:  'Schedule'
 
 **14.10 - 14.25** Coffee Break
 
-**14.25 - 16.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Community analysis ([Rui][6], [slides](https://github.com/NBISweden/workshop_omics_integration/raw/master/session_topology/3Community_analysis.key))
+**14.25 - 16.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Community analysis ([Rui][6], [slides](https://github.com/NBISweden/workshop_omics_integration/raw/master/session_topology/3Community_analysis.pdf))
 
 **16.00 - 17.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Network visualization with Cytoscape using R ([notebook](./session_visualization/Cytoscape_tutorial.html), [Ashfaq][2])
 
