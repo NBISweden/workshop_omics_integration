@@ -4,7 +4,7 @@ title:  'Schedule'
 ---
 #### <img border="0" src="https://www.svgrepo.com/show/20800/event-date-and-time-symbol.svg" width="25" height="25"> Course schedule
 
-<img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> - lecture; 
+<img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> - lecture;
 <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> - hands-on workshop;
 <img border="0" src="https://www.svgrepo.com/show/307069/public-speaking-speak-tell-talk.svg" width="15" height="15"> - invited seminar
 
@@ -13,7 +13,7 @@ title:  'Schedule'
 
 **09.00 - 10.00** Installation help and pre-course coffee
 
-**10.00 - 11.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Introduction and contextualization ([Rui][6], [slides](https://github.com/NBISweden/workshop_omics_integration/raw/master/session_intro/course_intro.pdf)) 
+**10.00 - 11.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Introduction and contextualization ([Rui][6], [slides](https://github.com/NBISweden/workshop_omics_integration/raw/master/session_intro/course_intro.pdf))
 
 **11.00 - 11.15** Break
 
@@ -25,7 +25,7 @@ title:  'Schedule'
 
 **14.45 - 15.00** Coffee Break
 
-**15.00 - 16.00** <img border="0" src="https://www.svgrepo.com/show/307069/public-speaking-speak-tell-talk.svg" width="15" height="15"> Webinar [Prof. Lars Juhl Jensen][1]: Network-based omics integration, analysis, and visualization  
+**15.00 - 16.00** <img border="0" src="https://www.svgrepo.com/show/307069/public-speaking-speak-tell-talk.svg" width="15" height="15"> Webinar [Prof. Lars Juhl Jensen][1]: Network-based omics integration, analysis, and visualization
 					Relevant resources: [STRING-DB](https://string-db.org/) | [StringApp](https://pubmed.ncbi.nlm.nih.gov/30450911/) | [Omics Visualizer](https://f1000research.com/articles/9-157)
 
 **16.00 - 16.05** Break
@@ -58,11 +58,11 @@ title:  'Schedule'
 
 ##### Wednesday 2020-10-07
 
-**08.45 - 10.25** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Introduction to biological network analysis and terminology([Rui][6], [slides](https://github.com/NBISweden/workshop_omics_integration/raw/master/session_topology/1Introduction.pdf))
+**08.45 - 10.25** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Introduction to biological network analysis and terminology([Rui][6], [slides](https://github.com/NBISweden/workshop_omics_integration/raw/master/session_topology/1Introduction.key))
 
 **10.25 - 10.35** Coffee Break
 
-**10.35 - 12.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Network inference, key properties ([Rui][6], [slides](https://github.com/NBISweden/workshop_omics_integration/raw/master/session_topology/2Network_inference.pdf), [notebook](https://github.com/NBISweden/workshop_omics_integration/raw/master/session_topology/lab.html))
+**10.35 - 12.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Network inference, key properties ([Rui][6], [slides](https://github.com/NBISweden/workshop_omics_integration/raw/master/session_topology/2Network_inference.key), [notebook](https://github.com/NBISweden/workshop_omics_integration/raw/master/session_topology/lab.html))
 
 **12.00 - 13.00** Lunch
 
