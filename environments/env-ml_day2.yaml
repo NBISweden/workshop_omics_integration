@@ -15,7 +15,7 @@ dependencies:
 ### Unsupervised integration (day2)
 - r-glmnet
 - r-matrixstats
-- bioconda::bioconductor-mixomics=6.8.5
+- bioconda::bioconductor-mixomics>=6.8.0
 - bioconductor-mofa
 - mofapy
 
