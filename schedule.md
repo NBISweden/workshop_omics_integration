@@ -13,15 +13,15 @@ title:  'Schedule'
 
 **09.00 - 10.00** Installation help and pre-course coffee
 
-**10.00 - 11.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Introduction and contextualization ([Rui][6], [slides](./session_intro/course_intro.pdf)) 
+**10.00 - 11.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Introduction and contextualization ([Rui][6], [slides](https://github.com/NBISweden/workshop_omics_integration/raw/master/session_intro/course_intro.pdf)) 
 
 **11.00 - 11.15** Break
 
-**11.15 - 12.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Machine Learning view of Omics integration ([Nikolay][5], [slides](./session_ml/MachineLearningViewOmicsIntegration_Oskolkov.pdf))
+**11.15 - 12.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Machine Learning view of Omics integration ([Nikolay][5], [slides](https://github.com/NBISweden/workshop_omics_integration/raw/master/session_ml/MachineLearningViewOmicsIntegration_Oskolkov.pdf))
 
 **12.00 - 13.00** Lunch
 
-**13.00 - 14.45** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Supervised Omics integration ([Nikolay][5], [slides](./session_ml/SupervisedOMICsIntegration/SupervisedOmicsIntegration_Oskolkov.pdf))
+**13.00 - 14.45** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Supervised Omics integration ([Nikolay][5], [slides](https://github.com/NBISweden/workshop_omics_integration/raw/master/session_ml/SupervisedOMICsIntegration/SupervisedOmicsIntegration_Oskolkov.pdf))
 
 **14.45 - 15.00** Coffee Break
 
@@ -30,24 +30,24 @@ title:  'Schedule'
 
 **16.00 - 16.05** Break
 
-**16.05 - 17.00** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Supervised Omics integration ([Nikolay][5], [notebook](./session_ml/SupervisedOMICsIntegration/supervised_omics_integr_CLL.html)) and Feature Selection ([notebook](./session_ml/FeatureSelectionIntegrOMICs/OmicsIntegration_FeatureSelection.html))
+**16.05 - 17.00** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Supervised Omics integration ([Nikolay][5], [notebook](https://github.com/NBISweden/workshop_omics_integration/raw/master/session_ml/SupervisedOMICsIntegration/supervised_omics_integr_CLL.html)) and Feature Selection ([notebook](https://github.com/NBISweden/workshop_omics_integration/raw/master/session_ml/FeatureSelectionIntegrOMICs/OmicsIntegration_FeatureSelection.html))
 
 
 ##### Tuesday 2020-10-06
 
-**08.45 - 10.45** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Unsupervised Omics integration ([Nikolay][5], [slides](./session_ml/UnsupervisedOMICsIntegration/UnsupervisedOmicsIntegration_Oskolkov.pdf), [notebook])
+**08.45 - 10.45** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Unsupervised Omics integration ([Nikolay][5], [slides](https://github.com/NBISweden/workshop_omics_integration/raw/master/session_ml/UnsupervisedOMICsIntegration/UnsupervisedOmicsIntegration_Oskolkov.pdf), [notebook])
 
 **10.45 - 11.00** Coffee Break
 
-**11.00 - 12.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Dimensionality reduction and clustering for Omics integration ([Nikolay][5], [slides](./session_ml/DimReductSingleCell/DimensionReduction_Oskolkov.pdf), [notebook](./session_ml/DimReductSingleCell/OmicsIntegration_DimensionReduction.html))
+**11.00 - 12.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Dimensionality reduction and clustering for Omics integration ([Nikolay][5], [slides](https://github.com/NBISweden/workshop_omics_integration/raw/master/session_ml/DimReductSingleCell/DimensionReduction_Oskolkov.pdf), [notebook](https://github.com/NBISweden/workshop_omics_integration/raw/master/session_ml/DimReductSingleCell/OmicsIntegration_DimensionReduction.html))
 
 **12.00 - 13.00** Lunch
 
-**13.00 - 14.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Deep learning for omics integration ([Nikolay][5], [slides](./session_ml/DeepLearningDataIntegration/DeepLearningOmicsIntegration_Oskolkov.pdf), [notebook](./session_ml/DeepLearningDataIntegration/DeepLearningDataIntegration.html), and [notebook for DL in single cell](./session_ml/DeepLearningDataIntegration/DeepLearning_SingleCell_10X_1.3Mcells.html))
+**13.00 - 14.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Deep learning for omics integration ([Nikolay][5], [slides](https://github.com/NBISweden/workshop_omics_integration/raw/master/session_ml/DeepLearningDataIntegration/DeepLearningOmicsIntegration_Oskolkov.pdf), [notebook](https://github.com/NBISweden/workshop_omics_integration/raw/master/session_ml/DeepLearningDataIntegration/DeepLearningDataIntegration.html), and [notebook for DL in single cell](https://github.com/NBISweden/workshop_omics_integration/raw/master/session_ml/DeepLearningDataIntegration/DeepLearning_SingleCell_10X_1.3Mcells.html))
 
 **14.00 - 14.05** Break
 
-**14.05 - 15.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Single cell omics integration ([Nikolay][5], [slides](./session_ml/SingleCell/SingleCellOmicsIntegration_Oskolkov.pdf), [notebook](./session_ml/SingleCell/SingleCell_OmicsIntegration.html), [data](https://drive.google.com/file/d/1hBeh2L5PC-T87YObCmJv4Qcm59IqkkOf/view?usp=sharing))
+**14.05 - 15.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Single cell omics integration ([Nikolay][5], [slides](https://github.com/NBISweden/workshop_omics_integration/raw/master/session_ml/SingleCell/SingleCellOmicsIntegration_Oskolkov.pdf), [notebook](https://github.com/NBISweden/workshop_omics_integration/raw/master/session_ml/SingleCell/SingleCell_OmicsIntegration.html), [data](https://drive.google.com/file/d/1hBeh2L5PC-T87YObCmJv4Qcm59IqkkOf/view?usp=sharing))
 
 **15.00 - 15.15** Coffee Break
 
@@ -58,19 +58,19 @@ title:  'Schedule'
 
 ##### Wednesday 2020-10-07
 
-**08.45 - 10.25** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Introduction to biological network analysis and terminology([Rui][6])
+**08.45 - 10.25** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Introduction to biological network analysis and terminology([Rui][6], [slides](https://github.com/NBISweden/workshop_omics_integration/raw/master/session_topology/1Introduction.pdf))
 
 **10.25 - 10.35** Coffee Break
 
-**10.35 - 12.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Network inference, key properties ([Rui][6])
+**10.35 - 12.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Network inference, key properties ([Rui][6], [slides](https://github.com/NBISweden/workshop_omics_integration/raw/master/session_topology/2Network_inference.pdf), [notebook](https://github.com/NBISweden/workshop_omics_integration/raw/master/session_topology/lab.html))
 
 **12.00 - 13.00** Lunch
 
-**13.00 - 14.30** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Network inference, key properties II ([Rui][6])
+**13.00 - 14.10** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Network inference, key properties ([Rui][6])
 
-**14.30 - 14.45** Coffee Break
+**14.10 - 14.25** Coffee Break
 
-**14.45 - 16.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Community analysis ([Rui][6])
+**14.25 - 16.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Community analysis ([Rui][6])
 
 **16.00 - 17.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Network visualization with Cytoscape using R ([notebook](./session_visualization/Cytoscape_tutorial.html), [Ashfaq][2])
 
