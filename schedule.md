@@ -78,11 +78,11 @@ title:  'Schedule'
 
 ##### Thursday 2020-10-08
 
-**08.30 - 10.25** Network fusion ([Sergiu][7])
+**08.30 - 10.25** Network fusion ([Sergiu][7], [lab main](./session_nmf/Lab.html), [SNF notebook](./session_nmf/SNF_main.html))
 
 **10.25 - 10.35** Coffee Break
 
-**10.35 - 13.00** Matrix factorization: recommender systems and PLS ([Sergiu][7])
+**10.35 - 13.00** Matrix factorization: recommender systems and PLS ([Sergiu][7], [MF notebook](./session_nmf/MF_main.html))
 
 **13.00 - 14.00** **Late Lunch**
 
