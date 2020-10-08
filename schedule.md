@@ -91,7 +91,7 @@ title:  'Schedule'
 
 **13.00 - 14.00** **Late Lunch**
 
-**14.00 - 16.25** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Genome-scale metabolic models: structure and simulation ([Jonathan][4], [notebook](./session_gems//Users/rui.benfeitas/GitHub/workshop_omics_integration/session_gems/COBRApy_tutorial.ipynb)))
+**14.00 - 16.25** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Genome-scale metabolic models: structure and simulation ([Jonathan][4], [slides](./session_gems/lectures/GEM_session_day1.pdf), [notebook](./session_gems/COBRApy_tutorial.ipynb)))
 
 **16.25 - 16.30** Coffee Break
 
