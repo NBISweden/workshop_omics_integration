@@ -83,15 +83,15 @@ title:  'Schedule'
 
 ##### Thursday 2020-10-08
 
-**08.30 - 10.25** Network fusion ([Sergiu][7], [lab main](./session_nmf/Lab.html), [SNF notebook](./session_nmf/SNF_main.html))
+**08.30 - 10.25** Network fusion ([Sergiu][7], [lab main](./session_nmf/Lab.html), [notebook](./session_nmf/SNF_main.html))
 
 **10.25 - 10.35** Coffee Break
 
-**10.35 - 13.00** Matrix factorization: recommender systems and PLS ([Sergiu][7], [MF notebook](./session_nmf/MF_main.html))
+**10.35 - 13.00** Matrix factorization: recommender systems and PLS ([Sergiu][7], [notebook](./session_nmf/MF_main.html))
 
 **13.00 - 14.00** **Late Lunch**
 
-**14.00 - 16.25** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Genome-scale metabolic models: structure and simulation ([Jonathan][4])
+**14.00 - 16.25** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Genome-scale metabolic models: structure and simulation ([Jonathan][4], [notebook](./session_gems//Users/rui.benfeitas/GitHub/workshop_omics_integration/session_gems/COBRApy_tutorial.ipynb)))
 
 **16.25 - 16.30** Coffee Break
 
