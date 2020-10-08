@@ -9,7 +9,6 @@ title:  'Schedule'
 <img border="0" src="https://www.svgrepo.com/show/307069/public-speaking-speak-tell-talk.svg" width="15" height="15"> - invited seminar  
 <br>
 <br>
-<br>
 ##### Monday 2020-10-05
 
 **09.00 - 10.00** Installation help and pre-course coffee

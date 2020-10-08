@@ -7,19 +7,18 @@ channels:
 
 dependencies:
 ### Base installations
-- r-base >= 3.5
-- rstudio >= 1.2
+- r-base=3.6.1
+- rstudio=1.1.456
 
 #### Supervised integration
-- r-corpcor
-- r-ellipse
-- r-glmnet
-- r-igraph
-- r-matrixstats
-- r-rarpack
-- r-rgl
-- r-tidyr
-- bioconda::bioconductor-mixomics>=6.8.0
+- r-corpcor=1.6.9
+- r-ellipse=0.4.1
+- r-glmnet=2.0_16
+- r-igraph=1.2.5
+- r-matrixstats=0.57.0
+- r-rarpack=0.11_0
+- r-tidyr=1.1.2
+- bioconda::bioconductor-mixomics=6.8.0
 
 ### Feature selection
 #- bioconda::bioconductor-mixomics 
