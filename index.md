@@ -11,7 +11,7 @@ The aim of this workshop is to provide an integrated view of biological network 
 
 **Audience** Course open for PhD students, postdocs, and researchers looking for an introduction to multi-omics integration and systems biology.
 
-**Fee** A course fee of 2000SEK will be invoiced to accepted participants. This includes lunches, coffee breaks, and a course dinner. Please note that NBIS cannot invoice individuals.
+**Fee** A course fee of 1500SEK will be invoiced to accepted participants. This includes lunches, and coffee breaks. Please note that NBIS cannot invoice individuals.
 
 <img border="0" src="https://www.svgrepo.com/show/26916/book.svg" width="20" height="20"> **Covered topics**  
 - Condition-specific and personalized modeling through Genome-scale Metabolic models based on integration of transcriptomic, proteomic and metabolomic data;  
