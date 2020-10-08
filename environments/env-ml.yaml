@@ -20,6 +20,7 @@ dependencies:
 - r-rgl
 - r-tidyr
 - bioconda::bioconductor-mixomics>=6.8.0
+- r-stringi
 
 ### Feature selection
 #- bioconda::bioconductor-mixomics 

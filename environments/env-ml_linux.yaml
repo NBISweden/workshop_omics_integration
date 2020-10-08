@@ -19,6 +19,7 @@ dependencies:
 - r-rarpack=0.11_0
 - r-tidyr=1.1.2
 - bioconda::bioconductor-mixomics=6.8.0
+- r-stringi
 
 ### Feature selection
 #- bioconda::bioconductor-mixomics 
