@@ -18,7 +18,7 @@ title:  'Schedule'
 
 **11.00 - 11.15** Break
 
-**11.15 - 12.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Machine Learning view of Omics integration ([Nikolay][5], [slides](/workshop_omics_integration/MachineLearningViewOmicsIntegration_Oskolkov.pdf))
+**11.15 - 12.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Machine Learning view of Omics integration ([Nikolay][5], [slides](/workshop_omics_integration/session_ml/MachineLearningViewOmicsIntegration_Oskolkov.pdf))
 
 **12.00 - 13.00** Lunch
 
