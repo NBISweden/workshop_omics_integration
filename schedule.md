@@ -4,11 +4,12 @@ title:  'Schedule'
 ---
 #### <img border="0" src="https://www.svgrepo.com/show/20800/event-date-and-time-symbol.svg" width="25" height="25"> Course schedule
 
-<img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> - lecture;
-<img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> - hands-on workshop;
-<img border="0" src="https://www.svgrepo.com/show/307069/public-speaking-speak-tell-talk.svg" width="15" height="15"> - invited seminar
-
-
+<img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> - lecture;  
+<img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> - hands-on workshop;  
+<img border="0" src="https://www.svgrepo.com/show/307069/public-speaking-speak-tell-talk.svg" width="15" height="15"> - invited seminar  
+<br>
+<br>
+<br>
 ##### Monday 2020-10-05
 
 **09.00 - 10.00** Installation help and pre-course coffee
@@ -32,6 +33,8 @@ title:  'Schedule'
 
 **16.05 - 17.00** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Supervised Omics integration ([Nikolay][5], [notebook](./session_ml/SupervisedOMICsIntegration/supervised_omics_integr_CLL.html)) and Feature Selection ([notebook](./session_ml/FeatureSelectionIntegrOMICs/OmicsIntegration_FeatureSelection.html))
 
+<br>
+<br>
 
 ##### Tuesday 2020-10-06
 
@@ -55,6 +58,8 @@ title:  'Schedule'
 
 **15.45 - 17.00** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Unsupervised Omics integration ([Nikolay][5])
 
+<br>
+<br>
 
 ##### Wednesday 2020-10-07
 
@@ -74,7 +79,8 @@ title:  'Schedule'
 
 **16.00 - 17.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Network visualization with Cytoscape using R ([notebook](./session_visualization/Cytoscape_tutorial.html), [Ashfaq][2])
 
-
+<br>
+<br>
 
 ##### Thursday 2020-10-08
 
@@ -92,6 +98,8 @@ title:  'Schedule'
 
 **16.30 - 17.00** <img border="0" src="https://www.svgrepo.com/show/307069/public-speaking-speak-tell-talk.svg" width="15" height="15"> [Mihail][9]: [Metabolic Atlas][12]
 
+<br>
+<br>
 
 ##### Friday 2020-10-09
 
@@ -111,12 +119,12 @@ title:  'Schedule'
 
 **15.00 - 15.30** <img border="0" src="https://www.svgrepo.com/show/307069/public-speaking-speak-tell-talk.svg" width="15" height="15"> Webinar [Prof. Marju Orho-Melander][3]: Omics interplay for cardiometabolic disease
 
-**15.30 - 16.45** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Data visualization using Circos and Hive Plots [Ashfaq][2]
+**15.30 - 16.45** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Data visualization using Circos and Hive Plots [Ashfaq][2]  
 
+**16.45 - 17.00** Wrap up  
 
-**16.45 - 17.00** Wrap up
-
-
+<br>
+<br>
 **Teachers:**
 - [Ashfaq Ali][2]
 - [Jonathan Robinson][4]
