@@ -47,7 +47,8 @@ suppressMessages(library(tidyverse))
 suppressMessages(library(readxl))
 ```
 
-Start the cytoscape app and rstudio using following commands
+Start the cytoscape app and rstudio using following commands in the terminal. For windows users, if you may have to type cytoscape.sh.
+
 ```{bash, eval = FALSE}
 rstudio &
 
@@ -62,9 +63,17 @@ cytoscapeVersionInfo()
 
 ```
 
+Now close the cytoscape and install the string database app using R studio.
+
+```{r}
+installApp("stringapp")
+```
+
+
 ## Installation of cytoscape apps using R
 
-To install cytoscape apps one can use the Cytoscape GUI through app manager or can install directly from R using the following code.
+To install cytoscape apps one can use the Cytoscape GUI through app manager or can install directly from R using the following code. The following step wont be necessary for this course.
+
 
 ```{r apps, eval=FALSE}
 
@@ -215,7 +224,7 @@ Now that we have a few networks loaded in cytoscape, let us work with those base
 ```{r layouts, message=FALSE}
 layouts <- getLayoutNames() ## Access the available lyouts in cytoscape
 
-layoutNetwork(layouts[3]) ## Change the layout to circular
+layoutNetwork(layouts[4]) ## Change the layout to circular
 
 exportImage(path, type = "png", resolution = 300) ## Cytoscape will hang as you are trying to overwite an existing file
 path <- file.path(getwd(), "/Data/","ExpnetworkOriginalCircular.png") # update the path
@@ -244,6 +253,10 @@ getTableColumnNames('node')
 
 The column “display name” contains gene names which are also found in our Ageing Expression data-set.
 To import our expression data we will match our data-set to the “display name” node attribute.
+
+```{r}
+setCurrentNetwork(network="AgeingExpeNet")
+```
 
 ```{r external_data_to_nodes}
 ?loadTableData
