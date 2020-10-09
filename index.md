@@ -4,7 +4,7 @@ title: Omics Integration and Systems Biology
 ---
 
 #### <img border="0" src="https://s3-us-west-2.amazonaws.com/slack-files2/avatars/2019-09-12/751389607265_d59c0d58846bb2db7123_132.jpg" width="50" height="50"> Omics Integration and Systems Biology
-<img border="0" src="https://www.svgrepo.com/show/305241/github.svg" width="20" height="20"> [Github repository][3]
+<img border="0" src="https://www.svgrepo.com/show/305241/github.svg" width="20" height="20"> [Github repository][3]  
 <img border="0" src="https://www.svgrepo.com/show/20800/event-date-and-time-symbol.svg" width="20" height="20"> 5 - 9 October 2020  
 <img border="0" src="https://www.svgrepo.com/show/4199/placeholder-on-a-map.svg" width="20" height="20"> Lund University, Department of Biology
 
