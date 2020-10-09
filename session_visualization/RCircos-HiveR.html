@@ -699,40 +699,41 @@ R
 <a class="sourceLine" id="cb9-6" data-line-number="6"><span class="kw">circos.par</span>(<span class="dt">track.margin =</span> <span class="kw">c</span>(om[<span class="dv">1</span>], <span class="dv">0</span>), <span class="dt">cell.padding =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>))</a>
 <a class="sourceLine" id="cb9-7" data-line-number="7"></a>
 <a class="sourceLine" id="cb9-8" data-line-number="8">f =<span class="st"> </span><span class="kw">colorRamp2</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">colors =</span> <span class="kw">c</span>(<span class="st">&quot;green&quot;</span>, <span class="st">&quot;white&quot;</span>, <span class="st">&quot;red&quot;</span>))</a>
-<a class="sourceLine" id="cb9-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb9-10" data-line-number="10"><span class="kw">circos.genomicTrackPlotRegion</span>(bed, <span class="dt">stack =</span> <span class="ot">TRUE</span>, <span class="dt">panel.fun =</span> <span class="cf">function</span>(coord, vals, ...) {</a>
-<a class="sourceLine" id="cb9-11" data-line-number="11">    <span class="kw">circos.genomicRect</span>(<span class="dt">region =</span> coord, <span class="dt">value =</span> vals, <span class="dt">col =</span> <span class="kw">f</span>(vals[[<span class="dv">1</span>]]), </a>
-<a class="sourceLine" id="cb9-12" data-line-number="12">        <span class="dt">border =</span> <span class="kw">f</span>(vals[[<span class="dv">1</span>]]), <span class="dt">lwd =</span> <span class="fl">0.1</span>, <span class="dt">posTransform =</span> posTransform.default, ...)</a>
-<a class="sourceLine" id="cb9-13" data-line-number="13">}, <span class="dt">bg.border =</span> <span class="ot">NA</span>, <span class="dt">track.height =</span> <span class="fl">0.1</span>)</a>
-<a class="sourceLine" id="cb9-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb9-9" data-line-number="9">bed =<span class="st"> </span><span class="kw">generateRandomBed</span>(<span class="dt">nr =</span> <span class="dv">400</span>, <span class="dt">nc =</span> <span class="dv">8</span>)</a>
+<a class="sourceLine" id="cb9-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb9-11" data-line-number="11"><span class="kw">circos.genomicTrackPlotRegion</span>(bed, <span class="dt">stack =</span> <span class="ot">TRUE</span>, <span class="dt">panel.fun =</span> <span class="cf">function</span>(coord, vals, ...) {</a>
+<a class="sourceLine" id="cb9-12" data-line-number="12">    <span class="kw">circos.genomicRect</span>(<span class="dt">region =</span> coord, <span class="dt">value =</span> vals, <span class="dt">col =</span> <span class="kw">f</span>(vals[[<span class="dv">1</span>]]), </a>
+<a class="sourceLine" id="cb9-13" data-line-number="13">        <span class="dt">border =</span> <span class="kw">f</span>(vals[[<span class="dv">1</span>]]), <span class="dt">lwd =</span> <span class="fl">0.1</span>, <span class="dt">posTransform =</span> posTransform.default, ...)</a>
+<a class="sourceLine" id="cb9-14" data-line-number="14">}, <span class="dt">bg.border =</span> <span class="ot">NA</span>, <span class="dt">track.height =</span> <span class="fl">0.1</span>)</a>
 <a class="sourceLine" id="cb9-15" data-line-number="15"></a>
 <a class="sourceLine" id="cb9-16" data-line-number="16"></a>
-<a class="sourceLine" id="cb9-17" data-line-number="17">bed =<span class="st"> </span><span class="kw">generateRandomBed</span>(<span class="dt">nr =</span> <span class="dv">900</span>, <span class="dt">fun =</span> <span class="cf">function</span>(k) <span class="kw">runif</span>(k)<span class="op">*</span><span class="kw">sample</span>(<span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>), k, <span class="dt">replace =</span> <span class="ot">TRUE</span>))</a>
-<a class="sourceLine" id="cb9-18" data-line-number="18"></a>
-<a class="sourceLine" id="cb9-19" data-line-number="19"><span class="kw">circos.genomicTrackPlotRegion</span>(bed, <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="dt">panel.fun =</span> <span class="cf">function</span>(coord, vals, ...) {</a>
-<a class="sourceLine" id="cb9-20" data-line-number="20">    col =<span class="st"> </span><span class="kw">ifelse</span>(vals[[<span class="dv">1</span>]] <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>)</a>
-<a class="sourceLine" id="cb9-21" data-line-number="21">    <span class="kw">circos.genomicPoints</span>(<span class="dt">region=</span>coord, <span class="dt">value=</span>vals, <span class="dt">col =</span> col, <span class="dt">cex =</span> <span class="fl">0.5</span>, <span class="dt">pch =</span> <span class="dv">16</span>)</a>
-<a class="sourceLine" id="cb9-22" data-line-number="22">    cell.xlim =<span class="st"> </span><span class="kw">get.cell.meta.data</span>(<span class="st">&quot;cell.xlim&quot;</span>)</a>
-<a class="sourceLine" id="cb9-23" data-line-number="23">    <span class="cf">for</span>(h <span class="cf">in</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="fl">-0.5</span>, <span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">1</span>)) {</a>
-<a class="sourceLine" id="cb9-24" data-line-number="24">        <span class="kw">circos.lines</span>(cell.xlim, <span class="kw">c</span>(h, h), <span class="dt">col =</span> <span class="st">&quot;#00000040&quot;</span>)</a>
-<a class="sourceLine" id="cb9-25" data-line-number="25">    }</a>
-<a class="sourceLine" id="cb9-26" data-line-number="26">}, <span class="dt">track.height =</span> <span class="fl">0.1</span>)</a>
-<a class="sourceLine" id="cb9-27" data-line-number="27"></a>
+<a class="sourceLine" id="cb9-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb9-18" data-line-number="18">bed =<span class="st"> </span><span class="kw">generateRandomBed</span>(<span class="dt">nr =</span> <span class="dv">900</span>, <span class="dt">fun =</span> <span class="cf">function</span>(k) <span class="kw">runif</span>(k)<span class="op">*</span><span class="kw">sample</span>(<span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>), k, <span class="dt">replace =</span> <span class="ot">TRUE</span>))</a>
+<a class="sourceLine" id="cb9-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb9-20" data-line-number="20"><span class="kw">circos.genomicTrackPlotRegion</span>(bed, <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="dt">panel.fun =</span> <span class="cf">function</span>(coord, vals, ...) {</a>
+<a class="sourceLine" id="cb9-21" data-line-number="21">    col =<span class="st"> </span><span class="kw">ifelse</span>(vals[[<span class="dv">1</span>]] <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>)</a>
+<a class="sourceLine" id="cb9-22" data-line-number="22">    <span class="kw">circos.genomicPoints</span>(<span class="dt">region=</span>coord, <span class="dt">value=</span>vals, <span class="dt">col =</span> col, <span class="dt">cex =</span> <span class="fl">0.5</span>, <span class="dt">pch =</span> <span class="dv">16</span>)</a>
+<a class="sourceLine" id="cb9-23" data-line-number="23">    cell.xlim =<span class="st"> </span><span class="kw">get.cell.meta.data</span>(<span class="st">&quot;cell.xlim&quot;</span>)</a>
+<a class="sourceLine" id="cb9-24" data-line-number="24">    <span class="cf">for</span>(h <span class="cf">in</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="fl">-0.5</span>, <span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">1</span>)) {</a>
+<a class="sourceLine" id="cb9-25" data-line-number="25">        <span class="kw">circos.lines</span>(cell.xlim, <span class="kw">c</span>(h, h), <span class="dt">col =</span> <span class="st">&quot;#00000040&quot;</span>)</a>
+<a class="sourceLine" id="cb9-26" data-line-number="26">    }</a>
+<a class="sourceLine" id="cb9-27" data-line-number="27">}, <span class="dt">track.height =</span> <span class="fl">0.1</span>)</a>
 <a class="sourceLine" id="cb9-28" data-line-number="28"></a>
-<a class="sourceLine" id="cb9-29" data-line-number="29">bed =<span class="st"> </span><span class="kw">generateRandomBed</span>(<span class="dt">nr =</span> <span class="dv">900</span>, <span class="dt">fun =</span> <span class="cf">function</span>(k) <span class="kw">rnorm</span>(k, <span class="dv">0</span>, <span class="dv">50</span>))</a>
-<a class="sourceLine" id="cb9-30" data-line-number="30"><span class="kw">circos.genomicTrackPlotRegion</span>(bed, <span class="dt">panel.fun =</span> <span class="cf">function</span>(region, value, ...) {</a>
-<a class="sourceLine" id="cb9-31" data-line-number="31">    x =<span class="st"> </span>(region[[<span class="dv">2</span>]] <span class="op">+</span><span class="st"> </span>region[[<span class="dv">1</span>]]) <span class="op">/</span><span class="st"> </span><span class="dv">2</span></a>
-<a class="sourceLine" id="cb9-32" data-line-number="32">    y =<span class="st"> </span>value[[<span class="dv">1</span>]]</a>
-<a class="sourceLine" id="cb9-33" data-line-number="33">    loess.fit =<span class="st"> </span><span class="kw">loess</span>(y <span class="op">~</span><span class="st"> </span>x)</a>
-<a class="sourceLine" id="cb9-34" data-line-number="34">    loess.predict =<span class="st"> </span><span class="kw">predict</span>(loess.fit, x, <span class="dt">se =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb9-35" data-line-number="35">    d1 =<span class="st"> </span><span class="kw">c</span>(x, <span class="kw">rev</span>(x))</a>
-<a class="sourceLine" id="cb9-36" data-line-number="36">    d2 =<span class="st"> </span><span class="kw">c</span>(loess.predict<span class="op">$</span>fit <span class="op">+</span><span class="st"> </span>loess.predict<span class="op">$</span>se.fit, <span class="kw">rev</span>(loess.predict<span class="op">$</span>fit <span class="op">-</span><span class="st"> </span>loess.predict<span class="op">$</span>se.fit))</a>
-<a class="sourceLine" id="cb9-37" data-line-number="37">    <span class="kw">circos.polygon</span>(d1, d2, <span class="dt">col =</span> <span class="st">&quot;#CCCCCC&quot;</span>, <span class="dt">border =</span> <span class="ot">NA</span>)</a>
-<a class="sourceLine" id="cb9-38" data-line-number="38">    <span class="kw">circos.points</span>(x, y, <span class="dt">pch =</span> <span class="dv">16</span>, <span class="dt">cex =</span> <span class="fl">0.5</span>)</a>
-<a class="sourceLine" id="cb9-39" data-line-number="39">    <span class="kw">circos.lines</span>(x, loess.predict<span class="op">$</span>fit)</a>
-<a class="sourceLine" id="cb9-40" data-line-number="40">}, <span class="dt">track.height =</span> <span class="fl">0.1</span>)</a>
-<a class="sourceLine" id="cb9-41" data-line-number="41"></a>
-<a class="sourceLine" id="cb9-42" data-line-number="42"><span class="kw">circos.clear</span>()</a></code></pre></div>
+<a class="sourceLine" id="cb9-29" data-line-number="29"></a>
+<a class="sourceLine" id="cb9-30" data-line-number="30">bed =<span class="st"> </span><span class="kw">generateRandomBed</span>(<span class="dt">nr =</span> <span class="dv">900</span>, <span class="dt">fun =</span> <span class="cf">function</span>(k) <span class="kw">rnorm</span>(k, <span class="dv">0</span>, <span class="dv">50</span>))</a>
+<a class="sourceLine" id="cb9-31" data-line-number="31"><span class="kw">circos.genomicTrackPlotRegion</span>(bed, <span class="dt">panel.fun =</span> <span class="cf">function</span>(region, value, ...) {</a>
+<a class="sourceLine" id="cb9-32" data-line-number="32">    x =<span class="st"> </span>(region[[<span class="dv">2</span>]] <span class="op">+</span><span class="st"> </span>region[[<span class="dv">1</span>]]) <span class="op">/</span><span class="st"> </span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb9-33" data-line-number="33">    y =<span class="st"> </span>value[[<span class="dv">1</span>]]</a>
+<a class="sourceLine" id="cb9-34" data-line-number="34">    loess.fit =<span class="st"> </span><span class="kw">loess</span>(y <span class="op">~</span><span class="st"> </span>x)</a>
+<a class="sourceLine" id="cb9-35" data-line-number="35">    loess.predict =<span class="st"> </span><span class="kw">predict</span>(loess.fit, x, <span class="dt">se =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb9-36" data-line-number="36">    d1 =<span class="st"> </span><span class="kw">c</span>(x, <span class="kw">rev</span>(x))</a>
+<a class="sourceLine" id="cb9-37" data-line-number="37">    d2 =<span class="st"> </span><span class="kw">c</span>(loess.predict<span class="op">$</span>fit <span class="op">+</span><span class="st"> </span>loess.predict<span class="op">$</span>se.fit, <span class="kw">rev</span>(loess.predict<span class="op">$</span>fit <span class="op">-</span><span class="st"> </span>loess.predict<span class="op">$</span>se.fit))</a>
+<a class="sourceLine" id="cb9-38" data-line-number="38">    <span class="kw">circos.polygon</span>(d1, d2, <span class="dt">col =</span> <span class="st">&quot;#CCCCCC&quot;</span>, <span class="dt">border =</span> <span class="ot">NA</span>)</a>
+<a class="sourceLine" id="cb9-39" data-line-number="39">    <span class="kw">circos.points</span>(x, y, <span class="dt">pch =</span> <span class="dv">16</span>, <span class="dt">cex =</span> <span class="fl">0.5</span>)</a>
+<a class="sourceLine" id="cb9-40" data-line-number="40">    <span class="kw">circos.lines</span>(x, loess.predict<span class="op">$</span>fit)</a>
+<a class="sourceLine" id="cb9-41" data-line-number="41">}, <span class="dt">track.height =</span> <span class="fl">0.1</span>)</a>
+<a class="sourceLine" id="cb9-42" data-line-number="42"></a>
+<a class="sourceLine" id="cb9-43" data-line-number="43"><span class="kw">circos.clear</span>()</a></code></pre></div>
 <img src="RCircos-HiveR_files/figure-html/unnamed-chunk-10-1.svg" width="1440" style="display: block; margin: auto auto auto 0;" />
 </div>
 <div class="block-title-parent">
@@ -740,70 +741,71 @@ R
 R
 </div>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw">circos.initializeWithIdeogram</span>()</a>
-<a class="sourceLine" id="cb10-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb10-3" data-line-number="3">om =<span class="st"> </span><span class="kw">circos.par</span>(<span class="st">&quot;track.margin&quot;</span>)</a>
-<a class="sourceLine" id="cb10-4" data-line-number="4">oc =<span class="st"> </span><span class="kw">circos.par</span>(<span class="st">&quot;cell.padding&quot;</span>)</a>
-<a class="sourceLine" id="cb10-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb10-6" data-line-number="6"><span class="kw">circos.par</span>(<span class="dt">track.margin =</span> <span class="kw">c</span>(om[<span class="dv">1</span>], <span class="dv">0</span>), <span class="dt">cell.padding =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>))</a>
-<a class="sourceLine" id="cb10-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb10-8" data-line-number="8">f =<span class="st"> </span><span class="kw">colorRamp2</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">colors =</span> <span class="kw">c</span>(<span class="st">&quot;green&quot;</span>, <span class="st">&quot;white&quot;</span>, <span class="st">&quot;red&quot;</span>))</a>
-<a class="sourceLine" id="cb10-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb10-10" data-line-number="10"><span class="kw">circos.genomicTrackPlotRegion</span>(bed, <span class="dt">stack =</span> <span class="ot">TRUE</span>, <span class="dt">panel.fun =</span> <span class="cf">function</span>(coord, vals, ...) {</a>
-<a class="sourceLine" id="cb10-11" data-line-number="11">    <span class="kw">circos.genomicRect</span>(<span class="dt">region =</span> coord, <span class="dt">value =</span> vals, <span class="dt">col =</span> <span class="kw">f</span>(vals[[<span class="dv">1</span>]]), </a>
-<a class="sourceLine" id="cb10-12" data-line-number="12">        <span class="dt">border =</span> <span class="kw">f</span>(vals[[<span class="dv">1</span>]]), <span class="dt">lwd =</span> <span class="fl">0.1</span>, <span class="dt">posTransform =</span> posTransform.default, ...)</a>
-<a class="sourceLine" id="cb10-13" data-line-number="13">}, <span class="dt">bg.border =</span> <span class="ot">NA</span>, <span class="dt">track.height =</span> <span class="fl">0.1</span>)</a>
-<a class="sourceLine" id="cb10-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb10-2" data-line-number="2">bed =<span class="st"> </span><span class="kw">generateRandomBed</span>(<span class="dt">nr =</span> <span class="dv">400</span>, <span class="dt">nc =</span> <span class="dv">8</span>)</a>
+<a class="sourceLine" id="cb10-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb10-4" data-line-number="4">om =<span class="st"> </span><span class="kw">circos.par</span>(<span class="st">&quot;track.margin&quot;</span>)</a>
+<a class="sourceLine" id="cb10-5" data-line-number="5">oc =<span class="st"> </span><span class="kw">circos.par</span>(<span class="st">&quot;cell.padding&quot;</span>)</a>
+<a class="sourceLine" id="cb10-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb10-7" data-line-number="7"><span class="kw">circos.par</span>(<span class="dt">track.margin =</span> <span class="kw">c</span>(om[<span class="dv">1</span>], <span class="dv">0</span>), <span class="dt">cell.padding =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>))</a>
+<a class="sourceLine" id="cb10-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb10-9" data-line-number="9">f =<span class="st"> </span><span class="kw">colorRamp2</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">colors =</span> <span class="kw">c</span>(<span class="st">&quot;green&quot;</span>, <span class="st">&quot;white&quot;</span>, <span class="st">&quot;red&quot;</span>))</a>
+<a class="sourceLine" id="cb10-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb10-11" data-line-number="11"><span class="kw">circos.genomicTrackPlotRegion</span>(bed, <span class="dt">stack =</span> <span class="ot">TRUE</span>, <span class="dt">panel.fun =</span> <span class="cf">function</span>(coord, vals, ...) {</a>
+<a class="sourceLine" id="cb10-12" data-line-number="12">    <span class="kw">circos.genomicRect</span>(<span class="dt">region =</span> coord, <span class="dt">value =</span> vals, <span class="dt">col =</span> <span class="kw">f</span>(vals[[<span class="dv">1</span>]]), </a>
+<a class="sourceLine" id="cb10-13" data-line-number="13">        <span class="dt">border =</span> <span class="kw">f</span>(vals[[<span class="dv">1</span>]]), <span class="dt">lwd =</span> <span class="fl">0.1</span>, <span class="dt">posTransform =</span> posTransform.default, ...)</a>
+<a class="sourceLine" id="cb10-14" data-line-number="14">}, <span class="dt">bg.border =</span> <span class="ot">NA</span>, <span class="dt">track.height =</span> <span class="fl">0.1</span>)</a>
 <a class="sourceLine" id="cb10-15" data-line-number="15"></a>
 <a class="sourceLine" id="cb10-16" data-line-number="16"></a>
-<a class="sourceLine" id="cb10-17" data-line-number="17">bed =<span class="st"> </span><span class="kw">generateRandomBed</span>(<span class="dt">nr =</span> <span class="dv">900</span>, <span class="dt">fun =</span> <span class="cf">function</span>(k) <span class="kw">runif</span>(k)<span class="op">*</span><span class="kw">sample</span>(<span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>), k, <span class="dt">replace =</span> <span class="ot">TRUE</span>))</a>
-<a class="sourceLine" id="cb10-18" data-line-number="18"></a>
-<a class="sourceLine" id="cb10-19" data-line-number="19"><span class="kw">circos.genomicTrackPlotRegion</span>(bed, <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="dt">panel.fun =</span> <span class="cf">function</span>(coord, vals, ...) {</a>
-<a class="sourceLine" id="cb10-20" data-line-number="20">    col =<span class="st"> </span><span class="kw">ifelse</span>(vals[[<span class="dv">1</span>]] <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>)</a>
-<a class="sourceLine" id="cb10-21" data-line-number="21">    <span class="kw">circos.genomicPoints</span>(<span class="dt">region=</span>coord, <span class="dt">value=</span>vals, <span class="dt">col =</span> col, <span class="dt">cex =</span> <span class="fl">0.5</span>, <span class="dt">pch =</span> <span class="dv">16</span>)</a>
-<a class="sourceLine" id="cb10-22" data-line-number="22">    cell.xlim =<span class="st"> </span><span class="kw">get.cell.meta.data</span>(<span class="st">&quot;cell.xlim&quot;</span>)</a>
-<a class="sourceLine" id="cb10-23" data-line-number="23">    <span class="cf">for</span>(h <span class="cf">in</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="fl">-0.5</span>, <span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">1</span>)) {</a>
-<a class="sourceLine" id="cb10-24" data-line-number="24">        <span class="kw">circos.lines</span>(cell.xlim, <span class="kw">c</span>(h, h), <span class="dt">col =</span> <span class="st">&quot;#00000040&quot;</span>)</a>
-<a class="sourceLine" id="cb10-25" data-line-number="25">    }</a>
-<a class="sourceLine" id="cb10-26" data-line-number="26">}, <span class="dt">track.height =</span> <span class="fl">0.1</span>)</a>
-<a class="sourceLine" id="cb10-27" data-line-number="27"></a>
+<a class="sourceLine" id="cb10-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb10-18" data-line-number="18">bed =<span class="st"> </span><span class="kw">generateRandomBed</span>(<span class="dt">nr =</span> <span class="dv">900</span>, <span class="dt">fun =</span> <span class="cf">function</span>(k) <span class="kw">runif</span>(k)<span class="op">*</span><span class="kw">sample</span>(<span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>), k, <span class="dt">replace =</span> <span class="ot">TRUE</span>))</a>
+<a class="sourceLine" id="cb10-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb10-20" data-line-number="20"><span class="kw">circos.genomicTrackPlotRegion</span>(bed, <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="dt">panel.fun =</span> <span class="cf">function</span>(coord, vals, ...) {</a>
+<a class="sourceLine" id="cb10-21" data-line-number="21">    col =<span class="st"> </span><span class="kw">ifelse</span>(vals[[<span class="dv">1</span>]] <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>)</a>
+<a class="sourceLine" id="cb10-22" data-line-number="22">    <span class="kw">circos.genomicPoints</span>(<span class="dt">region=</span>coord, <span class="dt">value=</span>vals, <span class="dt">col =</span> col, <span class="dt">cex =</span> <span class="fl">0.5</span>, <span class="dt">pch =</span> <span class="dv">16</span>)</a>
+<a class="sourceLine" id="cb10-23" data-line-number="23">    cell.xlim =<span class="st"> </span><span class="kw">get.cell.meta.data</span>(<span class="st">&quot;cell.xlim&quot;</span>)</a>
+<a class="sourceLine" id="cb10-24" data-line-number="24">    <span class="cf">for</span>(h <span class="cf">in</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="fl">-0.5</span>, <span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">1</span>)) {</a>
+<a class="sourceLine" id="cb10-25" data-line-number="25">        <span class="kw">circos.lines</span>(cell.xlim, <span class="kw">c</span>(h, h), <span class="dt">col =</span> <span class="st">&quot;#00000040&quot;</span>)</a>
+<a class="sourceLine" id="cb10-26" data-line-number="26">    }</a>
+<a class="sourceLine" id="cb10-27" data-line-number="27">}, <span class="dt">track.height =</span> <span class="fl">0.1</span>)</a>
 <a class="sourceLine" id="cb10-28" data-line-number="28"></a>
-<a class="sourceLine" id="cb10-29" data-line-number="29">bed =<span class="st"> </span><span class="kw">generateRandomBed</span>(<span class="dt">nr =</span> <span class="dv">900</span>, <span class="dt">fun =</span> <span class="cf">function</span>(k) <span class="kw">rnorm</span>(k, <span class="dv">0</span>, <span class="dv">50</span>))</a>
-<a class="sourceLine" id="cb10-30" data-line-number="30"><span class="kw">circos.genomicTrackPlotRegion</span>(bed, <span class="dt">panel.fun =</span> <span class="cf">function</span>(region, value, ...) {</a>
-<a class="sourceLine" id="cb10-31" data-line-number="31">    x =<span class="st"> </span>(region[[<span class="dv">2</span>]] <span class="op">+</span><span class="st"> </span>region[[<span class="dv">1</span>]]) <span class="op">/</span><span class="st"> </span><span class="dv">2</span></a>
-<a class="sourceLine" id="cb10-32" data-line-number="32">    y =<span class="st"> </span>value[[<span class="dv">1</span>]]</a>
-<a class="sourceLine" id="cb10-33" data-line-number="33">    loess.fit =<span class="st"> </span><span class="kw">loess</span>(y <span class="op">~</span><span class="st"> </span>x)</a>
-<a class="sourceLine" id="cb10-34" data-line-number="34">    loess.predict =<span class="st"> </span><span class="kw">predict</span>(loess.fit, x, <span class="dt">se =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb10-35" data-line-number="35">    d1 =<span class="st"> </span><span class="kw">c</span>(x, <span class="kw">rev</span>(x))</a>
-<a class="sourceLine" id="cb10-36" data-line-number="36">    d2 =<span class="st"> </span><span class="kw">c</span>(loess.predict<span class="op">$</span>fit <span class="op">+</span><span class="st"> </span>loess.predict<span class="op">$</span>se.fit, <span class="kw">rev</span>(loess.predict<span class="op">$</span>fit <span class="op">-</span><span class="st"> </span>loess.predict<span class="op">$</span>se.fit))</a>
-<a class="sourceLine" id="cb10-37" data-line-number="37">    <span class="kw">circos.polygon</span>(d1, d2, <span class="dt">col =</span> <span class="st">&quot;#CCCCCC&quot;</span>, <span class="dt">border =</span> <span class="ot">NA</span>)</a>
-<a class="sourceLine" id="cb10-38" data-line-number="38">    <span class="kw">circos.points</span>(x, y, <span class="dt">pch =</span> <span class="dv">16</span>, <span class="dt">cex =</span> <span class="fl">0.5</span>)</a>
-<a class="sourceLine" id="cb10-39" data-line-number="39">    <span class="kw">circos.lines</span>(x, loess.predict<span class="op">$</span>fit)</a>
-<a class="sourceLine" id="cb10-40" data-line-number="40">}, <span class="dt">track.height =</span> <span class="fl">0.1</span>)</a>
-<a class="sourceLine" id="cb10-41" data-line-number="41"></a>
-<a class="sourceLine" id="cb10-42" data-line-number="42">bed_list =<span class="st"> </span><span class="kw">list</span>(<span class="kw">generateRandomBed</span>(<span class="dt">nr =</span> <span class="dv">900</span>, <span class="dt">fun =</span> <span class="cf">function</span>(k) <span class="kw">runif</span>(k)),</a>
-<a class="sourceLine" id="cb10-43" data-line-number="43">                <span class="kw">generateRandomBed</span>(<span class="dt">nr =</span> <span class="dv">900</span>, <span class="dt">fun =</span> <span class="cf">function</span>(k) <span class="kw">runif</span>(k)))</a>
-<a class="sourceLine" id="cb10-44" data-line-number="44">col =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;#FF000040&quot;</span>, <span class="st">&quot;#0000FF40&quot;</span>)</a>
-<a class="sourceLine" id="cb10-45" data-line-number="45"><span class="kw">circos.genomicTrackPlotRegion</span>(bed_list, <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="dt">panel.fun =</span> <span class="cf">function</span>(region, value, ...) {</a>
-<a class="sourceLine" id="cb10-46" data-line-number="46">    i =<span class="st"> </span><span class="kw">getI</span>(...)</a>
-<a class="sourceLine" id="cb10-47" data-line-number="47">    <span class="cf">if</span>(i <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) {</a>
-<a class="sourceLine" id="cb10-48" data-line-number="48">        <span class="kw">circos.genomicLines</span>(region, value, <span class="dt">area =</span> <span class="ot">TRUE</span>, <span class="dt">baseline =</span> <span class="dv">0</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">border =</span> <span class="ot">NA</span>, ...)</a>
-<a class="sourceLine" id="cb10-49" data-line-number="49">    } <span class="cf">else</span> {</a>
-<a class="sourceLine" id="cb10-50" data-line-number="50">        <span class="kw">circos.genomicLines</span>(region, <span class="op">-</span>value, <span class="dt">area =</span> <span class="ot">TRUE</span>, <span class="dt">baseline =</span> <span class="dv">0</span>, <span class="dt">col =</span> <span class="st">&quot;green&quot;</span>, <span class="dt">border =</span> <span class="ot">NA</span>, ...)</a>
-<a class="sourceLine" id="cb10-51" data-line-number="51">    }</a>
-<a class="sourceLine" id="cb10-52" data-line-number="52">}, <span class="dt">track.height =</span> <span class="fl">0.1</span>)</a>
-<a class="sourceLine" id="cb10-53" data-line-number="53"></a>
-<a class="sourceLine" id="cb10-54" data-line-number="54"><span class="co">## Add links</span></a>
-<a class="sourceLine" id="cb10-55" data-line-number="55">region1 =<span class="st"> </span><span class="kw">generateRandomBed</span>(<span class="dt">nr =</span> <span class="dv">1500</span>); region1 =<span class="st"> </span>region1[<span class="kw">sample</span>(<span class="kw">nrow</span>(region1), <span class="dv">30</span>), ]</a>
-<a class="sourceLine" id="cb10-56" data-line-number="56">region2 =<span class="st"> </span><span class="kw">generateRandomBed</span>(<span class="dt">nr =</span> <span class="dv">1500</span>); region2 =<span class="st"> </span>region2[<span class="kw">sample</span>(<span class="kw">nrow</span>(region2), <span class="dv">30</span>), ]</a>
-<a class="sourceLine" id="cb10-57" data-line-number="57"><span class="kw">circos.genomicLink</span>(region1, region2, <span class="dt">col =</span> <span class="kw">sample</span>(<span class="dv">30</span>, <span class="dv">30</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>))</a>
-<a class="sourceLine" id="cb10-58" data-line-number="58"></a>
+<a class="sourceLine" id="cb10-29" data-line-number="29"></a>
+<a class="sourceLine" id="cb10-30" data-line-number="30">bed =<span class="st"> </span><span class="kw">generateRandomBed</span>(<span class="dt">nr =</span> <span class="dv">900</span>, <span class="dt">fun =</span> <span class="cf">function</span>(k) <span class="kw">rnorm</span>(k, <span class="dv">0</span>, <span class="dv">50</span>))</a>
+<a class="sourceLine" id="cb10-31" data-line-number="31"><span class="kw">circos.genomicTrackPlotRegion</span>(bed, <span class="dt">panel.fun =</span> <span class="cf">function</span>(region, value, ...) {</a>
+<a class="sourceLine" id="cb10-32" data-line-number="32">    x =<span class="st"> </span>(region[[<span class="dv">2</span>]] <span class="op">+</span><span class="st"> </span>region[[<span class="dv">1</span>]]) <span class="op">/</span><span class="st"> </span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb10-33" data-line-number="33">    y =<span class="st"> </span>value[[<span class="dv">1</span>]]</a>
+<a class="sourceLine" id="cb10-34" data-line-number="34">    loess.fit =<span class="st"> </span><span class="kw">loess</span>(y <span class="op">~</span><span class="st"> </span>x)</a>
+<a class="sourceLine" id="cb10-35" data-line-number="35">    loess.predict =<span class="st"> </span><span class="kw">predict</span>(loess.fit, x, <span class="dt">se =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb10-36" data-line-number="36">    d1 =<span class="st"> </span><span class="kw">c</span>(x, <span class="kw">rev</span>(x))</a>
+<a class="sourceLine" id="cb10-37" data-line-number="37">    d2 =<span class="st"> </span><span class="kw">c</span>(loess.predict<span class="op">$</span>fit <span class="op">+</span><span class="st"> </span>loess.predict<span class="op">$</span>se.fit, <span class="kw">rev</span>(loess.predict<span class="op">$</span>fit <span class="op">-</span><span class="st"> </span>loess.predict<span class="op">$</span>se.fit))</a>
+<a class="sourceLine" id="cb10-38" data-line-number="38">    <span class="kw">circos.polygon</span>(d1, d2, <span class="dt">col =</span> <span class="st">&quot;#CCCCCC&quot;</span>, <span class="dt">border =</span> <span class="ot">NA</span>)</a>
+<a class="sourceLine" id="cb10-39" data-line-number="39">    <span class="kw">circos.points</span>(x, y, <span class="dt">pch =</span> <span class="dv">16</span>, <span class="dt">cex =</span> <span class="fl">0.5</span>)</a>
+<a class="sourceLine" id="cb10-40" data-line-number="40">    <span class="kw">circos.lines</span>(x, loess.predict<span class="op">$</span>fit)</a>
+<a class="sourceLine" id="cb10-41" data-line-number="41">}, <span class="dt">track.height =</span> <span class="fl">0.1</span>)</a>
+<a class="sourceLine" id="cb10-42" data-line-number="42"></a>
+<a class="sourceLine" id="cb10-43" data-line-number="43">bed_list =<span class="st"> </span><span class="kw">list</span>(<span class="kw">generateRandomBed</span>(<span class="dt">nr =</span> <span class="dv">900</span>, <span class="dt">fun =</span> <span class="cf">function</span>(k) <span class="kw">runif</span>(k)),</a>
+<a class="sourceLine" id="cb10-44" data-line-number="44">                <span class="kw">generateRandomBed</span>(<span class="dt">nr =</span> <span class="dv">900</span>, <span class="dt">fun =</span> <span class="cf">function</span>(k) <span class="kw">runif</span>(k)))</a>
+<a class="sourceLine" id="cb10-45" data-line-number="45">col =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;#FF000040&quot;</span>, <span class="st">&quot;#0000FF40&quot;</span>)</a>
+<a class="sourceLine" id="cb10-46" data-line-number="46"><span class="kw">circos.genomicTrackPlotRegion</span>(bed_list, <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="dt">panel.fun =</span> <span class="cf">function</span>(region, value, ...) {</a>
+<a class="sourceLine" id="cb10-47" data-line-number="47">    i =<span class="st"> </span><span class="kw">getI</span>(...)</a>
+<a class="sourceLine" id="cb10-48" data-line-number="48">    <span class="cf">if</span>(i <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) {</a>
+<a class="sourceLine" id="cb10-49" data-line-number="49">        <span class="kw">circos.genomicLines</span>(region, value, <span class="dt">area =</span> <span class="ot">TRUE</span>, <span class="dt">baseline =</span> <span class="dv">0</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">border =</span> <span class="ot">NA</span>, ...)</a>
+<a class="sourceLine" id="cb10-50" data-line-number="50">    } <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb10-51" data-line-number="51">        <span class="kw">circos.genomicLines</span>(region, <span class="op">-</span>value, <span class="dt">area =</span> <span class="ot">TRUE</span>, <span class="dt">baseline =</span> <span class="dv">0</span>, <span class="dt">col =</span> <span class="st">&quot;green&quot;</span>, <span class="dt">border =</span> <span class="ot">NA</span>, ...)</a>
+<a class="sourceLine" id="cb10-52" data-line-number="52">    }</a>
+<a class="sourceLine" id="cb10-53" data-line-number="53">}, <span class="dt">track.height =</span> <span class="fl">0.1</span>)</a>
+<a class="sourceLine" id="cb10-54" data-line-number="54"></a>
+<a class="sourceLine" id="cb10-55" data-line-number="55"><span class="co">## Add links</span></a>
+<a class="sourceLine" id="cb10-56" data-line-number="56">region1 =<span class="st"> </span><span class="kw">generateRandomBed</span>(<span class="dt">nr =</span> <span class="dv">1500</span>); region1 =<span class="st"> </span>region1[<span class="kw">sample</span>(<span class="kw">nrow</span>(region1), <span class="dv">30</span>), ]</a>
+<a class="sourceLine" id="cb10-57" data-line-number="57">region2 =<span class="st"> </span><span class="kw">generateRandomBed</span>(<span class="dt">nr =</span> <span class="dv">1500</span>); region2 =<span class="st"> </span>region2[<span class="kw">sample</span>(<span class="kw">nrow</span>(region2), <span class="dv">30</span>), ]</a>
+<a class="sourceLine" id="cb10-58" data-line-number="58"><span class="kw">circos.genomicLink</span>(region1, region2, <span class="dt">col =</span> <span class="kw">sample</span>(<span class="dv">30</span>, <span class="dv">30</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>))</a>
 <a class="sourceLine" id="cb10-59" data-line-number="59"></a>
-<a class="sourceLine" id="cb10-60" data-line-number="60"><span class="co">## Highlight chromosomes, tracks and indexes</span></a>
-<a class="sourceLine" id="cb10-61" data-line-number="61"></a>
+<a class="sourceLine" id="cb10-60" data-line-number="60"></a>
+<a class="sourceLine" id="cb10-61" data-line-number="61"><span class="co">## Highlight chromosomes, tracks and indexes</span></a>
 <a class="sourceLine" id="cb10-62" data-line-number="62"></a>
-<a class="sourceLine" id="cb10-63" data-line-number="63"><span class="kw">highlight.chromosome</span>(<span class="kw">c</span>(<span class="st">&quot;chr1&quot;</span>, <span class="st">&quot;chr12&quot;</span>))</a>
-<a class="sourceLine" id="cb10-64" data-line-number="64"><span class="kw">highlight.sector</span>(<span class="kw">c</span>(<span class="st">&quot;chr3&quot;</span>, <span class="st">&quot;chr1&quot;</span>), <span class="dt">track.index =</span> <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>))</a>
-<a class="sourceLine" id="cb10-65" data-line-number="65"><span class="kw">circos.clear</span>()</a></code></pre></div>
+<a class="sourceLine" id="cb10-63" data-line-number="63"></a>
+<a class="sourceLine" id="cb10-64" data-line-number="64"><span class="kw">highlight.chromosome</span>(<span class="kw">c</span>(<span class="st">&quot;chr1&quot;</span>, <span class="st">&quot;chr12&quot;</span>))</a>
+<a class="sourceLine" id="cb10-65" data-line-number="65"><span class="kw">highlight.sector</span>(<span class="kw">c</span>(<span class="st">&quot;chr3&quot;</span>, <span class="st">&quot;chr1&quot;</span>), <span class="dt">track.index =</span> <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>))</a>
+<a class="sourceLine" id="cb10-66" data-line-number="66"><span class="kw">circos.clear</span>()</a></code></pre></div>
 <img src="RCircos-HiveR_files/figure-html/unnamed-chunk-11-1.svg" width="1440" style="display: block; margin: auto auto auto 0;" />
 </div>
 </div>
@@ -861,27 +863,27 @@ R
 </div>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="kw">str</span>(ranHive)</a></code></pre></div>
 <pre><code>## List of 5
-##  $ nodes    :&#39;data.frame&#39;:   50 obs. of  6 variables:
-##   ..$ id    : int [1:50] 2 3 5 6 7 8 9 10 11 12 ...
-##   ..$ lab   : chr [1:50] &quot;brddv&quot; &quot;xdrbe&quot; &quot;kcjmm&quot; &quot;ywsqq&quot; ...
-##   ..$ axis  : int [1:50] 1 3 1 1 2 4 3 1 4 2 ...
-##   ..$ radius: num [1:50] 90 76 99 93 71 83 64 87 70 29 ...
-##   ..$ size  : num [1:50] 1 1 1 1.5 0.5 1 0.5 0.5 0.5 1.5 ...
-##   ..$ color : chr [1:50] &quot;#FF7F00&quot; &quot;#377EB8&quot; &quot;#984EA3&quot; &quot;#377EB8&quot; ...
+##  $ nodes    :&#39;data.frame&#39;:   48 obs. of  6 variables:
+##   ..$ id    : int [1:48] 3 4 5 6 8 9 10 11 12 13 ...
+##   ..$ lab   : chr [1:48] &quot;strma&quot; &quot;pdqfb&quot; &quot;dfgyl&quot; &quot;dggnd&quot; ...
+##   ..$ axis  : int [1:48] 4 3 3 1 2 3 4 2 4 4 ...
+##   ..$ radius: num [1:48] 16 26 8 19 52 41 25 36 62 65 ...
+##   ..$ size  : num [1:48] 1 1.5 1 1.5 1.5 0.5 0.5 1.5 1.5 0.5 ...
+##   ..$ color : chr [1:48] &quot;#4DAF4A&quot; &quot;#984EA3&quot; &quot;#E41A1C&quot; &quot;#984EA3&quot; ...
 ##  $ edges    :&#39;data.frame&#39;:   60 obs. of  4 variables:
-##   ..$ id1   : int [1:60] 6 30 15 53 47 10 58 2 47 58 ...
-##   ..$ id2   : int [1:60] 45 59 45 45 37 25 25 26 40 25 ...
-##   ..$ weight: num [1:60] 1 3 1 1 2 1 2 1 2 1 ...
-##   ..$ color : chr [1:60] &quot;#FF7F00&quot; &quot;#377EB8&quot; &quot;#984EA3&quot; &quot;#4DAF4A&quot; ...
+##   ..$ id1   : int [1:60] 36 25 39 6 24 57 39 54 39 14 ...
+##   ..$ id2   : int [1:60] 44 11 45 17 42 8 42 45 44 49 ...
+##   ..$ weight: num [1:60] 2 3 1 3 1 1 3 1 2 2 ...
+##   ..$ color : chr [1:60] &quot;#E41A1C&quot; &quot;#377EB8&quot; &quot;#4DAF4A&quot; &quot;#FF7F00&quot; ...
 ##  $ type     : chr &quot;2D&quot;
-##  $ desc     : chr &quot;4 axes -- 50 nodes -- 60 edges&quot;
+##  $ desc     : chr &quot;4 axes -- 48 nodes -- 60 edges&quot;
 ##  $ axis.cols: chr [1:4] &quot;#E41A1C&quot; &quot;#377EB8&quot; &quot;#4DAF4A&quot; &quot;#984EA3&quot;
 ##  - attr(*, &quot;class&quot;)= chr &quot;HivePlotData&quot;</code></pre>
 </div>
 </div>
 <div id="plot-the-generated-dat" class="section level2">
 <h2><span class="header-section-number">4.2</span> Plot the generated dat</h2>
-Let
+Let us make a plot to see an example of a hive plot.
 <div class="block-title-parent">
 <div class="block-title small">
 R

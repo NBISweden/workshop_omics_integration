@@ -315,6 +315,7 @@ oc = circos.par("cell.padding")
 circos.par(track.margin = c(om[1], 0), cell.padding = c(0, 0, 0, 0))
 
 f = colorRamp2(breaks = c(-1, 0, 1), colors = c("green", "white", "red"))
+bed = generateRandomBed(nr = 400, nc = 8)
 
 circos.genomicTrackPlotRegion(bed, stack = TRUE, panel.fun = function(coord, vals, ...) {
     circos.genomicRect(region = coord, value = vals, col = f(vals[[1]]), 
@@ -354,6 +355,7 @@ circos.clear()
 
 ```{r, fig.height=10, fig.width=15}
 circos.initializeWithIdeogram()
+bed = generateRandomBed(nr = 400, nc = 8)
 
 om = circos.par("track.margin")
 oc = circos.par("cell.padding")
@@ -475,7 +477,7 @@ str(ranHive)
 
 ## Plot the generated dat
 
-Let 
+Let us make a plot to see an example of a hive plot.
 ```{r}
 plotHive(ranHive)
 ```
