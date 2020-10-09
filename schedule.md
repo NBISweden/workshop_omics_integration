@@ -53,7 +53,7 @@ title:  'Schedule'
 
 **15.00 - 15.15** Coffee Break
 
-**15.15 - 15.45** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Unsupervised Omics integration ([Nikolay][5])
+**15.15 - 15.45** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Unsupervised Omics integration ([Nikolay][5]; [UMAP for integration](./session_ml/UMAP_DataIntegration/UMAP_DataIntegration.html))
 
 **15.45 - 17.00** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Unsupervised Omics integration ([Nikolay][5])
 
