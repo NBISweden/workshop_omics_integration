@@ -186,7 +186,7 @@ GDCdownload(query, directory=tcga_dir)
 TCGAdata <- GDCprepare(query, directory=tcga_dir)
 
 # If that fails (i.e., Ensembl unavaiable)
-TCGAdata <- readRDS(file.path(tcga_dir, 'TCGAdata.rds'))
+#TCGAdata <- readRDS(file.path(tcga_dir, 'TCGAdata.rds'))
 ```
 </br>
 
