@@ -92,6 +92,7 @@ title:  'Schedule'
 **13.00 - 14.00** **Late Lunch**
 
 **14.00 - 16.25** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Genome-scale metabolic models: structure and simulation ([Jonathan][4], [slides](./session_gems/lectures/GEM_session_day1.pdf), [notebook](./session_gems/COBRApy_tutorial.ipynb))
+**14.00 - 16.25** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Genome-scale metabolic models: structure and simulation ([Jonathan][4], [slides](./session_gems/lectures/GEM_session_day1.pdf), [notebook](./session_gems/COBRApy_tutorial.html))
 
 **16.25 - 16.30** Coffee Break
 
@@ -102,7 +103,7 @@ title:  'Schedule'
 
 ##### Friday 2020-10-09
 
-**08.30 - 10.25** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Analyzing omics data in the context of metabolism ([Jonathan][4])
+**08.30 - 10.25** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Analyzing omics data in the context of metabolism([Jonathan][4], [slides](./session_gems/lectures/GEM_session_day2.pdf), [notebook](./session_gems/GEM_GSC_extraction.html), [lab instructions](./session_gems/GEM_GSA.html))
 
 **10.25 - 10.35** Coffee Break
 
