@@ -1,0 +1,5492 @@
+graph ecoli {
+pstB;
+hybE;
+fadE;
+phnF;
+nrfG;
+phnN;
+pstC;
+glnG;
+fimE;
+gltV;
+hycG;
+nac;
+scpA;
+nirD;
+uvrD;
+uxaB;
+pgk;
+ugpC;
+tnaB;
+tsx;
+metI;
+nrdR;
+ilvC;
+metN;
+cynR;
+paaJ;
+ydfN;
+lacA;
+mhpA;
+flgI;
+cysW;
+ilvD;
+ttdB;
+creD;
+chbC;
+gcl;
+argW;
+fabZ;
+amiA;
+gutM;
+glrR;
+araF;
+ulaA;
+cydC;
+puuR;
+ogt;
+lpxA;
+ydiV;
+sucA;
+ompC;
+rutE;
+ssuA;
+fliI;
+guaB;
+seqA;
+proX;
+yoaG;
+nanT;
+pheU;
+chpR;
+nfo;
+hdfR;
+rcnA;
+yhjH;
+ruvB;
+dcuS;
+dpiA;
+argE;
+cspA;
+nrdB;
+hipB;
+kbaY;
+kdpE;
+gltX;
+bglB;
+artQ;
+aspA;
+tehB;
+tyrP;
+fhuD;
+cas2;
+sdhB;
+cheY;
+dadA;
+rfaZ;
+aldA;
+grpE;
+adiY;
+sdhD;
+lpxC;
+pstA;
+mprA;
+uraA;
+ompW;
+hyaF;
+nanR;
+ulaE;
+prpC;
+fliS;
+birA;
+ndh;
+soxR;
+ydeA;
+mhpR;
+malK;
+fumA;
+yoeB;
+rhaA;
+gltD;
+ompX;
+idnD;
+hcaD;
+xylA;
+fimG;
+mukB;
+yiaO;
+tdcA;
+potF;
+speC;
+ftsK;
+fepD;
+mtlR;
+leuD;
+icd;
+recA;
+nfsB;
+dusB;
+asnB;
+modA;
+rhaT;
+fadI;
+ydhX;
+omrB;
+gntK;
+nagC;
+flhB;
+lysA;
+argR;
+alsC;
+ydbD;
+fldB;
+pfkA;
+glgP;
+hofB;
+agaC;
+slyA;
+iclR;
+arsC;
+hupA;
+edd;
+wcaB;
+lrp;
+citF;
+lsrR;
+cysJ;
+nrfD;
+prs;
+acrA;
+nagD;
+nuoE;
+caiB;
+mukE;
+treB;
+ulaR;
+rybB;
+focB;
+uxaA;
+hemL;
+lamB;
+ssuE;
+leuP;
+pqiB;
+fadB;
+hofO;
+ubiX;
+mzrA;
+yneN;
+folA;
+rplP;
+allA;
+fliM;
+yafQ;
+tyrA;
+fixC;
+yccB;
+kdpF;
+ugpA;
+nrfC;
+hyfC;
+flgF;
+ychH;
+dkgB;
+nikR;
+zur;
+mltF;
+symE;
+hycE;
+pheM;
+csgB;
+rrfG;
+aslB;
+nadR;
+atoD;
+purH;
+gor;
+frc;
+mazG;
+frdB;
+sodB;
+paaB;
+leuB;
+frdC;
+allR;
+argU;
+paaI;
+metB;
+dppF;
+gatY;
+gcvB;
+ubiG;
+murC;
+dmsD;
+azuC;
+bglG;
+chpA;
+rutC;
+modE;
+yqjI;
+actP;
+bolA;
+ddpA;
+flgN;
+citD;
+yccA;
+thiP;
+qseB;
+ompR;
+glnP;
+casD;
+ryhB;
+nuoH;
+emrB;
+deoC;
+nuoG;
+yjgI;
+mukF;
+cynT;
+tdcG;
+sgbH;
+ptsH;
+fepE;
+narK;
+yciG;
+trpC;
+fdnG;
+agaD;
+livH;
+ftsL;
+cueR;
+ubiA;
+lpxD;
+moaB;
+chbR;
+narG;
+cydD;
+fucU;
+lpd;
+gltA;
+malT;
+ynfK;
+yjeV;
+srlR;
+ftsZ;
+ascB;
+ihfA;
+aceA;
+xapB;
+lysU;
+slp;
+fucO;
+recX;
+napA;
+murF;
+fruK;
+serT;
+hupB;
+pspB;
+cydB;
+yqhD;
+allD;
+hyfR;
+ribA;
+alkB;
+ybbY;
+metY;
+flgH;
+glpQ;
+rbsK;
+rrsE;
+htpG;
+argG;
+rseA;
+fumC;
+hemF;
+acnA;
+deoA;
+pitA;
+glgA;
+cusA;
+artP;
+tnaC;
+thrW;
+ygiC;
+nanE;
+pspF;
+ilvH;
+astA;
+potG;
+cheA;
+nuoL;
+rplW;
+yrbL;
+moeA;
+hyaA;
+tomB;
+nanC;
+csiD;
+rrsB;
+gltL;
+fimA;
+gcvH;
+dsdC;
+nirB;
+prpE;
+tdcC;
+pagP;
+hyfI;
+atoE;
+tyrR;
+uidR;
+galK;
+nrfF;
+hyfJ;
+slyB;
+hdeA;
+fepB;
+nfuA;
+ydeH;
+yjeP;
+norV;
+uspE;
+fliH;
+phnK;
+hydN;
+hybF;
+purE;
+cbl;
+argA;
+ahpF;
+entD;
+mglC;
+yafO;
+baeS;
+acs;
+lldP;
+aceB;
+metA;
+spf;
+araC;
+trxC;
+dinF;
+sufD;
+flhD;
+torA;
+rpoD;
+fliA;
+uhpT;
+malF;
+torR;
+tadA;
+carA;
+ybjN;
+ccmG;
+fabB;
+gatZ;
+rrfF;
+amtB;
+pgi;
+phnL;
+yiaJ;
+manX;
+dmsC;
+cysM;
+srlD;
+fabA;
+pheV;
+ycaC;
+sucB;
+ptsI;
+ihfB;
+serC;
+yciE;
+pgaC;
+araB;
+rutR;
+araE;
+arsB;
+xylH;
+nrfA;
+betI;
+nemA;
+nrdE;
+rcsA;
+fiu;
+glcG;
+cyoE;
+wcaA;
+malG;
+scpB;
+intA;
+tbpA;
+ddpF;
+tsgA;
+ung;
+tdh;
+aer;
+sgbE;
+pitB;
+leuO;
+topA;
+casE;
+yefM;
+ileU;
+fliK;
+idnT;
+tyrB;
+yeiT;
+yaiA;
+idnO;
+cho;
+alaW;
+uidC;
+lsrB;
+mntH;
+livK;
+upp;
+zntA;
+oppF;
+tonB;
+tar;
+hslJ;
+fliE;
+gudD;
+lysV;
+serX;
+rplB;
+hisM;
+ppiD;
+xseA;
+glpB;
+valT;
+proW;
+fimD;
+relB;
+fecR;
+emrK;
+glnW;
+umuD;
+narI;
+tppB;
+nuoJ;
+aroL;
+dsrA;
+fumB;
+sbmC;
+yecR;
+uxuR;
+phnC;
+pqiA;
+tauB;
+hypB;
+xdhA;
+hemH;
+dsbG;
+flgB;
+dmsA;
+caiE;
+ydfD;
+rrlB;
+yeiA;
+hcaC;
+sufA;
+pepD;
+trpR;
+chbG;
+oxyS;
+mngB;
+hcaR;
+yhjA;
+rplS;
+gntX;
+fecB;
+hlpA;
+nrdD;
+mhpD;
+aidB;
+fecD;
+rbsC;
+gcd;
+gapA;
+cpdB;
+fabR;
+wzyE;
+rutG;
+truB;
+argX;
+ulaB;
+artJ;
+murG;
+caiC;
+fixA;
+creB;
+ftsW;
+ccmC;
+cysG;
+rrfC;
+dinB;
+narL;
+acrE;
+glmS;
+nfsA;
+entB;
+nadA;
+ygdB;
+dnaG;
+glcD;
+pspD;
+fruA;
+ykgR;
+entH;
+melR;
+malS;
+trmA;
+dapB;
+glpG;
+tyrU;
+glpF;
+cysD;
+hyfH;
+hisJ;
+envY;
+yahA;
+dcuB;
+mtlD;
+gadA;
+phnI;
+garK;
+motA;
+zwf;
+citX;
+ilvB;
+astE;
+yneM;
+ybbV;
+cysP;
+infC;
+glgS;
+ilvA;
+katG;
+gcvP;
+tauD;
+erpA;
+fliN;
+leuA;
+fepA;
+fucR;
+purF;
+qseC;
+chiA;
+sufB;
+nrdA;
+chbA;
+rbfA;
+yfiD;
+rtcA;
+adhE;
+fucI;
+aceK;
+mioC;
+mdtA;
+csgF;
+hyaC;
+dinI;
+cysI;
+rfe;
+feoA;
+paaF;
+rpiR;
+yeiB;
+deoR;
+psiE;
+potI;
+gudP;
+dksA;
+moaD;
+lldD;
+ydiU;
+yjbE;
+glnU;
+yafP;
+rffD;
+fur;
+srlE;
+psiF;
+rbsA;
+hybC;
+wzzE;
+ynfH;
+hyaE;
+exbD;
+norW;
+tdcF;
+yeaG;
+ttdT;
+proV;
+nhaA;
+feoB;
+aroM;
+ftsI;
+cueO;
+cdaR;
+rhaR;
+sdiA;
+tap;
+xdhC;
+kbl;
+feaR;
+glnK;
+pyrC;
+osmB;
+lysR;
+leuT;
+nhaR;
+ugpE;
+bglJ;
+cspI;
+ygiA;
+ileT;
+gltB;
+cadA;
+bioA;
+phoP;
+cysA;
+ydeO;
+acrB;
+rrsH;
+paaC;
+rrfH;
+glpD;
+ilvL;
+yhhY;
+ilvY;
+gatA;
+flgD;
+pstS;
+fliC;
+polB;
+metT;
+rnpB;
+yqhC;
+ddpC;
+fimF;
+purN;
+cysK;
+marB;
+oxyR;
+phoR;
+setA;
+flgE;
+lexA;
+adrA;
+rpoH;
+gadC;
+pgaD;
+ygaC;
+glnL;
+fhuB;
+rpsC;
+nrdI;
+aroF;
+rdoA;
+tisB;
+caiA;
+udp;
+cstA;
+rutA;
+degP;
+ugpB;
+dinG;
+valX;
+mhpB;
+hpt;
+ppdA;
+cadC;
+rffC;
+hybO;
+phnO;
+yjjP;
+znuB;
+flgM;
+agaR;
+galS;
+phnG;
+gntR;
+fruB;
+nagB;
+nanK;
+metJ;
+trpE;
+napB;
+galP;
+nrdG;
+yjbH;
+proL;
+bioB;
+flhC;
+manY;
+gatC;
+moaE;
+rpsJ;
+uidB;
+cyoC;
+rhaS;
+glcB;
+alaS;
+gcvT;
+csgD;
+citE;
+tdcD;
+cvpA;
+hycB;
+murE;
+hchA;
+hyfE;
+guaA;
+argC;
+gatR_1;
+alaT;
+aceE;
+mdtB;
+hyfF;
+xylB;
+mdtE;
+metR;
+atoB;
+pspG;
+iscS;
+dppA;
+ydhV;
+gadB;
+queA;
+ynfF;
+recF;
+agaB;
+hcaF;
+hycH;
+uvrA;
+purL;
+recC;
+rrfB;
+cirA;
+prpB;
+treC;
+speA;
+nikE;
+ydhO;
+alsA;
+hofC;
+phnD;
+oppC;
+fliG;
+pnp;
+hcaE;
+glnA;
+zntR;
+allC;
+caiT;
+rplV;
+gntP;
+napH;
+fdnI;
+cheW;
+rpoE;
+cysN;
+lacZ;
+envR;
+tpx;
+rrsD;
+ydhT;
+lhgO;
+oppA;
+argO;
+yafN;
+rnlA;
+rrlA;
+ydhU;
+allE;
+kdpB;
+fliD;
+sulA;
+yfdZ;
+fliQ;
+ybfE;
+gyrA;
+gltK;
+agp;
+torC;
+astC;
+agaV;
+rffH;
+lyxK;
+rbsR;
+purA;
+exuT;
+potH;
+ybjG;
+araJ;
+glnQ;
+nuoI;
+trpL;
+pepA;
+hybG;
+galE;
+fliL;
+ilvM;
+narJ;
+eda;
+cysU;
+recN;
+sufE;
+nrfE;
+csiE;
+ppdD;
+fadR;
+ycgR;
+ybaO;
+moeB;
+nuoC;
+dsbC;
+purB;
+ybaT;
+gadX;
+appA;
+hypF;
+fadL;
+fepG;
+hybB;
+evgS;
+ppsA;
+fucA;
+ytfE;
+dinQ;
+rffG;
+copA;
+acrR;
+glyA;
+hyi;
+rprA;
+csgE;
+cyaR;
+hyfD;
+yfhB;
+ccmH;
+argT;
+ydhY;
+nanA;
+ynfE;
+csgC;
+flgG;
+cusR;
+fliF;
+uof;
+osmY;
+ulaD;
+ttdA;
+ydeP;
+allS;
+rbsB;
+cusF;
+leuL;
+ugpQ;
+omrA;
+codB;
+chbB;
+trxA;
+cynS;
+infB;
+smtA;
+lsrK;
+dsbA;
+nikC;
+cdd;
+hdeD;
+marA;
+dhaK;
+ibpB;
+feoC;
+purD;
+gyrB;
+leuC;
+crp;
+murR;
+argK;
+relE;
+fadD;
+glyU;
+ydeJ;
+prmC;
+ppiA;
+trg;
+thrS;
+pdxA;
+ampC;
+lacY;
+ompF;
+rpsI;
+sohB;
+rutD;
+dcuR;
+fucK;
+pgm;
+arcA;
+phoB;
+citC;
+apaH;
+tauC;
+gltU;
+hyaD;
+proP;
+nagE;
+argH;
+gadW;
+hipA;
+rseC;
+ssuC;
+glpR;
+nupC;
+ssb;
+gntU;
+lysW;
+ftsA;
+kdgR;
+fixB;
+ccmD;
+grxD;
+flxA;
+glmU;
+nuoM;
+bglF;
+fes;
+hypA;
+dctR;
+argF;
+prpD;
+ruvA;
+folE;
+norR;
+melA;
+deoB;
+trpD;
+deoD;
+thrU;
+appY;
+lsrG;
+dpiB;
+rrlG;
+paaA;
+ecpD;
+acrF;
+gltF;
+srlA;
+gntT;
+rimK;
+rpsS;
+argP;
+tyrT;
+gpmA;
+yhdW;
+glpT;
+rimM;
+prpR;
+dacC;
+fepC;
+fdhF;
+cyoA;
+gnd;
+ybjC;
+xylF;
+metU;
+ddpB;
+gutQ;
+prfA;
+ygiB;
+kdpC;
+inaA;
+cpxR;
+rbsD;
+allB;
+fhlA;
+tdcR;
+betA;
+malE;
+dinJ;
+ubiC;
+glgC;
+cusS;
+xapR;
+rstA;
+pspC;
+ulaC;
+tufB;
+modB;
+hdeB;
+evgA;
+soxS;
+fimH;
+baeR;
+yfgF;
+hypD;
+oppD;
+rrsA;
+dhaM;
+rstB;
+araH;
+ilvE;
+narP;
+cheR;
+nanM;
+codA;
+tsr;
+leuX;
+rpsU;
+yiaL;
+sufS;
+hofP;
+leuQ;
+puuA;
+murQ;
+lon;
+casB;
+malY;
+glnX;
+glcF;
+galR;
+glcC;
+paaX;
+astD;
+rutB;
+fbaA;
+rpmI;
+csgA;
+ychO;
+hybD;
+ykgM;
+pepT;
+argB;
+yiaK;
+ftnB;
+ybdZ;
+wzb;
+thiQ;
+wzxE;
+mdtD;
+murP;
+fadA;
+ygbK;
+gabP;
+metK;
+paaE;
+fliP;
+argI;
+phnM;
+yqjA;
+ybiS;
+ccmF;
+livM;
+mraY;
+yiaM;
+alaX;
+gcvA;
+sodA;
+ybdN;
+mglB;
+dps;
+znuC;
+ompT;
+ilvX;
+fimI;
+hycI;
+sfsA;
+rsmA;
+rffT;
+rcnR;
+uvrY;
+tfaQ;
+rplM;
+yjcH;
+uidA;
+hcp;
+rrfE;
+phoA;
+metQ;
+casC;
+ascF;
+paaH;
+metC;
+mhpE;
+ysgA;
+ompA;
+dsdX;
+cynX;
+gltI;
+nupG;
+entE;
+appB;
+ivbL;
+hflD;
+gspB;
+nsrR;
+hycF;
+hmp;
+fhuE;
+fimB;
+bioD;
+uvrC;
+uvrB;
+yjbG;
+gltJ;
+livG;
+garD;
+tam;
+hyfA;
+paaK;
+pck;
+zraR;
+emrA;
+yhdY;
+fimC;
+trpB;
+nikB;
+flgJ;
+moaA;
+bcsB;
+ybbW;
+alsE;
+ssuD;
+mdh;
+malX;
+malZ;
+dnaA;
+mhpF;
+zinT;
+ulaF;
+napG;
+tyrV;
+gatD;
+nikA;
+hisP;
+asnA;
+fucP;
+yeaR;
+bacA;
+tehA;
+poxB;
+fdnH;
+polA;
+cpxA;
+adiA;
+entS;
+mtr;
+alpA;
+frdD;
+cytR;
+glcE;
+mhpT;
+glpK;
+fecC;
+fpr;
+rffM;
+rrlE;
+sgrR;
+narX;
+aspV;
+ppdB;
+bcsZ;
+agaI;
+cysC;
+ahpC;
+ccmE;
+cheZ;
+artI;
+hcr;
+phnP;
+rtcB;
+ycfS;
+garR;
+iraD;
+entA;
+metE;
+rrlD;
+kbaZ;
+glpX;
+rpmC;
+nirC;
+rrfD;
+glnB;
+rpsQ;
+gltW;
+bioF;
+bioC;
+cpxP;
+pflB;
+caiD;
+hokE;
+yiaN;
+livJ;
+pykF;
+rhaD;
+dcuC;
+xylR;
+rpsO;
+hycD;
+thrT;
+marR;
+malI;
+hycC;
+chbF;
+pnuC;
+fruR;
+fliT;
+ftsQ;
+sufC;
+zraS;
+cysH;
+ydjM;
+spy;
+napC;
+atoA;
+yhfA;
+fecE;
+mgtA;
+flgA;
+mgrB;
+pheS;
+glxK;
+livF;
+sucD;
+lldR;
+trpA;
+fldA;
+mtlA;
+murD;
+garL;
+pspA;
+purK;
+treR;
+lacI;
+yidQ;
+ackA;
+epd;
+frdA;
+iscA;
+gdhA;
+yeiL;
+hyaB;
+rffE;
+phnJ;
+alsB;
+ynfG;
+rrsC;
+atoC;
+oppB;
+rpsP;
+srlB;
+hofN;
+hofM;
+dmsB;
+gadY;
+putP;
+sdaA;
+betB;
+pspE;
+sgbU;
+apaG;
+ddpX;
+dgsA;
+torD;
+cas1;
+hha;
+feaB;
+xdhB;
+nrdH;
+ttdR;
+dppB;
+ygbA;
+sucC;
+ptsG;
+sra;
+nemR;
+xylG;
+cusC;
+yhiD;
+insK;
+bdm;
+hisR;
+dcuD;
+ygjG;
+asnC;
+waaY;
+cyoD;
+valU;
+aroH;
+mdtF;
+ulaG;
+ileV;
+sgrS;
+yciF;
+sdhC;
+rpiB;
+tdcE;
+appC;
+idnR;
+dhaL;
+yhdX;
+fixX;
+fecI;
+yfdX;
+yhdZ;
+tpr;
+leuW;
+tolC;
+uxaC;
+aroA;
+emrY;
+hemA;
+paaD;
+wza;
+ftnA;
+lsrD;
+glnV;
+proM;
+envZ;
+lsrC;
+yjjZ;
+puuD;
+hypE;
+msrA;
+mqsR;
+gltT;
+grxA;
+mqsA;
+flu;
+phnE;
+napF;
+eno;
+dicB;
+yegR;
+nuoN;
+uxuA;
+pgaA;
+purM;
+alkA;
+glpE;
+phoQ;
+yebG;
+nohA;
+melB;
+glpA;
+pncB;
+amn;
+casA;
+mpl;
+csgG;
+mntR;
+rhaB;
+cydA;
+znuA;
+rtcR;
+csiR;
+hyfB;
+paaZ;
+uxuB;
+katE;
+fliZ;
+fliY;
+mngR;
+galM;
+agaS;
+aroG;
+lysT;
+rffA;
+uspA;
+crr;
+nadB;
+hcaB;
+malM;
+dsdA;
+ykgO;
+yjbF;
+rpoS;
+caiF;
+sdhA;
+ccmB;
+cyaA;
+valY;
+artM;
+nusA;
+exuR;
+galT;
+gatB;
+nagA;
+psd;
+dicA;
+putA;
+mhpC;
+flhA;
+cysB;
+narH;
+focA;
+hns;
+dppD;
+aceF;
+napD;
+dctA;
+ppdC;
+rplC;
+ascG;
+yjjQ;
+glk;
+iraM;
+ydhW;
+gudX;
+dinD;
+stpA;
+fadJ;
+fis;
+hycA;
+gatR_2;
+rseB;
+hyfG;
+glnH;
+malP;
+rplD;
+nikD;
+zraP;
+aldB;
+thrV;
+speB;
+phnH;
+ccmA;
+alaV;
+yeaE;
+alaU;
+motB;
+hisQ;
+citG;
+pyrD;
+dhaR;
+mnmG;
+serA;
+proK;
+smpA;
+cyoB;
+modC;
+umuC;
+purC;
+metL;
+astB;
+entC;
+cusB;
+iscU;
+malQ;
+mdtC;
+yhcH;
+aroP;
+idnK;
+cheB;
+nuoF;
+lsrA;
+flhE;
+scpC;
+borD;
+entF;
+manZ;
+dadX;
+yncE;
+rimP;
+nrfB;
+metH;
+ilvN;
+argD;
+tdcB;
+htrE;
+pheT;
+dnaN;
+rrlH;
+lsrF;
+araG;
+fhuF;
+fnr;
+wzc;
+phoH;
+nrdF;
+osmC;
+moaC;
+ansB;
+yojI;
+iscR;
+acrD;
+cspD;
+osmE;
+fliO;
+purR;
+ilvI;
+kdpA;
+yeaH;
+phr;
+rcsB;
+fhuA;
+fliJ;
+nuoA;
+hybA;
+ssuB;
+gabT;
+paaG;
+xapA;
+gmr;
+hokD;
+hlyE;
+arsR;
+yibD;
+gabD;
+fliR;
+mglA;
+araD;
+metF;
+ybaS;
+araA;
+tauA;
+asr;
+fadH;
+phoU;
+rrfA;
+rplT;
+ddlB;
+cadB;
+uhpA;
+glcA;
+dppC;
+glxR;
+nuoK;
+leuV;
+gadE;
+pdhR;
+exbB;
+uspB;
+rutF;
+nuoB;
+fecA;
+rrlC;
+glmY;
+tnaA;
+lrhA;
+ddpD;
+pgaB;
+trmD;
+phoE;
+iraP;
+glyT;
+fhuC;
+garP;
+flgC;
+gspO;
+dcuA;
+mngA;
+ecnB;
+micF;
+glpC;
+carB;
+acnB;
+rob;
+yebE;
+hypC;
+ada;
+relA;
+betT;
+rrsG;
+arcA -- hybG [interaction=repressor]
+fur -- exbD [interaction=repressor]
+arcA -- rutE [interaction=activator]
+fnr -- cysG [interaction=activator]
+fnr -- tpx [interaction=repressor]
+rcsA -- wcaB [interaction=activator]
+narL -- nrfG [interaction=dual]
+phoP -- rutB [interaction=activator]
+mngR -- mngR [interaction=repressor]
+ihfB -- dppC [interaction=activator]
+narP -- napB [interaction=dual]
+fis -- ansB [interaction=repressor]
+metR -- glyA [interaction=activator]
+flhC -- flgE [interaction=activator]
+crp -- uhpT [interaction=activator]
+gcvA -- gcvB [interaction=activator]
+crp -- xylG [interaction=activator]
+crp -- xylA [interaction=activator]
+crp -- idnK [interaction=activator]
+iscR -- sufE [interaction=activator]
+fur -- mntH [interaction=repressor]
+flhD -- ccmC [interaction=activator]
+rcsA -- csgD [interaction=repressor]
+flhC -- ppdA [interaction=activator]
+crp -- dsdX [interaction=activator]
+ihfA -- gltB [interaction=activator]
+narL -- fdnI [interaction=activator]
+fis -- rrfG [interaction=activator]
+hns -- gabD [interaction=activator]
+fnr -- aldA [interaction=repressor]
+phoP -- pagP [interaction=activator]
+fnr -- sdhB [interaction=repressor]
+narP -- hyaA [interaction=repressor]
+narL -- napD [interaction=repressor]
+crp -- envZ [interaction=dual]
+fis -- mazG [interaction=activator]
+hyfR -- hyfC [interaction=activator]
+fnr -- cheZ [interaction=activator]
+crp -- paaE [interaction=activator]
+allS -- allE [interaction=activator]
+cpxR -- motB [interaction=repressor]
+gutM -- srlR [interaction=activator]
+fur -- fepB [interaction=repressor]
+ihfA -- paaJ [interaction=activator]
+araC -- araJ [interaction=activator]
+arcA -- aceB [interaction=repressor]
+modE -- napH [interaction=activator]
+lrp -- ilvI [interaction=activator]
+ihfA -- osmY [interaction=repressor]
+fnr -- napC [interaction=activator]
+arcA -- uvrA [interaction=repressor]
+nac -- asnC [interaction=repressor]
+cpxR -- acrD [interaction=activator]
+nsrR -- hypD [interaction=repressor]
+caiF -- caiC [interaction=activator]
+ulaR -- ulaC [interaction=repressor]
+gadE -- yjbG [interaction=activator]
+crp -- mhpF [interaction=activator]
+dgsA -- manY [interaction=repressor]
+pdhR -- yfiD [interaction=repressor]
+ihfA -- amiA [interaction=repressor]
+purR -- pyrC [interaction=repressor]
+crp -- sucB [interaction=activator]
+fruR -- manY [interaction=repressor]
+zur -- znuA [interaction=repressor]
+nsrR -- nrfB [interaction=repressor]
+hns -- gadX [interaction=repressor]
+flhD -- nrfD [interaction=activator]
+fur -- fhuA [interaction=repressor]
+rbsR -- rbsK [interaction=repressor]
+ihfB -- pspA [interaction=activator]
+ihfB -- hemA [interaction=activator]
+fis -- nrfC [interaction=repressor]
+lexA -- rpsU [interaction=repressor]
+ihfB -- prfA [interaction=activator]
+flhC -- mglB [interaction=repressor]
+csgD -- csgA [interaction=activator]
+baeR -- mdtC [interaction=activator]
+trpR -- trpL [interaction=repressor]
+gadE -- gadA [interaction=dual]
+modE -- napA [interaction=activator]
+ihfA -- nirB [interaction=dual]
+phoP -- hemL [interaction=activator]
+ihfB -- atoE [interaction=activator]
+fis -- gltU [interaction=activator]
+yoeB -- yoeB [interaction=repressor]
+pdhR -- fecA [interaction=activator]
+nsrR -- sufB [interaction=repressor]
+ihfA -- ssuD [interaction=dual]
+ihfB -- hpt [interaction=repressor]
+ihfB -- paaF [interaction=activator]
+narL -- napF [interaction=repressor]
+fis -- nrdB [interaction=activator]
+hns -- cysG [interaction=repressor]
+marA -- purA [interaction=repressor]
+fis -- alaU [interaction=activator]
+arcA -- ssb [interaction=repressor]
+hns -- garP [interaction=repressor]
+fis -- deoD [interaction=activator]
+fnr -- gcvH [interaction=activator]
+tyrR -- folA [interaction=activator]
+hns -- gadA [interaction=repressor]
+crp -- ulaB [interaction=activator]
+hns -- gltW [interaction=repressor]
+flhD -- napH [interaction=activator]
+crp -- nagD [interaction=dual]
+adiY -- adiA [interaction=activator]
+nsrR -- yeaE [interaction=repressor]
+ihfA -- yiaJ [interaction=repressor]
+narL -- torD [interaction=repressor]
+hns -- proX [interaction=repressor]
+flhD -- flgJ [interaction=activator]
+crp -- araH [interaction=activator]
+narL -- hyaE [interaction=repressor]
+fur -- cirA [interaction=repressor]
+hns -- lacY [interaction=repressor]
+cpxR -- mzrA [interaction=activator]
+dpiA -- dpiB [interaction=activator]
+lexA -- uvrD [interaction=repressor]
+gadX -- lon [interaction=activator]
+metJ -- metR [interaction=repressor]
+flhC -- gltL [interaction=activator]
+arcA -- fumB [interaction=activator]
+fnr -- rplS [interaction=repressor]
+modE -- modC [interaction=repressor]
+gadX -- gadA [interaction=activator]
+argR -- nusA [interaction=repressor]
+lexA -- uvrB [interaction=repressor]
+ihfA -- glcD [interaction=activator]
+crp -- ascB [interaction=activator]
+nsrR -- yeaR [interaction=repressor]
+fis -- yfiD [interaction=activator]
+arcA -- glcB [interaction=repressor]
+crp -- yeiA [interaction=activator]
+fur -- feoA [interaction=repressor]
+fnr -- entF [interaction=activator]
+purR -- ubiX [interaction=repressor]
+ihfA -- dcuD [interaction=activator]
+fruR -- aroP [interaction=activator]
+ihfB -- sra [interaction=activator]
+flhC -- fliL [interaction=activator]
+pdhR -- cyoD [interaction=repressor]
+glnG -- glnG [interaction=dual]
+lacI -- lacY [interaction=repressor]
+nsrR -- rybB [interaction=repressor]
+modE -- oppB [interaction=repressor]
+fnr -- caiE [interaction=activator]
+crp -- yfiD [interaction=activator]
+crp -- ugpB [interaction=activator]
+gadE -- ftsZ [interaction=activator]
+flhD -- ccmH [interaction=activator]
+appY -- hyaF [interaction=activator]
+nsrR -- ndh [interaction=repressor]
+fis -- gyrB [interaction=repressor]
+crp -- mdh [interaction=activator]
+agaR -- agaB [interaction=repressor]
+narP -- nrfD [interaction=activator]
+nanR -- nanC [interaction=repressor]
+fnr -- nikC [interaction=activator]
+iclR -- aceA [interaction=repressor]
+crp -- nirB [interaction=repressor]
+rstA -- csgF [interaction=repressor]
+prpR -- prpR [interaction=repressor]
+lexA -- yebG [interaction=repressor]
+fis -- glpT [interaction=activator]
+paaX -- paaE [interaction=repressor]
+glnG -- yhdZ [interaction=activator]
+phoB -- phnC [interaction=activator]
+crp -- glgP [interaction=activator]
+ihfB -- nuoL [interaction=repressor]
+cysB -- cysB [interaction=repressor]
+phoB -- ugpA [interaction=dual]
+ihfA -- sodA [interaction=repressor]
+fnr -- moaB [interaction=activator]
+acrR -- acrB [interaction=repressor]
+norR -- norR [interaction=repressor]
+crp -- udp [interaction=dual]
+arcA -- nuoH [interaction=repressor]
+arcA -- caiT [interaction=activator]
+fis -- xylH [interaction=repressor]
+fnr -- rplB [interaction=activator]
+nsrR -- ydbD [interaction=repressor]
+modE -- hycI [interaction=activator]
+ihfA -- nuoM [interaction=repressor]
+hupB -- galK [interaction=repressor]
+crp -- hupB [interaction=activator]
+narP -- ccmF [interaction=dual]
+malI -- malI [interaction=repressor]
+ihfB -- sucA [interaction=repressor]
+lexA -- yafN [interaction=repressor]
+glcC -- glcB [interaction=activator]
+lexA -- murD [interaction=repressor]
+crp -- ompF [interaction=activator]
+lexA -- symE [interaction=repressor]
+caiF -- fixC [interaction=activator]
+phoP -- ygiA [interaction=activator]
+crp -- malT [interaction=activator]
+xylR -- xylA [interaction=activator]
+torR -- yhiD [interaction=activator]
+fnr -- fixA [interaction=activator]
+lrp -- rrfA [interaction=repressor]
+nagC -- nagD [interaction=repressor]
+nac -- gabD [interaction=activator]
+srlR -- gutQ [interaction=repressor]
+rhaS -- rhaS [interaction=activator]
+metJ -- metF [interaction=repressor]
+srlR -- srlD [interaction=repressor]
+hns -- garL [interaction=repressor]
+nagC -- nagC [interaction=repressor]
+dhaR -- dhaR [interaction=repressor]
+cadC -- cadC [interaction=activator]
+narP -- yeaR [interaction=activator]
+ihfB -- paaB [interaction=activator]
+araC -- araC [interaction=dual]
+fur -- nohA [interaction=repressor]
+uxuR -- uidA [interaction=repressor]
+fur -- flhD [interaction=repressor]
+crp -- treB [interaction=maybe_repressor]
+narL -- hybD [interaction=repressor]
+lrp -- fimH [interaction=activator]
+crp -- glpT [interaction=activator]
+fis -- thrT [interaction=activator]
+lrhA -- flhC [interaction=repressor]
+ihfB -- caiD [interaction=repressor]
+ihfB -- ulaB [interaction=repressor]
+hns -- lacZ [interaction=repressor]
+uxuR -- uidB [interaction=repressor]
+fnr -- ccmH [interaction=activator]
+hns -- degP [interaction=repressor]
+crp -- agp [interaction=activator]
+ihfA -- nuoK [interaction=repressor]
+purR -- guaB [interaction=repressor]
+cpxR -- ydeH [interaction=activator]
+cspA -- gyrA [interaction=activator]
+fnr -- ccmF [interaction=activator]
+rutR -- nemR [interaction=repressor]
+lexA -- dinI [interaction=repressor]
+asnC -- mnmG [interaction=repressor]
+pspF -- pspB [interaction=activator]
+ihfA -- nuoH [interaction=repressor]
+crp -- focB [interaction=activator]
+ihfB -- hipA [interaction=activator]
+narL -- nirC [interaction=activator]
+hns -- rrsC [interaction=repressor]
+allR -- allA [interaction=repressor]
+ihfB -- dusB [interaction=activator]
+cytR -- deoD [interaction=repressor]
+soxS -- waaY [interaction=activator]
+soxR -- soxR [interaction=repressor]
+hcaR -- hcaF [interaction=activator]
+fhlA -- hycB [interaction=activator]
+narL -- nuoC [interaction=activator]
+fur -- garK [interaction=repressor]
+tdcA -- tdcA [interaction=activator]
+qseB -- flhC [interaction=activator]
+fnr -- aceF [interaction=dual]
+rob -- ybjC [interaction=activator]
+fis -- gadB [interaction=repressor]
+crp -- yiaM [interaction=maybe_activator]
+hns -- ileU [interaction=repressor]
+nagC -- chbG [interaction=repressor]
+fhlA -- hypB [interaction=activator]
+crp -- chbR [interaction=activator]
+gatR_1 -- gatA [interaction=repressor]
+arcA -- puuD [interaction=repressor]
+ompR -- csgF [interaction=activator]
+paaX -- paaD [interaction=repressor]
+malT -- malZ [interaction=activator]
+flhD -- flgC [interaction=activator]
+fadR -- fadE [interaction=repressor]
+crp -- prpB [interaction=activator]
+birA -- bioA [interaction=repressor]
+ihfB -- nrfD [interaction=dual]
+ihfB -- hycI [interaction=activator]
+fnr -- rimM [interaction=repressor]
+fnr -- feoA [interaction=activator]
+crp -- murQ [interaction=activator]
+cpxR -- motA [interaction=repressor]
+fur -- sdhC [interaction=activator]
+ompR -- fadL [interaction=repressor]
+hns -- dps [interaction=repressor]
+nsrR -- hycG [interaction=repressor]
+hcaR -- hcaD [interaction=activator]
+rcsB -- sra [interaction=activator]
+nhaR -- nhaA [interaction=maybe_activator]
+hns -- hisJ [interaction=activator]
+flhC -- mdh [interaction=repressor]
+crp -- sdhC [interaction=activator]
+arcA -- nuoI [interaction=repressor]
+fnr -- norV [interaction=repressor]
+purR -- carA [interaction=repressor]
+ihfB -- hycB [interaction=activator]
+gadE -- lrp [interaction=activator]
+crp -- rpoS [interaction=unknown]
+crp -- caiC [interaction=activator]
+tdcR -- tdcE [interaction=activator]
+fis -- fis [interaction=repressor]
+cynR -- cynT [interaction=activator]
+ihfB -- actP [interaction=repressor]
+zraR -- zraP [interaction=activator]
+fnr -- ndh [interaction=repressor]
+fis -- crp [interaction=repressor]
+fur -- fiu [interaction=repressor]
+ihfA -- aceK [interaction=activator]
+narL -- pflB [interaction=repressor]
+hyfR -- focB [interaction=activator]
+ihfB -- cysI [interaction=activator]
+tyrR -- aroP [interaction=repressor]
+nsrR -- rffM [interaction=repressor]
+ihfA -- atoE [interaction=activator]
+ihfB -- yiaL [interaction=activator]
+crp -- cyaA [interaction=repressor]
+ihfA -- dmsB [interaction=repressor]
+lrp -- lhgO [interaction=activator]
+ihfA -- envZ [interaction=repressor]
+nsrR -- wzyE [interaction=repressor]
+fnr -- sucA [interaction=repressor]
+lrp -- rrfH [interaction=repressor]
+crp -- cyoB [interaction=activator]
+fnr -- fdhF [interaction=activator]
+cdaR -- garL [interaction=activator]
+cusR -- cusF [interaction=activator]
+hupB -- pgm [interaction=repressor]
+gadE -- gadW [interaction=activator]
+fnr -- frdD [interaction=activator]
+arcA -- caiD [interaction=activator]
+nhaR -- pgaD [interaction=activator]
+crp -- treC [interaction=maybe_repressor]
+arcA -- hyaD [interaction=activator]
+lrhA -- fimE [interaction=activator]
+ihfA -- pspD [interaction=activator]
+arcA -- hemA [interaction=activator]
+gadE -- cadA [interaction=activator]
+crp -- ppiA [interaction=dual]
+fruR -- aceA [interaction=activator]
+crp -- lsrF [interaction=activator]
+ihfB -- ecpD [interaction=activator]
+flhC -- flgN [interaction=activator]
+arsR -- arsR [interaction=repressor]
+glpR -- glpC [interaction=repressor]
+narL -- moeA [interaction=activator]
+arcA -- rplW [interaction=repressor]
+oxyR -- fhuF [interaction=repressor]
+ihfB -- narK [interaction=activator]
+flhC -- fliP [interaction=activator]
+ihfB -- fhlA [interaction=activator]
+ihfA -- sufA [interaction=activator]
+crp -- gabP [interaction=activator]
+soxS -- ptsG [interaction=activator]
+narL -- hcr [interaction=activator]
+flhC -- fliS [interaction=activator]
+evgA -- emrY [interaction=activator]
+lexA -- ftsZ [interaction=repressor]
+nsrR -- sufE [interaction=repressor]
+marA -- marR [interaction=activator]
+hns -- rrfD [interaction=repressor]
+fnr -- frdB [interaction=activator]
+ihfB -- rpoH [interaction=activator]
+mtlR -- mtlA [interaction=repressor]
+crp -- nirC [interaction=repressor]
+arcA -- cyoA [interaction=repressor]
+oxyR -- hemH [interaction=activator]
+gatR_1 -- gatD [interaction=repressor]
+crp -- hupA [interaction=activator]
+nikR -- nikB [interaction=repressor]
+allR -- ybbW [interaction=repressor]
+hns -- hlyE [interaction=dual]
+exuR -- exuR [interaction=repressor]
+ihfB -- sgbE [interaction=activator]
+crp -- mtlD [interaction=activator]
+crp -- rimP [interaction=repressor]
+galR -- galS [interaction=repressor]
+phoP -- mgtA [interaction=activator]
+cpxR -- dsbC [interaction=activator]
+lrp -- malT [interaction=activator]
+fis -- leuW [interaction=activator]
+ihfA -- paaZ [interaction=activator]
+arcA -- appC [interaction=activator]
+lrp -- rrlG [interaction=repressor]
+crp -- sdhA [interaction=activator]
+ihfB -- gcd [interaction=activator]
+ihfB -- flhC [interaction=repressor]
+fhlA -- hyfG [interaction=activator]
+rob -- ygiA [interaction=activator]
+argR -- hisJ [interaction=repressor]
+crp -- gntT [interaction=activator]
+flhD -- ccmG [interaction=activator]
+phoB -- phoA [interaction=activator]
+narL -- ubiA [interaction=repressor]
+iscR -- hyaF [interaction=repressor]
+fis -- nrfG [interaction=repressor]
+argR -- astE [interaction=activator]
+fnr -- ccmD [interaction=activator]
+cdaR -- gudD [interaction=activator]
+arcA -- treB [interaction=activator]
+arcA -- rplB [interaction=repressor]
+fnr -- nikR [interaction=activator]
+appY -- appC [interaction=activator]
+gadE -- rcsA [interaction=activator]
+cpxR -- yccA [interaction=activator]
+rcsB -- dctR [interaction=activator]
+rcsA -- csgE [interaction=repressor]
+pdhR -- cyoA [interaction=repressor]
+narP -- norW [interaction=repressor]
+narP -- ccmB [interaction=dual]
+nsrR -- sufA [interaction=repressor]
+oxyR -- sufE [interaction=activator]
+ihfA -- nrfF [interaction=dual]
+hipA -- hipA [interaction=repressor]
+sdiA -- gadW [interaction=activator]
+narL -- cysG [interaction=activator]
+fis -- glnA [interaction=activator]
+relB -- relE [interaction=repressor]
+narL -- napC [interaction=repressor]
+crp -- hyfC [interaction=activator]
+crp -- sbmC [interaction=activator]
+fnr -- prfA [interaction=repressor]
+phoP -- rutE [interaction=activator]
+fnr -- purN [interaction=repressor]
+crp -- gyrA [interaction=activator]
+lrp -- sdaA [interaction=repressor]
+lrp -- lrp [interaction=repressor]
+fis -- ptsG [interaction=dual]
+crp -- manY [interaction=activator]
+modE -- ccmC [interaction=activator]
+cpxR -- ppiA [interaction=activator]
+gadE -- osmC [interaction=activator]
+cpxR -- ppiD [interaction=activator]
+mtlR -- mtlR [interaction=repressor]
+fadR -- fadB [interaction=repressor]
+lsrR -- lsrK [interaction=repressor]
+ihfA -- caiT [interaction=repressor]
+fis -- osmY [interaction=repressor]
+oxyR -- ybjC [interaction=repressor]
+fnr -- ynfH [interaction=activator]
+crp -- modB [interaction=activator]
+arcA -- lldP [interaction=repressor]
+rob -- sodA [interaction=activator]
+rutR -- gmr [interaction=repressor]
+crp -- tnaA [interaction=activator]
+modE -- dmsA [interaction=repressor]
+flhC -- fliG [interaction=activator]
+baeR -- ycaC [interaction=activator]
+fnr -- garR [interaction=activator]
+prpR -- prpE [interaction=activator]
+narL -- fumB [interaction=repressor]
+crp -- caiE [interaction=activator]
+kdpE -- kdpA [interaction=activator]
+gadE -- hdeA [interaction=activator]
+arcA -- aceF [interaction=repressor]
+cpxR -- mdtC [interaction=activator]
+iscR -- napB [interaction=repressor]
+galS -- mglA [interaction=repressor]
+fis -- rrlB [interaction=activator]
+crp -- fur [interaction=activator]
+flhD -- fliO [interaction=activator]
+crp -- mdtF [interaction=repressor]
+lexA -- recX [interaction=repressor]
+fnr -- narI [interaction=activator]
+fnr -- dcuR [interaction=activator]
+argR -- argF [interaction=repressor]
+phoB -- phnJ [interaction=activator]
+flhD -- napA [interaction=activator]
+dpiA -- citC [interaction=activator]
+crp -- tdcE [interaction=activator]
+arcA -- glcE [interaction=repressor]
+rcsB -- yjbE [interaction=activator]
+crp -- dcuR [interaction=activator]
+ihfB -- paaI [interaction=activator]
+fis -- dps [interaction=repressor]
+ihfA -- glmY [interaction=activator]
+fnr -- nuoA [interaction=repressor]
+fnr -- dmsD [interaction=activator]
+crp -- paaZ [interaction=activator]
+rcsA -- cadB [interaction=activator]
+narL -- nuoM [interaction=activator]
+hns -- nhaR [interaction=repressor]
+treR -- treC [interaction=repressor]
+crp -- fepA [interaction=activator]
+rcsB -- wza [interaction=activator]
+marA -- hdeB [interaction=repressor]
+crp -- malS [interaction=activator]
+rcsA -- yjbE [interaction=activator]
+pdhR -- lpd [interaction=repressor]
+crp -- tdcF [interaction=activator]
+malT -- malM [interaction=activator]
+nsrR -- ydhO [interaction=repressor]
+nagC -- chbA [interaction=repressor]
+glnG -- glnK [interaction=activator]
+glpR -- glpX [interaction=repressor]
+marA -- poxB [interaction=activator]
+fruR -- fruK [interaction=repressor]
+crp -- entH [interaction=activator]
+lrp -- osmY [interaction=repressor]
+hns -- mukB [interaction=activator]
+crp -- focA [interaction=activator]
+fis -- nuoL [interaction=activator]
+trpR -- trpR [interaction=repressor]
+ihfA -- pstS [interaction=activator]
+araC -- xylB [interaction=repressor]
+gadE -- bdm [interaction=activator]
+gadX -- hdeB [interaction=dual]
+fnr -- katG [interaction=activator]
+araC -- xylA [interaction=repressor]
+iscR -- iscR [interaction=repressor]
+cysB -- ssuB [interaction=repressor]
+ihfB -- hemF [interaction=repressor]
+tdcA -- tdcD [interaction=activator]
+phoP -- ompT [interaction=activator]
+rcsA -- gadX [interaction=dual]
+pepA -- carB [interaction=repressor]
+fis -- tpr [interaction=activator]
+creB -- creD [interaction=activator]
+arcA -- rpsQ [interaction=repressor]
+arcA -- fadA [interaction=repressor]
+crp -- pflB [interaction=activator]
+nsrR -- nrfG [interaction=repressor]
+fadR -- fadD [interaction=repressor]
+rpiR -- alsA [interaction=repressor]
+rcsB -- csgE [interaction=repressor]
+ihfA -- pflB [interaction=activator]
+ihfA -- csgE [interaction=activator]
+gadX -- asnB [interaction=activator]
+fnr -- napA [interaction=activator]
+fnr -- ssuB [interaction=activator]
+fnr -- aer [interaction=activator]
+lrp -- rrsG [interaction=repressor]
+crp -- infB [interaction=repressor]
+nagC -- manY [interaction=repressor]
+lrp -- livG [interaction=repressor]
+fnr -- ssuA [interaction=activator]
+ihfA -- hycG [interaction=activator]
+fis -- argU [interaction=activator]
+iscR -- iscS [interaction=repressor]
+leuO -- casB [interaction=activator]
+nac -- nupC [interaction=activator]
+fnr -- rplP [interaction=activator]
+dcuR -- frdB [interaction=activator]
+ulaR -- ulaE [interaction=repressor]
+dnaA -- dnaN [interaction=repressor]
+fnr -- hemA [interaction=repressor]
+crp -- glpK [interaction=activator]
+modE -- ccmB [interaction=activator]
+hupB -- mtr [interaction=repressor]
+flhD -- nrfB [interaction=activator]
+crp -- glpG [interaction=activator]
+crp -- glpA [interaction=activator]
+hns -- cysW [interaction=repressor]
+ihfA -- lyxK [interaction=activator]
+narP -- ydhY [interaction=repressor]
+fur -- cyoD [interaction=repressor]
+glnG -- rutC [interaction=activator]
+hns -- bglJ [interaction=repressor]
+galS -- galE [interaction=dual]
+fis -- rrsG [interaction=activator]
+fnr -- rpmC [interaction=activator]
+arcA -- ndh [interaction=activator]
+lrp -- aidB [interaction=repressor]
+ihfB -- ilvE [interaction=dual]
+fruR -- acnA [interaction=activator]
+fis -- hyaF [interaction=repressor]
+fis -- bglF [interaction=repressor]
+lexA -- ftsI [interaction=repressor]
+nac -- codB [interaction=activator]
+rutR -- carA [interaction=activator]
+glnG -- rutB [interaction=activator]
+rcsB -- slp [interaction=activator]
+deoR -- deoD [interaction=repressor]
+hns -- fimH [interaction=activator]
+leuO -- dsrA [interaction=repressor]
+arcA -- oppD [interaction=repressor]
+cpxR -- fabZ [interaction=activator]
+ihfB -- pspE [interaction=activator]
+arcA -- glpC [interaction=repressor]
+nsrR -- rffG [interaction=repressor]
+crp -- csiE [interaction=activator]
+sgrR -- sgrR [interaction=repressor]
+ihfA -- ulaE [interaction=repressor]
+fur -- fhuD [interaction=repressor]
+fnr -- dppB [interaction=repressor]
+fnr -- nirD [interaction=activator]
+leuO -- bglB [interaction=activator]
+hdfR -- flhC [interaction=repressor]
+flhD -- fliN [interaction=activator]
+arcA -- fumC [interaction=repressor]
+crp -- prpR [interaction=activator]
+caiF -- fixB [interaction=activator]
+phoB -- phnE [interaction=activator]
+fnr -- glpQ [interaction=activator]
+hns -- nirD [interaction=repressor]
+fnr -- rnpB [interaction=activator]
+fnr -- uxaA [interaction=activator]
+csgD -- csgC [interaction=activator]
+arcA -- aceE [interaction=repressor]
+rutR -- rutE [interaction=repressor]
+marA -- pqiA [interaction=activator]
+hns -- garR [interaction=repressor]
+fis -- proL [interaction=activator]
+lrp -- gltU [interaction=repressor]
+crp -- cpdB [interaction=activator]
+cdaR -- cdaR [interaction=activator]
+fnr -- dppF [interaction=repressor]
+fis -- nuoM [interaction=activator]
+marA -- dctR [interaction=repressor]
+ihfA -- hypD [interaction=activator]
+crp -- manX [interaction=activator]
+chbR -- chbG [interaction=dual]
+narL -- hybC [interaction=repressor]
+fis -- rrsH [interaction=activator]
+purR -- purK [interaction=repressor]
+lexA -- dinQ [interaction=repressor]
+ada -- alkA [interaction=activator]
+nsrR -- tehB [interaction=repressor]
+lexA -- phr [interaction=repressor]
+hns -- rrlG [interaction=repressor]
+phoB -- phnN [interaction=activator]
+lrp -- gcvP [interaction=activator]
+gntR -- nfuA [interaction=repressor]
+crp -- fadD [interaction=activator]
+leuO -- cadC [interaction=repressor]
+crp -- gltF [interaction=repressor]
+gadW -- gadB [interaction=repressor]
+soxS -- zwf [interaction=activator]
+fnr -- dcuB [interaction=activator]
+ihfA -- gltA [interaction=activator]
+arcA -- rutB [interaction=activator]
+purR -- purM [interaction=repressor]
+modE -- modA [interaction=repressor]
+cytR -- deoB [interaction=repressor]
+crp -- marB [interaction=activator]
+rob -- acnA [interaction=activator]
+gatR_2 -- gatB [interaction=repressor]
+flhC -- ppdC [interaction=activator]
+bolA -- ampC [interaction=dual]
+hns -- galE [interaction=repressor]
+ihfA -- hycC [interaction=activator]
+flhD -- flgN [interaction=activator]
+fruR -- edd [interaction=repressor]
+csiR -- gabD [interaction=repressor]
+galR -- galE [interaction=dual]
+fis -- gadA [interaction=repressor]
+phoP -- slyB [interaction=dual]
+flhD -- napC [interaction=activator]
+fur -- tonB [interaction=dual]
+arcA -- sdhA [interaction=dual]
+hupA -- micF [interaction=activator]
+narP -- cysG [interaction=activator]
+fis -- malE [interaction=activator]
+lrp -- rrlA [interaction=repressor]
+narL -- ccmC [interaction=repressor]
+crp -- yiaL [interaction=maybe_activator]
+hns -- csiD [interaction=activator]
+crp -- sgbE [interaction=maybe_activator]
+crp -- gatC [interaction=activator]
+cysB -- ssuD [interaction=repressor]
+qseB -- qseB [interaction=activator]
+glnG -- astE [interaction=activator]
+srlR -- srlR [interaction=repressor]
+rhaR -- rhaR [interaction=activator]
+phoB -- phnG [interaction=activator]
+crp -- nanM [interaction=activator]
+crp -- mglB [interaction=activator]
+lrp -- ilvD [interaction=repressor]
+phoB -- ugpE [interaction=dual]
+nsrR -- hycD [interaction=repressor]
+metR -- metH [interaction=activator]
+modE -- hycG [interaction=activator]
+argR -- astC [interaction=activator]
+crp -- malF [interaction=activator]
+phoP -- malS [interaction=activator]
+glnG -- ygjG [interaction=activator]
+arcA -- dcuC [interaction=activator]
+hns -- yciF [interaction=repressor]
+cbl -- tauD [interaction=activator]
+ihfB -- ihfB [interaction=repressor]
+fur -- rpoS [interaction=repressor]
+rcsB -- osmB [interaction=activator]
+ihfA -- glpQ [interaction=repressor]
+ihfB -- yiaN [interaction=activator]
+glpR -- glpK [interaction=repressor]
+torR -- tnaA [interaction=activator]
+flhC -- fliY [interaction=activator]
+argP -- nrdB [interaction=activator]
+glnG -- rutA [interaction=activator]
+metJ -- metE [interaction=repressor]
+fnr -- cydD [interaction=activator]
+allR -- allB [interaction=repressor]
+ihfB -- dppF [interaction=activator]
+ihfB -- nuoM [interaction=repressor]
+narL -- dcuS [interaction=repressor]
+caiF -- caiT [interaction=activator]
+flhC -- ccmB [interaction=activator]
+dicA -- ydfD [interaction=repressor]
+fnr -- cyoB [interaction=repressor]
+fnr -- moaC [interaction=activator]
+nsrR -- ytfE [interaction=repressor]
+arcA -- aceA [interaction=repressor]
+kdpE -- kdpF [interaction=activator]
+fucR -- fucO [interaction=activator]
+arcA -- aldA [interaction=repressor]
+baeR -- baeR [interaction=activator]
+stpA -- stpA [interaction=repressor]
+rcsA -- ftsA [interaction=activator]
+appY -- appB [interaction=activator]
+tyrR -- tyrA [interaction=repressor]
+paaX -- paaJ [interaction=repressor]
+gadE -- gltD [interaction=activator]
+flhD -- nrfA [interaction=activator]
+glnG -- glnH [interaction=dual]
+iscR -- nfuA [interaction=repressor]
+gadE -- yjbH [interaction=activator]
+ihfA -- focA [interaction=activator]
+fnr -- scpB [interaction=activator]
+rpiR -- alsC [interaction=repressor]
+ihfA -- caiE [interaction=repressor]
+oxyR -- yhjA [interaction=activator]
+flhD -- yhjH [interaction=activator]
+crp -- paaK [interaction=activator]
+crp -- sgbH [interaction=maybe_activator]
+phoP -- rutF [interaction=activator]
+fnr -- acrF [interaction=activator]
+glpR -- glpB [interaction=repressor]
+cbl -- tauB [interaction=activator]
+crp -- cyoC [interaction=activator]
+arcA -- nuoB [interaction=repressor]
+fur -- yjjZ [interaction=repressor]
+flhD -- ccmA [interaction=activator]
+rtcR -- rtcB [interaction=activator]
+fnr -- cydB [interaction=dual]
+soxS -- ybjC [interaction=activator]
+cytR -- cytR [interaction=repressor]
+soxS -- soxS [interaction=repressor]
+ihfB -- ulaD [interaction=repressor]
+lrp -- oppB [interaction=repressor]
+hns -- gspO [interaction=repressor]
+fnr -- ytfE [interaction=repressor]
+crp -- dadA [interaction=dual]
+crp -- dusB [interaction=dual]
+fhlA -- hypA [interaction=activator]
+fis -- narG [interaction=repressor]
+ihfA -- glcF [interaction=activator]
+fhlA -- hycI [interaction=activator]
+fnr -- feoB [interaction=activator]
+crp -- fucI [interaction=activator]
+nsrR -- hmp [interaction=repressor]
+gadE -- gadX [interaction=dual]
+fis -- nuoC [interaction=activator]
+fhlA -- hyfD [interaction=activator]
+narL -- ynfH [interaction=repressor]
+lrp -- ileV [interaction=repressor]
+nagC -- chbC [interaction=repressor]
+fur -- fhuF [interaction=repressor]
+yefM -- yefM [interaction=repressor]
+rbsR -- rbsA [interaction=repressor]
+ihfB -- rtcB [interaction=activator]
+narP -- nirC [interaction=activator]
+hns -- hdeD [interaction=repressor]
+crp -- dcuA [interaction=activator]
+purR -- gcvH [interaction=repressor]
+fnr -- ccmA [interaction=activator]
+gadE -- gltF [interaction=activator]
+fur -- nrdE [interaction=repressor]
+fis -- proK [interaction=activator]
+zntR -- zntA [interaction=activator]
+rstA -- narJ [interaction=activator]
+narP -- napA [interaction=dual]
+ihfA -- cysG [interaction=dual]
+fadR -- uspA [interaction=repressor]
+mqsA -- mqsR [interaction=repressor]
+fis -- truB [interaction=activator]
+oxyR -- nfsA [interaction=repressor]
+marA -- tolC [interaction=activator]
+narL -- frdB [interaction=repressor]
+fnr -- nrfE [interaction=activator]
+soxS -- marB [interaction=activator]
+ihfB -- acs [interaction=repressor]
+flhC -- fliR [interaction=activator]
+deoR -- deoB [interaction=repressor]
+soxS -- micF [interaction=activator]
+ihfB -- dmsA [interaction=repressor]
+paaX -- paaG [interaction=repressor]
+narL -- yoaG [interaction=activator]
+baeR -- mdtA [interaction=activator]
+yiaJ -- yiaL [interaction=repressor]
+flhD -- flhE [interaction=activator]
+dcuR -- fumB [interaction=activator]
+argR -- infB [interaction=repressor]
+arcA -- cadB [interaction=repressor]
+betI -- betB [interaction=repressor]
+ihfA -- nuoL [interaction=repressor]
+crp -- fadL [interaction=repressor]
+hns -- hchA [interaction=repressor]
+acrR -- acrR [interaction=repressor]
+zur -- ykgO [interaction=repressor]
+crp -- nfuA [interaction=activator]
+cueR -- moaA [interaction=repressor]
+hns -- casC [interaction=repressor]
+ihfA -- ilvM [interaction=dual]
+gadE -- cyoE [interaction=activator]
+fis -- lysT [interaction=activator]
+mprA -- acrB [interaction=repressor]
+nsrR -- yibD [interaction=repressor]
+flhC -- ccmE [interaction=activator]
+arcA -- gatC [interaction=repressor]
+ihfB -- ompC [interaction=repressor]
+exuR -- uxaB [interaction=repressor]
+modE -- oppF [interaction=repressor]
+ihfA -- carA [interaction=dual]
+fis -- hlyE [interaction=repressor]
+fis -- pyrD [interaction=repressor]
+hns -- micF [interaction=repressor]
+flhC -- ygdB [interaction=activator]
+nrdR -- nrdI [interaction=repressor]
+ihfA -- fimF [interaction=activator]
+ihfA -- fimD [interaction=activator]
+cbl -- ssuC [interaction=activator]
+modE -- oppD [interaction=repressor]
+ihfA -- carB [interaction=dual]
+marA -- ygiC [interaction=activator]
+fis -- apaG [interaction=activator]
+fis -- glcC [interaction=repressor]
+gatR_2 -- gatD [interaction=repressor]
+crp -- fecE [interaction=activator]
+narL -- dcuA [interaction=repressor]
+fnr -- yecR [interaction=activator]
+modE -- hycB [interaction=activator]
+ihfA -- gltF [interaction=activator]
+exuR -- uxuA [interaction=repressor]
+iscR -- napA [interaction=repressor]
+flhD -- glpA [interaction=activator]
+fnr -- glpA [interaction=activator]
+fruR -- ptsI [interaction=dual]
+cpxR -- lpxD [interaction=activator]
+fnr -- hyfA [interaction=repressor]
+hns -- rrlC [interaction=repressor]
+modE -- hycC [interaction=activator]
+crp -- glgA [interaction=activator]
+fruR -- pck [interaction=activator]
+fnr -- hyfF [interaction=repressor]
+fis -- rrfA [interaction=activator]
+ihfB -- glcE [interaction=activator]
+fis -- nirD [interaction=repressor]
+ihfA -- nuoF [interaction=repressor]
+arcA -- rplD [interaction=repressor]
+lsrR -- tam [interaction=repressor]
+galR -- mglC [interaction=repressor]
+nemR -- nemA [interaction=repressor]
+fis -- rrsA [interaction=activator]
+fnr -- pstA [interaction=activator]
+arcA -- ydeA [interaction=repressor]
+ihfB -- yjbF [interaction=activator]
+ihfA -- sufE [interaction=activator]
+soxS -- fpr [interaction=activator]
+crp -- rhaR [interaction=activator]
+arcA -- gatZ [interaction=repressor]
+chbR -- chbR [interaction=dual]
+ihfB -- pstB [interaction=activator]
+crp -- galP [interaction=activator]
+flhC -- fliA [interaction=activator]
+crp -- mhpA [interaction=activator]
+crp -- cdd [interaction=dual]
+cpxR -- spy [interaction=activator]
+ihfB -- hycG [interaction=activator]
+trpR -- trpC [interaction=repressor]
+gadX -- mdtE [interaction=activator]
+fruR -- acnB [interaction=repressor]
+ihfA -- glnP [interaction=activator]
+rcsA -- yjbF [interaction=activator]
+oxyR -- ybjN [interaction=repressor]
+ihfA -- ulaA [interaction=repressor]
+idnR -- idnD [interaction=activator]
+fnr -- nrdG [interaction=activator]
+arcA -- sdhB [interaction=dual]
+fnr -- ydhX [interaction=activator]
+narL -- fdnH [interaction=activator]
+rob -- ybjN [interaction=activator]
+fis -- glnV [interaction=activator]
+ihfA -- ssuB [interaction=dual]
+lrp -- dadX [interaction=dual]
+ihfA -- narI [interaction=activator]
+fur -- fecD [interaction=repressor]
+nrdR -- nrdH [interaction=repressor]
+fucR -- fucU [interaction=activator]
+fnr -- ssuE [interaction=activator]
+fis -- proP [interaction=activator]
+mhpR -- mhpA [interaction=activator]
+lrp -- rrsC [interaction=repressor]
+crp -- tsx [interaction=dual]
+lrp -- fimA [interaction=activator]
+crp -- lamB [interaction=activator]
+fis -- hyaB [interaction=repressor]
+crp -- csgG [interaction=activator]
+ihfB -- ulaA [interaction=repressor]
+feaR -- feaB [interaction=activator]
+fis -- leuP [interaction=activator]
+csgD -- pepD [interaction=repressor]
+metJ -- metK [interaction=repressor]
+hns -- fimD [interaction=activator]
+betI -- betT [interaction=repressor]
+crp -- fumB [interaction=activator]
+arcA -- gatY [interaction=repressor]
+nhaR -- pgaA [interaction=activator]
+uidR -- uidB [interaction=repressor]
+crp -- cyoD [interaction=activator]
+arcA -- rplP [interaction=repressor]
+crp -- spf [interaction=repressor]
+ompR -- bolA [interaction=repressor]
+ihfB -- aceA [interaction=activator]
+ihfA -- ssuE [interaction=dual]
+nsrR -- rffH [interaction=repressor]
+ihfB -- nrfB [interaction=dual]
+allR -- allS [interaction=repressor]
+narL -- nikD [interaction=repressor]
+lexA -- umuC [interaction=repressor]
+rcsA -- gadB [interaction=activator]
+fis -- rrfF [interaction=activator]
+cpxR -- baeR [interaction=activator]
+lldR -- lldP [interaction=dual]
+crp -- yeiT [interaction=activator]
+nsrR -- hypC [interaction=repressor]
+glnG -- potF [interaction=activator]
+ihfA -- fimA [interaction=activator]
+narP -- fdnI [interaction=repressor]
+hns -- flhD [interaction=activator]
+pdhR -- pdhR [interaction=repressor]
+gadX -- amtB [interaction=activator]
+glnG -- yeaG [interaction=activator]
+metR -- metE [interaction=activator]
+hns -- nhaA [interaction=repressor]
+crp -- nagE [interaction=dual]
+torR -- torD [interaction=activator]
+narL -- ydhX [interaction=repressor]
+gadX -- ybaT [interaction=activator]
+soxS -- pqiB [interaction=activator]
+argR -- hisM [interaction=repressor]
+oxyR -- ahpF [interaction=activator]
+fis -- marR [interaction=activator]
+cysB -- cysN [interaction=activator]
+hns -- ftnA [interaction=repressor]
+crp -- gltD [interaction=repressor]
+narL -- ccmD [interaction=repressor]
+crp -- csgE [interaction=activator]
+hns -- cadB [interaction=repressor]
+mntR -- mntH [interaction=repressor]
+ihfB -- nuoA [interaction=repressor]
+flhC -- ccmD [interaction=activator]
+tyrR -- aroF [interaction=repressor]
+asnC -- asnC [interaction=repressor]
+soxR -- fumC [interaction=activator]
+fis -- dmsB [interaction=repressor]
+fhlA -- hyfB [interaction=activator]
+narP -- ydhU [interaction=repressor]
+narL -- ynfF [interaction=repressor]
+marA -- fpr [interaction=activator]
+marA -- pqiB [interaction=activator]
+crp -- gntK [interaction=activator]
+gadE -- flhC [interaction=repressor]
+gadW -- mdtE [interaction=activator]
+nsrR -- fliA [interaction=repressor]
+ihfA -- pspB [interaction=activator]
+agaR -- kbaY [interaction=repressor]
+ihfA -- tdcB [interaction=activator]
+arcA -- ubiC [interaction=repressor]
+fnr -- caiB [interaction=activator]
+csiR -- gabP [interaction=repressor]
+fnr -- cyoE [interaction=repressor]
+crp -- rbsK [interaction=activator]
+ihfB -- ubiA [interaction=repressor]
+arcA -- fadD [interaction=repressor]
+purR -- purC [interaction=repressor]
+fnr -- hyfR [interaction=repressor]
+crp -- cyaR [interaction=activator]
+fnr -- puuA [interaction=repressor]
+rcsB -- csgF [interaction=repressor]
+gadE -- rprA [interaction=activator]
+nsrR -- smpA [interaction=repressor]
+lrp -- tdh [interaction=activator]
+argR -- rbfA [interaction=repressor]
+crp -- melA [interaction=activator]
+fnr -- rplW [interaction=activator]
+alpA -- intA [interaction=activator]
+rcsB -- wzc [interaction=activator]
+crp -- galM [interaction=dual]
+ihfB -- tdcE [interaction=activator]
+fur -- entB [interaction=repressor]
+crp -- ompA [interaction=activator]
+lrp -- gltT [interaction=repressor]
+ihfA -- hycB [interaction=activator]
+prpR -- prpB [interaction=activator]
+torR -- gadX [interaction=repressor]
+nsrR -- wzzE [interaction=repressor]
+flhC -- mglA [interaction=repressor]
+cueR -- moaB [interaction=repressor]
+allS -- allD [interaction=activator]
+fruR -- crr [interaction=dual]
+phoP -- tolC [interaction=activator]
+ihfA -- pspG [interaction=activator]
+gadW -- gadW [interaction=repressor]
+lrp -- rrsD [interaction=repressor]
+lexA -- dinD [interaction=repressor]
+glnG -- ddpX [interaction=activator]
+flhD -- fliE [interaction=activator]
+pdhR -- tomB [interaction=repressor]
+fnr -- nikB [interaction=activator]
+hyfR -- hyfG [interaction=activator]
+melR -- melA [interaction=dual]
+glnG -- amtB [interaction=activator]
+flhC -- fliZ [interaction=activator]
+hns -- gltU [interaction=repressor]
+fnr -- acrE [interaction=activator]
+evgA -- yfdX [interaction=activator]
+phoP -- gadE [interaction=activator]
+crp -- malI [interaction=dual]
+phoP -- rutA [interaction=activator]
+agaR -- agaI [interaction=repressor]
+nsrR -- rpmI [interaction=repressor]
+crp -- caiD [interaction=activator]
+purR -- purB [interaction=repressor]
+nagC -- chbR [interaction=repressor]
+cpxR -- ycfS [interaction=activator]
+phoP -- ygiC [interaction=activator]
+ihfB -- dcuD [interaction=activator]
+malI -- malX [interaction=repressor]
+fnr -- gcvT [interaction=activator]
+malT -- malQ [interaction=activator]
+xylR -- xylB [interaction=activator]
+arcA -- nuoK [interaction=repressor]
+arcA -- lldR [interaction=repressor]
+nac -- gabT [interaction=activator]
+dhaR -- dhaK [interaction=activator]
+hupA -- tyrP [interaction=repressor]
+flhD -- ccmF [interaction=activator]
+cynR -- cynS [interaction=activator]
+rob -- tolC [interaction=activator]
+fis -- glpQ [interaction=activator]
+crp -- flhD [interaction=activator]
+flhC -- ppdB [interaction=activator]
+cysB -- cysC [interaction=activator]
+nagC -- nagB [interaction=repressor]
+fur -- rcnR [interaction=activator]
+marA -- nfsB [interaction=activator]
+crp -- zraR [interaction=activator]
+arcA -- cydA [interaction=activator]
+arcA -- nuoG [interaction=repressor]
+glnG -- rutG [interaction=activator]
+fnr -- fixB [interaction=activator]
+arcA -- gatA [interaction=repressor]
+phoB -- phnD [interaction=activator]
+phoB -- eda [interaction=repressor]
+arcA -- fnr [interaction=repressor]
+leuO -- leuL [interaction=activator]
+gadE -- ftsA [interaction=activator]
+fis -- nirB [interaction=repressor]
+narP -- ccmG [interaction=dual]
+lexA -- ruvA [interaction=repressor]
+torR -- hdeB [interaction=activator]
+phoB -- phoH [interaction=activator]
+gadX -- gadX [interaction=activator]
+arcA -- hybD [interaction=repressor]
+crp -- hyfI [interaction=activator]
+fur -- garL [interaction=repressor]
+fnr -- iraD [interaction=activator]
+srlR -- gutM [interaction=repressor]
+hns -- lacA [interaction=repressor]
+ihfB -- hypA [interaction=activator]
+rcsA -- cadA [interaction=activator]
+ihfA -- sucA [interaction=repressor]
+nagC -- nagE [interaction=repressor]
+flhD -- gltL [interaction=activator]
+fnr -- nuoF [interaction=repressor]
+lrp -- micF [interaction=repressor]
+ihfA -- paaB [interaction=activator]
+crp -- gltA [interaction=activator]
+fruR -- cysG [interaction=repressor]
+lexA -- ftsL [interaction=repressor]
+ihfA -- ulaB [interaction=repressor]
+narL -- hybE [interaction=repressor]
+crp -- ugpC [interaction=activator]
+rstA -- csgE [interaction=repressor]
+ihfB -- sufC [interaction=activator]
+fhlA -- hycF [interaction=activator]
+cpxR -- bacA [interaction=activator]
+exuR -- uxuB [interaction=repressor]
+crp -- deoA [interaction=dual]
+gadX -- rpoS [interaction=activator]
+fur -- flhC [interaction=repressor]
+srlR -- srlB [interaction=repressor]
+dnaA -- guaB [interaction=repressor]
+gadE -- csgD [interaction=repressor]
+crp -- araG [interaction=activator]
+crp -- paaF [interaction=activator]
+ihfA -- dppB [interaction=activator]
+allR -- hyi [interaction=repressor]
+crp -- tdcD [interaction=activator]
+trpR -- yaiA [interaction=repressor]
+ihfA -- dusB [interaction=activator]
+hns -- yjjQ [interaction=repressor]
+gadE -- wcaB [interaction=activator]
+fnr -- dppC [interaction=repressor]
+crp -- nupC [interaction=activator]
+crp -- entA [interaction=activator]
+ihfB -- glpQ [interaction=repressor]
+fis -- alaT [interaction=activator]
+narP -- napC [interaction=dual]
+nsrR -- nrfC [interaction=repressor]
+cpxR -- ompC [interaction=activator]
+fis -- valT [interaction=activator]
+lsrR -- lsrB [interaction=repressor]
+crp -- rbsC [interaction=activator]
+fur -- garR [interaction=repressor]
+fis -- pdxA [interaction=activator]
+crp -- idnT [interaction=activator]
+mhpR -- mhpF [interaction=activator]
+gadE -- lpxA [interaction=activator]
+fhlA -- hycC [interaction=activator]
+fnr -- hyfB [interaction=repressor]
+csgD -- adrA [interaction=activator]
+ihfB -- ulaE [interaction=repressor]
+flhD -- fliM [interaction=activator]
+fis -- serX [interaction=activator]
+arcA -- caiC [interaction=activator]
+dcuR -- frdC [interaction=activator]
+ihfA -- paaD [interaction=activator]
+arcA -- caiE [interaction=activator]
+uxuR -- uidC [interaction=repressor]
+modE -- napG [interaction=activator]
+cpxR -- cheW [interaction=repressor]
+fnr -- scpC [interaction=activator]
+cysB -- tauD [interaction=activator]
+cpxR -- cheA [interaction=repressor]
+fis -- nanE [interaction=repressor]
+relB -- relB [interaction=repressor]
+gadE -- csgE [interaction=repressor]
+marA -- marB [interaction=activator]
+ihfA -- paaC [interaction=activator]
+ihfA -- ssuA [interaction=dual]
+ihfB -- hypC [interaction=activator]
+narL -- nuoN [interaction=activator]
+tdcR -- tdcF [interaction=activator]
+ihfB -- ssuD [interaction=dual]
+arcA -- glcF [interaction=repressor]
+lrp -- ilvH [interaction=activator]
+fnr -- hcp [interaction=activator]
+cysB -- cysK [interaction=activator]
+ihfA -- pspA [interaction=activator]
+narP -- hyaB [interaction=repressor]
+appY -- appA [interaction=activator]
+crp -- metY [interaction=repressor]
+crp -- ugpA [interaction=activator]
+fis -- nrfD [interaction=repressor]
+gntR -- gntX [interaction=repressor]
+caiF -- fixX [interaction=activator]
+ulaR -- ulaG [interaction=repressor]
+fur -- oppB [interaction=repressor]
+qseB -- flhD [interaction=activator]
+hns -- gadW [interaction=repressor]
+fur -- oppA [interaction=repressor]
+nsrR -- hcr [interaction=repressor]
+hns -- thrV [interaction=repressor]
+hyfR -- hyfD [interaction=activator]
+oxyR -- mntH [interaction=activator]
+flhD -- mglB [interaction=repressor]
+crp -- mhpD [interaction=activator]
+arcA -- yfiD [interaction=activator]
+ihfB -- carA [interaction=dual]
+fis -- trmA [interaction=activator]
+lsrR -- lsrD [interaction=repressor]
+ihfB -- osmY [interaction=repressor]
+ihfA -- nrfB [interaction=dual]
+argR -- argB [interaction=repressor]
+cpxR -- cpxP [interaction=activator]
+flhC -- nrfC [interaction=activator]
+rcsB -- yjbG [interaction=activator]
+ihfB -- yiaO [interaction=activator]
+ihfB -- nirC [interaction=dual]
+ihfB -- prmC [interaction=activator]
+hipA -- hipB [interaction=repressor]
+glnG -- ddpB [interaction=activator]
+crp -- ulaF [interaction=activator]
+hns -- fimC [interaction=activator]
+rbsR -- rbsR [interaction=repressor]
+ihfB -- fimG [interaction=activator]
+crp -- glpC [interaction=activator]
+ihfA -- rpoH [interaction=activator]
+cueR -- copA [interaction=activator]
+ompR -- ompF [interaction=dual]
+fur -- fhuE [interaction=repressor]
+crp -- dctA [interaction=activator]
+ihfB -- csgD [interaction=activator]
+hns -- rrsG [interaction=repressor]
+fur -- fepC [interaction=repressor]
+crp -- fixA [interaction=activator]
+flhD -- flhB [interaction=activator]
+ihfA -- phoU [interaction=activator]
+gutM -- gutQ [interaction=activator]
+fur -- fecA [interaction=repressor]
+arcA -- sdhD [interaction=dual]
+arcA -- rpmC [interaction=repressor]
+lrp -- serA [interaction=dual]
+fnr -- gadX [interaction=repressor]
+nadR -- pncB [interaction=repressor]
+marA -- putA [interaction=activator]
+leuO -- casD [interaction=activator]
+crp -- nagB [interaction=dual]
+nsrR -- hycF [interaction=repressor]
+narL -- nuoA [interaction=activator]
+ihfA -- glcB [interaction=activator]
+ihfA -- atoD [interaction=activator]
+phoP -- metB [interaction=activator]
+fis -- narK [interaction=repressor]
+crp -- aceA [interaction=repressor]
+glnG -- glnQ [interaction=dual]
+fis -- queA [interaction=activator]
+flhC -- napH [interaction=activator]
+gadE -- sra [interaction=activator]
+malT -- malK [interaction=activator]
+ihfA -- tdcG [interaction=activator]
+rcsA -- flhC [interaction=repressor]
+nsrR -- hcp [interaction=repressor]
+narL -- nikC [interaction=repressor]
+gntR -- eda [interaction=repressor]
+cpxR -- mdtB [interaction=activator]
+dgsA -- manX [interaction=repressor]
+hns -- proV [interaction=repressor]
+gadE -- slp [interaction=activator]
+fnr -- norW [interaction=repressor]
+arcA -- oppB [interaction=repressor]
+flhC -- mglC [interaction=repressor]
+flhD -- napB [interaction=activator]
+cdaR -- rnpB [interaction=activator]
+crp -- rbfA [interaction=repressor]
+modE -- ccmE [interaction=activator]
+fnr -- fdnI [interaction=dual]
+allR -- gcl [interaction=repressor]
+crp -- nanE [interaction=activator]
+ihfA -- yeiL [interaction=activator]
+galR -- galT [interaction=dual]
+fnr -- narH [interaction=activator]
+arcA -- betB [interaction=repressor]
+gadW -- gadE [interaction=activator]
+hns -- cysA [interaction=repressor]
+sgrR -- tbpA [interaction=repressor]
+sdiA -- ydiV [interaction=activator]
+nikR -- nikD [interaction=repressor]
+flhD -- hydN [interaction=activator]
+arcA -- treC [interaction=activator]
+phoB -- phoB [interaction=activator]
+hns -- caiF [interaction=repressor]
+ihfB -- nrfE [interaction=dual]
+rob -- ygiB [interaction=activator]
+kdpE -- kdpB [interaction=activator]
+fis -- lpd [interaction=activator]
+nanR -- nanT [interaction=repressor]
+lrp -- lysU [interaction=repressor]
+lrp -- alaT [interaction=repressor]
+crp -- hyfF [interaction=activator]
+fnr -- nikE [interaction=activator]
+fis -- bglB [interaction=repressor]
+fur -- fepA [interaction=repressor]
+crp -- hofP [interaction=activator]
+lrp -- fimG [interaction=activator]
+rob -- acrB [interaction=activator]
+ihfA -- narH [interaction=activator]
+narP -- nrfC [interaction=activator]
+oxyR -- sufS [interaction=activator]
+fur -- gpmA [interaction=repressor]
+arcA -- dctA [interaction=repressor]
+fis -- mglA [interaction=repressor]
+flhD -- flhA [interaction=activator]
+fis -- deoC [interaction=activator]
+crp -- ascF [interaction=activator]
+ihfA -- gcd [interaction=activator]
+fnr -- hmp [interaction=repressor]
+flhD -- flgF [interaction=activator]
+narL -- narI [interaction=activator]
+narL -- moeB [interaction=activator]
+cpxR -- hlpA [interaction=activator]
+narL -- dcuB [interaction=repressor]
+deoR -- tsx [interaction=repressor]
+narP -- hcr [interaction=activator]
+crp -- paaB [interaction=activator]
+hns -- hdeA [interaction=repressor]
+phoP -- rutD [interaction=activator]
+narL -- ydhT [interaction=repressor]
+arcA -- fadI [interaction=repressor]
+phoB -- pstA [interaction=activator]
+ihfB -- paaJ [interaction=activator]
+crp -- glpQ [interaction=activator]
+fis -- dusB [interaction=repressor]
+pdhR -- hha [interaction=repressor]
+iscR -- sufA [interaction=activator]
+cytR -- tsx [interaction=repressor]
+fur -- cyoC [interaction=repressor]
+modE -- moaE [interaction=activator]
+arcA -- rutG [interaction=activator]
+galS -- galM [interaction=dual]
+fis -- msrA [interaction=repressor]
+fnr -- ybdN [interaction=activator]
+lrp -- livM [interaction=repressor]
+narL -- ccmG [interaction=repressor]
+argP -- argO [interaction=activator]
+rcsA -- wza [interaction=activator]
+paaX -- paaZ [interaction=repressor]
+nsrR -- rplT [interaction=repressor]
+lexA -- sbmC [interaction=repressor]
+phoP -- yneM [interaction=activator]
+hns -- rrfG [interaction=repressor]
+hcaR -- hcaE [interaction=activator]
+fhlA -- focB [interaction=activator]
+ihfA -- adiA [interaction=activator]
+pdhR -- fecC [interaction=activator]
+trpR -- aroM [interaction=repressor]
+crp -- paaA [interaction=activator]
+fhlA -- hydN [interaction=activator]
+nrdR -- nrdB [interaction=repressor]
+nac -- gabP [interaction=activator]
+fnr -- nuoG [interaction=repressor]
+rcsB -- yjbH [interaction=activator]
+gadE -- gadB [interaction=activator]
+baeR -- acrD [interaction=activator]
+ihfB -- caiT [interaction=repressor]
+hns -- fliA [interaction=activator]
+envR -- acrA [interaction=repressor]
+crp -- gatY [interaction=activator]
+crp -- tdcA [interaction=activator]
+crp -- galK [interaction=dual]
+prpR -- prpD [interaction=activator]
+hns -- srlR [interaction=activator]
+fnr -- ydhT [interaction=activator]
+cpxR -- mdtD [interaction=activator]
+modE -- hycE [interaction=activator]
+nemR -- nemR [interaction=repressor]
+hns -- hns [interaction=repressor]
+fnr -- ccmG [interaction=activator]
+narL -- ccmH [interaction=repressor]
+fnr -- frdA [interaction=activator]
+flhD -- fliP [interaction=activator]
+flhD -- ycgR [interaction=activator]
+narL -- narJ [interaction=activator]
+soxS -- rfaZ [interaction=activator]
+pspF -- pspA [interaction=activator]
+fnr -- tar [interaction=activator]
+hns -- chpA [interaction=activator]
+fis -- acs [interaction=repressor]
+arcA -- sucC [interaction=dual]
+purR -- guaA [interaction=repressor]
+cysB -- tauC [interaction=activator]
+fnr -- rpsJ [interaction=activator]
+gcvA -- gcvP [interaction=dual]
+hns -- fliC [interaction=activator]
+crp -- zraS [interaction=activator]
+crp -- ivbL [interaction=activator]
+hns -- fimI [interaction=activator]
+purR -- prs [interaction=repressor]
+fis -- mtlA [interaction=repressor]
+nac -- mnmG [interaction=repressor]
+ihfB -- atoB [interaction=activator]
+tyrR -- aroM [interaction=repressor]
+fruR -- fruA [interaction=repressor]
+fis -- ygjG [interaction=unknown]
+crp -- prpC [interaction=activator]
+crp -- gadX [interaction=repressor]
+fur -- nrdF [interaction=repressor]
+lrhA -- flhD [interaction=repressor]
+fis -- argX [interaction=activator]
+uxuR -- gntP [interaction=repressor]
+arsR -- arsB [interaction=repressor]
+fadR -- fadJ [interaction=repressor]
+soxS -- tolC [interaction=activator]
+ompR -- ompC [interaction=activator]
+mqsA -- mqsA [interaction=repressor]
+purR -- purR [interaction=repressor]
+rcsB -- gadC [interaction=activator]
+ihfB -- nuoK [interaction=repressor]
+dnaA -- guaA [interaction=repressor]
+ihfB -- sgbH [interaction=activator]
+crp -- srlE [interaction=activator]
+crp -- acnB [interaction=activator]
+fis -- aldB [interaction=repressor]
+glnG -- yeaH [interaction=activator]
+soxS -- fur [interaction=activator]
+rhaS -- rhaA [interaction=activator]
+nhaR -- pgaB [interaction=activator]
+fnr -- aceE [interaction=dual]
+fnr -- hyfI [interaction=repressor]
+ihfA -- hycI [interaction=activator]
+hupA -- pgm [interaction=repressor]
+ihfB -- pspC [interaction=activator]
+fis -- glnG [interaction=activator]
+fruR -- pykF [interaction=repressor]
+bglJ -- bglG [interaction=activator]
+malT -- malP [interaction=activator]
+flhC -- glpA [interaction=activator]
+fur -- sufD [interaction=repressor]
+flhC -- fliF [interaction=activator]
+fnr -- frdC [interaction=activator]
+trpR -- trpD [interaction=repressor]
+marA -- ybjC [interaction=activator]
+evgA -- yneN [interaction=activator]
+hyfR -- hyfR [interaction=activator]
+fnr -- pdhR [interaction=dual]
+cbl -- tauC [interaction=activator]
+crp -- yiaN [interaction=maybe_activator]
+narL -- ogt [interaction=activator]
+crp -- gdhA [interaction=repressor]
+fis -- gyrA [interaction=repressor]
+crp -- nirD [interaction=repressor]
+gadE -- mdtF [interaction=activator]
+fnr -- narX [interaction=repressor]
+uxuR -- uxuA [interaction=repressor]
+exuR -- uxaA [interaction=repressor]
+sgrR -- setA [interaction=activator]
+crp -- cyoA [interaction=activator]
+gadE -- wzc [interaction=activator]
+appY -- hyaE [interaction=activator]
+caiF -- caiB [interaction=activator]
+arcA -- hyaE [interaction=activator]
+crp -- chbA [interaction=activator]
+fis -- rrlE [interaction=activator]
+evgA -- mdtF [interaction=activator]
+crp -- nanC [interaction=activator]
+purR -- purF [interaction=repressor]
+ihfA -- yiaL [interaction=activator]
+fis -- tyrU [interaction=activator]
+soxS -- nfsB [interaction=activator]
+metJ -- yeiB [interaction=repressor]
+ihfA -- csgF [interaction=activator]
+fruR -- nirB [interaction=repressor]
+narL -- nuoH [interaction=activator]
+ascG -- ascG [interaction=repressor]
+crp -- glgS [interaction=activator]
+narL -- aspA [interaction=repressor]
+gadX -- gadB [interaction=activator]
+fur -- tfaQ [interaction=repressor]
+hns -- proW [interaction=repressor]
+cpxR -- psd [interaction=repressor]
+yefM -- yoeB [interaction=repressor]
+fnr -- nuoI [interaction=repressor]
+lrp -- rrfG [interaction=repressor]
+fis -- cysG [interaction=repressor]
+lexA -- ydjM [interaction=repressor]
+ihfA -- hipB [interaction=activator]
+crp -- lsrG [interaction=activator]
+ihfA -- cysI [interaction=activator]
+agaR -- kbaZ [interaction=repressor]
+ompR -- sra [interaction=repressor]
+lrhA -- lrhA [interaction=activator]
+fis -- gltV [interaction=activator]
+nsrR -- yoaG [interaction=repressor]
+fur -- ftnA [interaction=activator]
+fnr -- sodA [interaction=repressor]
+nsrR -- wzxE [interaction=repressor]
+crp -- rpsO [interaction=repressor]
+lrp -- ilvA [interaction=repressor]
+ihfA -- hycD [interaction=activator]
+arcA -- rpsS [interaction=repressor]
+phoP -- mgrB [interaction=activator]
+gadE -- gltB [interaction=activator]
+crp -- mtlA [interaction=activator]
+flhD -- fliY [interaction=activator]
+narL -- nuoG [interaction=activator]
+gutM -- srlE [interaction=activator]
+oxyR -- katG [interaction=activator]
+nsrR -- feaB [interaction=repressor]
+cueR -- cueO [interaction=activator]
+lrp -- rrlD [interaction=repressor]
+ihfB -- amiA [interaction=repressor]
+phoB -- ugpQ [interaction=dual]
+cytR -- nupC [interaction=repressor]
+fhlA -- hyfJ [interaction=activator]
+hns -- rrlH [interaction=repressor]
+lexA -- recA [interaction=repressor]
+flhD -- napF [interaction=activator]
+rcsA -- flhD [interaction=repressor]
+argR -- artJ [interaction=repressor]
+fhlA -- hycD [interaction=activator]
+fnr -- ydhW [interaction=activator]
+ihfB -- paaH [interaction=activator]
+fruR -- eda [interaction=repressor]
+cbl -- tauA [interaction=activator]
+modE -- hycA [interaction=activator]
+fur -- fecE [interaction=repressor]
+ihfB -- ssuE [interaction=dual]
+fur -- purR [interaction=repressor]
+hns -- galK [interaction=repressor]
+flhD -- gltJ [interaction=activator]
+modE -- hycH [interaction=activator]
+agaR -- agaC [interaction=repressor]
+relE -- hokD [interaction=repressor]
+kdpE -- kdpC [interaction=activator]
+torR -- hdeA [interaction=activator]
+crp -- ugpQ [interaction=activator]
+csiR -- gabT [interaction=repressor]
+ihfA -- yiaN [interaction=activator]
+ttdR -- ttdB [interaction=activator]
+phoB -- amn [interaction=activator]
+nsrR -- lrp [interaction=repressor]
+hns -- cydB [interaction=repressor]
+glnG -- yhdW [interaction=activator]
+rcnR -- rcnA [interaction=repressor]
+ihfA -- narK [interaction=activator]
+ihfA -- hycF [interaction=activator]
+narL -- dcuR [interaction=repressor]
+lexA -- murC [interaction=repressor]
+soxS -- ygiC [interaction=activator]
+arcA -- oppA [interaction=repressor]
+ihfB -- atoD [interaction=activator]
+hcaR -- hcaC [interaction=activator]
+galR -- galK [interaction=dual]
+narL -- hybG [interaction=repressor]
+gatR_2 -- gatA [interaction=repressor]
+ihfA -- sucB [interaction=repressor]
+fur -- oppF [interaction=repressor]
+glpR -- glpQ [interaction=repressor]
+narL -- frdD [interaction=repressor]
+crp -- aceK [interaction=repressor]
+fnr -- tdcC [interaction=activator]
+crp -- aceF [interaction=activator]
+paaX -- paaI [interaction=repressor]
+dpiA -- mdh [interaction=activator]
+nsrR -- rffC [interaction=repressor]
+fur -- sufS [interaction=repressor]
+nrdR -- nrdD [interaction=repressor]
+fis -- rrlC [interaction=activator]
+paaX -- paaC [interaction=repressor]
+nsrR -- rffT [interaction=repressor]
+hns -- cas1 [interaction=repressor]
+crp -- malG [interaction=activator]
+ihfB -- glmY [interaction=activator]
+flhC -- nrfA [interaction=activator]
+baeR -- baeS [interaction=activator]
+envY -- ompF [interaction=activator]
+asnC -- mioC [interaction=repressor]
+ihfB -- yjbG [interaction=activator]
+crp -- lyxK [interaction=maybe_activator]
+modE -- deoD [interaction=repressor]
+ihfB -- fimC [interaction=activator]
+fnr -- ubiA [interaction=repressor]
+phoP -- treR [interaction=repressor]
+ihfB -- caiE [interaction=repressor]
+fnr -- gltF [interaction=repressor]
+glcC -- glcF [interaction=activator]
+metJ -- metC [interaction=repressor]
+flhC -- nrfE [interaction=activator]
+ihfB -- ihfA [interaction=repressor]
+fnr -- cyoA [interaction=repressor]
+arcA -- nuoA [interaction=repressor]
+fnr -- narL [interaction=repressor]
+crp -- tnaB [interaction=activator]
+flhD -- fliD [interaction=activator]
+cbl -- ssuB [interaction=activator]
+fur -- entC [interaction=repressor]
+oxyR -- gntP [interaction=repressor]
+nac -- gltB [interaction=repressor]
+fnr -- ubiC [interaction=repressor]
+iscR -- sufB [interaction=activator]
+gadX -- glnK [interaction=activator]
+cpxR -- rpoH [interaction=activator]
+crp -- glpX [interaction=activator]
+hns -- yciE [interaction=repressor]
+purR -- gcvP [interaction=repressor]
+flhD -- ccmB [interaction=activator]
+phoP -- rstB [interaction=activator]
+marA -- yhiD [interaction=repressor]
+iscR -- rnlA [interaction=repressor]
+crp -- ychH [interaction=activator]
+fis -- tyrT [interaction=activator]
+modE -- ccmD [interaction=activator]
+yiaJ -- sgbU [interaction=repressor]
+ihfA -- ihfA [interaction=repressor]
+rpiR -- alsE [interaction=repressor]
+glnG -- glnL [interaction=dual]
+cusR -- cusC [interaction=activator]
+rcsB -- gadX [interaction=dual]
+arcA -- rpoS [interaction=repressor]
+hns -- cysU [interaction=repressor]
+fruR -- mtlD [interaction=repressor]
+lrp -- rrsH [interaction=repressor]
+gadE -- hdeD [interaction=activator]
+fur -- yhhY [interaction=repressor]
+ihfB -- ilvX [interaction=dual]
+crp -- malX [interaction=activator]
+crp -- malY [interaction=activator]
+csgD -- csgB [interaction=activator]
+fis -- trg [interaction=activator]
+gntR -- idnD [interaction=repressor]
+ihfA -- hemF [interaction=repressor]
+fis -- malF [interaction=activator]
+lrp -- hdeA [interaction=repressor]
+fnr -- nuoN [interaction=repressor]
+crp -- glpF [interaction=activator]
+fis -- alaX [interaction=activator]
+chbR -- chbC [interaction=dual]
+ihfB -- csgF [interaction=activator]
+rcsA -- csgF [interaction=repressor]
+hns -- cadA [interaction=repressor]
+fis -- rrsE [interaction=activator]
+fnr -- hypE [interaction=activator]
+crp -- hlyE [interaction=activator]
+marA -- waaY [interaction=activator]
+gntR -- idnT [interaction=repressor]
+fis -- pflB [interaction=repressor]
+lrp -- livF [interaction=repressor]
+flhC -- nrfB [interaction=activator]
+fur -- katE [interaction=repressor]
+ihfB -- pstS [interaction=activator]
+hns -- adiA [interaction=repressor]
+fis -- ileT [interaction=activator]
+phoP -- argD [interaction=repressor]
+hns -- chpR [interaction=activator]
+fur -- sucA [interaction=activator]
+arcA -- cyoE [interaction=repressor]
+crp -- srlA [interaction=activator]
+fur -- entF [interaction=repressor]
+fnr -- pflB [interaction=activator]
+crp -- csgD [interaction=activator]
+dcuR -- dctA [interaction=activator]
+nsrR -- norR [interaction=repressor]
+fnr -- nikA [interaction=activator]
+fis -- nuoN [interaction=activator]
+rutR -- gadW [interaction=repressor]
+appY -- hyaD [interaction=activator]
+rob -- acrA [interaction=activator]
+nagC -- nanC [interaction=repressor]
+araC -- araD [interaction=dual]
+narL -- napH [interaction=repressor]
+marA -- slp [interaction=repressor]
+fnr -- yhjA [interaction=activator]
+cadC -- cadB [interaction=activator]
+fnr -- bcsB [interaction=activator]
+cysB -- ssuA [interaction=repressor]
+ulaR -- ulaA [interaction=repressor]
+ihfB -- pflB [interaction=activator]
+ihfA -- glcG [interaction=activator]
+purR -- purL [interaction=repressor]
+ompR -- omrA [interaction=activator]
+crp -- rbsA [interaction=activator]
+crp -- hyfG [interaction=activator]
+oxyR -- sufC [interaction=activator]
+arcA -- hyaA [interaction=activator]
+crp -- uxuR [interaction=activator]
+narL -- narH [interaction=activator]
+glcC -- glcD [interaction=activator]
+fis -- hyaE [interaction=repressor]
+crp -- glnL [interaction=dual]
+ompR -- csgD [interaction=activator]
+fnr -- cydA [interaction=dual]
+csiR -- csiD [interaction=repressor]
+modE -- moaA [interaction=activator]
+leuO -- cas2 [interaction=activator]
+crp -- srlB [interaction=activator]
+crp -- glnG [interaction=dual]
+fis -- mglC [interaction=repressor]
+cysB -- tauB [interaction=activator]
+flhD -- flgD [interaction=activator]
+cytR -- rpoH [interaction=repressor]
+fnr -- gadA [interaction=repressor]
+purR -- purH [interaction=repressor]
+narP -- fdhF [interaction=activator]
+hns -- gabP [interaction=activator]
+fucR -- fucK [interaction=activator]
+rhaS -- rhaD [interaction=activator]
+metJ -- metN [interaction=repressor]
+fnr -- garP [interaction=activator]
+iclR -- iclR [interaction=repressor]
+ihfA -- nuoJ [interaction=repressor]
+fnr -- emrK [interaction=activator]
+phoB -- pitB [interaction=repressor]
+crp -- csiD [interaction=activator]
+pdhR -- hemL [interaction=repressor]
+hns -- fimG [interaction=activator]
+gadE -- wza [interaction=activator]
+galR -- galM [interaction=dual]
+lrp -- dadA [interaction=dual]
+crp -- xylH [interaction=activator]
+nsrR -- sufS [interaction=repressor]
+mprA -- mprA [interaction=repressor]
+fnr -- glpT [interaction=activator]
+ihfA -- htrE [interaction=activator]
+fruR -- fruB [interaction=repressor]
+hns -- fes [interaction=activator]
+gadX -- yhiD [interaction=dual]
+phoB -- phnK [interaction=activator]
+ada -- alkB [interaction=dual]
+lrp -- oppA [interaction=repressor]
+crp -- mglA [interaction=activator]
+yeiL -- yeiL [interaction=activator]
+flhD -- fliS [interaction=activator]
+ihfA -- ecpD [interaction=activator]
+ihfA -- dppD [interaction=activator]
+fis -- proM [interaction=activator]
+arcA -- glpB [interaction=repressor]
+rbsR -- rbsD [interaction=repressor]
+narP -- hyaE [interaction=repressor]
+narP -- yoaG [interaction=activator]
+ihfB -- hypE [interaction=activator]
+fnr -- iraM [interaction=activator]
+ihfA -- hypC [interaction=activator]
+crp -- fixX [interaction=activator]
+cpxR -- dsbA [interaction=activator]
+flhC -- flgB [interaction=activator]
+ihfA -- fis [interaction=activator]
+fnr -- rpsP [interaction=repressor]
+crp -- crp [interaction=dual]
+glnG -- rutF [interaction=activator]
+fruR -- mtlR [interaction=repressor]
+tdcR -- tdcG [interaction=activator]
+narL -- ubiC [interaction=repressor]
+ihfB -- sufE [interaction=activator]
+ihfB -- glnP [interaction=activator]
+ihfA -- ulaG [interaction=repressor]
+crp -- gadA [interaction=repressor]
+rob -- ybiS [interaction=activator]
+alaS -- alaS [interaction=repressor]
+cpxR -- csgG [interaction=repressor]
+deoR -- nupG [interaction=repressor]
+fnr -- ybdZ [interaction=activator]
+crp -- yhcH [interaction=activator]
+gcvA -- gcvH [interaction=dual]
+crp -- relA [interaction=activator]
+flhC -- flgH [interaction=activator]
+fis -- nrfA [interaction=repressor]
+crp -- pnp [interaction=repressor]
+crp -- serC [interaction=repressor]
+fis -- metU [interaction=activator]
+trpR -- mtr [interaction=repressor]
+birA -- bioD [interaction=repressor]
+arcA -- sodA [interaction=repressor]
+nsrR -- tehA [interaction=repressor]
+dgsA -- manZ [interaction=repressor]
+gadE -- yjbF [interaction=activator]
+oxyR -- uxuB [interaction=repressor]
+argR -- truB [interaction=repressor]
+tyrR -- tyrP [interaction=dual]
+hns -- srlB [interaction=activator]
+lexA -- ftsA [interaction=repressor]
+arcA -- gatD [interaction=repressor]
+crp -- lsrC [interaction=activator]
+flhC -- flhB [interaction=activator]
+ihfA -- sucD [interaction=repressor]
+leuO -- bglF [interaction=activator]
+ihfB -- caiB [interaction=repressor]
+crp -- entD [interaction=activator]
+ihfA -- gltD [interaction=activator]
+modE -- narL [interaction=activator]
+lexA -- umuD [interaction=repressor]
+idnR -- idnO [interaction=activator]
+ihfA -- flhD [interaction=repressor]
+arcA -- ubiA [interaction=repressor]
+arcA -- ackA [interaction=activator]
+evgA -- evgA [interaction=activator]
+hns -- acrF [interaction=repressor]
+arcA -- fadH [interaction=repressor]
+galS -- galP [interaction=repressor]
+dnaA -- polA [interaction=activator]
+arcA -- oppF [interaction=repressor]
+iscR -- napH [interaction=repressor]
+rcsA -- rprA [interaction=activator]
+fis -- glnW [interaction=activator]
+fis -- hyaA [interaction=repressor]
+arcA -- fadJ [interaction=repressor]
+fhlA -- hyfA [interaction=activator]
+lrp -- fimE [interaction=activator]
+ihfA -- pstB [interaction=activator]
+hns -- smtA [interaction=activator]
+flhD -- fliA [interaction=activator]
+fis -- acnB [interaction=repressor]
+arcA -- glcD [interaction=repressor]
+crp -- fumA [interaction=activator]
+ihfB -- fimD [interaction=activator]
+fis -- marA [interaction=activator]
+idnR -- idnR [interaction=activator]
+cpxR -- rpoE [interaction=repressor]
+crp -- grpE [interaction=activator]
+arcA -- pflB [interaction=activator]
+ihfA -- nuoB [interaction=repressor]
+fis -- valU [interaction=activator]
+mhpR -- mhpE [interaction=activator]
+phoB -- ugpB [interaction=dual]
+hns -- hisM [interaction=activator]
+crp -- caiT [interaction=activator]
+nsrR -- hypB [interaction=repressor]
+crp -- idnR [interaction=activator]
+narP -- fdnH [interaction=repressor]
+ihfB -- tdcB [interaction=activator]
+fnr -- ynfE [interaction=activator]
+hns -- rrsD [interaction=repressor]
+cysB -- cysU [interaction=activator]
+fnr -- focB [interaction=repressor]
+cysB -- cysP [interaction=activator]
+fruR -- nirD [interaction=repressor]
+cpxR -- cpxR [interaction=activator]
+purR -- speB [interaction=repressor]
+argR -- astA [interaction=activator]
+stpA -- bglF [interaction=repressor]
+crp -- gadC [interaction=repressor]
+ascG -- htpG [interaction=repressor]
+csgD -- csgE [interaction=activator]
+rob -- inaA [interaction=activator]
+marA -- nfsA [interaction=activator]
+cpxR -- hha [interaction=activator]
+crp -- rbsD [interaction=activator]
+glnG -- hisM [interaction=activator]
+flhC -- fliE [interaction=activator]
+hns -- alaU [interaction=repressor]
+fnr -- moaA [interaction=activator]
+gadW -- mdtF [interaction=activator]
+ihfB -- nuoN [interaction=repressor]
+crp -- sohB [interaction=repressor]
+phoP -- acrA [interaction=repressor]
+fis -- glpC [interaction=activator]
+fis -- deoB [interaction=activator]
+arcA -- hybA [interaction=repressor]
+dsdC -- dsdX [interaction=activator]
+lexA -- murE [interaction=repressor]
+fis -- dmsC [interaction=repressor]
+crp -- sucA [interaction=activator]
+crp -- ulaC [interaction=activator]
+narL -- nuoF [interaction=activator]
+glnG -- potG [interaction=activator]
+gntR -- idnK [interaction=repressor]
+lrp -- argO [interaction=activator]
+ihfA -- tdcE [interaction=activator]
+argR -- gltF [interaction=repressor]
+narP -- ydhX [interaction=repressor]
+rcsB -- wzb [interaction=activator]
+cysB -- cysW [interaction=activator]
+narL -- ccmA [interaction=repressor]
+argR -- argA [interaction=repressor]
+narL -- nuoB [interaction=activator]
+crp -- rhaB [interaction=activator]
+rcsB -- rcsA [interaction=activator]
+soxS -- zinT [interaction=activator]
+nsrR -- tadA [interaction=repressor]
+iscR -- iscA [interaction=repressor]
+ihfB -- glcF [interaction=activator]
+ihfA -- yjbE [interaction=activator]
+arcA -- gadA [interaction=activator]
+fnr -- cheY [interaction=activator]
+nsrR -- ihfA [interaction=repressor]
+arcA -- fumA [interaction=repressor]
+fnr -- nrfB [interaction=activator]
+fis -- rrfB [interaction=activator]
+crp -- cyoE [interaction=activator]
+rstA -- asr [interaction=activator]
+flhD -- fliR [interaction=activator]
+ihfA -- glnQ [interaction=activator]
+soxS -- acrA [interaction=activator]
+lrp -- ileU [interaction=repressor]
+hns -- rnpB [interaction=repressor]
+purR -- cvpA [interaction=repressor]
+fur -- zinT [interaction=activator]
+lsrR -- lsrF [interaction=repressor]
+dnaA -- dnaA [interaction=repressor]
+yqhC -- yqhD [interaction=activator]
+hupA -- galT [interaction=repressor]
+fnr -- hypD [interaction=activator]
+gadE -- cyoA [interaction=activator]
+fnr -- fdnH [interaction=dual]
+ihfA -- rtcB [interaction=activator]
+narL -- hybA [interaction=repressor]
+flhD -- recC [interaction=activator]
+narP -- napF [interaction=dual]
+flhD -- ygdB [interaction=activator]
+fnr -- nuoM [interaction=repressor]
+hyfR -- hyfF [interaction=activator]
+fis -- nirC [interaction=repressor]
+ihfB -- tdcD [interaction=activator]
+dicA -- dicB [interaction=repressor]
+ulaR -- ulaF [interaction=repressor]
+ihfB -- mtr [interaction=repressor]
+gatR_1 -- gatB [interaction=repressor]
+metR -- hmp [interaction=activator]
+ihfB -- cysH [interaction=activator]
+narL -- ydhY [interaction=repressor]
+crp -- dadX [interaction=dual]
+crp -- galT [interaction=dual]
+fnr -- garK [interaction=activator]
+fnr -- rplM [interaction=repressor]
+fnr -- ccmB [interaction=activator]
+fnr -- yeiL [interaction=repressor]
+crp -- gntU [interaction=activator]
+argR -- argG [interaction=repressor]
+fnr -- tdcG [interaction=activator]
+crp -- gatD [interaction=activator]
+iscR -- hyaC [interaction=repressor]
+dpiA -- citE [interaction=activator]
+pdhR -- aceF [interaction=repressor]
+crp -- tdcB [interaction=activator]
+xapR -- xapB [interaction=activator]
+fis -- gadC [interaction=repressor]
+hupB -- micF [interaction=activator]
+fis -- nanK [interaction=repressor]
+rcsB -- cadA [interaction=activator]
+ihfA -- ompC [interaction=repressor]
+flhD -- fliJ [interaction=activator]
+nrdR -- nrdF [interaction=repressor]
+narL -- frdA [interaction=repressor]
+arcA -- nuoN [interaction=repressor]
+deoR -- deoA [interaction=repressor]
+narL -- nirB [interaction=activator]
+mprA -- emrB [interaction=repressor]
+ilvY -- ilvY [interaction=repressor]
+fis -- nanA [interaction=repressor]
+fis -- leuX [interaction=activator]
+arcA -- rutA [interaction=activator]
+lrp -- fimI [interaction=activator]
+murR -- murQ [interaction=repressor]
+ihfB -- envZ [interaction=repressor]
+galS -- mglB [interaction=repressor]
+fis -- marB [interaction=activator]
+crp -- actP [interaction=activator]
+fruR -- manX [interaction=repressor]
+narL -- ynfG [interaction=repressor]
+fnr -- hyfE [interaction=repressor]
+fruR -- ppsA [interaction=activator]
+rcsB -- bdm [interaction=activator]
+fis -- bglG [interaction=repressor]
+soxS -- uof [interaction=activator]
+rutR -- rutD [interaction=repressor]
+ihfB -- nuoF [interaction=repressor]
+hns -- rrlD [interaction=repressor]
+marR -- marR [interaction=repressor]
+hns -- casB [interaction=repressor]
+marA -- ygiB [interaction=activator]
+ttdR -- ttdA [interaction=activator]
+cbl -- ssuE [interaction=activator]
+fucR -- fucR [interaction=activator]
+ihfB -- hycD [interaction=activator]
+evgA -- ydeP [interaction=activator]
+crp -- sgbU [interaction=maybe_activator]
+ihfB -- cysG [interaction=dual]
+fur -- rnpB [interaction=repressor]
+acrR -- micF [interaction=repressor]
+argR -- hisP [interaction=repressor]
+arcA -- gatB [interaction=repressor]
+zur -- znuC [interaction=repressor]
+narP -- nrfF [interaction=activator]
+flhC -- napC [interaction=activator]
+ihfB -- gltF [interaction=activator]
+cpxR -- smpA [interaction=repressor]
+crp -- araD [interaction=activator]
+lexA -- yafO [interaction=repressor]
+pdhR -- cyoE [interaction=repressor]
+hns -- chiA [interaction=repressor]
+crp -- psiE [interaction=repressor]
+arcA -- cadA [interaction=repressor]
+rutR -- rutC [interaction=repressor]
+crp -- gntX [interaction=activator]
+nsrR -- tsgA [interaction=repressor]
+hns -- nirC [interaction=repressor]
+lexA -- uvrY [interaction=repressor]
+iscR -- napD [interaction=repressor]
+fis -- flxA [interaction=activator]
+melR -- melB [interaction=dual]
+cysB -- cysM [interaction=activator]
+lrp -- rrfE [interaction=repressor]
+fis -- yoaG [interaction=repressor]
+fnr -- ydhU [interaction=activator]
+crp -- melB [interaction=activator]
+lrp -- thrV [interaction=repressor]
+crp -- ansB [interaction=activator]
+ttdR -- ttdT [interaction=activator]
+zur -- znuB [interaction=repressor]
+lexA -- cho [interaction=repressor]
+rhaR -- rhaS [interaction=activator]
+fis -- serT [interaction=activator]
+flhD -- glpB [interaction=activator]
+modE -- deoC [interaction=repressor]
+oxyR -- rimK [interaction=repressor]
+ihfB -- hipB [interaction=activator]
+crp -- yjcH [interaction=activator]
+ompR -- flhD [interaction=repressor]
+narL -- fdhF [interaction=repressor]
+ihfB -- glnH [interaction=activator]
+crp -- hofB [interaction=activator]
+ihfB -- hypB [interaction=activator]
+flhD -- napD [interaction=activator]
+fnr -- hyfH [interaction=repressor]
+ihfB -- ompF [interaction=dual]
+modE -- ccmF [interaction=activator]
+crp -- gcd [interaction=repressor]
+lexA -- yafP [interaction=repressor]
+rcsB -- wcaB [interaction=activator]
+crp -- nupG [interaction=dual]
+ihfA -- ilvE [interaction=dual]
+crp -- bglG [interaction=activator]
+exuR -- exuT [interaction=repressor]
+slyA -- hlyE [interaction=activator]
+glnG -- argT [interaction=activator]
+soxS -- pgi [interaction=activator]
+hupB -- galM [interaction=repressor]
+cdaR -- garR [interaction=activator]
+cpxR -- csgE [interaction=repressor]
+glnG -- hisP [interaction=activator]
+cytR -- deoC [interaction=repressor]
+fis -- lysW [interaction=activator]
+oxyR -- ahpC [interaction=activator]
+crp -- acnA [interaction=activator]
+fis -- sra [interaction=activator]
+fnr -- tdcD [interaction=activator]
+narL -- dmsB [interaction=repressor]
+lrp -- csiD [interaction=activator]
+arcA -- rplV [interaction=repressor]
+crp -- araF [interaction=activator]
+narL -- hybF [interaction=repressor]
+hns -- hdeB [interaction=repressor]
+fur -- ompF [interaction=activator]
+cynR -- cynX [interaction=activator]
+rstA -- csgG [interaction=repressor]
+chbR -- chbF [interaction=dual]
+glnG -- astD [interaction=activator]
+ihfB -- caiA [interaction=repressor]
+narP -- hcp [interaction=activator]
+arcA -- iraM [interaction=activator]
+gatR_2 -- gatC [interaction=repressor]
+lexA -- dinB [interaction=repressor]
+narL -- narK [interaction=activator]
+fabR -- fabB [interaction=repressor]
+crp -- nagC [interaction=dual]
+fis -- glnX [interaction=activator]
+fis -- nuoI [interaction=activator]
+ihfB -- fimA [interaction=activator]
+cpxR -- rseB [interaction=repressor]
+fnr -- fnr [interaction=repressor]
+pspF -- pspG [interaction=activator]
+nhaR -- nhaR [interaction=maybe_activator]
+fis -- nrfB [interaction=repressor]
+flhC -- yecR [interaction=activator]
+zur -- zinT [interaction=repressor]
+ihfB -- csgG [interaction=activator]
+evgA -- acrD [interaction=activator]
+fis -- mtlD [interaction=repressor]
+ihfB -- nrfC [interaction=dual]
+ihfB -- norV [interaction=dual]
+fadR -- fabB [interaction=activator]
+argR -- artI [interaction=repressor]
+crp -- tam [interaction=activator]
+gntR -- gntK [interaction=repressor]
+lysR -- lysA [interaction=activator]
+argP -- dapB [interaction=activator]
+crp -- crr [interaction=dual]
+agaR -- agaV [interaction=repressor]
+ihfA -- nuoI [interaction=repressor]
+narL -- ydhW [interaction=repressor]
+ihfA -- dppA [interaction=activator]
+fnr -- tdcB [interaction=activator]
+oxyR -- sufA [interaction=activator]
+modE -- ccmA [interaction=activator]
+ihfB -- fimI [interaction=activator]
+nac -- gltD [interaction=repressor]
+ihfA -- osmE [interaction=repressor]
+nsrR -- feaR [interaction=repressor]
+ihfB -- pstC [interaction=activator]
+marA -- micF [interaction=activator]
+tdcA -- tdcF [interaction=activator]
+argR -- artM [interaction=repressor]
+crp -- rbsB [interaction=activator]
+mhpR -- mhpC [interaction=activator]
+fnr -- nuoJ [interaction=repressor]
+nsrR -- dkgB [interaction=repressor]
+narP -- ccmE [interaction=dual]
+galR -- mglA [interaction=repressor]
+lrp -- ompF [interaction=activator]
+ihfB -- paaC [interaction=activator]
+relE -- relE [interaction=repressor]
+purR -- glyA [interaction=repressor]
+fur -- ydfN [interaction=repressor]
+ihfA -- nuoE [interaction=repressor]
+gadW -- gadA [interaction=repressor]
+arcA -- betA [interaction=repressor]
+stpA -- bglG [interaction=repressor]
+narL -- ynfE [interaction=repressor]
+lrp -- serC [interaction=activator]
+arcA -- sucB [interaction=dual]
+metJ -- ahpF [interaction=repressor]
+fis -- cspI [interaction=repressor]
+flhD -- fliK [interaction=activator]
+ihfB -- narJ [interaction=activator]
+fhlA -- hyfF [interaction=activator]
+flhC -- flgC [interaction=activator]
+appY -- hyaB [interaction=activator]
+fis -- carA [interaction=activator]
+ihfB -- dmsB [interaction=repressor]
+tdcR -- tdcA [interaction=activator]
+hns -- gutQ [interaction=activator]
+sgrR -- thiP [interaction=repressor]
+phoP -- borD [interaction=activator]
+fucR -- fucP [interaction=activator]
+lrp -- yhiD [interaction=repressor]
+sdiA -- ftsQ [interaction=dual]
+rcsA -- rcsA [interaction=activator]
+nrdR -- nrdG [interaction=repressor]
+soxS -- ybjN [interaction=activator]
+arcA -- hyaF [interaction=activator]
+betI -- betI [interaction=repressor]
+arcA -- nuoF [interaction=repressor]
+fnr -- nikD [interaction=activator]
+crp -- pncB [interaction=repressor]
+marA -- yncE [interaction=activator]
+marA -- ygiA [interaction=activator]
+crp -- nanT [interaction=activator]
+narP -- nirD [interaction=activator]
+fhlA -- hyfE [interaction=activator]
+nagC -- glmS [interaction=dual]
+oxyR -- oxyS [interaction=activator]
+fis -- apaH [interaction=activator]
+idnR -- gntU [interaction=repressor]
+crp -- gadE [interaction=repressor]
+fis -- nuoB [interaction=activator]
+rcsA -- wzc [interaction=activator]
+crp -- rhaA [interaction=activator]
+nsrR -- infC [interaction=repressor]
+fnr -- napD [interaction=activator]
+fur -- sdhA [interaction=activator]
+hns -- fliY [interaction=activator]
+crp -- prpD [interaction=activator]
+fis -- ndh [interaction=dual]
+flhC -- fliH [interaction=activator]
+arcA -- hyaB [interaction=activator]
+ihfA -- fimC [interaction=activator]
+flhD -- ppdB [interaction=activator]
+ihfB -- yeiL [interaction=activator]
+flhD -- napG [interaction=activator]
+malT -- malG [interaction=activator]
+crp -- gatB [interaction=activator]
+torR -- torR [interaction=repressor]
+arcA -- appB [interaction=activator]
+crp -- fixC [interaction=activator]
+fis -- chpA [interaction=activator]
+gadW -- slp [interaction=activator]
+ihfA -- uspA [interaction=activator]
+arcA -- hybO [interaction=repressor]
+fhlA -- hypE [interaction=activator]
+gadE -- gadC [interaction=activator]
+lrp -- yojI [interaction=activator]
+tdcR -- tdcC [interaction=activator]
+lexA -- uvrA [interaction=repressor]
+dsdC -- dsdA [interaction=activator]
+argP -- nrdA [interaction=activator]
+narL -- hyaC [interaction=repressor]
+narP -- ydhW [interaction=repressor]
+fnr -- tdcE [interaction=activator]
+fnr -- narG [interaction=activator]
+crp -- mhpE [interaction=activator]
+crp -- agaV [interaction=activator]
+fur -- cyoB [interaction=repressor]
+argR -- argR [interaction=repressor]
+narL -- ccmB [interaction=repressor]
+hns -- garK [interaction=repressor]
+gadE -- fabZ [interaction=activator]
+fnr -- yfiD [interaction=dual]
+ihfB -- gltA [interaction=activator]
+crp -- gatZ [interaction=activator]
+fis -- rpsO [interaction=activator]
+trpR -- trpE [interaction=repressor]
+lrp -- alaU [interaction=repressor]
+crp -- fecD [interaction=activator]
+modE -- hycF [interaction=activator]
+fruR -- aceB [interaction=activator]
+iscR -- hyaD [interaction=repressor]
+hns -- relA [interaction=activator]
+arcA -- acnB [interaction=repressor]
+rutR -- rutB [interaction=repressor]
+fnr -- nuoL [interaction=repressor]
+rob -- ygiC [interaction=activator]
+ihfB -- hycC [interaction=activator]
+cpxR -- csgC [interaction=repressor]
+fnr -- dcuC [interaction=activator]
+fur -- fepG [interaction=repressor]
+dcuR -- dcuB [interaction=activator]
+ihfA -- paaK [interaction=activator]
+flhC -- ygbK [interaction=activator]
+modE -- moaC [interaction=activator]
+arcA -- fadL [interaction=repressor]
+oxyR -- sufD [interaction=activator]
+ihfA -- sufC [interaction=activator]
+cpxR -- rseA [interaction=repressor]
+hns -- stpA [interaction=repressor]
+glnG -- rutE [interaction=activator]
+crp -- hyfJ [interaction=activator]
+flhC -- ccmF [interaction=activator]
+modE -- deoA [interaction=repressor]
+allR -- glxK [interaction=repressor]
+arcA -- prfA [interaction=activator]
+narL -- nrfE [interaction=dual]
+flhC -- hypF [interaction=activator]
+fur -- entS [interaction=dual]
+nikR -- nikA [interaction=repressor]
+fnr -- pstB [interaction=activator]
+phoB -- phnF [interaction=activator]
+nsrR -- fhlA [interaction=repressor]
+marA -- rob [interaction=repressor]
+lexA -- lpxC [interaction=repressor]
+fnr -- ycaC [interaction=repressor]
+flhD -- mglC [interaction=repressor]
+rob -- nfsB [interaction=activator]
+cysB -- cysA [interaction=activator]
+rcsA -- wzb [interaction=activator]
+exuR -- uxuR [interaction=repressor]
+crp -- srlR [interaction=activator]
+fruR -- nirC [interaction=repressor]
+rutR -- rutG [interaction=repressor]
+ihfB -- glcA [interaction=activator]
+fnr -- nuoH [interaction=repressor]
+galS -- mglC [interaction=repressor]
+malT -- malF [interaction=activator]
+ihfB -- hycE [interaction=activator]
+fnr -- rpsI [interaction=repressor]
+fnr -- hypB [interaction=activator]
+ihfA -- paaH [interaction=activator]
+idnR -- idnK [interaction=activator]
+flhD -- nrfC [interaction=activator]
+rstA -- csgD [interaction=repressor]
+fis -- rrsD [interaction=activator]
+nac -- codA [interaction=activator]
+lrp -- ilvE [interaction=repressor]
+flhD -- flgG [interaction=activator]
+narL -- caiF [interaction=repressor]
+hns -- bglB [interaction=repressor]
+gadX -- hdeD [interaction=activator]
+purR -- hflD [interaction=repressor]
+fnr -- caiF [interaction=activator]
+fnr -- ygbA [interaction=repressor]
+fnr -- cyoD [interaction=repressor]
+nadR -- pnuC [interaction=repressor]
+rcnR -- rcnR [interaction=repressor]
+crp -- hpt [interaction=activator]
+crp -- tnaC [interaction=activator]
+crp -- paaI [interaction=activator]
+dgsA -- ptsG [interaction=repressor]
+rob -- nfo [interaction=activator]
+crp -- paaG [interaction=activator]
+flhC -- fliM [interaction=activator]
+crp -- epd [interaction=activator]
+flhD -- gltK [interaction=activator]
+arcA -- puuR [interaction=repressor]
+srlR -- srlA [interaction=repressor]
+hns -- gabT [interaction=activator]
+trpR -- aroH [interaction=repressor]
+phoB -- argP [interaction=activator]
+fnr -- glpB [interaction=activator]
+fur -- hmp [interaction=repressor]
+flhC -- ycgR [interaction=activator]
+gntR -- gntT [interaction=repressor]
+betI -- betA [interaction=repressor]
+nsrR -- grxD [interaction=repressor]
+crp -- aldB [interaction=activator]
+rcsA -- gadC [interaction=activator]
+ihfA -- fimB [interaction=activator]
+dnaA -- yjeV [interaction=repressor]
+xylR -- xylG [interaction=activator]
+soxS -- fldA [interaction=activator]
+fnr -- napG [interaction=activator]
+gntR -- idnO [interaction=repressor]
+crp -- uxuA [interaction=activator]
+fnr -- ydeJ [interaction=activator]
+ihfA -- hypE [interaction=activator]
+fis -- malG [interaction=activator]
+lrp -- livK [interaction=repressor]
+nac -- gdhA [interaction=repressor]
+arcA -- nuoJ [interaction=repressor]
+fis -- rrfD [interaction=activator]
+fis -- argW [interaction=activator]
+gadX -- mdtF [interaction=activator]
+phoP -- gadW [interaction=activator]
+fur -- fecB [interaction=repressor]
+uidR -- uidC [interaction=repressor]
+purR -- codA [interaction=repressor]
+crp -- entB [interaction=activator]
+fis -- xylR [interaction=repressor]
+rcsB -- wcaA [interaction=activator]
+crp -- pdhR [interaction=activator]
+purR -- purN [interaction=repressor]
+fis -- gadX [interaction=repressor]
+nsrR -- hycB [interaction=repressor]
+agaR -- agaS [interaction=repressor]
+ihfA -- ompR [interaction=repressor]
+tyrR -- mtr [interaction=activator]
+flhC -- nrfF [interaction=activator]
+glnG -- hisJ [interaction=activator]
+ihfB -- paaE [interaction=activator]
+flhC -- glpB [interaction=activator]
+leuO -- casE [interaction=activator]
+arcA -- cydD [interaction=activator]
+chbR -- chbB [interaction=dual]
+hns -- bglG [interaction=repressor]
+ihfB -- uspB [interaction=repressor]
+ihfB -- sufD [interaction=activator]
+rob -- marA [interaction=activator]
+leuO -- leuO [interaction=activator]
+lrp -- gabD [interaction=activator]
+crp -- glpE [interaction=activator]
+crp -- rhaD [interaction=activator]
+ihfA -- ulaD [interaction=repressor]
+ihfA -- ygjG [interaction=unknown]
+fis -- glyU [interaction=activator]
+fnr -- rplD [interaction=activator]
+lysR -- lysR [interaction=repressor]
+relE -- relB [interaction=repressor]
+fnr -- sdhD [interaction=repressor]
+nagC -- chbB [interaction=repressor]
+ihfB -- pspG [interaction=activator]
+fis -- tufB [interaction=activator]
+metJ -- ahpC [interaction=repressor]
+lacI -- lacA [interaction=repressor]
+ihfA -- nuoC [interaction=repressor]
+ihfA -- fimG [interaction=activator]
+ihfA -- ssuC [interaction=dual]
+ihfA -- yiaO [interaction=activator]
+ihfA -- caiA [interaction=repressor]
+lexA -- polB [interaction=repressor]
+fis -- guaB [interaction=repressor]
+flhD -- ppdC [interaction=activator]
+crp -- ulaA [interaction=activator]
+fis -- rsmA [interaction=activator]
+rpiR -- rpiR [interaction=repressor]
+fnr -- rplV [interaction=activator]
+marA -- nfo [interaction=activator]
+fnr -- malQ [interaction=activator]
+ada -- ada [interaction=dual]
+fur -- rcnA [interaction=repressor]
+argR -- astD [interaction=activator]
+fruR -- icd [interaction=activator]
+gadW -- gadX [interaction=repressor]
+ihfA -- nirC [interaction=dual]
+glcC -- glcA [interaction=activator]
+hns -- fimB [interaction=repressor]
+argR -- argC [interaction=repressor]
+arsR -- arsC [interaction=repressor]
+crp -- hofM [interaction=activator]
+ihfB -- tdcG [interaction=activator]
+gadX -- hns [interaction=activator]
+pdhR -- fecB [interaction=activator]
+arcA -- glpA [interaction=repressor]
+metJ -- folE [interaction=repressor]
+fur -- fhuB [interaction=repressor]
+torR -- gadA [interaction=repressor]
+lexA -- dinG [interaction=repressor]
+crp -- manZ [interaction=activator]
+crp -- deoB [interaction=dual]
+lrp -- rrlC [interaction=repressor]
+crp -- idnO [interaction=activator]
+phoP -- ygiB [interaction=activator]
+crp -- lpd [interaction=dual]
+fnr -- pepT [interaction=activator]
+ihfA -- sgbU [interaction=activator]
+arcA -- moeB [interaction=activator]
+glnG -- ddpC [interaction=activator]
+ihfA -- nrfA [interaction=dual]
+crp -- aspA [interaction=activator]
+fnr -- tap [interaction=activator]
+crp -- ilvB [interaction=activator]
+qseB -- qseC [interaction=activator]
+ihfA -- yjbG [interaction=activator]
+galR -- galP [interaction=repressor]
+cusR -- cusR [interaction=activator]
+glpR -- glpD [interaction=repressor]
+narL -- dmsD [interaction=repressor]
+evgA -- frc [interaction=activator]
+soxS -- ribA [interaction=activator]
+fis -- nrfE [interaction=repressor]
+glpR -- glpF [interaction=repressor]
+crp -- ugpE [interaction=activator]
+nagC -- manX [interaction=repressor]
+cpxR -- yjeP [interaction=repressor]
+ihfB -- micF [interaction=repressor]
+fnr -- upp [interaction=activator]
+nsrR -- pheT [interaction=repressor]
+crp -- guaB [interaction=activator]
+atoC -- atoB [interaction=activator]
+purR -- purA [interaction=repressor]
+crp -- marR [interaction=activator]
+cysB -- cysD [interaction=activator]
+phoB -- pstB [interaction=activator]
+fnr -- argK [interaction=activator]
+rcsA -- osmB [interaction=activator]
+nanR -- nanA [interaction=repressor]
+fis -- narJ [interaction=repressor]
+fur -- garP [interaction=repressor]
+marA -- ybaO [interaction=activator]
+dpiA -- citG [interaction=activator]
+phoP -- yrbL [interaction=activator]
+fucR -- fucA [interaction=activator]
+fnr -- fixX [interaction=activator]
+iscR -- hyaB [interaction=repressor]
+hupB -- galT [interaction=repressor]
+argR -- gltB [interaction=repressor]
+cadC -- cadA [interaction=activator]
+flhC -- napF [interaction=activator]
+crp -- speC [interaction=repressor]
+modE -- moaB [interaction=activator]
+fur -- cyoE [interaction=repressor]
+ydeO -- gadE [interaction=activator]
+narP -- ccmH [interaction=dual]
+modE -- oppC [interaction=repressor]
+soxS -- marA [interaction=activator]
+nsrR -- rffE [interaction=repressor]
+arcA -- lldD [interaction=repressor]
+araC -- araE [interaction=activator]
+flhC -- gltK [interaction=activator]
+mhpR -- mhpD [interaction=activator]
+fnr -- feoC [interaction=activator]
+mtlR -- mtlD [interaction=repressor]
+flhD -- fliZ [interaction=activator]
+ihfA -- rtcA [interaction=activator]
+flhC -- flgJ [interaction=activator]
+rob -- mltF [interaction=activator]
+dpiA -- appY [interaction=repressor]
+glnG -- yhdX [interaction=activator]
+nagC -- galP [interaction=repressor]
+crp -- oxyR [interaction=activator]
+ihfB -- adiA [interaction=activator]
+rcsB -- csgD [interaction=repressor]
+phoB -- yibD [interaction=activator]
+gadX -- ybaS [interaction=activator]
+glnG -- ddpA [interaction=activator]
+fur -- fur [interaction=repressor]
+metR -- metA [interaction=activator]
+gadW -- hdeB [interaction=dual]
+narP -- hyaF [interaction=repressor]
+ihfB -- nuoH [interaction=repressor]
+crp -- ptsI [interaction=dual]
+phoP -- dcuD [interaction=repressor]
+ihfB -- yjbH [interaction=activator]
+csgD -- csgF [interaction=activator]
+ulaR -- ulaD [interaction=repressor]
+phoP -- phoQ [interaction=dual]
+lrp -- ileT [interaction=repressor]
+ihfA -- nuoG [interaction=repressor]
+hupB -- galE [interaction=repressor]
+gadE -- csgF [interaction=repressor]
+csgD -- csgD [interaction=activator]
+atoC -- atoA [interaction=activator]
+arcA -- focA [interaction=activator]
+gatR_2 -- gatY [interaction=repressor]
+ihfA -- pspC [interaction=activator]
+gadE -- cyoB [interaction=activator]
+pspF -- pspE [interaction=activator]
+tyrR -- aroL [interaction=repressor]
+murR -- murP [interaction=repressor]
+iscR -- ydiU [interaction=activator]
+phoP -- purH [interaction=activator]
+fis -- gltW [interaction=activator]
+yiaJ -- yiaN [interaction=repressor]
+fnr -- hyfD [interaction=repressor]
+ihfB -- ibpB [interaction=activator]
+fnr -- ccmC [interaction=activator]
+argR -- argI [interaction=repressor]
+crp -- feaR [interaction=activator]
+fnr -- garL [interaction=activator]
+arcA -- betT [interaction=repressor]
+fis -- rrfC [interaction=activator]
+flhD -- fliI [interaction=activator]
+gadE -- mdtE [interaction=activator]
+mqsR -- mqsR [interaction=repressor]
+ihfB -- caiC [interaction=repressor]
+fnr -- gcvP [interaction=activator]
+lldR -- lldD [interaction=dual]
+mngR -- mngB [interaction=repressor]
+gadE -- yhiD [interaction=activator]
+cpxR -- degP [interaction=activator]
+purR -- carB [interaction=repressor]
+nsrR -- aceF [interaction=repressor]
+lrp -- aroA [interaction=activator]
+flhC -- fliQ [interaction=activator]
+ihfB -- dppA [interaction=activator]
+crp -- caiA [interaction=activator]
+cysB -- ssuE [interaction=repressor]
+fis -- nuoA [interaction=activator]
+narP -- napG [interaction=dual]
+lrp -- oppC [interaction=repressor]
+xylR -- xylH [interaction=activator]
+narL -- adhE [interaction=repressor]
+crp -- uidB [interaction=activator]
+hyfR -- hyfA [interaction=activator]
+fnr -- pstC [interaction=activator]
+fnr -- pstS [interaction=activator]
+malT -- malE [interaction=activator]
+narL -- norV [interaction=repressor]
+crp -- aroA [interaction=repressor]
+cytR -- ppiA [interaction=repressor]
+phoB -- pstS [interaction=activator]
+fis -- rrlG [interaction=activator]
+lsrR -- lsrA [interaction=repressor]
+flhC -- nrfG [interaction=activator]
+marA -- zwf [interaction=activator]
+rutR -- carB [interaction=activator]
+fucR -- fucI [interaction=activator]
+rbsR -- rbsC [interaction=repressor]
+ihfA -- ubiC [interaction=repressor]
+crp -- entE [interaction=activator]
+nsrR -- hycI [interaction=repressor]
+soxS -- acrB [interaction=activator]
+cbl -- ssuD [interaction=activator]
+dnaA -- aldA [interaction=repressor]
+pspF -- pspC [interaction=activator]
+ilvY -- ilvC [interaction=activator]
+soxS -- fumC [interaction=activator]
+crp -- ulaD [interaction=activator]
+fnr -- glpC [interaction=activator]
+hns -- fepE [interaction=activator]
+lsrR -- lsrR [interaction=repressor]
+crp -- yiaJ [interaction=repressor]
+argR -- gltD [interaction=repressor]
+glnG -- yhdY [interaction=activator]
+fnr -- ompW [interaction=activator]
+crp -- uxaC [interaction=activator]
+fis -- osmE [interaction=repressor]
+fis -- nuoH [interaction=activator]
+fis -- narI [interaction=repressor]
+fnr -- nrfG [interaction=activator]
+rob -- marB [interaction=activator]
+cytR -- cdd [interaction=repressor]
+fur -- sucB [interaction=activator]
+pdhR -- fecE [interaction=activator]
+hns -- casA [interaction=repressor]
+cynR -- cynR [interaction=repressor]
+flhD -- fliF [interaction=activator]
+arcA -- nuoL [interaction=repressor]
+ihfB -- glcG [interaction=activator]
+galR -- galR [interaction=repressor]
+soxS -- acnA [interaction=activator]
+phoB -- phoE [interaction=activator]
+cpxR -- mdtA [interaction=activator]
+dsdC -- dsdC [interaction=repressor]
+flhC -- napA [interaction=activator]
+fnr -- hlyE [interaction=activator]
+ihfB -- cysJ [interaction=activator]
+crp -- araC [interaction=activator]
+fadR -- fadI [interaction=repressor]
+evgA -- yegR [interaction=activator]
+crp -- lsrD [interaction=activator]
+narL -- narG [interaction=activator]
+crp -- gatA [interaction=activator]
+cueR -- moaD [interaction=repressor]
+fis -- nuoF [interaction=activator]
+narL -- hybB [interaction=repressor]
+narL -- napA [interaction=repressor]
+iclR -- aceK [interaction=repressor]
+fnr -- narJ [interaction=activator]
+fhlA -- hyfI [interaction=activator]
+flhD -- flgB [interaction=activator]
+fis -- yhcH [interaction=repressor]
+fur -- exbB [interaction=repressor]
+lrp -- rrlH [interaction=repressor]
+hns -- rrfH [interaction=repressor]
+crp -- fucK [interaction=activator]
+fruR -- yahA [interaction=repressor]
+ihfA -- narG [interaction=activator]
+crp -- chbC [interaction=activator]
+fnr -- cadC [interaction=activator]
+tdcR -- tdcB [interaction=activator]
+rcsB -- flhC [interaction=repressor]
+crp -- fucP [interaction=activator]
+crp -- truB [interaction=repressor]
+ihfB -- ulaG [interaction=repressor]
+gadE -- lpxD [interaction=activator]
+lexA -- tisB [interaction=repressor]
+ihfB -- yjcH [interaction=repressor]
+pdhR -- cyoC [interaction=repressor]
+ihfA -- tdcC [interaction=activator]
+crp -- rbsR [interaction=activator]
+oxyR -- oxyR [interaction=repressor]
+narL -- focA [interaction=repressor]
+ihfB -- sucC [interaction=repressor]
+ihfB -- nrfG [interaction=dual]
+crp -- tdcG [interaction=activator]
+ihfB -- ndh [interaction=repressor]
+purR -- purE [interaction=repressor]
+glnG -- potH [interaction=activator]
+nsrR -- yfhB [interaction=repressor]
+ihfA -- nrfD [interaction=dual]
+phoP -- hdeA [interaction=activator]
+nsrR -- yjgI [interaction=repressor]
+argR -- argH [interaction=repressor]
+fnr -- nuoC [interaction=repressor]
+fnr -- fumB [interaction=activator]
+ihfA -- sufS [interaction=activator]
+argR -- metY [interaction=repressor]
+arcA -- caiA [interaction=activator]
+cpxR -- csgF [interaction=repressor]
+ihfB -- ilvL [interaction=dual]
+hns -- srlE [interaction=activator]
+crp -- rpoH [interaction=dual]
+dgsA -- ptsH [interaction=repressor]
+trpR -- trpA [interaction=repressor]
+ihfA -- nrfE [interaction=dual]
+flhC -- hydN [interaction=activator]
+sgrR -- yfdZ [interaction=activator]
+lrp -- fimD [interaction=activator]
+iscR -- napG [interaction=repressor]
+fis -- fadA [interaction=activator]
+ihfB -- pstA [interaction=activator]
+fur -- nrdI [interaction=repressor]
+flhD -- flgI [interaction=activator]
+crp -- sodB [interaction=repressor]
+lrp -- oppF [interaction=repressor]
+dnaA -- recF [interaction=repressor]
+flhC -- flgG [interaction=activator]
+phoB -- phnO [interaction=activator]
+ihfA -- sgbE [interaction=activator]
+flhC -- fliJ [interaction=activator]
+rcsA -- csgG [interaction=repressor]
+fis -- guaA [interaction=repressor]
+lrp -- yeiL [interaction=activator]
+crp -- chbF [interaction=activator]
+rstA -- ompF [interaction=repressor]
+arcA -- rpsC [interaction=repressor]
+gadE -- osmB [interaction=activator]
+crp -- mglC [interaction=activator]
+narL -- nrfC [interaction=dual]
+lexA -- dinF [interaction=repressor]
+ihfB -- aceB [interaction=activator]
+narL -- nikB [interaction=repressor]
+lrp -- gltF [interaction=activator]
+fnr -- dmsB [interaction=activator]
+hns -- yhiD [interaction=repressor]
+ihfA -- hypB [interaction=activator]
+malT -- malS [interaction=activator]
+ihfA -- ilvA [interaction=dual]
+crp -- fecA [interaction=activator]
+gutM -- gutM [interaction=activator]
+rcsA -- sra [interaction=activator]
+lrp -- ilvL [interaction=repressor]
+crp -- guaA [interaction=activator]
+hupA -- seqA [interaction=repressor]
+gadW -- dctR [interaction=activator]
+fur -- sufB [interaction=repressor]
+crp -- hyfE [interaction=activator]
+gatR_1 -- gatZ [interaction=repressor]
+fis -- hupB [interaction=repressor]
+crp -- trg [interaction=activator]
+yiaJ -- lyxK [interaction=repressor]
+ihfA -- prmC [interaction=activator]
+fur -- gspO [interaction=repressor]
+fnr -- cheR [interaction=activator]
+ihfA -- tdcA [interaction=activator]
+fnr -- ynfF [interaction=activator]
+torR -- torC [interaction=activator]
+chbR -- chbA [interaction=dual]
+narL -- nuoJ [interaction=activator]
+crp -- nrdA [interaction=activator]
+crp -- uidC [interaction=activator]
+hns -- bolA [interaction=repressor]
+crp -- flhC [interaction=activator]
+fur -- ryhB [interaction=repressor]
+fnr -- xdhA [interaction=activator]
+crp -- modA [interaction=activator]
+paaX -- paaF [interaction=repressor]
+ihfB -- nuoB [interaction=repressor]
+fis -- thrW [interaction=activator]
+fis -- glnL [interaction=activator]
+fis -- chpR [interaction=activator]
+ihfB -- hycF [interaction=activator]
+phoP -- yhiD [interaction=activator]
+hns -- mukE [interaction=activator]
+flhD -- fliL [interaction=activator]
+crp -- osmY [interaction=repressor]
+crp -- fucU [interaction=activator]
+zraR -- zraR [interaction=activator]
+fnr -- caiD [interaction=activator]
+nsrR -- hypA [interaction=repressor]
+modE -- narX [interaction=activator]
+fis -- xylG [interaction=repressor]
+fis -- rrlD [interaction=activator]
+ihfA -- dps [interaction=activator]
+rcsA -- yjbH [interaction=activator]
+modE -- dmsC [interaction=repressor]
+ihfB -- aceK [interaction=activator]
+ihfB -- sufA [interaction=activator]
+cdaR -- garP [interaction=activator]
+argR -- argE [interaction=repressor]
+iscR -- sufS [interaction=activator]
+arcA -- hybB [interaction=repressor]
+ascG -- prpR [interaction=repressor]
+crp -- galE [interaction=dual]
+cysB -- cysH [interaction=activator]
+fis -- ileU [interaction=activator]
+ihfA -- micF [interaction=repressor]
+cpxR -- csgA [interaction=repressor]
+ihfA -- nuoN [interaction=repressor]
+purR -- speA [interaction=repressor]
+narP -- nrfB [interaction=activator]
+nikR -- nikC [interaction=repressor]
+crp -- fecC [interaction=activator]
+soxS -- ygiA [interaction=activator]
+hyfR -- hyfI [interaction=activator]
+narL -- nrfA [interaction=dual]
+crp -- galS [interaction=activator]
+fhlA -- hypF [interaction=activator]
+oxyR -- uof [interaction=activator]
+fnr -- gadW [interaction=repressor]
+crp -- serA [interaction=activator]
+nsrR -- rfe [interaction=repressor]
+marA -- acnA [interaction=activator]
+fis -- metT [interaction=activator]
+fnr -- dmsA [interaction=activator]
+ihfB -- glcD [interaction=activator]
+marA -- inaA [interaction=activator]
+rcsA -- bdm [interaction=activator]
+flhD -- fliH [interaction=activator]
+lrp -- gltB [interaction=activator]
+fur -- entE [interaction=repressor]
+fnr -- ssuC [interaction=activator]
+ihfA -- hycH [interaction=activator]
+arcA -- hybE [interaction=repressor]
+crp -- hyfA [interaction=activator]
+fnr -- arcA [interaction=dual]
+appY -- hyaA [interaction=activator]
+fnr -- tdcF [interaction=activator]
+glnG -- ddpD [interaction=activator]
+ihfB -- atoA [interaction=activator]
+hupB -- tyrP [interaction=repressor]
+fruR -- adhE [interaction=repressor]
+crp -- lacA [interaction=dual]
+fis -- nuoG [interaction=activator]
+narL -- frdC [interaction=repressor]
+hns -- acrE [interaction=repressor]
+marA -- rimK [interaction=activator]
+crp -- cysG [interaction=repressor]
+flhD -- gltI [interaction=activator]
+fnr -- narK [interaction=activator]
+caiF -- caiA [interaction=activator]
+hns -- fimF [interaction=activator]
+leuO -- leuB [interaction=activator]
+nagC -- nagA [interaction=repressor]
+marA -- acrA [interaction=activator]
+leuO -- leuD [interaction=activator]
+uidR -- uidR [interaction=repressor]
+flhD -- nrfE [interaction=activator]
+crp -- uxaA [interaction=activator]
+fis -- hyaD [interaction=repressor]
+narL -- ccmF [interaction=repressor]
+nsrR -- nrfE [interaction=repressor]
+nsrR -- rffA [interaction=repressor]
+pepA -- carA [interaction=repressor]
+modE -- napD [interaction=activator]
+fnr -- fepE [interaction=activator]
+nadR -- nadA [interaction=repressor]
+ihfA -- ulaF [interaction=repressor]
+lexA -- dinJ [interaction=repressor]
+fis -- nuoJ [interaction=activator]
+phoP -- metL [interaction=activator]
+crp -- chbG [interaction=activator]
+crp -- mhpC [interaction=activator]
+rutR -- fepB [interaction=repressor]
+fnr -- hyfC [interaction=repressor]
+crp -- hyfH [interaction=activator]
+fur -- entH [interaction=repressor]
+crp -- uxuB [interaction=activator]
+narP -- hyaC [interaction=repressor]
+lexA -- mraY [interaction=repressor]
+arcA -- gltA [interaction=repressor]
+fur -- entD [interaction=repressor]
+fis -- rrsB [interaction=activator]
+galS -- galT [interaction=dual]
+nanR -- nanM [interaction=repressor]
+lrp -- kbl [interaction=activator]
+fruR -- mtlA [interaction=repressor]
+gatR_1 -- gatY [interaction=repressor]
+glcC -- glcC [interaction=repressor]
+nac -- serA [interaction=repressor]
+dgsA -- malT [interaction=repressor]
+narL -- nuoL [interaction=activator]
+mprA -- emrA [interaction=repressor]
+fnr -- rplT [interaction=repressor]
+hipB -- hipB [interaction=repressor]
+phoB -- asr [interaction=activator]
+fnr -- prmC [interaction=repressor]
+ihfB -- fis [interaction=activator]
+crp -- xylR [interaction=activator]
+crp -- xseA [interaction=repressor]
+fur -- fepE [interaction=repressor]
+hns -- cysP [interaction=repressor]
+xylR -- xylR [interaction=activator]
+hns -- yciG [interaction=repressor]
+putA -- putP [interaction=repressor]
+fnr -- napF [interaction=activator]
+crp -- modC [interaction=activator]
+ihfA -- csgD [interaction=activator]
+hyfR -- hyfE [interaction=activator]
+ihfB -- sufB [interaction=activator]
+metJ -- metI [interaction=repressor]
+gadE -- dctR [interaction=activator]
+ihfB -- nuoJ [interaction=repressor]
+ihfA -- paaF [interaction=activator]
+crp -- metK [interaction=repressor]
+hns -- rrfF [interaction=repressor]
+ihfA -- mtr [interaction=repressor]
+ihfA -- glcA [interaction=activator]
+rutR -- rutR [interaction=repressor]
+mqsR -- cspD [interaction=repressor]
+cpxR -- tsr [interaction=repressor]
+flhC -- fliT [interaction=activator]
+nsrR -- sufD [interaction=repressor]
+fur -- fepD [interaction=repressor]
+glcC -- glcG [interaction=activator]
+lrp -- rrsE [interaction=repressor]
+fur -- ygaC [interaction=repressor]
+ihfA -- pstC [interaction=activator]
+crp -- ppdD [interaction=activator]
+gadX -- gadW [interaction=repressor]
+tyrR -- tyrR [interaction=repressor]
+fnr -- gltB [interaction=repressor]
+hns -- ybdZ [interaction=activator]
+birA -- bioF [interaction=repressor]
+evgA -- evgS [interaction=activator]
+narP -- norV [interaction=repressor]
+ihfB -- folA [interaction=activator]
+soxS -- poxB [interaction=activator]
+hns -- ilvI [interaction=repressor]
+ihfB -- glcB [interaction=activator]
+gadX -- hdeA [interaction=dual]
+lexA -- murF [interaction=repressor]
+iscR -- napF [interaction=repressor]
+agaR -- agaR [interaction=repressor]
+exuR -- uxaC [interaction=repressor]
+fnr -- sdhA [interaction=repressor]
+crp -- acs [interaction=activator]
+hns -- mukF [interaction=activator]
+lexA -- recN [interaction=repressor]
+hns -- rrfB [interaction=repressor]
+fis -- glpB [interaction=activator]
+fnr -- dmsC [interaction=activator]
+envY -- ompC [interaction=activator]
+fnr -- nirC [interaction=activator]
+fur -- oppD [interaction=repressor]
+nsrR -- hycA [interaction=repressor]
+crp -- putP [interaction=repressor]
+ihfB -- hypD [interaction=activator]
+hns -- casE [interaction=repressor]
+hcaR -- hcaR [interaction=repressor]
+ihfB -- yiaM [interaction=activator]
+fnr -- moeB [interaction=repressor]
+arcA -- cyoD [interaction=repressor]
+crp -- melR [interaction=activator]
+rstA -- narG [interaction=activator]
+arcA -- fadE [interaction=repressor]
+torR -- tnaC [interaction=activator]
+lexA -- ybfE [interaction=repressor]
+narL -- torA [interaction=repressor]
+lexA -- uvrC [interaction=repressor]
+crp -- yiaO [interaction=maybe_activator]
+hns -- galT [interaction=repressor]
+fnr -- moaE [interaction=activator]
+narL -- hybO [interaction=repressor]
+ihfB -- yiaK [interaction=activator]
+crp -- aceE [interaction=activator]
+fis -- alaW [interaction=activator]
+flhC -- fliD [interaction=activator]
+fruR -- fbaA [interaction=repressor]
+narP -- napD [interaction=dual]
+ihfA -- caiC [interaction=repressor]
+crp -- gltB [interaction=repressor]
+rhaS -- rhaB [interaction=activator]
+ihfA -- ulaC [interaction=repressor]
+phoB -- ugpC [interaction=dual]
+baeR -- spy [interaction=activator]
+arcA -- aceK [interaction=repressor]
+rcsB -- ftsZ [interaction=activator]
+pdhR -- aceE [interaction=repressor]
+araC -- araG [interaction=activator]
+oxyR -- dps [interaction=activator]
+glnG -- glnP [interaction=dual]
+hns -- alaV [interaction=repressor]
+srlR -- srlE [interaction=repressor]
+ihfB -- yiaJ [interaction=repressor]
+fis -- leuQ [interaction=activator]
+ihfB -- glnQ [interaction=activator]
+flhD -- mglA [interaction=repressor]
+glpR -- glpT [interaction=repressor]
+ihfA -- sgbH [interaction=activator]
+fur -- sdhD [interaction=activator]
+gadE -- hlpA [interaction=activator]
+cysB -- hslJ [interaction=repressor]
+metJ -- metB [interaction=repressor]
+argP -- dnaA [interaction=activator]
+fhlA -- hycG [interaction=activator]
+ihfB -- sodB [interaction=repressor]
+ihfB -- paaA [interaction=activator]
+sgrR -- thiQ [interaction=repressor]
+crp -- araA [interaction=activator]
+fis -- yjcH [interaction=repressor]
+dhaR -- dhaM [interaction=activator]
+oxyR -- flu [interaction=repressor]
+gadX -- dctR [interaction=activator]
+cpxR -- yqjA [interaction=activator]
+marR -- marA [interaction=repressor]
+ompR -- tppB [interaction=activator]
+ihfB -- tyrP [interaction=repressor]
+fis -- valX [interaction=activator]
+fnr -- caiA [interaction=activator]
+fruR -- aceK [interaction=activator]
+yiaJ -- sgbE [interaction=repressor]
+rpiR -- rpiB [interaction=repressor]
+gntR -- gntU [interaction=repressor]
+arcA -- lpd [interaction=repressor]
+dpiA -- exuT [interaction=activator]
+fis -- actP [interaction=repressor]
+lrp -- hdeB [interaction=repressor]
+trpR -- trpB [interaction=repressor]
+arcA -- ptsG [interaction=repressor]
+arcA -- nuoM [interaction=repressor]
+evgA -- mdtE [interaction=activator]
+fnr -- gltD [interaction=repressor]
+tdcA -- tdcG [interaction=activator]
+narP -- fdnG [interaction=repressor]
+cpxR -- ung [interaction=repressor]
+cdaR -- gudX [interaction=activator]
+fis -- deoA [interaction=activator]
+fnr -- fhlA [interaction=activator]
+gadE -- wzb [interaction=activator]
+lrp -- gabT [interaction=activator]
+crp -- fis [interaction=dual]
+crp -- hyfD [interaction=activator]
+nanR -- nanK [interaction=repressor]
+ihfB -- ygjG [interaction=unknown]
+hns -- fliZ [interaction=activator]
+idnR -- idnT [interaction=activator]
+fhlA -- hypC [interaction=activator]
+crp -- hofN [interaction=activator]
+arcA -- glcG [interaction=repressor]
+crp -- fixB [interaction=activator]
+arcA -- icd [interaction=repressor]
+phoP -- ybjG [interaction=activator]
+lrp -- gltD [interaction=activator]
+fur -- feoB [interaction=repressor]
+tyrR -- yaiA [interaction=repressor]
+argP -- dnaN [interaction=activator]
+flhD -- fliG [interaction=activator]
+ihfA -- sra [interaction=activator]
+ihfA -- yiaM [interaction=activator]
+fhlA -- hypD [interaction=activator]
+flhC -- recC [interaction=activator]
+dnaA -- nrdB [interaction=dual]
+hipB -- hipA [interaction=repressor]
+purR -- pyrD [interaction=repressor]
+treR -- treB [interaction=repressor]
+dpiA -- citF [interaction=activator]
+hyfR -- hyfH [interaction=activator]
+tdcA -- tdcE [interaction=activator]
+crp -- nanA [interaction=activator]
+soxS -- pqiA [interaction=activator]
+ihfB -- ompR [interaction=repressor]
+flhD -- flgM [interaction=activator]
+argR -- astB [interaction=activator]
+crp -- yhfA [interaction=dual]
+fnr -- uxaC [interaction=activator]
+fis -- topA [interaction=dual]
+gadW -- hdeA [interaction=dual]
+tdcR -- tdcD [interaction=activator]
+ihfA -- ilvD [interaction=dual]
+fnr -- pitA [interaction=activator]
+nsrR -- mhpT [interaction=repressor]
+ihfB -- pspD [interaction=activator]
+arcA -- xylR [interaction=activator]
+csgD -- csgG [interaction=activator]
+narL -- hyaB [interaction=repressor]
+rob -- micF [interaction=activator]
+lrp -- fimF [interaction=activator]
+fnr -- hcr [interaction=activator]
+fnr -- phoU [interaction=activator]
+nsrR -- fliZ [interaction=repressor]
+gadE -- yjbE [interaction=activator]
+crp -- marA [interaction=activator]
+hns -- flhC [interaction=activator]
+soxS -- inaA [interaction=activator]
+pspF -- pspD [interaction=activator]
+phoB -- phnI [interaction=activator]
+ihfA -- cysH [interaction=activator]
+rob -- zwf [interaction=activator]
+fis -- rrfH [interaction=activator]
+phoB -- pstC [interaction=activator]
+iscR -- hyaE [interaction=repressor]
+ihfB -- paaK [interaction=activator]
+hns -- cydA [interaction=repressor]
+rutR -- rutA [interaction=repressor]
+lrp -- alaV [interaction=repressor]
+fur -- feoC [interaction=repressor]
+crp -- fiu [interaction=activator]
+rcsA -- osmC [interaction=activator]
+ihfB -- htrE [interaction=activator]
+dnaA -- nrdA [interaction=dual]
+crp -- kbaZ [interaction=activator]
+ihfA -- norV [interaction=dual]
+flhC -- napG [interaction=activator]
+ihfA -- nuoA [interaction=repressor]
+cpxR -- lpxA [interaction=activator]
+fis -- rimP [interaction=activator]
+crp -- dcuB [interaction=activator]
+araC -- araA [interaction=dual]
+hns -- rcsA [interaction=repressor]
+hns -- srlD [interaction=activator]
+modE -- ccmH [interaction=activator]
+marA -- fumC [interaction=activator]
+fadR -- fabA [interaction=activator]
+crp -- gabT [interaction=activator]
+fis -- hns [interaction=activator]
+flhD -- hypF [interaction=activator]
+hns -- asr [interaction=repressor]
+crp -- cytR [interaction=dual]
+gcvA -- gcvA [interaction=repressor]
+gadE -- cadB [interaction=activator]
+ihfA -- glpT [interaction=repressor]
+ihfA -- paaI [interaction=activator]
+galS -- galR [interaction=repressor]
+acrR -- acrA [interaction=repressor]
+allR -- ybbV [interaction=repressor]
+fruR -- glk [interaction=repressor]
+cpxR -- rseC [interaction=repressor]
+cpxR -- baeS [interaction=activator]
+narL -- nrfB [interaction=dual]
+fnr -- ysgA [interaction=repressor]
+dpiA -- citD [interaction=activator]
+lexA -- dnaG [interaction=repressor]
+modE -- oppA [interaction=repressor]
+fnr -- uraA [interaction=activator]
+fnr -- hypC [interaction=activator]
+gadE -- cyoC [interaction=activator]
+fhlA -- hyfC [interaction=activator]
+pdhR -- ndh [interaction=repressor]
+gadE -- csgG [interaction=repressor]
+narL -- napB [interaction=repressor]
+narL -- nrfF [interaction=dual]
+hns -- appY [interaction=repressor]
+ihfB -- sodA [interaction=repressor]
+gadE -- hdeB [interaction=activator]
+fnr -- emrY [interaction=activator]
+crp -- mpl [interaction=activator]
+ihfB -- nuoG [interaction=repressor]
+hupA -- galM [interaction=repressor]
+crp -- glcC [interaction=activator]
+purR -- glnB [interaction=repressor]
+glnG -- astA [interaction=activator]
+crp -- dksA [interaction=activator]
+yoeB -- yefM [interaction=repressor]
+flhC -- fliN [interaction=activator]
+ihfA -- ompF [interaction=dual]
+crp -- mdtE [interaction=repressor]
+fnr -- cyoC [interaction=repressor]
+phoP -- rutC [interaction=activator]
+cdaR -- garK [interaction=activator]
+flhC -- flgF [interaction=activator]
+argR -- rpsO [interaction=repressor]
+crp -- glgC [interaction=activator]
+hns -- gspB [interaction=repressor]
+soxR -- soxS [interaction=activator]
+norR -- norW [interaction=activator]
+lrp -- rrfD [interaction=repressor]
+uxuR -- uxuB [interaction=repressor]
+lexA -- ddlB [interaction=repressor]
+crp -- lsrA [interaction=activator]
+fis -- lysV [interaction=activator]
+melR -- melR [interaction=dual]
+narL -- nirD [interaction=activator]
+modE -- deoB [interaction=repressor]
+cpxR -- csgD [interaction=repressor]
+fnr -- tdcA [interaction=activator]
+flhD -- flgE [interaction=activator]
+paaX -- paaB [interaction=repressor]
+fnr -- nrfF [interaction=activator]
+fnr -- moeA [interaction=repressor]
+yiaJ -- yiaJ [interaction=repressor]
+fis -- thrV [interaction=activator]
+ompR -- csgE [interaction=activator]
+ihfA -- glnH [interaction=activator]
+crp -- mtlR [interaction=activator]
+crp -- nusA [interaction=repressor]
+birA -- bioB [interaction=repressor]
+gadX -- gadE [interaction=activator]
+crp -- hyfB [interaction=activator]
+fnr -- dcuA [interaction=activator]
+nsrR -- hycC [interaction=repressor]
+narL -- dmsC [interaction=repressor]
+narL -- dmsA [interaction=repressor]
+arcA -- puuA [interaction=repressor]
+crp -- araE [interaction=activator]
+ihfB -- ulaC [interaction=repressor]
+crp -- gabD [interaction=activator]
+fis -- gltT [interaction=activator]
+zraR -- zraS [interaction=activator]
+nac -- nac [interaction=repressor]
+zur -- ykgM [interaction=repressor]
+fruR -- pgk [interaction=repressor]
+ihfB -- nuoI [interaction=repressor]
+crp -- murP [interaction=activator]
+ihfB -- ilvM [interaction=dual]
+ihfA -- hycA [interaction=activator]
+cytR -- deoA [interaction=repressor]
+caiF -- caiD [interaction=activator]
+fnr -- ackA [interaction=activator]
+norR -- norV [interaction=activator]
+yiaJ -- yiaK [interaction=repressor]
+rhaS -- rhaT [interaction=activator]
+ihfA -- narJ [interaction=activator]
+fhlA -- hyfH [interaction=activator]
+argR -- artQ [interaction=repressor]
+ihfB -- dmsC [interaction=repressor]
+cpxR -- rdoA [interaction=activator]
+lexA -- ftsK [interaction=repressor]
+ihfA -- tdcD [interaction=activator]
+ihfA -- hipA [interaction=activator]
+oxyR -- grxA [interaction=activator]
+mhpR -- mhpB [interaction=activator]
+ihfB -- flhD [interaction=repressor]
+crp -- nagA [interaction=dual]
+crp -- prpE [interaction=activator]
+soxS -- rimK [interaction=activator]
+modE -- hycD [interaction=activator]
+nikR -- nikR [interaction=repressor]
+narL -- hcp [interaction=activator]
+dgsA -- crr [interaction=repressor]
+cpxR -- csgB [interaction=repressor]
+arcA -- sucD [interaction=dual]
+nhaR -- osmC [interaction=activator]
+evgA -- gadE [interaction=activator]
+bolA -- dacC [interaction=dual]
+flhC -- fliK [interaction=activator]
+fnr -- nuoK [interaction=repressor]
+modE -- napC [interaction=activator]
+hns -- galM [interaction=repressor]
+baeR -- mdtB [interaction=activator]
+flhC -- flgI [interaction=activator]
+rcsA -- yjbG [interaction=activator]
+ihfA -- caiB [interaction=repressor]
+fis -- fumB [interaction=repressor]
+ihfB -- yjbE [interaction=activator]
+crp -- araB [interaction=activator]
+ihfB -- tdcF [interaction=activator]
+rcsA -- dctR [interaction=activator]
+narL -- ydhV [interaction=repressor]
+flhC -- napD [interaction=activator]
+ihfB -- narI [interaction=activator]
+fnr -- hyfG [interaction=repressor]
+crp -- sucC [interaction=activator]
+rcsB -- cadB [interaction=activator]
+lrp -- rrfF [interaction=repressor]
+crp -- sdhB [interaction=activator]
+mqsR -- mqsA [interaction=repressor]
+fur -- sufE [interaction=repressor]
+ihfA -- dmsA [interaction=repressor]
+fnr -- nirB [interaction=activator]
+crp -- sdhD [interaction=activator]
+fur -- fecI [interaction=repressor]
+metJ -- metQ [interaction=repressor]
+fruR -- gapA [interaction=repressor]
+appY -- hyaC [interaction=activator]
+crp -- ynfK [interaction=activator]
+narL -- nikA [interaction=repressor]
+ihfB -- gltD [interaction=activator]
+fis -- leuV [interaction=activator]
+argR -- artP [interaction=repressor]
+fis -- fadB [interaction=activator]
+ihfA -- csgG [interaction=activator]
+ihfA -- fhlA [interaction=activator]
+ihfA -- ilvX [interaction=dual]
+gcvA -- gcvT [interaction=dual]
+oxyR -- gor [interaction=activator]
+crp -- bglF [interaction=activator]
+xylR -- xylF [interaction=activator]
+malI -- malY [interaction=repressor]
+rcsB -- rprA [interaction=activator]
+crp -- idnD [interaction=activator]
+fis -- rnpB [interaction=dual]
+nagC -- nanM [interaction=repressor]
+tdcA -- tdcB [interaction=activator]
+narL -- hyaD [interaction=repressor]
+ihfB -- lyxK [interaction=activator]
+narP -- ccmC [interaction=dual]
+birA -- bioC [interaction=repressor]
+ascG -- ascB [interaction=repressor]
+fis -- carB [interaction=activator]
+narL -- norW [interaction=repressor]
+narP -- ccmD [interaction=dual]
+arcA -- cyoB [interaction=repressor]
+fruR -- epd [interaction=repressor]
+ihfA -- flhC [interaction=repressor]
+nsrR -- pheS [interaction=repressor]
+crp -- hofC [interaction=activator]
+hns -- srlA [interaction=activator]
+lexA -- lexA [interaction=repressor]
+flhC -- ccmG [interaction=activator]
+ihfB -- nuoE [interaction=repressor]
+hns -- fimA [interaction=activator]
+ydeO -- mdtE [interaction=activator]
+stpA -- bglB [interaction=repressor]
+narP -- nrfE [interaction=activator]
+crp -- ompR [interaction=dual]
+nsrR -- hypE [interaction=repressor]
+gadX -- cadB [interaction=activator]
+hns -- csiE [interaction=activator]
+gadW -- gadY [interaction=activator]
+crp -- chpR [interaction=activator]
+crp -- deoC [interaction=dual]
+hupA -- galK [interaction=repressor]
+fnr -- rplC [interaction=activator]
+gadE -- flhD [interaction=repressor]
+fnr -- scpA [interaction=activator]
+fnr -- sucD [interaction=repressor]
+lexA -- insK [interaction=repressor]
+crp -- proP [interaction=dual]
+cysB -- ssuC [interaction=repressor]
+glnG -- glnA [interaction=dual]
+crp -- malE [interaction=activator]
+fis -- pnp [interaction=activator]
+pdhR -- cyoB [interaction=repressor]
+fadR -- fadA [interaction=repressor]
+atoC -- atoD [interaction=activator]
+hns -- leuO [interaction=repressor]
+torR -- tnaB [interaction=activator]
+rob -- fumC [interaction=activator]
+arcA -- mdh [interaction=repressor]
+rcsA -- ftsZ [interaction=activator]
+glnG -- astB [interaction=activator]
+ihfB -- sufS [interaction=activator]
+fur -- metJ [interaction=repressor]
+phoP -- acrB [interaction=repressor]
+cusR -- cusS [interaction=activator]
+crp -- lsrR [interaction=activator]
+fnr -- acnA [interaction=repressor]
+fur -- sodB [interaction=activator]
+ompR -- omrB [interaction=activator]
+iclR -- aceB [interaction=repressor]
+hupA -- galE [interaction=repressor]
+hcaR -- hcaB [interaction=activator]
+ihfA -- hpt [interaction=repressor]
+lexA -- ftsW [interaction=repressor]
+prpR -- prpC [interaction=activator]
+paaX -- paaH [interaction=repressor]
+nagC -- glmU [interaction=dual]
+flhC -- fliO [interaction=activator]
+lrp -- ilvX [interaction=repressor]
+crp -- malM [interaction=activator]
+fis -- rrlA [interaction=activator]
+nsrR -- rffD [interaction=repressor]
+dcuR -- frdA [interaction=activator]
+nsrR -- hycE [interaction=repressor]
+nsrR -- pheM [interaction=repressor]
+ihfB -- rtcA [interaction=activator]
+gadW -- yhiD [interaction=dual]
+phoP -- phoP [interaction=dual]
+narP -- nrfG [interaction=activator]
+crp -- ptsH [interaction=dual]
+fis -- aspV [interaction=activator]
+crp -- ilvN [interaction=activator]
+fur -- ybdZ [interaction=repressor]
+gadX -- gadY [interaction=activator]
+ihfB -- dps [interaction=activator]
+modE -- modB [interaction=repressor]
+ihfB -- dppB [interaction=activator]
+modE -- moaD [interaction=activator]
+fruR -- cydA [interaction=activator]
+crp -- srlD [interaction=activator]
+arcA -- tpx [interaction=repressor]
+ulaR -- ulaB [interaction=repressor]
+fnr -- yqjI [interaction=activator]
+nsrR -- cdd [interaction=repressor]
+torR -- torA [interaction=activator]
+phoB -- psiE [interaction=activator]
+cpxR -- ompF [interaction=repressor]
+ihfB -- glpT [interaction=repressor]
+metR -- metR [interaction=repressor]
+ydeO -- mdtF [interaction=activator]
+arcA -- hybF [interaction=repressor]
+trpR -- aroL [interaction=repressor]
+argR -- carB [interaction=repressor]
+fis -- thrU [interaction=activator]
+fnr -- rpsQ [interaction=activator]
+lrp -- gltW [interaction=repressor]
+marA -- hdeA [interaction=repressor]
+cpxR -- yebE [interaction=activator]
+fnr -- nrfC [interaction=activator]
+rob -- marR [interaction=activator]
+fnr -- napH [interaction=activator]
+crp -- glpR [interaction=activator]
+arcA -- fadB [interaction=repressor]
+narL -- hyaA [interaction=repressor]
+dpiA -- citX [interaction=activator]
+argR -- argD [interaction=repressor]
+fur -- fumB [interaction=activator]
+ihfA -- hypA [interaction=activator]
+ihfA -- dppC [interaction=activator]
+lrp -- rrfC [interaction=repressor]
+dgsA -- ynfK [interaction=repressor]
+crp -- paaC [interaction=activator]
+ihfA -- yjbH [interaction=activator]
+cytR -- nupG [interaction=repressor]
+soxS -- ygiB [interaction=activator]
+purR -- gcvT [interaction=repressor]
+arcA -- rutD [interaction=activator]
+ompR -- ecnB [interaction=repressor]
+crp -- tdcC [interaction=activator]
+fis -- hisR [interaction=activator]
+fnr -- focA [interaction=activator]
+fis -- xylF [interaction=repressor]
+fur -- sufA [interaction=repressor]
+dgsA -- dgsA [interaction=repressor]
+fnr -- lpd [interaction=dual]
+lrp -- gabP [interaction=activator]
+fnr -- yfgF [interaction=activator]
+hns -- rrsB [interaction=repressor]
+fis -- rrfE [interaction=activator]
+flhD -- glpC [interaction=activator]
+ihfA -- sufD [interaction=activator]
+fnr -- sdhC [interaction=repressor]
+phoB -- phnL [interaction=activator]
+ihfB -- ssuC [interaction=dual]
+fhlA -- hycE [interaction=activator]
+lrp -- livJ [interaction=repressor]
+cspA -- hns [interaction=activator]
+gadE -- purA [interaction=activator]
+ihfA -- hycE [interaction=activator]
+fnr -- ydhV [interaction=activator]
+flhD -- ppdA [interaction=activator]
+fur -- fecC [interaction=repressor]
+ihfA -- nrfC [interaction=dual]
+crp -- gapA [interaction=activator]
+ihfA -- uspB [interaction=repressor]
+cpxR -- aroG [interaction=activator]
+flhC -- gltJ [interaction=activator]
+ihfB -- sucB [interaction=repressor]
+ihfA -- norW [interaction=dual]
+crp -- sfsA [interaction=activator]
+crp -- uxaB [interaction=activator]
+leuO -- leuA [interaction=activator]
+ihfB -- nirD [interaction=dual]
+crp -- entC [interaction=activator]
+crp -- uidA [interaction=activator]
+araC -- araB [interaction=dual]
+iscR -- hyaA [interaction=repressor]
+fnr -- fixC [interaction=activator]
+hns -- bglF [interaction=repressor]
+nsrR -- hycH [interaction=repressor]
+iscR -- erpA [interaction=repressor]
+xapR -- xapA [interaction=activator]
+narP -- ydhT [interaction=repressor]
+crp -- aldA [interaction=activator]
+ihfA -- prfA [interaction=activator]
+ihfA -- paaG [interaction=activator]
+purR -- codB [interaction=repressor]
+fis -- nusA [interaction=activator]
+fis -- nrfF [interaction=repressor]
+fis -- metY [interaction=activator]
+fnr -- malP [interaction=activator]
+ihfA -- atoA [interaction=activator]
+crp -- glpD [interaction=activator]
+flhD -- nrfF [interaction=activator]
+ihfB -- osmE [interaction=repressor]
+rutR -- nemA [interaction=repressor]
+flhD -- mdh [interaction=repressor]
+fis -- adhE [interaction=activator]
+fnr -- bcsZ [interaction=activator]
+marA -- marA [interaction=activator]
+ihfB -- uspA [interaction=activator]
+fis -- tyrV [interaction=activator]
+fur -- fes [interaction=repressor]
+iscR -- sufC [interaction=activator]
+rcsA -- gadA [interaction=dual]
+fhlA -- hyfR [interaction=activator]
+allR -- glxR [interaction=repressor]
+hns -- cas2 [interaction=repressor]
+crp -- ptsG [interaction=activator]
+hns -- lhgO [interaction=activator]
+flhC -- ccmH [interaction=activator]
+phoP -- fadL [interaction=activator]
+arcA -- rpsJ [interaction=repressor]
+glnG -- cbl [interaction=activator]
+crp -- araJ [interaction=dual]
+narL -- nuoE [interaction=activator]
+hns -- rrfC [interaction=repressor]
+uhpA -- uhpT [interaction=activator]
+ihfB -- ulaF [interaction=repressor]
+arcA -- prmC [interaction=activator]
+narP -- ccmA [interaction=dual]
+nagC -- fimB [interaction=activator]
+ihfB -- paaZ [interaction=activator]
+ihfB -- nuoC [interaction=repressor]
+argR -- pnp [interaction=repressor]
+ihfB -- fimH [interaction=activator]
+ihfA -- hemA [interaction=activator]
+ihfB -- paaD [interaction=activator]
+ihfB -- ilvA [interaction=dual]
+crp -- azuC [interaction=repressor]
+ihfB -- tdcC [interaction=activator]
+flhD -- yecR [interaction=activator]
+uidR -- uidA [interaction=repressor]
+nadR -- nadB [interaction=repressor]
+leuO -- cas1 [interaction=activator]
+cdaR -- garD [interaction=activator]
+glnG -- hisQ [interaction=activator]
+ihfA -- fimI [interaction=activator]
+rcsA -- wcaA [interaction=activator]
+fis -- infB [interaction=activator]
+gutM -- srlB [interaction=activator]
+mprA -- acrA [interaction=repressor]
+crp -- paaH [interaction=activator]
+rpiR -- alsB [interaction=repressor]
+rob -- rimK [interaction=activator]
+lacI -- lacZ [interaction=repressor]
+rcsB -- yjbF [interaction=activator]
+leuO -- bglG [interaction=activator]
+ihfB -- ilvD [interaction=dual]
+hns -- hisQ [interaction=activator]
+narL -- nikR [interaction=repressor]
+ihfA -- folA [interaction=activator]
+crp -- fucO [interaction=activator]
+fnr -- hyfJ [interaction=repressor]
+tdcA -- tdcC [interaction=activator]
+lexA -- murG [interaction=repressor]
+fnr -- nuoE [interaction=repressor]
+lexA -- hokE [interaction=repressor]
+iscR -- napC [interaction=repressor]
+oxyR -- fur [interaction=activator]
+phoB -- phnP [interaction=activator]
+ihfA -- pstA [interaction=activator]
+fnr -- napB [interaction=activator]
+dnaA -- rpoH [interaction=repressor]
+fis -- nanT [interaction=repressor]
+fnr -- fdnG [interaction=dual]
+nsrR -- sodB [interaction=repressor]
+crp -- fbaA [interaction=activator]
+agaR -- agaD [interaction=repressor]
+dgsA -- ptsI [interaction=repressor]
+tyrR -- tyrB [interaction=repressor]
+marA -- rfaZ [interaction=activator]
+fis -- dmsA [interaction=repressor]
+ihfA -- yjcH [interaction=repressor]
+rcsB -- osmC [interaction=activator]
+fis -- ileV [interaction=activator]
+cpxR -- yidQ [interaction=activator]
+narL -- ccmE [interaction=repressor]
+ihfB -- narG [interaction=activator]
+fadR -- fadL [interaction=repressor]
+crp -- sodA [interaction=activator]
+fur -- nrdH [interaction=repressor]
+gadE -- fliC [interaction=activator]
+cueR -- moaC [interaction=repressor]
+ihfB -- nrfF [interaction=dual]
+crp -- gutQ [interaction=activator]
+lrp -- fimC [interaction=activator]
+arcA -- rplC [interaction=repressor]
+lrp -- gcvT [interaction=activator]
+ihfB -- nirB [interaction=dual]
+hupB -- seqA [interaction=repressor]
+ihfA -- dppF [interaction=activator]
+fnr -- moaD [interaction=activator]
+nrdR -- nrdE [interaction=repressor]
+rcsB -- csgG [interaction=repressor]
+arcA -- sdhC [interaction=dual]
+narL -- cydD [interaction=activator]
+lrp -- osmC [interaction=dual]
+bglJ -- bglF [interaction=activator]
+ihfA -- nirD [interaction=dual]
+bglJ -- bglB [interaction=activator]
+rstA -- narI [interaction=activator]
+narL -- nrfD [interaction=dual]
+nanR -- yhcH [interaction=repressor]
+ihfA -- yjbF [interaction=activator]
+cpxR -- tomB [interaction=activator]
+nsrR -- ygbA [interaction=repressor]
+lrp -- stpA [interaction=activator]
+arcA -- caiB [interaction=activator]
+yiaJ -- sgbH [interaction=repressor]
+crp -- paaD [interaction=activator]
+flhD -- fliT [interaction=activator]
+glcC -- glcE [interaction=activator]
+rob -- aslB [interaction=activator]
+soxS -- nfsA [interaction=activator]
+narL -- nikE [interaction=repressor]
+flhD -- nrfG [interaction=activator]
+arcA -- rutC [interaction=activator]
+crp -- fadH [interaction=activator]
+fis -- hupA [interaction=activator]
+glnG -- potI [interaction=activator]
+arcA -- ybdN [interaction=activator]
+rcsB -- gadB [interaction=activator]
+crp -- ulaE [interaction=activator]
+argR -- rimP [interaction=repressor]
+gntR -- idnR [interaction=repressor]
+gntR -- edd [interaction=repressor]
+narL -- ytfE [interaction=activator]
+ihfA -- aceA [interaction=activator]
+crp -- gntP [interaction=activator]
+crp -- pgk [interaction=activator]
+rtcR -- rtcA [interaction=activator]
+cdaR -- gudP [interaction=activator]
+flhD -- flgH [interaction=activator]
+gutM -- srlA [interaction=activator]
+ihfA -- acs [interaction=repressor]
+fis -- glpA [interaction=activator]
+flhC -- gltI [interaction=activator]
+lrp -- rrlE [interaction=repressor]
+crp -- fecB [interaction=activator]
+gadW -- gadC [interaction=repressor]
+nikR -- nikE [interaction=repressor]
+rhaS -- rhaR [interaction=activator]
+phoP -- hdeB [interaction=activator]
+ihfA -- tdcF [interaction=activator]
+fnr -- sucC [interaction=repressor]
+crp -- fucR [interaction=activator]
+gadX -- gadC [interaction=activator]
+evgA -- emrK [interaction=activator]
+ihfA -- ubiA [interaction=repressor]
+lrp -- oppD [interaction=repressor]
+ihfA -- ilvL [interaction=dual]
+allR -- ybbY [interaction=repressor]
+fnr -- xdhB [interaction=activator]
+lrp -- livH [interaction=repressor]
+ihfB -- norW [interaction=dual]
+glnG -- nac [interaction=activator]
+hns -- sodB [interaction=repressor]
+fnr -- fes [interaction=activator]
+narP -- nrfA [interaction=activator]
+arcA -- acnA [interaction=repressor]
+hns -- cspD [interaction=activator]
+fnr -- nuoB [interaction=repressor]
+ompR -- csgG [interaction=activator]
+phoP -- hdeD [interaction=activator]
+fis -- pheU [interaction=activator]
+fnr -- cheB [interaction=activator]
+ihfA -- yiaK [interaction=activator]
+idnR -- gntK [interaction=repressor]
+fnr -- caiC [interaction=activator]
+flhC -- glpC [interaction=activator]
+ihfB -- tdcA [interaction=activator]
+crp -- paaJ [interaction=activator]
+arcA -- appA [interaction=activator]
+ihfA -- aceB [interaction=activator]
+narL -- cydC [interaction=activator]
+fnr -- aspA [interaction=activator]
+appY -- yccB [interaction=activator]
+fnr -- dcuS [interaction=activator]
+glpR -- glpA [interaction=repressor]
+fnr -- ynfG [interaction=activator]
+rcsB -- flhD [interaction=repressor]
+fhlA -- hycH [interaction=activator]
+asnC -- asnA [interaction=activator]
+fis -- pheV [interaction=activator]
+hns -- osmC [interaction=repressor]
+soxS -- sodA [interaction=activator]
+crp -- rhaT [interaction=activator]
+lsrR -- lsrG [interaction=repressor]
+fnr -- sucB [interaction=repressor]
+crp -- ubiG [interaction=activator]
+hns -- entF [interaction=activator]
+flhD -- fliQ [interaction=activator]
+arcA -- betI [interaction=repressor]
+gatR_1 -- gatC [interaction=repressor]
+cysB -- cysJ [interaction=activator]
+crp -- caiB [interaction=activator]
+phoB -- phoR [interaction=activator]
+hyfR -- hyfJ [interaction=activator]
+flhC -- flgM [interaction=activator]
+galS -- galK [interaction=dual]
+nsrR -- aceE [interaction=repressor]
+fadR -- iclR [interaction=activator]
+crp -- nanK [interaction=activator]
+crp -- fucA [interaction=activator]
+fis -- rrlH [interaction=activator]
+fhlA -- fdhF [interaction=activator]
+nagC -- manZ [interaction=repressor]
+arcA -- rhaT [interaction=repressor]
+pepA -- pepA [interaction=repressor]
+arcA -- oppC [interaction=repressor]
+cysB -- tauA [interaction=activator]
+flhC -- flhA [interaction=activator]
+crp -- deoD [interaction=dual]
+oxyR -- uxuA [interaction=repressor]
+fnr -- nrfA [interaction=activator]
+dcuR -- frdD [interaction=activator]
+crp -- ykgR [interaction=activator]
+ascG -- ascF [interaction=repressor]
+hns -- nirB [interaction=repressor]
+flhC -- napB [interaction=activator]
+fur -- sdhB [interaction=activator]
+narL -- yeaR [interaction=activator]
+ihfA -- dmsC [interaction=repressor]
+tyrR -- aroG [interaction=repressor]
+fnr -- cydC [interaction=activator]
+marA -- ybjN [interaction=activator]
+ompR -- flhC [interaction=repressor]
+fis -- glyT [interaction=activator]
+fruR -- eno [interaction=repressor]
+soxS -- marR [interaction=activator]
+ihfB -- hycH [interaction=activator]
+arcA -- sucA [interaction=dual]
+mqsA -- cspD [interaction=repressor]
+ihfB -- ubiC [interaction=repressor]
+rcsA -- slp [interaction=activator]
+fruR -- manZ [interaction=repressor]
+crp -- lacY [interaction=dual]
+crp -- lsrK [interaction=activator]
+crp -- argG [interaction=activator]
+fur -- sucC [interaction=activator]
+crp -- hyfR [interaction=activator]
+fis -- narH [interaction=repressor]
+phoB -- phoU [interaction=activator]
+hns -- yjjP [interaction=repressor]
+deoR -- deoC [interaction=repressor]
+lexA -- sulA [interaction=repressor]
+crp -- bglB [interaction=activator]
+flhC -- flhE [interaction=activator]
+lexA -- ftsQ [interaction=repressor]
+pdhR -- fecD [interaction=activator]
+fnr -- nrfD [interaction=activator]
+ihfB -- carB [interaction=dual]
+cytR -- udp [interaction=repressor]
+ihfA -- actP [interaction=repressor]
+galS -- galS [interaction=repressor]
+sdiA -- ftsZ [interaction=repressor]
+lrp -- adhE [interaction=repressor]
+crp -- hofO [interaction=activator]
+arcA -- glcA [interaction=repressor]
+oxyR -- dsbG [interaction=activator]
+ihfB -- narH [interaction=activator]
+flhC -- flgD [interaction=activator]
+leuO -- yjjQ [interaction=activator]
+fur -- fhuC [interaction=repressor]
+hns -- ileV [interaction=repressor]
+evgA -- ydeO [interaction=activator]
+crp -- lsrB [interaction=activator]
+fis -- gltX [interaction=repressor]
+fruR -- ptsH [interaction=dual]
+gadE -- gadE [interaction=activator]
+soxS -- fldB [interaction=activator]
+arcA -- gadX [interaction=activator]
+narL -- napG [interaction=repressor]
+flhC -- fliI [interaction=activator]
+ihfA -- nrfG [interaction=dual]
+narL -- fdnG [interaction=activator]
+lrp -- rrsA [interaction=repressor]
+fis -- yeaR [interaction=repressor]
+ihfB -- dppD [interaction=activator]
+nanR -- fimB [interaction=activator]
+fnr -- pheM [interaction=repressor]
+crp -- xylB [interaction=activator]
+crp -- sucD [interaction=activator]
+metJ -- metA [interaction=repressor]
+metJ -- metL [interaction=repressor]
+fis -- glnU [interaction=activator]
+nrdR -- nrdA [interaction=repressor]
+malT -- lamB [interaction=activator]
+lldR -- lldR [interaction=dual]
+hyfR -- hyfB [interaction=activator]
+arcA -- cydB [interaction=activator]
+crp -- caiF [interaction=activator]
+murR -- murR [interaction=dual]
+ihfA -- ibpB [interaction=activator]
+fnr -- ccmE [interaction=activator]
+fruR -- pfkA [interaction=repressor]
+lsrR -- lsrC [interaction=repressor]
+hns -- rrlB [interaction=repressor]
+rutR -- rutF [interaction=repressor]
+ihfA -- cysJ [interaction=activator]
+crp -- lhgO [interaction=activator]
+nsrR -- fliY [interaction=repressor]
+cpxR -- ftnB [interaction=activator]
+crp -- exuT [interaction=activator]
+csgD -- iraP [interaction=activator]
+hns -- fimE [interaction=repressor]
+narP -- ytfE [interaction=activator]
+narL -- torC [interaction=repressor]
+envR -- acrB [interaction=repressor]
+dpiA -- dpiA [interaction=activator]
+fur -- oppC [interaction=repressor]
+flhD -- flgA [interaction=activator]
+gadX -- uspE [interaction=activator]
+phoP -- rstA [interaction=activator]
+nsrR -- thrS [interaction=repressor]
+hns -- ilvH [interaction=repressor]
+ihfB -- ssuA [interaction=dual]
+ihfA -- tyrP [interaction=repressor]
+kdgR -- eda [interaction=repressor]
+fnr -- rpsS [interaction=activator]
+arcA -- hyaC [interaction=activator]
+lrp -- rrlB [interaction=repressor]
+fur -- sucD [interaction=activator]
+fur -- fecR [interaction=repressor]
+lrp -- gltV [interaction=repressor]
+crp -- mhpB [interaction=activator]
+crp -- rhaS [interaction=activator]
+fur -- pyrC [interaction=repressor]
+argR -- hisQ [interaction=repressor]
+fnr -- trmD [interaction=repressor]
+crp -- aer [interaction=activator]
+crp -- gadB [interaction=repressor]
+cpxR -- cpxA [interaction=activator]
+crp -- trxA [interaction=repressor]
+fabR -- fabA [interaction=repressor]
+crp -- chbB [interaction=activator]
+soxS -- nfo [interaction=activator]
+lrp -- rrsB [interaction=repressor]
+nac -- mioC [interaction=repressor]
+narP -- ydhV [interaction=repressor]
+oxyR -- trxC [interaction=activator]
+cusR -- cusB [interaction=activator]
+fhlA -- hycA [interaction=activator]
+crp -- cstA [interaction=activator]
+gutM -- srlD [interaction=activator]
+fnr -- fumA [interaction=repressor]
+nsrR -- dsdC [interaction=repressor]
+argR -- carA [interaction=repressor]
+fur -- sufC [interaction=repressor]
+yiaJ -- yiaO [interaction=repressor]
+lexA -- rpoD [interaction=repressor]
+ihfA -- ndh [interaction=repressor]
+ihfB -- ssuB [interaction=dual]
+sgrR -- sgrS [interaction=activator]
+ihfB -- gltB [interaction=activator]
+paaX -- paaA [interaction=repressor]
+cbl -- ssuA [interaction=activator]
+crp -- aceB [interaction=repressor]
+nhaR -- pgaC [interaction=activator]
+narL -- ydhU [interaction=repressor]
+marR -- marB [interaction=repressor]
+fis -- glnQ [interaction=repressor]
+flhD -- ccmE [interaction=activator]
+ihfB -- nrfA [interaction=dual]
+paaX -- paaK [interaction=repressor]
+ompR -- micF [interaction=activator]
+fnr -- rpsC [interaction=activator]
+ihfA -- caiD [interaction=repressor]
+fnr -- dppA [interaction=repressor]
+sdiA -- ftsA [interaction=repressor]
+fnr -- caiT [interaction=activator]
+ihfB -- pspB [interaction=activator]
+hns -- gutM [interaction=activator]
+dhaR -- dhaL [interaction=activator]
+modE -- napF [interaction=activator]
+ihfA -- paaA [interaction=activator]
+crp -- dgsA [interaction=dual]
+cysB -- cbl [interaction=activator]
+ihfA -- sodB [interaction=repressor]
+crp -- chpA [interaction=activator]
+hns -- hisP [interaction=activator]
+ihfA -- pspE [interaction=activator]
+glnG -- astC [interaction=activator]
+arcA -- cyoC [interaction=repressor]
+fur -- sodA [interaction=repressor]
+ihfB -- fimB [interaction=activator]
+hns -- rrsH [interaction=repressor]
+flhD -- ccmD [interaction=activator]
+rstA -- narH [interaction=activator]
+argP -- recF [interaction=activator]
+hns -- casD [interaction=repressor]
+crp -- dsdA [interaction=activator]
+gadX -- slp [interaction=activator]
+phoP -- purD [interaction=activator]
+fis -- valY [interaction=activator]
+flhC -- ccmA [interaction=activator]
+leuO -- bglJ [interaction=activator]
+crp -- lacZ [interaction=dual]
+baeR -- mdtD [interaction=activator]
+crp -- csgF [interaction=activator]
+rcsB -- ftsA [interaction=activator]
+gadE -- gnd [interaction=activator]
+purR -- purD [interaction=repressor]
+phoB -- phnH [interaction=activator]
+crp -- glnA [interaction=dual]
+fadR -- fadH [interaction=repressor]
+fnr -- nrdD [interaction=activator]
+ihfB -- focA [interaction=activator]
+flhD -- ygbK [interaction=activator]
+modE -- dmsB [interaction=repressor]
+ihfB -- sgbU [interaction=activator]
+crp -- nrdB [interaction=activator]
+fis -- ogt [interaction=repressor]
+phoP -- iraM [interaction=activator]
+lrp -- rrfB [interaction=repressor]
+fis -- leuT [interaction=activator]
+phoP -- rutG [interaction=activator]
+fnr -- xdhC [interaction=activator]
+arcA -- cydC [interaction=activator]
+oxyR -- sufB [interaction=activator]
+cusR -- cusA [interaction=activator]
+glnG -- ddpF [interaction=activator]
+crp -- glpB [interaction=activator]
+phoP -- nagA [interaction=activator]
+gadE -- wcaA [interaction=activator]
+glrR -- glmY [interaction=activator]
+lrp -- ompC [interaction=repressor]
+rcsB -- gadA [interaction=dual]
+fis -- rrsC [interaction=activator]
+mngR -- mngA [interaction=repressor]
+fnr -- ssuD [interaction=activator]
+fur -- entA [interaction=repressor]
+fis -- nuoE [interaction=activator]
+ihfA -- paaE [interaction=activator]
+pspF -- pspF [interaction=repressor]
+iscR -- sufD [interaction=activator]
+modE -- ccmG [interaction=activator]
+hns -- gltT [interaction=repressor]
+crp -- malK [interaction=activator]
+flhC -- ccmC [interaction=activator]
+atoC -- atoE [interaction=activator]
+ihfB -- phoU [interaction=activator]
+narP -- nirB [interaction=activator]
+fis -- nuoK [interaction=activator]
+cysB -- cysI [interaction=activator]
+nsrR -- nrfF [interaction=repressor]
+nagC -- chbF [interaction=repressor]
+iscR -- iscU [interaction=repressor]
+lexA -- ssb [interaction=repressor]
+fis -- hyaC [interaction=repressor]
+narL -- nuoI [interaction=activator]
+fis -- mtlR [interaction=repressor]
+modE -- napB [interaction=activator]
+fnr -- ompX [interaction=repressor]
+lrp -- gcvH [interaction=activator]
+gadX -- cadA [interaction=activator]
+gadE -- cyoD [interaction=activator]
+ihfA -- sufB [interaction=activator]
+leuO -- casA [interaction=activator]
+arcA -- nuoC [interaction=repressor]
+arcA -- hybC [interaction=repressor]
+caiF -- caiE [interaction=activator]
+ihfB -- fimF [interaction=activator]
+ihfA -- ihfB [interaction=repressor]
+ihfA -- atoB [interaction=activator]
+fnr -- ansB [interaction=activator]
+fur -- katG [interaction=repressor]
+ihfA -- fimH [interaction=activator]
+ihfB -- csgE [interaction=activator]
+araC -- araH [interaction=activator]
+flhC -- yhjH [interaction=activator]
+nac -- gltF [interaction=repressor]
+araC -- araF [interaction=activator]
+fis -- rbfA [interaction=activator]
+glnG -- rutD [interaction=activator]
+caiF -- fixA [interaction=activator]
+fis -- alaV [interaction=activator]
+arcA -- rutF [interaction=activator]
+csiR -- lhgO [interaction=repressor]
+ihfB -- hycA [interaction=activator]
+arcA -- moeA [interaction=activator]
+ihfA -- glcE [interaction=activator]
+arcA -- yccB [interaction=activator]
+fnr -- purM [interaction=repressor]
+fhlA -- fhlA [interaction=activator]
+allS -- allC [interaction=activator]
+crp -- xylF [interaction=activator]
+crp -- yiaK [interaction=maybe_activator]
+arcA -- nuoE [interaction=repressor]
+phoB -- psiF [interaction=activator]
+nanR -- nanE [interaction=repressor]
+hupA -- mtr [interaction=repressor]
+crp -- gutM [interaction=activator]
+nsrR -- nrfA [interaction=repressor]
+cueR -- moaE [interaction=repressor]
+fur -- metH [interaction=repressor]
+rob -- nfsA [interaction=activator]
+rutR -- gadX [interaction=repressor]
+galR -- mglB [interaction=repressor]
+fnr -- adhE [interaction=activator]
+fur -- cyoA [interaction=repressor]
+lrp -- ilvM [interaction=repressor]
+ihfB -- paaG [interaction=activator]
+gatR_2 -- gatZ [interaction=repressor]
+flhC -- nrfD [interaction=activator]
+nsrR -- sufC [interaction=repressor]
+fnr -- ychO [interaction=repressor]
+narL -- hyaF [interaction=repressor]
+leuO -- leuC [interaction=activator]
+fnr -- ydhY [interaction=activator]
+narP -- napH [interaction=dual]
+lexA -- ruvB [interaction=repressor]
+crp -- cirA [interaction=activator]
+putA -- putA [interaction=repressor]
+phoB -- phnM [interaction=activator]
+fis -- nrdA [interaction=activator]
+uxuR -- uxuR [interaction=repressor]
+nsrR -- nrfD [interaction=repressor]
+fis -- katE [interaction=repressor]
+marA -- acrB [interaction=activator]
+marA -- sodA [interaction=activator]
+flhC -- flgA [interaction=activator]
+narL -- nuoK [interaction=activator]
+ihfB -- sucD [interaction=repressor]
+fnr -- dppD [interaction=repressor]
+arcA -- glpD [interaction=repressor]
+ihfA -- sucC [interaction=repressor]
+narP -- hyaD [interaction=repressor]
+fruR -- hypF [interaction=repressor]
+yiaJ -- yiaM [interaction=repressor]
+lexA -- yafQ [interaction=repressor]
+ada -- aidB [interaction=activator]
+hdfR -- flhD [interaction=repressor]
+leuO -- casC [interaction=activator]
+fruR -- cydB [interaction=activator]
+rbsR -- rbsB [interaction=repressor]
+relB -- hokD [interaction=repressor]
+hns -- cysM [interaction=repressor]
+}
