@@ -102,23 +102,23 @@ title:  'Schedule'
 
 ##### Friday 2020-10-09
 
-**08.30 - 10.25** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Analyzing omics data in the context of metabolism([Jonathan][4])
+**08.30 - 10.25** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Analyzing omics data in the context of metabolism ([Jonathan][4])
 
 **10.25 - 10.35** Coffee Break
 
-**10.35 - 12.00** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Analyzing omics data in the context of metabolism, continued([Jonathan][4])
+**10.35 - 12.00** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Analyzing omics data in the context of metabolism, continued ([Jonathan][4])
 
 **12.00 - 13.00** Lunch
 
 **13.00 - 14.00** <img border="0" src="https://www.svgrepo.com/show/307069/public-speaking-speak-tell-talk.svg" width="15" height="15"> [Jakob Willforss][10]: Rapid, interactive visualization of tabular multi-omics data [using OmicLoupe][11]
 
-**14.00 - 14.50** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Data visualization using Circos and Hive Plots [Ashfaq][2]
+**14.00 - 14.50** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Data visualization using Circos and Hive Plots ([Ashfaq][2])
 
 **14.50 - 15.00** Coffee Break
 
 **15.00 - 15.30** <img border="0" src="https://www.svgrepo.com/show/307069/public-speaking-speak-tell-talk.svg" width="15" height="15"> Webinar [Prof. Marju Orho-Melander][3]: Omics interplay for cardiometabolic disease
 
-**15.30 - 16.45** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Data visualization using Circos and Hive Plots [Ashfaq][2]  
+**15.30 - 16.45** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Data visualization using Circos and Hive Plots ([Ashfaq][2])
 
 **16.45 - 17.00** Wrap up  
 
