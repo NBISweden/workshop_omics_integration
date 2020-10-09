@@ -184,6 +184,9 @@ GDCdownload(query, directory=tcga_dir)
 ```{r, message=F, warning=F, results='hide', eval=RunAll}
 # loaded as a "SummarizedExperiment" object
 TCGAdata <- GDCprepare(query, directory=tcga_dir)
+
+# If that fails (i.e., Ensembl unavaiable)
+TCGAdata <- readRDS(file.path(tcga_dir, 'TCGAdata.rds'))
 ```
 </br>
 
