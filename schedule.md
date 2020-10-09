@@ -76,7 +76,7 @@ title:  'Schedule'
 
 **14.25 - 16.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Community analysis ([Rui][6], [slides](./session_topology/3Community_analysis.pdf))
 
-**16.00 - 17.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Network visualization with Cytoscape using R ([notebook](./session_visualization/Cytoscape_tutorial.html), [Ashfaq][2])
+**16.00 - 17.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Network visualization with Cytoscape using R ([Ashfaq][2], [notebook](./session_visualization/Cytoscape_tutorial.html))
 
 <br>
 <br>
@@ -113,7 +113,7 @@ title:  'Schedule'
 **13.00 - 14.00** <img border="0" src="https://www.svgrepo.com/show/307069/public-speaking-speak-tell-talk.svg" width="15" height="15"> [Jakob Willforss][10]: Rapid, interactive visualization of tabular multi-omics data [using OmicLoupe][11] ([slides](./session_visualization/jakob_ppt.pdf))  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Relevant resources: [OmicLoupe tutorial](http://quantitativeproteomics.org/analysiscourse/omicloupe) | [NormalizeDE](https://github.com/ComputationalProteomics/NormalyzerDE)
 
-**14.00 - 14.50** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Data visualization using Circos and Hive Plots [notebook](./session_visualization/RCircos-HiveR.html), ([Ashfaq][2])
+**14.00 - 14.50** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Data visualization using Circos and Hive Plots [notebook](./session_visualization/RCircos-HiveR.html) ([Ashfaq][2])
 
 **14.50 - 15.00** Coffee Break
 
