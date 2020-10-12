@@ -117,7 +117,7 @@ title:  'Schedule'
 
 **14.50 - 15.00** Coffee Break
 
-**15.00 - 15.30** <img border="0" src="https://www.svgrepo.com/show/307069/public-speaking-speak-tell-talk.svg" width="15" height="15"> Webinar [Prof. Marju Orho-Melander][3]: Omics interplay for cardiometabolic disease
+**15.00 - 15.30** <img border="0" src="https://www.svgrepo.com/show/307069/public-speaking-speak-tell-talk.svg" width="15" height="15"> Webinar [Prof. Marju Orho-Melander][3]: Omics interplay for cardiometabolic disease ([slides](./session_visualization/Marju_OrhoMelander_presentation.pdf))
 
 **15.30 - 16.45** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Data visualization using Circos and Hive Plots ([Ashfaq][2], [notebook](./session_visualization/RCircos-HiveR.html))
 
