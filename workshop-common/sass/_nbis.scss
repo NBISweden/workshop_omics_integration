@@ -1,9 +1,5 @@
-/* Custom Stylesheet */
-/**
- * Use this file to override Materialize files so you can update
- * the core Materialize files in the future
- *
- * Made By MaterializeCSS.com
+/*
+ *  Rui Benfeitas 2020
  */
 
 nav {
@@ -81,7 +77,7 @@ nav {
 }
 
 .content {
-    background-color: white;
+    background-color: dark;
     padding-bottom: 64px;
     margin-bottom: 64px;
     ul {
@@ -98,6 +94,32 @@ nav {
 .dropdown-content li > a, .dropdown-content li > span {
     color: $textgray;
 }
+
+/* 
+ * h1 {
+ *   font-size: 1.802em;
+ * }
+ * 
+ * h2 {
+ *   font-size: 1.602em;
+ * }
+ * 
+ * h3 {
+ *   font-size: 1.424em;
+ * }
+ * 
+ * h4 {
+ *   font-size: 1.266em;
+ * }
+ * 
+ * h5 {
+ *   font-size: 1.266em;
+ * }
+ * 
+ * h6 {
+ *   font-size: 1.125em;
+ * }
+ */
 
 h3 {
     code {
