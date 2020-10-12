@@ -110,7 +110,7 @@ gunzip scProteomics.csv.gz
 data, [jupyter notebook](./session_ml/DeepLearningDataIntegration/DeepLearningDataIntegration.ipynb) and [.html](./session_ml/DeepLearningDataIntegration/DeepLearningDataIntegration.html) are within folder `session_ml/DeepLearningDataIntegration/`.
 
 - **Single cell:**  
-[jupyter notebook](./session_ml/SingleCell/SingleCell_OmicsIntegration.Rmd) and [.html](./session_ml/SingleCell/SingleCell_OmicsIntegration.html) are within the folder `session_ml/SingleCell`). Data for this lab can be downloaded [from here](https://drive.google.com/file/d/1hBeh2L5PC-T87YObCmJv4Qcm59IqkkOf/view?usp=sharing)
+[jupyter notebook](./session_ml/SingleCell/SingleCell_OmicsIntegration.Rmd) and [.html](./session_ml/SingleCell/SingleCell_OmicsIntegration.html) are within the folder `session_ml/SingleCell`). Data for this lab can be downloaded [from here](https://drive.google.com/file/d/1hBeh2L5PC-T87YObCmJv4Qcm59IqkkOf/view?usp=sharing).
 
 
 ##### Day 3: Network topology

@@ -113,7 +113,7 @@ title:  'Schedule'
 **13.00 - 14.00** <img border="0" src="https://www.svgrepo.com/show/307069/public-speaking-speak-tell-talk.svg" width="15" height="15"> [Jakob Willforss][10]: Rapid, interactive visualization of tabular multi-omics data [using OmicLoupe][11] ([slides](./session_visualization/jakob_ppt.pdf))  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Relevant resources: [OmicLoupe tutorial](http://quantitativeproteomics.org/analysiscourse/omicloupe) | [NormalizeDE](https://github.com/ComputationalProteomics/NormalyzerDE)
 
-**14.00 - 14.50** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Data visualization using Circos and Hive Plots [notebook](./session_visualization/RCircos-HiveR.html) ([Ashfaq][2])
+**14.00 - 14.50** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Data visualization using Circos and Hive Plots ([notebook](./session_visualization/RCircos-HiveR.html) , [Ashfaq][2])
 
 **14.50 - 15.00** Coffee Break
 
