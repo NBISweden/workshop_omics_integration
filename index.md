@@ -5,8 +5,10 @@ title: Omics Integration and Systems Biology
 
 #### <img border="0" src="https://s3-us-west-2.amazonaws.com/slack-files2/avatars/2019-09-12/751389607265_d59c0d58846bb2db7123_132.jpg" width="50" height="50"> Omics Integration and Systems Biology
 <img border="0" src="https://www.svgrepo.com/show/305241/github.svg" width="20" height="20"> [Github repository][3]  
-**Next edition: 19 - 23 April 2021** (more information to come soon). **Want to be notified of course application opening? [Sign up here](https://forms.gle/j3WoKteQ3xEfLRxL8)**
+**Next edition: 19 - 23 April 2021** (more information to come soon). **Want to be notified of the course application opening? [Sign up here](https://forms.gle/j3WoKteQ3xEfLRxL8)**
 
+<br>
+<br>
 <hr>
 
 <img border="0" src="https://www.svgrepo.com/show/20800/event-date-and-time-symbol.svg" width="20" height="20"> 5 - 9 October 2020  
