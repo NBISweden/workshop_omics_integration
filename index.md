@@ -4,7 +4,7 @@ title: Omics Integration and Systems Biology
 ---
 
 #### <img border="0" src="https://s3-us-west-2.amazonaws.com/slack-files2/avatars/2019-09-12/751389607265_d59c0d58846bb2db7123_132.jpg" width="50" height="50"> Omics Integration and Systems Biology
-<img border="0" src="https://www.svgrepo.com/show/305241/github.svg" width="20" height="20"> [Github repository][3]  
+<img border="0" src="https://www.svgrepo.com/show/305241/github.svg" width="20" height="20"> [Github repository](https://github.com/NBISweden/workshop_omics_integration)  
 **Applications open to the ONLINE course, 19 - 23 April 2021** Apply [here](https://forms.gle/6AXjseUTCLur5DDy5)
 
 <br>

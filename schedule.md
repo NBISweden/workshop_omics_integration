@@ -4,12 +4,14 @@ title:  'Schedule'
 ---
 #### <img border="0" src="https://www.svgrepo.com/show/20800/event-date-and-time-symbol.svg" width="25" height="25"> Course schedule
 
+This page will be updated soon. Legacy information is presented below.
+
 <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> - lecture; 
 <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> - hands-on workshop; 
 <img border="0" src="https://www.svgrepo.com/show/307069/public-speaking-speak-tell-talk.svg" width="15" height="15"> - invited seminar  
 <br>
 <br>
-##### Monday 2020-10-05
+##### Day 1
 
 **09.00 - 10.00** Installation help and pre-course coffee
 
@@ -35,7 +37,7 @@ title:  'Schedule'
 <br>
 <br>
 
-##### Tuesday 2020-10-06
+##### Day 2
 
 **08.45 - 10.45** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Unsupervised Omics integration ([Nikolay][5], [slides](./session_ml/UnsupervisedOMICsIntegration/UnsupervisedOmicsIntegration_Oskolkov.pdf), [notebook](./session_ml/UnsupervisedOMICsIntegration/UnsupervisedOMICsIntegration.html))
 
@@ -60,7 +62,7 @@ title:  'Schedule'
 <br>
 <br>
 
-##### Wednesday 2020-10-07
+##### Day 3
 
 **08.45 - 10.25** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Introduction to biological network analysis and terminology([Rui][6], [slides](./session_topology/1Introduction.pdf))
 
@@ -81,7 +83,7 @@ title:  'Schedule'
 <br>
 <br>
 
-##### Thursday 2020-10-08
+##### Day 4
 
 **08.30 - 10.25** Network fusion ([Sergiu][7], [lab main](./session_nmf/Lab.html), [notebook](./session_nmf/SNF_main.html))
 
@@ -100,7 +102,7 @@ title:  'Schedule'
 <br>
 <br>
 
-##### Friday 2020-10-09
+##### Day 5
 
 **08.30 - 10.25** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Analyzing omics data in the context of metabolism([Jonathan][4], [slides](./session_gems/lectures/GEM_session_day2.pdf), [notebook](./session_gems/GEM_GSC_extraction.html), [R exercise](./session_gems/GEM_GSA.html))
 
