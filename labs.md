@@ -9,12 +9,8 @@ title:  'Labs'
 
 Retrieve the entire repository including all datasets and notebooks.
 ```
-git clone https://github.com/NBISweden/workshop_omics_integration.git
-```
-
-Change to the newly created directory
-```
-cd workshop_omics_integration
+cd ~/Desktop/course
+git clone git@github.com:NBISweden/workshop_omics_integration.git .
 ```
 
 Inside you will find the following folders:  
@@ -27,54 +23,8 @@ Inside you will find the following folders:
 You will need to create specific [conda environments as indicated below](#environments)  
 
 ##### Environments
-- **Machine learning Day 1**  
-Create the environment:  
-```
-#Linux
-conda env create -n envml -f environments/env-ml_linux.yaml
-#MacOSX
-conda env create -n envml -f environments/env-ml.yaml
-```
+See [the conda instructions **3. Create and activate the environment**](./conda_instructions.md#3--create-and-activate-the-environment)
 
-Activate the environment
-```
-conda activate envml
-```
-
-From this point, follow the instructions below in each respective session. At the end deactivate the environment with `conda deactivate`.
-
-- **Machine learning Day 2**  
-Create the environment:  
-```
-#Linux
-conda env create -n envml_day2 -f environments/env-ml_day2_linux.yaml
-#MacOSX
-conda env create -n envml_day2 -f environments/env-ml_day2.yaml
-```
-
-Activate the environment
-```
-conda activate envml_day2
-```
-
-From this point, follow the instructions below in each respective session. At the end deactivate the environment with `conda deactivate`.
-
-
-- **Network topology, visualization, metabolic modeling and GSA labs (days 3-5)**   
-Create the environment
-```
-#Linux
-conda env create -n envnets -f environments/env-merged_nets_linux.yaml
-#MacOSX
-conda env create -n envnets -f environments/env-merged_nets.yaml
-```
-
-Activate the environment
-```
-conda activate envnets
-```
-
-From this point, follow the instructions below in each respective session. At the end deactivate the environment with `conda deactivate`.
 
 ##### Day 1: Supervised integration and feature selection
 After activating the environment as above, launch Rstudio with `rstudio &`. 
