@@ -4,15 +4,20 @@ title:  Pre-course
 ---
 
 #### <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="25" height="25"> Programming with R and Python  
+***
 
 The course will be taught using both R and Python depending on the tools available. While you will be able to follow all lectures and exercises conceptually, it is easier if you get acquainted with programming in both languages:  
-- [1-day][2] and [5-day][6] introduction to R
-- [1-day][3] and [5-day][4] introduction to Python
-***
+- R (part_1): [https://swcarpentry.github.io/r-novice-inflammation/](https://swcarpentry.github.io/r-novice-inflammation/)
+- R (part_2): [http://swcarpentry.github.io/r-novice-gapminder/](http://swcarpentry.github.io/r-novice-gapminder/)
+- Python (part_1):[https://swcarpentry.github.io/python-novice-inflammation/](https://swcarpentry.github.io/python-novice-inflammation/)
+- Python (part_2): [http://swcarpentry.github.io/python-novice-gapminder/](http://swcarpentry.github.io/python-novice-gapminder/)
+
+You should also be familiar with basic command line input (`mkdir`, `cd`, `ls`, `cp`, `mv`).
 
 #### <img border="0" src="https://www.svgrepo.com/show/26916/book.svg" width="15" height="15"> Additional reading materials  
-For additional information on some of the topics that we will discuss, refer to the [reading materials][5].
 ***
+
+For additional information on some of the topics that we will discuss, refer to the [reading materials][5].
 
 #### <img border="0" src="https://hackernoon.com/hn-images/1*rW03Wtue71AKfxnx6XN_iQ.png" width="50" height="50"> Conda Instructions
 ***
@@ -39,6 +44,7 @@ You can [read more](https://nbis-reproducible-research.readthedocs.io/en/latest/
 
 Start by installing Conda. We suggest installing **Miniconda3** and NOT Anaconda. After [installing Conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html).
 
+
 <details>
   <summary markdown="span">**On Mac OS X**</summary>
   <img border="0" src="https://logos-download.com/wp-content/uploads/2020/06/Apple_Mac_OS_Logo-700x670.png" width="30" height="30">
@@ -62,6 +68,7 @@ Start by installing Conda. We suggest installing **Miniconda3** and NOT Anaconda
   conda init
   conda install -n base -c conda-forge mamba
   ```
+
 </details>
 
 
