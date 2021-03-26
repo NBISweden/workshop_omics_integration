@@ -14,11 +14,11 @@ During this workshop, you will use conda environments to run the exercises. This
 
 Briefly, you need to:  
 
-[1. Install Conda](#1--download-and-install-conda-and-mamba)
-[2. Install git and clone the repository](#2--install-git-clone-the-repository)
-[3. Create and activate the environment](#3--create-and-activate-the-environment)
-[4. Launch RStudio or Jupyter](#4--launch-rstudio-or-jupyter)
-[5. Deactivate the environment after running your analyses](#5--deactivate-the-environment)
+[1. Install Conda](#1--download-and-install-conda-and-mamba)  
+[2. Install git and clone the repository](#2--install-git-clone-the-repository)  
+[3. Create and activate the environment](#3--create-and-activate-the-environment)  
+[4. Launch RStudio or Jupyter](#4--launch-rstudio-or-jupyter)  
+[5. Deactivate the environment after running your analyses](#5--deactivate-the-environment)  
 
 You can [read more](https://nbis-reproducible-research.readthedocs.io/en/latest/conda/) about Conda environments and other important concepts to help you make your research reproducible.
 
@@ -194,6 +194,7 @@ All environments are contained inside the folder `/environments/`
 ##### 3. Create and activate the environment
 For each day you will have to create a different environment:
 - **Day 1**  
+
 ```
 #Linux
 mamba env create -n envday1 -f environments/env-ml_linux.yaml
@@ -201,7 +202,9 @@ mamba env create -n envday1 -f environments/env-ml_linux.yaml
 #MacOSX
 mamba env create -n envday1 -f environments/env-ml.yaml
 ```
+
 - **Day 2**  
+
 ```
 #Linux
 mamba env create -n envday2 -f environments/env-ml_day2_linux.yaml
@@ -209,7 +212,9 @@ mamba env create -n envday2 -f environments/env-ml_day2_linux.yaml
 #MacOSX
 mamba env create -n envday2 -f environments/env-ml_day2.yaml
 ```
+
 - **Days 3-5**   
+
 ```
 #Linux
 mamba env create -n envdays35 -f environments/env-merged_nets_linux.yaml
@@ -218,23 +223,28 @@ mamba env create -n envdays35 -f environments/env-merged_nets_linux.yaml
 mamba env create -n envdays35 -f environments/env-merged_nets.yaml
 ```
 
-Activate the environments with `mamba activate [environment name]`. For instance
+Activate the environments with `mamba activate [environment name]`. For instance  
+
 ```
 mamba activate envday1
 ```
 
 #### 4. Launch RStudio or Jupyter
-Depending on the exercise, you'll have to run scripts in either RStudio or Jupyter. You can launch these with
+Depending on the exercise, you'll have to run scripts in either RStudio or Jupyter. You can launch these with  
+
 ```
 rstudio &
 ```
+
 or
+
 ```
 jupyter-notebook &
 ```
 
 #### 5. Deactivate the environment after running your analyses
-After you've ran all your analyses, you can deactivate the environment by typing:
+After you've ran all your analyses, you can deactivate the environment by typing:  
+
 ```
 mamba deactivate
 ```
