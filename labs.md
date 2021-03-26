@@ -20,10 +20,10 @@ Inside you will find the following folders:
 - `session_gems/` - the genome-scale modeling session, day 4 afternoon and day 5 morning  
 - `session_visualization/` - cytoscape session day 3 afternoon, circos and hive plots day 5  
 
-You will need to create specific [conda environments as indicated below](#environments)  
+You will need to create specific [conda environments as indicated below](#environments).  
 
 ##### Environments
-See [the conda instructions **3. Create and activate the environment**](./conda_instructions.md#3--create-and-activate-the-environment)
+See [the conda instructions **3. Create and activate the environment**](./conda_instructions.md#3-create-and-activate-the-environment).
 
 
 ##### Day 1: Supervised integration and feature selection
