@@ -8,7 +8,7 @@ title:  Pre-course
 #### <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="25" height="25"> Programming with R and Python  
 ***
 
-The course will be taught using both R and Python depending on the tools available. While you will be able to follow all lectures and exercises conceptually, it is easier if you get acquainted with programming in both languages:  
+The course will be taught using both R and Python depending on the tools available. While you will be able to follow all lectures and exercises conceptually, you should be familiar with basic usage of both programming languages as these are **requirements for the course**:  
 - R (part_1): [https://swcarpentry.github.io/r-novice-inflammation/](https://swcarpentry.github.io/r-novice-inflammation/)
 - R (part_2): [http://swcarpentry.github.io/r-novice-gapminder/](http://swcarpentry.github.io/r-novice-gapminder/)
 - Python (part_1):[https://swcarpentry.github.io/python-novice-inflammation/](https://swcarpentry.github.io/python-novice-inflammation/)
@@ -32,11 +32,11 @@ During this workshop, you will use conda environments to run the exercises. This
 
 Briefly, you need to:  
 
-[1. Install Conda](#1--download-and-install-conda-and-mamba)  
-[2. Install git and clone the repository](#2--install-git-clone-the-repository)  
-[3. Create and activate the environment](#3--create-and-activate-the-environment)  
-[4. Launch RStudio or Jupyter](#4--launch-rstudio-or-jupyter)  
-[5. Deactivate the environment after running your analyses](#5--deactivate-the-environment)  
+[1. Install Conda and Mamba](#1-download-and-install-conda-and-mamba)  
+[2. Install git and clone the repository](#2-install-git-clone-the-repository)  
+[3. Create and activate the environment](#3-create-and-activate-the-environment)  
+[4. Launch RStudio or Jupyter](#4-launch-rstudio-or-jupyter)  
+[5. Deactivate the environment after running your analyses](#5-deactivate-the-environment)  
 
 You can [read more](https://nbis-reproducible-research.readthedocs.io/en/latest/conda/) about Conda environments and other important concepts to help you make your research reproducible.
 
