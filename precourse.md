@@ -14,6 +14,8 @@ The course will be taught using both R and Python depending on the tools availab
 - Python (part_1):[https://swcarpentry.github.io/python-novice-inflammation/](https://swcarpentry.github.io/python-novice-inflammation/)
 - Python (part_2): [http://swcarpentry.github.io/python-novice-gapminder/](http://swcarpentry.github.io/python-novice-gapminder/)
 
+You should be familiar with dataframe, matrix, vector manipulation, functions and (in python) methods.  
+
 You should also be familiar with basic command line input (`mkdir`, `cd`, `ls`, `cp`, `mv`).
 
 #### <img border="0" src="https://www.svgrepo.com/show/26916/book.svg" width="15" height="15"> Additional reading materials  
