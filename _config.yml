@@ -20,8 +20,6 @@ menu:
     url:
   - title: Schedule
     url: schedule
-  - title: Syllabus
-    url: syllabus
   - title: Labs
     url: labs
   - title: Reading materials
