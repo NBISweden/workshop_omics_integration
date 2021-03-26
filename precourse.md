@@ -3,6 +3,8 @@ layout: default
 title:  Pre-course
 ---
 
+{::options parse_block_html="true" /}
+
 #### <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="25" height="25"> Programming with R and Python  
 ***
 
