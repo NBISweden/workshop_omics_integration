@@ -193,7 +193,7 @@ All environments are contained inside the folder `/environments/`
 
 ##### 3. Create and activate the environment
 For each day you will have to create a different environment:
-- **Day 1**  
+**Day 1**  
 
 ```
 #Linux
@@ -203,7 +203,7 @@ mamba env create -n envday1 -f environments/env-ml_linux.yaml
 mamba env create -n envday1 -f environments/env-ml.yaml
 ```
 
-- **Day 2**  
+**Day 2**  
 
 ```
 #Linux
@@ -213,7 +213,7 @@ mamba env create -n envday2 -f environments/env-ml_day2_linux.yaml
 mamba env create -n envday2 -f environments/env-ml_day2.yaml
 ```
 
-- **Days 3-5**   
+**Days 3-5**   
 
 ```
 #Linux
