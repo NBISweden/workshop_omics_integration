@@ -23,7 +23,7 @@ Inside you will find the following folders:
 You will need to create specific [conda environments as indicated below](#environments).  
 
 ##### Environments
-See [the conda instructions **3. Create and activate the environment**](./conda_instructions.md#3-create-and-activate-the-environment).
+See the [pre-course installation](./precourse.md), specifically [**3. Create and activate the environment**](./precourse.md#3-create-and-activate-the-environment).
 
 
 ##### Day 1: Supervised integration and feature selection
