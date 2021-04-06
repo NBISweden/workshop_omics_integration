@@ -15,6 +15,9 @@ This page is under update.
 
 **Prepare** [Pre-course materials](./precourse.md) and pre-processing introduction ([notebook](./session_preprocessing/preprocessing.ipynb), [html](./session_preprocessing/preprocessing.html))
 
+<br>
+<br>
+
 ##### Day 1
 
 **09.00 - 09.20** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Introduction and contextualization ([Rui][6])
