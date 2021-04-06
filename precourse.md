@@ -9,17 +9,17 @@ title:  Pre-course
 ***
 
 The course will be taught using both R and Python depending on the tools available. While you will be able to follow all lectures and exercises conceptually, you should be familiar with basic usage of both programming languages as these are **requirements for the course**:  
-- R (part_1): [https://swcarpentry.github.io/r-novice-inflammation/](https://swcarpentry.github.io/r-novice-inflammation/)
-- R (part_2): [http://swcarpentry.github.io/r-novice-gapminder/](http://swcarpentry.github.io/r-novice-gapminder/)
-- Python (part_1):[https://swcarpentry.github.io/python-novice-inflammation/](https://swcarpentry.github.io/python-novice-inflammation/)
-- Python (part_2): [http://swcarpentry.github.io/python-novice-gapminder/](http://swcarpentry.github.io/python-novice-gapminder/)
-
-You should be familiar with dataframe, matrix, vector manipulation, functions and (in python) methods.  
+- [R (part_1)](https://swcarpentry.github.io/r-novice-inflammation/)
+- [R (part_2)](http://swcarpentry.github.io/r-novice-gapminder/)
+- [Python (part_1)](https://swcarpentry.github.io/python-novice-inflammation/)
+- [Python (part_2)](http://swcarpentry.github.io/python-novice-gapminder/)
 
 You should also be familiar with basic command line input (`mkdir`, `cd`, `ls`, `cp`, `mv`).
 
-#### <img border="0" src="https://www.svgrepo.com/show/26916/book.svg" width="15" height="15"> Additional reading materials  
+#### <img border="0" src="https://www.svgrepo.com/show/26916/book.svg" width="15" height="15"> Preparation for the course  
 ***
+
+Before the course, you should go through the [data preprocessing notebook](./session_preprocessing/preprocessing.html).
 
 For additional information on some of the topics that we will discuss, refer to the [reading materials][5].
 
@@ -210,7 +210,18 @@ All environments are contained inside the folder `/environments/`
 
 
 ##### 3. Create and activate the environment
-For each day you will have to create a different environment:
+For each day you will have to create a different environment:  
+<br>
+**Before the course**
+
+```
+#Linux
+mamba env create -n envprep -f environments/env-preprocessing_linux.yaml
+
+#MacOSX
+mamba env create -n envprep -f environments/env-preprocessing.yaml
+```
+
 **Day 1**  
 
 ```

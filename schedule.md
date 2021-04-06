@@ -11,6 +11,9 @@ This page will be updated soon. Legacy information is presented below.
 <img border="0" src="https://www.svgrepo.com/show/307069/public-speaking-speak-tell-talk.svg" width="15" height="15"> - invited seminar  
 <br>
 <br>
+##### Before the course
+**Prepare** [Pre-course materials](./precourse.md) and [pre-processing notebook](./session_preprocessing/preprocessing.ipynb)
+
 ##### Day 1
 
 **09.00 - 10.00** Installation help and pre-course coffee

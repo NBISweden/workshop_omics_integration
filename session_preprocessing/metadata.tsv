@@ -1,0 +1,58 @@
+samples	group	gender	severity
+sample_1	group1	Male	2
+sample_2	group1	Male	3
+sample_3	group1	Female	4
+sample_4	group1	Female	2
+sample_5	group1	Male	1
+sample_6	group1	Male	2
+sample_7	group1	Male	2
+sample_8	group1	Female	4
+sample_9	group1	Male	4
+sample_10	group1	Male	3
+sample_11	group1	Female	2
+sample_12	group1	Male	3
+sample_13	group1	Female	2
+sample_14	group1	Female	3
+sample_15	group1	Female	2
+sample_16	group1	Female	2
+sample_17	group1	Female	4
+sample_18	group1	Female	4
+sample_19	group1	Female	4
+sample_20	group1	Male	3
+sample_21	group1	Male	3
+sample_22	group1	Female	2
+sample_23	group1	Male	3
+sample_24	group1	Male	4
+sample_25	group1	Female	3
+sample_26	group1	Male	4
+sample_27	group1	Female	3
+sample_28	group1	Male	3
+sample_29	group1	Male	4
+sample_30	group1	Female	4
+sample_31	group1	Male	4
+sample_32	group1	Female	3
+sample_33	group1	Male	4
+sample_34	group1	Male	3
+sample_35	group1	Male	3
+sample_36	group2	Female	3
+sample_37	group2	Female	4
+sample_38	group2	Male	3
+sample_39	group2	Female	4
+sample_40	group2	Female	2
+sample_41	group2	Male	4
+sample_42	group2	Male	3
+sample_43	group2	Male	3
+sample_44	group2	Female	3
+sample_45	group2	Female	3
+sample_46	group2	Male	4
+sample_47	group2	Female	2
+sample_48	group2	Female	2
+sample_49	group2	Male	4
+sample_50	group2	Female	3
+sample_53	control	Male	
+sample_54	control	Male	
+sample_55	control	Male	
+sample_56	control	Female	
+sample_57	control	Male	
+sample_58	control	Male	
+sample_59	control	Male	
