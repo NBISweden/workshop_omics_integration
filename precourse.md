@@ -203,7 +203,7 @@ Throughout the course we'll be using scripts and environments found in our githu
 mamba install -c anaconda git #install
 mkdir ~/Desktop/course
 cd ~/Desktop/course
-git clone git@github.com:NBISweden/workshop_omics_integration.git .
+git clone https://github.com/NBISweden/workshop_omics_integration.git .
 ```
 
 All environments are contained inside the folder `/environments/`
@@ -275,7 +275,7 @@ jupyter-notebook &
 After you've ran all your analyses, you can deactivate the environment by typing:  
 
 ```
-mamba deactivate
+conda deactivate
 ```
 
 
