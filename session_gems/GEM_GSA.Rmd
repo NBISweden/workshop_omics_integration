@@ -69,7 +69,7 @@ knitr::include_graphics('img/tcga_gdc_banner.png')
 ```
 
 
-Setup
+Setup option 1
 =====
 
 **In your terminal/command prompt**
@@ -84,6 +84,20 @@ $ conda activate envnets
 ```{bash, eval=F}
 $ rstudio &
 ```
+</br>
+
+Setup option 
+=====
+
+**In r/rmarkdown run the following code**
+
+`r sn<-sn+1; paste0(sn,"\\. ")` If your conda installation fails, navigate to the directory where "renv.lock" file is located and run following code chunk.
+
+```{r, , message=FALSE, warning=FALSE, results='hide'}
+renv::init()
+BiocManager::install("TCGAbiolinks")
+```
+
 </br>
 
 **In R Studio**
@@ -117,6 +131,7 @@ library(org.Hs.eg.db)
 `r sn<-sn+1; paste0(sn,"\\. ")` Specify the location of the main tutorial directory
 ```{r}
 main_dir = '/Users/jonrob/Documents/NBIS/teaching/workshop_omics_integration/session_gems'
+
 ```
 </br>
 
