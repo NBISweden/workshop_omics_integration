@@ -75,6 +75,8 @@ This page is under update.
 
 **15.30 - 17.00** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Assisted exercises
 
+<br>
+<br>
 
 ##### Day 3
 
@@ -108,6 +110,9 @@ This page is under update.
 
 **15.45 - 17.00** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Assisted exercises
 
+<br>
+<br>
+
 ##### Day 4
 
 **09.00 - 09.40** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Similarity network fusion ([Sergiu][4])
@@ -140,6 +145,9 @@ This page is under update.
 
 **16.00 - 17.00** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Assisted exercises
 
+<br>
+<br>
+
 ##### Day 5
 
 **09.00 - 09.55** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Gene set analysis and reporter features ([Ashfaq][1])
@@ -162,6 +170,9 @@ This page is under update.
 
 **14.20 - 15.20** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Discussions and course end
 
+
+<br>
+<br>
 
 **Teachers:**
 - [Ashfaq Ali][1]
