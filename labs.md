@@ -14,11 +14,13 @@ git clone git@github.com:NBISweden/workshop_omics_integration.git .
 ```
 
 Inside you will find the following folders:  
+- `session_preprocessing/` - data pre-processing, prior to course start  
 - `session_ml/` - the machine learning sessions, days 1 and 2  
-- `session_topology/` - the network topology analysis, day 3  
+- `session_topology/` - the network topology analysis, day 3 morning  
+- `session_meta/` - network meta-analysis, day 3 afternoon  
 - `session_nmf/` - session on matrix factorization, SNF and recommender systems, day 4 morning  
-- `session_gems/` - the genome-scale modeling session, day 4 afternoon and day 5 morning  
-- `session_visualization/` - cytoscape session day 3 afternoon, circos and hive plots day 5  
+- `session_gems/` - the genome-scale modeling session, day 4 afternoon  
+- `session_gsa/` - gene set and reporter feature, day 5 morning  
 
 You will need to create specific [conda environments as indicated below](#environments).  
 
@@ -77,15 +79,15 @@ jupyter-notebook
 ```
 Inside jupyter, open the file `/session_gems/COBRApy_tutorial.ipynb`.
 
-##### Day 5: GEM-based gene set analysis
+##### Day 5: Gene set and reporter analysis
 After activating the `envnets` environment, launch jupyter
 ```
 jupyter-notebook
 ```
-Inside jupyter, open the file `/session_gems/GEM_GSC_extraction.ipynb`.
+Inside jupyter, open the file `/session_gsa/GEM_GSC_extraction.ipynb`.
 
 When you are done with the `GEM_GSC_extraction.ipynb` notebook, close jupyter.
 
-Open the `/session_gems/GEM_GSA.html` file in the browser of your choice (Chrome, Firefox, etc.), and follow the instructions provided in that document.
+Open the `/session_gsa/GEM_GSA.html` file in the browser of your choice (Chrome, Firefox, etc.), and follow the instructions provided in that document.
 
 

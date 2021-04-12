@@ -210,7 +210,7 @@ All environments are contained inside the folder `/environments/`
 
 
 ##### 3. Create and activate the environment
-For each day you will have to create a different environment:  
+For each day you will have to create a different environment as not all programs are compatible with each other:  
 <br>
 **Before the course**
 
