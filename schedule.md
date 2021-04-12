@@ -8,14 +8,13 @@ This page is under update.
 
 <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> - lecture; 
 <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> - hands-on workshop; 
-<img border="0" src="https://www.svgrepo.com/show/307069/public-speaking-speak-tell-talk.svg" width="15" height="15"> - invited seminar 
+<img border="0" src="https://www.svgrepo.com/show/307069/public-speaking-speak-tell-talk.svg" width="15" height="15"> - invited seminar; 
 <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> - break
 <br>
 <br>
 ##### Before the course
 
-**Prepare** [Pre-course materials](./precourse.md) and pre-processing introduction ([notebook](./session_preprocessing/preprocessing.ipynb), [html](./session_preprocessing/preprocessing.html)). environment: `
-
+**Prepare** [Pre-course materials](./precourse.md) and pre-processing introduction ([notebook](./session_preprocessing/preprocessing.ipynb), [html](./session_preprocessing/preprocessing.html)).
 <br>
 <br>
 
@@ -72,7 +71,7 @@ This page is under update.
 
 **14.05 - 15.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Single cell and UMAP for integration ([Nikolay][2])
 
-**15.00 - 15.30** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Single cell and UMAP for integration ([Nikolay][2], [single cell notebook](./session_ml/SingleCell/SingleCell_OmicsIntegration.html), [UMAP notebook](./session_ml/UMAP_DataIntegration/UMAP_DataIntegration.html)))
+**15.00 - 15.30** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Single cell and UMAP for integration ([Nikolay][2], [single cell notebook](./session_ml/SingleCell/SingleCell_OmicsIntegration.html), [UMAP notebook](./session_ml/UMAP_DataIntegration/UMAP_DataIntegration.html))
 
 **15.30 - 17.00** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Assisted exercises
 
