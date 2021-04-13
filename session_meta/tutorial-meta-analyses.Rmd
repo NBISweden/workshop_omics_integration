@@ -1,0 +1,279 @@
+---
+title: "Tutorial"
+author: Ashfaq Ali
+email: ashfaq.ali@nbis.se
+output: learnr::tutorial
+runtime: shiny_prerendered
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+---
+
+```{r setup, include=FALSE}
+library(learnr, lib.loc =  "/Users/cob-aaf/opt/anaconda3/envs/omicsMeta/lib/R/library")
+knitr::opts_chunk$set(echo = FALSE)
+usethis::
+```
+
+
+```{r}
+
+library(devtools, "/Users/cob-aaf/opt/anaconda3/envs/omicsMeta/lib/R/library")
+#devtools::install_github("metaOmic/preproc")
+devtools::install_github("metaOmics/MetaQC")
+devtools::install_github("metaOmics/MetaDE")
+devtools::install_github("metaOmics/MetaPath")
+install_github("Caleb-Huo/MetaSparseKmeans", build_vignettes=TRUE)
+install_github("Caleb-Huo/IS-Kmeans")
+install_github("Caleb-Huo/AWFisher")
+devtools::install_github("metaOmics/metaPCA")
+devtools::install_github("metaOmics/MetaDCN")
+```
+
+```{r}
+install.packages('abind')
+install.packages('zoo')
+install.packages('xts')
+install.packages('quantmod')
+install.packages('ROCR')
+install.packages("DMwR")
+```
+
+
+```{r}
+l <-c("MetaQC", "MetaDE", "MetaPath", "metaPCA", "MetaDCN", "MetaSparseKmeans", "metafor", "GeneMeta")
+invisible( lapply(l, library, quietly = TRUE, character.only=TRUE) )
+
+```
+
+
+## QC of micro array data
+
+```{r}
+# Let us load some example microarray data
+
+load("~/Documents/GitHub/meta-analyses/metaOmics/data/prostate8.rda")
+load("~/Documents/GitHub/meta-analyses/metaOmics/data/pathwayQC.rda")
+
+```
+
+
+```{r}
+data(prostate8)
+data(pathway)
+DList=prostate8$data
+colLabel=prostate8$dataLabel
+GList=pathway[[1]]
+filterGenes=TRUE
+cutRatioByMean=0.3
+cutRatioByVar=0.3
+
+QCresult=MetaQC(DList, colLabel, GList,filterGenes,cutRatioByMean,cutRatioByVar)
+plotMetaQC(QCresult$scoreTable)```
+```
+
+
+```{r}
+data('Leukemia')
+data('LeukemiaLabel')
+data <- Leukemia
+K <- length(data)
+
+clin.data <- lapply(label, function(x) {data.frame(x)} )
+for (k in 1:length(clin.data)){
+ colnames(clin.data[[k]]) <- "label"
+}
+select.group <- c('inv(16)','t(15;17)')
+ref.level <- "inv(16)"
+data.type <- "continuous"
+ind.method <- c('limma','limma','sam')
+resp.type <- "twoclass"
+paired <- rep(FALSE,length(data))
+meta.method <- "Fisher"
+meta.res <- MetaDE(data=data,clin.data = clin.data,
+                    data.type=data.type,resp.type = resp.type,
+                    response='label',
+                    ind.method=ind.method, meta.method=meta.method,
+                    select.group = select.group, ref.level=ref.level,
+                    paired=paired,tail='abs',parametric=TRUE)
+meta.method <- "Fisher.OC"
+meta.res <- MetaDE(data=data,clin.data = clin.data,
+                    data.type=data.type,resp.type = resp.type,
+                    response='label',
+                    ind.method=ind.method, meta.method=meta.method,
+                    select.group = select.group, ref.level=ref.level,
+                    paired=paired,tail='high',parametric=FALSE,nperm=100)
+meta.method <- "FEM"
+meta.res <- MetaDE(data=data,clin.data = clin.data,
+                    data.type=data.type,resp.type = resp.type,
+                    response='label',
+                    ind.method=ind.method, meta.method=meta.method,
+                    select.group = select.group, ref.level=ref.level,
+                    paired=paired, tail='abs')
+meta.method <- "REM"
+REM.type <- "HO"
+meta.res <- MetaDE(data=data,clin.data = clin.data,
+                    data.type=data.type,resp.type = resp.type,
+                    response='label',
+                    ind.method=ind.method, meta.method=meta.method,
+                    select.group = select.group, ref.level=ref.level,
+                    paired=paired, 
+                    REM.type=REM.type,tail='abs')
+meta.method <- "SR"
+meta.res <- MetaDE(data=data,clin.data = clin.data,
+                    data.type=data.type,resp.type = resp.type,
+                    response='label',
+                    ind.method=ind.method, meta.method=meta.method,
+                    select.group = select.group, ref.level=ref.level,
+                    paired=paired,tail='abs',parametric=FALSE,nperm=100)
+meta.method <- 'minMCC'
+meta.res <- MetaDE(data=data,clin.data = clin.data,
+                    data.type=data.type,resp.type = resp.type,
+                    response='label',
+                    ind.method=ind.method, meta.method=meta.method,
+                    select.group = select.group, ref.level=ref.level,
+                    paired=paired,tail='abs',parametric=FALSE,nperm=100)
+meta.method <- "AW"
+meta.res <- MetaDE(data=data,clin.data = clin.data,
+                    data.type=data.type,resp.type = resp.type,
+                    response='label',covariate = NULL,
+                    ind.method=ind.method, meta.method=meta.method,
+                    select.group = select.group, ref.level=ref.level,
+                    paired=paired, rth=NULL,
+                    REM.type=NULL,tail='abs',parametric=TRUE)
+```
+
+If you get a Lang error, try following
+
+```{r}
+https://stackoverflow.com/questions/9689104/installing-r-on-mac-warning-messages-setting-lc-ctype-failed-using-c
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+
+```{r}
+browseVignettes("MetaSparseKmeans")
+```
+
+
+
+
+```{r}
+# install.packages(c('GSA', 'combinat', 'samr', 'survival', 'cluster', 'gplots', 'ggplot2', 'irr', 'shape', 'snow', 'snowfall', 'igraph', 'doMC', 'PMA'))
+# 
+# source('https://bioconductor.org/biocLite.R')
+# BiocManager::install(c('multtest', 'Biobase', 'edgeR', 'DESeq2', 'impute', 'limma', 'AnnotationDbi', 'Consensus-ClusterPlus', 'genefilter', 'GSEABase', 'Rgraphviz'))
+```
+
+
+
+in terminal use following to clone the repository
+
+```{bash}
+git clone "https://github.com/metaOmic/metaOmics"
+```
+
+```{r}
+install.packages("shiny")
+install.packages("DMwR")
+shiny::runApp('metaOmics', port=9987)
+
+## Data
+Import data from the 
+
+
+### Exercise 
+
+Here's a simple exercise with an empty code chunk provided for entering the answer.*
+
+Write the R code required to add two plus two:
+````
+
+
+```{r two-plus-two, exercise=TRUE}
+source("./metaOmics/global/constants.R")
+source("./metaOmics/global/messages.R")
+source("./metaOmics/global/help.R")
+#source("./metaOmics/global/database.R")
+source("./metaOmics/global/helpers.R")
+source("./metaOmics/global/directoryInput.R")
+```
+
+```{r}
+library(GeneMeta)
+library(RColorBrewer)
+> #load("~/Bioconductor/Projects/GraphCombine/MetaBreast/data/Nevins.RData") > data(Nevins)
+  
+```
+
+
+### Exercise with Code
+
+*Here's an exercise with some prepopulated code as well as `exercise.lines = 5` to provide a bit more initial room to work.*
+
+Now write a function that adds any two numbers and then call it:
+
+```{r add-function, exercise=TRUE, exercise.lines = 5}
+add <- function() {
+  
+}
+```
+
+## Random effect models
+
+### Exercise with Hint
+
+*Here's an exercise where the chunk is pre-evaulated via the `exercise.eval` option (so the user can see the default output we'd like them to customize). We also add a "hint" to the correct solution via the chunk immediate below labeled `print-limit-hint`.*
+
+Modify the following code to limit the number of rows printed to 5:
+
+```{r print-limit, exercise=TRUE, exercise.eval=TRUE}
+rmarkdown::metadata$title
+```
+
+```{r print-limit-hint}
+head(mtcars)
+```
+
+### Quiz
+
+*You can include any number of single or multiple choice questions as a quiz. Use the `question` function to define a question and the `quiz` function for grouping multiple questions together.*
+
+Some questions to verify that you understand the purposes of various base and recommended R packages:
+
+```{r quiz}
+quiz(
+  question("Which package contains functions for installing other R packages?",
+    answer("base"),
+    answer("tools"),
+    answer("utils", correct = TRUE),
+    answer("codetools")
+  ),
+  question("Which of the R packages listed below are used to create plots?",
+    answer("lattice", correct = TRUE),
+    answer("tools"),
+    answer("stats"),
+    answer("grid", correct = TRUE)
+  )
+)
+```
+
+## Fixed effect models
+
+```{r}
+
+```
+
+### Exercise
+
+
+## Meta analyses of gene expression data
+
+### Gene meta package in R
+
+## Network meta analyses

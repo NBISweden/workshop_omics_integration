@@ -1,0 +1,202 @@
+---
+title: "Meta analyses and Network Meta analyses"
+subtitle: "Applications in Omics Integration and Systems Biology"
+author: "<b>Ashfaq Ali</b>"
+institute: "NBIS, SciLife lab, Lund University, Sweden"
+date: "updated: `r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    encoding: 'UTF-8'
+    self_contained: false
+    chakra: 'assets/remark-latest.min.js'
+    css: 'assets/presentation.css'
+    lib_dir: libs
+    nature:
+      ratio: '4:3'
+      highlightLanguage: r
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: falsep
+      slideNumberFormat: "Omics-Integration 2021 • %current%/%total%"
+       
+---
+class: left, left, middle
+
+## Meta analyses
+
+---
+
+## What is meta analyses and when is it relevant
+
+---
+## Basic terminology
+
+ - Summary statistics 
+ - 
+
+## Lecture and Tutorial Overview 
+
+ - Meta analyses
+ - Introduction
+ - Individual studies
+ - The summary effect 
+ - Heterogeneity of effect sizes
+
+ 1) Combining P- values, 2) Combining rank statistics, and 3) Combining effects.
+---
+## 11 VOTE-COUNTING PROCEDURES IN META-ANALYSIS (pp. 207-220)
+BRAD J. BUSHMAN and MORGAN C. WANG
+As the number of scientific studies continues to grow, it becomes increasingly important to integrate the results from these studies. One simple approach involves counting votes. In the conventional vote-counting procedure, one simply divides studies into three categories: those with significant positive results, those with significant negative results, and those with nonsignificant results. The category containing the most studies is declared the winner. For example, if the majority of studies examining a treatment found significant positive results, then the treatment is considered to have a positive effect.
+
+Many authors consider the conventional vote-counting procedure to be crude, flawed, and worthless...
+
+---
+## 12 EFFECT SIZES FOR CONTINUOUS DATA (pp. 221-236)
+MICHAEL BORENSTEIN
+In any meta-analysis, we start with summary data from each study and use it to compute an effect size for the study. An effect size is a number that reflects the magnitude of the relationship between two variables. For example, if a study reports the mean and standard deviation for the treated and control groups, we might compute the standardized mean difference between groups. Or, if a study reports events and nonevents in two groups we might compute an odds ratio. It is these effect sizes that are then compared and combined in the meta-analysis.
+
+Consider figure 12.1, the forest...
+
+---
+
+## 13 EFFECT SIZES FOR DICHOTOMOUS DATA (pp. 237-254)
+JOSEPH L. FLEISS and JESSE A. BERLIN
+In many studies measurements are made on binary (dichotomous) rather than numerical scales. Examples include studies of attitudes or opinions (the two categories for the response variable being agree or disagree with some statement), case-control studies in epidemiology (the two categories being exposed or not exposed to some hypothesized risk factor), and intervention studies (the two categories being improved or unimproved or, in studies of medical interventions, experiencing a negative event or not). In this chapter we present and analyze four popular measures of association or effect appropriate for categorical data: the difference between two probabilities, the ratio of two...
+
+
+---
+## 4 COMBINING ESTIMATES OF EFFECT SIZE (pp. 257-278)
+WILLIAM R. SHADISH and C. KEITH HADDOCK
+In 1896, Sir Almroth Wright—a colleague and mentor of Sir Alexander Fleming, who discovered penicillin—developed a vaccine to protect against typhoid (Susser 1977; see Roberts 1989). The typhoid vaccine was tested in several settings, and on the basis of these tests the vaccine was recommended for routine use in the British army for soldiers at risk for the disease. In that same year, Karl Pearson, the famous biometrician, was asked to examine the empirical evidence bearing on the decision. To do so, he synthesized evidence from five studies reporting data about the relationship between inoculation status and typhoid...
+
+
+
+---
+## Random effect models
+16 ANALYZING EFFECT SIZES: RANDOM-EFFECTS MODELS (pp. 295-316)
+STEPHEN W. RAUDENBUSH
+This volume considers the problem of quantitatively summarizing results from a stream of studies, each testing a common hypothesis. In the simplest case, each study yields a single estimate of the impact of some intervention. Such an estimate will deviate from the true effect size as a function of random error because each study uses a finite sample size. What is distinctive about this chapter is that the true effect size itself is regarded as a random variable taking on different values in different studies, based on the belief that differences between the studies generate differences in the true effect...
+
+Save
+---
+## Fixed effect models
+15 ANALYZING EFFECT SIZES: FIXED-EFFECTS MODELS (pp. 279-294)
+SPYROS KONSTANTOPOULOS and LARRY V. HEDGES
+A central question in research synthesis is whether methodological, contextual, or substantive differences in research studies are related to variation in effect-size parameters.
+
+Both fixed- and random-effects statistical methods are available for studying the variation in effects. The choice of which to use is sometimes a contentious issue in both meta-analysis as well as primary analysis of data. The choice of statistical procedures should primarily be determined by the kinds of inference the synthesist wishes to make. Two different inference models are available, sometimes calledconditionalandunconditionalinference (see Hedges and Vevea 1998). The conditional model attempts to make...
+--- 
+
+## 17 CORRECTING FOR THE DISTORTING EFFECTS OF STUDY ARTIFACTS IN META-ANALYSIS (pp. 317-334)
+FRANK L. SCHMIDT, HUY LE and IN-SUE OH
+Every study has imperfections, many of which bias the results. In some cases we can define precisely what a methodologically ideal study would be like, and thus say that the effect size obtained from any real study will differ to some extent from the value that would have been obtained had the study been methodologically perfect. Although it is important to estimate and eliminate bias in individual studies, it is even more important to remove such errors in research syntheses such as meta-analyses.
+
+Some authors have argued that meta-analysts should not correct for study imperfections because the purpose of meta-analysis...
+
+
+---
+## Why chose fixed effect models
+
+---
+
+## Why prefer effect sizes of P valuse
+
+---
+## Critcism 
+
+---
+## Meta analyses for omics
+
+ - MetaDE: meta analyses based on differential expression
+ - Meta analyses based on pathways 
+   - Effect size(Fixed effect, Random effect)
+   - P Value 
+   - Vote counting 
+ - Meta analyses based on networks
+ - Meta analyses Vertical integration
+ - Meta analyses Horizontal Integration 
+---
+
+## Network meta-analyses
+
+---
+## Gene Meta analyses
+
+---
+
+
+## MetaQC: Quality control and diagnosis for microarray meta-analysis
+
+A diagnosis tool for assessing quality of genomic studies for meta-analysis and determining inclusion/exclusion criteria. The "MetaQC" package is based on the following paper.
+
+Dongwan D. Kang, Etienne Sibille, Naftali Kaminski, and George C. Tseng*. (2011) MetaQC: Objective Quality Control and Inclusion/Exclusion Criteria for Genomic Meta-Analysis. Nucleic Acids Research. 40(2):e15.
+
+## MetaDE: Meta-analysis for Differential Expression Analysis
+
+The MetaDE package contains more than 12 popular genomic meta-analysis methods (such as Fisher, Stouffer, random effects model and fixed effects model etc.) as well as many new methods and functions developed in our lab below.
+
+Adaptively weighted (AW) statistic: 
+
+Jia Li and George C. Tseng. (2011) An adaptively weighted statistic for detecting differential gene expression when combining multiple transcriptomic studies. Annals of Applied Statistics. 5:994-1019.
+
+rth ordered p-value (rOP) statistic: 
+
+Chi Song and George C. Tseng*. (2012) Hypothesis setting and order statistic for robust genomic meta-analysis. Annals of Applied Statistics. in press.
+
+Multi-class correlation (MCC) measure and ANOVA-maxP: 
+
+Shuya Lu, Jia Li, Chi Song, Kui Shen and George C Tseng. (2010) Biomarker Detection in the Integration of Multiple Multi-class Genomic Studies. Bioinformatics. 26:333-340.
+
+## Meta-analysis incorporating confounding variables: 
+
+Xingbin Wang, Yan Lin, Chi Song, Etienne Sibille* and George C Tseng*. (2012) Detecting disease-associated genes with confounding variable adjustment and the impact on genomic meta-analysis: with application to major depressive disorder. BMC Bioinformatics. 13:52.
+
+Imputation for truncated p-values in genomic meta-analysis: 
+
+Shaowu Tang and George C. Tseng*. (2013). Imputation of truncated p-values for meta-analysis methods and its genomic application. in revision.
+
+MetaPath: Meta-analysis for Pathway Analysis
+
+The package provides gene-based and pathway-based meta-analysis for pathway analysis and also implements a new gene-based and pathway-based hybrid method described in the following paper.
+
+## Meta-analysis for Pathway Enrichment (MAPE): 
+
+Kui Shen and George C. Tseng. (2010) Meta-analysis for pathway enrichment analysis when combining multiple microarray studies. Bioinformatics. 26:1316-1323.
+
+## MetaPCA: Meta-analysis for Dimension Reduction by PCA
+
+MetaPCA implements the PCA meta-analysis framework described in the following two papers.
+
+MetaPCA: Meta-analysis framework for PCA: 
+
+Sunghwan Kang, Dongwan Kang and George C. Tseng* (2013) A meta-analysis framework for principal component analysis: with applications to combining multiple transcriptomic studies. In preparation.
+
+Sparse and robust MetaPCA: sparse and robust version of MetaPCA:
+
+Sunghwan Kang, Dongwan Kang and George C. Tseng* (2013) Sparse and robust metaPCA in genomic applications. In preparation
+
+## MetaClust: Meta-analysis for gene clustering (gene module identification) and sample clustering (disease subtype discovery). (under development)
+
+MetaGeneClust:
+
+Lunching Chang and George C. Tseng (2013) Combining multiple transcriptomic studies for gene clustering. In preparation.
+
+## MetaSparseKmeans:
+
+Zhiguang Huo and George C. Tseng (2013) Meta-analysis framework of sparse K-means for disease subtype discovery when combining multiple transcriptomic studies. In preparation.
+
+## MetaNetwork: Meta-analysis for co-expressioin network analysis. (under development)
+
+Review papers, comparative study and software papers: 
+
+Review paper for microarray meta-analysis
+George C. Tseng*, Debashis Ghosh and Eleanor Feingold. (2012) Comprehensive literature review and statistical considerations for microarray meta-analysis. Nucleic Acids Research 40 (9): 3785-3799.
+
+Review paper for GWAS meta-analysis
+Ferdouse Begum, Debashis Ghosh, George C. Tseng*, Eleanor Feingold. (2012) Comprehensive literature review and statistical considerations for GWAS meta-analysis. Nucleic Acids Research 40 (9): 3777-3784.
+
+Software paper introducing MetaQC, MetaDE and MetaPath
+Xingbin Wang, Dongwan Kang, Kui Shen, Chi Song, Shuya Lu, Lunching Chang, Serena G. Liao, Zhiguang Huo, Naftali Kaminski, Etienne Sibille, Yan Lin, Jia Li* and George C. Tseng*. (2012) A Suite of R Packages for Quality Control, Differentially Expressed Gene and Enriched Pathway Detection in Microarray Meta-analysis. Bioinformatics. 28:2534-2536.
+
+Comparative study
+Lunching Chang, Huimin Lin and George C. Tseng*. (2013) Characterization and comparison of microarray meta-analysis methods. (in preparation)
