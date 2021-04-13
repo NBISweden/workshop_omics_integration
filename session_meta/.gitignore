@@ -1,0 +1,16 @@
+# Mac DS_Store files
+.DS_Store
+
+
+# r environment directory
+renv/
+
+MetaDCN/
+#
+results/
+#
+session_gems.Rproj
+
+# Rmarkdown cache files
+GEM_GSA_cache/
+GEM_GSA_files/
