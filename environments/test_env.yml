@@ -1,0 +1,11 @@
+name: omicsInt2s
+channels:
+  - anaconda
+  - conda-forge
+  - r
+  - bioconda
+dependencies:
+  # R
+  - r-base=3.4.1
+  - rstudio
+  - r-remotes
