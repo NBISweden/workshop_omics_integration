@@ -1,0 +1,509 @@
+/* CSS style for RNA-Seq presentation */
+/* Xaringen, remark.js                  */
+/* 2019 Roy Francis                     */
+
+/* define font */
+@import url('https://fonts.googleapis.com/css?family=Roboto|Source+Sans+Pro:300,400,600|Ubuntu+Mono&subset=latin-ext');
+
+:root {
+  --color-primary: #0093BD;
+  --color-border: #e8e8e8;
+  --color-text: #202020;
+  --color-code-bg: #f9f9f9;
+  --color-code-inline: #d72b3f;
+  --font-base: 'Source Sans Pro';
+  --font-highlight: 'Source Sans Pro';
+  --font-code: 'Ubuntu Mono';
+}
+
+/* FONTS -------------------------------------------------------------------- */
+
+/* body font family */
+body,p,h1,h2,h3,h4,h5,h6 {
+  font-family: var(--font-base, 'Roboto', 'DIN', 'Helvetica', sans-serif);
+  color: var(--color-text);
+  font-weight: 400;
+  font-size: 18px;
+}
+
+/* title font family, weight and size */
+h1,h2 {
+  font-family: var(--font-highlight, 'Roboto', 'DIN', 'Helvetica', sans-serif);
+  color: var(--color-text);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+h1 {
+  font-size: 1.802em !important;
+  color: var(--color-text);
+  margin-top: 0.9em;
+  margin-bottom: 0.8em;
+}
+
+h2 {
+  font-size: 1.602em !important;
+  color: var(--color-text);
+  margin-top: 0.2em;
+  margin-bottom: 0.6em;
+  /* border-left: var(--color-primary) 6px solid; */
+  /* padding-left: 0.5em; */
+}
+
+h3 {
+  font-size: 1.424em !important;
+  margin-top: 0.6em;
+  margin-bottom: 0.4em;
+}
+
+h4 {
+  font-size: 1.266em !important;
+  margin-top: 0.5em;
+  margin-bottom: 0.3em;
+}
+
+h5 {
+  font-size: 1.266em !important;
+  margin-top: 0.5em;
+  margin-bottom: 0.3em;
+}
+
+h6 {
+  font-size: 1.125em !important;
+  margin-top: 0.5em;
+  margin-bottom: 0.3em;
+}
+
+/* code font size */
+.remark-code {
+  font-size: 76% !important;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+
+/* code inline */
+.remark-inline-code {
+  background: var(--color-code-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  margin-right: 2px;
+  padding: 2px 3px 1px;
+  font-size: 80% !important;
+  color: var(--color-code-inline);
+}
+
+/* code font family */
+.remark-code, .remark-inline-code {
+  font-family: var(--font-code);
+}
+
+/* new font size classes */
+.largest { font-size: 2.488em; }
+.larger { font-size: 2.074em; }
+.large { font-size: 1.44em;}
+.small { font-size: 0.833em; }
+.smaller { font-size: 0.694em; }
+.smallest{ font-size: 0.579em; }
+
+.highlight {color: var(--color-primary);}
+.altcol {color: #a8b0bb;}
+.citation {
+  line-height: 12px;
+  position: fixed;
+  bottom: 5px;
+  margin-right: 6em;
+  display: block;
+  font-size: 70%;
+}
+
+.cite {
+  font-size: 60%;
+}
+
+/* spaced para style */
+.spaced {
+    line-height: 150%;
+}
+
+/* text on end slide */
+.end-text {
+  opacity: 0.6;
+  text-indent: 0.5rem;
+}
+
+/* blockquote */
+blockquote {
+  border-left: 5px solid var(--color-primary);
+  background: var(--color-code-bg);
+  padding: 0.1em;
+  padding-left: 12px;
+  margin-left: 16px;
+  margin-right: 0;
+  border-radius: 0 4px 4px 0;
+}
+
+
+/* links */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-primary);
+  opacity: 0.6;
+  text-decoration: underline;
+}
+
+/* MARGINS ------------------------------------------------------------------ */
+
+/* slide margin */
+.remark-slide-content {
+  padding-top: 2em;
+  padding-left: 2.5em;
+  padding-right: 2.5em;
+  padding-bottom: 2em;
+}
+
+/* list margin */
+ul {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+
+/* pre margin */
+pre {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+
+/* p margin */
+p {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+
+/* COVER SLIDES ------------------------------------------------------------- */
+
+/* title slide image */
+.title-slide {
+  background-image: url(cover.jpg);
+  background-size: cover;
+  vertical-align: bottom !important; 
+  text-align: left !important;
+  padding-bottom: 3em;
+}
+
+/* end slide image */
+.end-slide {
+  background-image: url(end.jpg);
+  background-size: cover;
+  vertical-align: bottom !important; 
+  text-align: left !important;
+  padding-bottom: 2em;
+  padding-left: 80px;
+  line-height: 12px;
+}
+
+/* logo right */
+.title-slide.remark-slide-content:before{
+  position: absolute;
+  content:url(logo.svg);
+  /* height:96px; */
+  width:300px;
+  margin-top: 1em;
+  right: 2.5em;
+  /* -webkit-filter: drop-shadow(1px 1px 3px grey); */
+  /* filter: drop-shadow(1px 1px 3px grey); */
+}
+
+.end-slide.remark-slide-content:before{
+  content: "";
+}
+
+/* title slide image */
+.title-slide h1 {
+  text-align: left;
+  font-weight: 600;
+  border-bottom-style: solid;
+  border-bottom-color: var(--color-primary);
+  padding-bottom: 0.3em;
+  margin-bottom: 0.3em;
+  color: var(--color-primary);
+}
+
+.title-slide h2 {
+  text-align: left;
+  font-weight: 500;
+  color: #808080;
+  margin-bottom: 0.5em;
+  margin-top: 0.3em;
+}
+
+.title-slide h3 {
+  font-size: 120% !important;
+  text-align: left;
+  font-weight: 500;
+  margin-bottom: 0;
+  margin-top: 0.1em;
+}
+
+/* hide slide number on cover slide */
+.title-slide .remark-slide-number {
+  display: none;
+}
+
+/* hide slide number on end slide */
+.end-slide .remark-slide-number {
+  display: none;
+}
+
+/* reduce size of slide number */
+.remark-slide-number {
+  font-size: 50%;
+}
+
+/* IMAGES ------------------------------------------------------------------- */
+
+/* set images to 100% width */
+img, video, iframe {
+  max-width: 99%;
+  max-height: 99%;
+  /* margin: 8px; */
+}
+
+/* image styling */
+.round-border {
+  border-radius: 3px;
+}
+
+.drop-shadow {
+  -webkit-box-shadow: 1px 1px 5px grey;
+  -moz-box-shadow: 1px 1px 5px grey;
+  box-shadow: 1px 1px 5px grey;
+}
+
+/* logo every slide top right */
+.remark-slide-content:before {
+  content: url(logo.svg);
+  width: 180px;
+  float: right;
+  right: 4em;
+  top: 0;
+  margin-top: 0.4em;
+}
+
+/* image size classes */
+.size-95 {display:block; max-width: 95%;}
+.size-90 {display:block; max-width: 90%;}
+.size-85 {display:block; max-width: 85%;}
+.size-80 {display:block; max-width: 80%;}
+.size-75 {display:block; max-width: 75%;}
+.size-70 {display:block; max-width: 70%;}
+.size-65 {display:block; max-width: 65%;}
+.size-60 {display:block; max-width: 60%;}
+.size-55 {display:block; max-width: 55%;}
+.size-50 {display:block; max-width: 50%;}
+.size-45 {display:block; max-width: 45%;}
+.size-40 {display:block; max-width: 40%;}
+.size-35 {display:block; max-width: 35%;}
+.size-30 {display:block; max-width: 30%;}
+.size-25 {display:block; max-width: 25%;}
+.size-20 {display:block; max-width: 20%;}
+.size-15 {display:block; max-width: 15%;}
+.size-10 {display:block; max-width: 10%;}
+
+/* COLUMNS ------------------------------------------------------------------- */
+
+.pull-center{
+  width: 100%;
+}
+
+/* float 50%-50% width */
+.pull-right-50 {
+  width: 49%;
+  float: right;
+  margin-right: 0.5%;
+  margin-left: 0.5%;
+}
+.pull-left-50 {
+  width: 49%;
+  float: left;
+  margin-right: 0.5%;
+  margin-left: 0.5%;
+}
+
+/* float 30% 70% width */
+.pull-right-30 {
+  width: 29%;
+  float: right;
+  margin-right: 0.5%;
+  margin-left: 0.5%;
+}
+.pull-right-70 {
+  width: 69%;
+  float: right;
+  margin-right: 0.5%;
+  margin-left: 0.5%;
+}
+.pull-left-30 {
+  width: 29%;
+  float: left;
+  margin-right: 0.5%;
+  margin-left: 0.5%;
+}
+.pull-left-70 {
+  width: 69%;
+  float: left;
+  margin-right: 0.5%;
+  margin-left: 0.5%;
+}
+
+/* float 40% 60% width */
+.pull-right-40 {
+  width: 39%;
+  float: right;
+  margin-right: 0.5%;
+  margin-left: 0.5%;
+}
+.pull-right-60 {
+  width: 59%;
+  float: right;
+  margin-right: 0.5%;
+  margin-left: 0.5%;
+}
+.pull-left-40 {
+  width: 39%;
+  float: left;
+  margin-right: 0.5%;
+  margin-left: 0.5%;
+}
+.pull-left-60 {
+  width: 59%;
+  float: left;
+  margin-right: 0.5%;
+  margin-left: 0.5%;
+}
+
+/* float 45% 55% width */
+.pull-right-45 {
+  width: 44%;
+  float: right;
+  margin-right: 0.5%;
+  margin-left: 0.5%;
+}
+.pull-right-55 {
+  width: 54%;
+  float: right;
+  margin-right: 0.5%;
+  margin-left: 0.5%;
+}
+.pull-left-45 {
+  width: 44%;
+  float: left;
+  margin-right: 0.5%;
+  margin-left: 0.5%;
+}
+.pull-left-55 {
+  width: 54%;
+  float: left;
+  margin-right: 0.5%;
+  margin-left: 0.5%;
+}
+
+/* SLIDE PROGRESS BAR -------------------------------------------------------- */
+
+/*.remark-slide-number {
+  position: inherit;
+}
+
+.remark-slide-number .progress-bar-container {
+  position: absolute;
+  bottom: 0;
+  height: 3px;
+  display: block;
+  left: 0;
+  right: 0;
+}
+
+.remark-slide-number .progress-bar {
+  height: 100%;
+  background-color: var(--color-primary);
+}
+*/
+
+/* TABLES ------------------------------------------------------------------- */
+
+/* table even shading */
+.pagedtable .even {
+    background-color: #F2F2F2;
+}
+
+/* DT table font size */
+.dataTables_wrapper{
+  font-size: 0.7em;
+}
+
+/* kableExtra font size */
+.table{
+  font-size: 0.8em;
+}
+
+/* MARKDOWN TABLE STYLE ------------------------------------------------------ */
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+th,td {padding: 8px; text-align: left;}
+
+/* SPECIAL ------------------------------------------------------------------ */
+
+/* limit vertical size of a code chunk */
+.limity100 {
+  max-height: 100px;
+  overflow-y: auto;
+}
+
+.limity150 {
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.limity200 {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.limity250 {
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.limity300 {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.limity350 {
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+.limity400 {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.limity450 {
+  max-height: 450px;
+  overflow-y: auto;
+}
+
+.limity500 {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+/* horizontal line style */
+hr {
+  border: 1px solid #808080;
+}

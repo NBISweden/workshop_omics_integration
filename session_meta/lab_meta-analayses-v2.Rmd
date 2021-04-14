@@ -1,15 +1,24 @@
 ---
-title: "Tutorial"
-output: learnr::tutorial
-runtime: shiny_prerendered
-editor_options:
-  markdown:
-    wrap: 50
+title: "Meta analyses of omics data"
+subtitle: "Workshop on Omics Integration"
+author: "`r paste0('<b>Ashfaq Ali</b> • ',format(Sys.time(), '%d-%b-%Y'))`"
+output:
+  bookdown::html_document2:
+          toc: true
+          toc_float: true
+          toc_depth: 4
+          number_sections: true
+          theme: flatly
+          highlight: tango
+          df_print: default
+          code_folding: "none"
+          self_contained: false
+          keep_md: false
+          encoding: 'UTF-8'
+          css: "assets/lab.css"
 ---
 
-```{r setup, include=FALSE}
-library(learnr)
-knitr::opts_chunk$set(echo = TRUE)
+```{r,child="assets/header-lab.Rmd"}
 ```
 
 
@@ -45,7 +54,7 @@ renv::init()
 > apt-get update" followed by "sudo apt-get install libxml2-dev" Now,
 > try the renv::init() again.
 
-## Introduction
+# Introduction
 
 Meta analyses are commonly used in clinical studies to assess the effect
 of a treatment or a genetic locus on a phenotype. With the advent of
@@ -68,7 +77,7 @@ and then use this example to highlight the key differences between the
 two.
 
 
-## Meta analyses Methods
+# Meta analyses Methods
 
 1.  **p-value**
 
@@ -138,7 +147,7 @@ b.  [**naive sum of ranks and naive product of
     methods apply a naïve product or sum of the DE evidence ranks across
     studies.
 
-### Statistical considerations
+## Statistical considerations
 
 In addition to statistical methods mentioned above, a number of factors
 need to be considered for the choice of method. Different test
@@ -161,7 +170,7 @@ For a detailed review of the applied methods for meta analyses, related
 benchmarks and
 
 
-### Required packages
+## Required packages
 
 ```{r packages, warning=FALSE, message=FALSE, eval=TRUE}
 library(magrittr)
@@ -175,7 +184,7 @@ library(MetaDCN)
 ```
 
 
-## Summary of the session
+# Summary of the session
 
 I this session we will be working with the "prostate8.rda" data set that
 is located in the data directory of the "session_meta" directory of the
@@ -196,7 +205,7 @@ The session comprises of following main steps
 7.  Exercise: compare different meta analyses methods including
     AW-Fisher, REM, FEM \#\# Perform QC
 
-## Data for the session
+# Data for the session
 
 We will using prostate dataset
 
@@ -257,9 +266,9 @@ If everything looks good, we are good to go to the next step.
 
 ------------------------------------------------------------------------
 
-## Data preprocessing
+# Data preprocessing
 
-### Gene matching
+## Gene matching
 
 Usually different microarray platforms use their own probe IDs or
 experiments from different omics platforms can have annotations for
@@ -330,7 +339,7 @@ may be very small, so we need to allow for genes appearing in most
 studies and missing in few studies etc.
 
 
-### Load pathway database
+## Load pathway database
 
 Let us perform quality control of the data for this meta analyses. We
 are using the
@@ -442,7 +451,7 @@ plotMetaQC(scoreTable = QCresult2$scoreTable)
 
 
 
-## Meta Differential Expression analyses
+# Meta Differential Expression analyses
 
 We have listed the methods for differential expression meta analyses in
 the introduction section that are implemented in the MetaDE package.
@@ -489,7 +498,7 @@ head(MetaDE::summary.meta(meta.res, resp.type = resp.type, meta.method = meta.me
 
 ```
 
-### Plot results in a heatmap.
+## Plot meta analyses results in a heatmap.
 
 ```{r plot-de-heatmap, eval=FALSE}
 
@@ -502,8 +511,7 @@ dev.off()
 
 ![heatmap](images/heatmap-sig-genes.png){width=70%, height=150%}
 
-
-### Pathway analyses based on meta analyses
+## Pathway analyses based on meta analyses
 
 At this stage, one can do pathway analyses directly on the genes that
 appear to be differentially regulated based on the meta analyses
@@ -587,7 +595,7 @@ meta.res <- MetaDE(data=data,clin.data = clin.data,
 ```
 
 
-## Pathway analyses
+# Pathway analyses
 
 
 Pathway analysis (a.k.a. gene set analysis) is a statistical tool to
@@ -612,7 +620,7 @@ developed a systematic framework of Meta-Analysis for Pathway Enrichment
 (MAPE) by combining information at gene level, at pathway level and a
 hybrid of the two.
 
-#### Step1
+## Step1
 
 ```{r pathway-meta-step-1, eval=FALSE}
 
@@ -627,7 +635,7 @@ CPI_result = MAPE2.0(arraydata = data , clinical.data = clin.data,
 ```
 
 
-### Step 2
+## Step 2
 
 ```{r pathway-meta-step-2, eval=FALSE}
 
@@ -638,6 +646,7 @@ CPI.kappa_result = MAPE.Kappa(summary = CPI_result$summary,pathway = CPI_result$
 
 ![](images/consensus012.png)
 
+## Step 3
 ```{r pathway-meta-step-3, eval=FALSE}
 #data(hashtb)
 data("./data/hashtb.rda")
@@ -654,9 +663,6 @@ MAPE.Clustering.results <- MAPE.Clustering(summary=CPI_result$summary,Num_Cluste
 
 
 ![cluster membershio scoring](images/consensus013.png)
-
-
-
 ![consensus clustering](images/Heatmap_clusters_all.png){width=70%, height=120%}
 
 
@@ -664,7 +670,7 @@ MAPE.Clustering.results <- MAPE.Clustering(summary=CPI_result$summary,Num_Cluste
 ------------------------------------------------------------------------
 
 
-## Network Meta analyses using  MetaDCN
+# Network Meta analyses using  MetaDCN
 
 Co-expression analysis and network analysis of microarray data are used
 to investigate potential transcriptional co-regulation and gene
@@ -679,7 +685,7 @@ Here we will use [MetaDCN](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6041767/
 
 ![MetaDCN](images/metaDCN.jpg)
 
-
+## Correction and adjacency matrices
 
 ```{r network-meta-1, eval=FALSE}
 data("./data/pathwayDatabase.rda")
@@ -695,6 +701,7 @@ GeneNetRes.2  <- GeneNet(data , clin.data, caseName="Cancer", controlName="Contr
                     KEGG.genesets,Reactome.genesets), silent=FALSE, folder = "./MetaDCN")
 ```
 
+## Correlations/Co-expressions
 
 ```{r network-meta-2, eval=FALSE}
 # This function will search for basic modules differentially co-expressed between case and control
@@ -720,6 +727,7 @@ GeneNetRes.2  <- GeneNet(data , clin.data, caseName="Cancer", controlName="Contr
 SearchBMRes <- SearchBM(GeneNetRes.2, MCSteps=500, jaccardCutoff=0.8, repeatTimes=3, outputFigure=TRUE, silent=FALSE)
 ```
 
+## Find and assemble basic modules
 
 ```{r network-meta-3, eval=FALSE}
 #This function will assemble basic modules detected from SearchBM into supermodules.
@@ -744,4 +752,10 @@ MetaDNCRes <- MetaDCN(GeneNetRes.2, SearchBMRes, FDRCutoff=0.05, w1=NULL, silent
 
 You get the modules, their pathway annotations and cytoscape files in the results directory.
 
-________END_________
+# Session info
+
+```{r,echo=FALSE}
+sessionInfo()
+```
+
+__End of document__
