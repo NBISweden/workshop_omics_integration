@@ -48,7 +48,7 @@ dependencies:
   # GEMs
   - pip #>=20.0.2
   - pip:
-    - cobra
+    - cobra==0.21.0
   
   # Visualization
   - r-circlize
