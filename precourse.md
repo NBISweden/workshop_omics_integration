@@ -216,40 +216,40 @@ For each day you will have to create a different environment as not all programs
 
 ```
 #Linux
-mamba env create -n envprep -f environments/env-preprocessing_linux.yaml
+mamba env create -f environments/env-preprocessing_linux.yaml -n envprep
 
 #MacOSX
-mamba env create -n envprep -f environments/env-preprocessing.yaml
+mamba env create -f environments/env-preprocessing.yaml -n envprep
 ```
 
 **Day 1**  
 
 ```
 #Linux
-mamba env create -n envday1 -f environments/env-ml_linux.yaml
+mamba env create -f environments/env-ml_linux.yaml -n envday1
 
 #MacOSX
-mamba env create -n envday1 -f environments/env-ml.yaml
+mamba env create -f environments/env-ml.yaml -n envday1
 ```
 
 **Day 2**  
 
 ```
 #Linux
-mamba env create -n envday2 -f environments/env-ml_day2_linux.yaml
+mamba env create -f environments/env-ml_day2_linux.yaml -n envday2
 
 #MacOSX
-mamba env create -n envday2 -f environments/env-ml_day2.yaml
+mamba env create -f environments/env-ml_day2.yaml -n envday2
 ```
 
 **Days 3-5**   
 
 ```
 #Linux
-mamba env create -n envdays35 -f environments/env-merged_nets_linux.yaml
+mamba env create -f environments/env-merged_nets_linux.yaml -n envdays35
 
 #MacOSX
-mamba env create -n envdays35 -f environments/env-merged_nets.yaml
+mamba env create -f environments/env-merged_nets.yaml -n envdays35
 ```
 
 Activate the environments with `mamba activate [environment name]`. For instance  
