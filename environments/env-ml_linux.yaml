@@ -1,25 +1,31 @@
 channels:
 - rdonnelly
 - bioconda
+- anaconda
+- r
 - conda-forge
 - defaults
-
 
 dependencies:
 ### Base installations
 - r-base=3.6.1
-- rstudio=1.1.456
+- rstudio
+
+#### Additional required packages
+- icu
+- qt
 
 #### Supervised integration
+- bioconda::bioconductor-mixomics=6.8.0
 - r-corpcor=1.6.9
 - r-ellipse=0.4.1
 - r-glmnet=2.0_16
 - r-igraph=1.2.5
 - r-matrixstats=0.57.0
 - r-rarpack=0.11_0
+- r-snow=0.4_3
 - r-tidyr=1.1.2
-- bioconda::bioconductor-mixomics=6.8.0
-- r-stringi
+- r::r-stringi
 
 ### Feature selection
 #- bioconda::bioconductor-mixomics 
