@@ -255,7 +255,7 @@ mamba env create -f environments/env-merged_nets.yaml -n envdays35
 Activate the environments with `mamba activate [environment name]`. For instance  
 
 ```
-mamba activate envday1
+conda activate envday1
 ```
 
 #### 4. Launch RStudio or Jupyter
