@@ -6,9 +6,9 @@ title:  'Schedule'
 
 This page is under update.
 
-<img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> - lecture; 
-<img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> - hands-on workshop; 
-<img border="0" src="https://www.svgrepo.com/show/307069/public-speaking-speak-tell-talk.svg" width="15" height="15"> - invited seminar; 
+<img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> - lecture;
+<img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> - hands-on workshop;
+<img border="0" src="https://www.svgrepo.com/show/307069/public-speaking-speak-tell-talk.svg" width="15" height="15"> - invited seminar;
 <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> - break
 <br>
 <br>
@@ -106,7 +106,7 @@ This page is under update.
 
 **14.45 - 14.50** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Break
 
-**14.50 - 15.45** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Network meta-analysis ([Ashfaq][1])
+**14.50 - 15.45** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Network meta-analysis ([Ashfaq][1][notebook](./session_meta/lab_meta-analayses-v2.html))
 
 **15.45 - 17.00** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Assisted exercises
 
@@ -150,13 +150,13 @@ This page is under update.
 
 ##### Day 5
 
-**09.00 - 09.55** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Gene set analysis and reporter features ([Ashfaq][1])
+**09.00 - 09.55** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Gene set analysis and reporter features ([Ashfaq][1], [lecture]())
 
 **09.55 - 10.00** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Break
 
-**10.00 - 10.45** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Gene set analysis and reporter features ([Ashfaq][1])
+**10.00 - 10.45** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Gene set analysis and reporter features ([Ashfaq][1], [notebook](./session_gsa/GEM_GSA.html))
 
-**10.45 - 10.55** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Review ([Ashfaq][1])
+**10.45 - 10.55** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> ([Ashfaq][1])
 
 **10.55 - 11.00** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Break
 

@@ -29,17 +29,33 @@ class: left, left, middle
 ## What is meta analyses and when is it relevant
 
 ---
-## Basic terminology
 
- - Summary statistics 
- - 
 
 ## Lecture and Tutorial Overview 
 
- - Meta analyses
- - Introduction
- - Individual studies
- - The summary effect 
+ - Meta analyses Overview (min 5 slides)
+ 
+ 
+    - Introductory slide highlighting importance over literature reviews or enumerating 
+    - Some classical examples
+    - Basic terminology (recap p-values, effect sizes and rank statitics)
+    
+    
+ - Methods: Enlist the 3 methods and equations 
+    
+      a) Using p-values
+      b) Using effect sizes
+      c) Use ranks
+      
+ - Meta analyses for omics (5 slides)
+  
+  - GWAS examples
+  - Gene expression
+  - Meta analyses beyond genes (Networks and pathways)
+  - Meta analyses and dimensionality reduction
+  
+ - Things to consider when doing meta analyses 
+ 
  - Heterogeneity of effect sizes
 
  1) Combining P- values, 2) Combining rank statistics, and 3) Combining effects.
