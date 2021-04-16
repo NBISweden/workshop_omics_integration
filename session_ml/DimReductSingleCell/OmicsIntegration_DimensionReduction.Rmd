@@ -112,7 +112,7 @@ where A is the variance-covariance matrix of the initial data X.
 Let us demonstrate how PCA works using the MNIST data set [1]. The MNIST database (Modified National Institute of Standards and Technology database) is a large database of handwritten digits that is commonly used for training various image processing systems. 
 
 ```{r Read MNIST}
-mnist<-read.csv("/home/nikolay/Documents/Teaching/IntegrativeOMICs2020/Day2/2017-10-13-mnist_train.csv")
+mnist<-read.csv("2017-10-13-mnist_train.csv")
 labels<-mnist$label
 mnist$label<-NULL
 mnist[1:10,1:10]
