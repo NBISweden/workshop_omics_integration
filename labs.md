@@ -3,9 +3,9 @@ layout: default
 title:  'Labs'
 ---
 
-#### <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="25" height="25"> Lab instructions
+### <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="25" height="25"> Lab instructions
 
-###### Clone the course repository
+#### Clone the course repository
 
 Retrieve the entire repository including all datasets and notebooks.
 ```
@@ -26,7 +26,7 @@ Inside you will find the following folders:
 
 You will need to create specific [conda environments as indicated below](#environments).
 
-##### Environments
+#### Environments
 
 See the [pre-course installation](./precourse.md), specifically [**3. Create and activate the environment**](./precourse.md#3-create-and-activate-the-environment).  
 ***Environments*** - we merged the environments for many notebooks down to 4 environments. 
@@ -37,7 +37,7 @@ See the [pre-course installation](./precourse.md), specifically [**3. Create and
 
 Alternatively, you can find smaller environments below.
 
-###### Before the course: data pre-processing
+##### Before the course: data pre-processing
 
 - **Data pre-processing:**
     - environment macOS: `/environments/env-preprocessing.yaml` 
@@ -45,7 +45,7 @@ Alternatively, you can find smaller environments below.
     - notebook ([html](https://nbisweden.github.io/workshop_omics_integration/session_preprocessing/preprocessing.html)): `/session_preprocessing/preprocessing.ipynb`
 
 
-###### Day 1: Supervised and Unsupervised integration
+##### Day 1: Supervised and Unsupervised integration
 In MacOSX you need to install [XQuartz](https://www.xquartz.org/) if you get errors related with `rgl`:
 ```
 install.packages('session_ml/rgl_0.100.54.tgz', repos = NULL, type="source", dependencies = TRUE)
@@ -64,7 +64,7 @@ install.packages('session_ml/rgl_0.100.54.tgz', repos = NULL, type="source", dep
 
 
 
-###### Day 2: Unsupervised integration, dimensionality reduction, deep learning, single-cell omics integration
+##### Day 2: Unsupervised integration, dimensionality reduction, deep learning, single-cell omics integration
 After activating the environment as above, open the `.Rmd` below by launching Rstudio with `rstudio &` or the jupyter notebooks with `jupyter-notebook`.
 
 - **Dimensionality reduction:**
@@ -98,7 +98,7 @@ After activating the environment as above, open the `.Rmd` below by launching Rs
     - notebook ([html](https://nbisweden.github.io/workshop_omics_integration/session_ml/SingleCell/SingleCell_OmicsIntegration.html)): `session_ml/SingleCell/SingleCell_OmicsIntegration.Rmd`
 
 
-###### Day 3: Network topology
+##### Day 3: Network topology
 - **Network topology:**
     - environment macOS: `/environments/env-merged_nets.yaml`
     - environment linux: `/environments/env-merged_nets_linux.yaml`
@@ -111,14 +111,14 @@ After activating the environment as above, open the `.Rmd` below by launching Rs
     - notebook ([html](https://nbisweden.github.io/workshop_omics_integration/session_meta/lab_meta-analayses-v2.html)): `/session_meta/lab_meta-analayses-v2.Rmd`
 
 
-###### Day 4: GEM structure and simulation with Cobrapy
+##### Day 4: GEM structure and simulation with Cobrapy
 - **Genome-scale metabolic modeling:**
     - environment macOS: `/environments/env-merged_nets.yaml`
     - environment linux: `/environments/env-merged_nets_linux.yaml`
     - notebook ([html](https://nbisweden.github.io/workshop_omics_integration/session_gems/lab.html)): `/session_gems/lab.ipynb`
 
 
-###### Day 5: Gene set and reporter analysis
+##### Day 5: Gene set and reporter analysis
 - **Gene set analysis and reporter features:**
     - environment macOS: `/environments/env-merged_nets.yaml`
     - environment linux: `/environments/env-merged_nets_linux.yaml`
