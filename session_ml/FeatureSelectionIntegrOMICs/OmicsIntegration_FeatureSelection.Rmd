@@ -30,7 +30,7 @@ Here we have a typical biological case scanario when number of drivers/causes/pr
 Here, we are going to go through methods for a) Univariate (one-by-one) Feature Selection, and b) Multivariate (all together) Feature Selection. For practicing the concept of Feature Selection, we will use the skeletal muscle gene expression subset (randomly sampled 1000 genes) from GTEX Human Tussue Gene Expression Consortium [1]. Here we load the gene expression matrix X, remove lowly expressed genes and pre-view it:
 
 ```{r X,fig.width=10,fig.height=8}
-X<-read.table("GTEX/GTEX_SkeletalMuscles_157Samples_1000Genes.txt",header=TRUE,row.names=1,check.names=FALSE,sep="\t")
+X<-read.table("GTEX_SkeletalMuscles_157Samples_1000Genes.txt",header=TRUE,row.names=1,check.names=FALSE,sep="\t")
 X<-X[,colMeans(X)>=1]
 X[1:5,1:3]
 dim(X)
@@ -39,7 +39,7 @@ dim(X)
 We can see that the gene expression data set includes p = 546 expressed genes (features) and n = 157 samples, i.e. p >> n. The phenotype of interest we are going to address is Gender, i.e. we will figure out which of the 546 genes expressed in human skeletal muscles drive the phenotypic difference between Males and Females. Thus our response Y vector is the following:
 
 ```{r Y,fig.width=10,fig.height=8}
-Y<-read.table("GTEX/GTEX_SkeletalMuscles_157Samples_Gender.txt",header=TRUE,sep="\t")$GENDER
+Y<-read.table("GTEX_SkeletalMuscles_157Samples_Gender.txt",header=TRUE,sep="\t")$GENDER
 summary(Y)
 length(Y)
 ```
@@ -67,7 +67,7 @@ p<-vector()
 a<-seq(from=0,to=dim(X)[2],by=100)
 for(i in 1:dim(X)[2])
 {
-  corr_output<-cor.test(X[,i],as.numeric(Y),method="spearman")
+  corr_output<-cor.test(X[,i],as.numeric(as.factor(Y),method="spearman")
   rho<-append(rho,as.numeric(corr_output$estimate))
   p<-append(p,as.numeric(corr_output$p.value))
   if(isTRUE(i%in%a)==TRUE){print(paste("FINISHED ",i," FEATURES",sep=""))}
