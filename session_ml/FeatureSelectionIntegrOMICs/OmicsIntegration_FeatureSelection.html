@@ -214,7 +214,7 @@ summary {
 <p>Now, we want to understand what this variation is due to. We need to know this in order to understand mechanisms (biological, economical etc.) behid this variation. Assume that besides the Response Y, we collected data about possible drivers/causes of Y such as gene expression (in biology), customer’s social status and income (in econometrics) etc. Suppose we collected 100 possible drivers/predictors/causes for each of Y1, Y2,…, Y10, we can represent those predictors as a matrix X with 100 columns (one for each predictor) and 10 rows (one for each observation Y1, Y2,…, Y10). We know that the variation in Y is probably due to some variables (columns/predictors) in X matrix, but do all of them equally explain the variation? Probably not, <strong>it is reasonable to assume that only a fraction of the variables in X are causal for the variation in Y</strong>, but which of them are causal? To answer this question we have to test the variables in X against Y, but how should we do it: test them all or one-by-one?</p>
 <p>Here we have a typical biological case scanario when number of drivers/causes/predictors (we will call them features in the future), p=100, is much greater than the number of samples/observations, n=10, <strong>p&gt;&gt;n</strong>. This case is called “the underdetermined system” in mathematics, it does not have a unique solution but infinitely many solutions. Therefore <strong>if we want to select features explaining the variation in the Response Y, we can not directly test all the features together without regularizations</strong>. Therefore it makes sense to stick (at least in the beginning) to testing the features one-by-one.</p>
 <p>Here, we are going to go through methods for a) Univariate (one-by-one) Feature Selection, and b) Multivariate (all together) Feature Selection. For practicing the concept of Feature Selection, we will use the skeletal muscle gene expression subset (randomly sampled 1000 genes) from GTEX Human Tussue Gene Expression Consortium [1]. Here we load the gene expression matrix X, remove lowly expressed genes and pre-view it:</p>
-<pre class="r"><code>X&lt;-read.table(&quot;GTEX/GTEX_SkeletalMuscles_157Samples_1000Genes.txt&quot;,header=TRUE,row.names=1,check.names=FALSE,sep=&quot;\t&quot;)
+<pre class="r"><code>X&lt;-read.table(&quot;GTEX_SkeletalMuscles_157Samples_1000Genes.txt&quot;,header=TRUE,row.names=1,check.names=FALSE,sep=&quot;\t&quot;)
 X&lt;-X[,colMeans(X)&gt;=1]
 X[1:5,1:3]</code></pre>
 <pre><code>##                         ENSG00000243824.1_RP11-434O22.1
@@ -232,7 +232,7 @@ X[1:5,1:3]</code></pre>
 <pre class="r"><code>dim(X)</code></pre>
 <pre><code>## [1] 157 546</code></pre>
 <p>We can see that the gene expression data set includes p = 546 expressed genes (features) and n = 157 samples, i.e. p &gt;&gt; n. The phenotype of interest we are going to address is Gender, i.e. we will figure out which of the 546 genes expressed in human skeletal muscles drive the phenotypic difference between Males and Females. Thus our response Y vector is the following:</p>
-<pre class="r"><code>Y&lt;-read.table(&quot;GTEX/GTEX_SkeletalMuscles_157Samples_Gender.txt&quot;,header=TRUE,sep=&quot;\t&quot;)$GENDER
+<pre class="r"><code>Y&lt;-read.table(&quot;GTEX_SkeletalMuscles_157Samples_Gender.txt&quot;,header=TRUE,sep=&quot;\t&quot;)$GENDER
 summary(Y)</code></pre>
 <pre><code>## Female   Male 
 ##     58     99</code></pre>
@@ -287,7 +287,7 @@ p&lt;-vector()
 a&lt;-seq(from=0,to=dim(X)[2],by=100)
 for(i in 1:dim(X)[2])
 {
-  corr_output&lt;-cor.test(X[,i],as.numeric(Y),method=&quot;spearman&quot;)
+  corr_output&lt;-cor.test(X[,i],as.numeric(as.factor(Y)),method=&quot;spearman&quot;)
   rho&lt;-append(rho,as.numeric(corr_output$estimate))
   p&lt;-append(p,as.numeric(corr_output$p.value))
   if(isTRUE(i%in%a)==TRUE){print(paste(&quot;FINISHED &quot;,i,&quot; FEATURES&quot;,sep=&quot;&quot;))}
