@@ -55,6 +55,7 @@ library("ggplot2")
 #After downloading the file above, download the following:
 download.file('https://cf.10xgenomics.com/samples/cell-atac/1.0.1/atac_v1_pbmc_10k/atac_v1_pbmc_10k_singlecell.csv', method = 'wget', destfile = 'atac_v1_pbmc_10k_singlecell.csv')
 download.file('https://cf.10xgenomics.com/samples/cell-atac/1.0.1/atac_v1_pbmc_10k/atac_v1_pbmc_10k_filtered_peak_bc_matrix.h5', method = 'wget', destfile = 'atac_v1_pbmc_10k_filtered_peak_bc_matrix.h5')
+download.file('https://www.dropbox.com/s/3f3p5nxrn5b3y4y/pbmc_10k_v3.rds?dl=1', method = 'wget', destfile = 'pbmc_10k_v3.rds')
 
 #Gene activity quantification
 peaks <- Read10X_h5("atac_v1_pbmc_10k_filtered_peak_bc_matrix.h5")
