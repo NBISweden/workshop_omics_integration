@@ -44,6 +44,14 @@ First, we load in the provided peak matrix and collapse the peak matrix to a "ge
 library("Seurat")
 library("ggplot2")
 
+
+#### Data download #################################################################################
+# You need to download the following file and include it in the same directory as this notebook
+#
+# https://drive.google.com/uc?export=download&id=1hBeh2L5PC-T87YObCmJv4Qcm59IqkkOf
+#
+####################################################################################################
+
 #Gene activity quantification
 peaks <- Read10X_h5("atac_v1_pbmc_10k_filtered_peak_bc_matrix.h5")
 activity.matrix <- read.delim("scatacseq_activity_matrix.txt", header = TRUE, row.names = 1, sep="\t")
