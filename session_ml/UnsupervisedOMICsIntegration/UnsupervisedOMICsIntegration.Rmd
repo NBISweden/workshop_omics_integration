@@ -221,7 +221,7 @@ controls<-c("EB_P1D12","EB_P1E12","EB_P1F12","EB_P1G12","EB_P2B12","EB_P2D12","E
 colnames(scRNAseq)<-ifelse(colnames(scRNAseq)%in%controls,"CONTROL_CELL",colnames(scRNAseq))
 cell_types<-matrix(unlist(strsplit(colnames(scRNAseq),"_")),ncol=2,byrow=TRUE)[,1]
 
-plotFactorScatter(MOFAobject, factors = 1:2, color_by = as.factor(cell_types))
+plotFactorScatter(MOFAobject, factors = 1:2, color_by = as.factor(cell_types),dot_size = 2)
 ```
 
-We conclude that the integrative OMICs approach can distinguish between all three types of cells: ESCs, EBs and Controls.
+We conclude that the MOFA unsupervised integrative OMICs approach can distinguish between all three types of cells: ESCs, EBs and Controls.
