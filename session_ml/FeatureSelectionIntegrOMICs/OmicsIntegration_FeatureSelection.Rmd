@@ -67,7 +67,7 @@ p<-vector()
 a<-seq(from=0,to=dim(X)[2],by=100)
 for(i in 1:dim(X)[2])
 {
-  corr_output<-cor.test(X[,i],as.numeric(as.factor(Y),method="spearman")
+  corr_output<-cor.test(X[,i],as.numeric(as.factor(Y)),method="spearman")
   rho<-append(rho,as.numeric(corr_output$estimate))
   p<-append(p,as.numeric(corr_output$p.value))
   if(isTRUE(i%in%a)==TRUE){print(paste("FINISHED ",i," FEATURES",sep=""))}
