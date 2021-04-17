@@ -10,7 +10,7 @@ abstract: |
 ```{r setup, include=FALSE}
 current_dir<-getwd()
 knitr::opts_chunk$set(echo = TRUE)
-knitr::opts_knit$set(root.dir=paste0(current_dir,"/session_ml/FeatureSelectionIntegrOMICs/SupervisedOMICsIntegration"))
+knitr::opts_knit$set(root.dir=paste0(current_dir,"/session_ml/SupervisedOMICsIntegration"))
 ```
 
 
