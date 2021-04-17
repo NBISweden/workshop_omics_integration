@@ -18,13 +18,6 @@ knitr::opts_chunk$set(echo = TRUE)
 knitr::opts_knit$set(root.dir="/home/nikolay/Documents/Medium/UnsupervisedOMICsIntegration/")
 ```
 
-
-### Supervised vs. Unsupervised Analysis
-
-To compare supervised and unsupervise analyses is like comparing The Beatles and The Velvet Underground music. Both are good, just good in different ways. While supervised model is dominating in the modern research since it provides guaranteed but slow progress, the unsupervised strategy has always been considered as a "high risk high gain" approach.  
-
-![](SupervisedVsUnsupervisedAnalysis.png)
-
 ### Multi-OMICs Factor Analysis (MOFA)
 
 MOFA is a typical hypothesis-free data exploration framework, [https://www.embopress.org/doi/10.15252/msb.20178124](https://www.embopress.org/doi/10.15252/msb.20178124). It allows data integration by extracting common axes of variation from the multiple OMICs layers. Given several data matrices with measurements of multiple ‘omics data types on the same or on
