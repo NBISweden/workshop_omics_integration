@@ -36,7 +36,7 @@ for(i in 1:ncol(drug)){drug[,i][is.na(drug[,i])]<-median(drug[,i],na.rm=TRUE)}
 drug[1:5,1:5]
 ```
 
-Now let us have a look at the phenotypic data, extract Geneder and convert it to a variable Y that is going to be used later when running PLS-DA analysis:
+Now let us have a look at the phenotypic data, extract Gender and convert it to a variable Y that is going to be used later when running PLS-DA analysis:
 
 ```{r,fig.width=10,fig.height=8}
 phen <- read.delim("CLL_Covariates.txt", header = TRUE, sep="\t")
@@ -154,7 +154,7 @@ names(data)
 lapply(data, dim) 
 ```
 
-First, we fit a DIABLO model without variable selection to assess the global performance and choose the number of components for the final DIABLO model. The function perf is run with nfold-fold cross validation repeated nrepeat times. The matrix design sets sexpected covariance between the OMICs. The values may range between 0 (no correlation) to 1 (correlation to maximize) and the design can be chosen based on prior knowledge. Here due to the lack of prior knowledge we select a strong correlation 1 between the OMICs.
+First, we fit a DIABLO model without variable selection to assess the global performance and choose the number of components for the final DIABLO model. The function "perf" will perform M-fold cross validation (number of folds is specified by "folds" parameter) repeated "nrepeat" times. The design matrix sets expected correlation between the OMICs. The values may range between 0 (no correlation) to 1 (strong correlation), the design can be chosen based on prior knowledge inferred by e.g. MOFA (see Unsupervised OMICs integration session). Here due to the lack of prior knowledge we assume a strong correlation 1 between the OMICs.
 
 ```{r perf,fig.width=10,fig.height=8}
 library("mixOmics")
@@ -168,9 +168,9 @@ perf.diablo
 plot(perf.diablo,overlay='dist',sd=TRUE)
 ```
 
-The BER (balanced error rate, which is our case since we have more males than females) mahalanobis distance seems to reach its minimum / plateau at ncomp=2 and does not seem to change further, we will use this number as an optimal number of PLS components to keep in the further downstream analysis.
+The BER (balanced error rate, which we should use in our case since we have more males than females) mahalanobis distance seems to reach its minimum / plateau at ncomp=2, and does not seem to change further, we will use this number as an optimal number of PLS components to keep in the further downstream analysis. To keep more PLS components would lead to a risk of overfitting the model, therefore we should keep as few PLS components as possible.
 
-Let us perform tuning of the model which implies selecting most informative variables in all layers of the data by LASSO algorithm. For this purpose we will need to define a design matrix which shows a-priori correlation between phenotypes and gene expression. We assume strong correlation, but one can in principle play with this parameter and find out how it influences the final result. Further, we will concentrate on the first two principal components for simplicity, the more precise number of principal components to select can be investigated via minimizing the balanced error rate in the cross-validation procedure.
+After we have selected the optimal number of PLS components, let us now perform tuning of the model which implies selecting most informative variables in all layers of the data by LASSO algorithm. For this purpose, we will again need to provide the design matrix which shows a-priori correlation between the phenotype of interest and the OMICs. We assume strong correlation, but one can in principle play with this parameter and find out how it influences the final result. Further, we will concentrate on the first two principal componebased on the output of "perf"-function above.
 
 ```{r tune block splsda,fig.width=10,fig.height=8}
 library("mixOmics")
@@ -187,7 +187,7 @@ LASSO selected the following numbers of most informative variables from the load
 tune.omics$choice.keepX
 ```
 
-Now let us perform the final sPLS-DA modelling and display PCA plots and loadings. Here for simplicity we will use all available mutations due to its special binary structure.
+Now let us perform the final sPLS-DA modelling and display PCA plots and loadings. Here, however, for simplicity we will use all available mutations due to its special binary structure. Genetic variation data is notoriously difficult to handle by traditional statistical approaches that assume normality, therefore PLS (as well as many statistical other tools) has unfortunately problems working with this type of data.
 
 ```{r,fig.width=10,fig.height=8}
 #list.keepX=list("expr"=tune.omics$choice.keepX$expr,"mut"=tune.omics$choice.keepX$mut,"meth"=tune.omics$choice.keepX$meth,"drug"=tune.omics$choice.keepX$drug)
@@ -197,41 +197,41 @@ selectVar(res,block='expr',comp=1)$expr$name
 plotIndiv(res,legend=TRUE,title="CLL Omics",ellipse=FALSE,ind.names=FALSE,cex=2)
 ```
 
-Let us look at the loadings:
+Here we can visualize the samples for the 4 OMICs using their features selected via the integration procedure. Male and female samples seem to be clearly separated for gene expression and perhaps methylation, while no obvious separation is present for the mutation and drug OMICs. Let us look at the loadings in order to see what features drive the scattering of the samples in the plots above:
 
 ```{r,fig.width=10,fig.height=8}
-plotLoadings(res,comp=1,contrib='max',method='median')
-plotLoadings(res,comp=2,contrib='max',method='median')
+plotLoadings(res,comp=1,contrib='max',method='mean')
+plotLoadings(res,comp=2,contrib='max',method='mean')
 ```
 
-Now we will diplay each individual on the plot of each of the OMICs against each other which are defined by the top loadings from their respective prrincipal components.
+Now, we will diplay the data points using PCA principal components from individual OMICs. This can be an informative way to to visualise correlation between components from different data sets. In our case mutation and drug OMICs seem to have the strongest correlation.
 
 ```{r,fig.width=10,fig.height=8}
 plotDiablo(res,ncomp=1)
 plotDiablo(res,ncomp=2)
 ```
 
-Now let us display so-called “arrow plot” which demonstrates the samples (individuals) in a superimposed manner where each sample will be indicated using an arrow. The start of the arrow indicates the location of the sample in X in one plot, and the tip the location of the sample in Y in the other plot. Short arrows indicate a strong agreement between the matching data sets, long arrows a disagreement between the matching data sets. Such graphic highlight the agreement between all data sets at the sample level, when modelled with DIABLO.
+Now let us display so-called “arrow plot” which demonstrates the samples (individuals) for all the OMICS superimposed. Here, each sample will be indicated using arrows. The start of the arrow indicates the centroid / consensus between all OMICS for a given individual, and the tips of the arrows the location of that individual in each individual OMICs. Short arrows indicate a strong agreement between the matching OMICs, long arrows a disagreement between the matching OMICs. 
 
 ```{r,fig.width=10,fig.height=8}
 plotArrow(res,ind.names=FALSE,legend=TRUE,title="CLL Omics Integration")
 ```
 
-The Arrow Plot can be viewed as a Consensus Plot between all the OMICs, the X and Y coordiantes correspond to common latent variables between the OMICs, i.e. we projected the OMICs into some common latent space where they loose information about their technological origin and hence can be superimposed onto each other.
+The Arrow Plot can be viewed as a Consensus Plot between all the OMICs on the sample level, the X and Y coordiantes correspond to common latent variables between the OMICs, i.e. we projected all the OMICs into some common latent space where they loose information about their technological origin and hence can be superimposed onto each other.
 
-Now we will display the correlation circle plot, where top loadings variables from each of the OMICs are superimposed. Clustering of variables around the poles of the circle implies strong correlation between the variables from the OMICs data sets. Variables on the opposite poles of the correlation circle plot imply strong anti-correlation.
+Now we will display the so-called Correlation Circle Plot, where the top loadings variables from each of the OMICs are superimposed. Clustering of variables around the poles of the circle implies strong correlation between the variables from different OMICs. Variables on the opposite poles of the correlation circle plot imply strong anti-correlation. While the Arrow Plot serves as a main integrative OMICs visualization on sample level, the Correlation Circle Plots can be considered as a main visualization of OMICs integration on the feature level.
 
 ```{r,fig.width=10,fig.height=8}
-plotVar(res,var.names=TRUE,style='graphics',legend=TRUE,pch=c(16,17,18,19),cex=c(0.8,0.8,0.8,0.8),col=c('blue','red2',"darkgreen","darkorange"))
+plotVar(res,var.names=TRUE,style='ggplot2',legend=TRUE,cex=c(3,3,3,3),col=c('blue','red2',"darkgreen","darkorange"))
 ```
 
-For further visualization of the results of integration, we will calculate the so-called “circos plot” that diaplays variable correlation among different OMICs dat sets. Please note that the variables for this plot were selected simultaneously from all the OMICs, i.e. they are not equavivalent to those obtained from each individual OMIC separately.
+For further visualization of the results of OMICs integration, we will calculate the so-called Circos Plot that diaplays correlations between features from different OMICs dat sets. Please note that here for the Circos Plot, as well as for the Correlation Circle Plot above, the features were selected simultaneously from all the OMICs when performing integration, i.e. they are not equavivalent to those obtained from each individual OMIC separately.
 
 ```{r,fig.width=10,fig.height=8}
 circosPlot(res,cutoff=0.7,line=FALSE,size.variables=0.5)
 ```
 
-Correlation network is another way to demostrate correlations between top loadings of the OMICs data sets in a pairwise fashion.
+Correlation network is another handy way to demostrate correlations between top loadings of the OMICs data sets in a pairwise fashion. Here we can choose a pair of OMICs and make a network comprising most informative features (selected via the integration) from both OMICs. The color of the edges corresponds to the strength of the correlation between the OMICs. One can use a "cutoff" paremeter to display one the the edges above a specified threshold.
 
 ```{r,fig.width=10,fig.height=8}
 network(res,blocks=c(1,2),cex.node.name=0.6,color.node=c('blue','red2'),breaks=NULL)
@@ -242,29 +242,30 @@ network(res,blocks=c(2,4),cex.node.name=0.6,color.node=c('red2','darkorange'),br
 network(res,blocks=c(3,4),cex.node.name=0.6,color.node=c('darkgreen','darkorange'),breaks=NULL)
 ```
 
-Finally the correlation heatmap displays strongly correlated blocks of gene expression, methylation and clinical variables markers that provide clustering of individuals into females and males.
+Finally, the correlation heatmap displays strongly correlated blocks of gene expression, methylation, mutations and drug markers. This is an unsupervised visualization equivalent to hierarchical clustering. So if the DIABLO supervised integration worked well, one should ideally see females and males clusters on the y-axis and the corresponding "mixtures" of features from different OMICs that provide the clustering of the samples.
 
 ```{r,fig.width=10,fig.height=8}
 cimDiablo(res,margins=c(11,18))
 ```
+Here the color of a cell on a heatmap demonstrates abundance of the feature in the sample that are "coordinates" of the cell. In our case we can see somewhat noticable separation between males and females and can clearly see that it is not a single OMIC that drives this separation but the features from different OMICs are well mixed on the x-axis.
 
 ### Predict Gender from OMICs Integration
 
-Now it is time for prediction. Once we have trained the PLS-DA model, we can use it and utilize the 60 test samples for making prediction of their geneder and accessing the accuracy of the prediction:
+Now it is time for prediction. Once we have trained the PLS-DA model, we can use it and utilize the 60 test samples for making prediction of their gender and accessing the accuracy of the prediction:
 
 ```{r,fig.width=10,fig.height=8}
 data.test<-list(expr=expr_test,mut=mut_test,meth=meth_test,drug=drug_test)
 lapply(data.test, dim) 
 
 predict.diablo=predict(res,newdata=data.test,dist='mahalanobis.dist')
-auroc.diablo=auroc(res,newdata=data.test,outcome.test=Y.test,plot=TRUE,roc.comp=c(1),roc.block=c(1,2,3,4))
+#auroc.diablo=auroc(res,newdata=data.test,outcome.test=Y.test,plot=TRUE,roc.comp=c(1),roc.block=c(1,2,3,4))
 data.frame(predict.diablo$class,Truth=Y.test)
 
 table(predict.diablo$MajorityVote$mahalanobis.dist[,1],Y.test)
 round((sum(diag(table(predict.diablo$MajorityVote$mahalanobis.dist[,1],Y.test)))/sum(table(predict.diablo$MajorityVote$mahalanobis.dist[,1],Y.test)))*100)
 ```
 
-Therefore the the success rate of the first predictive component is `r round((sum(diag(table(predict.diablo$MajorityVote$mahalanobis.dist[,1],Y.test)))/sum(table(predict.diablo$MajorityVote$mahalanobis.dist[,1],Y.test)))*100)`%, it is quite high and provides new candidate bio-markers (see the variable plot) for understanding of mechanisms CLL pathogenesis.
+Therefore the the success rate of the first predictive component is `r round((sum(diag(table(predict.diablo$MajorityVote$mahalanobis.dist[,1],Y.test)))/sum(table(predict.diablo$MajorityVote$mahalanobis.dist[,1],Y.test)))*100)`%, it is quite high and hopefully provides new candidate bio-markers (see the variable plot) from different OMICs and connections between them for understanding of mechanisms of CLL pathogenesis.
 
 ```{r,fig.width=10,fig.height=8}
 sessionInfo()
