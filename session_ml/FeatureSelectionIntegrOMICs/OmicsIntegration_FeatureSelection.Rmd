@@ -13,8 +13,9 @@ abstract: |
 ---
 
 ```{r new setup, include=FALSE}
+current_dir<-getwd()
 knitr::opts_chunk$set(echo = TRUE)
-knitr::opts_knit$set(root.dir="/home/nikolay/Documents/Teaching/IntegrativeOMICs2020/Day1/")
+knitr::opts_knit$set(root.dir=paste0(current_dir,"/session_ml/FeatureSelectionIntegrOMICs"))
 ```
 
 
