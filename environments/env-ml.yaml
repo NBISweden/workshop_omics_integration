@@ -11,6 +11,7 @@ dependencies:
 - rstudio=1.1.456
 
 - bioconductor-mixomics=6.10.1
+- bioconductor-mofa=1.2.0
 - r-codetools=0.2-16
 - r-colorspace=1.4-1
 - r-corpcor=1.6.9
@@ -58,3 +59,4 @@ dependencies:
 - r-tidyselect=1.1.0
 - r-vctrs=0.3.2
 - r-withr=2.1.2
+- r-reticulate=1.18
