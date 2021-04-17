@@ -61,11 +61,11 @@ This page is under update.
 
 **11.10 - 11.20** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Break
 
-**11.20 - 12.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Feature Selection and Deep Learning ([Nikolay][2])
+**11.20 - 12.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Deep Learning ([Nikolay][2])
 
 **12.00 - 13.00** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Lunch
 
-**13.00 - 13.55** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Feature Selection and Deep Learning ([Nikolay][2], [DL notebook](./session_ml/DeepLearningDataIntegration/DeepLearningDataIntegration.html), [DL in single cell](./session_ml/DeepLearningDataIntegration/DeepLearning_SingleCell_10X_1.3Mcells.html))
+**13.00 - 13.55** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Deep Learning ([Nikolay][2], [DL notebook](./session_ml/DeepLearningDataIntegration/DeepLearningDataIntegration.html), [DL in single cell](./session_ml/DeepLearningDataIntegration/DeepLearning_SingleCell_10X_1.3Mcells.html))
 
 **13.55 - 14.05** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Break
 
