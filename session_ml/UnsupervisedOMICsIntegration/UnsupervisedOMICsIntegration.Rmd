@@ -58,7 +58,7 @@ Important to realize that despite the results of PCA and Factor Analysis visuall
 
 ## Prepare scNMT Data Set for MOFA
 
-In this section we will apply MOFA to the single cell multi-OMICs data set [scNMT](https://www.nature.com/articles/s41467-018-03149-4) which profiles chromatine accessebility (scATACseq), DNA methylation (scBSseq) and gene expression (scRNAseq) information from the same biological cell belonging to two types: differentiating mouse embryonic stem cells (ESCs) and embrionic bodies (EBs). We will start with reading and having a look at the individual OMICs data sets:
+In this section we will apply MOFA to the single cell multi-OMICs data set [scNMT](https://www.nature.com/articles/s41467-018-03149-4) which profiles chromatine accessebility (scATACseq), DNA methylation (scBSseq) and gene expression (scRNAseq) information from the same biological cells belonging to two types: differentiating mouse embryonic stem cells (ESCs) and embrionic bodies (EBs). We will start with reading and having a look at the individual OMICs data sets:
 
 ```{r,fig.width=10,fig.height=8}
 scRNAseq<-read.delim("scRNAseq.txt", header = TRUE, check.names = FALSE, row.names = 1, sep="\t")
@@ -77,7 +77,7 @@ scATACseq<-as.data.frame(t(scATACseq))
 scATACseq[1:5,1:5]
 ```
 
-For scRNAseq OMIC layer we will only select highly expressed genes in order to remove the noisy genes which might contaminate the further downstream analysis. We will also perform log-transform of the data which can be seen as a mild normalization:
+For scRNAseq OMIC layer we will only select highly expressed genes in order to remove noisy features that might contaminate the further downstream analysis. We will also perform log-transform of the data which can be seen as a mild normalization:
 
 ```{r,fig.width=10,fig.height=8}
 scRNAseq<-scRNAseq[rowMeans(scRNAseq)>=1,]
@@ -86,7 +86,7 @@ scRNAseq[1:5,1:5]
 dim(scRNAseq)
 ```
 
-Since scBSseq and scATACseq OMIC layers should be almost a binary (methylated vs unmethylated for scBSseq and open vs. close for scATACseq) data sets, a good way to get rid of redundancy in the scBSseq and scATACseq data and thus perform feature pre-selection and reduce dimensions is to select only features with high variability:
+Since scBSseq and scATACseq OMIC layers should be almost binary (methylated vs unmethylated for scBSseq and open vs. close for scATACseq) data sets, a good way to get rid of redundancy in the scBSseq and scATACseq data (and thus perform feature pre-selection and reduce dimensions) is to select only features with high variability:
 
 
 ```{r,fig.width=10,fig.height=8}
@@ -106,7 +106,7 @@ scATACseq[1:5,1:5]
 dim(scATACseq)
 ```
 
-Let us now have a look at the histograms of individual OMICs layers in order to decide which distribution they follow and how we should model these distributions with MOFA:
+Let us now have a look at the histograms of individual OMICs layers in order to decide what distribution they follow and how we should model these distributions with MOFA:
 
 ```{r,fig.width=10,fig.height=8}
 hist(rowMeans(scRNAseq),breaks=100, main = "scRNAseq")
@@ -114,7 +114,7 @@ hist(rowMeans(scBSseq), breaks = 100, main = "scBSseq")
 hist(rowMeans(scATACseq), breaks = 100, main = "scATACseq")
 ```
 
-We conclude that while scRNAseq data look fairly Gaussian, we should probably model the scBSseq and scATACseq data as following Bernoulli distribution as they look quite bimodal indicating the binary nature of the data, i.e. methylated vs. unmethylated for scBSseq and open vs. close for scATACseq. We will further make the scBSseq and scATACseq data sets purely binary by encoding values below 50 as 0 and above 50 as 1, we need to remove low-variance features in this case again:
+We conclude that while scRNAseq data looks fairly Gaussian (or at least exponential), we should probably model the scBSseq and scATACseq data following Bernoulli distribution as they look quite bimodal indicating the binary nature of the data, i.e. methylated vs. unmethylated for scBSseq and open vs. close for scATACseq. To make the scBSseq and scATACseq data purely Bernoulli-like, we will further make the scBSseq and scATACseq data sets binary by encoding values below 50 as 0 and above 50 as 1. Since binary data typically have vey low variation compared to continuous data, we need to remove low-variance features in this case again:
 
 ```{r,fig.width=10,fig.height=8}
 scBSseq<-ifelse(scBSseq<50,0,1)
@@ -135,11 +135,12 @@ scATACseq[1:5,1:5]
 dim(scATACseq)
 ```
 
+Now data cleaning step is finished and the OMICs are prepared to be integrated in unsupervised way with MOFA.
 
 
 ## Run MOFA on scNMT Data Set
 
-Let us continue with creating MOFA object:
+Let us continue with creating MOFA object. MOFA allows for a handy overview of the data by displaying dimensions of each OMIC.
 
 ```{r,fig.width=10,fig.height=8}
 library("MOFA")
@@ -148,6 +149,8 @@ lapply(omics,dim)
 MOFAobject <- createMOFAobject(omics)
 plotDataOverview(MOFAobject)
 ```
+
+Now we will use some model training parameters such as distribution types corresponding to each OMIC, number of iterations, number of factors to be computed etc. 
 
 ```{r,fig.width=10,fig.height=8}
 #DEFINE DATA OPTIONS
@@ -165,7 +168,7 @@ ModelOptions
 #DEFINE TRAIN OPTIONS
 TrainOptions <- getDefaultTrainOptions()
 TrainOptions$seed <- 2018
-# Automatically drop factors that explain less than 1% of variance in all omics
+# Automatically drop factors that explain less than 3% of variance in all omics
 TrainOptions$DropFactorThreshold <- 0.03
 TrainOptions$tolerance <- 0.1
 TrainOptions$maxiter<-1000
@@ -173,7 +176,7 @@ TrainOptions$verbose<-TRUE
 TrainOptions
 ```
 
-Let us run MOFA:
+Finally ,we are ready to run MOFA:
 
 ```{r,fig.width=10,fig.height=8}
 MOFAobject <- prepareMOFA(MOFAobject, DataOptions = DataOptions, 
