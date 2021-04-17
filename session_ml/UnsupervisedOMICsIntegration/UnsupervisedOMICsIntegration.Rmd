@@ -177,7 +177,7 @@ TrainOptions$verbose<-TRUE
 TrainOptions
 ```
 
-Finally ,we are ready to run MOFA:
+Finally, we are ready to run MOFA:
 
 ```{r,fig.width=10,fig.height=8}
 MOFAobject <- prepareMOFA(MOFAobject, DataOptions = DataOptions, 
