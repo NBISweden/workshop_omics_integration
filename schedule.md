@@ -30,7 +30,7 @@ This page is under update.
 
 **10.55 - 11.00** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Break
 
-**11.00 - 12.00** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Supervised Omics integration ([Nikolay][2], [notebook](./session_ml/SupervisedOMICsIntegration/supervised_omics_integr_CLL.html))
+**11.00 - 12.00** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Supervised Omics integration ([Nikolay][2],[feature selection notebook](./session_ml/FeatureSelectionIntegrOMICs/OmicsIntegration_FeatureSelection.html), [supervised integration notebook](./session_ml/SupervisedOMICsIntegration/supervised_omics_integr_CLL.html))
 
 **12.00 - 13.00** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Lunch
 
@@ -65,7 +65,7 @@ This page is under update.
 
 **12.00 - 13.00** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Lunch
 
-**13.00 - 13.55** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Feature Selection and Deep Learning ([Nikolay][2], [feature selection notebook](./session_ml/FeatureSelectionIntegrOMICs/OmicsIntegration_FeatureSelection.html), [DL notebook](./session_ml/DeepLearningDataIntegration/DeepLearningDataIntegration.html), [DL in single cell](./session_ml/DeepLearningDataIntegration/DeepLearning_SingleCell_10X_1.3Mcells.html))
+**13.00 - 13.55** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Feature Selection and Deep Learning ([Nikolay][2], [DL notebook](./session_ml/DeepLearningDataIntegration/DeepLearningDataIntegration.html), [DL in single cell](./session_ml/DeepLearningDataIntegration/DeepLearning_SingleCell_10X_1.3Mcells.html))
 
 **13.55 - 14.05** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Break
 
