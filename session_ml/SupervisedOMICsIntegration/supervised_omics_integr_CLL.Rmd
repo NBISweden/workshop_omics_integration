@@ -8,17 +8,20 @@ abstract: |
 ---
 
 ```{r setup, include=FALSE}
-current_dir<-getwd()
 knitr::opts_chunk$set(echo = TRUE)
-knitr::opts_knit$set(root.dir=paste0(current_dir,"/session_ml/SupervisedOMICsIntegration"))
+knitr::opts_knit$set(root.dir="/home/nikolay/Documents/Teaching/IntegrativeOMICs2021/session_ml/SupervisedOMICsIntegration")
 ```
 
 
-## Exploratory Analysis
+## Exploratory Data Analysis (EDA)
 
 We will start with reading and imputing missing values using median imputation:
 
 ```{r,fig.width=10,fig.height=8}
+#Uncomment this in case you can not change your working directory
+#current_dir<-getwd()
+#setwd(paste0(current_dir,"/session_ml/SupervisedOMICsIntegration"))
+
 expr <- as.data.frame(t(read.delim("CLL_mRNA.txt", header = TRUE, sep="\t")))
 for(i in 1:ncol(expr)){expr[,i][is.na(expr[,i])]<-median(expr[,i],na.rm=TRUE)}
 expr[1:5,1:5]
