@@ -226,7 +226,7 @@ The Arrow Plot can be viewed as a Consensus Plot between all the OMICs on the sa
 Now we will display the so-called Correlation Circle Plot, where the top loadings variables from each of the OMICs are superimposed. Clustering of variables around the poles of the circle implies strong correlation between the variables from different OMICs. Variables on the opposite poles of the correlation circle plot imply strong anti-correlation. While the Arrow Plot serves as a main integrative OMICs visualization on sample level, the Correlation Circle Plots can be considered as a main visualization of OMICs integration on the feature level.
 
 ```{r,fig.width=10,fig.height=8}
-plotVar(res,var.names=TRUE,style='ggplot2',legend=TRUE,cex=c(3,3,3,3),col=c('blue','red2',"darkgreen","darkorange"))
+plotVar(res,var.names=TRUE,style='ggplot2',legend=TRUE,cex=c(3,3,3,3),col=c('blue','red2','darkgreen','darkorange'))
 ```
 
 For further visualization of the results of OMICs integration, we will calculate the so-called Circos Plot that diaplays correlations between features from different OMICs dat sets. Please note that here for the Circos Plot, as well as for the Correlation Circle Plot above, the features were selected simultaneously from all the OMICs when performing integration, i.e. they are not equavivalent to those obtained from each individual OMIC separately.
