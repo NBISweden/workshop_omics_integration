@@ -26,7 +26,7 @@ This page is under update.
 
 **09.55 - 10.05** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Break
 
-**10.05 - 10.55** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Feature Selection and Supervised Omics integration ([Nikolay][2], [slides](./session_ml/SupervisedOmicsIntegration_Oskolkov.pdf))
+**10.05 - 10.55** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Feature Selection and Supervised Omics integration ([Nikolay][2], [slides](./session_ml/SupervisedOMICsIntegration/SupervisedOmicsIntegration_Oskolkov.pdf))
 
 **10.55 - 11.00** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Break
 
