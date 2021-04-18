@@ -14,9 +14,8 @@ abstract: |
 ---
 
 ```{r setup, include=FALSE}
-current_dir<-getwd()
 knitr::opts_chunk$set(echo = TRUE)
-knitr::opts_knit$set(root.dir=paste0(current_dir,"/session_ml/UnsupervisedOMICsIntegration"))
+knitr::opts_knit$set(root.dir="/home/nikolay/Documents/Teaching/IntegrativeOMICs2021/session_ml/UnsupervisedOMICsIntegration")
 ```
 
 ### Multi-OMICs Factor Analysis (MOFA)
@@ -62,6 +61,10 @@ Important to realize that despite the results of PCA and Factor Analysis visuall
 In this section we will apply MOFA to the single cell multi-OMICs data set [scNMT](https://www.nature.com/articles/s41467-018-03149-4) which profiles chromatine accessebility (scATACseq), DNA methylation (scBSseq) and gene expression (scRNAseq) information from the same biological cells belonging to two types: differentiating mouse embryonic stem cells (ESCs) and embrionic bodies (EBs). We will start with reading and having a look at the individual OMICs data sets:
 
 ```{r,fig.width=10,fig.height=8}
+#Uncomment this in case you can not change your working directory
+#current_dir<-getwd()
+#setwd(paste0(current_dir,"/session_ml/UnsupervisedOMICsIntegration"))
+
 scRNAseq<-read.delim("scRNAseq.txt", header = TRUE, check.names = FALSE, row.names = 1, sep="\t")
 ens2genesymbol<-read.delim("ENSEMBLE_TO_GENE_SYMBOL_MOUSE.txt")
 ens2genesymbol<-ens2genesymbol[match(colnames(scRNAseq),as.character(ens2genesymbol$ensembl_gene_id)),]
