@@ -22,7 +22,7 @@ This page is under update.
 
 **09.00 - 09.20** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Introduction and contextualization ([Rui][3])
 
-**09.20 - 09.55** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Machine Learning view of Omics integration ([Nikolay][2])
+**09.20 - 09.55** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Machine Learning view of Omics integration ([Nikolay][2], [slides](./session_ml/MachineLearningViewOmicsIntegration_Oskolkov.pdf))
 
 **09.55 - 10.05** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Break
 
