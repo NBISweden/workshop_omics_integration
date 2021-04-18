@@ -102,12 +102,18 @@ The shortcomings mentioned above can be addressed with Sparse Linear Models, i.e
 
 The simplest way to account for all explanatory variables (genes) in X simultaneously would be to put them into the the multiple / multivariate linear regression model and perform Ordinary Least Squares minimization: 
 
-\[Y = \beta_1X_1+\beta_2X_2+\epsilon\]
-\[\textrm{OLS} = (y-\beta_1X_1-\beta_2X_2)^2\]
+$$
+Y = \beta_1X_1+\beta_2X_2+\epsilon
+$$
+$$
+\textrm{OLS} = (y-\beta_1X_1-\beta_2X_2)^2
+$$
 
 Here, for simplicity we used only two predictors X1 and X2, but there can be thousands and millions of them. It implies that in order to minimize the OLS cost function we have to do it in a highly-dimensional space which is notoriously difficult because of the **Curse of Dimensionality**. This leads to a very unstable sulution of multiple linear reression. To vercome this obstacle we can add a penalty term to the OLS cost function:
 
-\[\textrm{Penalized OLS} = (y-\beta_1X_1-\beta_2X_2)^2 + \lambda[\alpha(|\beta_1|+|\beta_2|)+(1-\alpha)(\beta_1^2+\beta_2^2)]\]
+$$
+\textrm{Penalized OLS} = (y-\beta_1X_1-\beta_2X_2)^2 + \lambda[\alpha(|\beta_1|+|\beta_2|)+(1-\alpha)(\beta_1^2+\beta_2^2)]
+$$
 
 Here, $\lambda$ is called a Lagrange multiplier, and is a measure of how much penalty we would like to put on our Linear Regression Model, its optimal value is usually found through K-fold cross-validation. The parameter $\alpha$ is usually fixed (but in principle can also be found through cross-validation) and the regularization is called 1) LASSO if $\alpha=1$, 2) Ridge if $\alpha=0$, and 3) Elastic Net if $\alpha=0.5$. These penalty methods have a few differences that are good to remember when you select a method for your analysis. LASSO is the most strict penalty and works best at the data with lots of noise. A problem of LASSO is that it can not handle multi-collinearity among predictors in a good way. If two variables are strongly correlated, LASSO will select only one of them (by chance) and set the coefficient in front of the other one to zero. Sometimes this type of selection can be problematic if it happens that the feature that was ignored / omitted by LASSO has more physical / biological meaning than the one that was kept by LASSO. This situation can be avoided with Ridge penalty, in addition Ridge is much more stable for numerical minimization as it provides a fully convex manifold in a multi-dimensional space. However, in ultra-higly-dimensional spaces Ridge can be too allowing and deliver too many "noisy" features that might not be very interesting. Elastic Net penalty provides a good compromise between LASSO and Ridge and is generally prefered and recommended by Machine Learning practicioners.
 
@@ -143,7 +149,9 @@ We conclude that the features selected by Multivariate Feature Selection approac
 
 Another elegant Multivariate Feature Selection method is the Partial Least Squares (PLS) regression which is also called (by its author) Projection to Latent Structures (PLS). The idea behind PLS is very simple, it perfoms feature selection as a group via maximizing the covariance between X and Y:
 
-\[\max_{\beta}\textrm{cov}(X,Y) \Longrightarrow \hat\beta\]
+$$
+\max_{\beta}\textrm{cov}(X,Y) \Longrightarrow \hat\beta
+$$
 
 This algorithm can roughly be viewed as a process of collective selection of features that provide the largest separation in a lower dimensional latent space like PCA plot. The maximized covariance matrix (build on selected most informative features) can then be factorized (expanded into the series of orthogonal components) and visualized:
 
@@ -166,7 +174,7 @@ Here the x-axis represents the importance weight of each feature, and the color 
 Again, we conclude that the Multivariate Feature Selection via PLS provided a set of features that looks quite different from the one-by-one feature selection with Spearman correlation.
 
 
-### Linear Discriminant Analysis (LDA)
+### Multivariate Feature Selection: Linear Discriminant Analysis (LDA)
 
 Finally, we would like to mention that there is another interesting type of linear multivariate feature selection which is the Linear Discriminant Analysis (LDA). The idea of the method is to group samples according to their labeles (e.g. Males vs. Females) so that the variance is minimized within each group and maximized between the groups (Males and Females). Despite the idea of LDA seems different from PLS and LASSO at first glance, it can be shown that LDA conceptually falls within the same group of linear multivariate feature selection methods as PLS and LASSO. All three approaches, i.e. LDA, PLS and LASSO / Ridge / Elastic Net, are used interchangebly and often result in very similar sets of most informative features providing the sample size is large enough. In this tutorial, we unfortunately can not demonstrate LDA since it requires the Y response variable to have at lest three classes (and we have only two, Males and Females, for our test data set). However, we recommend checking and testing [scikit-learn implementation of LDA](https://scikit-learn.org/stable/modules/generated/sklearn.discriminant_analysis.LinearDiscriminantAnalysis.html) if you have a data set with >=3 classes.
 
