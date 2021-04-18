@@ -13,9 +13,8 @@ abstract: |
 ---
 
 ```{r new setup, include=FALSE}
-current_dir<-getwd()
 knitr::opts_chunk$set(echo = TRUE)
-knitr::opts_knit$set(root.dir=paste0(current_dir,"/session_ml/FeatureSelectionIntegrOMICs"))
+knitr::opts_knit$set(root.dir="/home/nikolay/Documents/Teaching/IntegrativeOMICs2021/session_ml/FeatureSelectionIntegrOMICs")
 ```
 
 
@@ -33,6 +32,10 @@ Here we have a typical biological case scanario where the number of drivers / ca
 Here, we are going to go through methods for a) Univariate (one-by-one) Feature Selection, and b) Multivariate (all together) Feature Selection. For practicing the concept of Feature Selection, we will use the skeletal muscle gene expression subset from GTEX Human Tussue Gene Expression Consortium [1]. In order to speed up computations we randomly sampled 1000 genes / features from the data set. Here, we load the gene expression matrix X, remove lowly expressed genes and pre-view it:
 
 ```{r X,fig.width=10,fig.height=8}
+#Uncomment this in case you can not change your working directory
+#current_dir<-getwd()
+#setwd(paste0(current_dir,"/session_ml/FeatureSelectionIntegrOMICs"))
+
 X<-read.table("GTEX_SkeletalMuscles_157Samples_1000Genes.txt",header=TRUE,row.names=1,check.names=FALSE,sep="\t")
 X<-X[,colMeans(X)>=1]
 X[1:5,1:3]
