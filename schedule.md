@@ -30,7 +30,7 @@ This page is under update.
 
 **10.55 - 11.00** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Break
 
-**11.00 - 12.00** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Feature Selection and Supervised Omics integration ([Nikolay][2],[feature selection notebook](./session_ml/FeatureSelectionIntegrOMICs/OmicsIntegration_FeatureSelection.html), [supervised integration notebook](./session_ml/SupervisedOMICsIntegration/supervised_omics_integr_CLL.html))
+**11.00 - 12.00** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Feature Selection and Supervised Omics integration ([Nikolay][2],[feature selection notebook](https://github.com/NBISweden/workshop_omics_integration/tree/main/session_ml/FeatureSelectionIntegrOMICs/session_ml/FeatureSelectionIntegrOMICs/OmicsIntegration_FeatureSelection.html), [supervised integration notebook](./session_ml/SupervisedOMICsIntegration/supervised_omics_integr_CLL.html))
 
 **12.00 - 13.00** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Lunch
 
