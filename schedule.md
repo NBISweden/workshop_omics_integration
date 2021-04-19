@@ -53,7 +53,7 @@ This page is under update.
 
 **09.00 - 09.20** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Review ([Nikolay][2])
 
-**09.20 - 10.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Dimensionality reduction and clustering ([Nikolay][2])
+**09.20 - 10.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Dimensionality reduction and clustering ([Nikolay][2], [slides](./session_ml/DimReductSingleCell/DimensionReduction_Oskolkov.pdf))
 
 **10.00 - 10.10** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Break
 
