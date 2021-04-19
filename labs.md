@@ -26,99 +26,49 @@ Inside you will find the following folders:
 
 You will need to create specific [conda environments as indicated below](#environments).
 
-#### Environments
+***Environments*** - we have merged the environments for many notebooks down to 4 environments. 
+- Data pre-processing (linux: `env-preprocessing_linux.yaml` | macOS: `env-preprocessing.yaml`)
+- Supervised Integration & Feature selection (linux: `env-ml_linux.yaml` | macOS: `env-ml.yaml`)
+- Meta analysis (linux | macOS `/session_meta/renv.lock`)
+- All remaining notebooks (linux `env-ml_nets_linux.yaml` | MacOS `env-ml_nets.yaml`)
 
-See the [pre-course installation](./precourse.md), specifically [**3. Create and activate the environment**](./precourse.md#3-create-and-activate-the-environment).  
-***Environments*** - we merged the environments for many notebooks down to 4 environments. 
-- **Data pre-processing** (linux: `env-preprocessing_linux.yaml`, macOS: `env-preprocessing.yaml`)
-- **Supervised Integration & Feature selection&** (linux: `env-ml_linux.yaml`, macOS: `env-ml.yaml`)
-- **Meta analysis** (linux, macOS `/session_meta/renv.lock`)
-- **All remaining notebooks** (linux `env-ml_nets_linux.yaml`, MacOS `env-ml_nets.yaml`)
+### Day 1 notebooks
 
-Alternatively, you can find smaller environments below.
+- Data pre-processing ([html](https://nbisweden.github.io/workshop_omics_integration/session_preprocessing/preprocessing.html)): `/session_preprocessing/preprocessing.ipynb`
+    
+- Supervised Omics Integration ([html](https://nbisweden.github.io/workshop_omics_integration/session_ml/SupervisedOMICsIntegration/supervised_omics_integr_CLL.html)): `/session_ml/SupervisedOMICsIntegration/supervised_omics_integr_CLL/supervised_omics_integr_CLL.Rmd`
 
-##### Before the course: data pre-processing
-
-- **Data pre-processing:**
-    - environment macOS: `/environments/env-preprocessing.yaml` 
-    - environment linux: `/environments/env-preprocessing_linux.yaml`
-    - notebook ([html](https://nbisweden.github.io/workshop_omics_integration/session_preprocessing/preprocessing.html)): `/session_preprocessing/preprocessing.ipynb`
-
-
-##### Day 1: Supervised and Unsupervised integration
-In MacOSX you need to install [XQuartz](https://www.xquartz.org/) if you get errors related with `rgl`:
-```
-install.packages('session_ml/rgl_0.100.54.tgz', repos = NULL, type="source", dependencies = TRUE)
-```
-
-- **Supervised integration:**
-    - environment macOS: `/environments/env-ml.yaml`
-    - environment linux: `/environments/env-ml_linux.yaml`
-    - notebook ([html](https://nbisweden.github.io/workshop_omics_integration/session_ml/SupervisedOMICsIntegration/supervised_omics_integr_CLL.html)): `/session_ml/SupervisedOMICsIntegration/supervised_omics_integr_CLL/supervised_omics_integr_CLL.Rmd`
-
-- **Feature selection:**
-    - environment macOS: `/environments/env-ml.yaml`
-    - environment linux: `/environments/env-ml_linux.yaml`
-    - notebook ([html](https://nbisweden.github.io/workshop_omics_integration/session_ml/FeatureSelectionIntegrOMICs/OmicsIntegration_FeatureSelection.html)): `session_ml/FeatureSelectionIntegrOMICs/OmicsIntegration_FeatureSelection.Rmd`
-
-
-- **Unsupervised integration:**
-    - environment macOS: `/environments/env-ml_day2.yaml`
-    - environment linux: `/environments/env-ml_day2_linux.yaml`
-    - notebook ([html](https://nbisweden.github.io/workshop_omics_integration/session_ml/UnsupervisedOMICsIntegration/UnsupervisedOMICsIntegration.html)): `session_ml/UnsupervisedOMICsIntegration/UnsupervisedOMICsIntegration.Rmd`
+- Feature selection ([html](https://nbisweden.github.io/workshop_omics_integration/session_ml/FeatureSelectionIntegrOMICs/OmicsIntegration_FeatureSelection.html)): `session_ml/FeatureSelectionIntegrOMICs/OmicsIntegration_FeatureSelection.Rmd`
+    
+-  Unsupervised Omics Integration ([html](https://nbisweden.github.io/workshop_omics_integration/session_ml/UnsupervisedOMICsIntegration/UnsupervisedOMICsIntegration.html)): `session_ml/UnsupervisedOMICsIntegration/UnsupervisedOMICsIntegration.Rmd`
 
 
 
-##### Day 2: Unsupervised integration, dimensionality reduction, deep learning, single-cell omics integration
-After activating the environment as above, open the `.Rmd` below by launching Rstudio with `rstudio &` or the jupyter notebooks with `jupyter-notebook`.
+### Day 2 notebooks
 
-- **Dimensionality reduction:**
-    - environment macOS: `/environments/env-ml_day2.yaml`
-    - environment linux: `/environments/env-ml_day2_linux.yaml`
-    - notebook ([html](https://nbisweden.github.io/workshop_omics_integration/session_ml/DimReductSingleCell/OmicsIntegration_DimensionReduction.html)): `session_ml/DimReductSingleCell/OmicsIntegration_DimensionReduction.Rmd`
+- Dimensionality reduction and clustering ([html](https://nbisweden.github.io/workshop_omics_integration/session_ml/DimReductSingleCell/OmicsIntegration_DimensionReduction.html)): `session_ml/DimReductSingleCell/OmicsIntegration_DimensionReduction.Rmd`
 
 
-- **UMAP for data integration:**
-    - Note that the data needs to be decompressed before running the notebook `gunzip scRNAseq.csv.gz; gunzip scProteomics.csv.gz`
-    - environment macOS: `/environments/env-ml_day2.yaml`
-    - environment linux: `/environments/env-ml_day2_linux.yaml`
-    - notebook ([html](https://nbisweden.github.io/workshop_omics_integration/session_ml/UMAP_DataIntegration/UMAP_DataIntegration.html)): `session_ml/UMAP_DataIntegration/UMAP_DataIntegration.ipynb`
 
+- Deep Learning ([html](https://nbisweden.github.io/workshop_omics_integration/session_ml/DeepLearningDataIntegration/DeepLearningDataIntegration.html)): `session_ml/DeepLearningDataIntegration/DeepLearningDataIntegration.ipynb`
+    
+- Single cell ([html](https://nbisweden.github.io/workshop_omics_integration/session_ml/SingleCell/SingleCell_OmicsIntegration.html)): `session_ml/SingleCell/SingleCell_OmicsIntegration.Rmd`
 
-- **Deep learning:**
-    - environment macOS: `/environments/env-ml_day2.yaml`
-    - environment linux: `/environments/env-ml_day2_linux.yaml`
-    - notebook ([html](https://nbisweden.github.io/workshop_omics_integration/session_ml/DeepLearningDataIntegration/DeepLearningDataIntegration.html)): `session_ml/DeepLearningDataIntegration/DeepLearningDataIntegration.ipynb`
+- UMAP for integration ([html](https://nbisweden.github.io/workshop_omics_integration/session_ml/UMAP_DataIntegration/UMAP_DataIntegration.html)): `session_ml/UMAP_DataIntegration/UMAP_DataIntegration.ipynb`
 
+### Day 3 notebooks
 
-- **Single cell:**
-    - environment macOS: `/environments/env-ml_day2.yaml`
-    - environment linux: `/environments/env-ml_day2_linux.yaml`
-    - notebook ([html](https://nbisweden.github.io/workshop_omics_integration/session_ml/SingleCell/SingleCell_OmicsIntegration.html)): `session_ml/SingleCell/SingleCell_OmicsIntegration.Rmd`
+- Network topology ([html](https://nbisweden.github.io/workshop_omics_integration/session_topology/lab.html)): `/session_topology/lab.ipynb`
 
+- Network meta-analysis ([html](https://nbisweden.github.io/workshop_omics_integration/session_meta/lab_meta-analayses-v2.html)): `/session_meta/lab_meta-analyses-v2.Rmd`
+    
+    
+### Day 4 notebooks
 
-##### Day 3: Network topology
-- **Network topology:**
-    - environment macOS: `/environments/env-merged_nets.yaml`
-    - environment linux: `/environments/env-merged_nets_linux.yaml`
-    - notebook ([html](https://nbisweden.github.io/workshop_omics_integration/session_topology/lab.html)): `/session_topology/lab.ipynb`
+- SNF and Matrix Factorization: TBD
+    
+- Genome-scale metabolic modeling ([html](https://nbisweden.github.io/workshop_omics_integration/session_gems/lab.html)): `/session_gems/lab.ipynb`
 
+### Day 5 notebooks
 
-- **Meta analyses:**
-    - environment macOS:`/session_meta/renv.lock`
-    - environment linux:`/session_meta/renv.lock`
-    - notebook ([html](https://nbisweden.github.io/workshop_omics_integration/session_meta/lab_meta-analayses-v2.html)): `/session_meta/lab_meta-analayses-v2.Rmd`
-
-
-##### Day 4: GEM structure and simulation with Cobrapy
-- **Genome-scale metabolic modeling:**
-    - environment macOS: `/environments/env-merged_nets.yaml`
-    - environment linux: `/environments/env-merged_nets_linux.yaml`
-    - notebook ([html](https://nbisweden.github.io/workshop_omics_integration/session_gems/lab.html)): `/session_gems/lab.ipynb`
-
-
-##### Day 5: Gene set and reporter analysis
-- **Gene set analysis and reporter features:**
-    - environment macOS: `/environments/env-merged_nets.yaml`
-    - environment linux: `/environments/env-merged_nets_linux.yaml`
-    - notebook: ([html](https://nbisweden.github.io/workshop_omics_integration/session_gsa/GEM_GSA.html)): `/session_gsa/GEM_GSA.Rmd`
+- Gene set analysis and reporter features ([html](https://nbisweden.github.io/workshop_omics_integration/session_gsa/GEM_GSA.html)): `/session_gsa/GEM_GSA.Rmd`
