@@ -30,10 +30,10 @@ You will need to create specific [conda environments as indicated below](#enviro
 
 See the [pre-course installation](./precourse.md), specifically [**3. Create and activate the environment**](./precourse.md#3-create-and-activate-the-environment).  
 ***Environments*** - we merged the environments for many notebooks down to 4 environments. 
-- Data pre-processing (linux: `env-preprocessing_linux.yaml` | macOS: `env-preprocessing.yaml`)
-- Supervised Integration & Feature selection (linux: `env-ml_linux.yaml` | macOS: `env-ml.yaml`)
-- Meta analysis (linux | macOS `/session_meta/renv.lock`)
-- All remaining notebooks (linux `env-ml_nets_linux.yaml` | MacOS `env-ml_nets.yaml`)
+- **Data pre-processing** (linux: `env-preprocessing_linux.yaml`, macOS: `env-preprocessing.yaml`)
+- **Supervised Integration & Feature selection&** (linux: `env-ml_linux.yaml` | macOS: `env-ml.yaml`)
+- **Meta analysis** (linux | macOS `/session_meta/renv.lock`)
+- **All remaining notebooks** (linux `env-ml_nets_linux.yaml` | MacOS `env-ml_nets.yaml`)
 
 Alternatively, you can find smaller environments below.
 
