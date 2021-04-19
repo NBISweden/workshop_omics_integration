@@ -46,6 +46,7 @@ dependencies:
 - rstudio=1.1.456
 - scikit-learn=0.23.2
 - scipy=1.6.2
+- seaborn
 - statsmodels
 - tensorflow=1.14.0
 - umap-learn=0.4.6
