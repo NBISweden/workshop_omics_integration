@@ -56,6 +56,11 @@ install.packages('session_ml/rgl_0.100.54.tgz', repos = NULL, type="source", dep
     - environment linux: `/environments/env-ml_linux.yaml`
     - notebook ([html](https://nbisweden.github.io/workshop_omics_integration/session_ml/SupervisedOMICsIntegration/supervised_omics_integr_CLL.html)): `/session_ml/SupervisedOMICsIntegration/supervised_omics_integr_CLL/supervised_omics_integr_CLL.Rmd`
 
+- **Feature selection:**
+    - environment macOS: `/environments/env-ml.yaml`
+    - environment linux: `/environments/env-ml_linux.yaml`
+    - notebook ([html](https://nbisweden.github.io/workshop_omics_integration/session_ml/FeatureSelectionIntegrOMICs/OmicsIntegration_FeatureSelection.html)): `session_ml/FeatureSelectionIntegrOMICs/OmicsIntegration_FeatureSelection.Rmd`
+
 
 - **Unsupervised integration:**
     - environment macOS: `/environments/env-ml_day2.yaml`
@@ -84,12 +89,6 @@ After activating the environment as above, open the `.Rmd` below by launching Rs
     - environment macOS: `/environments/env-ml_day2.yaml`
     - environment linux: `/environments/env-ml_day2_linux.yaml`
     - notebook ([html](https://nbisweden.github.io/workshop_omics_integration/session_ml/DeepLearningDataIntegration/DeepLearningDataIntegration.html)): `session_ml/DeepLearningDataIntegration/DeepLearningDataIntegration.ipynb`
-
-
-- **Feature selection:**
-    - environment macOS: `/environments/env-ml.yaml`
-    - environment linux: `/environments/env-ml_linux.yaml`
-    - notebook ([html](https://nbisweden.github.io/workshop_omics_integration/session_ml/FeatureSelectionIntegrOMICs/OmicsIntegration_FeatureSelection.html)): `session_ml/FeatureSelectionIntegrOMICs/OmicsIntegration_FeatureSelection.Rmd`
 
 
 - **Single cell:**
