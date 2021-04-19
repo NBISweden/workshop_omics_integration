@@ -14,7 +14,7 @@ abstract: |
 
 ```{r new setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-knitr::opts_knit$set(root.dir="/home/nikolay/Documents/Teaching/IntegrativeOMICs2020/Day2")
+knitr::opts_knit$set(root.dir="/home/nikolay/Documents/Teaching/IntegrativeOMICs2021/session_ml/DimReductSingleCell/")
 ```
 
 
@@ -57,13 +57,23 @@ summary(lm(Y~X))
 
 What happened, we see lots of "NA"? The Linear Regression Model could not converge. If we further increase p, when p>n or p>>n, the convergence will not become any better. We hit the limitation of the Maximum Likelihood (ML) principle which demands many things like large sample size, Normal distribution of the data, uncorrelated errors, homoscedasticity etc. Let us now take a closer look at why exactly the ML math blows up when n<=p. Consider a linear model:
 
-\[Y = \beta X\]
+$$
+Y = \beta X
+$$
 
 Let us make a few mathematical tricks in order to get a solution for the coefficients of the linear model:
 
-\[X^TY = \beta X^TX\]
-\[(X^TX)^{-1}X^TY = \beta(X^TX)^{-1} X^TX\]
-\[(X^TX)^{-1}X^TY = \beta\]
+$$
+X^TY = \beta X^TX
+$$
+
+$$
+(X^TX)^{-1}X^TY = \beta(X^TX)^{-1} X^TX
+$$
+
+$$
+(X^TX)^{-1}X^TY = \beta
+$$
 
 This is the solution for linear model. We can see that it is proportional to an inverse matrix. From Linear Algebra, inverse matrix is inversely proportional to a determinant of that matrix. again, from Linear Algebra, determinant of a matrix is equal to zero (approaches zero) when columns or rows of the matrix are collinear, i.e. can be expressed as linear combinations of each other, i.e. correlated. This implies, if we have a limited number of observations n and large p such that p>=n, when, as we saw, some (at least two) can become correlated just by chance alone (if X1 and X2 are correlated to Y separately, they must be correlated wih each other), the determinant of X is approaching zero, so one over determinant leads to singularity, i.e. it diverges. Therefore the solution of the linear model does not hold any more. This is what is meant by "the math blows up".   
 
@@ -84,34 +94,53 @@ Principal Component Aalysis (PCA) is the simplest and most popular way to perfor
 
 * Often we hear that PCA problem can be solved through Eigen Matrix Decomposition (the other and a faster way is Singular Matrix Decomposition (SVD)). Let us show how finding axes of maximal variation can mathematically lead to the Eigen Matrix Decomposition problem. Let us define a projection (called Principal Component) of a matrix X onto a basic (eigen) unit vector u as
 
-\[PC = u^T X = X^Tu\]
+$$
+PC = u^T X = X^Tu
+$$
 
 If X is a mean centered matrix, then the mean of PC is equal to zero
 
-\[<PC> = 0\]
+$$
+<PC> = 0
+$$
 
 and the variance of PC is:
 
-\[<(PC-<PC>)^2> = <PC^2> = u^T X X^Tu\]
+$$
+<(PC-<PC>)^2> = <PC^2> = u^T X X^Tu
+$$
 
 Here the matrix in the middle is called variance-covariance matrix:
 
-\[X X^T=A\]
-\[<PC^2> = u^T Au\]
+$$
+X X^T=A
+$$
+
+$$
+<PC^2> = u^T Au
+$$
 
 Let us now find such direction, i.e. eigen vector u, that capture most of the variation in X, i.e. let us maximize the variance of PC taking into account (with Lagrange multiplier) that vector u is a unit vector:
 
-\[\rm{max}(u^T Au + \lambda(1-u^Tu))=0\]
+$$
+\rm{max}(u^T Au + \lambda(1-u^Tu))=0
+$$
 
 Differentiating the function with respect to u one can arraive to the eigen vector-eigen value problem:
 
-\[Au = \lambda u\],
+$$
+Au = \lambda u
+$$
 
 where A is the variance-covariance matrix of the initial data X.
 
 Let us demonstrate how PCA works using the MNIST data set [1]. The MNIST database (Modified National Institute of Standards and Technology database) is a large database of handwritten digits that is commonly used for training various image processing systems. 
 
 ```{r Read MNIST}
+#Uncomment this in case you can not change your working directory
+#current_dir<-getwd()
+#setwd(paste0(current_dir,"/session_ml/DimReductSingleCell"))
+
 mnist<-read.csv("2017-10-13-mnist_train.csv")
 labels<-mnist$label
 mnist$label<-NULL
@@ -152,13 +181,17 @@ text(mds[,1:2], labels = labels, col = colors[as.character(labels)], cex = 0.5)
 
 One can see that MDS gives quite a similar to PCA 2D representation, and this is not at all surprising if one thinks about what kind of relation Euclidean distance and variance-covariance matrix have. Let us expand the Euclidean distance between two points, i.e. variables (columns) of data X:
 
-\[(x_i-x_j)^2 = x_i^2 + x_j^2 - 2x_ix_j\]
+$$
+(x_i-x_j)^2 = x_i^2 + x_j^2 - 2x_ix_j
+$$
 
 The last term in the expansion is nothing else as the variance-covariance matrix. So Euclidean distance and variance-covariance matrix are linearly related, therefore it is not suprising that they give us similar results.
 
 Often PCA is performed on a correlation matrix (i.e. matrix of pairwise correlations between the variables in X) instead of variance-covariance matrix. Again this is all about the same thing since according to Pearson's definition of correlation coefficient:
 
-\[\rho_{xy} = \frac{cov(x,y)}{\sigma_x\sigma_y}\]
+$$
+\rho_{xy} = \frac{cov(x,y)}{\sigma_x\sigma_y}
+$$
 
 So Euclidean distance, variance-covariance and correlation coefficient are linearly related and should bring similar matrix decomposition results, i.e .eigen vectors and eigen values.
 
@@ -170,15 +203,21 @@ PCA or MDS make sense to do when we suspect linear relations between the variabl
 
 In a nutshell tSNE projects high-dimensional data into low-dimensional space in such a way so that points close/far in a high-dimensional space are also close/far in the low-dimensional space. tSNE has its special way to measure similarity in the high- and low-dimensional spaces, namely the Gaussian law
 
-\[p_{ij} \sim \exp{(-||x_i-x_j||^2/2\sigma^2)}\]
+$$
+p_{ij} \sim \exp{(-||x_i-x_j||^2/2\sigma^2)}
+$$
 
 is used for highly-dimensional space, and the heavy-tailed Student t-distribution is used for measuring similarities in the low-dimensional space:
 
-\[q_{ij} \sim (1+||y_i-y_j||^2)^{-1}\]
+$$
+q_{ij} \sim (1+||y_i-y_j||^2)^{-1}
+$$
 
 In order to make distributions of points in high- and low-dimensional spaces as similar as possible, they are mixed together with the Kullback-Leibler divergence which is known as the entropy of mixing in the Information Theory:
 
-\[KL = \sum_{i \neq j}p_{ij}\log\frac{p_{ij}}{q_{ij}}\]
+$$
+KL = \sum_{i \neq j}p_{ij}\log\frac{p_{ij}}{q_{ij}}
+$$
 
 Kullback-Leibler entropy is minimized with gradient descent method in an iterative way. The entropy has an asymmetric shape, i.e. it has a lower cost for points that are far apart in the high-dimensional space (p=0) but close in the low-dimensional space (q=1) compared to the opposite situation when points are close in the high-dimenional space (p=1) and far in the low-dimensional space (q=0). This leads to a more "condensed" representation of the data in the low-dimensional space.
 
