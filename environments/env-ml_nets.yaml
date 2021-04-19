@@ -50,6 +50,6 @@ dependencies:
 - umap-learn=0.4.6
 
 # GEMs
-- pip=20.0.4
+- pip
 - pip:
   - cobra==0.21.0
