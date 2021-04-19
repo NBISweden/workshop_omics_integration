@@ -69,7 +69,7 @@ This page is under update.
 
 **13.55 - 14.05** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Break
 
-**14.05 - 15.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Single cell and UMAP for integration ([Nikolay][2])
+**14.05 - 15.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Single cell and UMAP for integration ([Nikolay][2], [slides](./session_ml/SingleCell/SingleCellOmicsIntegration_Oskolkov.pdf))
 
 **15.00 - 15.30** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Single cell and UMAP for integration ([Nikolay][2], [single cell notebook](./session_ml/SingleCell/SingleCell_OmicsIntegration.html), [UMAP notebook](./session_ml/UMAP_DataIntegration/UMAP_DataIntegration.html))
 
