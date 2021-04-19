@@ -61,7 +61,7 @@ This page is under update.
 
 **11.10 - 11.20** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Break
 
-**11.20 - 12.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Deep Learning for Omics integration ([Nikolay][2])
+**11.20 - 12.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Deep Learning for Omics integration ([Nikolay][2], [slides](./session_ml/DeepLearningDataIntegration/DeepLearningOmicsIntegration_Oskolkov.pdf))
 
 **12.00 - 13.00** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Lunch
 
