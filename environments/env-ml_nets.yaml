@@ -49,7 +49,7 @@ dependencies:
 - seaborn=0.11.1
 - statsmodels=0.12.2
 - tensorflow=1.14.0
-- umap-learn=0.4.6
+- umap-learn=0.5.1
 
 
 # GEMs
