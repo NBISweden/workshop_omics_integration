@@ -102,11 +102,11 @@ This page is under update.
 
 **14.15 - 14.20** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Break
 
-**14.20 - 14.45** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Network meta-analysis ([Ashfaq][1])
+**14.20 - 14.45** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Network meta-analysis ([Ashfaq][1], [lecture](./session_meta/Meta_Analyses_Lecture.html), [pdf](./session_meta/Meta_Analyses_Lecture.pdf))
 
 **14.45 - 14.50** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Break
 
-**14.50 - 15.45** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Network meta-analysis ([Ashfaq][1][notebook](./session_meta/lab_meta-analayses-v2.html))
+**14.50 - 15.45** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Network meta-analysis ([Ashfaq][1], [notebook](./session_meta/lab_meta-analayses-v2.html), [pdf](./session_meta/lab_meta-analayses-v2.pdf))
 
 **15.45 - 17.00** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Assisted exercises
 

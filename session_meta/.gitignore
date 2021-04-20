@@ -5,12 +5,14 @@
 # r environment directory
 renv/
 
-MetaDCN/
-#
+assets/
+images/
 results/
+Meta_tutorial_copy/
+Meta_presentation/
+
+Slide_Notes.Rmd
 #
 session_gems.Rproj
 
 # Rmarkdown cache files
-GEM_GSA_cache/
-GEM_GSA_files/
