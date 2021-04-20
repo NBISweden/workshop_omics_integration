@@ -1,4 +1,3 @@
-channel_priority: strict
 channels:
 - rdonnelly
 - bioconda
@@ -49,7 +48,7 @@ dependencies:
 - seaborn
 - statsmodels
 - tensorflow=1.14.0
-- umap-learn=0.4.6
+- umap-learn=0.5.1
 
 # GEMs
 - pip
