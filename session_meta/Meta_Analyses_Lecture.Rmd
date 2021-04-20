@@ -1,6 +1,6 @@
 ---
-title: "Meta analyses and Network Meta analyses"
-subtitle: "Applications in Omics Integration and Systems Biology"
+title: "Meta analyses for Omics integration"
+subtitle: "Workshop - Omics Integration and Systems Biology"
 author: "<b>Ashfaq Ali</b>"
 institute: "NBIS, SciLife lab, Lund University, Sweden"
 date: "updated: `r Sys.Date()`"
@@ -20,199 +20,361 @@ output:
       slideNumberFormat: "Omics-Integration 2021 • %current%/%total%"
        
 ---
-class: left, left, middle
+class: left, middle, top
 
-## Meta analyses
+## Meta analyses and its components
+
+```{r, include=FALSE}
+#install.packages("xaringan")
+```
+
+
+An example comparing effect of increased dosage of statins on mycardial infarction. 
+
+In conclusive evidence.
+
+.pull-left-60[
+
+
+
+
+
+![](images/Statin_dose_cannon_etal.png)
+Cannon _et al_ 2006
+]
+
+.pull-right-40[
+
+- Individual studies
+ - Effect Sizes 
+ - Precision and Weights 
+ - P value and confidence intervals
+- Summary 
+ - Effect Size
+ - P Value
+ - Precision
+- Heterogeneity of effect size
+ - A measure of consistency (later)
+ 
+]
+
 
 ---
+class: left, left, top
 
-## What is meta analyses and when is it relevant
+## Meta analyses relevant Example from Genetic Epidemiology
+
+
+.pull-left-40[
+
+ - Hypothesis: Genetic risk score for obesity has more effect on inactive people 
+
+ $$
+GRS =\sum_{i = 1}^{n}{risk \ alleles} 
+ $$
+
+
+
+
+![](images/Gene_physcical_activity_interaction.png)
+
+]
+
+.pull-right-40[
+- Met Analyses gives non significant results
+
+![](images/Forest-plot-showing-the-meta-analysis-of-interaction-coefficients-GRS-Cambridge.png)
+
+[Ahmed _et al_ 2013](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3723486/) ]
+
+
+
+
 
 ---
+class: left, top, top
 
+## Why do meta analyses
 
-## Lecture and Tutorial Overview 
+**The goal of meta analyses is to contextualize the results of any study in the context  
+of all the other studies**
 
- - Meta analyses Overview (min 5 slides)
- 
- 
-    - Introductory slide highlighting importance over literature reviews or enumerating 
-    - Some classical examples
-    - Basic terminology (recap p-values, effect sizes and rank statitics)
-    
-    
- - Methods: Enlist the 3 methods and equations 
-    
-      a) Using p-values
-      b) Using effect sizes
-      c) Use ranks
-      
- - Meta analyses for omics (5 slides)
+- **Statistical Significance**
   
-  - GWAS examples
-  - Gene expression
-  - Meta analyses beyond genes (Networks and pathways)
-  - Meta analyses and dimensionality reduction
-  
- - Things to consider when doing meta analyses 
+  - Is there a significant association?
  
- - Heterogeneity of effect sizes
+- **Clinical importance of the effect**
+ 
+ - estimate the effect size as accurately as possible
+ - quantify the extent of the variance and consider the implications
+  
+  
+- **Consistency of effects**
 
- 1) Combining P- values, 2) Combining rank statistics, and 3) Combining effects.
----
-## 11 VOTE-COUNTING PROCEDURES IN META-ANALYSIS (pp. 207-220)
-BRAD J. BUSHMAN and MORGAN C. WANG
-As the number of scientific studies continues to grow, it becomes increasingly important to integrate the results from these studies. One simple approach involves counting votes. In the conventional vote-counting procedure, one simply divides studies into three categories: those with significant positive results, those with significant negative results, and those with nonsignificant results. The category containing the most studies is declared the winner. For example, if the majority of studies examining a treatment found significant positive results, then the treatment is considered to have a positive effect.
-
-Many authors consider the conventional vote-counting procedure to be crude, flawed, and worthless...
-
----
-## 12 EFFECT SIZES FOR CONTINUOUS DATA (pp. 221-236)
-MICHAEL BORENSTEIN
-In any meta-analysis, we start with summary data from each study and use it to compute an effect size for the study. An effect size is a number that reflects the magnitude of the relationship between two variables. For example, if a study reports the mean and standard deviation for the treated and control groups, we might compute the standardized mean difference between groups. Or, if a study reports events and nonevents in two groups we might compute an odds ratio. It is these effect sizes that are then compared and combined in the meta-analysis.
-
-Consider figure 12.1, the forest...
-
----
-
-## 13 EFFECT SIZES FOR DICHOTOMOUS DATA (pp. 237-254)
-JOSEPH L. FLEISS and JESSE A. BERLIN
-In many studies measurements are made on binary (dichotomous) rather than numerical scales. Examples include studies of attitudes or opinions (the two categories for the response variable being agree or disagree with some statement), case-control studies in epidemiology (the two categories being exposed or not exposed to some hypothesized risk factor), and intervention studies (the two categories being improved or unimproved or, in studies of medical interventions, experiencing a negative event or not). In this chapter we present and analyze four popular measures of association or effect appropriate for categorical data: the difference between two probabilities, the ratio of two...
+ - whether or not the effect size is consistent across the body of data
+  
 
 
 ---
-## 4 COMBINING ESTIMATES OF EFFECT SIZE (pp. 257-278)
-WILLIAM R. SHADISH and C. KEITH HADDOCK
-In 1896, Sir Almroth Wright—a colleague and mentor of Sir Alexander Fleming, who discovered penicillin—developed a vaccine to protect against typhoid (Susser 1977; see Roberts 1989). The typhoid vaccine was tested in several settings, and on the basis of these tests the vaccine was recommended for routine use in the British army for soldiers at risk for the disease. In that same year, Karl Pearson, the famous biometrician, was asked to examine the empirical evidence bearing on the decision. To do so, he synthesized evidence from five studies reporting data about the relationship between inoculation status and typhoid...
+
+## Implications of dimentionality in genome wide omics studies 
+
+- **Winners Curse** "When statistical power is low, estimates of the odds ratio from a genome-wide association study, or any large-scale association study, will be upwardly biased"
+ - The problem is widely known in [GWAS](https://pubmed.ncbi.nlm.nih.gov/17266119/) and [eQTL](https://www.biorxiv.org/content/10.1101/209171v1.full) studies. 
+ 
+Consider **[Ahmed _et al_.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3723486/)** 
+
+.pull-left-50[
+<img src="images/Gene_physcical_activity_interaction.png" class="fancyimage size-85">
+
+### Effect size = 0.186
+]
+
+
+.pull-right-40[
+<img src="images/Ahmed_power.png" class="fancyimage size-85">
+
+X- axis : Sample size  
+Y- axis :statistical power
+]
+
+
+---
+
+# Meta analyses techniques
+
+ 1. Combining P- values, 
+ 2. Combining effects.
+ 2. Combining rank statistics 
+ 
 
 
 
 ---
-## Random effect models
-16 ANALYZING EFFECT SIZES: RANDOM-EFFECTS MODELS (pp. 295-316)
-STEPHEN W. RAUDENBUSH
-This volume considers the problem of quantitatively summarizing results from a stream of studies, each testing a common hypothesis. In the simplest case, each study yields a single estimate of the impact of some intervention. Such an estimate will deviate from the true effect size as a function of random error because each study uses a finite sample size. What is distinctive about this chapter is that the true effect size itself is regarded as a random variable taking on different values in different studies, based on the belief that differences between the studies generate differences in the true effect...
 
-Save
----
-## Fixed effect models
-15 ANALYZING EFFECT SIZES: FIXED-EFFECTS MODELS (pp. 279-294)
-SPYROS KONSTANTOPOULOS and LARRY V. HEDGES
-A central question in research synthesis is whether methodological, contextual, or substantive differences in research studies are related to variation in effect-size parameters.
+## p values
 
-Both fixed- and random-effects statistical methods are available for studying the variation in effects. The choice of which to use is sometimes a contentious issue in both meta-analysis as well as primary analysis of data. The choice of statistical procedures should primarily be determined by the kinds of inference the synthesist wishes to make. Two different inference models are available, sometimes calledconditionalandunconditionalinference (see Hedges and Vevea 1998). The conditional model attempts to make...
---- 
+Fisher's method: Sum of minus log-transformed *P*-values where larger Fisher score
+    reflects stronger aggregated differential expression evidence.
+    
+\begin{equation} p =  -2\times \sum_{i=1}^k\ {\ln}\ \left({p}_i\right) \end{equation}
 
-## 17 CORRECTING FOR THE DISTORTING EFFECTS OF STUDY ARTIFACTS IN META-ANALYSIS (pp. 317-334)
-FRANK L. SCHMIDT, HUY LE and IN-SUE OH
-Every study has imperfections, many of which bias the results. In some cases we can define precisely what a methodologically ideal study would be like, and thus say that the effect size obtained from any real study will differ to some extent from the value that would have been obtained had the study been methodologically perfect. Although it is important to estimate and eliminate bias in individual studies, it is even more important to remove such errors in research syntheses such as meta-analyses.
+- Pearson's method
 
-Some authors have argued that meta-analysts should not correct for study imperfections because the purpose of meta-analysis...
+\begin{equation} p =  -2\times \sum_{i=1}^k\ \mathit{\ln}\ \left(1-{p}_i\right) \end{equation}
+
+ - Stouffer's Method
+
+\begin{equation} {Z}_i={\varPhi}^{-1}\left(1-{p}_i\right) \end{equation}
+
+Φ is the standard normal cumulative distribution function.
+
+\begin{equation} \frac{\sum_{i=1}^k\ {Z}_i}{\sqrt{k}} \end{equation}
+
+*it allows including weights for the studies. In this case, the statistic is*
+
+ 
+ - minP: $\begin{equation} \mathit{\min}\ \left({p}_1,{p}_2,\dots, {p}_i,\dots, {p}_k\right) \end{equation}$
+
+ - maxP: $\begin{equation} \mathit{\max}\ \left({p}_1,{p}_2,\dots, {p}_i,\dots, {p}_k\right) \end{equation}$
 
 
----
-## Why chose fixed effect models
-
----
-
-## Why prefer effect sizes of P valuse
-
----
-## Critcism 
 
 ---
-## Meta analyses for omics
+class: left, top, top
+
+## 2. Effect size based analyses
+
+### Fixed effect models
+
+FEM combines the
+    effect size across *K* studies by assuming a simple linear model
+    with an underlying true effect size plus a random error in each
+    study
+
+\begin{equation} \overline{T_{.}}=\frac{\varSigma{\omega}_i{T}_i}{\varSigma{\omega}_i} \end{equation}
+
+### Random effect model
+REM extends FEM
+    by allowing random effects for the inter-study heterogeneity in the
+    model.
+    
+
+$$\begin{equation} {\overline{T_{.}}}^{\ast }=\frac{\sum_{i=1}^k\ {\omega}_i^{\ast }{T}_i}{\sum_{i=1}^k\ {\omega}_i^{\ast }} \end{equation}$$
+
+
+ $\omega$ are the different weights assigned to each study, that is, the inverse within-study variance $V\Big({T}_i\Big)$
+ and $\begin{equation} {\omega}_i=\frac{1}{V\left({T}_i\right)} \end{equation}$
+
+
+---
+## Heterogeneity of effect sizes
+
+The statistic that represents the total variance, Q, is defined as (Cochran's Q) which is computed by summing the squared deviations of each study's estimate from the overall meta-analytic estimate
+
+$$\begin{equation} Q=\sum_{i=1}^k\ {\omega}_i\left({T}_i-\overline{T_{.}}\right) \end{equation}$$
+
+
+where $T_i$ is the observed effect, ωi is the calculated weights for the FEM and $T_i⎯ \widehat{T}$.is the combined effect calculated for the FEM
+
+ A test for heterogeneity examines the null hypothesis that all studies are evaluating the same effect. The usual test statistic , weighting each study's contribution in the same manner as in the meta-analysis.
+ 
+ P values are obtained by comparing the statistic with a $\chi^2$ distribution with k-1 degrees of freedom (where k is the number of studies).
+
+$$I2 = 100×(Q - df)/Q$$, where Q is Cochran's heterogeneity statistic and df the degrees of freedom$
+
+
+
+---
+## Ranks based meta analyses
+
+
+ - rankProducs
+
+$$\begin{equation} {RP}_g=\prod_i^k r_{ig} \end{equation}$$
+
+ - Rank Sums
+
+$$\begin{equation} {RS}_g=\sum_i^K {r}_{ig} \end{equation}$$
+---
+
+## Meta analyses of Expression besed Omics (Motivation)
+
+ - Vertical Integration
+
+  - Perform analysis of omics data either across experiments on the same samples 
+  - Very rare in clinical setting
+  - Require data from same individuals 
+
+ - Horizontal integration techniques cross studies on the same variables
+
+  - Meta analyses is one of the techniques 
+  - Sample sizes small
+  - Study specific biases
+  - Batch effects
+ 
+
+ 
+---
+
+class: left, top, top
+## Data integration using meta analyses for Omics
+
+1.  Detect/validate deferentially expressed genes
+  
+  - Drug targets
+  - Disease Biomarkers 
+
+2.  Detect/validate deferentially regulated pathways
+ 
+3.  Detect/ co-expression network
+
+
+---
+
+# Workflow for Meta analyses for Differntial Expression
+
+
+.pull-left-50[
+
+
+
+![](images/Meta_analayses_genexpression_overview_a.png)
+]
+
+.pull-left-50[
+![](images/Meta_analayses_genexpression_overview_b.png)
+]
+
+
+---
+## Methods 
 
  - MetaDE: meta analyses based on differential expression
  - Meta analyses based on pathways 
    - Effect size(Fixed effect, Random effect)
    - P Value 
    - Vote counting 
- - Meta analyses based on networks
- - Meta analyses Vertical integration
- - Meta analyses Horizontal Integration 
----
-
-## Network meta-analyses
-
----
-## Gene Meta analyses
+   
+ - MetaPath: Meta analyses based on pathways
+  - At gene level
+  - Pathway level
+  - Hybrid
+ - MetaDCN: Meta analyses based on networks
+  - Systematically identify co-expression modules and build  based on across study consensus.
 
 ---
+## Meta-Analysis for Pathway Enrichment (MAPE)
+
+- Usual: compare the number of deferentially expressed (DE) genes in and outside a pathway using [Fisher's exact test](https://pubmed.ncbi.nlm.nih.gov/14519205/)
+- Or [Gene Set Enrichment Analysis (GSEA)](https://pubmed.ncbi.nlm.nih.gov/16199517/)
+
+[MetaPath](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2865865/) and [CPI](https://www.biorxiv.org/content/10.1101/444604v1.full.pdf) Workflow.
+
+Gene level, Pathway level or a hybrid approach.
+.pull-left-50[
+<img src="images/MetaPath_step1.png" class="fancyimage size-70">
+
+]
+
+.pull-right-40[
+<img src="images/MetaPathStep2.png" class="fancyimage size-85">
+
+<img src="images/MetaPathStep3.png" class="fancyimage size-85">
+
+]
+   
+ <br/>
+ <br/>
 
 
-## MetaQC: Quality control and diagnosis for microarray meta-analysis
 
-A diagnosis tool for assessing quality of genomic studies for meta-analysis and determining inclusion/exclusion criteria. The "MetaQC" package is based on the following paper.
 
-Dongwan D. Kang, Etienne Sibille, Naftali Kaminski, and George C. Tseng*. (2011) MetaQC: Objective Quality Control and Inclusion/Exclusion Criteria for Genomic Meta-Analysis. Nucleic Acids Research. 40(2):e15.
+---
 
-## MetaDE: Meta-analysis for Differential Expression Analysis
+## Meta-analyses Co-expression networks using [MetaDCN](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6041767/)
 
-The MetaDE package contains more than 12 popular genomic meta-analysis methods (such as Fisher, Stouffer, random effects model and fixed effects model etc.) as well as many new methods and functions developed in our lab below.
+Differential co-expression (DC) refers to the change in gene–gene correlations between two conditions (e.g. cases and controls). 
 
-Adaptively weighted (AW) statistic: 
+The differential correlation relationship could arise from meaningful biological sources as well as uncorrected technical biases
 
-Jia Li and George C. Tseng. (2011) An adaptively weighted statistic for detecting differential gene expression when combining multiple transcriptomic studies. Annals of Applied Statistics. 5:994-1019.
+unwanted batch effect, or mixture of tissues could potentially contribute to co-expression relationships
 
-rth ordered p-value (rOP) statistic: 
+differential co-expression may be confirmed across multiple datasets via meta-analyses to increase the detection power and stability. DC networks that are significant in one dataset may become more convincing if the DC patterns are preserved across multiple datasets.
 
-Chi Song and George C. Tseng*. (2012) Hypothesis setting and order statistic for robust genomic meta-analysis. Annals of Applied Statistics. in press.
+<br/>  
 
-Multi-class correlation (MCC) measure and ANOVA-maxP: 
+**Disambiguation**
 
-Shuya Lu, Jia Li, Chi Song, Kui Shen and George C Tseng. (2010) Biomarker Detection in the Integration of Multiple Multi-class Genomic Studies. Bioinformatics. 26:333-340.
+_Here we are not discussing Network meta-analysis (NMA) which extends principles of meta-analysis to the evaluation of multiple treatments in a single analysis._
+---
 
-## Meta-analysis incorporating confounding variables: 
+## Steps
 
-Xingbin Wang, Yan Lin, Chi Song, Etienne Sibille* and George C Tseng*. (2012) Detecting disease-associated genes with confounding variable adjustment and the impact on genomic meta-analysis: with application to major depressive disorder. BMC Bioinformatics. 13:52.
+ 1. *Basic DC module detection
+  - Search for initial DC modules by calculating pair-wise gene–gene Spearman’s correlations for robust comparisons
+  - Optimization by simulated annealing combined basic DC modules that share common pathway annotation into more interportable DC supe-rmodules
+  -  Control of false discovery rate
 
-Imputation for truncated p-values in genomic meta-analysis: 
+ 2. Differential Coexpression based on phenotype
 
-Shaowu Tang and George C. Tseng*. (2013). Imputation of truncated p-values for meta-analysis methods and its genomic application. in revision.
+ 3. DC supermodule assembly
 
-MetaPath: Meta-analysis for Pathway Analysis
 
-The package provides gene-based and pathway-based meta-analysis for pathway analysis and also implements a new gene-based and pathway-based hybrid method described in the following paper.
+![](images/MetaDCN_overview.jpg)
 
-## Meta-analysis for Pathway Enrichment (MAPE): 
+---
 
-Kui Shen and George C. Tseng. (2010) Meta-analysis for pathway enrichment analysis when combining multiple microarray studies. Bioinformatics. 26:1316-1323.
+## End of lecture
 
-## MetaPCA: Meta-analysis for Dimension Reduction by PCA
 
-MetaPCA implements the PCA meta-analysis framework described in the following two papers.
+```{r, include=FALSE, eval=FALSE}
+pagedown::chrome_print("Meta_Analyses_Lecture.html")
+```
 
-MetaPCA: Meta-analysis framework for PCA: 
+```{r, include=FALSE, eval=FALSE}
+library(xaringanBuilder)
+build_pdf("slides.Rmd")
+build_pdf("Meta_Analyses_Lecture.html", complex_slides = TRUE, partial_slides = TRUE)
+```
 
-Sunghwan Kang, Dongwan Kang and George C. Tseng* (2013) A meta-analysis framework for principal component analysis: with applications to combining multiple transcriptomic studies. In preparation.
-
-Sparse and robust MetaPCA: sparse and robust version of MetaPCA:
-
-Sunghwan Kang, Dongwan Kang and George C. Tseng* (2013) Sparse and robust metaPCA in genomic applications. In preparation
-
-## MetaClust: Meta-analysis for gene clustering (gene module identification) and sample clustering (disease subtype discovery). (under development)
-
-MetaGeneClust:
-
-Lunching Chang and George C. Tseng (2013) Combining multiple transcriptomic studies for gene clustering. In preparation.
-
-## MetaSparseKmeans:
-
-Zhiguang Huo and George C. Tseng (2013) Meta-analysis framework of sparse K-means for disease subtype discovery when combining multiple transcriptomic studies. In preparation.
-
-## MetaNetwork: Meta-analysis for co-expressioin network analysis. (under development)
-
-Review papers, comparative study and software papers: 
-
-Review paper for microarray meta-analysis
-George C. Tseng*, Debashis Ghosh and Eleanor Feingold. (2012) Comprehensive literature review and statistical considerations for microarray meta-analysis. Nucleic Acids Research 40 (9): 3785-3799.
-
-Review paper for GWAS meta-analysis
-Ferdouse Begum, Debashis Ghosh, George C. Tseng*, Eleanor Feingold. (2012) Comprehensive literature review and statistical considerations for GWAS meta-analysis. Nucleic Acids Research 40 (9): 3777-3784.
-
-Software paper introducing MetaQC, MetaDE and MetaPath
-Xingbin Wang, Dongwan Kang, Kui Shen, Chi Song, Shuya Lu, Lunching Chang, Serena G. Liao, Zhiguang Huo, Naftali Kaminski, Etienne Sibille, Yan Lin, Jia Li* and George C. Tseng*. (2012) A Suite of R Packages for Quality Control, Differentially Expressed Gene and Enriched Pathway Detection in Microarray Meta-analysis. Bioinformatics. 28:2534-2536.
-
-Comparative study
-Lunching Chang, Huimin Lin and George C. Tseng*. (2013) Characterization and comparison of microarray meta-analysis methods. (in preparation)

@@ -1,6 +1,6 @@
 /* CSS style for RNA-Seq presentation */
 /* Xaringen, remark.js                  */
-/* 2019 Roy Francis                     */
+/* 2021 Ashfaq Ali (credit Roy Francis)                    */
 
 /* define font */
 @import url('https://fonts.googleapis.com/css?family=Roboto|Source+Sans+Pro:300,400,600|Ubuntu+Mono&subset=latin-ext');
@@ -22,8 +22,8 @@
 body,p,h1,h2,h3,h4,h5,h6 {
   font-family: var(--font-base, 'Roboto', 'DIN', 'Helvetica', sans-serif);
   color: var(--color-text);
-  font-weight: 400;
-  font-size: 18px;
+  font-weight: 500;
+  font-size: 16px;
 }
 
 /* title font family, weight and size */
@@ -161,8 +161,8 @@ a:hover {
 /* slide margin */
 .remark-slide-content {
   padding-top: 2em;
-  padding-left: 2.5em;
-  padding-right: 2.5em;
+  padding-left: 2em;
+  padding-right: 2em;
   padding-bottom: 2em;
 }
 
@@ -190,7 +190,7 @@ p {
 .title-slide {
   background-image: url(cover.jpg);
   background-size: cover;
-  vertical-align: bottom !important; 
+  vertical-align: bottom !important;
   text-align: left !important;
   padding-bottom: 3em;
 }
@@ -199,7 +199,7 @@ p {
 .end-slide {
   background-image: url(end.jpg);
   background-size: cover;
-  vertical-align: bottom !important; 
+  vertical-align: bottom !important;
   text-align: left !important;
   padding-bottom: 2em;
   padding-left: 80px;
@@ -211,9 +211,9 @@ p {
   position: absolute;
   content:url(logo.svg);
   /* height:96px; */
-  width:300px;
-  margin-top: 1em;
-  right: 2.5em;
+  width:100px;
+  margin-top: 0em;
+  right: 1.0em;
   /* -webkit-filter: drop-shadow(1px 1px 3px grey); */
   /* filter: drop-shadow(1px 1px 3px grey); */
 }
@@ -289,9 +289,9 @@ img, video, iframe {
   content: url(logo.svg);
   width: 180px;
   float: right;
-  right: 4em;
+  right: 0em;
   top: 0;
-  margin-top: 0.4em;
+  margin-top: 0.0em;
 }
 
 /* image size classes */
@@ -335,6 +335,12 @@ img, video, iframe {
 }
 
 /* float 30% 70% width */
+.pull-right-20 {
+  width: 19%;
+  float: right;
+  margin-right: 0.5%;
+  margin-left: 0.5%;
+}
 .pull-right-30 {
   width: 29%;
   float: right;
@@ -344,6 +350,12 @@ img, video, iframe {
 .pull-right-70 {
   width: 69%;
   float: right;
+  margin-right: 0.5%;
+  margin-left: 0.5%;
+}
+.pull-left-20 {
+  width: 19%;
+  float: left;
   margin-right: 0.5%;
   margin-left: 0.5%;
 }
@@ -430,8 +442,8 @@ img, video, iframe {
 .remark-slide-number .progress-bar {
   height: 100%;
   background-color: var(--color-primary);
-}
-*/
+}/*
+
 
 /* TABLES ------------------------------------------------------------------- */
 
