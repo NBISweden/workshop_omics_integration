@@ -80,7 +80,7 @@ This page is under update.
 
 ##### Day 3
 
-**09.00 - 09.30** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Introduction to biological network analysis ([Rui][3])
+**09.00 - 09.30** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Introduction to biological network analysis ([Rui][3], [slides](./session_topology/lecture_short.pdf))
 
 **09.30 - 10.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Network inference ([Rui][3])
 
@@ -92,7 +92,7 @@ This page is under update.
 
 **11.10 - 11.20** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Break
 
-**11.20 - 11.30** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Community analysis ([Rui][3])
+**11.20 - 11.30** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Community analysis ([Rui][3], [slides](./session_topology/lecture_short.pdf))
 
 **11.30 - 12.15** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Community analysis ([Rui][3], [notebook](./session_topology/lab.html))
 
