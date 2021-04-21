@@ -1,0 +1,12 @@
+channels:
+- rdonnelly
+- bioconda
+- anaconda
+- r
+- conda-forge
+- defaults
+
+
+dependencies:
+- r-base=4.0
+- rstudio
