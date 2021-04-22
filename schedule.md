@@ -134,11 +134,11 @@ This page is under update.
 
 **13.00 - 13.10** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Review ([Sergiu][4])
 
-**13.10 - 13.50** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Genome-scale metabolic models for integration ([Rui][3])
+**13.10 - 13.50** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Genome-scale metabolic models for integration ([Rui][3], [slides](./session_gems/lecture.pdf))
 
 **13.50 - 14.00** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Break
 
-**14.00 - 14.50** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Genome-scale metabolic models for integration ([Rui][3])
+**14.00 - 14.50** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Genome-scale metabolic models for integration ([Rui][3], [notebook](./session_gems/lab.html))
 
 **14.50 - 15.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Review ([Rui][3])
 
