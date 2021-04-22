@@ -116,19 +116,19 @@ This page is under update.
 
 ##### Day 4
 
-**09.00 - 09.40** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Similarity network fusion ([Sergiu][4])
+**09.00 - 09.40** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Similarity network fusion ([Sergiu][4], [slides](./session_nmf/SNF_main.html))
 
 **09.40 - 09.45** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Break
 
-**09.45 - 10.40** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Similarity network fusion ([Sergiu][4], [notebook](./session_nmf/SNF_main.html))
+**09.45 - 10.40** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Similarity network fusion ([Sergiu][4], [notebook](./session_nmf/SNF_lab.html))
 
 **10.40 - 10.45** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Break
 
-**10.45 - 11.20** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Matrix factorization and PLS ([Sergiu][4])
+**10.45 - 11.20** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Matrix factorization ([Sergiu][4], [slides](./session_nmf/NMF_main.html))
 
 **11.20 - 11.25** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Break
 
-**11.25 - 12.00** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Matrix factorization and PLS ([Sergiu][4], [notebook](./session_nmf/Lab.html))
+**11.25 - 12.00** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Matrix factorization ([Sergiu][4], [notebook](./session_nmf/NMF_lab.html))
 
 **12.00 - 13.00** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Lunch
 
