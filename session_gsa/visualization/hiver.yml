@@ -1,0 +1,21 @@
+name: hiver
+channels:
+
+  - conda-forge
+  - bioconda
+  - r
+  - rdonnelly
+  - defaults
+
+
+dependencies:
+
+  - r-base=3.6.1
+  - rstudio
+  - r-hiver=0.3.63
+  - bioconductor-iranges
+#  - r-tidyverse=1.2.1
+#  - r-circlize=0.4.10
+#  - r-janitor
+
+#  - bioconductor-iranges=2.22.1

@@ -238,7 +238,7 @@ $$\begin{equation} {RP}_g=\prod_i^k r_{ig} \end{equation}$$
 $$\begin{equation} {RS}_g=\sum_i^K {r}_{ig} \end{equation}$$
 ---
 
-## Meta analyses of Expression besed Omics (Motivation)
+## Meta analyses of Expression based Omics (Motivation)
 
  - Vertical Integration
 

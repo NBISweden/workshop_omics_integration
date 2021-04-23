@@ -1,12 +1,10 @@
 channels:
-- rdonnelly
-- bioconda
-- anaconda
-- r
-- conda-forge
 - defaults
+- bioconda
+- conda-forge
 
 
 dependencies:
-- r-base=4.0
+- r-base=4.0.2
 - rstudio
+- r-renv

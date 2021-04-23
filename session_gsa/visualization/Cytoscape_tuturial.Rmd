@@ -1,0 +1,428 @@
+---
+title: "Cytoscape_R"
+author: "Ashfaq Ali"
+date: "21/09/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+ This tutorial will cover R API for cytoscape through RCy3 package. People who are interested in Cytoscape GUI with can follow Lars Juhl Jensen's labs (tutorial) [https://jensenlab.org/training/stringapp/].
+ 
+## Installation and testing the setup
+
+```{bash eval=FALSE, include=FALSE}
+conda env create -f env-cytoscape.yml
+conda activate cyto
+
+## If you have the course conda environment set up, please use that for this session.
+```
+
+
+```{r setup}
+suppressMessages(library(dplyr))
+suppressMessages(library(RCy3))
+suppressMessages(library(readxl))
+suppressMessages(library(tidyverse))
+suppressMessages(library(readxl))
+```
+
+
+```{r setup}
+cytoscapePing()
+cytoscapeVersionInfo()
+
+
+```
+
+
+
+
+```{r setup}
+
+installation_responses <- c()
+
+#list of app to install
+cyto_app_toinstall <- c("clustermaker2", "enrichmentmap", "autoannotate", "wordcloud", "stringapp", "aMatReader", "yFiles Layout Algorithms", "enhancedGraphics")
+
+cytoscape_version <- unlist(strsplit( cytoscapeVersionInfo()['cytoscapeVersion'],split = "\\."))
+if(length(cytoscape_version) == 3 && as.numeric(cytoscape_version[1]>=3) 
+   && as.numeric(cytoscape_version[2]>=7)){
+  for(i in 1:length(cyto_app_toinstall)){
+    #check to see if the app is installed.  Only install it if it hasn't been installed
+    if(!grep(commandsGET(paste("apps status app=\"", cyto_app_toinstall[1],"\"", sep="")), 
+             pattern = "status: Installed")){
+      installation_response <-commandsGET(paste("apps install app=\"", 
+                                                cyto_app_toinstall[i],"\"", sep=""))
+      installation_responses <- c(installation_responses,installation_response)
+    } else{
+      installation_responses <- c(installation_responses,"already installed")
+    }
+  }
+  installation_summary <- data.frame(name = cyto_app_toinstall, 
+                                     status = installation_responses)
+  
+  knitr::kable(list(installation_summary),
+  booktabs = TRUE, caption = 'A Summary of automated app installation'
+)
+}
+
+```
+
+
+## Intuition behind using RCy3 to analyze networks with cytoscape.
+
+Cytoscape[www.cytoscape.org] is probably the most popular applications for network analysis and visualization with GUI. In this session, we will learn about new capabilities to integrate Cytoscape into programmatic workflows and pipelines using R. Apart from programatic workfolow, the  access through R allows direct access to network analyses as being part of an ongoing analyses instead of a separate instance. This also makes analyses steps more explicit hence more reproducible.
+
+We have already been introduced to network biology themes and concepts, therefor we will translate these into Cytoscape terms for practical applications. This tutorial will be a hands-on session working towards accessing and controlling Cytoscape from R to perform a network analysis. We will go through following themes that are usually required in network visualization and analyses. 
+
+ - retrieve networks for Genes/ proteins of interest
+ - layout and visually style the resulting networks
+ - import external data and map them onto a network
+ - filter networks and custmize styling
+ 
+ - perform enrichment analyses and visualize the results
+ - identify functional modules through network clustering
+
+
+## Data preparation
+
+We will be using data from the Charge consortium in which they have analyzed quite large cohort with association of methylation and gene expression with Age. We will use some of the results for visualization in Cytoscape.
+
+```{r data}
+AgeingExpMeth <- read_excel("./Data/AgeExpMethSig.xlsx",   skip = 0) ## Provide the path to the file with data
+AgeingProt <- read_excel("../../../Projects/Ageing/Results/DE_proteins_Age_Gender_Location_Int.xlsx")
+#Ageing_normalized <- readRDS("../../../Projects/Ageing/Data/data_sumExpImputed.rds","\t", escape_double = FALSE, trim_ws = TRUE)
+RNA_prot_cor <- read_excel("Projects/ProteoGenomics/ProtGen/NBISresults/Hans/RNA_prot_cor.xlsx")
+
+
+Age_prot <- AgeingProt %>% filter(adj.P.Val<0.05 & abs(logFC) >0.01) %>% arrange(adj.P.Val)
+Age_exp <- AgeingExpMeth %>%  arrange(`ExpAgeP-value`) %>% slice_head(n=100)
+Age_meth <- AgeingExpMeth %>% arrange(`MethAgeP-value`) %>% slice_head(n=100)
+
+rownames(Age_exp) <- Age_exp$Gene
+
+# ## Create attributes for the "Age" dataset
+# 
+# AgeingExpMeth$ExpAgeUp <- AgeingExpMeth$ExpAgeDirection %>% stringi::stri_count( regex = "[+]")
+# AgeingExpMeth$ExpAgeDown <- AgeingExpMeth$ExpAgeDirection %>% stringi::stri_count( regex = "[-]")
+# 
+# AgeingExpMeth$MethAgeUp <- AgeingExpMeth$MethAgeDirection %>% stringi::stri_count( regex = "[+]")
+# AgeingExpMeth$MethAgeDown <- AgeingExpMeth$MethAgeDirection %>% stringi::stri_count( regex = "[-]")
+# 
+# AgeingExpMeth$ExpMethUp <- AgeingExpMeth$ExpMethDirection %>% stringi::stri_count( regex = "[+]")
+# AgeingExpMeth$ExpMethDown <- AgeingExpMeth$ExpMethDirection %>% stringi::stri_count( regex = "[-]")
+
+
+
+```
+
+
+To get an overview of what commands and functions are available through "RCy3", please have alook at the help pages.
+
+```{r networks eval=FALSE, include=FALSE}
+help(package=RCy3)
+```
+
+
+## retrieve networks for Genes/ proteins of interest
+
+Get a subset of genes of interest from our Ageing data:
+```{r networks}
+# string.cmd = 'string disease query disease="breast cancer" cutoff=0.9 species="Homo sapiens" limit=150'
+# commandsRun(string.cmd)
+
+AgeingExpe_string_interaction_cmd <- paste('string protein query taxonID=9606 cutoff=0.9 query=', paste(Age_exp$Gene, collapse=","),'"',sep="")
+
+
+commandsGET(AgeingExpe_string_interaction_cmd )
+renameNetwork("AgeingExpeNet")
+```
+
+
+```{r networks}
+AgeingMeth_string_interaction_cmd <- paste('string protein query taxonID=9606 cutoff=0.9 query=', paste(Age_meth$Gene, collapse=","),'"',sep="")
+commandsGET(AgeingMeth_string_interaction_cmd)
+renameNetwork("AgeingMethNet")
+```
+
+
+
+```{r networks}
+AgeingProt_string_interaction_cmd <- paste('string protein query taxonID=9606 limit=150 cutoff=0.9 query=', paste(Age_prot$protein, collapse=","),'"',sep="")
+test <-commandsGET(AgeingProt_string_interaction_cmd)
+renameNetwork("AgeingProtNet")
+```
+
+
+ Let us have a look at what networks wek have.
+
+```{r networks}
+getNetworkList()
+```
+
+To work with a respective network, we need to set the environment we wish to work with.
+
+```{r networks}
+setCurrentNetwork(network="AgeingExpeNet")
+```
+
+Save the original network to a file.
+
+
+```{r networks}
+path <- file.path(getwd(), "/Data/","ExpnetworkOriginal.png")
+# initial_string_network_png_file_name <- file.path(getwd(), "/Path/to/your/network.png")
+
+exportImage(path, type = "png", resolution = 300)
+
+```
+
+
+
+***If cytoscape hangs waiting for user response if file already exists.  Remove it first***
+
+
+## To do
+
+1. Can you save the **"AgeingMethNet"** and  **"AgeingProtNet"** to the respective files?
+2. Usue your desired node attributes among the cytoscape network columns to improve visualization.
+
+
+
+
+## layout and visually style the resulting networks
+
+Now that we have a few networks loaded in cytoscape, let us work with those based on our interest.
+Change the layout of the nework and save to a new file. 
+
+```{r styling}
+layouts <- getLayoutNames() ## Access the available lyouts in cytoscape
+
+layoutNetwork(layouts[3]) ## Change the layout to circular
+
+exportImage(path, type = "png", resolution = 300) ## Cytoscape will hang as you are trying to overwite an existing file
+path <- file.path(getwd(), "/Data/","ExpnetworkOriginalCircular.png") # update the path
+exportImage(path, type = "png", resolution = 300) ## Cytoscape will hang as you are trying to overwite an existing file
+
+```
+
+Get available parameters for a specific layout.
+
+```{r styling}
+getLayoutPropertyNames(layout.name='force-directed')
+```
+
+Apply the layout by changing parameters again
+
+```{r styling}
+layoutNetwork('force-directed defaultSpringCoefficient=0.0000008 defaultSpringLength=70')
+```
+
+Overlay our expression data on the String network.
+To do this we will be using the loadTableData function from RCy3. It is important to make sure that that your identifiers types match up. You can check what is used by String by pulling in the column names of the node attribute table.
+```{r styling}
+getTableColumnNames('node')
+```
+
+The column “display name” contains gene names which are also found in our Ageing Expression dataset.
+To import our expression data we will match our dataset to the “display name” node attribute.
+
+```{r external_data}
+?loadTableData
+
+loadTableData(data= as.data.frame(Age_exp),  table.key.column = "display name", data.key.column= "Gene")  #default data.frame key is row.names
+
+```
+
+
+Modify the Visual Style Create your own visual style to visualize your expression data on the String network.
+
+Start with a default style
+
+```{r external_data}
+my.style.name = "AgeingStyle"
+defaults.list <- list(NODE_SHAPE="ellipse",
+                 NODE_SIZE=60,
+                 NODE_FILL_COLOR="#AAAAAA",
+                 EDGE_TRANSPARENCY=120)
+node.label.map <- mapVisualProperty('node label','display name','p') # p for passthrough; nothing else needed
+createVisualStyle(my.style.name, defaults.list, list(node.label.map))
+setVisualStyle(style.name=my.style.name)
+```
+
+
+
+```{r external_data}
+min.Exp.zscore = min(Age_exp$`Z-score`, na.rm=TRUE)
+max.Exp.zscore  = max(Age_exp$`Z-score`, na.rm=TRUE)
+#mid..Exp.zscore = mean
+data.values = c(min.Exp.zscore, mean(min.Exp.zscore,max.Exp.zscore) ,max.Exp.zscore)
+
+```
+
+Next, we use the RColorBrewer package to help us pick good colors to pair with our data values.
+
+```{r external_data}
+
+
+library(RColorBrewer)
+display.brewer.all(length(data.values), colorblindFriendly=TRUE, type="div") # div,qual,seq,all
+
+
+node.colors <- c(rev(brewer.pal(length(data.values), "RdYlBu")))
+
+```
+
+
+```{r external_data}
+setNodeColorMapping("Z-score", data.values, node.colors, style.name=my.style.name)
+```
+
+
+Change the size of the node to be correlated with the Age p-value.
+
+```{r external_data}
+setNodeSizeMapping(table.column = 'ExpAgeP-value', 
+                   table.column.values = c(min(Age_exp$`ExpAgeP-value`), 
+                                           mean(Age_exp$`ExpAgeP-value`), 
+                                           max(Age_exp$`ExpAgeP-value`)), 
+                   sizes = c(30, 60, 150), mapping.type = "c", style.name = my.style.name)
+
+```
+
+
+## Creating a degree filter
+
+Every node in a network has a Degree property, which corresponds to the number of edges connecting the node to other nodes, either as a target or source. Filtering based on node degree is a useful way to remove nodes with too few (or too many) connections.
+
+In this example we want to exclude low degree nodes, e.g., those with only 0, 1 or 2 connections:
+
+```{r filter}
+createDegreeFilter('degree filter', c(0,2), 'IS_NOT_BETWEEN')
+```
+```{r filter}
+createSubnetwork(subnetwork.name ='Ageing: highly connected nodes')
+```
+
+
+## Creating a column filter
+
+We could also filter the network based on any of the column data available.  Let us filter nodes that come from "target" database belonging to "family" "TF". 
+
+```{r filter}
+createColumnFilter(filter.name='trascription factors', column="target::family", "TF", "IS", network = "Ageing: highly connected nodes")
+
+```
+
+Now we will select the nodes from the family and color them dofferently in the network.
+
+```{r filter}
+nodes <- getSelectedNodes()
+
+setNodeColorBypass(nodes,new.colors='#FF0088')
+```
+
+
+Here the string matching is based on discrete values but it can be from a continuous variable?
+
+**Can you slect a few nodes based on your favorite column and see whether you can map some column as node attributes?**
+
+
+```{r}
+
+
+RNASeq_expression <- scale(assays(prot_exp)$imputed, center = TRUE, scale = TRUE)
+
+#rownames(RNASeq_expression) <- RNASeq_expression_matrix$Name
+RNAseq_correlation_matrix <- cor(t(RNASeq_expression), method="pearson")
+
+#set the diagonal of matrix to zero - eliminate self-correlation
+RNAseq_correlation_matrix[ row(RNAseq_correlation_matrix) == col(RNAseq_correlation_matrix) ] <- 0
+
+# set all correlations that are less than 0.7 to zero
+RNAseq_correlation_matrix[which(RNAseq_correlation_matrix<0.60)] <- 0
+
+#get rid of rows and columns that have no correlations with the above thresholds
+RNAseq_correlation_matrix <- RNAseq_correlation_matrix[which(rowSums(RNAseq_correlation_matrix) != 0),
+                          which(colSums(RNAseq_correlation_matrix) !=0)]
+```
+
+
+#write out the correlation file
+
+
+```{r}
+correlation_filename <- file.path(getwd(),  "Data", "Protein_correlation_matrix.txt") 
+
+write.table( RNAseq_correlation_matrix ,  file = correlation_filename, col.names  = TRUE, row.names = FALSE, sep = "\t", quote=FALSE)
+```
+
+Use the CyRest call to access the aMatReader functionality.
+```{r}
+amat_url <- "aMatReader/v1/import"
+amat_params = list(files = list(correlation_filename),
+                   delimiter = "TAB",
+                   undirected = FALSE,
+                   ignoreZeros = TRUE,
+                   interactionName = "correlated with",
+                   rowNames = FALSE
+                   )
+ 
+response <- cyrestPOST(operation = amat_url, body = amat_params, base.url = "http://localhost:1234")
+
+current_network_id <- response$data["suid"]
+```
+
+```{r}
+
+layoutNetwork('cose',network = as.numeric(current_network_id))
+
+renameNetwork(title = "Coexpression_network",
+              network = current_network_id)
+```
+
+One can map column attributes as we did in case of string database based on our desired attributes.
+```{r}
+string.cmd = 'string disease query disease="breast cancer" cutoff=0.9 species="Homo sapiens" limit=150'
+commandsGET(string.cmd)
+mapped.cols <- mapTableColumn('stringdb::canonical name','Human','Uniprot-TrEMBL','Ensembl')
+```
+
+
+```{r external_data}
+?loadTableData
+
+loadTableData(data= as.data.frame(Age_prot),  table.key.column = "name", data.key.column= "protein")  #default data.frame key is row.names
+
+```
+
+
+```{r filter}
+createColumnFilter(filter.name='Fold change', column="logFC", 0.01, "GREATER_THAN", network = "Coexpression_network")
+
+```
+
+
+```{r}
+nodes <- getSelectedNodes()
+
+setNodeColorBypass(nodes,new.colors='#FF0088')
+
+```
+
+_______________
+
+
+## End the session
+
+```{bash}
+conda deactivate
+```
+
+
+
+
