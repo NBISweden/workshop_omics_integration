@@ -130,7 +130,7 @@ library(org.Hs.eg.db)
 
 `r sn<-sn+1; paste0(sn,"\\. ")` Specify the location of the main tutorial directory
 ```{r}
-main_dir = '/Users/jonrob/Documents/NBIS/teaching/workshop_omics_integration/session_gems'
+main_dir = './session_gsa'
 
 ```
 </br>
