@@ -151,11 +151,11 @@ This page is under update.
 
 ##### Day 5
 
-**09.00 - 09.55** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Gene set analysis and reporter features ([Ashfaq][1], [lecture]())
+**09.00 - 09.55** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Gene set analysis and reporter features ([Ashfaq][1], [lecture](./session_gsa/GEM_session_day2.pdf))
 
 **09.55 - 10.00** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Break
 
-**10.00 - 10.45** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Gene set analysis and reporter features ([Ashfaq][1], [notebook](./session_gsa/GEM_GSA.html))
+**10.00 - 10.45** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Gene set analysis and reporter features ([Ashfaq][1], [GSA notebook](./session_gsa/GEM_GSA.html), [RCytoscape notebook](./session_visualization/Cytoscape_tutorial.html), [Circos notebook](./session_visualization/RCircos-HiveR.html))
 
 **10.45 - 10.55** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> ([Ashfaq][1])
 
