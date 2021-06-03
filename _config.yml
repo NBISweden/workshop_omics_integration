@@ -15,16 +15,16 @@ defaults:
   - values:
       logosnav: true
 
-menu:
-  - title: Overview
-    url:
-  - title: Schedule
-    url: schedule
-  - title: Labs
-    url: labs
-  - title: Reading materials
-    url: reading_materials
-  - title: Pre-course
-    url: precourse
-  - title: Contact
-    url: contact
+# menu:
+#   - title: Overview
+#     url:
+#   - title: Schedule
+#     url: schedule
+#   - title: Labs
+#     url: labs
+#   - title: Reading materials
+#     url: reading_materials
+#   - title: Pre-course
+#     url: precourse
+#   - title: Contact
+#     url: contact
