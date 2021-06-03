@@ -5,7 +5,7 @@
 [Course homepage](https://nbisweden.github.io/workshop_omics_integration/)
 
 Past editions:
-- [Online 19 - 23 April 2021[3]
+- [Online 19 - 23 April 2021][3]
 - [Lund 5 - 9 October 2020][2]
 - [Stockholm 9 - 12 Sep 2019][1]
 
