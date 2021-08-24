@@ -47,7 +47,7 @@ We can see that the gene expression data set includes p = 546 expressed genes (f
 
 ```{r Y,fig.width=10,fig.height=8}
 Y<-read.table("GTEX_SkeletalMuscles_157Samples_Gender.txt",header=TRUE,sep="\t")$GENDER
-summary(Y)
+table(Y)
 length(Y)
 ```
 
