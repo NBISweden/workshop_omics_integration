@@ -2,7 +2,7 @@
 =========================================
 # Omics Integration and Systems Biology 
 
-[Course homepage](https://nbisweden.github.io/workshop_omics_integration/)
+[Course homepage](https://uppsala.instructure.com/courses/52162)
 
 Past editions:
 - [Online 22 - 23 July 2021, as part of the ICMB / ECCB][4]
