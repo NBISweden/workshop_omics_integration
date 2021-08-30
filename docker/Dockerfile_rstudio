@@ -1,0 +1,90 @@
+FROM bioconductor/bioconductor_docker:latest
+LABEL description = "Dockerfile for rstudio"
+MAINTAINER "Rui Benfeitas" rui.benfeitas@scilifelab.se
+
+
+# Use bash as shell
+SHELL ["/bin/bash", "-c"]
+
+# Set working directory
+WORKDIR ~/workshp_omics_integration
+
+##### Installations
+# vim, pip, git, mofapy
+RUN apt-get update && apt-get install -y \
+    git \
+    pip \
+    vim \
+    && pip3 install mofapy2 \
+# R packages 
+    && install2.r --error \
+    ggplot2 \
+    glmnet \
+    lattice \
+    MASS \
+    Matrix \
+    Rcpp \
+    reticulate \
+    Rtsne \
+    stringi \
+    tidyverse \
+    uwot \ 
+    renv \
+# meta-analysis packages
+    devtools \
+    magrittr \
+    plyr \
+# meta-analysis dependencies that only exist as archives
+    quantmod \
+    xts \ 
+    zoo \ 
+# GSEA packages
+    gridExtra \
+    pheatmap \
+    RColorBrewer \
+    tibble \
+    viridisLite
+
+
+    
+# Install bioconductor packages
+RUN R -e 'BiocManager::install("mixOmics", ask = F)' \
+    && R -e 'BiocManager::install("MOFA2", ask = F)' \
+    && R -e 'BiocManager::install("MOFAdata", ask = F)' \
+    # GSEA
+    && R -e 'BiocManager::install("edgeR", ask = F)' \
+    && R -e 'BiocManager::install("fgsea", ask = F)' \
+    && R -e 'BiocManager::install("org.Hs.eg.db", ask = F)' \
+    && R -e 'BiocManager::install("piano", ask = F)' \
+    && R -e 'BiocManager::install("SummarizedExperiment", ask = F)' \
+    && R -e 'BiocManager::install("TCGAbiolinks", ask = F)' \
+    # Meta-analysis 
+    && R -e 'BiocManager::install("Rgraphviz", ask = F)' \
+    && R -e 'BiocManager::install("ConsensusClusterPlus", ask = F)' \
+    && R -e 'BiocManager::install("DESeq2", ask = F)' \
+    && R -e 'BiocManager::install("GSEABase", ask = F)' \
+    && R -e 'BiocManager::install("genefilter", ask = F)' \
+    && R -e 'BiocManager::install("impute", ask = F)' \
+    && R -e 'BiocManager::install("multtest", ask = F)' 
+  
+    # Meta-analysis dependencies
+RUN installGithub.r -d TRUE cran/DMwR \
+    metaOmics/preproc \
+    metaOmics/MetaQC \
+    metaOmics/MetaDE \
+    metaOmics/MetaPath \
+    metaOmics/MetaDCN \ 
+#  clean cache    
+    && apt-get clean all && \
+    apt-get purge && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*    && rm -rf /var/lib/apt/lists/*  
+
+# Start Bash shell by default
+#CMD /bin/bash
+
+# Export rstudio port. May not be needed if
+# docker run sets ports
+EXPOSE 8787
+
+# Start rstudio
+CMD /init

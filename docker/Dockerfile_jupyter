@@ -1,0 +1,38 @@
+FROM jupyter/datascience-notebook:latest
+LABEL description = "Dockerfile for jupyter"
+MAINTAINER "Rui Benfeitas" rui.benfeitas@scilifelab.se
+USER root
+
+# Use bash as shell
+SHELL ["/bin/bash", "-c"]
+
+# Set working directory
+WORKDIR ~/workshp_omics_integration
+
+# Install vim
+RUN apt-get update && apt-get install -y vim \
+# clean cache
+    && apt-get clean all \
+    && apt-get purge \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
+
+# Install conda
+ENV PATH="/root/miniconda3/bin:${PATH}"
+ARG PATH="/root/miniconda3/bin:${PATH}"
+
+# Copy and install the Conda environment
+COPY environment_jupyter.yml ./
+RUN conda config --set channel_priority strict \
+    && mamba env update --name base --file environment_jupyter.yml \
+    && mamba clean --all --force-pkgs-dirs --yes
+
+# Export jupyter port. May not be needed if 
+# docker run sets ports
+EXPOSE 8888
+
+
+# Start Bash shell by default
+# CMD /bin/bash
+
+# Start jupyter
+CMD start-notebook.sh
