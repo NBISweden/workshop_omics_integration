@@ -6,8 +6,8 @@ USER root
 # Use bash as shell
 SHELL ["/bin/bash", "-c"]
 
-# Set working directory
-WORKDIR ~/workshp_omics_integration
+# set working directory
+WORKDIR /home/jovyan/workshop_omics_integration/
 
 # Install vim
 RUN apt-get update && apt-get install -y vim \
@@ -29,6 +29,9 @@ RUN conda config --set channel_priority strict \
 # Export jupyter port. May not be needed if 
 # docker run sets ports
 EXPOSE 8888
+
+# set jupyter password
+# ENV JUPYTER_TOKEN=omics
 
 
 # Start Bash shell by default

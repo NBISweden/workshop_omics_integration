@@ -2,7 +2,7 @@ version: "3.8"
 services:
   rstudio:
     container_name: rstudio_container
-    image: "rocker/tidyverse:latest"
+    image: "ruibenfeitas/rstudio:30_08_2021"
     ports:
       - 8787:8787
     environment:
@@ -19,7 +19,7 @@ services:
 
   jupyter_notebook:
     container_name: jupyter_container
-    image: 'jupyter/datascience-notebook:latest'
+    image: 'ruibenfeitas/jupyter:30_08_2021'
     ports:
       - 8888:8888
     environment:
