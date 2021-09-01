@@ -1,0 +1,104 @@
+Figures:Biological Networks
+
+
+##Graph theory: adjacency matrices
+ 
+
+Powered by Google TranslateTranslate
+Every network can be expressed mathematically in the form of an adjacency matrix (Figure 4). In these matrices the rows and columns are assigned to the nodes in the network and the presence of an edge is symbolised by a numerical value. By using the matrix representation of the network we can calculate network properties such as degree, and other centralities by applying basic concepts from linear algebra (see later in the course). 
+
+A network with undirected, unweighted edges will be represented by a symmetric matrix containing only the values 1 and 0 to represent the presence and absence of connections, respectively.
+
+Directed and weighted networks can make use of different numerical values in the matrix to express these more complex relationships. The sign of the values, for example, is sometimes used to indicate stimulation or inhibition.
+
+## Topology
+*The degree of a network.*
+The degree is the number of edges that connect to a node. It is a fundamental parameter that influences other characteristics, such as the centrality of a node. The degree distribution of all nodes in the network helps define whether a network is scale-free or not, as we will see later. In the figure, the degree of each node is indicated and reflected in its size and colour. Directed network nodes have two values for degree: out-degree for those edges coming out of the node and in-degree for those edges coming into the node.
+
+*Shortest paths*
+Shortest paths.
+Figure 6 Shortest paths.
+Shortest paths, or the shortest distance between any two nodes, is used to model how information flows. This is especially relevant in many biological networks. In the figure, the shortest path between nodes A and B is highlighted and takes five steps.
+
+*Scale-free networks*
+
+Figure 7 Scale-free networks.
+In scale-free networks most of the nodes are connected to a low number of neighbours and there are a small number of high-degree nodes (hubs) that provide high connectivity to the network. In the figure, hubs are highlighted in orange. 
+
+*Transitivity*
+Network transitivity
+Figure 8 Transitivity.
+Transitivity relates to the presence of tightly interconnected nodes in the network called clusters or communities. These are groups of nodes that are more internally connected than they are with the rest of the network. These groups are also called topological clusters and are highlighted in the figure.
+
+*Centralities*
+
+As we will see later, there are different flavours of centrality, each representing different concepts. Centrality can be measured for nodes and for edges and gives an estimation on how important that node/edge is for the connectivity or the information flow of the network. The degree of a node has a direct influence on many centrality measures, most prominently on the ‘degree centrality’. Its significance is reduced in more sophisticated types of centrality measures, for example, betweenness centrality. In the figure, the most central nodes (according to their betweenness centrality) are highlighted in warm colours and the node size reflects its degree.
+
+## Types of biological networks
+ 
+
+Biological networks
+Different types of information can be represented in the shape of networks in order to model the cell (Figure 10). The meaning of the nodes and edges used in a network representation depends on the type of data used to build the network and this should be taken into account when analysing it.
+
+Different types of data will also produce different general network characteristics in terms of connectivity, complexity and structure, where edges and nodes potentially convey multiple layers of information.
+
+Some of the most common types of biological networks are:
+
+1. Protein-protein interaction networks
+
+2. Metabolic networks
+
+3. Genetic interaction networks
+
+4. Gene / transcriptional regulatory networks
+
+5. Cell signalling networks
+
+Figure 11 A protein-protein interaction network.
+  Represent the physical relationships between proteins. They are central to practically every process that takes place in the cell.
+  Proteins are represented as nodes that are linked by undirected edges.
+  We will look at protein-protein interaction networks in more detail later in the course.
+Metabolic networks
+Metabolic network.
+Figure 12 A metabolic network.
+Represent the biochemical reactions that allow an organism to grow, reproduce, respond to the environment and maintain its structure.
+Metabolites and enzymes take the role of nodes and the reactions describing their transformations are represented as directed edges.
+Edges can represent the direction of the metabolic flow or regulatory effects of a specific reaction.
+Genetic interaction networks
+Genetic interaction network
+Figure 13 A genetic interaction network.
+Genetic interaction is the synergistic phenomenon where the phenotype resulting from simultaneous mutations in two or more genes is significantly different from the phenotype that would result from adding the effects of the individual mutations.
+Represent a functional relationship between different genes, rather than a physical one.
+Genes are represented as nodes and their relationships as edges. Depending on the type of evidence behind the interaction, directionality can be inferred for the edges.
+Gene / transcriptional regulatory networks
+Gene / transcriptional regulation network
+Figure 14 A gene / transcriptional regulatory networks.
+Represent how gene expression is controlled.
+Genes and transcription factors are represented as nodes, while the relationship between them is depicted by different types of directional edges.
+Regulatory RNAs and other mechanisms can also form part of this type of network. 
+Usually generated via databases representing consensus knowledge of gene regulation (e.g. Reactome or KEGG), although large-scale experimental datasets are increasingly available.
+Cell signalling networks
+Cell signalling network
+Figure 15 A cell signalling network.
+Cell signalling is the communication system that controls cellular activities.
+Signalling pathways represent the ordered sequences of events and model the information flow within the cell.
+Gene regulation networks can be considered as a sub-type of cell signalling networks, focusing on a specific signalling event which is often the final stage of a signalling cascade.
+Elements in the pathway (e.g. proteins, nucleic acids, metabolites) are represented as nodes and the flow of information is represented by directed edges.
+Are systematically represented by two types of resources:
+Pathway databases (also known as 'process description' resources) such as Reactome, KEGG or Wikipathways. These aim to provide a formal representation of the current scientific consensus on cell signalling pathways. They are generated by manual curation and organise the information in the form of reactions, with substrates and products being affected by the action of catalysers. This information must be converted according to specific rules in order to be represented as a network. Some information loss can occur during this process.
+Reaction network databases (also known as 'activity flow' resources) such as Signor, SignaLink or SPIKE. These aim to capture known binary relationships in cell signalling, such as activation, phosphorylation, etc. They are generally manually curated, but not always. In contrast with the pathway databases, they are already graphs in the mathematical sense and require no transformation in order to be represented as a network.
+
+
+## The sources of data underlying biological networks
+ 
+
+It is important to emphasise that significant challenges arise not only from the sheer size of the dataset used, but also due to the fact that biological datasets are inherently noisy and incomplete. Often, different types of evidence will not overlap or will be contradictory. The way the data was obtained is an important aspect to considere here, with the information typically coming from the following sources:
+
+Manual curation of scientific literature: Scientific curators or domain experts evaluate existing published evidence and store it in a database. This provides high-quality, well represented information, but curation is an expensive and time consuming task and the size of the datasets is limited by these factors.
+
+High-throughput datasets: Some experimental approaches can generate large amounts of data, such as large-scale PPI datasets generated via yeast two-hybrid or affinity purification plus mass spectrometry identification. They provide large, systematically produced datasets but the information suffers the inherent biases of the chosen technique and they vary in quality.
+
+Computational predictions: Many methods use existing experimental evidence as their basis and aim to predict unexplored relationships between biological entities. For example, protein interactions in humans can be used to predict a similar interactions in mice if there are close enough orthologues in this organism. They provide a tool to broaden and even refine the space of experimentally derived interactions, but the datasets produced are understandably noisier than with the previous sources.
+
+Literature text-mining: Multiple algorithms are used to computationally extract systematically represented relationships from the published literature. As with the previous case, although they can greatly increase the coverage of the data, natural language processing is a tricky business and the results tend to be rather noisy.
+
