@@ -1,0 +1,461 @@
+---
+title: "Case study analysis"
+author: "Kim-Anh Lê Cao"
+date: "\today"
+output:
+  html_document:
+    df_print: paged
+    toc: yes
+    toc_depth: '3'
+  highlight: zenburn
+  pdf_document:
+    number_sections: yes
+    toc: yes
+    toc_depth: 3
+header-includes:
+- \usepackage{fancyhdr}
+- \usepackage{xcolor, hyperref}
+- \usepackage{lipsum}
+- \setlength{\headheight}{28pt}
+- \setlength{\footskip}{25pt}
+- \pagestyle{fancy}
+- \renewcommand{\headrulewidth}{0.5pt}
+- \renewcommand{\footrulewidth}{0.5pt}
+- \lhead{\includegraphics[width=8cm,height=1cm]{logo-unimelb}}
+- \cfoot{\scriptsize School of Mathematics and Statistics, Melbourne Integrative Genomics
+  Bld 184 \\ The University of Melbourne, VIC 3010}
+- \rhead{\thepage}
+- \hypersetup{colorlinks   = true, linkcolor=blue, urlcolor  = blue}
+- \fancypagestyle{plain}{\pagestyle{fancy}}
+editor_options:
+  chunk_output_type: console
+---
+
+
+```{r global_options, include=FALSE}
+library(knitr)
+# global options
+knitr::opts_chunk$set(dpi = 100, 
+                      echo=TRUE, 
+                      warning=FALSE, message=FALSE, eval = TRUE, 
+                      fig.show='hide', fig.width= 7,fig.height= 6,fig.align='center', out.width = '50%', 
+                      fig.path= 'Figures/')
+
+show.result = FALSE # change to show solutions
+# code chunk for solutions should be: echo = show.result, eval = show.result
+
+```
+
+
+
+# What you need for this practical {-}
+
+Install the following libraries in Bioconductor:
+
+```{r, eval = FALSE, message=FALSE}
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+BiocManager::install.packages('mixOmics')
+```
+
+
+Other options for the package installation are provided at this [link](we have a github version and a docker version).
+
+The data are provided as part of the package. The R script is also provided separately to this document.
+
+# The data
+The *Small Round Blue Cell Tumors* (SRBCT) dataset from Khan et al. 2001 includes the expression levels of 2308 genes on 63 samples. The samples are distributed in four classes as follows: 8 Burkitt Lymphoma (BL), 23 Ewing Sarcoma (EWS), 12 neuroblastoma (NB), and 20 rhabdomyosarcoma (RMS).
+
+The `srbct` dataset contains the following:
+
+1 - `$gene`: data frame with 63 rows and 2308 columns. The expression levels of 2,308 genes in 63 subjects.
+
+2 - `$class`: A class vector containing the class tumor of each individual (4 classes in total).
+  
+3 - `$gene.name`: data frame with 2,308 rows and 2 columns containing further information on the genes.
+
+
+In this Practical we give an illustration of multivariate analysis for a *supervised analysis* context, but we will first start with a preliminary investigation with PCA analysis on the gene expression data. 
+
+
+**The aim of this analysis is to select the genes that can help predict the class of the samples.**
+
+
+## How does this practical work?
+We will give you the codes to run the methods and ask you some questions pertaining to the interpretation of the graphical or numerical outputs. We will give you some examples of R code to tweak to your liking after the questions. Use the code `??NameOfFunction` to have a list of the different arguments available and understand what they do. Some advanced code is also provided if you would like to go much further in the analyses.
+
+
+# Preliminary analysis with PCA
+
+Let us first have a first understanding of the data with a PCA.
+
+```{r, results = 'hide'}
+library(mixOmics)
+data(srbct)
+# The gene expression data
+X <- srbct$gene
+dim(X)
+pca.srbct <- pca(X, ncomp = 10, center = TRUE, scale = TRUE)
+pca.srbct
+plot(pca.srbct)
+```
+
+
+
+**Q1.**  How many principal components would you choose, and why?
+
+**Q2.**  Using the function `plotIndiv()` on the PCA object, represent the data in the dimension spanned by components 1 and 2, and also component 1 and 3. 
+
+**Q3.**  *Going further*. PCA is an unsupervised approach, but coloring the patients according to their tumour classes can help the interpretation. You can use the arguments `group` to indicate some known grouping of the samples, and `ellipse` that will plot confidence ellipse plots. Comment on the plot obtained.
+
+**Q4.** *Cool option but requires the installation of the library `rgl`*. We can use a 3D plot instead and rotate the box with your mouse using the argument `style`. Use this option sparingly, cool does not necessarily mean meaningful ...
+
+
+**Q5.**  Use the function `plotVar()` to represent the correlation circle plot. You can also use the arguments `var.names, cutoff` etc. Comment on what you see, or what you dont see!
+
+
+
+
+<!-- We represent the samples on PC1-2 and PC 1-3. A new addition to plotIndiv() is to use the argument `ellipse = TRUE} to plot confidence ellipse around the groups of samples. By default the confidence level of the ellipses is set to 0.95 but can be changed with the argument ellipse.level. The ellipse plots make particular sense if we are interested to discriminate the different groups. From the PCA sample plots, we can observe very little separation between the different tumour types. We do observe a slight BL+NB cluster vs. most of EWS+RMS. -->
+
+
+
+Sample plot:
+```{r}
+plotIndiv(pca.srbct, comp = c(1,2), group = srbct$class, ind.names = FALSE,
+          legend = TRUE, title = 'SRBCT, PCA comp 1 - 2')
+```
+
+
+Sample plot in 3D with specific colors (Optional: will require the installation of the \texttt{rgl} library`):
+```{r eval = FALSE}
+col.srbct = as.numeric(srbct$class)
+plotIndiv(pca.srbct, col = col.srbct,  style = '3d', ind.names = FALSE)
+```
+
+Correlation circle plot:
+```{r}
+plotVar(pca.srbct, cex = 0.9)
+```
+
+The PLS-DA and sPLS-DA analyses below will help refining the clusters of samples in a supervised fashion.
+
+# PLS-DA analysis
+We first set up the data and make sure that the $Y$ response is a factor. $X$ is the gene expression data set.
+
+## Preparing the data
+
+```{r}
+X <- srbct$gene
+Y <- srbct$class
+summary(Y)
+dim(X)
+length(Y) # always check you have the right dimensions
+```
+
+
+## A first PLS-DA
+ 
+```{r}
+srbct.plsda <- plsda(X, Y, ncomp = 3)
+```
+ 
+**Q6.** Plot the samples in the space spanned by components 1 and 2 using the `plotIndiv()` function. Compare to the sample plot obtained with PCA and comment.* Note that by default the function will automatically assign samples to colored groups,  can you work out why?*
+
+
+**Q7.** Is the third component informative? 
+
+Sample plot:
+
+```{r}
+plotIndiv(srbct.plsda, comp = c(1,2),
+          ind.names = FALSE, 
+          legend = TRUE, title = 'SRBCT, PLSDA comp 1 - 2')
+```
+
+
+
+<!-- \iftoggle{answers}{We can observe better clusters than previously with the PCA analysis. This is to be expected since the PLS-DA model includes the class information of each individual. However, many of the \Sexpr{ncol(X)} genes in $X$ are noisy or uninformative to characterize the different classes. The sPLS-DA analysis will help refine the sample clusters and select a small subset of variables relevant to discriminate each class.} -->
+
+
+
+
+# sPLS-DA analysis
+
+
+## A first sPLS-DA
+
+We decide to run a sPLS-DA with a specific number of variables to select on each component. For example (50, 40, 30) on each component respectively. Note that this is an arbitrary choice, we usually use performance evaluation and cross-validation to choose the optimal hyperparameter, see the section below for more advanced analyses.
+
+```{r}
+select.keepX = c(50, 40, 30)
+splsda.srbct <- splsda(X, Y, ncomp = 3, keepX = select.keepX) 
+```
+
+**Q8.**  Compare and comment on the sample plot obtained between a PLS-DA (above) and a sPLS-DA.
+
+**Q9.** Is the third component essential in sPLS-DA to explain one sample group?
+
+**Q10.** Look at the correlation circle plot using `plotVar()` and comment briefly.
+
+**Q11.** The function `plotLoadings()` displays the genes selected on each component and color them according to whether, on average, their expression values is higher in a particular samples group. Use this plot and specify the arguments `comp` and `contrib = 'max'` and `method = 'mean'` (`method = 'median'` is also available for skewed data). Interpret this plot together with the sample plot obtained earlier. Does the plotLoadings make sense? Interpret the plotLoadings on component 1. 
+
+
+Sample plot:
+
+```{r}
+plotIndiv(splsda.srbct, comp = c(1,2),
+          ind.names = FALSE, 
+          legend = TRUE,
+          title = 'SRBCT, sPLSDA comp 1 - 2')
+```
+
+
+
+Correlation circle plot (we specify the argument `var.names` to the first 5 characters 
+of the gene names for improved visibility:
+
+```{r}
+plotVar(splsda.srbct, comp = c(1,2), 
+        var.names = list(substr(srbct$gene.name[, 2], 1, 5)), cex = 3)
+```
+
+
+Loading plot (you can display a smaller number of genes with the argument `ndisplay`): 
+
+```{r}
+plotLoadings(splsda.srbct, comp = 2, method = 'mean', contrib = 'max')
+```
+
+
+
+## Performance evaluation
+We can assess the predictive performance of PLS-DA and sPLS-DA with the `perf} function applied to a PLS-DA or a sPLS-DA object. 
+
+**Input arguments.** You will need to specify the arguments for cross-validation: here we propose 5-fold validation (`folds = 5`), and the number of CV repeats, here we propose (`nrepeat = 10`). 
+
+**Outputs.** The classification error rates that are output include the overall error rate, as well as the balanced (BER) error rate that weights up the groups of samples that are minoritary (see lecture notes).  You can also examine the error rate per class. We can use different types of prediction distances (maximum, centroid, mahalanobis), and they vary in their performance. 
+
+
+Evaluate and compare the performance of your PLS-DA and sPLS-DA models:
+
+**Q12.** Which performance measure would you choose for this specific data set, the overall error rate or the BER, and why? Also look at the error rate per class.
+
+**Q13.** If you rerun the `perf()` function a second time, you may obtain different results. Can you explain why?
+
+**Q14.** Comment on the choice of of the number of folds and repeats. Do you think those are appropriate on those data? 
+
+
+Example of performance evaluation code on sPLS-DA:
+```{r}
+# example of performance evaluation code on sPLS-DA
+set.seed(34)  # remove the seed for your own study!
+perf.splsda <- perf(splsda.srbct, folds = 5, validation = "Mfold", 
+                  progressBar = FALSE, nrepeat = 10)
+# perf.srbct  # lists the different outputs
+perf.splsda$error.rate
+
+# error rate per class
+perf.splsda$error.rate.class
+```
+
+
+
+## Variable selection and stability of selection (semi advanced)
+
+We can have a look at how the variables are repeatedly selected across the different CV folds, for example on the first two components. This information is important to answer the question *How should I `trust' the reproducibility of my signature?'*. 
+
+```{r}
+par(mfrow=c(1,2))
+#this is for comp 1
+plot(perf.splsda$features$stable[[1]], type = 'h', 
+     xlab = 'variables selected across CV folds', ylab = 'Stability frequency')
+title(main = 'Feature stability for comp = 1')
+
+# for comp2
+plot(perf.splsda$features$stable[[2]], type = 'h', 
+     xlab = 'variables selected across CV folds', ylab = 'Stability frequency')
+title(main = 'Feature stability for comp = 2')
+par(mfrow=c(1,1))
+```
+
+The function `selectVar()` outputs the variables selected for a given component and their loading values (ranked in decreasing absolute values). We can concatenate those results with the feature stability. *Interestingly, on the first component, the genes that are selected in the final model are not necessary the most stable when we subsample the data! Try it out by changing the code below.*
+
+```{r}
+# just the head of the selectVar output:
+head(selectVar(splsda.srbct, comp = 2)$value)
+# save the name of selected var + stability from perf:
+select.name <- selectVar(splsda.srbct, comp = 2)$name
+stability <- perf.splsda$features$stable[[2]][select.name]
+# just the head of the stability of the selected var:
+head(cbind(selectVar(splsda.srbct, comp = 2)$value, stability))
+```
+
+
+
+**Q15.**  Comment on those outputs.
+
+
+
+
+# Hyperparameters choice (optional during this prac)
+
+
+There are different parameters to choose in PLS-DA and sPLS-DA. One is the number of components `ncomp`, which can ben chosen based on the predictive performance (there is no need to add more components if they do not improve classification). The other one, and only for sPLS-DA is the number of variables to select per component `keepX`, also by evaluating the prediction performance.
+
+## Choosing the number of components
+
+One practical way to choose the number of components is to run a PLS-DA model first with a large number of components (e.g. `ncomp = 10`) using repeated cross-validation (here `folds = 5` and `nrepeat = 10`), then use the function `perf()` which evaluates the performance of the model per component. This step will allow to:
+
+1 - choose the distance that minimises the classification error rate and and 
+
+2 -  the number of optimal components. Our experience has shown that usually `ncomp` = K-1 where K is the number of classes is often optimal, but this is highly dependent on the data. 
+
+
+**Details about the code below.** To speed up the computations we have set up `folds = 5` in the cross-validation (10 would probably be best) and we have set the seed to obtain the same results from one computer/analysis to another. The argument `nrepeat` indicates the number of cross-validation performed, and the performance are averaged across those repeats. *Ideally you should choose the `folds` value so that the learning set is large enough, and so that the test set includes $\sim$ 5 samples or more. Also consider increasing `nrepeat` when `folds` is small. Alternatively use leave-one-out cross validation `validation = 'loo'` and  `nrepeat` is not needed.*
+
+
+```{r, eval = FALSE}
+# this chunk takes ~ 4-5 min to run, you can skip that part and 
+# load the .RData provided instead in RData/
+srbct.plsda <- plsda(X, Y, ncomp = 10)
+perf.srbct.plsda <- perf(srbct.plsda, validation = "Mfold", folds = 5, 
+                  progressBar = FALSE, nrepeat = 10) 
+# perf.srbct.plsda              #will list the different outputs
+# perf.srbct.plsda$error.rate  #outputs the error rate for each comp and each distance
+
+#save(perf.srbct.plsda, file = 'RData/SRBCT-perf-PLSDA.RData')
+```
+
+
+```{r}
+# to gain some computing time on the tuning, directly load the data
+load('RData/SRBCT-perf-PLSDA.RData')
+```
+
+
+Below is the plot of the classification error rate averaged across the 5 folds and the 10 repeated CV for all prediction distances.  BER stands for *balanced error rate*, which accounts for unbalanced number of samples per class. We can choose `ncomp = 3` or 4 (depending on the standard deviation error bars) and the Mahalanobis distance.
+
+```{r}
+# sd to show the error bars across the repeats
+plot(perf.srbct.plsda, overlay = 'measure', sd = TRUE)
+```
+
+## Tuning sPLS-DA
+We estimate the classification error rate with respect to the number of selected variables in the model with the function `tune.splsda`. The tuning is being performed one component at the time inside the function and the optimal number of variables to select is automatically retrieved for each component. We set `ncomp = 4` and we used 10-fold cross validation (`folds = 5` repeated 10 times. 
+
+*The following code might take a few minutes to run and can be ignored.* Note that for a thorough tuning step, the following code should be repeated 10 - 50 times and the error rate is averaged across the runs.
+
+
+```{r, eval = FALSE}
+# this chunk takes ~ 6 min to run, load the .RData provided instead. 
+# Some convergence issues may arise but it is ok (run on CV)
+
+# grid of possible keepX values that will be tested for comp 1 and comp 2
+list.keepX <- c(1:10,  seq(20, 100, 10))
+
+tune.splsda.srbct <- tune.splsda(X, Y, ncomp = 4, validation = 'Mfold', folds = 5, 
+                           progressBar = FALSE, dist = 'mahalanobis.dist',
+                          test.keepX = list.keepX, nrepeat = 10)
+
+# mean error rate across all CV folds and nrepeats
+error <- tune.splsda.srbct$error.rate
+# optimal keepX achieving lowest error rate
+select.keepX <- tune.splsda.srbct$choice.keepX
+
+#save(error, tune.splsda.srbct, select.keepX, list.keepX, file = 'RData/SRBCT-tune-sPLSDA.RData')
+```
+
+
+```{r}
+# to gain some computing time on the tuning, directly load the data
+load('RData/SRBCT-tune-sPLSDA.RData')
+```
+
+The following command line outputs the mean error rate for each component given the past (tuned) components. This output globally shows that 3 components are sufficient to achieve the lowest classification error rate in the sparse model:
+
+```{r}
+# just a head of the classif error rate per keepX and comp
+head(tune.splsda.srbct$error.rate)
+```
+
+
+We display the mean classification error rate on each component, bear in mind that each component is conditional on the previous components calculated with the optimal number of selected variables. The circle indicates the best `keepX` value to achieve the lowest error rate per component.\\
+\textit{Given those outputs, do you think we should include the 4th component in the model?} \\
+
+```{r}
+# the optimal number of components according to our one-sided t-tests
+tune.splsda.srbct$choice.ncomp
+
+#the optimal keepX parameter according to minimal error rate
+tune.splsda.srbct$choice.keepX
+# argument option to show the optimal keepX values
+# sd to show the error bars across the repeats
+plot(tune.splsda.srbct, optimal = TRUE, sd = TRUE)
+```
+
+Of course this result will depend on how fine your tuning grid `list.keepX` is, as well as the values chosen for `folds` and `nrepeat`. Therefore, it is interesting to assess the performance of final model, as well as examine the stability of the selected variables across the different folds. 
+
+
+The graphic above shows that the error rate decreases when more components are included in sPLS-DA. To obtain a more reliable estimation of the error rate, the number of repeats should be increased (between 50 to 100). This type of graph helps choosing not only the 'optimal' number of variables to select confirm the number of components `ncomp`. Indeed, when a sufficient number of components have been added, the error rate will stop decreasing. The addition of the fourth component is probably not necessary here. %In this specific example, the addition of a third component did not seem necessary.
+
+
+
+# Prediction with sPLS-DA (optional during this prac)}
+We artificially create an `external' test set on which we want to predict the class membership: 
+
+```{r}
+# set the seed for reproducibility purposes during this workshop
+set.seed(33)
+train <- sample(1:nrow(X), 50)    # randomly select 50 samples in the training set
+test <- setdiff(1:nrow(X), train) # rest is part of the test set
+
+# store matrices into training and test set:
+X.train <- X[train, ]
+X.test <- X[test,]
+Y.train <- Y[train]
+Y.test <- Y[test]
+
+# check dimensions are OK:
+dim(X.train)
+dim(X.test)
+```
+
+We assume here that the tuning step was performed on the training set *only*^[It is really important to tune only on the training step to avoid overly optimistic performance results!]. We also assume that based on a thorough tuning we would need `ncomp = 3` and `keepX = c(20,30,40)`:
+
+```{r}
+splsda.srbct.train <- splsda(X.train, Y.train, ncomp = 3, keepX = c(20,30,40))
+```
+
+We now apply the trained model on the test set and we specify the prediction distance, for example `mahalanobis.dist` (see also `?predict.splsda`):
+
+```{r}
+splsda.srbct.predict <- predict(splsda.srbct.train, X.test,
+                       dist = "mahalanobis.dist")
+```
+
+The object `$class` outputs the predicted classes of the test individual for each of the 3 components, conditionally on the previous component. We can compare the prediction to the real class (note: in a real application case you may never know the true class). *What do you think about the predictive ability of the model? Does the addition of components increase the prediction accuracy?*
+
+```{r}
+# just the head:
+head(data.frame(splsda.srbct.predict$class, Truth = Y.test))
+# compare prediction on the third component
+table(splsda.srbct.predict$class$mahalanobis.dist[,3], Y.test)
+```
+
+
+The object `$predict` outputs the predicted dummy scores assigned for each test observation and each class level for a given component (as explained in details in Rohart et al. 2017). The final prediction call is given based on this matrix and the distance that is specified. *You may now understand why the outcome $Y$ is coded as a dummy matrix in PLS-DA!*
+
+We output the confidence measure for the 3rd component. The columns represent the different class labels. *Compare this output with the final prediction call obtained earlier with `$class`.*
+
+```{r}
+#On component 4, just the head:
+head(splsda.srbct.predict$predict[, , 3])
+```
+
+
+
+<!-- purl('Hands-on_mixOmics.Rmd') -->
+
+
