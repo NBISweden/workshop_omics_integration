@@ -48,8 +48,9 @@ RUN apt-get update && apt-get install -y \
 
     
 # Install bioconductor packages
+RUN installGithub.r -d TRUE bioFAM/MOFA2
 RUN R -e 'BiocManager::install("mixOmics", ask = F)' \
-    && R -e 'BiocManager::install("MOFA2", ask = F)' \
+    # && R -e 'BiocManager::install("MOFA2", ask = F)' \   # replaced for github installation
     && R -e 'BiocManager::install("MOFAdata", ask = F)' \
     # GSEA
     && R -e 'BiocManager::install("edgeR", ask = F)' \
