@@ -1,23 +1,28 @@
 ---
 title: "Multi-OMICs Factor Analysis (MOFA) and Unsupervised Data Learning"
 author: "Nikolay Oskolkov, SciLifeLab, NBIS Long Term Support, nikolay.oskolkov@scilifelab.se"
-date: "January 16, 2018"
+date: "January 16, 2018 (last update 03/09/2021 Nikolay Oskolkov)"
 output:
   html_document:
     toc: yes
   pdf_document:
     toc: yes
 abstract: |
-  Here we will talk about supervised vs. unsupervised manifold learning and introduce [Multi-OMICs Factor Analysis (MOFA)](https://www.nature.com/articles/s41467-018-03149-4) as an example of unsupervised data exploration. Further, we will perform integrative OMICs analysis of chromatin accessibility, DNA methylation and transcriptome profiling data from the scNMT-seq (single-cell nucleosome, methylation and transcription sequencing) using MOFA.
+  Here we will go discuss unsupervised manifold learning and introduce [Multi-OMICs Factor Analysis (MOFA)](https://www.nature.com/articles/s41467-018-03149-4) as an example of unsupervised data exploration. Further, we will perform integrative OMICs analysis of chromatin accessibility, DNA methylation and transcriptome profiling data from the scNMT-seq (single-cell nucleosome, methylation and transcription sequencing) using MOFA.
   
   &nbsp;
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-#If you want to knit the whole notebook, please specify below correct path to the Rmd-file
-knitr::opts_knit$set(root.dir="/home/nikolay/Documents/Teaching/IntegrativeOMICs2021/session_ml/UnsupervisedOMICsIntegration")
+# #If you want to knit the whole notebook, please specify below correct path to the Rmd-file
+knitr::opts_knit$set(getwd())
+
+### be sure to update the environment name if applicable
+#library(reticulate)
+#reticulate::use_condaenv('ismb_dr_ui_na')
 ```
+
 
 ### Multi-OMICs Factor Analysis (MOFA)
 
@@ -62,9 +67,7 @@ Important to realize that despite the results of PCA and Factor Analysis visuall
 In this section we will apply MOFA to the single cell multi-OMICs data set [scNMT](https://www.nature.com/articles/s41467-018-03149-4) which profiles chromatine accessebility (scATACseq), DNA methylation (scBSseq) and gene expression (scRNAseq) information from the same biological cells belonging to two types: differentiating mouse embryonic stem cells (ESCs) and embrionic bodies (EBs). We will start with reading and having a look at the individual OMICs data sets:
 
 ```{r,fig.width=10,fig.height=8}
-#Uncomment this in case you can not change your working directory
-#current_dir<-getwd()
-#setwd(paste0(current_dir,"/session_ml/UnsupervisedOMICsIntegration"))
+setwd("/home/nikolay/Documents/Teaching/IntegrativeOMICs2021_ISMBECCB/workshop/session_ml/UnsupervisedOMICsIntegration")
 
 scRNAseq<-read.delim("scRNAseq.txt", header = TRUE, check.names = FALSE, row.names = 1, sep="\t")
 ens2genesymbol<-read.delim("ENSEMBLE_TO_GENE_SYMBOL_MOUSE.txt")
@@ -148,34 +151,34 @@ Now data cleaning step is finished and the OMICs are prepared to be integrated i
 Let us continue with creating MOFA object. MOFA allows for a handy overview of the data by displaying dimensions of each OMIC.
 
 ```{r,fig.width=10,fig.height=8}
-library("MOFA")
-omics<-list(scRNAseq=scRNAseq,scBSseq=scBSseq,scATACseq=scATACseq)
+library("MOFA2")
+omics<-list(scRNAseq=as.matrix(scRNAseq),scBSseq=as.matrix(scBSseq),scATACseq=as.matrix(scATACseq))
 lapply(omics,dim)
-MOFAobject <- createMOFAobject(omics)
-plotDataOverview(MOFAobject)
+MOFAobject <- create_mofa_from_matrix(omics)
+plot_data_overview(MOFAobject, )
 ```
 
 Now we will use some model training parameters such as distribution types corresponding to each OMIC, number of iterations, number of factors to be computed etc. 
 
 ```{r,fig.width=10,fig.height=8}
 #DEFINE DATA OPTIONS
-DataOptions <- getDefaultDataOptions()
+DataOptions <- get_default_data_options(MOFAobject)
 DataOptions
 
 #DEFINE MODEL OPTIONS
-ModelOptions <- getDefaultModelOptions(MOFAobject)
+ModelOptions <- get_default_model_options(MOFAobject)
 mydistr<-c("gaussian","bernoulli","bernoulli")
 names(mydistr)<-c("scRNAseq","scBSseq","scATACseq")
-ModelOptions$likelihood<-mydistr
-ModelOptions$numFactors<-20
+ModelOptions$likelihoods<-mydistr
+ModelOptions$num_factors<-20
 ModelOptions
 
 #DEFINE TRAIN OPTIONS
-TrainOptions <- getDefaultTrainOptions()
+TrainOptions <- get_default_training_options(MOFAobject)
 TrainOptions$seed <- 2018
 # Automatically drop factors that explain less than 3% of variance in all omics
-TrainOptions$DropFactorThreshold <- 0.03
-TrainOptions$tolerance <- 0.1
+TrainOptions$drop_factor_threshold <- 0.03
+# TrainOptions$tolerance <- 0.1
 TrainOptions$maxiter<-1000
 TrainOptions$verbose<-TRUE
 TrainOptions
@@ -183,49 +186,88 @@ TrainOptions
 
 Finally, we are ready to run MOFA:
 
-```{r,fig.width=10,fig.height=8}
-MOFAobject <- prepareMOFA(MOFAobject, DataOptions = DataOptions, 
-                          ModelOptions = ModelOptions, TrainOptions = TrainOptions)
-MOFAobject <- runMOFA(MOFAobject)
+```{r,fig.width=10,fig.height=8, warning=F}
+MOFAobject <- prepare_mofa(MOFAobject, data_options = DataOptions, model_options = ModelOptions, training_options = TrainOptions)
+#reticulate::use_python("/home/nikolay/miniconda3/envs/HOPS/bin/python3")
+#reticulate::use_condaenv("/home/nikolay/miniconda3/envs/HOPS", required = TRUE)
+MOFAobject <- run_mofa(MOFAobject, use_basilisk = FALSE)
+MOFAobject
 ```
 
 Let us check the covariance of the OMICs layers:
 
-```{r,fig.width=10,fig.height=8}
+```{r,fig.width=10,fig.height=5}
 #ANALYZE RESULTS OF MOFA INTEGRATION
-r2 <- calculateVarianceExplained(MOFAobject)
-r2$R2Total
-head(r2$R2PerFactor)
-plotVarianceExplained(MOFAobject)
+head(get_variance_explained(MOFAobject)$r2_total[[1]])
+head(get_variance_explained(MOFAobject)$r2_per_factor[[1]])
+
+MOFAobject@cache$variance_explained
+plot_list=plot_variance_explained(MOFAobject, x='view', y='factor', plot_total = T)
+plot_list[[2]] #total variance
+plot_list[[1]] #variance by factor
 ```
 
-We can see that scRNAseq provides the largest variation (13%) in the total integrative OMICs scNMT data set, scBSseq and scATACseq contribute around 5% of variation. We also observe that MOFA selected 3 Latent Factors (LFs), scRNAseq contributes to all of them while second LF is driven by scBSseq and scATACseq contributes only to the first LF, scRNAseq covaries with scATACseq in the first LF while scRNAseq covary with scBSseq in the second LF. Now let us interpret the LFs by displaying the features associated with each LF:
+We can see that scRNAseq provides the largest variation (13%) in the total integrative OMICs scNMT data set, scBSseq and scATACseq contribute around 5% of variation. We also observe that MOFA selected 3 Latent Factors (LFs), scRNAseq contributes to all of them while scBSseq and scATACseq contributes only to the first LF. Now let us interpret the LFs by displaying the features associated with each LF:
 
-```{r,fig.width=10,fig.height=8}
-NumFactors<-dim(getFactors(MOFAobject))[2]
+```{r,fig.width=10,fig.height=8, warning=FALSE}
+NumFactors<-dim(get_factors(MOFAobject)$group1)[2]
 
-plotWeights(MOFAobject, view = "scRNAseq", factor = 1)
-plotTopWeights(object = MOFAobject, view = "scRNAseq", factor = 1, nfeatures = 10)
-plotDataHeatmap(object = MOFAobject, view = "scRNAseq", factor = "LF1", features = 10, transpose = TRUE, show_colnames=TRUE, show_rownames=TRUE,cluster_cols = TRUE)
+plot_weights(MOFAobject, view = "scRNAseq", factor = 1)
+plot_top_weights(object = MOFAobject, view = "scRNAseq", factor = 1, nfeatures = 10)
+plot_data_heatmap(object = MOFAobject, view = "scRNAseq", factor = "Factor1", features = 10, transpose = F, show_colnames=TRUE, show_rownames=TRUE,cluster_cols = TRUE)
 
-plotWeights(MOFAobject, view = "scBSseq", factor = 2)
-plotTopWeights(object = MOFAobject, view = "scBSseq", factor = 2, nfeatures = 10)
-plotDataHeatmap(object = MOFAobject, view = "scBSseq", factor = "LF2", features = 10, transpose = TRUE, show_colnames=TRUE, show_rownames=TRUE,cluster_cols = TRUE)
+plot_weights(MOFAobject, view = "scBSseq", factor = 1)
+plot_top_weights(object = MOFAobject, view = "scBSseq", factor = 1, nfeatures = 10)
+plot_data_heatmap(object = MOFAobject, view = "scBSseq", factor = "Factor1", features = 10, transpose = F, show_colnames=TRUE, show_rownames=TRUE,cluster_cols = TRUE)
 
-plotWeights(MOFAobject, view = "scATACseq", factor = 1)
-plotTopWeights(object = MOFAobject, view = "scATACseq", factor = 1, nfeatures = 10)
-plotDataHeatmap(object = MOFAobject, view = "scATACseq", factor = "LF1", features = 10, transpose = TRUE, show_colnames=TRUE, show_rownames=TRUE,cluster_cols = TRUE)
+plot_weights(MOFAobject, view = "scATACseq", factor = 1)
+plot_top_weights(object = MOFAobject, view = "scATACseq", factor = 1, nfeatures = 10)
+plot_data_heatmap(object = MOFAobject, view = "scATACseq", factor = "Factor1", features = 10, transpose = F, show_colnames=TRUE, show_rownames=TRUE,cluster_cols = TRUE)
 ```
 
-Let us also display the cells in the low-dimensional latent space:
+Above we ranked by their importance and visualized features from each OMIC that contribute the most to the Factor 1 where all three OMICs (scRNAseq, scBSseq and scATACseq) are strongly correlated. Therefore one can expect those features to have something in common, i.e. they should also be correlated or involved in the same biological pathway.
 
-```{r,fig.width=10,fig.height=8}
+Let us also display the cells in the low-dimensional latent space. for this purpose we will input MOFA factors into tSNE and UMAP and display the cells as a consensus plot for scRNAseq, scBSseq and scATACseq:
+
+```{r,fig.width=10,fig.height=8, warning=F}
 controls<-c("EB_P1D12","EB_P1E12","EB_P1F12","EB_P1G12","EB_P2B12","EB_P2D12","EB_P2E12","EB_P2F12","EB_P2G12",
             "ESC_B12","ESC_C12","ESC_D12")
 colnames(scRNAseq)<-ifelse(colnames(scRNAseq)%in%controls,"CONTROL_CELL",colnames(scRNAseq))
 cell_types<-matrix(unlist(strsplit(colnames(scRNAseq),"_")),ncol=2,byrow=TRUE)[,1]
 
-plotFactorScatter(MOFAobject, factors = 1:2, color_by = as.factor(cell_types),dot_size = 2)
+sample_metadata <- data.frame(sample = samples_names(MOFAobject)[[1]],condition = cell_types)
+samples_metadata(MOFAobject) <- sample_metadata
+head(samples_metadata(MOFAobject), n=3)
+
+set.seed(12345)
+MOFAobject <- run_umap(MOFAobject, n_neighbors = round(sqrt(length(cell_types)),0), min_dist = 1)
+MOFAobject <- run_tsne(MOFAobject, perplexity = round(sqrt(length(cell_types)),0))
+
+plot_dimred(MOFAobject, method = "TSNE", dot_size = 3, color_by = "condition")
+plot_dimred(MOFAobject, method = "UMAP", dot_size = 3, color_by = "condition")
+
+#plot(MOFAobject@dim_red$TSNE$TSNE2~MOFAobject@dim_red$TSNE$TSNE1, col=as.factor(cell_types), xlab = "TSNE1", ylab = "TSNE2", pch=19,
+#     main="tSNE representation of MOFA integration of scRNAseq, scBSseq and scATACseq", cex = 2)
+#legend("bottomleft", inset=.02, levels(as.factor(cell_types)), fill=c("black","red","green"), cex=1.5)
+#plot(MOFAobject@dim_red$UMAP$UMAP2~MOFAobject@dim_red$UMAP$UMAP1, col=as.factor(cell_types), xlab = "UMAP1", ylab = "UMAP2", pch=19,
+#     main="UMAP representation of MOFA integration of scRNAseq, scBSseq and scATACseq", cex = 2)
+#legend("bottomleft", inset=.02, levels(as.factor(cell_types)), fill=c("black","red","green"), cex=1.5)
 ```
 
-We conclude that the MOFA unsupervised integrative OMICs approach can distinguish between all three types of cells: ESCs, EBs and Controls.
+We conclude that the MOFA unsupervised integrative OMICs approach can distinguish between all three types of cells: ESCs, EBs and Controls. Now let us see what MOFA factors contribute to different clusters:
+
+```{r,fig.width=10,fig.height=8, warning=F}
+plot_dimred(MOFAobject, method = "UMAP", dot_size = 3, color_by = "Factor1")
+plot_dimred(MOFAobject, method = "UMAP", dot_size = 3, color_by = "Factor2")
+plot_dimred(MOFAobject, method = "UMAP", dot_size = 3, color_by = "Factor3")
+```
+
+We can see that the ESC cluster is almost entirely driven by the MOFA Factor 1 meaning that all three OMICs (scRNAseq, scBSseq and scATACseq) contribute more or less equally into this cluster. In contrast the Control cluster is driven by the factor 2, which is mainly due to scRNAseq contribution. Finally, Factor 3 contributes more or less equally to all the three clusters implying that scRNAseq impacts all the three clusters.
+
+
+
+## Session Info
+```{r}
+sessionInfo()
+```
+
