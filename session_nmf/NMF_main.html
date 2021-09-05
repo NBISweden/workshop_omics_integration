@@ -9,11 +9,11 @@
 
 
 <style type="text/css">
-    pre { line-height: 125%; margin: 0; }
-td.linenos pre { color: #000000; background-color: #f0f0f0; padding: 0 5px 0 5px; }
-span.linenos { color: #000000; background-color: #f0f0f0; padding: 0 5px 0 5px; }
-td.linenos pre.special { color: #000000; background-color: #ffffc0; padding: 0 5px 0 5px; }
-span.linenos.special { color: #000000; background-color: #ffffc0; padding: 0 5px 0 5px; }
+    pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
 .highlight .hll { background-color: var(--jp-cell-editor-active-background) }
 .highlight { background: var(--jp-cell-editor-background); color: var(--jp-mirror-editor-variable-color) }
 .highlight .c { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment */
@@ -14260,6 +14260,23 @@ a.anchor-link {
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="NMF---Non-Negative-Matrix-Factorization">NMF - Non-Negative Matrix Factorization<a class="anchor-link" href="#NMF---Non-Negative-Matrix-Factorization">&#182;</a></h1><p>by Sergiu Netotea, PhD, NBIS, Chalmers</p>
+<p>TODO:</p>
+<ul>
+<li><a href="https://nimfa.biolab.si/index.html">https://nimfa.biolab.si/index.html</a></li>
+<li>`Biological data usually contain missing values. How can the matrix factorization handle it?</li>
+</ul>
+<p>NMF handles missingness in several ways. By using initialization methods such as nndsvd that are friendlier towards sparse matrices is number one. Then for the optimization norm I would pick KL if you have large matrices with a lot of missingness. Rather than doing distances KL would evaluate changes in how data is distributed. Also note that you can add a regularization term to the fitness function. This does not help directly but in sparse datasets it is easy to get trapped in local optima.
+<a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.NMF.html">https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.NMF.html</a></p>
+<ul>
+<li>Is NMF used as an unsupervised clustering methods in single-cell RNA seq? If so, how does it perform, or does it provode advantages compared to other used algorithms? can you point us to any tool/implementation of NMF which is appropiate for single-cell clustering analysis?</li>
+</ul>
+<p>iNMF was used for clustering in a very very recent study (that I had no time to inspect unfortunately, but worth check it out). There is code available too!
+Gao, C., Liu, J., Kriebel, A.R. et al. Iterative single-cell multi-omic integration using online learning. Nat Biotechnol (2021). <a href="https://doi.org/10.1038/s41587-021-00867-x">https://doi.org/10.1038/s41587-021-00867-x</a></p>
+<ul>
+<li><code>Should data be normalized before coercing it into a matrix factorization model?</code></li>
+</ul>
+<p>Generally yes, and this generally goes before any application of machine learning to real data. But in particular it might not be the case. If you apply ML on a single omics dataset then the data usually comes in a normalized shape, something which you can inspect by plotting your samples. Even if data was normalized, and especially for integrative omics, it is worth checking if the normalization was applied uniformly, since in most cases that is not done.
+However if the normalization is a big issue for your data (such as huge differences in scale) then you should opt for Tree Boosting methods (random forest, ensemble learning) or SNF, rather than matrix factorization. In matrix factorization the variables are not considered independently, instead everyting is dependent (linearly) on everything else. There are many ways to skin a cat. :)</p>
 
 </div>
 </div>

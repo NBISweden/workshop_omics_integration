@@ -9,11 +9,11 @@
 
 
 <style type="text/css">
-    pre { line-height: 125%; margin: 0; }
-td.linenos pre { color: #000000; background-color: #f0f0f0; padding: 0 5px 0 5px; }
-span.linenos { color: #000000; background-color: #f0f0f0; padding: 0 5px 0 5px; }
-td.linenos pre.special { color: #000000; background-color: #ffffc0; padding: 0 5px 0 5px; }
-span.linenos.special { color: #000000; background-color: #ffffc0; padding: 0 5px 0 5px; }
+    pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
 .highlight .hll { background-color: var(--jp-cell-editor-active-background) }
 .highlight { background: var(--jp-cell-editor-background); color: var(--jp-mirror-editor-variable-color) }
 .highlight .c { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment */
@@ -14291,13 +14291,16 @@ a.anchor-link {
 </ul>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div>conda create -n iocourse
+conda activate iocourse
+conda install jupyterlab pandas numpy scikit-learn
+pip install snfpy<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_loc</span> <span class="o">=</span> <span class="s2">&quot;./data/&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_loc</span> <span class="o">=</span> <span class="s2">&quot;D:</span><span class="se">\\</span><span class="s2">windata</span><span class="se">\\</span><span class="s2">work</span><span class="se">\\</span><span class="s2">iomics_course</span><span class="se">\\</span><span class="s2">data</span><span class="se">\\</span><span class="s2">&quot;</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="n">df_meth</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_loc</span> <span class="o">+</span> <span class="s2">&quot;CLL_data_Methylation.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">df_mrna</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_loc</span> <span class="o">+</span> <span class="s2">&quot;CLL_data_mRNA.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -14318,7 +14321,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_meth</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -14337,7 +14340,7 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
 
 
 
@@ -14519,13 +14522,13 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">df_meth</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
     <span class="n">mask</span> <span class="o">=</span> <span class="n">df_meth</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span>
-    <span class="n">df_meth</span><span class="p">[</span><span class="n">c</span> <span class="o">+</span> <span class="s1">&#39;_n&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_meth</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">mask</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span>
-    <span class="n">df_meth</span><span class="p">[</span><span class="n">c</span> <span class="o">+</span> <span class="s1">&#39;_p&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span> <span class="n">df_meth</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">mask</span><span class="p">(</span><span class="o">~</span><span class="n">mask</span><span class="p">)</span>
+    <span class="n">df_meth</span><span class="p">[</span><span class="n">c</span> <span class="o">+</span> <span class="s1">&#39;_p&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_meth</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">mask</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span>
+    <span class="n">df_meth</span><span class="p">[</span><span class="n">c</span> <span class="o">+</span> <span class="s1">&#39;_n&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span> <span class="n">df_meth</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">mask</span><span class="p">(</span><span class="o">~</span><span class="n">mask</span><span class="p">)</span>
     <span class="n">df_meth</span> <span class="o">=</span> <span class="n">df_meth</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="n">c</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">df_meth</span> <span class="o">=</span> <span class="n">df_meth</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
@@ -14538,10 +14541,10 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_meth</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_meth</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
      </div>
@@ -14557,7 +14560,7 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
 
 
 
@@ -14580,153 +14583,153 @@ a.anchor-link {
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>cg10146935_n</th>
-      <th>cg10146935_p</th>
-      <th>cg26837773_n</th>
-      <th>cg26837773_p</th>
-      <th>cg17801765_n</th>
-      <th>cg17801765_p</th>
-      <th>cg13244315_n</th>
-      <th>cg13244315_p</th>
-      <th>cg06181703_n</th>
-      <th>cg06181703_p</th>
+      <th>H045</th>
+      <th>H109</th>
+      <th>H024</th>
+      <th>H056</th>
+      <th>H079</th>
+      <th>H164</th>
+      <th>H059</th>
+      <th>H167</th>
+      <th>H113</th>
+      <th>H049</th>
       <th>...</th>
-      <th>cg07600533_n</th>
-      <th>cg07600533_p</th>
-      <th>cg08260245_n</th>
-      <th>cg08260245_p</th>
-      <th>cg19112186_n</th>
-      <th>cg19112186_p</th>
-      <th>cg10770023_n</th>
-      <th>cg10770023_p</th>
-      <th>cg00270625_n</th>
-      <th>cg00270625_p</th>
+      <th>H106</th>
+      <th>H176</th>
+      <th>H136</th>
+      <th>H178</th>
+      <th>H166</th>
+      <th>H174</th>
+      <th>H177</th>
+      <th>H259</th>
+      <th>H175</th>
+      <th>H179</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>H045</th>
+      <th>cg10146935_p</th>
       <td>1.811086</td>
       <td>0.000000</td>
-      <td>0.00000</td>
-      <td>5.172572</td>
-      <td>5.411526</td>
-      <td>0.0</td>
       <td>0.000000</td>
-      <td>0.118825</td>
-      <td>5.120384</td>
-      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>...</td>
-      <td>3.901933</td>
       <td>0.000000</td>
-      <td>5.713831</td>
-      <td>0.0</td>
-      <td>5.703520</td>
-      <td>0.0</td>
-      <td>5.166255</td>
-      <td>0.0</td>
-      <td>4.911655</td>
-      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
     </tr>
     <tr>
-      <th>H109</th>
+      <th>cg10146935_n</th>
       <td>0.000000</td>
       <td>3.997508</td>
-      <td>1.59487</td>
-      <td>0.000000</td>
-      <td>5.412693</td>
-      <td>0.0</td>
-      <td>1.043871</td>
-      <td>0.000000</td>
-      <td>1.279480</td>
-      <td>0.0</td>
-      <td>...</td>
-      <td>2.634941</td>
-      <td>0.000000</td>
-      <td>5.107460</td>
-      <td>0.0</td>
-      <td>1.326244</td>
-      <td>0.0</td>
-      <td>0.677912</td>
-      <td>0.0</td>
-      <td>5.281115</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>H024</th>
-      <td>0.000000</td>
       <td>2.844313</td>
-      <td>0.16117</td>
-      <td>0.000000</td>
-      <td>0.365706</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>4.219236</td>
-      <td>0.721100</td>
-      <td>0.0</td>
-      <td>...</td>
-      <td>1.516759</td>
-      <td>0.000000</td>
-      <td>5.676245</td>
-      <td>0.0</td>
-      <td>5.488636</td>
-      <td>0.0</td>
-      <td>4.221828</td>
-      <td>0.0</td>
-      <td>5.379716</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>H056</th>
-      <td>0.000000</td>
       <td>3.338656</td>
-      <td>0.00000</td>
-      <td>2.093433</td>
-      <td>0.373634</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>1.592196</td>
-      <td>4.047059</td>
-      <td>0.0</td>
+      <td>0.019362</td>
+      <td>2.485997</td>
+      <td>1.460211</td>
+      <td>4.952291</td>
+      <td>2.980209</td>
+      <td>0.091713</td>
       <td>...</td>
-      <td>0.000000</td>
-      <td>3.884756</td>
-      <td>5.950338</td>
-      <td>0.0</td>
-      <td>5.354059</td>
-      <td>0.0</td>
-      <td>4.934536</td>
-      <td>0.0</td>
-      <td>5.366823</td>
-      <td>0.0</td>
+      <td>4.946979</td>
+      <td>0.838754</td>
+      <td>4.684879</td>
+      <td>5.077259</td>
+      <td>0.625954</td>
+      <td>4.918812</td>
+      <td>4.727493</td>
+      <td>5.193812</td>
+      <td>4.437189</td>
+      <td>5.060459</td>
     </tr>
     <tr>
-      <th>H079</th>
+      <th>cg26837773_p</th>
       <td>0.000000</td>
-      <td>0.019362</td>
-      <td>3.74898</td>
+      <td>1.594870</td>
+      <td>0.161170</td>
       <td>0.000000</td>
-      <td>5.412010</td>
-      <td>0.0</td>
-      <td>1.416418</td>
+      <td>3.748980</td>
+      <td>0.060530</td>
       <td>0.000000</td>
-      <td>5.237422</td>
-      <td>0.0</td>
+      <td>0.547577</td>
+      <td>2.440098</td>
+      <td>2.940767</td>
+      <td>...</td>
+      <td>0.199544</td>
+      <td>0.341156</td>
+      <td>3.496116</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>3.214163</td>
+      <td>2.036858</td>
+      <td>0.000000</td>
+      <td>4.043775</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>cg26837773_n</th>
+      <td>5.172572</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>2.093433</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>3.472232</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>...</td>
       <td>0.000000</td>
-      <td>4.238106</td>
-      <td>6.040756</td>
-      <td>0.0</td>
-      <td>5.584746</td>
-      <td>0.0</td>
-      <td>5.095111</td>
-      <td>0.0</td>
-      <td>5.338470</td>
-      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>4.821910</td>
+      <td>0.858200</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.816088</td>
+      <td>0.000000</td>
+      <td>2.345652</td>
+    </tr>
+    <tr>
+      <th>cg17801765_p</th>
+      <td>5.411526</td>
+      <td>5.412693</td>
+      <td>0.365706</td>
+      <td>0.373634</td>
+      <td>5.412010</td>
+      <td>5.268908</td>
+      <td>0.000000</td>
+      <td>5.337081</td>
+      <td>0.749546</td>
+      <td>0.426493</td>
+      <td>...</td>
+      <td>0.574758</td>
+      <td>0.707883</td>
+      <td>0.438992</td>
+      <td>4.873615</td>
+      <td>0.753594</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.547390</td>
+      <td>4.086683</td>
+      <td>0.135581</td>
     </tr>
   </tbody>
 </table>
-<p>5 rows × 8496 columns</p>
+<p>5 rows × 196 columns</p>
 </div>
 </div>
 
@@ -14739,7 +14742,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df_mrna</span><span class="o">.</span><span class="n">T</span>
@@ -14756,7 +14759,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[29]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df_meth</span><span class="o">.</span><span class="n">T</span>
@@ -14773,7 +14776,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[30]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_mrna</span><span class="p">,</span> <span class="n">df_meth</span><span class="p">])</span>
@@ -14810,7 +14813,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[33]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -14829,7 +14832,7 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[33]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
 
 
 
@@ -15011,7 +15014,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[34]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">NMF</span>
@@ -15028,7 +15031,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[35]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">H</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">W</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -15089,6 +15092,136 @@ a.anchor-link {
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
 <pre>array([2.13261265, 0.        ])</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">H_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">H_df</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[16]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>H045</th>
+      <th>H109</th>
+      <th>H024</th>
+      <th>H056</th>
+      <th>H079</th>
+      <th>H164</th>
+      <th>H059</th>
+      <th>H167</th>
+      <th>H113</th>
+      <th>H049</th>
+      <th>...</th>
+      <th>H271</th>
+      <th>H006</th>
+      <th>H084</th>
+      <th>H260</th>
+      <th>H192</th>
+      <th>H070</th>
+      <th>H255</th>
+      <th>H135</th>
+      <th>H247</th>
+      <th>H066</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.005286</td>
+      <td>0.001123</td>
+      <td>0.116696</td>
+      <td>0.1156</td>
+      <td>0.008202</td>
+      <td>0.000000</td>
+      <td>0.108295</td>
+      <td>0.004208</td>
+      <td>0.068335</td>
+      <td>0.053253</td>
+      <td>...</td>
+      <td>0.112052</td>
+      <td>0.117386</td>
+      <td>0.000702</td>
+      <td>0.005236</td>
+      <td>0.05371</td>
+      <td>0.112368</td>
+      <td>0.012251</td>
+      <td>0.113764</td>
+      <td>0.116019</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.144156</td>
+      <td>0.149550</td>
+      <td>0.000000</td>
+      <td>0.0000</td>
+      <td>0.140064</td>
+      <td>0.150715</td>
+      <td>0.009437</td>
+      <td>0.145258</td>
+      <td>0.061816</td>
+      <td>0.082893</td>
+      <td>...</td>
+      <td>0.004414</td>
+      <td>0.000000</td>
+      <td>0.150970</td>
+      <td>0.142550</td>
+      <td>0.08071</td>
+      <td>0.004421</td>
+      <td>0.134242</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.152084</td>
+    </tr>
+  </tbody>
+</table>
+<p>2 rows × 135 columns</p>
+</div>
 </div>
 
 </div>
