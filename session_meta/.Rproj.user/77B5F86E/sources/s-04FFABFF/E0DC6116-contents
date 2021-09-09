@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Ashfaq Ali • 08-Sep-2021" />
+
+
+<title>Meta analyses of omics data</title>
+
+<script src="lab_meta-analayses-v2_files/header-attrs-2.10/header-attrs.js"></script>
+<script src="lab_meta-analayses-v2_files/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="lab_meta-analayses-v2_files/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="lab_meta-analayses-v2_files/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="lab_meta-analayses-v2_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="lab_meta-analayses-v2_files/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="lab_meta-analayses-v2_files/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="lab_meta-analayses-v2_files/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="lab_meta-analayses-v2_files/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="lab_meta-analayses-v2_files/navigation-1.1/tabsets.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<link rel="stylesheet" href="assets/lab.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Meta analyses of omics data</h1>
+<h3 class="subtitle">Workshop on Omics Integration</h3>
+<h4 class="author"><b>Ashfaq Ali</b> • 08-Sep-2021</h4>
+
+</div>
+
+
+<!-- rmd lab header -->
+<!-- custom fonts -->
+<p><link href="https://fonts.googleapis.com/css?family=Roboto|Source+Sans+Pro:300,400,600|Ubuntu+Mono&amp;subset=latin-ext" rel="stylesheet"></p>
+<p><br></p>
+<div class="block-title-parent">
+<div class="block-title small">
+Output
+</div>
+</div>
+<div id="installation-and-setup" class="section level2" number="0.1">
+<h2><span class="header-section-number">0.1</span> Installation and setup</h2>
+<p>Before we begin reading this tutorial and running the code, let us set
+up our R environment for this session. We will be using “renv” package
+in R to install all the necessary packages needed for the sessions.</p>
+<blockquote>
+<p><em>Note: Due to the use of the development versions of R packages that
+are not available through conda repositories we are not able to
+generate a conda environment for this session and an alternative
+solution needs to be used.</em></p>
+</blockquote>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Documents/GitHub/workshop_omics_integration/session_meta/&quot;</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
+</div>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">## make sure that the renv.lock file for the session exists and do following.</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;renv&quot;</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">restore</span>(<span class="at">lockfile =</span> <span class="st">&quot;./Meta_tutorial/tuturial_meta.lock&quot;</span>, <span class="at">prompt =</span> <span class="cn">TRUE</span>) </span></code></pre></div>
+</div>
+<blockquote>
+<p>If XML lib fails in ubuntu and you get the error “Error installing
+package ‘XML’:” go to terminal and install the libraries. “sudo
+apt-get update” followed by “sudo apt-get install libxml2-dev” Now,
+try the renv::init() again.
+&gt; If you are trying to install within you conda environmen, you may need to install some dependencies
+&gt; <code>install.packages(c("curl","remotes"))</code> and <code>remotes::install_github("joshuaulrich/TTR")</code>
+&gt; In bash of your active conda environment run <code>conda install -c conda-forge r-gert</code>
+There maybe issues with installtion even after these depending on you architecture,
+in that case you can locate the results for each of the sections in “results.tar.gz”
+file which you can expand by <code>tar -xvzf results.tar.gz</code> and explore the results.</p>
+</blockquote>
+</div>
+<div id="introduction" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Introduction</h1>
+<p>Meta analyses are commonly used in clinical studies to assess the effect
+of a treatment or a genetic locus on a phenotype. With the advent of
+GWAS (Genome wide association studies), various studies report summary
+statistics on associated effects of genetic loci on phenotype. Meta
+analyses can be useful in determining whether the effect size is
+consistent across the body of data</p>
+<p>The goal of a synthesis is to understand the results of any study in the
+context of all the other studies. First, we need to know whether or not
+the effect size is consistent across the body of data. If it is
+consistent, then we want to estimate the effect size as accurately as
+possible and to report that it is robust across the kinds of studies
+included in the synthesis. On the other hand, if it varies substantially
+from study to study, we want to quantify the extent of the variance and
+consider the implications. Meta-analysis is able to address these issues
+whereas the narrative review is not. We start with an example to show
+how meta-analysis and narrative review would approach the same question,
+and then use this example to highlight the key differences between the
+two.</p>
+</div>
+<div id="meta-analyses-methods" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Meta analyses Methods</h1>
+<ol style="list-style-type: decimal">
+<li><strong>p-value</strong></li>
+</ol>
+<!-- -->
+<ol style="list-style-type: lower-alpha">
+<li><a href="https://link.springer.com/chapter/10.1007%2F978-1-4612-4380-9_6"><strong>Fisher</strong></a>:
+Sum of minus log-transformed <em>P</em>-values where larger Fisher score
+reflects stronger aggregated differential expression evidence.</li>
+<li><a href="https://cutt.ly/rc53t31"><strong>Stouffer</strong></a>: Sum of inverse normal
+transformed <em>P</em>-values where larger Stouffer score to reflect
+stronger aggregated statistical evidence.</li>
+<li><a href="https://doi.org/10.1214/10-AOAS393"><strong>adaptively weighted
+Fisher(AW)</strong></a><strong>, <a href="https://ui.adsabs.harvard.edu/abs/2011arXiv1108.3180L/abstract">original
+publication</a></strong>
+: assigns different weights to each individual study  and it
+searches through all possible weights to find the best adaptive
+weight with the smallest derived <em>p</em>-value. One significant
+advantage of this method is its ability to indicate which studies
+contribute to the evidence aggregation and elucidates heterogeneity
+in the meta-analysis.</li>
+<li><a href="https://psycnet.apa.org/record/1951-06623-001"><strong>minimum p-value
+(minP)</strong></a><strong>:</strong> The
+minP method takes the minimum <em>p</em>-value among the <em>K</em> studies as the
+test statistic</li>
+<li><a href="https://psycnet.apa.org/record/1951-06623-001"><strong>maximum p-value
+(maxP)</strong></a><strong>:</strong> The
+maxP method takes maximum <em>p</em>-value as the test statistic</li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/25383132/"><strong>rth ordered p-value
+(rOP)</strong></a><strong>:</strong> The rOP
+method takes the <em>r-</em>th order statistic among sorted <em>p</em>-values
+of <em>K</em>combined studies</li>
+</ol>
+<blockquote>
+<p>Note: The assumption of uniformly distributed <em>P</em>-values under the
+null hypothesis or can be done non-parametrically by permutation-based
+analysis</p>
+</blockquote>
+<!-- -->
+<ol start="2" style="list-style-type: decimal">
+<li><strong>Effect Size based</strong></li>
+</ol>
+<!-- -->
+<ol style="list-style-type: lower-alpha">
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/12855442/"><strong>fixed effects model
+(FEM)</strong></a>:FEM combines the
+effect size across <em>K</em> studies by assuming a simple linear model
+with an underlying true effect size plus a random error in each
+study</li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/12855442/"><strong>random effects model
+(REM)</strong></a>: REM extends FEM
+by allowing random effects for the inter-study heterogeneity in the
+model. </li>
+</ol>
+<!-- -->
+<ol start="3" style="list-style-type: decimal">
+<li><strong>Rank based</strong></li>
+</ol>
+<!-- -->
+<ol style="list-style-type: lower-alpha">
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/16982708/"><strong>rank product
+(rankProd)</strong></a>RankProd and
+RankSum are based on the common biological belief that if a gene is
+repeatedly at the top of the lists ordered by up- or down-regulation
+fold change in replicate experiments, the gene is more likely a DE
+gene.</li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/16982708/"><strong>naive sum of ranks and naive product of
+ranks</strong></a><strong>:</strong> These two
+methods apply a naïve product or sum of the DE evidence ranks across
+studies.</li>
+</ol>
+<div id="statistical-considerations" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Statistical considerations</h2>
+<p>In addition to statistical methods mentioned above, a number of factors
+need to be considered for the choice of method. Different test
+statistics maybe used depending on the type of outcome variable (e.g.
+t-statistic or moderated t-statistic for binary outcome, F-statistic for
+multi-class outcome, regression or correlation coefficient for
+continuous outcome and log-rank statistic for survival outcome).</p>
+<p>Here we will be using
+<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3463115/">MetaDE</a> package
+that has implemented above mentioned methods.</p>
+<p>A summary of the methods and their implementations for respective
+outcome variables are listed in the table below as presented in the
+original publication.</p>
+<p><img src="images/Statistical_methods_MetaDE.png" /></p>
+<p>For a detailed review of the applied methods for meta analyses, related
+benchmarks and</p>
+</div>
+<div id="required-packages" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Required packages</h2>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plyr)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(preproc)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MetaQC)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MetaDE)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MetaPath)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MetaDCN)</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="summary-of-the-session" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Summary of the session</h1>
+<p>I this session we will be working with the “prostate8.rda” data set that
+is located in the data directory of the “session_meta” directory of the
+github repository for the course.</p>
+<p>Some of the R packages packages we are using here are not available
+through conda repositories and therefore need to be install from the
+github repositories for the respective packages</p>
+<p>The session comprises of following main steps</p>
+<ol style="list-style-type: decimal">
+<li>Explore the data and the packages</li>
+<li>Filter the data based on QC</li>
+<li>Perform differential expression analyses and meta analyses</li>
+<li>Perfrom pathway analyses for meta analyses results</li>
+<li>Perfrom pathway meta analyses</li>
+<li>Network meta analyses (optional)</li>
+<li>Exercise: compare different meta analyses methods including
+AW-Fisher, REM, FEM ## Perform QC</li>
+</ol>
+</div>
+<div id="data-for-the-session" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Data for the session</h1>
+<p>We will using prostate dataset</p>
+<p>Load the protaste data set</p>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file =</span> <span class="st">&quot;./data/prostate8.rda&quot;</span>)</span></code></pre></div>
+</div>
+<p>The prostate data is comprised of 8 microarray studies from different
+microarray platforms. Here it is provided in a list format where data
+matrices and corresponding labels are provided.</p>
+<p>Let us take a quick look at the data.</p>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(prostate8)</span></code></pre></div>
+<pre><code>## [1] &quot;data&quot;      &quot;dataLabel&quot;</code></pre>
+</div>
+<p>We can have a look at the structure of each data sets and evaluate what
+sort of filtering steps we need to take.</p>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(prostate8<span class="sc">$</span>data, dim) <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>(<span class="at">row.names =</span> <span class="fu">c</span>(<span class="st">&quot;genes&quot;</span>, <span class="st">&quot;samples&quot;</span>))</span></code></pre></div>
+<pre><code>##         Welsh   Yu Lapointe Varambally Singh Wallace Nanni Tomlins
+## genes    8798 8799    13579      19738  8799   12689 12688    9703
+## samples    34  146      103         13   102      89    30      57</code></pre>
+</div>
+<p>As we can see, the studies have different number of genes measured and
+contain different number of samples. In a meta analyses, studies can
+have different samples sizes but genes should match between different
+studies. To be able to merge data sets, all data matrices should have
+the same annotations</p>
+<p>Let us look at the row names which are already set to gene names.</p>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(prostate8<span class="sc">$</span>data, row.names) <span class="sc">%&gt;%</span> <span class="fu">lapply</span>(.,head, <span class="dv">5</span>) <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>()</span></code></pre></div>
+<pre><code>##   Welsh    Yu Lapointe Varambally Singh Wallace  Nanni Tomlins
+## 1  ACTB MAPK3    ITGB2       DDR1 MAPK3    DDR1   DDR1     ZFX
+## 2 GLRA1  TIE1     HMBS       PAX8  TIE1    RFC2   RFC2    PIGS
+## 3 KCNB2 CXCR5    GATA6       THRA CXCR5    PAX8  HSPA6    ZPBP
+## 4 MGAT5 DUSP1    ICAM5       CCL5 DUSP1   ESRRA   PAX8  NOTCH3
+## 5  BMP3 MMP10     RIN2      ESRRA MMP10    GAS6 PTPN21  IGSF11</code></pre>
+</div>
+<p>It is clear that the gene names are set to gene symbols for all data
+sets and we can merge theses data set.</p>
+<p>The second element of the lists corresponds to data labels where each
+value corresponds to disease status of the individual where the sample
+came from.</p>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>prostate8<span class="sc">$</span>dataLabel <span class="sc">%&gt;%</span> <span class="fu">lapply</span>(. ,table) <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span> t</span></code></pre></div>
+<pre><code>##                 [,1] [,2]
+## Welsh.Var1      &quot;0&quot;  &quot;1&quot; 
+## Welsh.Freq      &quot; 9&quot; &quot;25&quot;
+## Yu.Var1         &quot;0&quot;  &quot;1&quot; 
+## Yu.Freq         &quot;81&quot; &quot;65&quot;
+## Lapointe.Var1   &quot;0&quot;  &quot;1&quot; 
+## Lapointe.Freq   &quot;41&quot; &quot;62&quot;
+## Varambally.Var1 &quot;0&quot;  &quot;1&quot; 
+## Varambally.Freq &quot;6&quot;  &quot;7&quot; 
+## Singh.Var1      &quot;0&quot;  &quot;1&quot; 
+## Singh.Freq      &quot;50&quot; &quot;52&quot;
+## Wallace.Var1    &quot;0&quot;  &quot;1&quot; 
+## Wallace.Freq    &quot;20&quot; &quot;69&quot;
+## Nanni.Var1      &quot;0&quot;  &quot;1&quot; 
+## Nanni.Freq      &quot; 7&quot; &quot;23&quot;
+## Tomlins.Var1    &quot;0&quot;  &quot;1&quot; 
+## Tomlins.Freq    &quot;27&quot; &quot;30&quot;</code></pre>
+</div>
+<p>Data labels indicate “0” as control and “1” as disease groups. We can
+set these values to character format for convenience.</p>
+<p>If everything looks good, we are good to go to the next step.</p>
+<blockquote>
+<p>Take a moment to explore the data in your own ways and fimilarise
+yourself wit it.</p>
+</blockquote>
+<hr />
+</div>
+<div id="data-preprocessing" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Data preprocessing</h1>
+<div id="gene-matching" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Gene matching</h2>
+<p>Usually different microarray platforms use their own probe IDs or
+experiments from different omics platforms can have annotations for
+transcripts of proteins. To perform meta-analysis, one needs to match
+probe/transcript IDs from different platforms to the unique official
+gene ID, such as ENTREZ ID or gene symbol.</p>
+<p>Options for situations for microarray data include</p>
+<ul>
+<li>take the average value of expression values across multiple probe
+IDs to represent the corresponded gene symbol</li>
+<li>select the probe ID with the largest interquartile range (IQR) of
+expression</li>
+<li>Or some version of summary at the gene level depending on the omics
+platform.</li>
+</ul>
+<p>We do not cover the pre-processing steps for different omics
+technologies at the moment but the workshop participants are encouraged
+to apply the domain specific knowledge when setting up a meta analyses
+study.</p>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>MetaQC<span class="sc">::</span><span class="fu">metaOverlap</span>(prostate8<span class="sc">$</span>data) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">lapply</span>(dim) <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>(<span class="at">row.names =</span> <span class="fu">c</span>(<span class="st">&quot;genes&quot;</span>, <span class="st">&quot;samples&quot;</span>))</span></code></pre></div>
+<pre><code>##         Welsh   Yu Lapointe Varambally Singh Wallace Nanni Tomlins
+## genes    4241 4241     4241       4241  4241    4241  4241    4241
+## samples    34  146      103         13   102      89    30      57</code></pre>
+</div>
+<p>As you can see here, only 4241 genes are present in all studies and if
+we are to filter out this way, we lose a lot of data.</p>
+<blockquote>
+<p>Biologically, it is likely that most genes are either un-expressed or
+un-informative. In gene expression analysis to find DE genes, these
+genes contribute to the false discoveries, so it is desirable to
+filter out these genes prior to analysis. After genes are matched
+across studies, the unique gene symbols are available across all
+studies. Two sequential steps of gene filtering can be performed. In
+the first step, we filter out genes with very low gene expression that
+are identified with small average expression values across majority of
+studies. And then we can remove genes that are not variable in your data sets
+using variance estimates as they are not useful in comparisons.</p>
+</blockquote>
+<p>You can take a look at <a href="">preproc</a> package for some of the functions
+available for filtering the data and the intuition behind the methods.
+Here <code>Annotate(), Impute(), Filter() and Merge()</code> maybe useful for
+pre-processing steps of the data analyses.</p>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>data2 <span class="ot">&lt;-</span> prostate8<span class="sc">$</span>data</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>data2 <span class="ot">&lt;-</span> preproc<span class="sc">::</span><span class="fu">Merge</span>(data2)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>data.type <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;microarray&quot;</span>, <span class="fu">length</span>(data2)) <span class="co"># a character vector for each study type</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>data2_filt <span class="ot">&lt;-</span> preproc<span class="sc">::</span><span class="fu">Filter</span>(data2, <span class="at">del.perc =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.1</span>),<span class="at">data.type =</span> data.type ) <span class="co"># Here we specify the percentage of genes to be filtere, and specify the type of data for each study</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>summary_preproc <span class="ot">&lt;-</span> <span class="fu">rbind</span>(<span class="fu">as.data.frame</span>(<span class="fu">lapply</span>(prostate8<span class="sc">$</span>data, dim))[<span class="dv">1</span>,],</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">as.data.frame</span>(<span class="fu">lapply</span>(data2, dim))[<span class="dv">1</span>,], </span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">as.data.frame</span>(<span class="fu">lapply</span>(data2_filt, dim))</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>                         )</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(summary_preproc) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;orginal&quot;</span>, <span class="st">&quot;merged&quot;</span>, <span class="st">&quot;mergeFiltered&quot;</span>, <span class="st">&quot;samples&quot;</span>)</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>summary_preproc</span></code></pre></div>
+<pre><code>##               Welsh   Yu Lapointe Varambally Singh Wallace Nanni Tomlins
+## orginal        8798 8799    13579      19738  8799   12689 12688    9703
+## merged         4241 4241     4241       4241  4241    4241  4241    4241
+## mergeFiltered  3434 3434     3434       3434  3434    3434  3434    3434
+## samples          34  146      103         13   102      89    30      57</code></pre>
+</div>
+<p>Note that the multiple gene expression data sets may not be very well
+aligned by genes, and the number of genes in each study maybe different.
+When we combine a large number of studies, the number of common genes
+may be very small, so we need to allow for genes appearing in most
+studies and missing in few studies etc.</p>
+</div>
+<div id="load-pathway-database" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Load pathway database</h2>
+<p>Let us perform quality control of the data for this meta analyses. We
+are using the
+<a href="https://academic.oup.com/nar/article/40/2/e15/2408973">“MetaQC”</a> that
+identifies ways to objectively perform quality control for the
+microarray studies.</p>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file =</span> <span class="st">&quot;./data/pathways.rda&quot;</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>DList<span class="ot">=</span>prostate8<span class="sc">$</span>data</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>colLabel<span class="ot">=</span>prostate8<span class="sc">$</span>dataLabel</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co">#GList=pathway[[1]]</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co">#GList=pathwayDatabase</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>filterGenes<span class="ot">=</span><span class="cn">TRUE</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>cutRatioByMean<span class="ot">=</span><span class="fl">0.3</span> <span class="co">#</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>cutRatioByVar<span class="ot">=</span><span class="fl">0.3</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="co">#tic() not run</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>QCresult<span class="ot">=</span><span class="fu">MetaQC</span>(DList, colLabel, <span class="at">GList=</span><span class="fu">c</span>(Hallmark.genesets, KEGG.genesets, Immunologic.genesets),filterGenes,cutRatioByMean,cutRatioByVar, ) <span class="do">## This will take some time depending on the number of studies and the type of data</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="co">#toc()</span></span></code></pre></div>
+</div>
+<blockquote>
+<p>If you are unable to run the above steps, please load the “QC.rda” from
+the results directory of the session.</p>
+</blockquote>
+<div class="block-title-parent">
+<div class="block-title small">
+Output
+</div>
+</div>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>QCresult<span class="sc">$</span>scoreTable</span></code></pre></div>
+<pre><code>##                  IQC       EQC         AQCg     AQCp         CQCg         CQCp
+## Welsh      4.6297212 5.0993305 28.269084964 0.000000 1.671669e+02 1.434671e+02
+## Yu         9.4947631 9.4876742 21.725636675 0.000000 1.594930e+02 1.383082e+02
+## Lapointe   3.5445936 3.9678407 24.326120224 0.000000 9.159887e+01 2.045790e+01
+## Varambally 4.2482870 3.7655707  4.272765763 0.000000 1.858428e+01 3.795110e+01
+## Singh      0.8946880 2.0302734 14.740646685 6.945533 4.447641e+01 5.839619e+01
+## Wallace    8.1666052 8.9729647  0.003464049 0.000000 4.453816e-05 3.183405e-04
+## Nanni      0.8134973 0.6480432  0.000000000 0.000000 3.324084e-01 2.562951e-04
+## Tomlins    0.9366496 0.4514895  0.984994108 0.000000 7.892800e+00 1.767292e+01</code></pre>
+</div>
+<p>IQC, EQC, AQCg, AQCp, CQCg, CQCp</p>
+<blockquote>
+<p>Internal quality control index:small IQC indicated that the study had
+heterogeneous coexpression structure with other studies and was
+considered a candidate problematic study that should be excluded from
+meta-analysis</p>
+<p>the external quality control (EQC): small <em>EQC</em> indicated that the
+study had low association with pathway in terms of gene pairwise
+correlation structure and maybe considered a candidate problematic
+study.</p>
+<p>accuracy quality control (<em>AQC</em>) and a consistency quality control
+(<em>CQC</em>).</p>
+<p>Large <em>AQCg</em> measure for a given study indicate that DE genes produced
+by study were reproducible compared to DE genes detected by
+meta-analysis excluding study</p>
+<p>Having a large CQCg measure for a given study indicated that DE
+evidence produced by study was consistent with DE evidence generated
+by meta-analysis excluding study. Please read the original <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3898528/#B14">MetQC
+publication</a>
+for a better understanding of the measures.</p>
+</blockquote>
+<p>We can now look at the two dimensional biplot based on PCA analyses and
+get an idea of any studies that may not be of great quality.</p>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>MetaQC<span class="sc">::</span><span class="fu">plotMetaQC</span>(QCresult<span class="sc">$</span>scoreTable)</span></code></pre></div>
+<img src="lab_meta-analayses-v2_files/figure-html/qc-plot-1.svg" width="672" style="display: block; margin: auto auto auto 0;" />
+</div>
+<p>Although the <code>plotMetaQC()</code> function is a useful tool for visualization,
+it does not necessarily allow automatic inclusion/exclusion criteria.</p>
+<p>Note that our visualization and summarization tools were not meant for
+an automated recommendation for inclusion/exclusion decision. In the
+examples we explored, there were roughly three categories in the QC
+results: definite exclusion cases with poor quality, definite inclusion
+cases with good quality and borderline cases. </p>
+<div id="update-based-on-the-qc" class="section level3" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Update based on the QC</h3>
+<p>Here Nanni and Tomlins are the two studies that maybe of low quality and
+should perhaps be excluded from the analyses.</p>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>filterGenes<span class="ot">=</span><span class="cn">TRUE</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>cutRatioByMean<span class="ot">=</span><span class="fl">0.3</span> <span class="co">#</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>cutRatioByVar<span class="ot">=</span><span class="fl">0.3</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>to_remove <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Nanni&quot;</span>, <span class="st">&quot;Tomlins&quot;</span>)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>prostate6 <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">data =</span> <span class="fu">within</span>(prostate8<span class="sc">$</span>data, <span class="fu">rm</span>(Nanni, Tomlins)), <span class="at">dataLabel=</span><span class="fu">within</span>(prostate8<span class="sc">$</span>dataLabel, <span class="fu">rm</span>(Nanni, Tomlins)))</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>prostate_fil <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">data =</span> MetaQC<span class="sc">::</span><span class="fu">metaOverlap</span>(prostate6<span class="sc">$</span>data), <span class="at">dataLabel=</span>prostate6<span class="sc">$</span>data)</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>prostate6<span class="sc">$</span>data <span class="ot">&lt;-</span>MetaQC<span class="sc">::</span><span class="fu">metaFilterData</span>(prostate_fil<span class="sc">$</span>data,<span class="at">cutRatioByVar =</span> cutRatioByVar, <span class="at">cutRatioByMean =</span> cutRatioByMean)</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(prostate6, names)</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="fu">as.data.frame</span>(<span class="fu">lapply</span>(prostate6<span class="sc">$</span>data, dim))</span></code></pre></div>
+<pre><code>## $data
+## [1] &quot;Welsh&quot;      &quot;Yu&quot;         &quot;Lapointe&quot;   &quot;Varambally&quot; &quot;Singh&quot;     
+## [6] &quot;Wallace&quot;   
+## 
+## $dataLabel
+## [1] &quot;Welsh&quot;      &quot;Yu&quot;         &quot;Lapointe&quot;   &quot;Varambally&quot; &quot;Singh&quot;     
+## [6] &quot;Wallace&quot;   
+## 
+##   Welsh   Yu Lapointe Varambally Singh Wallace
+## 1  3399 3399     3399       3399  3399    3399
+## 2    34  146      103         13   102      89</code></pre>
+</div>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>DList<span class="ot">=</span>prostate6<span class="sc">$</span>data</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>colLabel<span class="ot">=</span>prostate6<span class="sc">$</span>dataLabel</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co">#GList=pathway[[1]]</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co">#GList=pathwayDatabase</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>filterGenes<span class="ot">=</span><span class="cn">TRUE</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>cutRatioByMean<span class="ot">=</span><span class="fl">0.3</span> <span class="co">#</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>cutRatioByVar<span class="ot">=</span><span class="fl">0.3</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>QCresult2<span class="ot">=</span><span class="fu">MetaQC</span>(DList, colLabel, <span class="at">GList=</span><span class="fu">c</span>(Hallmark.genesets, KEGG.genesets, Immunologic.genesets), filterGenes, cutRatioByMean, cutRatioByVar)</span></code></pre></div>
+</div>
+<blockquote>
+<p>AGAIN, if you are unable to run the code, please load</p>
+</blockquote>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;results/QC_step2.rda&quot;</span>)</span></code></pre></div>
+</div>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>QCresult2<span class="sc">$</span>scoreTable</span></code></pre></div>
+<pre><code>##                  IQC       EQC        AQCg AQCp         CQCg         CQCp
+## Welsh      4.3956311 3.9486143 38.42833030    0 1.913178e+02 4.028780e-02
+## Yu         7.0164906 6.8265364 42.25733812    0 1.964917e+02 1.920686e-14
+## Lapointe   1.5414898 1.7423903 16.70625993    0 9.884958e+01 0.000000e+00
+## Varambally 3.5800781 2.9649972  7.18472473    0 2.391464e+01 0.000000e+00
+## Singh      0.4912204 0.3180309 12.36863835    0 4.555982e+01 0.000000e+00
+## Wallace    6.4044351 6.7765190  0.02200338    0 2.785632e-03 0.000000e+00</code></pre>
+</div>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotMetaQC</span>(<span class="at">scoreTable =</span> QCresult2<span class="sc">$</span>scoreTable)</span></code></pre></div>
+<img src="lab_meta-analayses-v2_files/figure-html/qc-plot-2-1.svg" width="672" style="display: block; margin: auto auto auto 0;" />
+</div>
+</div>
+</div>
+</div>
+<div id="meta-differential-expression-analyses" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> Meta Differential Expression analyses</h1>
+<p>We have listed the methods for differential expression meta analyses in
+the introduction section that are implemented in the MetaDE package.
+Here we will try the best performing methods including AW Fischer, REM
+and rOP. A detailed comparison of relative performances of each of the
+statistical methods is descibed <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3898528/#B14">Lun-Ching
+etal</a>.</p>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> prostate6<span class="sc">$</span>data <span class="co"># Extract the expression matrices</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>clin.data <span class="ot">&lt;-</span> prostate6<span class="sc">$</span>dataLabel <span class="co"># extract lables for each sample</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>K <span class="ot">&lt;-</span> <span class="fu">length</span>(data)</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>clin.data <span class="ot">&lt;-</span> <span class="fu">lapply</span>(clin.data, <span class="cf">function</span>(x) {<span class="fu">data.frame</span>(x)} )</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (k <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(clin.data)){</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a> <span class="fu">colnames</span>(clin.data[[k]]) <span class="ot">&lt;-</span> <span class="st">&quot;label&quot;</span></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a> clin.data[[k]] <span class="ot">&lt;-</span> (<span class="fu">ifelse</span>(clin.data[[k]]<span class="sc">==</span><span class="dv">0</span>, <span class="st">&quot;Control&quot;</span>, <span class="st">&quot;Cancer&quot;</span>))</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a><span class="co">#clin.data &lt;- lapply(clin.data, function(x) {data.frame(x)} )</span></span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>select.group <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Control&quot;</span>, <span class="st">&quot;Cancer&quot;</span>)</span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>ref.level <span class="ot">&lt;-</span> <span class="st">&quot;Control&quot;</span></span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>data.type <span class="ot">&lt;-</span> <span class="st">&quot;continuous&quot;</span></span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>ind.method <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="st">&#39;limma&#39;</span>,<span class="fu">length</span>(data))</span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>resp.type <span class="ot">&lt;-</span> <span class="st">&quot;twoclass&quot;</span></span>
+<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a>paired <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">FALSE</span>,<span class="fu">length</span>(data))</span>
+<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a>meta.method <span class="ot">&lt;-</span> <span class="st">&quot;Fisher&quot;</span></span>
+<span id="cb28-24"><a href="#cb28-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-25"><a href="#cb28-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-26"><a href="#cb28-26" aria-hidden="true" tabindex="-1"></a>meta.res <span class="ot">&lt;-</span> <span class="fu">MetaDE</span>(<span class="at">data=</span>data,<span class="at">clin.data =</span> clin.data,</span>
+<span id="cb28-27"><a href="#cb28-27" aria-hidden="true" tabindex="-1"></a>                    <span class="at">data.type=</span>data.type,<span class="at">resp.type =</span> resp.type,</span>
+<span id="cb28-28"><a href="#cb28-28" aria-hidden="true" tabindex="-1"></a>                    <span class="at">response=</span><span class="st">&#39;label&#39;</span>,</span>
+<span id="cb28-29"><a href="#cb28-29" aria-hidden="true" tabindex="-1"></a>                    <span class="at">ind.method=</span>ind.method, <span class="at">meta.method=</span>meta.method,</span>
+<span id="cb28-30"><a href="#cb28-30" aria-hidden="true" tabindex="-1"></a>                    <span class="at">select.group =</span> select.group, <span class="at">ref.level=</span>ref.level,</span>
+<span id="cb28-31"><a href="#cb28-31" aria-hidden="true" tabindex="-1"></a>                    <span class="at">paired=</span>paired,<span class="at">tail=</span><span class="st">&#39;abs&#39;</span>,<span class="at">parametric=</span><span class="cn">TRUE</span>)</span>
+<span id="cb28-32"><a href="#cb28-32" aria-hidden="true" tabindex="-1"></a>meta.res.summary <span class="ot">&lt;-</span> MetaDE<span class="sc">::</span><span class="fu">summary.meta</span>(meta.res, <span class="at">resp.type =</span> resp.type, <span class="at">meta.method =</span> meta.method)</span>
+<span id="cb28-33"><a href="#cb28-33" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(meta.res.summary)</span>
+<span id="cb28-34"><a href="#cb28-34" aria-hidden="true" tabindex="-1"></a><span class="co"># save(meta.res, meta.res.summary, file = &quot;./results/resMetaDE.rda&quot;)</span></span></code></pre></div>
+<pre><code>## Please make sure the following is correct:
+## *You input 6 studies
+## *You selected limma limma limma limma limma limma for your 6 studies respectively
+## * Fisher was chosen to combine the 6 studies,respectively
+## dataset 1 is done
+## dataset 2 is done
+## dataset 3 is done
+## dataset 4 is done
+## dataset 5 is done
+## dataset 6 is done
+## Parametric method was used instead of permutation
+##        ind.stat.Welsh ind.stat.Yu ind.stat.Lapointe ind.stat.Varambally
+## GPR12     -0.01447604  0.37943628        0.28513849           0.1086048
+## RPS19      0.20673665  0.23162454        0.77668332           0.1880854
+## GALNT2    -0.11916266  0.11168920        0.36585563           0.3870752
+## MSI1       0.29758865  0.02367612        0.37455130           0.6647996
+## FCGRT     -0.36240927 -0.10877216       -0.53210661          -0.3114009
+## CD163      0.15648617  0.08638936        0.08651916           1.2875034
+##        ind.stat.Singh ind.stat.Wallace ind.p.Welsh    ind.p.Yu ind.p.Lapointe
+## GPR12    -0.106957489       -0.3301548 0.978695463 0.006504890   2.762384e-01
+## RPS19     1.026749249       -0.4766147 0.016116661 0.002484948   3.768341e-10
+## GALNT2    0.005348824        0.2825572 0.428375201 0.437773064   8.001044e-02
+## MSI1     -0.180755089       -0.2662394 0.669863110 0.860595368   2.907234e-03
+## FCGRT     0.022247198        0.1003269 0.000154019 0.155941050   4.359881e-06
+## CD163    -0.211345323       -0.2461299 0.464836081 0.624141614   6.057858e-01
+##        ind.p.Varambally  ind.p.Singh ind.p.Wallace      stat         pval
+## GPR12        0.81888709 0.0354446198  5.153568e-02  25.69660 1.184580e-02
+## RPS19        0.14991966 0.0005284280  6.684494e-06 106.36720 3.121382e-17
+## GALNT2       0.05198725 0.9191733351  2.091679e-02  22.21530 3.517649e-02
+## MSI1         0.26369912 0.0002454798  3.765074e-01  34.02685 6.679961e-04
+## FCGRT        0.13151895 0.8052767733  4.739980e-01  51.94301 6.345524e-07
+## CD163        0.04866036 0.0040981743  2.567059e-01  23.23721 2.577828e-02
+##                 FDR
+## GPR12  1.563039e-02
+## RPS19  5.358373e-16
+## GALNT2 4.258009e-02
+## MSI1   1.116283e-03
+## FCGRT  1.846613e-06
+## CD163  3.195602e-02</code></pre>
+</div>
+<blockquote>
+<p>If you were unable to run the MetaDE analyses, you can load the results of the above
+commands to review the output by usingh <code>load("./results/resMetaDE.rda")</code></p>
+</blockquote>
+<div id="plot-meta-analyses-results-in-a-heatmap." class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Plot meta analyses results in a heatmap.</h2>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>fdr.cut <span class="ot">&lt;-</span> <span class="fl">1e-7</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf</span>(<span class="st">&#39;./results/heatmap.DE.pdf&#39;</span>)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="fu">heatmap.sig.genes</span>(meta.res, <span class="at">meta.method=</span>meta.method,</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">fdr.cut=</span>fdr.cut,<span class="at">color=</span><span class="st">&quot;GR&quot;</span>)</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
+</div>
+<div class="figure">
+<img src="images/heatmap-sig-genes.png" style="height:150.0%" alt="" />
+<p class="caption">heatmap</p>
+</div>
+</div>
+<div id="pathway-analyses-based-on-meta-analyses" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> Pathway analyses based on meta analyses</h2>
+<p>At this stage, one can do pathway analyses directly on the genes that
+appear to be differentially regulated based on the meta analyses
+performed above.</p>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>meta.p  <span class="ot">&lt;-</span> meta.res<span class="sc">$</span>meta.analysis<span class="sc">$</span>pval</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>ks.result <span class="ot">&lt;-</span> <span class="fu">PathAnalysis</span>(<span class="at">meta.p =</span> meta.p, <span class="at">enrichment =</span> <span class="st">&quot;KS&quot;</span>)</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>fisher.result <span class="ot">&lt;-</span> <span class="fu">PathAnalysis</span>(<span class="at">meta.p =</span> meta.p, <span class="at">enrichment =</span> <span class="st">&quot;Fisher&#39;s exact&quot;</span>)</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="do">## One can customize pathway datbase to update the results like following</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file =</span>  <span class="st">&quot;./data/pathwayDatabase.rda&quot;</span>)</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="do">## Let us look into the database</span></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>pathway_names <span class="ot">&lt;-</span> pathwayDatabase <span class="sc">%&gt;%</span> <span class="fu">names</span>() <span class="sc">%&gt;%</span> stringr<span class="sc">::</span><span class="fu">str_split</span>(<span class="at">pattern =</span> <span class="st">&quot;_&quot;</span>, <span class="at">simplify =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> {.[,<span class="dv">1</span>]} <span class="sc">%&gt;%</span> <span class="fu">unique</span>()</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(pathway_names)</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>path.res <span class="ot">&lt;-</span> MetaDE<span class="sc">::</span><span class="fu">PathAnalysis</span>(meta.p ,<span class="at">pathway =</span> pathwayDatabase, <span class="at">p.cut =</span> <span class="fl">0.05</span>,</span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>                    <span class="at">enrichment =</span> <span class="st">&quot;Fisher&#39;s exact&quot;</span>, <span class="at">DEgene.number =</span> <span class="dv">400</span>, <span class="at">size.min =</span> <span class="dv">10</span>, <span class="at">size.max =</span> <span class="dv">500</span>)</span></code></pre></div>
+</div>
+<blockquote>
+<p>The pathway analyses performed here is based on the p-values obtained
+after the joint meta analyses of all the studies in your data. Some
+time individual study level pathway analyses is reported and we are
+interested in combining pathway level summary statistics. We will
+explore that in our next session where we will perform the analyses
+using <strong>“MetaPath”</strong> package.</p>
+</blockquote>
+</div>
+<div id="exercise" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> Exercise</h2>
+<ul>
+<li><p>Perform DE meta analyses using any two methods among “AW-Fisher”,
+“FEM,”REM and “minMCC” and compare the number of differentially
+expressed genes detected at FDR &lt;0.05. Take a look at the
+/home/omics/.cache/R/renv/cache/v5/R-4.1/x86_64-pc-linux-gnu/MetaDE/2.2.3/8598944739859703e37b4623921341ac/MetaDE/help/MetaDE function to change the parameters.</p></li>
+<li><p>Perform pathway analyses based one of the methods you tried and see
+whether any differences at pathway level were detected.</p></li>
+</ul>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>meta.method <span class="ot">&lt;-</span> <span class="st">&quot;AW&quot;</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>meta.res <span class="ot">&lt;-</span> <span class="fu">MetaDE</span>(<span class="at">data=</span>data,<span class="at">clin.data =</span> clin.data,</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">data.type=</span>data.type,<span class="at">resp.type =</span> resp.type,</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">response=</span><span class="st">&#39;label&#39;</span>,<span class="at">covariate =</span> <span class="cn">NULL</span>,</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">ind.method=</span>ind.method, <span class="at">meta.method=</span>meta.method,</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>                    <span class="at">select.group =</span> select.group, <span class="at">ref.level=</span>ref.level,</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>                    <span class="at">paired=</span>paired, <span class="at">rth=</span><span class="cn">NULL</span>,</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>                    <span class="at">REM.type=</span><span class="cn">NULL</span>,<span class="at">tail=</span><span class="st">&#39;abs&#39;</span>,<span class="at">parametric=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## Please make sure the following is correct:
+## *You input 6 studies
+## *You selected limma limma limma limma limma limma for your 6 studies respectively
+## * AW was chosen to combine the 6 studies,respectively
+## dataset 1 is done
+## dataset 2 is done
+## dataset 3 is done
+## dataset 4 is done
+## dataset 5 is done
+## dataset 6 is done
+## Parametric method was used instead of permutation</code></pre>
+</div>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>meta.method <span class="ot">&lt;-</span> <span class="st">&quot;FEM&quot;</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>meta.res <span class="ot">&lt;-</span> <span class="fu">MetaDE</span>(<span class="at">data=</span>data,<span class="at">clin.data =</span> clin.data,</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">data.type=</span>data.type,<span class="at">resp.type =</span> resp.type,</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">response=</span><span class="st">&#39;label&#39;</span>,</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">ind.method=</span>ind.method, <span class="at">meta.method=</span>meta.method,</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>                    <span class="at">select.group =</span> select.group, <span class="at">ref.level=</span>ref.level,</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>                    <span class="at">paired=</span>paired, <span class="at">tail=</span><span class="st">&#39;abs&#39;</span>)</span></code></pre></div>
+<pre><code>## Please make sure the following is correct:
+## *You input 6 studies
+## * FEM was chosen to combine the 6 studies,respectively</code></pre>
+</div>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>meta.method <span class="ot">&lt;-</span> <span class="st">&quot;REM&quot;</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>REM.type <span class="ot">&lt;-</span> <span class="st">&quot;HO&quot;</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>meta.res <span class="ot">&lt;-</span> <span class="fu">MetaDE</span>(<span class="at">data=</span>data,<span class="at">clin.data =</span> clin.data,</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">data.type=</span>data.type,<span class="at">resp.type =</span> resp.type,</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">response=</span><span class="st">&#39;label&#39;</span>,</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>                    <span class="at">ind.method=</span>ind.method, <span class="at">meta.method=</span>meta.method,</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>                    <span class="at">select.group =</span> select.group, <span class="at">ref.level=</span>ref.level,</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>                    <span class="at">paired=</span>paired,</span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>                    <span class="at">REM.type=</span>REM.type,<span class="at">tail=</span><span class="st">&#39;abs&#39;</span>)</span></code></pre></div>
+<pre><code>## Please make sure the following is correct:
+## *You input 6 studies
+## * REM was chosen to combine the 6 studies,respectively</code></pre>
+</div>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>meta.method <span class="ot">&lt;-</span> <span class="st">&#39;minMCC&#39;</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>meta.res <span class="ot">&lt;-</span> <span class="fu">MetaDE</span>(<span class="at">data=</span>data,<span class="at">clin.data =</span> clin.data,</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">data.type=</span>data.type,<span class="at">resp.type =</span> resp.type,</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">response=</span><span class="st">&#39;label&#39;</span>,</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">ind.method=</span>ind.method, <span class="at">meta.method=</span>meta.method,</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>                    <span class="at">select.group =</span> select.group, <span class="at">ref.level=</span>ref.level,</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>                    <span class="at">paired=</span>paired,<span class="at">tail=</span><span class="st">&#39;abs&#39;</span>,<span class="at">parametric=</span><span class="cn">FALSE</span>,<span class="at">nperm=</span><span class="dv">100</span>)</span></code></pre></div>
+<pre><code>## Please make sure the following is correct:
+## *You input 6 studies
+## * minMCC was chosen to combine the 6 studies,respectively</code></pre>
+</div>
+</div>
+</div>
+<div id="pathway-analyses" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> Pathway analyses</h1>
+<div id="introduction-1" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Introduction</h2>
+<p>Pathway analysis (a.k.a. gene set analysis) is a statistical tool to
+infer correlation of differential expression evidence in the data with
+pathway knowledge from established databases. The idea behind pathway
+analysis is to determine if there is enrichment in the detected DE genes
+based on an <em>a priori</em> defined biological category. Such a category
+might come from one or multiple databases such as Gene Ontology
+(GO; <a href="http://www.geneontology.org/">www.geneontology.org</a>), the Kyoto
+Encyclopedia of Genes and Genomes (KEGG; <a href="http://www.genome.jp/kegg/" class="uri">http://www.genome.jp/kegg/</a>),
+Biocarta Pathways (<a href="http://www.biocarta.com/" class="uri">http://www.biocarta.com/</a>) and the comprehensive
+Molecular Signatures Database
+(MSigDB; <a href="http://www.broadinstitute.org/gsea/msigdb/" class="uri">http://www.broadinstitute.org/gsea/msigdb/</a>). For the majority
+of recent microarray meta-analysis applications, pathway analysis has
+been a standard follow-up to identify pathways associated with detected
+DE genes <a href="https://pubmed.ncbi.nlm.nih.gov/17974971/">e.g.</a>
+and many others]. The result provides more insightful biological
+interpretation and it has been reported that pathway analysis results
+are usually more consistent and reproducible across studies than DE gene
+detection. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2865865/">Shen and Tseng</a>
+developed a systematic framework of Meta-Analysis for Pathway Enrichment
+(MAPE) by combining information at gene level, at pathway level and a
+hybrid of the two. We will use this package for systematic analyses of microarray data from different studies.</p>
+</div>
+<div id="step1-mape_p-analysis" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> Step1: MAPE_P analysis</h2>
+<p>This is the first major function in the MetaPath2.0 package which combines the Meta-analysis for Pathway Enrichment (MAPE) methods introduced by Shen and Tseng (2010) and the Comparative Pathway Integrator (CPI) method introduced by <a href="https://www.biorxiv.org/content/10.1101/444604v1.full.pdf">Fang and Tseng (2016)</a>. The default function is CPI which performs MAPE_P (integrating multiple studies at pathway level) with Adaptively Weighted Fisher’s method as Meta-analysis statistics.</p>
+<p><img src="images/MetaPath_step1.png" /></p>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co">#load(&quot;./data/pathways.rda&quot;)</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>CPI_result <span class="ot">=</span> <span class="fu">MAPE2.0</span>(<span class="at">arraydata =</span> data , <span class="at">clinical.data =</span> clin.data,</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">label =</span> <span class="st">&quot;label&quot;</span>,<span class="at">pmtx =</span> <span class="cn">NULL</span>,<span class="at">pathway =</span> <span class="fu">c</span>(Biocarta.genesets, GOBP.genesets, </span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>        GOCC.genesets, GOMF.genesets, KEGG.genesets, Reactome.genesets), <span class="at">data.type =</span><span class="st">&quot;discrete&quot;</span>, </span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">resp.type =</span> <span class="st">&quot;twoclass&quot;</span>,<span class="at">method =</span> <span class="st">&quot;CPI&quot;</span>, <span class="at">ind.method =</span> <span class="fu">rep</span>(<span class="st">&quot;limma&quot;</span>,<span class="fu">length</span>(data)),</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">paired =</span><span class="fu">rep</span>(<span class="cn">FALSE</span>,<span class="fu">length</span>(data)),<span class="at">select.group=</span>select.group, <span class="at">ref.level=</span>ref.level ,</span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">tail=</span><span class="st">&quot;abs&quot;</span>, <span class="at">enrichment =</span> <span class="st">&quot;Fisher&#39;s exact&quot;</span>, <span class="at">DEgene.number =</span> <span class="dv">400</span>,<span class="at">stat =</span> <span class="st">&quot;AW Fisher&quot;</span>)</span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(CPI_result, <span class="at">file =</span> <span class="st">&quot;./results/MetaPEResults/MAPE_p_pathways.rds&quot;</span>)</span></code></pre></div>
+</div>
+</div>
+<div id="step-2" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> Step 2</h2>
+<p><img src="images/MetaPathStep2.png" /></p>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">15213</span>)</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>CPI.kappa_result <span class="ot">=</span> <span class="fu">MAPE.Kappa</span>(<span class="at">summary =</span> CPI_result<span class="sc">$</span>summary,<span class="at">pathway =</span> CPI_result<span class="sc">$</span>pathway,</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">max_k =</span> <span class="dv">10</span>, <span class="at">q_cutoff =</span> <span class="fl">0.05</span>,<span class="at">software =</span> CPI_result<span class="sc">$</span>method, <span class="at">output_dir =</span> <span class="st">&quot;./results/MetaPEResults/&quot;</span>)</span></code></pre></div>
+</div>
+<p><img src="images/MetaPathStep2_plots.png" /></p>
+</div>
+<div id="step-3" class="section level2" number="7.4">
+<h2><span class="header-section-number">7.4</span> Step 3</h2>
+<p><img src="images/MetaPathStep3.png" /></p>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(hashtb)</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="co">#data(&quot;./data/hashtb.rda&quot;)</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="co">#xx &lt;- data(hashtb)</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>MAPE.Clustering.results <span class="ot">&lt;-</span> <span class="fu">MAPE.Clustering</span>(<span class="at">summary=</span>CPI_result<span class="sc">$</span>summary,<span class="at">Num_Clusters =</span> <span class="dv">6</span>,</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>                                <span class="at">kappa.result =</span> CPI.kappa_result<span class="sc">$</span>kappa,<span class="at">sil_cut=</span><span class="fl">0.01</span>,</span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>                                <span class="at">Num_of_gene_lists=</span>CPI_result<span class="sc">$</span>Num_of_gene_lists,<span class="at">genelist =</span>CPI_result<span class="sc">$</span>genelist,</span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>                                <span class="at">pathway=</span>CPI_result<span class="sc">$</span>pathway, <span class="at">enrichment=</span>CPI_result<span class="sc">$</span>enrichment,</span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>                                <span class="at">method=</span>CPI.kappa_result<span class="sc">$</span>method,<span class="at">software=</span>CPI_result<span class="sc">$</span>method,                                <span class="at">n.text.permute =</span> <span class="dv">1000</span>, <span class="at">output_dir =</span> <span class="st">&quot;./results/MetaPEResults/&quot;</span>  )</span></code></pre></div>
+</div>
+<p>You can take a look at the “Clustering_Summary.csv” to gen an idea of reproducibility of pathways and the amount of evidence provided by each study.</p>
+<p>Of the heat
+<img src="images/Heatmap_clusters_all.png" style="height:120.0%" alt="consensus clustering" /></p>
+<hr />
+</div>
+</div>
+<div id="network-meta-analyses-using-metadcn" class="section level1" number="8">
+<h1><span class="header-section-number">8</span> Network Meta analyses using MetaDCN</h1>
+<p>Co-expression analysis and network analysis of microarray data are used
+to investigate potential transcriptional co-regulation and gene
+interactions. Network analyses typically work with the gene–gene
+co-expression matrix, which represents the correlation between each pair
+of genes in the study. A crucial assumption is that the magnitude of the
+co-expression between any pair of genes is associated with a greater
+likelihood that the two genes interact. Thus, networks of interactions
+between genes are inferred from the co-expression matrix.</p>
+<p>Here we will use <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6041767/">MetaDCN</a> to extract network modules in disease vs control conditions.</p>
+<div class="figure">
+<img src="images/metaDCN.jpg" alt="" />
+<p class="caption">MetaDCN</p>
+</div>
+<div id="correction-and-adjacency-matrices" class="section level2" number="8.1">
+<h2><span class="header-section-number">8.1</span> Correction and adjacency matrices</h2>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co">#data(&quot;./data/pathwayDatabase.rda&quot;)</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="co">#data(example)</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate correction and adjacency matrices for data and permutation</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="co"># GeneNet returns a list of information which will be used for SearchBM and MetaDCN function, and several RData files stored in folder path.</span></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="co"># AdjacencyMatrices.RData is a list of adjacency matrices for case and control in each study in the order of case studies and control studies.</span></span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a><span class="co"># CorrelationMatrices.RData is a list of correlation matrices for case and control in each study.</span></span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a><span class="co"># AdjacencyMatricesPermutationP.RData is a list of correlation matrices for case and control in each study in permutation P.</span></span>
+<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a>GeneNetRes<span class="fl">.2</span>  <span class="ot">&lt;-</span> <span class="fu">GeneNet</span>(data , clin.data, <span class="at">caseName=</span><span class="st">&quot;Cancer&quot;</span>, <span class="at">controlName=</span><span class="st">&quot;Control&quot;</span>, <span class="at">meanFilter=</span><span class="fl">0.8</span>, <span class="at">SDFilter=</span><span class="fl">0.8</span>, <span class="at">edgeCutoff=</span><span class="fl">0.1</span>, <span class="at">permutationTimes=</span><span class="dv">4</span>, <span class="at">CPUNumbers=</span><span class="dv">4</span>,  <span class="at">pathwayDatabase=</span><span class="fu">c</span>(Biocarta.genesets,GOBP.genesets,GOCC.genesets,GOMF.genesets,</span>
+<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a>                    KEGG.genesets,Reactome.genesets), <span class="at">silent=</span><span class="cn">FALSE</span>, <span class="at">folder =</span> <span class="st">&quot;./results/MetaDCNResults/&quot;</span>)</span></code></pre></div>
+</div>
+</div>
+<div id="correlationsco-expressions" class="section level2" number="8.2">
+<h2><span class="header-section-number">8.2</span> Correlations/Co-expressions</h2>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This function will search for basic modules differentially co-expressed between case and control</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="co"># SearchBM will return a list and several Rdata, csv and png files saved in the folder path specified in GeneNet inputs.List of basic module information:</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="co"># w1    </span></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="co"># w1 weight with the most basic modules detected</span></span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a><span class="co"># BMInCase  </span></span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a><span class="co"># data matrix listing the information of basic modules higher correlated in case</span></span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a><span class="co"># BMInControl   </span></span>
+<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a><span class="co"># data matrix listing the information of basic modules higher correlated in control</span></span>
+<span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb44-13"><a href="#cb44-13" aria-hidden="true" tabindex="-1"></a><span class="co"># permutation_energy_direction_p.Rdata is a list of energies of basic modules from permutation p.</span></span>
+<span id="cb44-14"><a href="#cb44-14" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb44-15"><a href="#cb44-15" aria-hidden="true" tabindex="-1"></a><span class="co"># basic_modules_summary_direction_weight_w.csv is a summary of basic modules detected using weight w in forward/backward search.</span></span>
+<span id="cb44-16"><a href="#cb44-16" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb44-17"><a href="#cb44-17" aria-hidden="true" tabindex="-1"></a><span class="co"># threshold_direction.csv is a table listing number of basic modules detected under different FDRs in forward/backward search.</span></span>
+<span id="cb44-18"><a href="#cb44-18" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb44-19"><a href="#cb44-19" aria-hidden="true" tabindex="-1"></a><span class="co"># figure_basic_module_c_repeat_r_direction_weight_w.png is a plot of basic module from component c repeat r using weight w in forward/backward search.</span></span>
+<span id="cb44-20"><a href="#cb44-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-21"><a href="#cb44-21" aria-hidden="true" tabindex="-1"></a>SearchBMRes <span class="ot">&lt;-</span> <span class="fu">SearchBM</span>(GeneNetRes<span class="fl">.2</span>, <span class="at">MCSteps=</span><span class="dv">500</span>, <span class="at">jaccardCutoff=</span><span class="fl">0.7</span>, <span class="at">repeatTimes=</span><span class="dv">5</span>, <span class="at">outputFigure=</span><span class="cn">TRUE</span>, <span class="at">silent=</span><span class="cn">FALSE</span> )</span></code></pre></div>
+</div>
+<p><img src="images/Basic_module_component_1_repeat_2_weight_700_forward.png" /></p>
+</div>
+<div id="find-and-assemble-basic-modules" class="section level2" number="8.3">
+<h2><span class="header-section-number">8.3</span> Find and assemble basic modules</h2>
+<div class="block-title-parent">
+<div class="block-title small">
+R
+</div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co">#This function will assemble basic modules detected from SearchBM into supermodules.</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="co"># w1:w1 used</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="co"># BMInCaseSig: Summary of basic modules higher correlated in Case controling FDR</span></span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a><span class="co"># BMInControlSig    </span></span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary of basic modules higher correlated in Control controling FDR</span></span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Supermodule: Summary of supermodules</span></span>
+<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a><span class="co">#A number chosen from (100, 200, ..., 700) to specify the weight1 used in objective function (optional). If not specified, w1 from SearchBM function will be used (recommended).</span></span>
+<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a>MetaDNCRes <span class="ot">&lt;-</span> <span class="fu">MetaDCN</span>(GeneNetRes<span class="fl">.2</span>, SearchBMRes, <span class="at">FDRCutoff=</span><span class="fl">0.05</span>, <span class="at">w1=</span><span class="cn">NULL</span>, <span class="at">silent=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+</div>
+<p>You get the modules, their pathway annotations and cytoscape files in the results directory.</p>
+<p>For the final assembled modules have a look at the “module_assembly_summary_weight_500.csv” and find out ho many “supe modules you are able to identity on q value cut off of 0.05”</p>
+</div>
+</div>
+<div id="session-info" class="section level1" number="9">
+<h1><span class="header-section-number">9</span> Session info</h1>
+<div class="block-title-parent">
+<div class="block-title small">
+Output
+</div>
+<pre><code>## R version 4.1.0 (2021-05-18)
+## Platform: x86_64-pc-linux-gnu (64-bit)
+## Running under: Ubuntu 20.04.2 LTS
+## 
+## Matrix products: default
+## BLAS/LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.8.so
+## 
+## locale:
+##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+##  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=C             
+##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+## 
+## attached base packages:
+##  [1] grid      parallel  stats4    stats     graphics  grDevices datasets 
+##  [8] utils     methods   base     
+## 
+## other attached packages:
+##  [1] MetaDCN_0.0-1               igraph_1.2.6               
+##  [3] snowfall_1.84-6.1           snow_0.4-3                 
+##  [5] MetaPath_2.0                shape_1.4.6                
+##  [7] Rgraphviz_2.36.0            ggplot2_3.3.5              
+##  [9] gplots_3.1.1                cluster_2.1.2              
+## [11] irr_0.84.1                  lpSolve_5.6.15             
+## [13] ConsensusClusterPlus_1.56.0 impute_1.66.0              
+## [15] genefilter_1.74.0           GSEABase_1.54.0            
+## [17] graph_1.70.0                annotate_1.70.0            
+## [19] XML_3.99-0.7                MetaDE_2.2.3               
+## [21] MetaQC_1.0                  multtest_2.48.0            
+## [23] GSA_1.03.1                  preproc_1.2-4              
+## [25] DMwR_0.4.1                  lattice_0.20-44            
+## [27] AnnotationDbi_1.54.1        IRanges_2.26.0             
+## [29] S4Vectors_0.30.0            Biobase_2.52.0             
+## [31] BiocGenerics_0.38.0         plyr_1.8.6                 
+## [33] magrittr_2.0.1              captioner_2.2.3            
+## [35] bookdown_0.23               knitr_1.33                 
+## 
+## loaded via a namespace (and not attached):
+##  [1] colorspace_2.0-2            ellipsis_0.3.2             
+##  [3] class_7.3-19                XVector_0.32.0             
+##  [5] GenomicRanges_1.44.0        fs_1.5.0                   
+##  [7] bit64_4.0.5                 fansi_0.5.0                
+##  [9] splines_4.1.0               cachem_1.0.6               
+## [11] geneplotter_1.70.0          jsonlite_1.7.2             
+## [13] png_0.1-7                   shiny_1.6.0                
+## [15] compiler_4.1.0              httr_1.4.2                 
+## [17] Matrix_1.3-4                fastmap_1.1.0              
+## [19] limma_3.48.3                later_1.3.0                
+## [21] htmltools_0.5.2             tools_4.1.0                
+## [23] gtable_0.3.0                glue_1.4.2                 
+## [25] GenomeInfoDbData_1.2.6      Rcpp_1.0.7                 
+## [27] jquerylib_0.1.4             vctrs_0.3.8                
+## [29] Biostrings_2.60.2           xfun_0.25                  
+## [31] stringr_1.4.0               openxlsx_4.2.4             
+## [33] mime_0.11                   lifecycle_1.0.0            
+## [35] renv_0.14.0                 gtools_3.9.2               
+## [37] edgeR_3.34.0                zlibbioc_1.38.0            
+## [39] MASS_7.3-54                 zoo_1.8-9                  
+## [41] scales_1.1.1                promises_1.2.0.1           
+## [43] MatrixGenerics_1.4.3        SummarizedExperiment_1.22.0
+## [45] RColorBrewer_1.1-2          yaml_2.2.1                 
+## [47] quantmod_0.4.18             curl_4.3.2                 
+## [49] memoise_2.0.0               sass_0.4.0                 
+## [51] rpart_4.1-15                stringi_1.7.4              
+## [53] RSQLite_2.2.8               highr_0.9                  
+## [55] TTR_0.24.2                  caTools_1.18.2             
+## [57] zip_2.2.0                   BiocParallel_1.26.2        
+## [59] GenomeInfoDb_1.28.2         rlang_0.4.11               
+## [61] pkgconfig_2.0.3             matrixStats_0.60.1         
+## [63] bitops_1.0-7                evaluate_0.14              
+## [65] ROCR_1.0-11                 bit_4.0.4                  
+## [67] samr_3.0                    DESeq2_1.32.0              
+## [69] R6_2.5.1                    combinat_0.0-8             
+## [71] DelayedArray_0.18.0         DBI_1.1.1                  
+## [73] withr_2.4.2                 pillar_1.6.2               
+## [75] xts_0.12.1                  survival_3.2-13            
+## [77] KEGGREST_1.32.0             abind_1.4-5                
+## [79] RCurl_1.98-1.4              tibble_3.1.4               
+## [81] crayon_1.4.1                shinyFiles_0.9.0           
+## [83] KernSmooth_2.23-20          utf8_1.2.2                 
+## [85] rmarkdown_2.10              locfit_1.5-9.4             
+## [87] blob_1.2.2                  digest_0.6.27              
+## [89] xtable_1.8-4                httpuv_1.6.2               
+## [91] munsell_0.5.0               bslib_0.2.5.1</code></pre>
+</div>
+<p><strong>End of document</strong></p>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

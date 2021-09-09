@@ -1,0 +1,27 @@
+{
+    "id": "7A48E7B9",
+    "path": "~/Documents/GitHub/omicsintELexir2021/session_gsa/GEM_GSA.Rmd",
+    "project_path": "GEM_GSA.Rmd",
+    "type": "r_markdown",
+    "hash": "3480904364",
+    "contents": "",
+    "dirty": false,
+    "created": 1631119819184.0,
+    "source_on_save": false,
+    "relative_order": 1,
+    "properties": {
+        "chunk_output_type": "console",
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "634,0",
+        "scrollLine": "623"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1631123197,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1631123197883,
+    "read_only": false,
+    "read_only_alternatives": []
+}

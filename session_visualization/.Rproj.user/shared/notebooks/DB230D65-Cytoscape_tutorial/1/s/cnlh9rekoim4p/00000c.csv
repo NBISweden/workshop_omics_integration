@@ -1,0 +1,10 @@
+"0","exportImage(path, type = ""png"", resolution = 300)
+"
+"2","Failed to execute: http://127.0.0.1:1234/v1/commands/filetransfer/getFileInfo"
+"2","
+"
+"2","Failed to execute: http://127.0.0.1:1234/v1/commands/filetransfer/removeFile"
+"2","
+"
+"2","Error: Failed to find command namespace: 'filetransfer'
+"
