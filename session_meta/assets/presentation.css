@@ -186,14 +186,6 @@ p {
 
 /* COVER SLIDES ------------------------------------------------------------- */
 
-/* title slide image */
-.title-slide {
-  background-image: url(cover.jpg);
-  background-size: cover;
-  vertical-align: bottom !important;
-  text-align: left !important;
-  padding-bottom: 3em;
-}
 
 /* end slide image */
 .end-slide {

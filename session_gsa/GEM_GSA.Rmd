@@ -93,10 +93,6 @@ Setup option
 
 `r sn<-sn+1; paste0(sn,"\\. ")` If your conda installation fails, navigate to the directory where "renv.lock" file is located and run following code chunk.
 
-```{r, , message=FALSE, warning=FALSE, results='hide'}
-renv::init()
-BiocManager::install("TCGAbiolinks")
-```
 
 </br>
 
@@ -314,13 +310,14 @@ There are many different methods for performing gene set analysis (GSA), but Pia
 
 `r sn<-sn+1; paste0(sn,"\\. ")` Load DE results (if not already loaded)
 ```{r}
-de.res <- read.delim(file.path(tcga_dir, 'DE_results.txt'), row.names=1)
+de.res <- read.delim("./data/TCGA_data/DE_results.txt", row.names=1)
 ```
 </br>
 
 `r sn<-sn+1; paste0(sn,"\\. ")` Load one of the GEM-derived gene set collections
 ```{r}
-gsc <- loadGSC(file.path(main_dir, 'data', 'gene_set_collections', 'HumanGEM_subsystem_GSC.gmt'))
+#gsc <- loadGSC(file.path(main_dir, 'data', 'gene_set_collections', 'HumanGEM_subsystem_GSC.gmt'))
+gsc <- piano::loadGSC("./data/gene_set_collections/HumanGEM_subsystem_GSC.gmt")
 # gsc <- loadGSC(file.path(main_dir, 'data', 'gene_set_collections', 'HumanGEM_metabolite_GSC.gmt'))
 ```
 </br>
@@ -502,9 +499,9 @@ GSEA is one of the more commonly used gene set analysis algorithms. Although the
 Similar to the reporter analysis above, GSEA uses information from *all* genes in the dataset, not just a list of interesting or significant genes.
 </br>
 
-`r sn<-sn+1; paste0(sn,"\\. ")` Load DE results from text file
+`r sn<-sn+1; paste0(sn,"\\. ")` We will use the same DE results from text file loaded previously.
 ```{r}
-de.res <- read.delim(file.path(tcga_dir, 'DE_results.txt'), row.names=1)
+#de.res <- read.delim(file.path(tcga_dir, 'DE_results.txt'), row.names=1)
 ```
 </br>
 
@@ -526,12 +523,10 @@ names(gene_scores) <- rownames(de.res)
 
 ```{r}
 # Option 1: GSC based on GEM subsystems
-gsc_fgsea <- gmtPathways(file.path(main_dir, 'data', 'gene_set_collections',
-                                   'HumanGEM_subsystem_GSC.gmt'))
+gsc_fgsea <- fgsea::gmtPathways("./data/gene_set_collections/HumanGEM_subsystem_GSC.gmt")
 
 # Option 2: GSC based on GEM metabolites
-# gsc_fgsea <- gmtPathways(file.path(main_dir, 'data', 'gene_set_collections',
-#                                    'HumanGEM_metabolite_GSC.gmt'))
+# gsc_fgsea <- gmtPathways("./data/gene_set_collections/HumanGEM_metabolite_GSC.gmt"))
 ```
 </br>
 
@@ -619,7 +614,7 @@ It is always good to go back to the original gene-level data when interpreting G
 
 `r sn<-sn+1; paste0(sn,"\\. ")` Load the RNA-Seq gene count matrix
 ```{r}
-counts <- read.table(file.path(tcga_dir, 'count_matrix.txt'), row.names=1, header=T)
+counts <- read.table("./data/TCGA_data/count_matrix.txt", row.names=1, header=T)
 ```
 </br>
 
@@ -636,7 +631,7 @@ eid2sym <- AnnotationDbi::select(org.Hs.eg.db, row.names(cs), 'SYMBOL', 'ENSEMBL
 # if the symbol is missing (NA), just keep the Ensembl ID
 eid2sym$SYMBOL[is.na(eid2sym$SYMBOL)] <- eid2sym$ENSEMBL[is.na(eid2sym$SYMBOL)]
 
-row.names(cs) <- eid2sym$SYMBOL[match(row.names(cs), eid2sym$ENSEMBL)]
+row.names(cs) <- make.unique(eid2sym$SYMBOL[match(row.names(cs), eid2sym$ENSEMBL)])
 ```
 </br>
 

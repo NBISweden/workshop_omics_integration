@@ -26,6 +26,7 @@ class: left, middle, top
 
 ```{r, include=FALSE}
 #install.packages("xaringan")
+setwd("/Users/cob-aaf/Documents/GitHub/omicsintELexir2021/session_meta")
 ```
 
 
@@ -34,8 +35,6 @@ An example comparing effect of increased dosage of statins on mycardial infarcti
 In conclusive evidence.
 
 .pull-left-60[
-
-
 
 
 
@@ -375,6 +374,6 @@ pagedown::chrome_print("Meta_Analyses_Lecture.html")
 ```{r, include=FALSE, eval=FALSE}
 library(xaringanBuilder)
 build_pdf("slides.Rmd")
-build_pdf("Meta_Analyses_Lecture.html", complex_slides = TRUE, partial_slides = TRUE)
+build_pdf("Meta_Analyses_Lecture.html", complex_slides = TRUE, partial_slides = FALSE)
 ```
 

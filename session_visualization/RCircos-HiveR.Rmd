@@ -1,7 +1,7 @@
 ---
 title: "Cytoscape_R"
 author: "Ashfaq Ali"
-date: "09/10/2020"
+date: "updated: `r Sys.Date()`"
 output:
   bookdown::html_document2:
           toc: true
@@ -40,7 +40,7 @@ suppressMessages(library(grid))
 # library(rgl)
 ```
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, include=FALSE}
 setwd("/Users/cob-aaf/workshop_omics_integration/session_visualization/")
 ```
 

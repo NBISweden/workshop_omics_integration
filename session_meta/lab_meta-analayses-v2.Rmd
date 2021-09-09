@@ -22,45 +22,20 @@ output:
 ```
 
 
-```{r, eval=FALSE, echo=FALSE}
-#save(QCresult, QCresult2, file = "results/QC.rda")
-load(file = "./results/QC.rda")
-```
 
 ## Installation and setup
 
-Before we begin reading this tutorial and running the code, let us set
-up our R environment for this session. We will be using "renv" package
-in R to install all the necessary packages needed for the sessions.
+The docker image provided for the course contains required packages for this session. If you have any difficulty with installation, you can use "tuturial_meta.lock" to build the environment for this session.
 
-> *Note: Due to the use of the development versions of R packages that
-> are not available through conda repositories we are not able to
-> generate a conda environment for this session and an alternative
-> solution needs to be used.*
-
-```{r}
-setwd("~/Documents/GitHub/workshop_omics_integration/session_meta/")
-getwd()
-```
 
 ```{r, eval=FALSE}
 ## make sure that the renv.lock file for the session exists and do following.
 install.packages("renv")
-
-renv::restore(lockfile = "./Meta_tutorial/tuturial_meta.lock", prompt = TRUE) 
+setwd("path/to/workshop_omics_integration")# first set the path to session_meta
+renv::restore(lockfile = "./Meta_tutorial/tuturial_meta.lock", prompt = TRUE)
 
 ```
 
-> If XML lib fails in ubuntu and you get the error "Error installing
-> package 'XML':" go to terminal and install the libraries. "sudo
-> apt-get update" followed by "sudo apt-get install libxml2-dev" Now,
-> try the renv::init() again.
->> If you are trying to install within you conda environmen, you may need to install some dependencies
->> `install.packages(c("curl","remotes"))` and `remotes::install_github("joshuaulrich/TTR")`
->>  In bash of your active conda environment run `conda install -c conda-forge r-gert`
-> There maybe issues with installtion even after these depending on you architecture,
-> in that case you can locate the results for each of the sections in "results.tar.gz"
-> file which you can expand by `tar -xvzf results.tar.gz` and explore the results.
 
 # Introduction
 
