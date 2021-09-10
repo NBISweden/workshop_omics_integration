@@ -69,30 +69,17 @@ knitr::include_graphics('img/tcga_gdc_banner.png')
 ```
 
 
-Setup option 1
-=====
-
-**In your terminal/command prompt**
-
-`r sn<-sn+1; paste0(sn,"\\. ")` If you have not done so already, activate the `envnets` conda environment
-```{bash, eval=F}
-$ conda activate envnets
-```
-</br>
-
-`r sn<-sn+1; paste0(sn,"\\. ")` Launch RStudio from the command line
-```{bash, eval=F}
-$ rstudio &
-```
-</br>
-
 Setup option 
 =====
 
 **In r/rmarkdown run the following code**
 
-`r sn<-sn+1; paste0(sn,"\\. ")` If your conda installation fails, navigate to the directory where "renv.lock" file is located and run following code chunk.
+`r sn<-sn+1; paste0(sn,"\\. ")` If your docker installation fails, navigate to the directory where "renv.lock" file is located and run following code chunk.
 
+```{r, eval=FALSE}
+install.packages("renv")
+renv::restore("renv.lock")
+```
 
 </br>
 
