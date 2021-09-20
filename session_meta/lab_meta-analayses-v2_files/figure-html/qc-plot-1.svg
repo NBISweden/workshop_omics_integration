@@ -163,7 +163,7 @@
   <path d="M 59.039062 170 L 473.757812 170 L 473.757812 172 L 59.039062 172 Z M 59.039062 170 "/>
 </clipPath>
 </defs>
-<g id="surface79">
+<g id="surface69">
 <rect x="0" y="0" width="504" height="360" style="fill:rgb(100%,100%,100%);fill-opacity:1;stroke:none;"/>
 <path style="fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 167.996094 130.582031 C 167.996094 134.308594 164.972656 137.332031 161.246094 137.332031 C 157.519531 137.332031 154.496094 134.308594 154.496094 130.582031 C 154.496094 126.855469 157.519531 123.832031 161.246094 123.832031 C 164.972656 123.832031 167.996094 126.855469 167.996094 130.582031 "/>
 <path style="fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 119.3125 191.730469 C 119.3125 195.460938 116.289062 198.480469 112.5625 198.480469 C 108.832031 198.480469 105.8125 195.460938 105.8125 191.730469 C 105.8125 188.003906 108.832031 184.980469 112.5625 184.980469 C 116.289062 184.980469 119.3125 188.003906 119.3125 191.730469 "/>
@@ -224,7 +224,7 @@
 <g style="fill:rgb(0%,0%,0%);fill-opacity:1;">
   <use xlink:href="#glyph1-2" x="41.761719" y="93.765625"/>
 </g>
-<path style="fill:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 59.039062 286.558594 L 473.761719 286.558594 L 473.761719 59.039062 L 59.039062 59.039062 L 59.039062 286.558594 "/>
+<path style="fill:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 59.039062 286.558594 L 473.761719 286.558594 L 473.761719 59.039062 L 59.039062 59.039062 Z M 59.039062 286.558594 "/>
 <g style="fill:rgb(0%,0%,0%);fill-opacity:1;">
   <use xlink:href="#glyph0-6" x="197.371094" y="341.28125"/>
   <use xlink:href="#glyph0-7" x="204.701172" y="341.28125"/>

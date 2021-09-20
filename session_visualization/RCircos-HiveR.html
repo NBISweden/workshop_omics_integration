@@ -15,12 +15,22 @@
 
 <title>Cytoscape_R</title>
 
+<script src="RCircos-HiveR_files/header-attrs-2.10/header-attrs.js"></script>
 <script src="RCircos-HiveR_files/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="RCircos-HiveR_files/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
 <script src="RCircos-HiveR_files/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="RCircos-HiveR_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="RCircos-HiveR_files/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <script src="RCircos-HiveR_files/jqueryui-1.11.4/jquery-ui.min.js"></script>
 <link href="RCircos-HiveR_files/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="RCircos-HiveR_files/tocify-1.9.1/jquery.tocify.js"></script>
@@ -33,91 +43,40 @@
   div.column{display: inline-block; vertical-align: top; width: 50%;}
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   ul.task-list{list-style: none;}
-      a.sourceLine { display: inline-block; line-height: 1.25; }
-  a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-  a.sourceLine:empty { height: 1.2em; }
-  .sourceCode { overflow: visible; }
-  code.sourceCode { white-space: pre; position: relative; }
-  div.sourceCode { margin: 1em 0; }
-  pre.sourceCode { margin: 0; }
-  @media screen {
-  div.sourceCode { overflow: auto; }
-  }
-  @media print {
-  code.sourceCode { white-space: pre-wrap; }
-  a.sourceLine { text-indent: -1em; padding-left: 1em; }
-  }
-  pre.numberSource a.sourceLine
-    { position: relative; left: -4em; }
-  pre.numberSource a.sourceLine::before
-    { content: attr(data-line-number);
-      position: relative; left: -1em; text-align: right; vertical-align: baseline;
-      border: none; pointer-events: all; display: inline-block;
-      -webkit-touch-callout: none; -webkit-user-select: none;
-      -khtml-user-select: none; -moz-user-select: none;
-      -ms-user-select: none; user-select: none;
-      padding: 0 4px; width: 4em;
-      color: #aaaaaa;
-    }
-  pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-  div.sourceCode
-    { background-color: #f8f8f8; }
-  @media screen {
-  a.sourceLine::before { text-decoration: underline; }
-  }
-  code span.al { color: #ef2929; } /* Alert */
-  code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-  code span.at { color: #c4a000; } /* Attribute */
-  code span.bn { color: #0000cf; } /* BaseN */
-  code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
-  code span.ch { color: #4e9a06; } /* Char */
-  code span.cn { color: #000000; } /* Constant */
-  code span.co { color: #8f5902; font-style: italic; } /* Comment */
-  code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
-  code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
-  code span.dt { color: #204a87; } /* DataType */
-  code span.dv { color: #0000cf; } /* DecVal */
-  code span.er { color: #a40000; font-weight: bold; } /* Error */
-  code span.ex { } /* Extension */
-  code span.fl { color: #0000cf; } /* Float */
-  code span.fu { color: #000000; } /* Function */
-  code span.im { } /* Import */
-  code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
-  code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
-  code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
-  code span.ot { color: #8f5902; } /* Other */
-  code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-  code span.sc { color: #000000; } /* SpecialChar */
-  code span.ss { color: #4e9a06; } /* SpecialString */
-  code span.st { color: #4e9a06; } /* String */
-  code span.va { color: #000000; } /* Variable */
-  code span.vs { color: #4e9a06; } /* VerbatimString */
-  code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
     </style>
 
 
-<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
 <style type="text/css" data-origin="pandoc">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -126,9 +85,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  { background-color: #f8f8f8; }
+  {  background-color: #f8f8f8; }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ef2929; } /* Alert */
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -181,39 +140,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   }
 })();
 </script>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
+
 
 <link rel="stylesheet" href="assets/lab.css" type="text/css" />
 
@@ -224,10 +153,6 @@ h6 {
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
 }
 img {
   max-width:100%;
@@ -244,6 +169,9 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+pre code {
+  padding: 0;
+}
 </style>
 
 
@@ -256,7 +184,6 @@ summary {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -382,7 +309,7 @@ div.tocify {
 
 
 <!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row-fluid">
+<div class="row">
 <div class="col-xs-12 col-sm-4 col-md-3">
 <div id="TOC" class="tocify">
 </div>
@@ -393,7 +320,7 @@ div.tocify {
 
 
 
-<div class="fluid-row" id="header">
+<div id="header">
 
 
 
@@ -412,27 +339,27 @@ div.tocify {
 <div class="block-title small">
 R
 </div>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># suppressMessages(library(dplyr))</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="co"># suppressMessages(library(purrr))</span></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">suppressMessages</span>(<span class="kw">library</span>(stringi))</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw">suppressMessages</span>(<span class="kw">library</span>(tidyr))</a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="kw">suppressMessages</span>(<span class="kw">library</span>(tidyverse))</a>
-<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="kw">suppressMessages</span>(<span class="kw">library</span>(plyranges))</a>
-<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="kw">suppressMessages</span>(<span class="kw">library</span>(circlize))</a>
-<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="kw">suppressMessages</span>(<span class="kw">library</span>(IRanges))</a>
-<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="kw">suppressMessages</span>(<span class="kw">library</span>(data.table))</a>
-<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="kw">suppressMessages</span>(<span class="kw">library</span>(grid))</a>
-<a class="sourceLine" id="cb1-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb1-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb1-13" data-line-number="13"><span class="co"># library(HiveR)</span></a>
-<a class="sourceLine" id="cb1-14" data-line-number="14"><span class="co"># library(rgl)</span></a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># suppressMessages(library(dplyr))</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># suppressMessages(library(purrr))</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(<span class="fu">library</span>(stringi))</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(<span class="fu">library</span>(tidyr))</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(<span class="fu">library</span>(tidyverse))</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(<span class="fu">library</span>(plyranges))</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(<span class="fu">library</span>(circlize))</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(<span class="fu">library</span>(IRanges))</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(<span class="fu">library</span>(data.table))</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(<span class="fu">library</span>(grid))</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># library(HiveR)</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># library(rgl)</span></span></code></pre></div>
 </div>
 <div class="block-title-parent">
 <div class="block-title small">
 Output
 </div>
 </div>
-<div id="data-visualization" class="section level1">
+<div id="data-visualization" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Data visualization</h1>
 <p>Data visualization is part art and part science. The challenge is to get the art right without getting the science wrong and vice versa.</p>
 <p>Anscombe’s quartet notwithstanding, and especially for large volumes of data, summary statistics and model estimates should be thought of as tools that we use to deliberately simplify things in a way that lets us see past a cloud of data points shown in a figure. We will not automatically get the right answer to our questions just by looking.</p>
@@ -444,7 +371,7 @@ Output
 <li>Fundamentals of Data Visualization by Claus O. Wilke (<a href="https://clauswilke.com/dataviz/" class="uri">https://clauswilke.com/dataviz/</a>)</li>
 </ol>
 </div>
-<div id="circos-plots" class="section level1">
+<div id="circos-plots" class="section level1" number="2">
 <h1><span class="header-section-number">2</span> Circos Plots</h1>
 <p>The circos plot capability to plot genomic data with chromosome coordinates that requires chromosom <em>start</em> and the <em>end</em> site indicating the length of the chromosome. Each chromosom will occupy a <em>sector</em> in the circos plot. Tracks can then be added using the coordinate within each sector (chromosome) provided and relecvant data for each value of the coordinates can be plotte for the respective track. Examples could be genes, transcripts, bases (SNPs, CpG sites) etc, each with start and the end site.</p>
 <p>The <em>ciclize</em> package in R and <em>circos</em> algorithm in perl provide easy infrastructure to plot geneomic data.</p>
@@ -456,23 +383,23 @@ Output
 <p>Circos plots provide and excellent framework to visulaize multi assay omics data. The circular layout allows us to plot several layers of data based on coordinates. Genomic coordinates are one good example where the whole genome is displayed in the form of coordintes. The genomic coordinates can then be used to stack different layers of data.</p>
 <p>A circular layout is composed of sectors and tracks. For data in different categories, they are allocated into different sectors, and for multiple measurements on the same category, they are represented as stacked tracks from outside of the circle to the inside. The intersection of a sector and a track is called a cell (or a grid, a panel), which is the basic unit in a circular layout. It is an imaginary plotting region for drawing data points.</p>
 </div>
-<div id="principles-of-creating-circos-plot" class="section level1">
+<div id="principles-of-creating-circos-plot" class="section level1" number="3">
 <h1><span class="header-section-number">3</span> Principles of creating circos plot</h1>
 <p>The routine in making a circos plot works like</p>
 <p><strong>initialize layout -&gt; create track -&gt; add graphics -&gt; create track -&gt; add graphics - … -&gt; clear</strong></p>
-<div id="a-basic-example-of-circos-plot" class="section level2">
+<div id="a-basic-example-of-circos-plot" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> A basic example of circos plot</h2>
 <p>Let us create a small dataset and</p>
 <div class="block-title-parent">
 <div class="block-title small">
 R
 </div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">999</span>)</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">n =<span class="st"> </span><span class="dv">1000</span></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3">df =<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">factors =</span> <span class="kw">sample</span>(letters[<span class="dv">1</span><span class="op">:</span><span class="dv">8</span>], n, <span class="dt">replace =</span> <span class="ot">TRUE</span>),</a>
-<a class="sourceLine" id="cb2-4" data-line-number="4">    <span class="dt">x =</span> <span class="kw">rnorm</span>(n), <span class="dt">y =</span> <span class="kw">runif</span>(n), <span class="dt">z=</span><span class="kw">rnorm</span>(n))</a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="kw">head</span>(df)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">999</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">=</span> <span class="dv">1000</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">factors =</span> <span class="fu">sample</span>(letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>], n, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="fu">rnorm</span>(n), <span class="at">y =</span> <span class="fu">runif</span>(n), <span class="at">z=</span><span class="fu">rnorm</span>(n))</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
 <pre><code>##   factors           x         y          z
 ## 1       c -0.33837650 0.2277292 -2.3816263
 ## 2       d  0.20128773 0.8345422 -0.3889743
@@ -482,68 +409,68 @@ R
 ## 6       f -0.19359724 0.5251656 -1.1476363</code></pre>
 </div>
 </div>
-<div id="initialize-the-circular-layout" class="section level2">
+<div id="initialize-the-circular-layout" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> Initialize the circular layout</h2>
 <div class="block-title-parent">
 <div class="block-title small">
 R
 </div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">circos.par</span>(<span class="st">&quot;track.height&quot;</span> =<span class="st"> </span><span class="fl">0.1</span>)</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw">circos.initialize</span>(<span class="dt">factors =</span> df<span class="op">$</span>factors, <span class="dt">x =</span> df<span class="op">$</span>x)</a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">## create track</span></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="kw">circos.track</span>(<span class="dt">factors =</span> df<span class="op">$</span>factors, <span class="dt">y =</span> df<span class="op">$</span>y,</a>
-<a class="sourceLine" id="cb4-8" data-line-number="8">    <span class="dt">panel.fun =</span> <span class="cf">function</span>(x, y) {</a>
-<a class="sourceLine" id="cb4-9" data-line-number="9">        <span class="kw">circos.text</span>(CELL_META<span class="op">$</span>xcenter, CELL_META<span class="op">$</span>cell.ylim[<span class="dv">2</span>] <span class="op">+</span><span class="st"> </span><span class="kw">mm_y</span>(<span class="dv">5</span>), </a>
-<a class="sourceLine" id="cb4-10" data-line-number="10">            CELL_META<span class="op">$</span>sector.index)</a>
-<a class="sourceLine" id="cb4-11" data-line-number="11">        <span class="kw">circos.axis</span>(<span class="dt">labels.cex =</span> <span class="fl">0.6</span>)</a>
-<a class="sourceLine" id="cb4-12" data-line-number="12">})</a>
-<a class="sourceLine" id="cb4-13" data-line-number="13"></a>
-<a class="sourceLine" id="cb4-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb4-15" data-line-number="15"></a>
-<a class="sourceLine" id="cb4-16" data-line-number="16"><span class="co">## add graphics</span></a>
-<a class="sourceLine" id="cb4-17" data-line-number="17"></a>
-<a class="sourceLine" id="cb4-18" data-line-number="18"><span class="kw">circos.par</span>(<span class="st">&quot;track.height&quot;</span> =<span class="st"> </span><span class="fl">0.1</span>)</a>
-<a class="sourceLine" id="cb4-19" data-line-number="19"><span class="kw">circos.initialize</span>(<span class="dt">factors =</span> df<span class="op">$</span>factors, <span class="dt">x =</span> df<span class="op">$</span>x)</a>
-<a class="sourceLine" id="cb4-20" data-line-number="20"><span class="kw">circos.track</span>(<span class="dt">factors =</span> df<span class="op">$</span>factors, <span class="dt">y =</span> df<span class="op">$</span>y,</a>
-<a class="sourceLine" id="cb4-21" data-line-number="21">    <span class="dt">panel.fun =</span> <span class="cf">function</span>(x, y) {</a>
-<a class="sourceLine" id="cb4-22" data-line-number="22">        <span class="kw">circos.text</span>(CELL_META<span class="op">$</span>xcenter, CELL_META<span class="op">$</span>cell.ylim[<span class="dv">2</span>] <span class="op">+</span><span class="st"> </span><span class="kw">mm_y</span>(<span class="dv">5</span>), </a>
-<a class="sourceLine" id="cb4-23" data-line-number="23">            CELL_META<span class="op">$</span>sector.index)</a>
-<a class="sourceLine" id="cb4-24" data-line-number="24">        <span class="kw">circos.axis</span>(<span class="dt">labels.cex =</span> <span class="fl">0.6</span>)</a>
-<a class="sourceLine" id="cb4-25" data-line-number="25">})</a>
-<a class="sourceLine" id="cb4-26" data-line-number="26">col =<span class="st"> </span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;#FF0000&quot;</span>, <span class="st">&quot;#00FF00&quot;</span>), <span class="dv">4</span>)</a>
-<a class="sourceLine" id="cb4-27" data-line-number="27"><span class="kw">circos.trackPoints</span>(df<span class="op">$</span>factors, df<span class="op">$</span>x, df<span class="op">$</span>y, <span class="dt">col =</span> col, <span class="dt">pch =</span> <span class="dv">16</span>, <span class="dt">cex =</span> <span class="fl">0.5</span>)</a>
-<a class="sourceLine" id="cb4-28" data-line-number="28"><span class="kw">circos.text</span>(<span class="op">-</span><span class="dv">1</span>, <span class="fl">0.5</span>, <span class="st">&quot;text&quot;</span>, <span class="dt">sector.index =</span> <span class="st">&quot;a&quot;</span>, <span class="dt">track.index =</span> <span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb4-29" data-line-number="29"></a>
-<a class="sourceLine" id="cb4-30" data-line-number="30"></a>
-<a class="sourceLine" id="cb4-31" data-line-number="31"><span class="co">## Add more tracks </span></a>
-<a class="sourceLine" id="cb4-32" data-line-number="32"></a>
-<a class="sourceLine" id="cb4-33" data-line-number="33">bgcol =<span class="st"> </span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;#EFEFEF&quot;</span>, <span class="st">&quot;#CCCCCC&quot;</span>), <span class="dv">4</span>)</a>
-<a class="sourceLine" id="cb4-34" data-line-number="34"><span class="kw">circos.trackHist</span>(df<span class="op">$</span>factors, df<span class="op">$</span>z, <span class="dt">bin.size =</span> <span class="fl">0.2</span>, <span class="dt">bg.col =</span> bgcol, <span class="dt">col =</span> <span class="ot">NA</span>)</a>
-<a class="sourceLine" id="cb4-35" data-line-number="35"></a>
-<a class="sourceLine" id="cb4-36" data-line-number="36"><span class="kw">circos.track</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">panel.fun =</span> <span class="cf">function</span>(x, y) {</a>
-<a class="sourceLine" id="cb4-37" data-line-number="37">    xlim =<span class="st"> </span>CELL_META<span class="op">$</span>xlim</a>
-<a class="sourceLine" id="cb4-38" data-line-number="38">    ylim =<span class="st"> </span>CELL_META<span class="op">$</span>ylim</a>
-<a class="sourceLine" id="cb4-39" data-line-number="39">    breaks =<span class="st"> </span><span class="kw">seq</span>(xlim[<span class="dv">1</span>], xlim[<span class="dv">2</span>], <span class="dt">by =</span> <span class="fl">0.1</span>)</a>
-<a class="sourceLine" id="cb4-40" data-line-number="40">    n_breaks =<span class="st"> </span><span class="kw">length</span>(breaks)</a>
-<a class="sourceLine" id="cb4-41" data-line-number="41">    <span class="kw">circos.rect</span>(breaks[<span class="op">-</span>n_breaks], <span class="kw">rep</span>(ylim[<span class="dv">1</span>], n_breaks <span class="op">-</span><span class="st"> </span><span class="dv">1</span>),</a>
-<a class="sourceLine" id="cb4-42" data-line-number="42">                breaks[<span class="op">-</span><span class="dv">1</span>], <span class="kw">rep</span>(ylim[<span class="dv">2</span>], n_breaks <span class="op">-</span><span class="st"> </span><span class="dv">1</span>),</a>
-<a class="sourceLine" id="cb4-43" data-line-number="43">                <span class="dt">col =</span> <span class="kw">rand_color</span>(n_breaks), <span class="dt">border =</span> <span class="ot">NA</span>)</a>
-<a class="sourceLine" id="cb4-44" data-line-number="44">})</a>
-<a class="sourceLine" id="cb4-45" data-line-number="45"></a>
-<a class="sourceLine" id="cb4-46" data-line-number="46"></a>
-<a class="sourceLine" id="cb4-47" data-line-number="47"><span class="co">## Create links </span></a>
-<a class="sourceLine" id="cb4-48" data-line-number="48"></a>
-<a class="sourceLine" id="cb4-49" data-line-number="49"><span class="kw">circos.link</span>(<span class="st">&quot;a&quot;</span>, <span class="dv">0</span>, <span class="st">&quot;b&quot;</span>, <span class="dv">0</span>, <span class="dt">h =</span> <span class="fl">0.4</span>)</a>
-<a class="sourceLine" id="cb4-50" data-line-number="50"><span class="kw">circos.link</span>(<span class="st">&quot;c&quot;</span>, <span class="kw">c</span>(<span class="op">-</span><span class="fl">0.5</span>, <span class="fl">0.5</span>), <span class="st">&quot;d&quot;</span>, <span class="kw">c</span>(<span class="op">-</span><span class="fl">0.5</span>,<span class="fl">0.5</span>), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>,</a>
-<a class="sourceLine" id="cb4-51" data-line-number="51">    <span class="dt">border =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">h =</span> <span class="fl">0.2</span>)</a>
-<a class="sourceLine" id="cb4-52" data-line-number="52"><span class="kw">circos.link</span>(<span class="st">&quot;e&quot;</span>, <span class="dv">0</span>, <span class="st">&quot;g&quot;</span>, <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>), <span class="dt">col =</span> <span class="st">&quot;green&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">lty =</span> <span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb4-53" data-line-number="53"></a>
-<a class="sourceLine" id="cb4-54" data-line-number="54"></a>
-<a class="sourceLine" id="cb4-55" data-line-number="55"></a>
-<a class="sourceLine" id="cb4-56" data-line-number="56"><span class="kw">circos.clear</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">circos.par</span>(<span class="st">&quot;track.height&quot;</span> <span class="ot">=</span> <span class="fl">0.1</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">circos.initialize</span>(<span class="at">factors =</span> df<span class="sc">$</span>factors, <span class="at">x =</span> df<span class="sc">$</span>x)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="do">## create track</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">circos.track</span>(<span class="at">factors =</span> df<span class="sc">$</span>factors, <span class="at">y =</span> df<span class="sc">$</span>y,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.fun =</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">circos.text</span>(CELL_META<span class="sc">$</span>xcenter, CELL_META<span class="sc">$</span>cell.ylim[<span class="dv">2</span>] <span class="sc">+</span> <span class="fu">mm_y</span>(<span class="dv">5</span>), </span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>            CELL_META<span class="sc">$</span>sector.index)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        <span class="fu">circos.axis</span>(<span class="at">labels.cex =</span> <span class="fl">0.6</span>)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="do">## add graphics</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="fu">circos.par</span>(<span class="st">&quot;track.height&quot;</span> <span class="ot">=</span> <span class="fl">0.1</span>)</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="fu">circos.initialize</span>(<span class="at">factors =</span> df<span class="sc">$</span>factors, <span class="at">x =</span> df<span class="sc">$</span>x)</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="fu">circos.track</span>(<span class="at">factors =</span> df<span class="sc">$</span>factors, <span class="at">y =</span> df<span class="sc">$</span>y,</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.fun =</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>        <span class="fu">circos.text</span>(CELL_META<span class="sc">$</span>xcenter, CELL_META<span class="sc">$</span>cell.ylim[<span class="dv">2</span>] <span class="sc">+</span> <span class="fu">mm_y</span>(<span class="dv">5</span>), </span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>            CELL_META<span class="sc">$</span>sector.index)</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>        <span class="fu">circos.axis</span>(<span class="at">labels.cex =</span> <span class="fl">0.6</span>)</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>col <span class="ot">=</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;#FF0000&quot;</span>, <span class="st">&quot;#00FF00&quot;</span>), <span class="dv">4</span>)</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="fu">circos.trackPoints</span>(df<span class="sc">$</span>factors, df<span class="sc">$</span>x, df<span class="sc">$</span>y, <span class="at">col =</span> col, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">cex =</span> <span class="fl">0.5</span>)</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="fu">circos.text</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="fl">0.5</span>, <span class="st">&quot;text&quot;</span>, <span class="at">sector.index =</span> <span class="st">&quot;a&quot;</span>, <span class="at">track.index =</span> <span class="dv">1</span>)</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a><span class="do">## Add more tracks </span></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>bgcol <span class="ot">=</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;#EFEFEF&quot;</span>, <span class="st">&quot;#CCCCCC&quot;</span>), <span class="dv">4</span>)</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="fu">circos.trackHist</span>(df<span class="sc">$</span>factors, df<span class="sc">$</span>z, <span class="at">bin.size =</span> <span class="fl">0.2</span>, <span class="at">bg.col =</span> bgcol, <span class="at">col =</span> <span class="cn">NA</span>)</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a><span class="fu">circos.track</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">panel.fun =</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>    xlim <span class="ot">=</span> CELL_META<span class="sc">$</span>xlim</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>    ylim <span class="ot">=</span> CELL_META<span class="sc">$</span>ylim</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>    breaks <span class="ot">=</span> <span class="fu">seq</span>(xlim[<span class="dv">1</span>], xlim[<span class="dv">2</span>], <span class="at">by =</span> <span class="fl">0.1</span>)</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>    n_breaks <span class="ot">=</span> <span class="fu">length</span>(breaks)</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>    <span class="fu">circos.rect</span>(breaks[<span class="sc">-</span>n_breaks], <span class="fu">rep</span>(ylim[<span class="dv">1</span>], n_breaks <span class="sc">-</span> <span class="dv">1</span>),</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>                breaks[<span class="sc">-</span><span class="dv">1</span>], <span class="fu">rep</span>(ylim[<span class="dv">2</span>], n_breaks <span class="sc">-</span> <span class="dv">1</span>),</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>                <span class="at">col =</span> <span class="fu">rand_color</span>(n_breaks), <span class="at">border =</span> <span class="cn">NA</span>)</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a><span class="do">## Create links </span></span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a><span class="fu">circos.link</span>(<span class="st">&quot;a&quot;</span>, <span class="dv">0</span>, <span class="st">&quot;b&quot;</span>, <span class="dv">0</span>, <span class="at">h =</span> <span class="fl">0.4</span>)</span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a><span class="fu">circos.link</span>(<span class="st">&quot;c&quot;</span>, <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.5</span>, <span class="fl">0.5</span>), <span class="st">&quot;d&quot;</span>, <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.5</span>,<span class="fl">0.5</span>), <span class="at">col =</span> <span class="st">&quot;red&quot;</span>,</span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>    <span class="at">border =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">h =</span> <span class="fl">0.2</span>)</span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a><span class="fu">circos.link</span>(<span class="st">&quot;e&quot;</span>, <span class="dv">0</span>, <span class="st">&quot;g&quot;</span>, <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>), <span class="at">col =</span> <span class="st">&quot;green&quot;</span>, <span class="at">border =</span> <span class="st">&quot;black&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a><span class="fu">circos.clear</span>()</span></code></pre></div>
 <img src="RCircos-HiveR_files/figure-html/unnamed-chunk-5-1.svg" width="672" style="display: block; margin: auto auto auto 0;" /><img src="RCircos-HiveR_files/figure-html/unnamed-chunk-5-2.svg" width="672" style="display: block; margin: auto auto auto 0;" />
 </div>
 <p>A circular layout is composed of sectors and tracks. For data in different categories, they are allocated into different sectors, and for multiple measurements on the same category, they are represented as stacked tracks from outside of the circle to the inside. The intersection of a sector and a track is called a cell (or a grid, a panel), which is the basic unit in a circular layout. It is an imaginary plotting region for drawing data points.</p>
@@ -574,32 +501,32 @@ circos.par(): graphic parameters.
 circos.info(): prints general parameters of current circular plot.
 circos.clear(): resets graphic parameters and internal variables.</p>
 </div>
-<div id="applications-in-genomicsomics" class="section level2">
+<div id="applications-in-genomicsomics" class="section level2" number="3.3">
 <h2><span class="header-section-number">3.3</span> Applications in Genomics/omics</h2>
 <p>Let us creat a bed file using the generateRandomBed() function from the “circlize” package.</p>
 </div>
-<div id="example-for-genomic-data" class="section level2">
+<div id="example-for-genomic-data" class="section level2" number="3.4">
 <h2><span class="header-section-number">3.4</span> Example for genomic data</h2>
 </div>
-<div id="circos.genomicpostransformlines" class="section level2">
+<div id="circos.genomicpostransformlines" class="section level2" number="3.5">
 <h2><span class="header-section-number">3.5</span> circos.genomicPosTransformLines</h2>
 <p>For example, there are two sets of regions in a chromosome in which regions in one set regions are quite densely to each other and regions in other set are far from others. Heatmap or text is going to be drawn on the next track. If there is no position transformation, heatmap or text for those dense regions would be overlapped and hard to identify, also ugly to visualize. Thus, a way to transform original positions to new positions would help for the visualization.</p>
 <div class="block-title-parent">
 <div class="block-title small">
 R
 </div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">circos.initializeWithIdeogram</span>()</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw">set.seed</span>(<span class="dv">123</span>)</a>
-<a class="sourceLine" id="cb5-3" data-line-number="3">reds10 &lt;-<span class="st"> </span><span class="kw">rand_color</span>(<span class="dv">10</span>, <span class="dt">hue =</span> <span class="st">&quot;red&quot;</span>)</a>
-<a class="sourceLine" id="cb5-4" data-line-number="4">greens &lt;-<span class="st"> </span><span class="kw">rand_color</span>(<span class="dv">10</span>, <span class="dt">hue =</span> <span class="st">&quot;green&quot;</span>)</a>
-<a class="sourceLine" id="cb5-5" data-line-number="5">blues &lt;-<span class="st"> </span><span class="kw">rand_color</span>(<span class="dv">10</span>, <span class="dt">hue =</span> <span class="st">&quot;blue&quot;</span>)</a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb5-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co">#circos.genomicPosTransformLines(bed, posTransform = posTransform.default, horizontalLine = &quot;top&quot;, col =reds10[1], lwd = 2)</span></a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">circos.initializeWithIdeogram</span>()</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>reds10 <span class="ot">&lt;-</span> <span class="fu">rand_color</span>(<span class="dv">10</span>, <span class="at">hue =</span> <span class="st">&quot;red&quot;</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>greens <span class="ot">&lt;-</span> <span class="fu">rand_color</span>(<span class="dv">10</span>, <span class="at">hue =</span> <span class="st">&quot;green&quot;</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>blues <span class="ot">&lt;-</span> <span class="fu">rand_color</span>(<span class="dv">10</span>, <span class="at">hue =</span> <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">#circos.genomicPosTransformLines(bed, posTransform = posTransform.default, horizontalLine = &quot;top&quot;, col =reds10[1], lwd = 2)</span></span></code></pre></div>
 <img src="RCircos-HiveR_files/figure-html/unnamed-chunk-6-1.svg" width="672" style="display: block; margin: auto auto auto 0;" />
 </div>
 </div>
-<div id="add-heatmap-to-the-genomic-regions" class="section level2">
+<div id="add-heatmap-to-the-genomic-regions" class="section level2" number="3.6">
 <h2><span class="header-section-number">3.6</span> Add heatmap to the genomic regions</h2>
 <p>The main idea for plotting data for circos plots is that one passes the data circos.genomicTrackPlotRegion() function together with a panel.function. Within the panel function argument, the relevant plotting function can be supplied togther with the relevant data. The relevant data maybe a bed file as a data frame where first three columns the file refer to the coordinates while column 4 and onwards refer to the data values to be plotted.</p>
 <p>Here we want to plot heatmap which is done by circos.genomicRect() function that expects</p>
@@ -607,23 +534,23 @@ R
 <div class="block-title small">
 R
 </div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">circos.initializeWithIdeogram</span>()</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2">bed =<span class="st"> </span><span class="kw">generateRandomBed</span>(<span class="dt">nr =</span> <span class="dv">400</span>, <span class="dt">nc =</span> <span class="dv">8</span>)</a>
-<a class="sourceLine" id="cb6-3" data-line-number="3">om =<span class="st"> </span><span class="kw">circos.par</span>(<span class="st">&quot;track.margin&quot;</span>)</a>
-<a class="sourceLine" id="cb6-4" data-line-number="4">oc =<span class="st"> </span><span class="kw">circos.par</span>(<span class="st">&quot;cell.padding&quot;</span>)</a>
-<a class="sourceLine" id="cb6-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="kw">circos.par</span>(<span class="dt">track.margin =</span> <span class="kw">c</span>(om[<span class="dv">1</span>], <span class="dv">0</span>), <span class="dt">cell.padding =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>))</a>
-<a class="sourceLine" id="cb6-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb6-8" data-line-number="8">f =<span class="st"> </span><span class="kw">colorRamp2</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">colors =</span> <span class="kw">c</span>(<span class="st">&quot;green&quot;</span>, <span class="st">&quot;white&quot;</span>, <span class="st">&quot;red&quot;</span>))</a>
-<a class="sourceLine" id="cb6-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb6-10" data-line-number="10"><span class="kw">circos.genomicTrackPlotRegion</span>(bed, <span class="dt">stack =</span> <span class="ot">TRUE</span>, <span class="dt">panel.fun =</span> <span class="cf">function</span>(coord, vals, ...) {</a>
-<a class="sourceLine" id="cb6-11" data-line-number="11">    <span class="kw">circos.genomicRect</span>(<span class="dt">region =</span> coord, <span class="dt">value =</span> vals, <span class="dt">col =</span> <span class="kw">f</span>(vals[[<span class="dv">1</span>]]), </a>
-<a class="sourceLine" id="cb6-12" data-line-number="12">        <span class="dt">border =</span> <span class="kw">f</span>(vals[[<span class="dv">1</span>]]), <span class="dt">lwd =</span> <span class="fl">0.1</span>, <span class="dt">posTransform =</span> posTransform.default, ...)</a>
-<a class="sourceLine" id="cb6-13" data-line-number="13">}, <span class="dt">bg.border =</span> <span class="ot">NA</span>, <span class="dt">track.height =</span> <span class="fl">0.1</span>)</a>
-<a class="sourceLine" id="cb6-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb6-15" data-line-number="15"></a>
-<a class="sourceLine" id="cb6-16" data-line-number="16"><span class="kw">circos.par</span>(<span class="dt">track.margin =</span> om, <span class="dt">cell.padding =</span> oc)</a>
-<a class="sourceLine" id="cb6-17" data-line-number="17"><span class="kw">circos.clear</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">circos.initializeWithIdeogram</span>()</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>bed <span class="ot">=</span> <span class="fu">generateRandomBed</span>(<span class="at">nr =</span> <span class="dv">400</span>, <span class="at">nc =</span> <span class="dv">8</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>om <span class="ot">=</span> <span class="fu">circos.par</span>(<span class="st">&quot;track.margin&quot;</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>oc <span class="ot">=</span> <span class="fu">circos.par</span>(<span class="st">&quot;cell.padding&quot;</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">circos.par</span>(<span class="at">track.margin =</span> <span class="fu">c</span>(om[<span class="dv">1</span>], <span class="dv">0</span>), <span class="at">cell.padding =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>f <span class="ot">=</span> <span class="fu">colorRamp2</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="at">colors =</span> <span class="fu">c</span>(<span class="st">&quot;green&quot;</span>, <span class="st">&quot;white&quot;</span>, <span class="st">&quot;red&quot;</span>))</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="fu">circos.genomicTrackPlotRegion</span>(bed, <span class="at">stack =</span> <span class="cn">TRUE</span>, <span class="at">panel.fun =</span> <span class="cf">function</span>(coord, vals, ...) {</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">circos.genomicRect</span>(<span class="at">region =</span> coord, <span class="at">value =</span> vals, <span class="at">col =</span> <span class="fu">f</span>(vals[[<span class="dv">1</span>]]), </span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">border =</span> <span class="fu">f</span>(vals[[<span class="dv">1</span>]]), <span class="at">lwd =</span> <span class="fl">0.1</span>, <span class="at">posTransform =</span> posTransform.default, ...)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>}, <span class="at">bg.border =</span> <span class="cn">NA</span>, <span class="at">track.height =</span> <span class="fl">0.1</span>)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="fu">circos.par</span>(<span class="at">track.margin =</span> om, <span class="at">cell.padding =</span> oc)</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="fu">circos.clear</span>()</span></code></pre></div>
 <img src="RCircos-HiveR_files/figure-html/unnamed-chunk-7-1.svg" width="1440" style="display: block; margin: auto auto auto 0;" />
 </div>
 <p>Another way of plotting heatmaps is using circos.genomicHeatmap() function.</p>
@@ -631,186 +558,186 @@ R
 <div class="block-title small">
 R
 </div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">circos.initializeWithIdeogram</span>()</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2">bed =<span class="st"> </span><span class="kw">generateRandomBed</span>(<span class="dt">nr =</span> <span class="dv">400</span>, <span class="dt">nc =</span> <span class="dv">8</span>)</a>
-<a class="sourceLine" id="cb7-3" data-line-number="3">om =<span class="st"> </span><span class="kw">circos.par</span>(<span class="st">&quot;track.margin&quot;</span>)</a>
-<a class="sourceLine" id="cb7-4" data-line-number="4">oc =<span class="st"> </span><span class="kw">circos.par</span>(<span class="st">&quot;cell.padding&quot;</span>)</a>
-<a class="sourceLine" id="cb7-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="kw">circos.par</span>(<span class="dt">track.margin =</span> <span class="kw">c</span>(om[<span class="dv">1</span>], <span class="dv">0</span>), <span class="dt">cell.padding =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>))</a>
-<a class="sourceLine" id="cb7-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb7-8" data-line-number="8">f =<span class="st"> </span><span class="kw">colorRamp2</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">colors =</span> <span class="kw">c</span>(<span class="st">&quot;green&quot;</span>, <span class="st">&quot;white&quot;</span>, <span class="st">&quot;red&quot;</span>))</a>
-<a class="sourceLine" id="cb7-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb7-10" data-line-number="10"><span class="kw">circos.genomicTrackPlotRegion</span>(bed, <span class="dt">stack =</span> <span class="ot">TRUE</span>, <span class="dt">panel.fun =</span> <span class="cf">function</span>(coord, vals, ...) {</a>
-<a class="sourceLine" id="cb7-11" data-line-number="11">    <span class="kw">circos.genomicRect</span>(<span class="dt">region =</span> coord, <span class="dt">value =</span> vals, <span class="dt">col =</span> <span class="kw">f</span>(vals[[<span class="dv">1</span>]]), </a>
-<a class="sourceLine" id="cb7-12" data-line-number="12">        <span class="dt">border =</span> <span class="kw">f</span>(vals[[<span class="dv">1</span>]]), <span class="dt">lwd =</span> <span class="fl">0.1</span>, <span class="dt">posTransform =</span> posTransform.default, ...)</a>
-<a class="sourceLine" id="cb7-13" data-line-number="13">}, <span class="dt">bg.border =</span> <span class="ot">NA</span>, <span class="dt">track.height =</span> <span class="fl">0.1</span>)</a>
-<a class="sourceLine" id="cb7-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb7-15" data-line-number="15"></a>
-<a class="sourceLine" id="cb7-16" data-line-number="16"><span class="kw">circos.clear</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">circos.initializeWithIdeogram</span>()</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>bed <span class="ot">=</span> <span class="fu">generateRandomBed</span>(<span class="at">nr =</span> <span class="dv">400</span>, <span class="at">nc =</span> <span class="dv">8</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>om <span class="ot">=</span> <span class="fu">circos.par</span>(<span class="st">&quot;track.margin&quot;</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>oc <span class="ot">=</span> <span class="fu">circos.par</span>(<span class="st">&quot;cell.padding&quot;</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">circos.par</span>(<span class="at">track.margin =</span> <span class="fu">c</span>(om[<span class="dv">1</span>], <span class="dv">0</span>), <span class="at">cell.padding =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>f <span class="ot">=</span> <span class="fu">colorRamp2</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="at">colors =</span> <span class="fu">c</span>(<span class="st">&quot;green&quot;</span>, <span class="st">&quot;white&quot;</span>, <span class="st">&quot;red&quot;</span>))</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="fu">circos.genomicTrackPlotRegion</span>(bed, <span class="at">stack =</span> <span class="cn">TRUE</span>, <span class="at">panel.fun =</span> <span class="cf">function</span>(coord, vals, ...) {</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">circos.genomicRect</span>(<span class="at">region =</span> coord, <span class="at">value =</span> vals, <span class="at">col =</span> <span class="fu">f</span>(vals[[<span class="dv">1</span>]]), </span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">border =</span> <span class="fu">f</span>(vals[[<span class="dv">1</span>]]), <span class="at">lwd =</span> <span class="fl">0.1</span>, <span class="at">posTransform =</span> posTransform.default, ...)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>}, <span class="at">bg.border =</span> <span class="cn">NA</span>, <span class="at">track.height =</span> <span class="fl">0.1</span>)</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="fu">circos.clear</span>()</span></code></pre></div>
 <img src="RCircos-HiveR_files/figure-html/unnamed-chunk-8-1.svg" width="1440" style="display: block; margin: auto auto auto 0;" />
 </div>
 </div>
-<div id="points" class="section level2">
+<div id="points" class="section level2" number="3.7">
 <h2><span class="header-section-number">3.7</span> Points</h2>
 <div class="block-title-parent">
 <div class="block-title small">
 R
 </div>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">circos.initializeWithIdeogram</span>()</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb8-3" data-line-number="3">om =<span class="st"> </span><span class="kw">circos.par</span>(<span class="st">&quot;track.margin&quot;</span>)</a>
-<a class="sourceLine" id="cb8-4" data-line-number="4">oc =<span class="st"> </span><span class="kw">circos.par</span>(<span class="st">&quot;cell.padding&quot;</span>)</a>
-<a class="sourceLine" id="cb8-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="kw">circos.par</span>(<span class="dt">track.margin =</span> <span class="kw">c</span>(om[<span class="dv">1</span>], <span class="dv">0</span>), <span class="dt">cell.padding =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>))</a>
-<a class="sourceLine" id="cb8-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb8-8" data-line-number="8">f =<span class="st"> </span><span class="kw">colorRamp2</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">colors =</span> <span class="kw">c</span>(<span class="st">&quot;green&quot;</span>, <span class="st">&quot;white&quot;</span>, <span class="st">&quot;red&quot;</span>))</a>
-<a class="sourceLine" id="cb8-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb8-10" data-line-number="10"><span class="kw">circos.genomicTrackPlotRegion</span>(bed, <span class="dt">stack =</span> <span class="ot">TRUE</span>, <span class="dt">panel.fun =</span> <span class="cf">function</span>(coord, vals, ...) {</a>
-<a class="sourceLine" id="cb8-11" data-line-number="11">    <span class="kw">circos.genomicRect</span>(<span class="dt">region =</span> coord, <span class="dt">value =</span> vals, <span class="dt">col =</span> <span class="kw">f</span>(vals[[<span class="dv">1</span>]]), </a>
-<a class="sourceLine" id="cb8-12" data-line-number="12">        <span class="dt">border =</span> <span class="kw">f</span>(vals[[<span class="dv">1</span>]]), <span class="dt">lwd =</span> <span class="fl">0.1</span>, <span class="dt">posTransform =</span> posTransform.default, ...)</a>
-<a class="sourceLine" id="cb8-13" data-line-number="13">}, <span class="dt">bg.border =</span> <span class="ot">NA</span>, <span class="dt">track.height =</span> <span class="fl">0.1</span>)</a>
-<a class="sourceLine" id="cb8-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb8-15" data-line-number="15"></a>
-<a class="sourceLine" id="cb8-16" data-line-number="16">bed =<span class="st"> </span><span class="kw">generateRandomBed</span>(<span class="dt">nr =</span> <span class="dv">900</span>, <span class="dt">fun =</span> <span class="cf">function</span>(k) <span class="kw">runif</span>(k)<span class="op">*</span><span class="kw">sample</span>(<span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>), k, <span class="dt">replace =</span> <span class="ot">TRUE</span>))</a>
-<a class="sourceLine" id="cb8-17" data-line-number="17"></a>
-<a class="sourceLine" id="cb8-18" data-line-number="18"><span class="kw">circos.genomicTrackPlotRegion</span>(bed, <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="dt">panel.fun =</span> <span class="cf">function</span>(coord, vals, ...) {</a>
-<a class="sourceLine" id="cb8-19" data-line-number="19">    col =<span class="st"> </span><span class="kw">ifelse</span>(vals[[<span class="dv">1</span>]] <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>)</a>
-<a class="sourceLine" id="cb8-20" data-line-number="20">    <span class="kw">circos.genomicPoints</span>(<span class="dt">region=</span>coord, <span class="dt">value=</span>vals, <span class="dt">col =</span> col, <span class="dt">cex =</span> <span class="fl">0.5</span>, <span class="dt">pch =</span> <span class="dv">16</span>)</a>
-<a class="sourceLine" id="cb8-21" data-line-number="21">    cell.xlim =<span class="st"> </span><span class="kw">get.cell.meta.data</span>(<span class="st">&quot;cell.xlim&quot;</span>)</a>
-<a class="sourceLine" id="cb8-22" data-line-number="22">    <span class="cf">for</span>(h <span class="cf">in</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="fl">-0.5</span>, <span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">1</span>)) {</a>
-<a class="sourceLine" id="cb8-23" data-line-number="23">        <span class="kw">circos.lines</span>(cell.xlim, <span class="kw">c</span>(h, h), <span class="dt">col =</span> <span class="st">&quot;#00000040&quot;</span>)</a>
-<a class="sourceLine" id="cb8-24" data-line-number="24">    }</a>
-<a class="sourceLine" id="cb8-25" data-line-number="25">}, <span class="dt">track.height =</span> <span class="fl">0.1</span>)</a>
-<a class="sourceLine" id="cb8-26" data-line-number="26"><span class="kw">circos.clear</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">circos.initializeWithIdeogram</span>()</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>om <span class="ot">=</span> <span class="fu">circos.par</span>(<span class="st">&quot;track.margin&quot;</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>oc <span class="ot">=</span> <span class="fu">circos.par</span>(<span class="st">&quot;cell.padding&quot;</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">circos.par</span>(<span class="at">track.margin =</span> <span class="fu">c</span>(om[<span class="dv">1</span>], <span class="dv">0</span>), <span class="at">cell.padding =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>f <span class="ot">=</span> <span class="fu">colorRamp2</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="at">colors =</span> <span class="fu">c</span>(<span class="st">&quot;green&quot;</span>, <span class="st">&quot;white&quot;</span>, <span class="st">&quot;red&quot;</span>))</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="fu">circos.genomicTrackPlotRegion</span>(bed, <span class="at">stack =</span> <span class="cn">TRUE</span>, <span class="at">panel.fun =</span> <span class="cf">function</span>(coord, vals, ...) {</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">circos.genomicRect</span>(<span class="at">region =</span> coord, <span class="at">value =</span> vals, <span class="at">col =</span> <span class="fu">f</span>(vals[[<span class="dv">1</span>]]), </span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">border =</span> <span class="fu">f</span>(vals[[<span class="dv">1</span>]]), <span class="at">lwd =</span> <span class="fl">0.1</span>, <span class="at">posTransform =</span> posTransform.default, ...)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>}, <span class="at">bg.border =</span> <span class="cn">NA</span>, <span class="at">track.height =</span> <span class="fl">0.1</span>)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>bed <span class="ot">=</span> <span class="fu">generateRandomBed</span>(<span class="at">nr =</span> <span class="dv">900</span>, <span class="at">fun =</span> <span class="cf">function</span>(k) <span class="fu">runif</span>(k)<span class="sc">*</span><span class="fu">sample</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), k, <span class="at">replace =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="fu">circos.genomicTrackPlotRegion</span>(bed, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="at">panel.fun =</span> <span class="cf">function</span>(coord, vals, ...) {</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>    col <span class="ot">=</span> <span class="fu">ifelse</span>(vals[[<span class="dv">1</span>]] <span class="sc">&gt;</span> <span class="dv">0</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>)</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">circos.genomicPoints</span>(<span class="at">region=</span>coord, <span class="at">value=</span>vals, <span class="at">col =</span> col, <span class="at">cex =</span> <span class="fl">0.5</span>, <span class="at">pch =</span> <span class="dv">16</span>)</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>    cell.xlim <span class="ot">=</span> <span class="fu">get.cell.meta.data</span>(<span class="st">&quot;cell.xlim&quot;</span>)</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span>(h <span class="cf">in</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="sc">-</span><span class="fl">0.5</span>, <span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">1</span>)) {</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>        <span class="fu">circos.lines</span>(cell.xlim, <span class="fu">c</span>(h, h), <span class="at">col =</span> <span class="st">&quot;#00000040&quot;</span>)</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>}, <span class="at">track.height =</span> <span class="fl">0.1</span>)</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="fu">circos.clear</span>()</span></code></pre></div>
 <img src="RCircos-HiveR_files/figure-html/unnamed-chunk-9-1.svg" width="1440" style="display: block; margin: auto auto auto 0;" />
 </div>
 </div>
-<div id="add-complex-tracks" class="section level2">
+<div id="add-complex-tracks" class="section level2" number="3.8">
 <h2><span class="header-section-number">3.8</span> Add complex tracks</h2>
 <div class="block-title-parent">
 <div class="block-title small">
 R
 </div>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">circos.initializeWithIdeogram</span>()</a>
-<a class="sourceLine" id="cb9-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb9-3" data-line-number="3">om =<span class="st"> </span><span class="kw">circos.par</span>(<span class="st">&quot;track.margin&quot;</span>)</a>
-<a class="sourceLine" id="cb9-4" data-line-number="4">oc =<span class="st"> </span><span class="kw">circos.par</span>(<span class="st">&quot;cell.padding&quot;</span>)</a>
-<a class="sourceLine" id="cb9-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb9-6" data-line-number="6"><span class="kw">circos.par</span>(<span class="dt">track.margin =</span> <span class="kw">c</span>(om[<span class="dv">1</span>], <span class="dv">0</span>), <span class="dt">cell.padding =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>))</a>
-<a class="sourceLine" id="cb9-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb9-8" data-line-number="8">f =<span class="st"> </span><span class="kw">colorRamp2</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">colors =</span> <span class="kw">c</span>(<span class="st">&quot;green&quot;</span>, <span class="st">&quot;white&quot;</span>, <span class="st">&quot;red&quot;</span>))</a>
-<a class="sourceLine" id="cb9-9" data-line-number="9">bed =<span class="st"> </span><span class="kw">generateRandomBed</span>(<span class="dt">nr =</span> <span class="dv">400</span>, <span class="dt">nc =</span> <span class="dv">8</span>)</a>
-<a class="sourceLine" id="cb9-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb9-11" data-line-number="11"><span class="kw">circos.genomicTrackPlotRegion</span>(bed, <span class="dt">stack =</span> <span class="ot">TRUE</span>, <span class="dt">panel.fun =</span> <span class="cf">function</span>(coord, vals, ...) {</a>
-<a class="sourceLine" id="cb9-12" data-line-number="12">    <span class="kw">circos.genomicRect</span>(<span class="dt">region =</span> coord, <span class="dt">value =</span> vals, <span class="dt">col =</span> <span class="kw">f</span>(vals[[<span class="dv">1</span>]]), </a>
-<a class="sourceLine" id="cb9-13" data-line-number="13">        <span class="dt">border =</span> <span class="kw">f</span>(vals[[<span class="dv">1</span>]]), <span class="dt">lwd =</span> <span class="fl">0.1</span>, <span class="dt">posTransform =</span> posTransform.default, ...)</a>
-<a class="sourceLine" id="cb9-14" data-line-number="14">}, <span class="dt">bg.border =</span> <span class="ot">NA</span>, <span class="dt">track.height =</span> <span class="fl">0.1</span>)</a>
-<a class="sourceLine" id="cb9-15" data-line-number="15"></a>
-<a class="sourceLine" id="cb9-16" data-line-number="16"></a>
-<a class="sourceLine" id="cb9-17" data-line-number="17"></a>
-<a class="sourceLine" id="cb9-18" data-line-number="18">bed =<span class="st"> </span><span class="kw">generateRandomBed</span>(<span class="dt">nr =</span> <span class="dv">900</span>, <span class="dt">fun =</span> <span class="cf">function</span>(k) <span class="kw">runif</span>(k)<span class="op">*</span><span class="kw">sample</span>(<span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>), k, <span class="dt">replace =</span> <span class="ot">TRUE</span>))</a>
-<a class="sourceLine" id="cb9-19" data-line-number="19"></a>
-<a class="sourceLine" id="cb9-20" data-line-number="20"><span class="kw">circos.genomicTrackPlotRegion</span>(bed, <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="dt">panel.fun =</span> <span class="cf">function</span>(coord, vals, ...) {</a>
-<a class="sourceLine" id="cb9-21" data-line-number="21">    col =<span class="st"> </span><span class="kw">ifelse</span>(vals[[<span class="dv">1</span>]] <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>)</a>
-<a class="sourceLine" id="cb9-22" data-line-number="22">    <span class="kw">circos.genomicPoints</span>(<span class="dt">region=</span>coord, <span class="dt">value=</span>vals, <span class="dt">col =</span> col, <span class="dt">cex =</span> <span class="fl">0.5</span>, <span class="dt">pch =</span> <span class="dv">16</span>)</a>
-<a class="sourceLine" id="cb9-23" data-line-number="23">    cell.xlim =<span class="st"> </span><span class="kw">get.cell.meta.data</span>(<span class="st">&quot;cell.xlim&quot;</span>)</a>
-<a class="sourceLine" id="cb9-24" data-line-number="24">    <span class="cf">for</span>(h <span class="cf">in</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="fl">-0.5</span>, <span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">1</span>)) {</a>
-<a class="sourceLine" id="cb9-25" data-line-number="25">        <span class="kw">circos.lines</span>(cell.xlim, <span class="kw">c</span>(h, h), <span class="dt">col =</span> <span class="st">&quot;#00000040&quot;</span>)</a>
-<a class="sourceLine" id="cb9-26" data-line-number="26">    }</a>
-<a class="sourceLine" id="cb9-27" data-line-number="27">}, <span class="dt">track.height =</span> <span class="fl">0.1</span>)</a>
-<a class="sourceLine" id="cb9-28" data-line-number="28"></a>
-<a class="sourceLine" id="cb9-29" data-line-number="29"></a>
-<a class="sourceLine" id="cb9-30" data-line-number="30">bed =<span class="st"> </span><span class="kw">generateRandomBed</span>(<span class="dt">nr =</span> <span class="dv">900</span>, <span class="dt">fun =</span> <span class="cf">function</span>(k) <span class="kw">rnorm</span>(k, <span class="dv">0</span>, <span class="dv">50</span>))</a>
-<a class="sourceLine" id="cb9-31" data-line-number="31"><span class="kw">circos.genomicTrackPlotRegion</span>(bed, <span class="dt">panel.fun =</span> <span class="cf">function</span>(region, value, ...) {</a>
-<a class="sourceLine" id="cb9-32" data-line-number="32">    x =<span class="st"> </span>(region[[<span class="dv">2</span>]] <span class="op">+</span><span class="st"> </span>region[[<span class="dv">1</span>]]) <span class="op">/</span><span class="st"> </span><span class="dv">2</span></a>
-<a class="sourceLine" id="cb9-33" data-line-number="33">    y =<span class="st"> </span>value[[<span class="dv">1</span>]]</a>
-<a class="sourceLine" id="cb9-34" data-line-number="34">    loess.fit =<span class="st"> </span><span class="kw">loess</span>(y <span class="op">~</span><span class="st"> </span>x)</a>
-<a class="sourceLine" id="cb9-35" data-line-number="35">    loess.predict =<span class="st"> </span><span class="kw">predict</span>(loess.fit, x, <span class="dt">se =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb9-36" data-line-number="36">    d1 =<span class="st"> </span><span class="kw">c</span>(x, <span class="kw">rev</span>(x))</a>
-<a class="sourceLine" id="cb9-37" data-line-number="37">    d2 =<span class="st"> </span><span class="kw">c</span>(loess.predict<span class="op">$</span>fit <span class="op">+</span><span class="st"> </span>loess.predict<span class="op">$</span>se.fit, <span class="kw">rev</span>(loess.predict<span class="op">$</span>fit <span class="op">-</span><span class="st"> </span>loess.predict<span class="op">$</span>se.fit))</a>
-<a class="sourceLine" id="cb9-38" data-line-number="38">    <span class="kw">circos.polygon</span>(d1, d2, <span class="dt">col =</span> <span class="st">&quot;#CCCCCC&quot;</span>, <span class="dt">border =</span> <span class="ot">NA</span>)</a>
-<a class="sourceLine" id="cb9-39" data-line-number="39">    <span class="kw">circos.points</span>(x, y, <span class="dt">pch =</span> <span class="dv">16</span>, <span class="dt">cex =</span> <span class="fl">0.5</span>)</a>
-<a class="sourceLine" id="cb9-40" data-line-number="40">    <span class="kw">circos.lines</span>(x, loess.predict<span class="op">$</span>fit)</a>
-<a class="sourceLine" id="cb9-41" data-line-number="41">}, <span class="dt">track.height =</span> <span class="fl">0.1</span>)</a>
-<a class="sourceLine" id="cb9-42" data-line-number="42"></a>
-<a class="sourceLine" id="cb9-43" data-line-number="43"><span class="kw">circos.clear</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">circos.initializeWithIdeogram</span>()</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>om <span class="ot">=</span> <span class="fu">circos.par</span>(<span class="st">&quot;track.margin&quot;</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>oc <span class="ot">=</span> <span class="fu">circos.par</span>(<span class="st">&quot;cell.padding&quot;</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">circos.par</span>(<span class="at">track.margin =</span> <span class="fu">c</span>(om[<span class="dv">1</span>], <span class="dv">0</span>), <span class="at">cell.padding =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>f <span class="ot">=</span> <span class="fu">colorRamp2</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="at">colors =</span> <span class="fu">c</span>(<span class="st">&quot;green&quot;</span>, <span class="st">&quot;white&quot;</span>, <span class="st">&quot;red&quot;</span>))</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>bed <span class="ot">=</span> <span class="fu">generateRandomBed</span>(<span class="at">nr =</span> <span class="dv">400</span>, <span class="at">nc =</span> <span class="dv">8</span>)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="fu">circos.genomicTrackPlotRegion</span>(bed, <span class="at">stack =</span> <span class="cn">TRUE</span>, <span class="at">panel.fun =</span> <span class="cf">function</span>(coord, vals, ...) {</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">circos.genomicRect</span>(<span class="at">region =</span> coord, <span class="at">value =</span> vals, <span class="at">col =</span> <span class="fu">f</span>(vals[[<span class="dv">1</span>]]), </span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">border =</span> <span class="fu">f</span>(vals[[<span class="dv">1</span>]]), <span class="at">lwd =</span> <span class="fl">0.1</span>, <span class="at">posTransform =</span> posTransform.default, ...)</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>}, <span class="at">bg.border =</span> <span class="cn">NA</span>, <span class="at">track.height =</span> <span class="fl">0.1</span>)</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>bed <span class="ot">=</span> <span class="fu">generateRandomBed</span>(<span class="at">nr =</span> <span class="dv">900</span>, <span class="at">fun =</span> <span class="cf">function</span>(k) <span class="fu">runif</span>(k)<span class="sc">*</span><span class="fu">sample</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), k, <span class="at">replace =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="fu">circos.genomicTrackPlotRegion</span>(bed, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="at">panel.fun =</span> <span class="cf">function</span>(coord, vals, ...) {</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    col <span class="ot">=</span> <span class="fu">ifelse</span>(vals[[<span class="dv">1</span>]] <span class="sc">&gt;</span> <span class="dv">0</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>)</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">circos.genomicPoints</span>(<span class="at">region=</span>coord, <span class="at">value=</span>vals, <span class="at">col =</span> col, <span class="at">cex =</span> <span class="fl">0.5</span>, <span class="at">pch =</span> <span class="dv">16</span>)</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>    cell.xlim <span class="ot">=</span> <span class="fu">get.cell.meta.data</span>(<span class="st">&quot;cell.xlim&quot;</span>)</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span>(h <span class="cf">in</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="sc">-</span><span class="fl">0.5</span>, <span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">1</span>)) {</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>        <span class="fu">circos.lines</span>(cell.xlim, <span class="fu">c</span>(h, h), <span class="at">col =</span> <span class="st">&quot;#00000040&quot;</span>)</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>}, <span class="at">track.height =</span> <span class="fl">0.1</span>)</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>bed <span class="ot">=</span> <span class="fu">generateRandomBed</span>(<span class="at">nr =</span> <span class="dv">900</span>, <span class="at">fun =</span> <span class="cf">function</span>(k) <span class="fu">rnorm</span>(k, <span class="dv">0</span>, <span class="dv">50</span>))</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a><span class="fu">circos.genomicTrackPlotRegion</span>(bed, <span class="at">panel.fun =</span> <span class="cf">function</span>(region, value, ...) {</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>    x <span class="ot">=</span> (region[[<span class="dv">2</span>]] <span class="sc">+</span> region[[<span class="dv">1</span>]]) <span class="sc">/</span> <span class="dv">2</span></span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>    y <span class="ot">=</span> value[[<span class="dv">1</span>]]</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>    loess.fit <span class="ot">=</span> <span class="fu">loess</span>(y <span class="sc">~</span> x)</span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>    loess.predict <span class="ot">=</span> <span class="fu">predict</span>(loess.fit, x, <span class="at">se =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>    d1 <span class="ot">=</span> <span class="fu">c</span>(x, <span class="fu">rev</span>(x))</span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>    d2 <span class="ot">=</span> <span class="fu">c</span>(loess.predict<span class="sc">$</span>fit <span class="sc">+</span> loess.predict<span class="sc">$</span>se.fit, <span class="fu">rev</span>(loess.predict<span class="sc">$</span>fit <span class="sc">-</span> loess.predict<span class="sc">$</span>se.fit))</span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>    <span class="fu">circos.polygon</span>(d1, d2, <span class="at">col =</span> <span class="st">&quot;#CCCCCC&quot;</span>, <span class="at">border =</span> <span class="cn">NA</span>)</span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>    <span class="fu">circos.points</span>(x, y, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">cex =</span> <span class="fl">0.5</span>)</span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>    <span class="fu">circos.lines</span>(x, loess.predict<span class="sc">$</span>fit)</span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>}, <span class="at">track.height =</span> <span class="fl">0.1</span>)</span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a><span class="fu">circos.clear</span>()</span></code></pre></div>
 <img src="RCircos-HiveR_files/figure-html/unnamed-chunk-10-1.svg" width="1440" style="display: block; margin: auto auto auto 0;" />
 </div>
 <div class="block-title-parent">
 <div class="block-title small">
 R
 </div>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw">circos.initializeWithIdeogram</span>()</a>
-<a class="sourceLine" id="cb10-2" data-line-number="2">bed =<span class="st"> </span><span class="kw">generateRandomBed</span>(<span class="dt">nr =</span> <span class="dv">400</span>, <span class="dt">nc =</span> <span class="dv">8</span>)</a>
-<a class="sourceLine" id="cb10-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb10-4" data-line-number="4">om =<span class="st"> </span><span class="kw">circos.par</span>(<span class="st">&quot;track.margin&quot;</span>)</a>
-<a class="sourceLine" id="cb10-5" data-line-number="5">oc =<span class="st"> </span><span class="kw">circos.par</span>(<span class="st">&quot;cell.padding&quot;</span>)</a>
-<a class="sourceLine" id="cb10-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb10-7" data-line-number="7"><span class="kw">circos.par</span>(<span class="dt">track.margin =</span> <span class="kw">c</span>(om[<span class="dv">1</span>], <span class="dv">0</span>), <span class="dt">cell.padding =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>))</a>
-<a class="sourceLine" id="cb10-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb10-9" data-line-number="9">f =<span class="st"> </span><span class="kw">colorRamp2</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">colors =</span> <span class="kw">c</span>(<span class="st">&quot;green&quot;</span>, <span class="st">&quot;white&quot;</span>, <span class="st">&quot;red&quot;</span>))</a>
-<a class="sourceLine" id="cb10-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb10-11" data-line-number="11"><span class="kw">circos.genomicTrackPlotRegion</span>(bed, <span class="dt">stack =</span> <span class="ot">TRUE</span>, <span class="dt">panel.fun =</span> <span class="cf">function</span>(coord, vals, ...) {</a>
-<a class="sourceLine" id="cb10-12" data-line-number="12">    <span class="kw">circos.genomicRect</span>(<span class="dt">region =</span> coord, <span class="dt">value =</span> vals, <span class="dt">col =</span> <span class="kw">f</span>(vals[[<span class="dv">1</span>]]), </a>
-<a class="sourceLine" id="cb10-13" data-line-number="13">        <span class="dt">border =</span> <span class="kw">f</span>(vals[[<span class="dv">1</span>]]), <span class="dt">lwd =</span> <span class="fl">0.1</span>, <span class="dt">posTransform =</span> posTransform.default, ...)</a>
-<a class="sourceLine" id="cb10-14" data-line-number="14">}, <span class="dt">bg.border =</span> <span class="ot">NA</span>, <span class="dt">track.height =</span> <span class="fl">0.1</span>)</a>
-<a class="sourceLine" id="cb10-15" data-line-number="15"></a>
-<a class="sourceLine" id="cb10-16" data-line-number="16"></a>
-<a class="sourceLine" id="cb10-17" data-line-number="17"></a>
-<a class="sourceLine" id="cb10-18" data-line-number="18">bed =<span class="st"> </span><span class="kw">generateRandomBed</span>(<span class="dt">nr =</span> <span class="dv">900</span>, <span class="dt">fun =</span> <span class="cf">function</span>(k) <span class="kw">runif</span>(k)<span class="op">*</span><span class="kw">sample</span>(<span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>), k, <span class="dt">replace =</span> <span class="ot">TRUE</span>))</a>
-<a class="sourceLine" id="cb10-19" data-line-number="19"></a>
-<a class="sourceLine" id="cb10-20" data-line-number="20"><span class="kw">circos.genomicTrackPlotRegion</span>(bed, <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="dt">panel.fun =</span> <span class="cf">function</span>(coord, vals, ...) {</a>
-<a class="sourceLine" id="cb10-21" data-line-number="21">    col =<span class="st"> </span><span class="kw">ifelse</span>(vals[[<span class="dv">1</span>]] <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>)</a>
-<a class="sourceLine" id="cb10-22" data-line-number="22">    <span class="kw">circos.genomicPoints</span>(<span class="dt">region=</span>coord, <span class="dt">value=</span>vals, <span class="dt">col =</span> col, <span class="dt">cex =</span> <span class="fl">0.5</span>, <span class="dt">pch =</span> <span class="dv">16</span>)</a>
-<a class="sourceLine" id="cb10-23" data-line-number="23">    cell.xlim =<span class="st"> </span><span class="kw">get.cell.meta.data</span>(<span class="st">&quot;cell.xlim&quot;</span>)</a>
-<a class="sourceLine" id="cb10-24" data-line-number="24">    <span class="cf">for</span>(h <span class="cf">in</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="fl">-0.5</span>, <span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">1</span>)) {</a>
-<a class="sourceLine" id="cb10-25" data-line-number="25">        <span class="kw">circos.lines</span>(cell.xlim, <span class="kw">c</span>(h, h), <span class="dt">col =</span> <span class="st">&quot;#00000040&quot;</span>)</a>
-<a class="sourceLine" id="cb10-26" data-line-number="26">    }</a>
-<a class="sourceLine" id="cb10-27" data-line-number="27">}, <span class="dt">track.height =</span> <span class="fl">0.1</span>)</a>
-<a class="sourceLine" id="cb10-28" data-line-number="28"></a>
-<a class="sourceLine" id="cb10-29" data-line-number="29"></a>
-<a class="sourceLine" id="cb10-30" data-line-number="30">bed =<span class="st"> </span><span class="kw">generateRandomBed</span>(<span class="dt">nr =</span> <span class="dv">900</span>, <span class="dt">fun =</span> <span class="cf">function</span>(k) <span class="kw">rnorm</span>(k, <span class="dv">0</span>, <span class="dv">50</span>))</a>
-<a class="sourceLine" id="cb10-31" data-line-number="31"><span class="kw">circos.genomicTrackPlotRegion</span>(bed, <span class="dt">panel.fun =</span> <span class="cf">function</span>(region, value, ...) {</a>
-<a class="sourceLine" id="cb10-32" data-line-number="32">    x =<span class="st"> </span>(region[[<span class="dv">2</span>]] <span class="op">+</span><span class="st"> </span>region[[<span class="dv">1</span>]]) <span class="op">/</span><span class="st"> </span><span class="dv">2</span></a>
-<a class="sourceLine" id="cb10-33" data-line-number="33">    y =<span class="st"> </span>value[[<span class="dv">1</span>]]</a>
-<a class="sourceLine" id="cb10-34" data-line-number="34">    loess.fit =<span class="st"> </span><span class="kw">loess</span>(y <span class="op">~</span><span class="st"> </span>x)</a>
-<a class="sourceLine" id="cb10-35" data-line-number="35">    loess.predict =<span class="st"> </span><span class="kw">predict</span>(loess.fit, x, <span class="dt">se =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb10-36" data-line-number="36">    d1 =<span class="st"> </span><span class="kw">c</span>(x, <span class="kw">rev</span>(x))</a>
-<a class="sourceLine" id="cb10-37" data-line-number="37">    d2 =<span class="st"> </span><span class="kw">c</span>(loess.predict<span class="op">$</span>fit <span class="op">+</span><span class="st"> </span>loess.predict<span class="op">$</span>se.fit, <span class="kw">rev</span>(loess.predict<span class="op">$</span>fit <span class="op">-</span><span class="st"> </span>loess.predict<span class="op">$</span>se.fit))</a>
-<a class="sourceLine" id="cb10-38" data-line-number="38">    <span class="kw">circos.polygon</span>(d1, d2, <span class="dt">col =</span> <span class="st">&quot;#CCCCCC&quot;</span>, <span class="dt">border =</span> <span class="ot">NA</span>)</a>
-<a class="sourceLine" id="cb10-39" data-line-number="39">    <span class="kw">circos.points</span>(x, y, <span class="dt">pch =</span> <span class="dv">16</span>, <span class="dt">cex =</span> <span class="fl">0.5</span>)</a>
-<a class="sourceLine" id="cb10-40" data-line-number="40">    <span class="kw">circos.lines</span>(x, loess.predict<span class="op">$</span>fit)</a>
-<a class="sourceLine" id="cb10-41" data-line-number="41">}, <span class="dt">track.height =</span> <span class="fl">0.1</span>)</a>
-<a class="sourceLine" id="cb10-42" data-line-number="42"></a>
-<a class="sourceLine" id="cb10-43" data-line-number="43">bed_list =<span class="st"> </span><span class="kw">list</span>(<span class="kw">generateRandomBed</span>(<span class="dt">nr =</span> <span class="dv">900</span>, <span class="dt">fun =</span> <span class="cf">function</span>(k) <span class="kw">runif</span>(k)),</a>
-<a class="sourceLine" id="cb10-44" data-line-number="44">                <span class="kw">generateRandomBed</span>(<span class="dt">nr =</span> <span class="dv">900</span>, <span class="dt">fun =</span> <span class="cf">function</span>(k) <span class="kw">runif</span>(k)))</a>
-<a class="sourceLine" id="cb10-45" data-line-number="45">col =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;#FF000040&quot;</span>, <span class="st">&quot;#0000FF40&quot;</span>)</a>
-<a class="sourceLine" id="cb10-46" data-line-number="46"><span class="kw">circos.genomicTrackPlotRegion</span>(bed_list, <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="dt">panel.fun =</span> <span class="cf">function</span>(region, value, ...) {</a>
-<a class="sourceLine" id="cb10-47" data-line-number="47">    i =<span class="st"> </span><span class="kw">getI</span>(...)</a>
-<a class="sourceLine" id="cb10-48" data-line-number="48">    <span class="cf">if</span>(i <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) {</a>
-<a class="sourceLine" id="cb10-49" data-line-number="49">        <span class="kw">circos.genomicLines</span>(region, value, <span class="dt">area =</span> <span class="ot">TRUE</span>, <span class="dt">baseline =</span> <span class="dv">0</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">border =</span> <span class="ot">NA</span>, ...)</a>
-<a class="sourceLine" id="cb10-50" data-line-number="50">    } <span class="cf">else</span> {</a>
-<a class="sourceLine" id="cb10-51" data-line-number="51">        <span class="kw">circos.genomicLines</span>(region, <span class="op">-</span>value, <span class="dt">area =</span> <span class="ot">TRUE</span>, <span class="dt">baseline =</span> <span class="dv">0</span>, <span class="dt">col =</span> <span class="st">&quot;green&quot;</span>, <span class="dt">border =</span> <span class="ot">NA</span>, ...)</a>
-<a class="sourceLine" id="cb10-52" data-line-number="52">    }</a>
-<a class="sourceLine" id="cb10-53" data-line-number="53">}, <span class="dt">track.height =</span> <span class="fl">0.1</span>)</a>
-<a class="sourceLine" id="cb10-54" data-line-number="54"></a>
-<a class="sourceLine" id="cb10-55" data-line-number="55"><span class="co">## Add links</span></a>
-<a class="sourceLine" id="cb10-56" data-line-number="56">region1 =<span class="st"> </span><span class="kw">generateRandomBed</span>(<span class="dt">nr =</span> <span class="dv">1500</span>); region1 =<span class="st"> </span>region1[<span class="kw">sample</span>(<span class="kw">nrow</span>(region1), <span class="dv">30</span>), ]</a>
-<a class="sourceLine" id="cb10-57" data-line-number="57">region2 =<span class="st"> </span><span class="kw">generateRandomBed</span>(<span class="dt">nr =</span> <span class="dv">1500</span>); region2 =<span class="st"> </span>region2[<span class="kw">sample</span>(<span class="kw">nrow</span>(region2), <span class="dv">30</span>), ]</a>
-<a class="sourceLine" id="cb10-58" data-line-number="58"><span class="kw">circos.genomicLink</span>(region1, region2, <span class="dt">col =</span> <span class="kw">sample</span>(<span class="dv">30</span>, <span class="dv">30</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>))</a>
-<a class="sourceLine" id="cb10-59" data-line-number="59"></a>
-<a class="sourceLine" id="cb10-60" data-line-number="60"></a>
-<a class="sourceLine" id="cb10-61" data-line-number="61"><span class="co">## Highlight chromosomes, tracks and indexes</span></a>
-<a class="sourceLine" id="cb10-62" data-line-number="62"></a>
-<a class="sourceLine" id="cb10-63" data-line-number="63"></a>
-<a class="sourceLine" id="cb10-64" data-line-number="64"><span class="kw">highlight.chromosome</span>(<span class="kw">c</span>(<span class="st">&quot;chr1&quot;</span>, <span class="st">&quot;chr12&quot;</span>))</a>
-<a class="sourceLine" id="cb10-65" data-line-number="65"><span class="kw">highlight.sector</span>(<span class="kw">c</span>(<span class="st">&quot;chr3&quot;</span>, <span class="st">&quot;chr1&quot;</span>), <span class="dt">track.index =</span> <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>))</a>
-<a class="sourceLine" id="cb10-66" data-line-number="66"><span class="kw">circos.clear</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">circos.initializeWithIdeogram</span>()</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>bed <span class="ot">=</span> <span class="fu">generateRandomBed</span>(<span class="at">nr =</span> <span class="dv">400</span>, <span class="at">nc =</span> <span class="dv">8</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>om <span class="ot">=</span> <span class="fu">circos.par</span>(<span class="st">&quot;track.margin&quot;</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>oc <span class="ot">=</span> <span class="fu">circos.par</span>(<span class="st">&quot;cell.padding&quot;</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="fu">circos.par</span>(<span class="at">track.margin =</span> <span class="fu">c</span>(om[<span class="dv">1</span>], <span class="dv">0</span>), <span class="at">cell.padding =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>f <span class="ot">=</span> <span class="fu">colorRamp2</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="at">colors =</span> <span class="fu">c</span>(<span class="st">&quot;green&quot;</span>, <span class="st">&quot;white&quot;</span>, <span class="st">&quot;red&quot;</span>))</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="fu">circos.genomicTrackPlotRegion</span>(bed, <span class="at">stack =</span> <span class="cn">TRUE</span>, <span class="at">panel.fun =</span> <span class="cf">function</span>(coord, vals, ...) {</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">circos.genomicRect</span>(<span class="at">region =</span> coord, <span class="at">value =</span> vals, <span class="at">col =</span> <span class="fu">f</span>(vals[[<span class="dv">1</span>]]), </span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">border =</span> <span class="fu">f</span>(vals[[<span class="dv">1</span>]]), <span class="at">lwd =</span> <span class="fl">0.1</span>, <span class="at">posTransform =</span> posTransform.default, ...)</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>}, <span class="at">bg.border =</span> <span class="cn">NA</span>, <span class="at">track.height =</span> <span class="fl">0.1</span>)</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>bed <span class="ot">=</span> <span class="fu">generateRandomBed</span>(<span class="at">nr =</span> <span class="dv">900</span>, <span class="at">fun =</span> <span class="cf">function</span>(k) <span class="fu">runif</span>(k)<span class="sc">*</span><span class="fu">sample</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), k, <span class="at">replace =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a><span class="fu">circos.genomicTrackPlotRegion</span>(bed, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="at">panel.fun =</span> <span class="cf">function</span>(coord, vals, ...) {</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>    col <span class="ot">=</span> <span class="fu">ifelse</span>(vals[[<span class="dv">1</span>]] <span class="sc">&gt;</span> <span class="dv">0</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>)</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">circos.genomicPoints</span>(<span class="at">region=</span>coord, <span class="at">value=</span>vals, <span class="at">col =</span> col, <span class="at">cex =</span> <span class="fl">0.5</span>, <span class="at">pch =</span> <span class="dv">16</span>)</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>    cell.xlim <span class="ot">=</span> <span class="fu">get.cell.meta.data</span>(<span class="st">&quot;cell.xlim&quot;</span>)</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span>(h <span class="cf">in</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="sc">-</span><span class="fl">0.5</span>, <span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">1</span>)) {</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>        <span class="fu">circos.lines</span>(cell.xlim, <span class="fu">c</span>(h, h), <span class="at">col =</span> <span class="st">&quot;#00000040&quot;</span>)</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>}, <span class="at">track.height =</span> <span class="fl">0.1</span>)</span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>bed <span class="ot">=</span> <span class="fu">generateRandomBed</span>(<span class="at">nr =</span> <span class="dv">900</span>, <span class="at">fun =</span> <span class="cf">function</span>(k) <span class="fu">rnorm</span>(k, <span class="dv">0</span>, <span class="dv">50</span>))</span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a><span class="fu">circos.genomicTrackPlotRegion</span>(bed, <span class="at">panel.fun =</span> <span class="cf">function</span>(region, value, ...) {</span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>    x <span class="ot">=</span> (region[[<span class="dv">2</span>]] <span class="sc">+</span> region[[<span class="dv">1</span>]]) <span class="sc">/</span> <span class="dv">2</span></span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>    y <span class="ot">=</span> value[[<span class="dv">1</span>]]</span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>    loess.fit <span class="ot">=</span> <span class="fu">loess</span>(y <span class="sc">~</span> x)</span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>    loess.predict <span class="ot">=</span> <span class="fu">predict</span>(loess.fit, x, <span class="at">se =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>    d1 <span class="ot">=</span> <span class="fu">c</span>(x, <span class="fu">rev</span>(x))</span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>    d2 <span class="ot">=</span> <span class="fu">c</span>(loess.predict<span class="sc">$</span>fit <span class="sc">+</span> loess.predict<span class="sc">$</span>se.fit, <span class="fu">rev</span>(loess.predict<span class="sc">$</span>fit <span class="sc">-</span> loess.predict<span class="sc">$</span>se.fit))</span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>    <span class="fu">circos.polygon</span>(d1, d2, <span class="at">col =</span> <span class="st">&quot;#CCCCCC&quot;</span>, <span class="at">border =</span> <span class="cn">NA</span>)</span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>    <span class="fu">circos.points</span>(x, y, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">cex =</span> <span class="fl">0.5</span>)</span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a>    <span class="fu">circos.lines</span>(x, loess.predict<span class="sc">$</span>fit)</span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a>}, <span class="at">track.height =</span> <span class="fl">0.1</span>)</span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a>bed_list <span class="ot">=</span> <span class="fu">list</span>(<span class="fu">generateRandomBed</span>(<span class="at">nr =</span> <span class="dv">900</span>, <span class="at">fun =</span> <span class="cf">function</span>(k) <span class="fu">runif</span>(k)),</span>
+<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a>                <span class="fu">generateRandomBed</span>(<span class="at">nr =</span> <span class="dv">900</span>, <span class="at">fun =</span> <span class="cf">function</span>(k) <span class="fu">runif</span>(k)))</span>
+<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a>col <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;#FF000040&quot;</span>, <span class="st">&quot;#0000FF40&quot;</span>)</span>
+<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a><span class="fu">circos.genomicTrackPlotRegion</span>(bed_list, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="at">panel.fun =</span> <span class="cf">function</span>(region, value, ...) {</span>
+<span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a>    i <span class="ot">=</span> <span class="fu">getI</span>(...)</span>
+<span id="cb10-48"><a href="#cb10-48" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(i <span class="sc">==</span> <span class="dv">1</span>) {</span>
+<span id="cb10-49"><a href="#cb10-49" aria-hidden="true" tabindex="-1"></a>        <span class="fu">circos.genomicLines</span>(region, value, <span class="at">area =</span> <span class="cn">TRUE</span>, <span class="at">baseline =</span> <span class="dv">0</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">border =</span> <span class="cn">NA</span>, ...)</span>
+<span id="cb10-50"><a href="#cb10-50" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb10-51"><a href="#cb10-51" aria-hidden="true" tabindex="-1"></a>        <span class="fu">circos.genomicLines</span>(region, <span class="sc">-</span>value, <span class="at">area =</span> <span class="cn">TRUE</span>, <span class="at">baseline =</span> <span class="dv">0</span>, <span class="at">col =</span> <span class="st">&quot;green&quot;</span>, <span class="at">border =</span> <span class="cn">NA</span>, ...)</span>
+<span id="cb10-52"><a href="#cb10-52" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb10-53"><a href="#cb10-53" aria-hidden="true" tabindex="-1"></a>}, <span class="at">track.height =</span> <span class="fl">0.1</span>)</span>
+<span id="cb10-54"><a href="#cb10-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-55"><a href="#cb10-55" aria-hidden="true" tabindex="-1"></a><span class="do">## Add links</span></span>
+<span id="cb10-56"><a href="#cb10-56" aria-hidden="true" tabindex="-1"></a>region1 <span class="ot">=</span> <span class="fu">generateRandomBed</span>(<span class="at">nr =</span> <span class="dv">1500</span>); region1 <span class="ot">=</span> region1[<span class="fu">sample</span>(<span class="fu">nrow</span>(region1), <span class="dv">30</span>), ]</span>
+<span id="cb10-57"><a href="#cb10-57" aria-hidden="true" tabindex="-1"></a>region2 <span class="ot">=</span> <span class="fu">generateRandomBed</span>(<span class="at">nr =</span> <span class="dv">1500</span>); region2 <span class="ot">=</span> region2[<span class="fu">sample</span>(<span class="fu">nrow</span>(region2), <span class="dv">30</span>), ]</span>
+<span id="cb10-58"><a href="#cb10-58" aria-hidden="true" tabindex="-1"></a><span class="fu">circos.genomicLink</span>(region1, region2, <span class="at">col =</span> <span class="fu">sample</span>(<span class="dv">30</span>, <span class="dv">30</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb10-59"><a href="#cb10-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-60"><a href="#cb10-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-61"><a href="#cb10-61" aria-hidden="true" tabindex="-1"></a><span class="do">## Highlight chromosomes, tracks and indexes</span></span>
+<span id="cb10-62"><a href="#cb10-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-63"><a href="#cb10-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-64"><a href="#cb10-64" aria-hidden="true" tabindex="-1"></a><span class="fu">highlight.chromosome</span>(<span class="fu">c</span>(<span class="st">&quot;chr1&quot;</span>, <span class="st">&quot;chr12&quot;</span>))</span>
+<span id="cb10-65"><a href="#cb10-65" aria-hidden="true" tabindex="-1"></a><span class="fu">highlight.sector</span>(<span class="fu">c</span>(<span class="st">&quot;chr3&quot;</span>, <span class="st">&quot;chr1&quot;</span>), <span class="at">track.index =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>))</span>
+<span id="cb10-66"><a href="#cb10-66" aria-hidden="true" tabindex="-1"></a><span class="fu">circos.clear</span>()</span></code></pre></div>
 <img src="RCircos-HiveR_files/figure-html/unnamed-chunk-11-1.svg" width="1440" style="display: block; margin: auto auto auto 0;" />
 </div>
 </div>
 </div>
-<div id="hiveplot" class="section level1">
+<div id="hiveplot" class="section level1" number="4">
 <h1><span class="header-section-number">4</span> Hiveplot</h1>
 <p>Hive plots are an alternative way of visualizing the networks where different parameters and attributes of networks can be plotted on multiple linear axis. The attibutes of nodes and edges are very similar to a network except that instead of trying to intepret intesities of colors, degree of nodes etc. in a network, one can compare network paramaters on a linear scale. An advantage of hive plots for networks is that the subjective observations of nodes and edges of network layout can be obejectively compared.</p>
 <p>It all sounds wordy but once you see your results in prtactice, it is much easier to understand.
@@ -822,31 +749,31 @@ Here I quote HiveR paper for intuition behind hive plots.</li>
 </ol>
 <p>“HiveR was inspired by the concept of hive plots as developed by Martin Krzy- winski at the Genome Sciences Center (www.hiveplot.com). Hive plots are a reaction to “hairball” style networks in which the layout of the network is arbi- trary and hypersensitive to even small changes in the underlying network. Hive plots are particularly well-suited for comparing networks, as well as for the discovery of emergent properties of networks.
 The key innovation in a hive plot, compared to other means of graphically displaying network structure, is how node information is handled. In a hive plot, there is a node coordinate system consisting of two parts. First, nodes are assigned to axes based upon qualitative or quantitative characteristics of the the node, for instance membership in a certain category. As will be discussed later, this assignment process is key to constructing a hive plot. Second, the position of the node along the axis, the radius, is based upon some quantitative characteristic of the node. Edges are handled in a fairly standard way, but may be colored or have a width or weight which encodes an interesting value.
-In creating a hive plot, one maps network parameters to the plot, and thus the process can be readily tuned to meet one’s needs. The mappable parame- ters are listed in Table 1, and the mapping is limited only by one’s creativity and the particular knowledge domain. Thus ecologists have their own measures of food webs, social network analysts have various measures describing intercon- nectedness etc. An essential point is that mapping network parameters in this way results in a reproducible plot.&quot;</p>
+In creating a hive plot, one maps network parameters to the plot, and thus the process can be readily tuned to meet one’s needs. The mappable parame- ters are listed in Table 1, and the mapping is limited only by one’s creativity and the particular knowledge domain. Thus ecologists have their own measures of food webs, social network analysts have various measures describing intercon- nectedness etc. An essential point is that mapping network parameters in this way results in a reproducible plot."</p>
 <p><strong>For this session you may have to install HiveR package to your current conda environment manually as it in currently present in your environment.</strong></p>
 <div class="block-title-parent">
 <div class="block-title small">
 R
 </div>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="co">#install.packages(&quot;HiveR&quot;)</span></a>
-<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="kw">suppressMessages</span>(<span class="kw">suppressWarnings</span>(<span class="kw">library</span>(HiveR)))</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;HiveR&quot;)</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(<span class="fu">suppressWarnings</span>(<span class="fu">library</span>(HiveR)))</span></code></pre></div>
 </div>
-<div id="hiver-functionality" class="section level2">
+<div id="hiver-functionality" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> HiveR functionality</h2>
 <p>To explore more about the hive plot let us look at the package vignette.</p>
 <div class="block-title-parent">
 <div class="block-title small">
 R
 </div>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw">browseVignettes</span>(<span class="st">&quot;HiveR&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">browseVignettes</span>(<span class="st">&quot;HiveR&quot;</span>)</span></code></pre></div>
 </div>
 <p>HiveR Vignette provides an overview of the package design and functions. Just like Circlize package rand hive plot data can be created using ranHiveData functions.</p>
 <div class="block-title-parent">
 <div class="block-title small">
 R
 </div>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">ranHive &lt;-<span class="st"> </span><span class="kw">ranHiveData</span>(<span class="dt">nx=</span><span class="dv">4</span>)</a>
-<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="kw">class</span>(ranHive)</a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>ranHive <span class="ot">&lt;-</span> <span class="fu">ranHiveData</span>(<span class="at">nx=</span><span class="dv">4</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(ranHive)</span></code></pre></div>
 <pre><code>## [1] &quot;HivePlotData&quot;</code></pre>
 </div>
 <p>As we can see that ranHive data belongs to “HivePlotData” class and we can explore with sort of data and attributes it is required to have.</p>
@@ -854,45 +781,45 @@ R
 <div class="block-title small">
 R
 </div>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw">help</span>(<span class="st">&quot;HivePlotData&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="st">&quot;HivePlotData&quot;</span>)</span></code></pre></div>
 </div>
 <p>Lets explore the data we created using ranHiveData generator.</p>
 <div class="block-title-parent">
 <div class="block-title small">
 R
 </div>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="kw">str</span>(ranHive)</a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(ranHive)</span></code></pre></div>
 <pre><code>## List of 5
-##  $ nodes    :&#39;data.frame&#39;:   48 obs. of  6 variables:
-##   ..$ id    : int [1:48] 3 4 5 6 8 9 10 11 12 13 ...
-##   ..$ lab   : chr [1:48] &quot;strma&quot; &quot;pdqfb&quot; &quot;dfgyl&quot; &quot;dggnd&quot; ...
-##   ..$ axis  : int [1:48] 4 3 3 1 2 3 4 2 4 4 ...
-##   ..$ radius: num [1:48] 16 26 8 19 52 41 25 36 62 65 ...
-##   ..$ size  : num [1:48] 1 1.5 1 1.5 1.5 0.5 0.5 1.5 1.5 0.5 ...
-##   ..$ color : chr [1:48] &quot;#4DAF4A&quot; &quot;#984EA3&quot; &quot;#E41A1C&quot; &quot;#984EA3&quot; ...
+##  $ nodes    :&#39;data.frame&#39;:   50 obs. of  6 variables:
+##   ..$ id    : int [1:50] 2 3 4 5 6 7 8 9 10 11 ...
+##   ..$ lab   : chr [1:50] &quot;ffnkj&quot; &quot;ocatf&quot; &quot;ibckx&quot; &quot;ekiea&quot; ...
+##   ..$ axis  : int [1:50] 2 2 3 4 1 4 3 1 1 3 ...
+##   ..$ radius: num [1:50] 34 48 66 52 66 16 51 8 66 87 ...
+##   ..$ size  : num [1:50] 0.5 1.5 1 0.5 1 0.5 1.5 1.5 1.5 0.5 ...
+##   ..$ color : chr [1:50] &quot;#984EA3&quot; &quot;#FF7F00&quot; &quot;#FF7F00&quot; &quot;#4DAF4A&quot; ...
 ##  $ edges    :&#39;data.frame&#39;:   60 obs. of  4 variables:
-##   ..$ id1   : int [1:60] 36 25 39 6 24 57 39 54 39 14 ...
-##   ..$ id2   : int [1:60] 44 11 45 17 42 8 42 45 44 49 ...
-##   ..$ weight: num [1:60] 2 3 1 3 1 1 3 1 2 2 ...
-##   ..$ color : chr [1:60] &quot;#E41A1C&quot; &quot;#377EB8&quot; &quot;#4DAF4A&quot; &quot;#FF7F00&quot; ...
+##   ..$ id1   : int [1:60] 15 15 9 45 34 9 10 28 45 9 ...
+##   ..$ id2   : int [1:60] 19 21 2 21 20 26 3 21 31 19 ...
+##   ..$ weight: num [1:60] 2 3 1 3 2 1 3 3 3 1 ...
+##   ..$ color : chr [1:60] &quot;#377EB8&quot; &quot;#984EA3&quot; &quot;#FF7F00&quot; &quot;#4DAF4A&quot; ...
 ##  $ type     : chr &quot;2D&quot;
-##  $ desc     : chr &quot;4 axes -- 48 nodes -- 60 edges&quot;
+##  $ desc     : chr &quot;4 axes -- 50 nodes -- 60 edges&quot;
 ##  $ axis.cols: chr [1:4] &quot;#E41A1C&quot; &quot;#377EB8&quot; &quot;#4DAF4A&quot; &quot;#984EA3&quot;
 ##  - attr(*, &quot;class&quot;)= chr &quot;HivePlotData&quot;</code></pre>
 </div>
 </div>
-<div id="plot-the-generated-dat" class="section level2">
+<div id="plot-the-generated-dat" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> Plot the generated dat</h2>
 Let us make a plot to see an example of a hive plot.
 <div class="block-title-parent">
 <div class="block-title small">
 R
 </div>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="kw">plotHive</span>(ranHive)</a></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotHive</span>(ranHive)</span></code></pre></div>
 <img src="RCircos-HiveR_files/figure-html/unnamed-chunk-17-1.svg" width="672" style="display: block; margin: auto auto auto 0;" />
 </div>
 </div>
-<div id="data-import" class="section level2">
+<div id="data-import" class="section level2" number="4.3">
 <h2><span class="header-section-number">4.3</span> Data import</h2>
 <p>There are two ways of importing data into “HivePlotData” class. The HiveR package “dot2HPD” provides an option to import networks in the dot file format. One can read more about the file format here (<a href="https://secure.wikimedia.org/wikipedia/en/wiki/DOT_language" class="uri">https://secure.wikimedia.org/wikipedia/en/wiki/DOT_language</a>).</p>
 <p>A second way of creating “HivePlotData” is from your own netwrok files. Here we will first use - “E.Coli” RegulonDB provided in the HiveR package by using built in functions
@@ -901,9 +828,9 @@ R
 <div class="block-title small">
 R
 </div>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"> EC1 &lt;-<span class="st"> </span><span class="kw">dot2HPD</span>(<span class="dt">file =</span> <span class="st">&quot;Circos_HiveR/hiveData/E_coli/E_coli_TF.dot&quot;</span>, <span class="dt">node.inst =</span> <span class="ot">NULL</span>,</a>
-<a class="sourceLine" id="cb19-2" data-line-number="2"><span class="dt">edge.inst =</span> <span class="st">&quot;Circos_HiveR/hiveData/E_coli/EdgeInst_TF.csv&quot;</span>, <span class="dt">desc =</span> <span class="st">&quot;E coli gene regulatory network (RegulonDB)&quot;</span>, <span class="dt">axis.cols =</span> <span class="kw">rep</span>(<span class="st">&quot;grey&quot;</span>, <span class="dv">3</span>))</a>
-<a class="sourceLine" id="cb19-3" data-line-number="3"><span class="kw">sumHPD</span>(EC1)</a></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a> EC1 <span class="ot">&lt;-</span> <span class="fu">dot2HPD</span>(<span class="at">file =</span> <span class="st">&quot;Circos_HiveR/hiveData/E_coli/E_coli_TF.dot&quot;</span>, <span class="at">node.inst =</span> <span class="cn">NULL</span>,</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="at">edge.inst =</span> <span class="st">&quot;Circos_HiveR/hiveData/E_coli/EdgeInst_TF.csv&quot;</span>, <span class="at">desc =</span> <span class="st">&quot;E coli gene regulatory network (RegulonDB)&quot;</span>, <span class="at">axis.cols =</span> <span class="fu">rep</span>(<span class="st">&quot;grey&quot;</span>, <span class="dv">3</span>))</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sumHPD</span>(EC1)</span></code></pre></div>
 <pre><code>##  E coli gene regulatory network (RegulonDB)
 ##  This hive plot data set contains 1597 nodes on 1 axes and 3893 edges.
 ##  It is a  2D data set.
@@ -916,8 +843,8 @@ R
 <div class="block-title small">
 R
 </div>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1">EC2 &lt;-<span class="st"> </span><span class="kw">mineHPD</span>(EC1, <span class="dt">option =</span> <span class="st">&quot;rad &lt;- tot.edge.count&quot;</span>)</a>
-<a class="sourceLine" id="cb21-2" data-line-number="2"><span class="kw">sumHPD</span>(EC2)</a></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>EC2 <span class="ot">&lt;-</span> <span class="fu">mineHPD</span>(EC1, <span class="at">option =</span> <span class="st">&quot;rad &lt;- tot.edge.count&quot;</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sumHPD</span>(EC2)</span></code></pre></div>
 <pre><code>##  E coli gene regulatory network (RegulonDB)
 ##  This hive plot data set contains 1597 nodes on 1 axes and 3893 edges.
 ##  It is a  2D data set.
@@ -930,8 +857,8 @@ R
 <div class="block-title small">
 R
 </div>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1">EC3 &lt;-<span class="st"> </span><span class="kw">mineHPD</span>(EC2, <span class="dt">option =</span> <span class="st">&quot;axis &lt;- source.man.sink&quot;</span>)</a>
-<a class="sourceLine" id="cb23-2" data-line-number="2"><span class="kw">sumHPD</span>(EC3)</a></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>EC3 <span class="ot">&lt;-</span> <span class="fu">mineHPD</span>(EC2, <span class="at">option =</span> <span class="st">&quot;axis &lt;- source.man.sink&quot;</span>)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sumHPD</span>(EC3)</span></code></pre></div>
 <pre><code>##  E coli gene regulatory network (RegulonDB)
 ##  This hive plot data set contains 1597 nodes on 3 axes and 3893 edges.
 ##  It is a  2D data set.
@@ -949,8 +876,8 @@ R
 <div class="block-title small">
 R
 </div>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1">EC4 &lt;-<span class="st"> </span><span class="kw">mineHPD</span>(EC3, <span class="dt">option =</span> <span class="st">&quot;remove zero edge&quot;</span>)</a>
-<a class="sourceLine" id="cb25-2" data-line-number="2"><span class="kw">sumHPD</span>(EC4)</a></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>EC4 <span class="ot">&lt;-</span> <span class="fu">mineHPD</span>(EC3, <span class="at">option =</span> <span class="st">&quot;remove zero edge&quot;</span>)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sumHPD</span>(EC4)</span></code></pre></div>
 <pre><code>## 
 ##   113 edge(s) that start and end on the same node were removed
 ## 
@@ -969,67 +896,67 @@ R
 ##      Axes 3 and 3 share 189 edges</code></pre>
 </div>
 </div>
-<div id="work-with-edges" class="section level2">
+<div id="work-with-edges" class="section level2" number="4.4">
 <h2><span class="header-section-number">4.4</span> Work with edges</h2>
 <div class="block-title-parent">
 <div class="block-title small">
 R
 </div>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1">edges &lt;-<span class="st"> </span>EC4<span class="op">$</span>edges</a>
-<a class="sourceLine" id="cb27-2" data-line-number="2">edgesR &lt;-<span class="st"> </span><span class="kw">subset</span>(edges, color <span class="op">==</span><span class="st"> &#39;red&#39;</span>)</a>
-<a class="sourceLine" id="cb27-3" data-line-number="3">edgesG &lt;-<span class="st"> </span><span class="kw">subset</span>(edges, color <span class="op">==</span><span class="st"> &#39;green&#39;</span>)</a>
-<a class="sourceLine" id="cb27-4" data-line-number="4">edgesO &lt;-<span class="st"> </span><span class="kw">subset</span>(edges, color <span class="op">==</span><span class="st"> &#39;orange&#39;</span>)</a>
-<a class="sourceLine" id="cb27-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb27-6" data-line-number="6">edges &lt;-<span class="st"> </span><span class="kw">rbind</span>(edgesO, edgesG, edgesR)</a>
-<a class="sourceLine" id="cb27-7" data-line-number="7">EC4<span class="op">$</span>edges &lt;-<span class="st"> </span>edges</a>
-<a class="sourceLine" id="cb27-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb27-9" data-line-number="9">EC4<span class="op">$</span>edges<span class="op">$</span>weight &lt;-<span class="st"> </span><span class="fl">0.5</span></a></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>edges <span class="ot">&lt;-</span> EC4<span class="sc">$</span>edges</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>edgesR <span class="ot">&lt;-</span> <span class="fu">subset</span>(edges, color <span class="sc">==</span> <span class="st">&#39;red&#39;</span>)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>edgesG <span class="ot">&lt;-</span> <span class="fu">subset</span>(edges, color <span class="sc">==</span> <span class="st">&#39;green&#39;</span>)</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>edgesO <span class="ot">&lt;-</span> <span class="fu">subset</span>(edges, color <span class="sc">==</span> <span class="st">&#39;orange&#39;</span>)</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>edges <span class="ot">&lt;-</span> <span class="fu">rbind</span>(edgesO, edgesG, edgesR)</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>EC4<span class="sc">$</span>edges <span class="ot">&lt;-</span> edges</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>EC4<span class="sc">$</span>edges<span class="sc">$</span>weight <span class="ot">&lt;-</span> <span class="fl">0.5</span></span></code></pre></div>
 </div>
 <div class="block-title-parent">
 <div class="block-title small">
 R
 </div>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1"><span class="kw">plotHive</span>(EC4, <span class="dt">dr.nodes =</span> <span class="ot">FALSE</span>, <span class="dt">ch =</span> <span class="dv">20</span>,</a>
-<a class="sourceLine" id="cb28-2" data-line-number="2"><span class="dt">axLabs =</span> <span class="kw">c</span>(<span class="st">&quot;source&quot;</span>, <span class="st">&quot;sink&quot;</span>, <span class="st">&quot;manager&quot;</span>),</a>
-<a class="sourceLine" id="cb28-3" data-line-number="3"><span class="dt">axLab.pos =</span> <span class="kw">c</span>(<span class="dv">40</span>, <span class="dv">75</span>, <span class="dv">35</span>),</a>
-<a class="sourceLine" id="cb28-4" data-line-number="4"><span class="dt">axLab.gpar =</span> <span class="kw">gpar</span>(<span class="dt">fontsize =</span> <span class="dv">6</span>, <span class="dt">col =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>),</a>
-<a class="sourceLine" id="cb28-5" data-line-number="5"><span class="dt">arrow =</span> <span class="kw">c</span>(<span class="st">&quot;degree&quot;</span>, <span class="dv">150</span>, <span class="dv">100</span>, <span class="dv">180</span>, <span class="dv">70</span>), <span class="dt">np =</span> <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb28-6" data-line-number="6"><span class="kw">grid.text</span>(<span class="st">&quot;native units&quot;</span>, <span class="dt">x =</span> <span class="fl">0.5</span>, <span class="dt">y =</span> <span class="fl">0.05</span>, <span class="dt">default.units =</span> <span class="st">&quot;npc&quot;</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fontsize =</span> <span class="dv">8</span>, <span class="dt">col =</span> <span class="st">&quot;white&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotHive</span>(EC4, <span class="at">dr.nodes =</span> <span class="cn">FALSE</span>, <span class="at">ch =</span> <span class="dv">20</span>,</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="at">axLabs =</span> <span class="fu">c</span>(<span class="st">&quot;source&quot;</span>, <span class="st">&quot;sink&quot;</span>, <span class="st">&quot;manager&quot;</span>),</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="at">axLab.pos =</span> <span class="fu">c</span>(<span class="dv">40</span>, <span class="dv">75</span>, <span class="dv">35</span>),</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="at">axLab.gpar =</span> <span class="fu">gpar</span>(<span class="at">fontsize =</span> <span class="dv">6</span>, <span class="at">col =</span> <span class="st">&quot;white&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>),</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="at">arrow =</span> <span class="fu">c</span>(<span class="st">&quot;degree&quot;</span>, <span class="dv">150</span>, <span class="dv">100</span>, <span class="dv">180</span>, <span class="dv">70</span>), <span class="at">np =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.text</span>(<span class="st">&quot;native units&quot;</span>, <span class="at">x =</span> <span class="fl">0.5</span>, <span class="at">y =</span> <span class="fl">0.05</span>, <span class="at">default.units =</span> <span class="st">&quot;npc&quot;</span>, <span class="at">gp =</span> <span class="fu">gpar</span>(<span class="at">fontsize =</span> <span class="dv">8</span>, <span class="at">col =</span> <span class="st">&quot;white&quot;</span>))</span></code></pre></div>
 <img src="RCircos-HiveR_files/figure-html/unnamed-chunk-23-1.svg" width="672" style="display: block; margin: auto auto auto 0;" />
 </div>
 <div class="block-title-parent">
 <div class="block-title small">
 R
 </div>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" data-line-number="1"><span class="kw">plotHive</span>(EC4, <span class="dt">dr.nodes =</span> <span class="ot">FALSE</span>, <span class="dt">method =</span> <span class="st">&quot;rank&quot;</span>, <span class="dt">ch =</span> <span class="dv">100</span>,</a>
-<a class="sourceLine" id="cb29-2" data-line-number="2"><span class="co">#axLabs = c(&quot;source&quot;, &quot;sink&quot;, &quot;manager&quot;),</span></a>
-<a class="sourceLine" id="cb29-3" data-line-number="3"><span class="co">#axLab.pos = c(100, 125, 180),</span></a>
-<a class="sourceLine" id="cb29-4" data-line-number="4"><span class="co">#axLab.gpar = gpar(fontsize = 10, col = &quot;white&quot;),</span></a>
-<a class="sourceLine" id="cb29-5" data-line-number="5"><span class="dt">np =</span> <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb29-6" data-line-number="6"><span class="kw">grid.text</span>(<span class="st">&quot;ranked units&quot;</span>, <span class="dt">x =</span> <span class="fl">0.5</span>, <span class="dt">y =</span> <span class="fl">0.05</span>, <span class="dt">default.units =</span> <span class="st">&quot;npc&quot;</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fontsize =</span> <span class="dv">8</span>, <span class="dt">col =</span> <span class="st">&quot;white&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotHive</span>(EC4, <span class="at">dr.nodes =</span> <span class="cn">FALSE</span>, <span class="at">method =</span> <span class="st">&quot;rank&quot;</span>, <span class="at">ch =</span> <span class="dv">100</span>,</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co">#axLabs = c(&quot;source&quot;, &quot;sink&quot;, &quot;manager&quot;),</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="co">#axLab.pos = c(100, 125, 180),</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="co">#axLab.gpar = gpar(fontsize = 10, col = &quot;white&quot;),</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="at">np =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.text</span>(<span class="st">&quot;ranked units&quot;</span>, <span class="at">x =</span> <span class="fl">0.5</span>, <span class="at">y =</span> <span class="fl">0.05</span>, <span class="at">default.units =</span> <span class="st">&quot;npc&quot;</span>, <span class="at">gp =</span> <span class="fu">gpar</span>(<span class="at">fontsize =</span> <span class="dv">8</span>, <span class="at">col =</span> <span class="st">&quot;white&quot;</span>))</span></code></pre></div>
 <img src="RCircos-HiveR_files/figure-html/unnamed-chunk-24-1.svg" width="672" style="display: block; margin: auto auto auto 0;" />
 </div>
 <div class="block-title-parent">
 <div class="block-title small">
 R
 </div>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="kw">plotHive</span>(EC4, <span class="dt">dr.nodes =</span> <span class="ot">FALSE</span>, <span class="dt">method =</span> <span class="st">&quot;norm&quot;</span>, <span class="dt">ch =</span> <span class="fl">0.1</span>, <span class="dt">axLabs =</span> <span class="kw">c</span>(<span class="st">&quot;source&quot;</span>, <span class="st">&quot;sink&quot;</span>, <span class="st">&quot;manager&quot;</span>),</a>
-<a class="sourceLine" id="cb30-2" data-line-number="2"><span class="dt">axLab.pos =</span> <span class="kw">c</span>(<span class="fl">0.1</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>), <span class="dt">axLab.gpar =</span> <span class="kw">gpar</span>(<span class="dt">fontsize =</span> <span class="dv">6</span>, <span class="dt">col =</span> <span class="st">&quot;white&quot;</span>), <span class="dt">np =</span> <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb30-3" data-line-number="3"><span class="kw">grid.text</span>(<span class="st">&quot;normed units&quot;</span>, <span class="dt">x =</span> <span class="fl">0.5</span>, <span class="dt">y =</span> <span class="fl">0.05</span>, <span class="dt">default.units =</span> <span class="st">&quot;npc&quot;</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fontsize =</span> <span class="dv">8</span>, <span class="dt">col =</span> <span class="st">&quot;white&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotHive</span>(EC4, <span class="at">dr.nodes =</span> <span class="cn">FALSE</span>, <span class="at">method =</span> <span class="st">&quot;norm&quot;</span>, <span class="at">ch =</span> <span class="fl">0.1</span>, <span class="at">axLabs =</span> <span class="fu">c</span>(<span class="st">&quot;source&quot;</span>, <span class="st">&quot;sink&quot;</span>, <span class="st">&quot;manager&quot;</span>),</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="at">axLab.pos =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>), <span class="at">axLab.gpar =</span> <span class="fu">gpar</span>(<span class="at">fontsize =</span> <span class="dv">6</span>, <span class="at">col =</span> <span class="st">&quot;white&quot;</span>), <span class="at">np =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.text</span>(<span class="st">&quot;normed units&quot;</span>, <span class="at">x =</span> <span class="fl">0.5</span>, <span class="at">y =</span> <span class="fl">0.05</span>, <span class="at">default.units =</span> <span class="st">&quot;npc&quot;</span>, <span class="at">gp =</span> <span class="fu">gpar</span>(<span class="at">fontsize =</span> <span class="dv">8</span>, <span class="at">col =</span> <span class="st">&quot;white&quot;</span>))</span></code></pre></div>
 <img src="RCircos-HiveR_files/figure-html/unnamed-chunk-25-1.svg" width="672" style="display: block; margin: auto auto auto 0;" />
 </div>
 </div>
-<div id="load-the-network-data-for-pathways-and-metabolites" class="section level2">
+<div id="load-the-network-data-for-pathways-and-metabolites" class="section level2" number="4.5">
 <h2><span class="header-section-number">4.5</span> Load the network data for pathways and metabolites</h2>
 <div class="block-title-parent">
 <div class="block-title small">
 R
 </div>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" data-line-number="1">Gene_stats&lt;-<span class="kw">read.delim</span>(<span class="st">&quot;Circos_HiveR/hiveData/hmrData/GLS_Palm_vs_control_rep_pathway.txt&quot;</span>)</a>
-<a class="sourceLine" id="cb31-2" data-line-number="2">met_stats&lt;-<span class="kw">read.delim</span>(<span class="st">&quot;Circos_HiveR/hiveData/hmrData/GSS_Palm_vs_control_rep_met.txt&quot;</span>)</a>
-<a class="sourceLine" id="cb31-3" data-line-number="3">path_stats&lt;-<span class="st">  </span><span class="kw">read.delim</span>(<span class="st">&quot;Circos_HiveR/hiveData/hmrData/GSS_Palm_vs_control_rep_pathway.txt&quot;</span>)</a>
-<a class="sourceLine" id="cb31-4" data-line-number="4">met_gene&lt;-<span class="kw">read.delim</span>(<span class="st">&quot;Circos_HiveR/hiveData/hmrData/GSC_Palm_vs_control_rep_met.txt&quot;</span>, <span class="dt">header =</span> <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb31-5" data-line-number="5">path_gene&lt;-<span class="kw">read.delim</span>(<span class="st">&quot;Circos_HiveR/hiveData/hmrData/GSC_Palm_vs_control_rep_pathway.txt&quot;</span>, <span class="dt">header =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>Gene_stats<span class="ot">&lt;-</span><span class="fu">read.delim</span>(<span class="st">&quot;Circos_HiveR/hiveData/hmrData/GLS_Palm_vs_control_rep_pathway.txt&quot;</span>)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>met_stats<span class="ot">&lt;-</span><span class="fu">read.delim</span>(<span class="st">&quot;Circos_HiveR/hiveData/hmrData/GSS_Palm_vs_control_rep_met.txt&quot;</span>)</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>path_stats<span class="ot">&lt;-</span>  <span class="fu">read.delim</span>(<span class="st">&quot;Circos_HiveR/hiveData/hmrData/GSS_Palm_vs_control_rep_pathway.txt&quot;</span>)</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>met_gene<span class="ot">&lt;-</span><span class="fu">read.delim</span>(<span class="st">&quot;Circos_HiveR/hiveData/hmrData/GSC_Palm_vs_control_rep_met.txt&quot;</span>, <span class="at">header =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>path_gene<span class="ot">&lt;-</span><span class="fu">read.delim</span>(<span class="st">&quot;Circos_HiveR/hiveData/hmrData/GSC_Palm_vs_control_rep_pathway.txt&quot;</span>, <span class="at">header =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 </div>
 <p>Take a look at the loaded files.</p>
 <p>The code below will create a data of “HivePlotData” class from the output of the Piano package in R. The code at the moment is is not fully commeneted but please have a look at the course homepage for updates. For those who are familiar with R, can try and understand it from the implemented commands.</p>
@@ -1037,94 +964,94 @@ R
 <div class="block-title small">
 R
 </div>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1">met_gene_z&lt;-<span class="st"> </span>met_gene[<span class="kw">which</span>(met_gene<span class="op">$</span>V1 <span class="op">%in%</span><span class="st"> </span>met_stats<span class="op">$</span>Name),]</a>
-<a class="sourceLine" id="cb32-2" data-line-number="2">path_gene_z&lt;-path_gene[<span class="kw">which</span>(<span class="kw">as.character</span>(path_gene<span class="op">$</span>V1) <span class="op">%in%</span><span class="st"> </span><span class="kw">as.character</span>(path_stats<span class="op">$</span>Name)),]</a>
-<a class="sourceLine" id="cb32-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb32-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb32-5" data-line-number="5">Gene_stats<span class="op">$</span>ID1&lt;-<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span>(<span class="kw">dim</span>(Gene_stats)[<span class="dv">1</span>]))</a>
-<a class="sourceLine" id="cb32-6" data-line-number="6">Gene_stats<span class="op">$</span>padj&lt;-<span class="kw">p.adjust</span>(Gene_stats<span class="op">$</span>p, <span class="dt">method =</span> <span class="st">&quot;fdr&quot;</span>)</a>
-<a class="sourceLine" id="cb32-7" data-line-number="7">met_gene<span class="op">$</span>ID2&lt;-<span class="kw">as.integer</span>(<span class="kw">as.numeric</span>(<span class="kw">factor</span>(met_gene<span class="op">$</span>V1)))</a>
-<a class="sourceLine" id="cb32-8" data-line-number="8">path_gene<span class="op">$</span>ID3&lt;-<span class="kw">as.integer</span>(<span class="kw">as.numeric</span>(<span class="kw">factor</span>(path_gene<span class="op">$</span>V1)))</a>
-<a class="sourceLine" id="cb32-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb32-10" data-line-number="10">gene_met_tmp&lt;-<span class="kw">merge</span>(met_gene, Gene_stats, <span class="dt">by.x =</span> <span class="st">&quot;V2&quot;</span>, <span class="dt">by.y =</span><span class="st">&quot;g&quot;</span> )</a>
-<a class="sourceLine" id="cb32-11" data-line-number="11">gene_met_tmp<span class="op">$</span>ID11&lt;-<span class="kw">as.integer</span>(<span class="kw">as.numeric</span>(<span class="kw">factor</span>(gene_met_tmp<span class="op">$</span>V2)))</a>
-<a class="sourceLine" id="cb32-12" data-line-number="12">gene_met_tmp<span class="op">$</span>ID11&lt;-gene_met_tmp<span class="op">$</span>ID11<span class="op">+</span><span class="kw">max</span>(gene_met_tmp<span class="op">$</span>ID2)</a>
-<a class="sourceLine" id="cb32-13" data-line-number="13">gene_met_tmp&lt;-<span class="kw">merge</span>(gene_met_tmp, path_gene, <span class="dt">by.x =</span> <span class="st">&quot;V2&quot;</span>, <span class="dt">by.y =</span> <span class="st">&quot;V2&quot;</span> )</a>
-<a class="sourceLine" id="cb32-14" data-line-number="14">gene_met_tmp<span class="op">$</span>ID31&lt;-<span class="st"> </span>gene_met_tmp<span class="op">$</span>ID3<span class="op">+</span><span class="kw">max</span>(gene_met_tmp<span class="op">$</span>ID11)</a></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>met_gene_z<span class="ot">&lt;-</span> met_gene[<span class="fu">which</span>(met_gene<span class="sc">$</span>V1 <span class="sc">%in%</span> met_stats<span class="sc">$</span>Name),]</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>path_gene_z<span class="ot">&lt;-</span>path_gene[<span class="fu">which</span>(<span class="fu">as.character</span>(path_gene<span class="sc">$</span>V1) <span class="sc">%in%</span> <span class="fu">as.character</span>(path_stats<span class="sc">$</span>Name)),]</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>Gene_stats<span class="sc">$</span>ID1<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span>(<span class="fu">dim</span>(Gene_stats)[<span class="dv">1</span>]))</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>Gene_stats<span class="sc">$</span>padj<span class="ot">&lt;-</span><span class="fu">p.adjust</span>(Gene_stats<span class="sc">$</span>p, <span class="at">method =</span> <span class="st">&quot;fdr&quot;</span>)</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>met_gene<span class="sc">$</span>ID2<span class="ot">&lt;-</span><span class="fu">as.integer</span>(<span class="fu">as.numeric</span>(<span class="fu">factor</span>(met_gene<span class="sc">$</span>V1)))</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>path_gene<span class="sc">$</span>ID3<span class="ot">&lt;-</span><span class="fu">as.integer</span>(<span class="fu">as.numeric</span>(<span class="fu">factor</span>(path_gene<span class="sc">$</span>V1)))</span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>gene_met_tmp<span class="ot">&lt;-</span><span class="fu">merge</span>(met_gene, Gene_stats, <span class="at">by.x =</span> <span class="st">&quot;V2&quot;</span>, <span class="at">by.y =</span><span class="st">&quot;g&quot;</span> )</span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>gene_met_tmp<span class="sc">$</span>ID11<span class="ot">&lt;-</span><span class="fu">as.integer</span>(<span class="fu">as.numeric</span>(<span class="fu">factor</span>(gene_met_tmp<span class="sc">$</span>V2)))</span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>gene_met_tmp<span class="sc">$</span>ID11<span class="ot">&lt;-</span>gene_met_tmp<span class="sc">$</span>ID11<span class="sc">+</span><span class="fu">max</span>(gene_met_tmp<span class="sc">$</span>ID2)</span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>gene_met_tmp<span class="ot">&lt;-</span><span class="fu">merge</span>(gene_met_tmp, path_gene, <span class="at">by.x =</span> <span class="st">&quot;V2&quot;</span>, <span class="at">by.y =</span> <span class="st">&quot;V2&quot;</span> )</span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>gene_met_tmp<span class="sc">$</span>ID31<span class="ot">&lt;-</span> gene_met_tmp<span class="sc">$</span>ID3<span class="sc">+</span><span class="fu">max</span>(gene_met_tmp<span class="sc">$</span>ID11)</span></code></pre></div>
 </div>
 <div class="block-title-parent">
 <div class="block-title small">
 R
 </div>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" data-line-number="1">met_stats_sig&lt;-(met_stats[met_stats<span class="op">$</span>p.adj..non.dir..<span class="op">&lt;</span><span class="fl">0.05</span>,])</a>
-<a class="sourceLine" id="cb33-2" data-line-number="2">path_stats_sig&lt;-path_stats[path_stats<span class="op">$</span>p.adj..non.dir..<span class="op">&lt;</span><span class="fl">0.00001</span>,]</a>
-<a class="sourceLine" id="cb33-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb33-4" data-line-number="4">sig_mets&lt;-met_stats_sig<span class="op">$</span>Name <span class="op">%&gt;%</span><span class="kw">as.character</span>()</a>
-<a class="sourceLine" id="cb33-5" data-line-number="5">sig_paths&lt;-path_stats_sig<span class="op">$</span>Name<span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.character</span>()</a>
-<a class="sourceLine" id="cb33-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb33-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb33-8" data-line-number="8">gene_met_tmp_sig&lt;-gene_met_tmp[<span class="kw">which</span>( <span class="kw">as.character</span>(gene_met_tmp<span class="op">$</span>V1.x)<span class="op">%in%</span><span class="st"> </span>sig_mets<span class="op">|</span><span class="st">  </span><span class="kw">as.character</span>(gene_met_tmp<span class="op">$</span>V1.y)<span class="op">%in%</span><span class="st"> </span>sig_paths),]</a>
-<a class="sourceLine" id="cb33-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb33-10" data-line-number="10">gene_met_tmp_sig &lt;-gene_met_tmp_sig[gene_met_tmp_sig<span class="op">$</span>padj<span class="op">&lt;</span><span class="fl">0.000001</span>,]</a>
-<a class="sourceLine" id="cb33-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb33-12" data-line-number="12"><span class="co">#Create a node table</span></a>
-<a class="sourceLine" id="cb33-13" data-line-number="13">x_sig&lt;-<span class="kw">unique</span>(<span class="kw">c</span>(gene_met_tmp_sig<span class="op">$</span>ID2, gene_met_tmp_sig<span class="op">$</span>ID11,gene_met_tmp_sig<span class="op">$</span>ID31)) <span class="co">#nodes</span></a>
-<a class="sourceLine" id="cb33-14" data-line-number="14">x1_sig&lt;-<span class="kw">as.character</span>((<span class="kw">c</span>(<span class="kw">as.character</span>(<span class="kw">unique</span>(gene_met_tmp_sig<span class="op">$</span>V1.x)), <span class="kw">as.character</span>(<span class="kw">unique</span>(gene_met_tmp_sig<span class="op">$</span>V2)),<span class="kw">as.character</span>(<span class="kw">unique</span>(gene_met_tmp_sig<span class="op">$</span>V1.y))))) <span class="co">#labels</span></a>
-<a class="sourceLine" id="cb33-15" data-line-number="15">x2_sig&lt;-<span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="kw">c</span>(<span class="kw">length</span>(<span class="kw">unique</span>(gene_met_tmp_sig<span class="op">$</span>V1.x)), <span class="kw">length</span>(<span class="kw">unique</span>(gene_met_tmp_sig<span class="op">$</span>V2)),<span class="kw">length</span>(<span class="kw">unique</span>(gene_met_tmp_sig<span class="op">$</span>V1.y)))) <span class="co"># assign axis</span></a>
-<a class="sourceLine" id="cb33-16" data-line-number="16"></a>
-<a class="sourceLine" id="cb33-17" data-line-number="17">x3_sig&lt;-<span class="st">  </span><span class="kw">c</span>(<span class="op">-</span><span class="kw">log10</span>(Gene_stats[<span class="kw">which</span>(x1_sig <span class="op">%in%</span><span class="st"> </span>Gene_stats<span class="op">$</span>g),<span class="st">&quot;padj&quot;</span>])<span class="op">*</span><span class="dv">50</span>, <span class="op">-</span><span class="kw">log10</span>(met_stats[<span class="kw">which</span>(x1_sig <span class="op">%in%</span><span class="st"> </span>met_stats<span class="op">$</span>Name),<span class="st">&quot;p..non.dir..&quot;</span>])<span class="op">*</span><span class="dv">50</span>,<span class="op">-</span><span class="kw">log10</span>(path_stats[<span class="kw">which</span>(path_stats<span class="op">$</span>Name <span class="op">%in%</span><span class="st"> </span>x1_sig), <span class="st">&quot;p..non.dir..&quot;</span>])<span class="op">*</span><span class="dv">100</span> )   <span class="co">#radius i.e., postion on the axis is arranged by meanigful graphical parameter e.g., significance</span></a>
-<a class="sourceLine" id="cb33-18" data-line-number="18"></a>
-<a class="sourceLine" id="cb33-19" data-line-number="19">x4_sig&lt;-<span class="st">  </span><span class="kw">scale</span>(<span class="kw">abs</span>(<span class="kw">c</span>(Gene_stats[<span class="kw">which</span>(x1_sig <span class="op">%in%</span><span class="st"> </span><span class="kw">rownames</span>(Gene_stats)),<span class="st">&quot;myFC&quot;</span>], met_stats_sig[<span class="kw">which</span>(x1_sig <span class="op">%in%</span><span class="st"> </span>met_stats<span class="op">$</span>Name ), <span class="st">&quot;Genes..tot.&quot;</span> ],path_stats[<span class="kw">which</span>(path_stats<span class="op">$</span>Name <span class="op">%in%</span><span class="st"> </span>x1_sig), <span class="st">&quot;Genes..tot.&quot;</span> ] )), <span class="dt">center =</span> <span class="ot">FALSE</span>, <span class="dt">scale =</span> <span class="ot">TRUE</span>) <span class="co">#size of the node e.g., Degree of the node or fold change etc</span></a>
-<a class="sourceLine" id="cb33-20" data-line-number="20">x4_sig_a&lt;-<span class="kw">rep</span>(<span class="dv">1</span>, <span class="kw">length</span>(x3_sig))</a>
-<a class="sourceLine" id="cb33-21" data-line-number="21"></a>
-<a class="sourceLine" id="cb33-22" data-line-number="22">x5_sig&lt;-<span class="st">  </span><span class="kw">as.character</span>(<span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;#E41A1C&quot;</span> ,<span class="st">&quot;#984EA3&quot;</span>, <span class="st">&quot;#4DAF4A&quot;</span>), <span class="kw">c</span>(<span class="kw">length</span>(<span class="kw">unique</span>(gene_met_tmp_sig<span class="op">$</span>V1.x)), <span class="kw">length</span>(<span class="kw">unique</span>(gene_met_tmp_sig<span class="op">$</span>V2)),<span class="kw">length</span>(<span class="kw">unique</span>(gene_met_tmp_sig<span class="op">$</span>V1.y)))))   <span class="co">#Node color</span></a>
-<a class="sourceLine" id="cb33-23" data-line-number="23">  </a>
-<a class="sourceLine" id="cb33-24" data-line-number="24"><span class="co">#xx&lt;-c(gene_stats[which(rownames(gene_stats) %in%x1),&quot;myPval&quot;], met_stats[which(met_stats$Name %in% x1), &quot;p..non.dir..&quot;],path_stats[which(path_stats$Name %in% x1), &quot;p..non.dir..&quot;] )</span></a></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>met_stats_sig<span class="ot">&lt;-</span>(met_stats[met_stats<span class="sc">$</span>p.adj..non.dir..<span class="sc">&lt;</span><span class="fl">0.05</span>,])</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>path_stats_sig<span class="ot">&lt;-</span>path_stats[path_stats<span class="sc">$</span>p.adj..non.dir..<span class="sc">&lt;</span><span class="fl">0.00001</span>,]</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>sig_mets<span class="ot">&lt;-</span>met_stats_sig<span class="sc">$</span>Name <span class="sc">%&gt;%</span><span class="fu">as.character</span>()</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>sig_paths<span class="ot">&lt;-</span>path_stats_sig<span class="sc">$</span>Name<span class="sc">%&gt;%</span> <span class="fu">as.character</span>()</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>gene_met_tmp_sig<span class="ot">&lt;-</span>gene_met_tmp[<span class="fu">which</span>( <span class="fu">as.character</span>(gene_met_tmp<span class="sc">$</span>V1.x)<span class="sc">%in%</span> sig_mets<span class="sc">|</span>  <span class="fu">as.character</span>(gene_met_tmp<span class="sc">$</span>V1.y)<span class="sc">%in%</span> sig_paths),]</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>gene_met_tmp_sig <span class="ot">&lt;-</span>gene_met_tmp_sig[gene_met_tmp_sig<span class="sc">$</span>padj<span class="sc">&lt;</span><span class="fl">0.000001</span>,]</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a><span class="co">#Create a node table</span></span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>x_sig<span class="ot">&lt;-</span><span class="fu">unique</span>(<span class="fu">c</span>(gene_met_tmp_sig<span class="sc">$</span>ID2, gene_met_tmp_sig<span class="sc">$</span>ID11,gene_met_tmp_sig<span class="sc">$</span>ID31)) <span class="co">#nodes</span></span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>x1_sig<span class="ot">&lt;-</span><span class="fu">as.character</span>((<span class="fu">c</span>(<span class="fu">as.character</span>(<span class="fu">unique</span>(gene_met_tmp_sig<span class="sc">$</span>V1.x)), <span class="fu">as.character</span>(<span class="fu">unique</span>(gene_met_tmp_sig<span class="sc">$</span>V2)),<span class="fu">as.character</span>(<span class="fu">unique</span>(gene_met_tmp_sig<span class="sc">$</span>V1.y))))) <span class="co">#labels</span></span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>x2_sig<span class="ot">&lt;-</span><span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="fu">c</span>(<span class="fu">length</span>(<span class="fu">unique</span>(gene_met_tmp_sig<span class="sc">$</span>V1.x)), <span class="fu">length</span>(<span class="fu">unique</span>(gene_met_tmp_sig<span class="sc">$</span>V2)),<span class="fu">length</span>(<span class="fu">unique</span>(gene_met_tmp_sig<span class="sc">$</span>V1.y)))) <span class="co"># assign axis</span></span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>x3_sig<span class="ot">&lt;-</span>  <span class="fu">c</span>(<span class="sc">-</span><span class="fu">log10</span>(Gene_stats[<span class="fu">which</span>(x1_sig <span class="sc">%in%</span> Gene_stats<span class="sc">$</span>g),<span class="st">&quot;padj&quot;</span>])<span class="sc">*</span><span class="dv">50</span>, <span class="sc">-</span><span class="fu">log10</span>(met_stats[<span class="fu">which</span>(x1_sig <span class="sc">%in%</span> met_stats<span class="sc">$</span>Name),<span class="st">&quot;p..non.dir..&quot;</span>])<span class="sc">*</span><span class="dv">50</span>,<span class="sc">-</span><span class="fu">log10</span>(path_stats[<span class="fu">which</span>(path_stats<span class="sc">$</span>Name <span class="sc">%in%</span> x1_sig), <span class="st">&quot;p..non.dir..&quot;</span>])<span class="sc">*</span><span class="dv">100</span> )   <span class="co">#radius i.e., postion on the axis is arranged by meanigful graphical parameter e.g., significance</span></span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a>x4_sig<span class="ot">&lt;-</span>  <span class="fu">scale</span>(<span class="fu">abs</span>(<span class="fu">c</span>(Gene_stats[<span class="fu">which</span>(x1_sig <span class="sc">%in%</span> <span class="fu">rownames</span>(Gene_stats)),<span class="st">&quot;myFC&quot;</span>], met_stats_sig[<span class="fu">which</span>(x1_sig <span class="sc">%in%</span> met_stats<span class="sc">$</span>Name ), <span class="st">&quot;Genes..tot.&quot;</span> ],path_stats[<span class="fu">which</span>(path_stats<span class="sc">$</span>Name <span class="sc">%in%</span> x1_sig), <span class="st">&quot;Genes..tot.&quot;</span> ] )), <span class="at">center =</span> <span class="cn">FALSE</span>, <span class="at">scale =</span> <span class="cn">TRUE</span>) <span class="co">#size of the node e.g., Degree of the node or fold change etc</span></span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a>x4_sig_a<span class="ot">&lt;-</span><span class="fu">rep</span>(<span class="dv">1</span>, <span class="fu">length</span>(x3_sig))</span>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a>x5_sig<span class="ot">&lt;-</span>  <span class="fu">as.character</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;#E41A1C&quot;</span> ,<span class="st">&quot;#984EA3&quot;</span>, <span class="st">&quot;#4DAF4A&quot;</span>), <span class="fu">c</span>(<span class="fu">length</span>(<span class="fu">unique</span>(gene_met_tmp_sig<span class="sc">$</span>V1.x)), <span class="fu">length</span>(<span class="fu">unique</span>(gene_met_tmp_sig<span class="sc">$</span>V2)),<span class="fu">length</span>(<span class="fu">unique</span>(gene_met_tmp_sig<span class="sc">$</span>V1.y)))))   <span class="co">#Node color</span></span>
+<span id="cb33-23"><a href="#cb33-23" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb33-24"><a href="#cb33-24" aria-hidden="true" tabindex="-1"></a><span class="co">#xx&lt;-c(gene_stats[which(rownames(gene_stats) %in%x1),&quot;myPval&quot;], met_stats[which(met_stats$Name %in% x1), &quot;p..non.dir..&quot;],path_stats[which(path_stats$Name %in% x1), &quot;p..non.dir..&quot;] )</span></span></code></pre></div>
 </div>
 <div class="block-title-parent">
 <div class="block-title small">
 R
 </div>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" data-line-number="1"><span class="co"># Create and edge table</span></a>
-<a class="sourceLine" id="cb34-2" data-line-number="2">y_sig&lt;-<span class="st">  </span><span class="kw">c</span>(gene_met_tmp_sig<span class="op">$</span>ID2, gene_met_tmp_sig<span class="op">$</span>ID11,gene_met_tmp_sig<span class="op">$</span>ID2 )<span class="co">#ID1</span></a>
-<a class="sourceLine" id="cb34-3" data-line-number="3">y1_sig&lt;-<span class="st"> </span><span class="kw">c</span>(gene_met_tmp_sig<span class="op">$</span>ID11, gene_met_tmp_sig<span class="op">$</span>ID31,gene_met_tmp_sig<span class="op">$</span>ID31)<span class="co">#ID2</span></a>
-<a class="sourceLine" id="cb34-4" data-line-number="4">y2_sig&lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">2</span>, <span class="kw">length</span>(y_sig)) <span class="co"># weight</span></a>
-<a class="sourceLine" id="cb34-5" data-line-number="5">y3_sig&lt;-<span class="st"> </span><span class="kw">as.character</span>(<span class="kw">rep</span> (<span class="st">&quot;pink&quot;</span> , <span class="kw">length</span>(y_sig)))<span class="co">#color</span></a></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create and edge table</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>y_sig<span class="ot">&lt;-</span>  <span class="fu">c</span>(gene_met_tmp_sig<span class="sc">$</span>ID2, gene_met_tmp_sig<span class="sc">$</span>ID11,gene_met_tmp_sig<span class="sc">$</span>ID2 )<span class="co">#ID1</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>y1_sig<span class="ot">&lt;-</span> <span class="fu">c</span>(gene_met_tmp_sig<span class="sc">$</span>ID11, gene_met_tmp_sig<span class="sc">$</span>ID31,gene_met_tmp_sig<span class="sc">$</span>ID31)<span class="co">#ID2</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>y2_sig<span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">2</span>, <span class="fu">length</span>(y_sig)) <span class="co"># weight</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>y3_sig<span class="ot">&lt;-</span> <span class="fu">as.character</span>(<span class="fu">rep</span> (<span class="st">&quot;pink&quot;</span> , <span class="fu">length</span>(y_sig)))<span class="co">#color</span></span></code></pre></div>
 </div>
 <div class="block-title-parent">
 <div class="block-title small">
 R
 </div>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" data-line-number="1">HivePlotData&lt;-<span class="kw">list</span>()</a>
-<a class="sourceLine" id="cb35-2" data-line-number="2">nodes_sig&lt;-<span class="kw">data.frame</span>(x_sig,x1_sig,x2_sig,x3_sig,x4_sig_a,x5_sig)</a>
-<a class="sourceLine" id="cb35-3" data-line-number="3"><span class="kw">colnames</span>(nodes_sig)&lt;-<span class="kw">c</span>(<span class="st">&quot;id&quot;</span>, <span class="st">&quot;lab&quot;</span>, <span class="st">&quot;axis&quot;</span>,<span class="st">&quot;radius&quot;</span>, <span class="st">&quot;size&quot;</span>, <span class="st">&quot;color&quot;</span>)</a>
-<a class="sourceLine" id="cb35-4" data-line-number="4">edges_sig&lt;-<span class="st"> </span><span class="kw">data.frame</span>(y_sig, y1_sig, y2_sig, y3_sig)</a>
-<a class="sourceLine" id="cb35-5" data-line-number="5"><span class="kw">colnames</span>(edges_sig)&lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;id1&quot;</span>, <span class="st">&quot;id2&quot;</span>, <span class="st">&quot;weight&quot;</span>, <span class="st">&quot;color&quot;</span>)</a>
-<a class="sourceLine" id="cb35-6" data-line-number="6">type&lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;2D&quot;</span>)</a>
-<a class="sourceLine" id="cb35-7" data-line-number="7">desc&lt;-<span class="kw">c</span>(<span class="st">&quot;many nodes&quot;</span>)</a>
-<a class="sourceLine" id="cb35-8" data-line-number="8"><span class="co">#axis.cols&lt;- c(&quot;#E41A1C&quot; ,&quot;#377EB8&quot;, &quot;#4DAF4A&quot;)</span></a>
-<a class="sourceLine" id="cb35-9" data-line-number="9">axis.cols&lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;blue&quot;</span> ,<span class="st">&quot;purple&quot;</span>, <span class="st">&quot;green&quot;</span>)</a>
-<a class="sourceLine" id="cb35-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb35-11" data-line-number="11">Data_hive_sig&lt;-<span class="st"> </span><span class="kw">list</span>(nodes_sig, edges_sig, type, desc, axis.cols)</a>
-<a class="sourceLine" id="cb35-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb35-13" data-line-number="13"><span class="kw">names</span>(Data_hive_sig)&lt;-<span class="kw">c</span>(<span class="st">&quot;nodes&quot;</span>, <span class="st">&quot;edges&quot;</span>, <span class="st">&quot;type&quot;</span>, <span class="st">&quot;desc&quot;</span>, <span class="st">&quot;axis.cols&quot;</span>)</a>
-<a class="sourceLine" id="cb35-14" data-line-number="14">Data_hive_sig<span class="op">$</span>nodes<span class="op">$</span>lab&lt;-<span class="kw">as.character</span>(Data_hive_sig<span class="op">$</span>nodes<span class="op">$</span>lab)</a>
-<a class="sourceLine" id="cb35-15" data-line-number="15">Data_hive_sig<span class="op">$</span>nodes<span class="op">$</span>color&lt;-<span class="kw">as.character</span>(Data_hive_sig<span class="op">$</span>nodes<span class="op">$</span>color)</a>
-<a class="sourceLine" id="cb35-16" data-line-number="16">Data_hive_sig<span class="op">$</span>edges<span class="op">$</span>color&lt;-<span class="kw">as.character</span>(Data_hive_sig<span class="op">$</span>edges<span class="op">$</span>color)</a>
-<a class="sourceLine" id="cb35-17" data-line-number="17"></a>
-<a class="sourceLine" id="cb35-18" data-line-number="18"></a>
-<a class="sourceLine" id="cb35-19" data-line-number="19"></a>
-<a class="sourceLine" id="cb35-20" data-line-number="20"><span class="kw">class</span>(Data_hive_sig)&lt;-<span class="st">&quot;HivePlotData&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>HivePlotData<span class="ot">&lt;-</span><span class="fu">list</span>()</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>nodes_sig<span class="ot">&lt;-</span><span class="fu">data.frame</span>(x_sig,x1_sig,x2_sig,x3_sig,x4_sig_a,x5_sig)</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(nodes_sig)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;id&quot;</span>, <span class="st">&quot;lab&quot;</span>, <span class="st">&quot;axis&quot;</span>,<span class="st">&quot;radius&quot;</span>, <span class="st">&quot;size&quot;</span>, <span class="st">&quot;color&quot;</span>)</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>edges_sig<span class="ot">&lt;-</span> <span class="fu">data.frame</span>(y_sig, y1_sig, y2_sig, y3_sig)</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(edges_sig)<span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;id1&quot;</span>, <span class="st">&quot;id2&quot;</span>, <span class="st">&quot;weight&quot;</span>, <span class="st">&quot;color&quot;</span>)</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>type<span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;2D&quot;</span>)</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>desc<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;many nodes&quot;</span>)</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a><span class="co">#axis.cols&lt;- c(&quot;#E41A1C&quot; ,&quot;#377EB8&quot;, &quot;#4DAF4A&quot;)</span></span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>axis.cols<span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;blue&quot;</span> ,<span class="st">&quot;purple&quot;</span>, <span class="st">&quot;green&quot;</span>)</span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>Data_hive_sig<span class="ot">&lt;-</span> <span class="fu">list</span>(nodes_sig, edges_sig, type, desc, axis.cols)</span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(Data_hive_sig)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;nodes&quot;</span>, <span class="st">&quot;edges&quot;</span>, <span class="st">&quot;type&quot;</span>, <span class="st">&quot;desc&quot;</span>, <span class="st">&quot;axis.cols&quot;</span>)</span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a>Data_hive_sig<span class="sc">$</span>nodes<span class="sc">$</span>lab<span class="ot">&lt;-</span><span class="fu">as.character</span>(Data_hive_sig<span class="sc">$</span>nodes<span class="sc">$</span>lab)</span>
+<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a>Data_hive_sig<span class="sc">$</span>nodes<span class="sc">$</span>color<span class="ot">&lt;-</span><span class="fu">as.character</span>(Data_hive_sig<span class="sc">$</span>nodes<span class="sc">$</span>color)</span>
+<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a>Data_hive_sig<span class="sc">$</span>edges<span class="sc">$</span>color<span class="ot">&lt;-</span><span class="fu">as.character</span>(Data_hive_sig<span class="sc">$</span>edges<span class="sc">$</span>color)</span>
+<span id="cb35-17"><a href="#cb35-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-18"><a href="#cb35-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-19"><a href="#cb35-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-20"><a href="#cb35-20" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(Data_hive_sig)<span class="ot">&lt;-</span><span class="st">&quot;HivePlotData&quot;</span></span></code></pre></div>
 </div>
 <div class="block-title-parent">
 <div class="block-title small">
 R
 </div>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" data-line-number="1"><span class="kw">plotHive</span>(Data_hive_sig, <span class="dt">bkgnd =</span> <span class="st">&quot;black&quot;</span>,</a>
-<a class="sourceLine" id="cb36-2" data-line-number="2">    <span class="dt">axLabs =</span> <span class="kw">c</span>(<span class="st">&quot;Metabolites&quot;</span>, <span class="st">&quot;Genes&quot;</span>, <span class="st">&quot;Pathways&quot;</span>),</a>
-<a class="sourceLine" id="cb36-3" data-line-number="3">    <span class="dt">axLab.pos =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>),</a>
-<a class="sourceLine" id="cb36-4" data-line-number="4">    <span class="dt">ch =</span> <span class="fl">0.5</span>, <span class="dt">method =</span> <span class="st">&quot;norm&quot;</span></a>
-<a class="sourceLine" id="cb36-5" data-line-number="5">    )</a></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotHive</span>(Data_hive_sig, <span class="at">bkgnd =</span> <span class="st">&quot;black&quot;</span>,</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">axLabs =</span> <span class="fu">c</span>(<span class="st">&quot;Metabolites&quot;</span>, <span class="st">&quot;Genes&quot;</span>, <span class="st">&quot;Pathways&quot;</span>),</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">axLab.pos =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>),</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">ch =</span> <span class="fl">0.5</span>, <span class="at">method =</span> <span class="st">&quot;norm&quot;</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
 <img src="RCircos-HiveR_files/figure-html/unnamed-chunk-31-1.svg" width="672" style="display: block; margin: auto auto auto 0;" />
 </div>
 </div>
@@ -1141,7 +1068,7 @@ R
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();
@@ -1159,7 +1086,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
+    $(this).parent().toggleClass('nav-tabs-open');
   });
 });
 </script>
@@ -1168,6 +1095,9 @@ $(document).ready(function () {
 
 <script>
 $(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
 
     // move toc-ignore selectors from section div to header
     $('div.section.toc-ignore')

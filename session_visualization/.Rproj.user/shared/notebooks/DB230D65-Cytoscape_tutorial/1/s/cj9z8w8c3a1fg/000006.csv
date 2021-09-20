@@ -1,0 +1,23 @@
+"0","#setwd(""/Users/cob-aaf/Documents/GitHub/session_visualization/"")"
+"0","AgeingExpMeth <- read_excel(""./Data/AgeExpMethSig.xlsx"",   skip = 0) ## Provide the path to the file with data"
+"0",""
+"0","Age_prot <- read_table2(""./Data/AgeingTopProteins.txt"")"
+"1","
+[36m──[39m [1m[1mColumn specification[1m[22m [36m──────────────────────────────────────────────────────────────────────────────[39m
+cols(
+  protein = [31mcol_character()[39m,
+  logFC = [32mcol_double()[39m,
+  AveExpr = [32mcol_double()[39m,
+  t = [32mcol_double()[39m,
+  P.Value = [32mcol_double()[39m,
+  adj.P.Val = [32mcol_double()[39m,
+  B = [32mcol_double()[39m
+)
+
+"
+"0","Age_exp <- AgeingExpMeth %>%  arrange(`ExpAgeP-value`) %>% slice_head(n=100)"
+"0","Age_meth <- AgeingExpMeth %>% arrange(`MethAgeP-value`) %>% slice_head(n=100)"
+"0",""
+"0","rownames(Age_exp) <- Age_exp$Gene"
+"0",""
+"0",""

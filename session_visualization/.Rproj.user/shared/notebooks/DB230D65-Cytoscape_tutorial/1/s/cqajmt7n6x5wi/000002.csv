@@ -1,0 +1,3 @@
+"0","AgeingProt_string_interaction_cmd <- paste('string protein query taxonID=9606 limit=150 cutoff=0.9 query=', paste(Age_prot$protein, collapse="",""),'""',sep="""")"
+"0","test <-commandsGET(AgeingProt_string_interaction_cmd)"
+"0","renameNetwork(""AgeingProtNet"")"
