@@ -5,11 +5,13 @@
 [Course homepage](https://uppsala.instructure.com/courses/52162)
 
 Past editions:
+- [Online 6 - 10 September 2021, ELIXIR Omics Integration][5]
 - [Online 22 - 23 July 2021, as part of the ICMB / ECCB][4]
 - [Online 19 - 23 April 2021][3]
 - [Lund 5 - 9 October 2020][2]
 - [Stockholm 9 - 12 Sep 2019][1]
 
+[5]: https://github.com/NBISweden/workshop_omics_integration/releases/tag/course2109
 [4]: https://github.com/NBISweden/workshop_omicsint_ISMBECCB/
 [3]: https://github.com/NBISweden/workshop_omics_integration/tree/course2104
 [2]: https://github.com/NBISweden/workshop_omics_integration/tree/course2010
