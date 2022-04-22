@@ -1,0 +1,10 @@
+
+.end-text[
+`r   x <- sessionInfo(); paste0("<p>",x$R.version$version.string,"<br>","<p>Platform: ",x$platform,"</p>","<p>OS: ",x$running,"</p><br>")`
+
+<hr>
+
+<span class="small">`r paste0("Built on : <i class='fa fa-calendar' aria-hidden='true'></i> ",format(Sys.time(),format='%d-%b-%Y')," at <i class='fa fa-clock-o' aria-hidden='true'></i> ",format(Sys.time(),format='%X'))`</span>  
+
+<b>`r format(Sys.time(), '%Y')`</b> • [SciLifeLab](https://www.scilifelab.se/) • [NBIS](https://nbis.se/)
+]

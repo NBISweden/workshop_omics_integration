@@ -1,0 +1,406 @@
+---
+title: "Gene Set Enrichment analyses and reporter features"
+author: "Ashfaq Ali"
+format: revealjs
+editor: visual
+---
+
+### Gene Set Enrichment analyses
+
+-   **GSEA, GSA and Reporter Features**
+    -   Genes and gene sets
+    -   Gene Ranking, Enrichment and Significance
+    -   Variations such CAMERA
+    -   GSEA in multi-omics context
+-   **Reporter Features GEMs and for integration**
+    -   Definitions and context
+    -   Human metabolic Models and Context Specific GEMs
+    -   PIANO tool and Gene set analyses for GEMs
+
+------------------------------------------------------------------------
+
+## Gene Sets
+
+-   Gene Sets are Predefined based on shared functions, membership in
+    pathways and properties
+
+::: columns
+::: {.column width="40%"}
+-   [**MSigDB**](https://www.gsea-msigdb.org/gsea/msigdb/)
+
+![](https://www.gsea-msigdb.org/gsea/images/MSigDB-logo1.gif)
+
+-   [**KEGG**](https://www.genome.jp/kegg/)
+
+![](https://www.genome.jp/Fig/kegg128.gif)
+:::
+
+::: {.column width="40%"}
+-   [**Metabolic Atlas**](https://metabolicatlas.org)
+
+![](img/metabolic_atlas_logo.png)
+
+-   [**Gene Ontology**](http://geneontology.org)
+
+![](http://geneontology.org/assets/go-logo.large.png)
+:::
+:::
+
+------------------------------------------------------------------------
+
+## Gene Set analyses
+
+:::: columns 
+::: {.column width="40%"}
+
+-   Gene list
+
+![](img/gene_list.jpg)
+
+:::
+
+::: {.column width="40%"}
+-   Gene-level statistics
+ 
+![](img/Gene_stats.jpeg)
+:::
+::::
+
+-----------------------------------
+
+## Gene list enrichment or over-representation analysis
+
+
+Given a list of m genes of interest out of g in the genome and a gene-set of k genes, a statistical enrichment returns the probability that x out of the m genes of interest are in the gene-set.
+
+This is calculated using Fisher’s Exact Test [Explanation](https://www.pathwaycommons.org/guide/primers/statistics/fishers_exact_test/).
+
+![](img/Over-representation.jpg) 
+
+
+
+
+-----------------------------
+
+## Gene list enrichment
+
+ - Limitations
+  - Requires arbitrary cutoff to define gene list
+  -  Does not correct for gene-gene correlations (false positives)
+  - No ranking or relative scoring of genes
+    (gene at the top of the list is identical to bottom) 
+
+-----------------------
+
+## Gene Set Enrichment Analyses
+:::: columns 
+::: {.column width="40%"} 
+
+- [**GSEA**](https://www.pnas.org/content/102/43/15545): 
+- Identifies sets of genes that are enriched in certain condition. 
+- Considers ranked list of **all** genes based on phenotypic comparison 
+::: 
+
+::: {.column width="60%"} 
+- Process 
+
+![](https://www.gsea-msigdb.org/gsea/images/GSEA-homegraphic.gif) 
+::: 
+::::                                                                                                                                                                  
+
+-----------------------------
+
+## GSEA: How it works
+
+![](https://www.pnas.org/cms/10.1073/pnas.0506580102/asset/c5e213a9-4247-4506-bae4-908054152f97/assets/graphic/zpq0370595180001.jpeg)
+
+------------------------------------------------------------------------
+
+## GSEA: output
+
+![](https://www.pnas.org/cms/10.1073/pnas.0506580102/asset/a6130520-4a69-48b1-b637-a2798cf79b5e/assets/graphic/zpq0370595180002.jpeg)
+
+-   Leading edge analyse to identify leading edges
+-   Visualize as a network of enriched gene sets in Cytoscape etc.
+
+------------------------------------------------------------------------
+
+## Variation of GSEA I
+
+-   CAMERA (Correlation Adjusted MEan RAnk gene set test)
+    -   able to estimate and correct for inter-gene correlation that
+        biases enrichment tests
+-   SetRank adjusts for false positives that arise from overlaps in gene
+    sets
+-   FGSEA package have allowed a \~ 50 fold increase in permutation
+    calculation speed in pre-ranked enrichment detection in contrast to
+    GSEA
+
+------------------------------------------------------------------------
+
+## [**multiGSEA**](https://bioconductor.org/packages/release/bioc/vignettes/multiGSEA/inst/doc/multiGSEA.html) - [Canzler *etal*](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7720482/)
+
+::: columns
+::: {.column width="50%"}
+![](https://www.ncbi.nlm.nih.gov/pmc/articles/instance/7720482/bin/12859_2020_3910_Fig1_HTML.jpg){.absolute
+top="50" left="50" width="500" height="700"}
+:::
+
+::: {.column width="50%"}
+-   **Steps**
+    -   The pathway database is harmonization
+    -   GSEA enrichment for each of the data set
+    -   Combine p-valuse
+
+![](https://www.ncbi.nlm.nih.gov/pmc/articles/instance/7720482/bin/12859_2020_3910_Fig2_HTML.jpg){.absolute
+top="500" left="600" width="450" height="250"}
+:::
+:::
+
+------------------------------------------------------------------------
+
+## GEMs subsystems
+
+![](img/peroxisome.svg){.absolute top="50" left="50" width="950" height="850"}
+
+                                                                                                                 ----------------------------------------------------------------------|
+
+## GEMs based gene sets                                                                                   
+- [GEMs](https://doi.org/10.3389/fphys.2013.00092) - Genome scale metabolic models ![](img/GEM_based_GeneSets.jpg){.absolute top="150" left="150" width="750" height="550"}
+
+
+
+------------------------------------
+
+## Reporter metabolites
+
+[Reporter metabolites](https://www.pnas.org/doi/full/10.1073/pnas.0406811102) are the Metabolites around which the most significant transcriptional changes occur.
+
+::: columns
+::: {.column width="50%" style="color:gray"}
+
+![](img/reporter_metabolites_Dgal.jpg)
+:::
+
+::: {.column width="50%" style="color:gray"}
+![](img/reporter_metabolites_int_parners.jpg)
+:::
+
+::::
+
+The algorithm at its core is very similar to the one used for GSEA. 
+
+----------------------------------------------
+
+## Reporter features
+
+::: columns
+::: {.column width="30%" style="color:gray"}
+-   **Reporter metabolites**
+
+    -   Metabolite - Gene association
+    -   Metabolite - Reaction association (flux)
+:::
+
+::: {.column width="30%" style="color:navy"}
+-   **Reporter subsystems**
+
+    -   **Subsystem - Gene association**
+    -   **Subsystem - Metabolite association**
+:::
+
+::: {.column width="30%" style="color:red"}
+-   **Reporter HMRs (reactions)**
+
+    -   HMR - Gene association
+    -   HMR - Metabolite association
+:::
+:::
+
+------------------------------------------------------------------------
+
+## Gene set analysis tool (GSA) PIANO
+
+![](img/Piano_overview.jpeg){.absolute top="50" left="100" width="850" height="750"}
+
+------------------------------------------------------------------------
+
+## Gene regulation Scenarios PIANO
+
+![](img/Piano_up_down_scenarios.png){.absolute width="1050" height="1150"}
+
+---------------
+
+## Piano Gene sets cluster samples                
+
+![](img/piano_2_directional.jpeg){.absolute top="100" left="150" width="750" height="500"}
+
+
+----------------------------------------------
+
+## GEM-based comparison
+From the study [Robinson, et al.](https://www.science.org/doi/10.1126/scisignal.aaz1482)
+![](img/Gem_Based_comparison_1.jpg){.absolute top="200" left="50" width="850" height="500"}
+
+
+-----------------------------------------------
+
+### GEM-based comparison         s
+
+![](img/GEM_extraction.jpg)
+
+
+---------------------------
+
+### GEM structure 
+ 
+ GEM structure (reaction content) can be represented
+by a binary vector
+
+::: columns
+::: {.column width="40%" style="color:gray"}
+![](img/GEM_extraction_2.jpg)
+:::
+::: {.column width="40%" style="color:gray"}
+
+![](img/GEMs_comparison_tSNe.jpg)
+
+
+:::
+::::
+------------------------------
+
+### GEM-based comparison of transcriptomes
+
+::: columns
+::: {.column width="40%" style="color:gray"}
+If reaction subsystem labels are included, we can look at subsystem-specific differences between GEMs
+![](img/GEM_extraction_3.jpg)
+
+:::
+
+::: {.column width="40%" style="color:gray"}
+
+![](img/GEM_based_comparison_2.jpg)
+:::
+:::
+--------------------------------------
+
+## Context-specific GEMs
+
+ - A GEM contains all metabolic reactions that are known to occur within an organism
+ - When working with multicellular organisms (e.g., humans), the “generic” GEM containing all reactions is not representative of any real cell or tissue type
+ - We can use omics data to extract a subset of the generic GEM that is active in our system of interest
+ - This GEM is called an “extracted” or context-specific GEM
+
+
+
+--------------------
+
+### Context-specific GEMs
+
+There are many methods to generate context-specific GEMs. For example:
+
+- [iMAT](https://opencobra.github.io/cobratoolbox/stable/tutorials/tutorialExtractionTranscriptomic.html) (Integrative Metabolic Analysis Tool)
+- MBA (Model Building Algorithm)
+- mCADRE (metabolic Context-specificity Assessed by Deterministic Reaction Evaluation)
+- [tINIT](https://sysbiochalmers.github.io/Human-GEM-guide/gem_extraction/) (Task-driven Integrative Network Inference for Tissues)
+- FASTCORE 
+
+*Unfortunately, they were all implemented in MATLAB.*
+
+
+----------------------------
+
+### Model Extraction Algorithms (detail) 
+
+![](img/MEMs.png){.absolute top="50" left="50" width="750" height="850"}
+
+-------------------------------
+
+### The performance of model extraction algorithms and parameter 
+
+Different parameters and algorithms yielded diverse models
+
+::: columns
+::: {.column width="40%" style="color:gray"}
+
+![](img//ModelSimilarityAlgorithms.png)
+:::
+
+::: {.column width="40%" style="color:gray"}
+
+![](img//ModelSizeVsFunctionalities.png)
+:::
+
+:::
+Extraction method most strongly affected accuracy of gene sentimentality predictions
+
+---
+
+### Context Specific Models based on iMAT Algorithm.
+
+Tissue level data separates very well but sample phenotype is not captured as well.
+
+::: columns
+::: {.column width="50%" style="color:gray"}
+**The number of reactions active in given pathways.**
+![](img/Context_specific_models.png)
+
+:::
+::: {.column width="40%" style="color:gray"}
+
+![](img/GEMs_comparison_tSNe.jpg)
+:::
+:::
+----------------------------------
+
+## Reporter features and GEMs Gene sets
+
+::: columns
+::: {.column width="30%" style="color:gray"}
+-   **Reporter metabolites**
+
+    -   Metabolite - Gene association
+    -   Metabolite - Reaction association (flux)
+:::
+
+::: {.column width="30%" style="color:navy"}
+-   **Reporter subsystems**
+
+    -   **Subsystem - Gene association**
+    -   **Subsystem - Metabolite association**
+:::
+
+::: {.column width="30%" style="color:red"}
+-   **Reporter HMRs (reactions)**
+
+    -   HMR - Gene association
+    -   HMR - Metabolite association
+:::
+:::
+
+------------------
+
+## Piano Gene sets cluster samples                
+
+![](img/piano_2_directional.jpeg){.absolute top="100" left="150" width="750" height="500"}
+
+
+-----------------------------------------------
+
+## Exercise: GEM-based GSA
+
+ - Exercise part 1: (python, short)
+  
+    - Extract metabolite and subsystem gene sets from Human-GEM
+
+- Exercise part 2: (R)
+    - Use the GEM-derived gene set collections to evaluate enrichment of differentially expressed genes in different regions of the metabolic network.
+
+
+
+----------------------
+
+Thank you
+---------------
