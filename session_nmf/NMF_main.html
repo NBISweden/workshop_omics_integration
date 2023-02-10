@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>NMF_lab</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>NMF_main</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -14259,66 +14259,388 @@ a.anchor-link {
 
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="NMF-lab">NMF lab<a class="anchor-link" href="#NMF-lab">&#182;</a></h1>
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Task-(45-minutes)">Task (45 minutes)<a class="anchor-link" href="#Task-(45-minutes)">&#182;</a></h3><p><strong>Important</strong></p>
+<h1 id="NMF---Non-Negative-Matrix-Factorization">NMF - Non-Negative Matrix Factorization<a class="anchor-link" href="#NMF---Non-Negative-Matrix-Factorization">&#182;</a></h1><p>by Sergiu Netotea, PhD, NBIS, Chalmers</p>
 <ul>
-<li>This task is optimized for speedrun and not quality. Normaly you would look into more components-</li>
-</ul>
-<p>Data: MOFA's CLL dataset</p>
-<ol>
-<li>Load and prepare data, then perform NMR on the joint representation of the methylation and mRNA datasets.</li>
-<li>Assume that there are two cancer subtypes and cluster them :)</li>
-<li>Find the driving features and verify their functionality.</li>
-</ol>
-<p>Code:</p>
-<ul>
-<li>Lab example uses a NMF implementation in Python:<ul>
-<li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.NMF.html#sklearn.decomposition.NMF">https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.NMF.html#sklearn.decomposition.NMF</a></li>
-</ul>
-</li>
-<li>For R, feel free to use this package:<ul>
-<li><a href="https://cran.r-project.org/web/packages/NMF/index.html">https://cran.r-project.org/web/packages/NMF/index.html</a></li>
+<li>Basic NMF presentation and solving</li>
+<li>Comparisons to SvD and PCA. When to use what?</li>
+<li>Toy dataset example</li>
+<li>More complex NMF methods and their applications in omics integration</li>
+<li>NMF for dimensionality reduction (lab)<ul>
+<li>Reccomend a multi-omic cause (gene/protein/metabolite) for a phenotipic effect, or the opposite.</li>
 </ul>
 </li>
 </ul>
 
 </div>
-</div>conda create -n iocourse
-conda activate iocourse
-conda install jupyterlab pandas numpy scikit-learn
-pip install snfpy
+</div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Load the datasets:</p>
+<p>Further read:</p>
+<ul>
+<li>Seminal paper: NMF outperforms similar techniques at learning parts representation</li>
+<li>Lee, D., Seung, H. Learning the parts of objects by non-negative matrix factorization. Nature 401, 788–791 (1999). <a href="https://doi.org/10.1038/44565">https://doi.org/10.1038/44565</a></li>
+</ul>
+<p>Observations:</p>
+<ul>
+<li>NMF was historically the best hidden feature based image segmentation prior to CNNs</li>
+<li>In comparison to other MF methods (especially the orthogonality enforcing methods), NMF hidden features are not independent, but overlapping, in a hierarchical manner (thus good for hierarchical clustering)</li>
+</ul>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="NMF---Non-Negative-Matrix-Factorization">NMF - Non-Negative Matrix Factorization<a class="anchor-link" href="#NMF---Non-Negative-Matrix-Factorization">&#182;</a></h2><ul>
+<li><p>Matrix factorization (MF):
+<img src="img/NMF.png" width="300"/>
+[Credit: Wikipedia]</p>
+</li>
+<li><p>Latent (hidden) factors:</p>
+<ul>
+<li>Each sample (feature) can be described by k attributes. Example: How likely is it that a person suffers from a certain type of cancer?</li>
+<li>Each observation (example: gene) can be described by an analagous set of k attributes or features. Example: How likely is it for the gene to be involved/co-regulated/induced etc in a certain type of cancer.</li>
+<li>Hidden features: We don't always know what these features are, how many are relevant. We learn them, or rather let the machines pick.</li>
+</ul>
+</li>
+<li>Model constraints: $V\in\mathbb{R}_+^{m \times n}, V \approx WH, W \in \mathbb{R}_+^{m \times k}, H \in \mathbb{R}_+^{k \times n}$<ul>
+<li>NMF is a subtype of MF where the additional requirement is that the initial matrix and the decomposed matrices are positive.</li>
+<li>Why is non-negativity important? It implies the additivity of latent factors.</li>
+</ul>
+</li>
+<li>As an optimization problem: $ min~\|V-WH\|_F, V \ge 0, W \ge 0, H \ge 0$<ul>
+<li>Frobenius norm. Fit function: $ F = \sum_{u,i} (v_{ui} - w_u h_i^T)^2, v_{ui} \approx w_u h_i^T = \sum_k{w_{uk} h_{ki}}$</li>
+<li>This is non convex optimization (no global minima)!</li>
+<li>The number of latent factors is a result of global fitting</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="NMF---some-intuitive-examples-from-multi-omics:">NMF - some intuitive examples from multi-omics:<a class="anchor-link" href="#NMF---some-intuitive-examples-from-multi-omics:">&#182;</a></h2><table>
+<thead><tr>
+<th>V matrix (values matrix)</th>
+<th>(weights, scores) W matrix</th>
+<th>(hidden, loadings) H matrix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>expression values (gene x samples)</td>
+<td>genes x factors (metagenes)</td>
+<td>factors (metagenes) x samples</td>
+</tr>
+<tr>
+<td>protein counts (proteins x samples)</td>
+<td>proteins x factors (domains)</td>
+<td>factors (domains) x samples</td>
+</tr>
+<tr>
+<td>multiomics observations (genes, proteins, etc x samples)</td>
+<td>(genes, proteins, etc) x factors (multiomic features)</td>
+<td>factors (multiomic features) x samples</td>
+</tr>
+<tr>
+<td>multiple datasets (genes x samples x batches)</td>
+<td>genes x factors (multi_batch domains)</td>
+<td>factors (multi_batch domains) x samples</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="NMF---in-general-contexts:">NMF - in general contexts:<a class="anchor-link" href="#NMF---in-general-contexts:">&#182;</a></h2><table>
+<thead><tr>
+<th>V matrix (values matrix)</th>
+<th>(weights, scores) W matrix</th>
+<th>(hidden, loadings) H matrix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>recommender systems (item x user)</td>
+<td>items x factors (preferences)</td>
+<td>factors (preferences) x users</td>
+</tr>
+<tr>
+<td>collaborative filtering (user x user connections)</td>
+<td>user x factors (communities)</td>
+<td>factors (communities) x users</td>
+</tr>
+<tr>
+<td>language processing (word distribution x document)</td>
+<td>word x factors (topics)</td>
+<td>factors (topics) x documents</td>
+</tr>
+<tr>
+<td>facial recognition (faces x labels)</td>
+<td>faces x factors (facial features)</td>
+<td>factors (facial features)  x labels</td>
+</tr>
+<tr>
+<td>microscopy pictures (picture x samples)</td>
+<td>pictures x factors (image segments)</td>
+<td>factors x samples</td>
+</tr>
+<tr>
+<td>spectrometry (spectra x sample)</td>
+<td>spectra x factors (component molecules)</td>
+<td>factors (component molecules) x samples</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Solving-NMF">Solving NMF<a class="anchor-link" href="#Solving-NMF">&#182;</a></h2><ul>
+<li>Similar to ICA, PCA, MFA it can be classified as an unsupervised dimensionality reduction / clustering technique.</li>
+<li>Uses the Frobenius norm, which is the matrix equivalent of the euclidean distance. But other cost functions are possible, that also include regularization.
+$$
+\|X\|_F = \sqrt{\sum_i\sum_jx_{ij}^2}.
+$$</li>
+<li>Many algorithms exist, such as iterated coordinate descent (the original solver), hierarchical alternated least squares. </li>
+<li>Main solver works iteratively via alternating non-negative least squares (ANLS) as:
+$$\begin{align}
+  W_{t+1} &amp;= W_t^T \frac{XH_t^T}{XH_tH_t^T} \\
+  H_{t+1} &amp;= H_t \frac{W_t^TX}{W^T_tW_tX}.
+\end{align}$$</li>
+<li>Weak convergence: it is reinitialized several times to avoid local minima, and the best result is kept.</li>
+<li>Optimal number of k components (RSS scores for example, Silhouettes scores etc)</li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Alternating-non-negative-least-squares-(ANLS)">Alternating non-negative least squares (ANLS)<a class="anchor-link" href="#Alternating-non-negative-least-squares-(ANLS)">&#182;</a></h3><ul>
+<li>the iteration updates all of $W$ together, then all of $H$:
+$$
+W := \operatorname{argmin}_{W \geq 0} \|V-WH\|_F^2 \\
+H := \operatorname{argmin}_{H \geq 0} \|V-WH\|_F^2
+$$</li>
+<li>We can solve for each row of $W$ (or column of $H$) independently by solving a <strong>non-negative least squares problem</strong>.  </li>
+<li>Non-negative least squares problems cannot be solved in a simple closed form!
+$$
+\mbox{minimize } \|Vx-b\|^2 \mbox{ such that } x \geq 0;
+$$</li>
+<li>This it is a convex optimization problem that can be solved using any constrained optimization solver.</li>
+<li>Widely used solver is the active set methods, that start from an initial non-negative guess and partitioning the variables into a free set and a constrained set, then updates these sets and the best positive guess.</li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="NMF---multi-omics-usage-observations">NMF - multi omics usage observations<a class="anchor-link" href="#NMF---multi-omics-usage-observations">&#182;</a></h3><ul>
+<li>The different omics datasets have different scales and normalities, and this will impact your results (but it also depends on assumptions, on the goal of your study).</li>
+<li>The second problem is enforcing the non-negativity constraint, which might imply additional transformations such as re-scaling and translating</li>
+<li>To bring the different datasets Frobenius norms to the same baseline one can do:
+$$
+X = \begin{bmatrix}
+  \frac{x^{1j}}{\sum_jx^{1j}} /  \|\frac{x^{1j}}{\sum_jx^{1j}}\|_F \\
+  \frac{x^{2j}}{\sum_jx^{2j}} /  \|\frac{x^{2j}}{\sum_jx^{2j}}\|_F \\
+  \vdots \\
+  \frac{x^{Nj}}{\sum_jx^{Nj}} /  \|\frac{x^{Nj}}{\sum_jx^{Nj}}\|_F \\
+\end{bmatrix},
+$$</li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Comparison-to-PCA-and-autoencoders">Comparison to PCA and autoencoders<a class="anchor-link" href="#Comparison-to-PCA-and-autoencoders">&#182;</a></h2><ul>
+<li>Overall:<ul>
+<li>PCA is good at isolating feature that contain sufficient signal, but will transform the dataset in the direction of maximal variability</li>
+<li>NMF will not have you lose the original features, you can see it as a data compression tool and has superior interpretability</li>
+<li>Autoencoders are good for high dimensional complex datasets, but it is difficult to interpret your findings beside a simple clustering</li>
+</ul>
+</li>
+<li>Factors interpretability: <ul>
+<li>PCA: search for optimal rank k approximations, using it as a linear basis fit to re-write the data.</li>
+<li>NMF: your data is written as a weighted sum of the basis you learn, but multiple basis can be just as good.</li>
+<li>Autoencoder: fators are difficult to interpret, but can capture nonlinear effects.</li>
+</ul>
+</li>
+<li>What it tries to explain:<ul>
+<li>PCA: variation in the data (it is an SvD on the covariation matrix, performing sequential normalizations of data along axes of variation)</li>
+<li>NMF: additive signal, the very purpose of NMF is to isolate distinct and interpretable signals (paterns) within the data</li>
+<li>Autoencoder: an autoencoder simply tries to reproduce it's original signal.</li>
+</ul>
+</li>
+<li>Dimensionality curse:<ul>
+<li>PCA: better at smaller datasets, covariation tends to be equal at large dimensions, good at isolating signal from noise from data</li>
+<li>NMF: even better at small datasets, provided a good signal fit is found, good at isolating paterns</li>
+<li>Autoencoder: better at complex and large datasets, were interpretability is not an end goal</li>
+</ul>
+</li>
+</ul>
+<p>Further read:</p>
+<ul>
+<li><a href="https://towardsdatascience.com/step-by-step-signal-processing-with-machine-learning-pca-ica-nmf-8de2f375c422">https://towardsdatascience.com/step-by-step-signal-processing-with-machine-learning-pca-ica-nmf-8de2f375c422</a></li>
+<li><a href="https://towardsdatascience.com/autoencoders-vs-pca-when-to-use-which-73de063f5d7">https://towardsdatascience.com/autoencoders-vs-pca-when-to-use-which-73de063f5d7</a></li>
+<li><a href="https://iqbalamo93.medium.com/pca-and-nmf-a-quick-walkthrough-f53d30a968fc">https://iqbalamo93.medium.com/pca-and-nmf-a-quick-walkthrough-f53d30a968fc</a></li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Toy-dataset">Toy dataset<a class="anchor-link" href="#Toy-dataset">&#182;</a></h2><ul>
+<li>Lets pretend that we manage to summarise the effective signal from several omics features in a cheap clinical test.</li>
+<li>Each sample is a private individual. Our test is targeted on one of these afflictions: (cancer, melancholy, diabetes). These are hidden factors: We don't always know what these features are, how many are relevant. We learn them, or rather let the machines pick.</li>
+<li>Each individual is summarised by a few omics features. We will use NMF and collaborative filtering to extract knowledge from such a system.</li>
+</ul>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_loc</span> <span class="o">=</span> <span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">mydata</span><span class="se">\\</span><span class="s2">work</span><span class="se">\\</span><span class="s2">io_course</span><span class="se">\\</span><span class="s2">data</span><span class="se">\\</span><span class="s2">&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="n">df_meth</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_loc</span> <span class="o">+</span> <span class="s2">&quot;CLL_data_Methylation.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">df_mrna</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_loc</span> <span class="o">+</span> <span class="s2">&quot;CLL_data_mRNA.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span>
+             <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> 
+             <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span>
+             <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
+             <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
+             <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
 
-<span class="c1"># drop nans by column</span>
-<span class="n">df_mrna</span> <span class="o">=</span> <span class="n">df_mrna</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
-<span class="n">df_meth</span> <span class="o">=</span> <span class="n">df_meth</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;Mary&#39;</span><span class="p">,</span> <span class="s1">&#39;Greg&#39;</span><span class="p">,</span> <span class="s1">&#39;Peter&#39;</span><span class="p">,</span> <span class="s1">&#39;Jennifer&#39;</span><span class="p">])</span>
 
-<span class="n">df_mrna</span> <span class="o">=</span> <span class="n">df_mrna</span><span class="o">.</span><span class="n">T</span>
-<span class="n">df_meth</span> <span class="o">=</span> <span class="n">df_meth</span><span class="o">.</span><span class="n">T</span>
+<span class="n">dataset</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;diabetes_gene1&#39;</span><span class="p">,</span> <span class="s1">&#39;diabetes_gene2&#39;</span><span class="p">,</span> <span class="s1">&#39;cancer_protein1&#39;</span><span class="p">,</span> <span class="s1">&#39;unclear&#39;</span><span class="p">,</span> <span class="s1">&#39;melancholy_gene&#39;</span><span class="p">,</span> <span class="s1">&#39;cofee_dependency_gene&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">groceries</span><span class="p">)</span>
 </pre></div>
 
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>                       John  Alice  Mary  Greg  Peter  Jennifer
+diabetes_gene1            0      1     0     1      2         2
+diabetes_gene2            0      1     1     1      3         4
+cancer_protein1           2      3     1     1      2         2
+unclear                   1      1     1     0      1         1
+melancholy_gene           0      2     3     4      1         1
+cofee_dependency_gene     0      0     0     0      1         0
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Intuitively we can see that the users (samples) are conected to their items (genes) via a hidden scheme, that could simplify this table. The elements of such a hidden scheme we call hidden (latent) factors. Here is a possible example:</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">latent_factors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;latent1&#39;</span><span class="p">,</span> <span class="s1">&#39;latent2&#39;</span><span class="p">,</span>  <span class="s1">&#39;latent3&#39;</span><span class="p">]</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">NMF</span>
+
+<span class="n">nmf</span> <span class="o">=</span> <span class="n">NMF</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">V</span> <span class="o">=</span> <span class="n">dataset</span>
+<span class="n">nmf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+
+<span class="n">H</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">nmf</span><span class="o">.</span><span class="n">components_</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="n">V</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">H</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">latent_factors</span>
+
+<span class="n">W</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">nmf</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">V</span><span class="p">),</span><span class="mi">2</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="n">H</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">W</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">V</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2"> V - Initial Data matrix (features x samples):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>
+
+ V - Initial Data matrix (features x samples):
+                       John  Alice  Mary  Greg  Peter  Jennifer
+diabetes_gene1            0      1     0     1      2         2
+diabetes_gene2            0      1     1     1      3         4
+cancer_protein1           2      3     1     1      2         2
+unclear                   1      1     1     0      1         1
+melancholy_gene           0      2     3     4      1         1
+cofee_dependency_gene     0      0     0     0      1         0
+</pre>
+</div>
+</div>
+
+</div>
+
 </div>
 
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -14327,484 +14649,8 @@ pip install snfpy
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_meth</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>cg10146935</th>
-      <th>cg26837773</th>
-      <th>cg17801765</th>
-      <th>cg13244315</th>
-      <th>cg06181703</th>
-      <th>cg19626656</th>
-      <th>cg15207968</th>
-      <th>cg12755103</th>
-      <th>cg23651812</th>
-      <th>cg14287724</th>
-      <th>...</th>
-      <th>cg07016730</th>
-      <th>cg25152348</th>
-      <th>cg08425796</th>
-      <th>cg05418105</th>
-      <th>cg22249529</th>
-      <th>cg07600533</th>
-      <th>cg08260245</th>
-      <th>cg19112186</th>
-      <th>cg10770023</th>
-      <th>cg00270625</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>H045</th>
-      <td>1.811086</td>
-      <td>-5.172572</td>
-      <td>5.411526</td>
-      <td>-0.118825</td>
-      <td>5.120384</td>
-      <td>0.145951</td>
-      <td>-3.436869</td>
-      <td>-3.844246</td>
-      <td>2.075422</td>
-      <td>3.501829</td>
-      <td>...</td>
-      <td>3.547843</td>
-      <td>0.060132</td>
-      <td>4.442026</td>
-      <td>2.861301</td>
-      <td>5.246799</td>
-      <td>3.901933</td>
-      <td>5.713831</td>
-      <td>5.703520</td>
-      <td>5.166255</td>
-      <td>4.911655</td>
-    </tr>
-    <tr>
-      <th>H109</th>
-      <td>-3.997508</td>
-      <td>1.594870</td>
-      <td>5.412693</td>
-      <td>1.043871</td>
-      <td>1.279480</td>
-      <td>-3.928433</td>
-      <td>2.989245</td>
-      <td>0.393004</td>
-      <td>4.800121</td>
-      <td>3.159201</td>
-      <td>...</td>
-      <td>0.887926</td>
-      <td>-0.214753</td>
-      <td>4.561187</td>
-      <td>3.919911</td>
-      <td>5.058302</td>
-      <td>2.634941</td>
-      <td>5.107460</td>
-      <td>1.326244</td>
-      <td>0.677912</td>
-      <td>5.281115</td>
-    </tr>
-    <tr>
-      <th>H024</th>
-      <td>-2.844313</td>
-      <td>0.161170</td>
-      <td>0.365706</td>
-      <td>-4.219236</td>
-      <td>0.721100</td>
-      <td>-3.418859</td>
-      <td>-3.250385</td>
-      <td>-2.691305</td>
-      <td>0.534854</td>
-      <td>-4.629484</td>
-      <td>...</td>
-      <td>-4.486709</td>
-      <td>0.121749</td>
-      <td>-2.841373</td>
-      <td>-3.607177</td>
-      <td>0.765651</td>
-      <td>1.516759</td>
-      <td>5.676245</td>
-      <td>5.488636</td>
-      <td>4.221828</td>
-      <td>5.379716</td>
-    </tr>
-    <tr>
-      <th>H056</th>
-      <td>-3.338656</td>
-      <td>-2.093433</td>
-      <td>0.373634</td>
-      <td>-1.592196</td>
-      <td>4.047059</td>
-      <td>0.226601</td>
-      <td>2.377386</td>
-      <td>-2.775075</td>
-      <td>0.419985</td>
-      <td>0.312388</td>
-      <td>...</td>
-      <td>-4.238214</td>
-      <td>0.137862</td>
-      <td>-3.964855</td>
-      <td>-2.270940</td>
-      <td>-2.631909</td>
-      <td>-3.884756</td>
-      <td>5.950338</td>
-      <td>5.354059</td>
-      <td>4.934536</td>
-      <td>5.366823</td>
-    </tr>
-    <tr>
-      <th>H079</th>
-      <td>-0.019362</td>
-      <td>3.748980</td>
-      <td>5.412010</td>
-      <td>1.416418</td>
-      <td>5.237422</td>
-      <td>0.324213</td>
-      <td>-0.647632</td>
-      <td>-3.098837</td>
-      <td>5.397188</td>
-      <td>3.410770</td>
-      <td>...</td>
-      <td>2.758021</td>
-      <td>0.021011</td>
-      <td>0.673296</td>
-      <td>3.455230</td>
-      <td>-3.140733</td>
-      <td>-4.238106</td>
-      <td>6.040756</td>
-      <td>5.584746</td>
-      <td>5.095111</td>
-      <td>5.338470</td>
-    </tr>
-  </tbody>
-</table>
-<p>5 rows × 4248 columns</p>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>To ensure non-negativity, add the negative modality data as new features. Just some ugly code, not important. :)</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cols</span> <span class="o">=</span> <span class="n">df_meth</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">columns</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cols</span><span class="p">:</span>
-    <span class="n">mask</span> <span class="o">=</span> <span class="n">df_meth</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span>
-    <span class="n">columns</span><span class="p">[</span><span class="n">c</span> <span class="o">+</span> <span class="s1">&#39;_p&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_meth</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">mask</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span>
-    <span class="n">columns</span><span class="p">[</span><span class="n">c</span> <span class="o">+</span> <span class="s1">&#39;_n&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span> <span class="n">df_meth</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">mask</span><span class="p">(</span><span class="o">~</span><span class="n">mask</span><span class="p">)</span>
-<span class="n">df_meth</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="p">()),</span> <span class="n">keys</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">columns</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  
-<span class="n">df_meth</span> <span class="o">=</span> <span class="n">df_meth</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_meth</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[21]:</div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>H045</th>
-      <th>H109</th>
-      <th>H024</th>
-      <th>H056</th>
-      <th>H079</th>
-      <th>H164</th>
-      <th>H059</th>
-      <th>H167</th>
-      <th>H113</th>
-      <th>H049</th>
-      <th>...</th>
-      <th>H106</th>
-      <th>H176</th>
-      <th>H136</th>
-      <th>H178</th>
-      <th>H166</th>
-      <th>H174</th>
-      <th>H177</th>
-      <th>H259</th>
-      <th>H175</th>
-      <th>H179</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>cg10146935_p</th>
-      <td>1.811086</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>cg10146935_n</th>
-      <td>0.000000</td>
-      <td>3.997508</td>
-      <td>2.844313</td>
-      <td>3.338656</td>
-      <td>0.019362</td>
-      <td>2.485997</td>
-      <td>1.460211</td>
-      <td>4.952291</td>
-      <td>2.980209</td>
-      <td>0.091713</td>
-      <td>...</td>
-      <td>4.946979</td>
-      <td>0.838754</td>
-      <td>4.684879</td>
-      <td>5.077259</td>
-      <td>0.625954</td>
-      <td>4.918812</td>
-      <td>4.727493</td>
-      <td>5.193812</td>
-      <td>4.437189</td>
-      <td>5.060459</td>
-    </tr>
-    <tr>
-      <th>cg26837773_p</th>
-      <td>0.000000</td>
-      <td>1.594870</td>
-      <td>0.161170</td>
-      <td>0.000000</td>
-      <td>3.748980</td>
-      <td>0.060530</td>
-      <td>0.000000</td>
-      <td>0.547577</td>
-      <td>2.440098</td>
-      <td>2.940767</td>
-      <td>...</td>
-      <td>0.199544</td>
-      <td>0.341156</td>
-      <td>3.496116</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>3.214163</td>
-      <td>2.036858</td>
-      <td>0.000000</td>
-      <td>4.043775</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>cg26837773_n</th>
-      <td>5.172572</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>2.093433</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>3.472232</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>4.821910</td>
-      <td>0.858200</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.816088</td>
-      <td>0.000000</td>
-      <td>2.345652</td>
-    </tr>
-    <tr>
-      <th>cg17801765_p</th>
-      <td>5.411526</td>
-      <td>5.412693</td>
-      <td>0.365706</td>
-      <td>0.373634</td>
-      <td>5.412010</td>
-      <td>5.268908</td>
-      <td>0.000000</td>
-      <td>5.337081</td>
-      <td>0.749546</td>
-      <td>0.426493</td>
-      <td>...</td>
-      <td>0.574758</td>
-      <td>0.707883</td>
-      <td>0.438992</td>
-      <td>4.873615</td>
-      <td>0.753594</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.547390</td>
-      <td>4.086683</td>
-      <td>0.135581</td>
-    </tr>
-  </tbody>
-</table>
-<p>5 rows × 196 columns</p>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Apply the frobenius norms to normalize the datasets, then concatenate the data.</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df_mrna</span><span class="o">.</span><span class="n">T</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">/</span><span class="n">df</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="n">fro</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">**</span><span class="mf">.5</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">df_mrna</span> <span class="o">=</span> <span class="n">df</span> <span class="o">/</span> <span class="n">fro</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df_meth</span><span class="o">.</span><span class="n">T</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">/</span><span class="n">df</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="n">fro</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">**</span><span class="mf">.5</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">df_meth</span> <span class="o">=</span> <span class="n">df</span> <span class="o">/</span> <span class="n">fro</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Unfortunately the dataset is not column matched, so we got to do it ourselves.</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_mrna</span><span class="p">,</span> <span class="n">df_meth</span><span class="p">])</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2"> W - factors matrix (features, factors):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14824,7 +14670,16 @@ pip install snfpy
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>(13496, 135)
+<pre>
+
+ W - factors matrix (features, factors):
+                       latent1  latent2  latent3
+diabetes_gene1            0.17     0.03     0.37
+diabetes_gene2            0.30     0.00     0.58
+cancer_protein1           0.07     0.47     0.49
+unclear                   0.04     0.21     0.16
+melancholy_gene           0.00     0.00     2.29
+cofee_dependency_gene     0.04     0.00     0.00
 </pre>
 </div>
 </div>
@@ -14836,236 +14691,11 @@ pip install snfpy
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[25]:</div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>H045</th>
-      <th>H109</th>
-      <th>H024</th>
-      <th>H056</th>
-      <th>H079</th>
-      <th>H164</th>
-      <th>H059</th>
-      <th>H167</th>
-      <th>H113</th>
-      <th>H049</th>
-      <th>...</th>
-      <th>H271</th>
-      <th>H006</th>
-      <th>H084</th>
-      <th>H260</th>
-      <th>H192</th>
-      <th>H070</th>
-      <th>H255</th>
-      <th>H135</th>
-      <th>H247</th>
-      <th>H066</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>ENSG00000244734</th>
-      <td>0.009022</td>
-      <td>0.005391</td>
-      <td>0.020382</td>
-      <td>0.026755</td>
-      <td>0.012140</td>
-      <td>0.005026</td>
-      <td>0.010195</td>
-      <td>0.003092</td>
-      <td>0.004567</td>
-      <td>0.005180</td>
-      <td>...</td>
-      <td>0.008746</td>
-      <td>0.017387</td>
-      <td>0.021283</td>
-      <td>0.024401</td>
-      <td>0.013766</td>
-      <td>0.006895</td>
-      <td>0.006624</td>
-      <td>0.003180</td>
-      <td>0.017701</td>
-      <td>0.007995</td>
-    </tr>
-    <tr>
-      <th>ENSG00000158528</th>
-      <td>0.023238</td>
-      <td>0.026321</td>
-      <td>0.004801</td>
-      <td>0.006514</td>
-      <td>0.023816</td>
-      <td>0.022488</td>
-      <td>0.011320</td>
-      <td>0.005297</td>
-      <td>0.005619</td>
-      <td>0.005180</td>
-      <td>...</td>
-      <td>0.007797</td>
-      <td>0.007975</td>
-      <td>0.005282</td>
-      <td>0.025212</td>
-      <td>0.006281</td>
-      <td>0.003239</td>
-      <td>0.025178</td>
-      <td>0.003180</td>
-      <td>0.006260</td>
-      <td>0.024524</td>
-    </tr>
-    <tr>
-      <th>ENSG00000198478</th>
-      <td>0.017657</td>
-      <td>0.005391</td>
-      <td>0.025392</td>
-      <td>0.016334</td>
-      <td>0.009752</td>
-      <td>0.024930</td>
-      <td>0.007419</td>
-      <td>0.008332</td>
-      <td>0.010429</td>
-      <td>0.005966</td>
-      <td>...</td>
-      <td>0.004636</td>
-      <td>0.010719</td>
-      <td>0.018570</td>
-      <td>0.020788</td>
-      <td>0.012456</td>
-      <td>0.003239</td>
-      <td>0.005890</td>
-      <td>0.003180</td>
-      <td>0.016220</td>
-      <td>0.023507</td>
-    </tr>
-    <tr>
-      <th>ENSG00000175445</th>
-      <td>0.025108</td>
-      <td>0.021643</td>
-      <td>0.003135</td>
-      <td>0.003081</td>
-      <td>0.026607</td>
-      <td>0.021274</td>
-      <td>0.023107</td>
-      <td>0.023463</td>
-      <td>0.004567</td>
-      <td>0.005966</td>
-      <td>...</td>
-      <td>0.004636</td>
-      <td>0.018250</td>
-      <td>0.018723</td>
-      <td>0.023259</td>
-      <td>0.003126</td>
-      <td>0.009398</td>
-      <td>0.023147</td>
-      <td>0.003180</td>
-      <td>0.011393</td>
-      <td>0.021184</td>
-    </tr>
-    <tr>
-      <th>ENSG00000174469</th>
-      <td>0.005235</td>
-      <td>0.025055</td>
-      <td>0.003135</td>
-      <td>0.027334</td>
-      <td>0.010923</td>
-      <td>0.021449</td>
-      <td>0.016399</td>
-      <td>0.005297</td>
-      <td>0.004567</td>
-      <td>0.026762</td>
-      <td>...</td>
-      <td>0.028580</td>
-      <td>0.020996</td>
-      <td>0.024090</td>
-      <td>0.018633</td>
-      <td>0.010119</td>
-      <td>0.026308</td>
-      <td>0.003097</td>
-      <td>0.026659</td>
-      <td>0.019995</td>
-      <td>0.021093</td>
-    </tr>
-  </tbody>
-</table>
-<p>5 rows × 135 columns</p>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Fiting-an-NMF-model">Fiting an NMF model<a class="anchor-link" href="#Fiting-an-NMF-model">&#182;</a></h3><ul>
-<li>So now we fit a two component NMF model and check results..</li>
-</ul>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">NMF</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">NMF</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="s1">&#39;random&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">W</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<span class="n">H</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">components_</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">H</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">W</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2"> H - coefficients matrix (factors, samples):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15085,270 +14715,15 @@ pip install snfpy
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>(2, 135) (13496, 2)
+<pre>
+
+ H - coefficients matrix (factors, samples):
+         John  Alice  Mary  Greg  Peter  Jennifer
+latent1  0.00   1.95  0.00  0.41   9.68     11.86
+latent2  4.32   4.96  1.22  0.00   2.48      2.10
+latent3  0.00   0.88  1.30  1.76   0.43      0.44
 </pre>
 </div>
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[33]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">W</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[33]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>array([[0.12609143, 0.0962925 ],
-       [0.04392555, 0.11771427],
-       [0.09126849, 0.10719918],
-       ...,
-       [0.00193168, 0.01028896],
-       [0.17476978, 0.07858805],
-       [0.00302261, 0.02073489]])</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[37]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#W_df = pd.DataFrame(W, columns=X.index.values)</span>
-<span class="n">W_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;latent_1&quot;</span><span class="p">,</span> <span class="s2">&quot;latent_2&quot;</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
-<span class="n">W_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[37]:</div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>latent_1</th>
-      <th>latent_2</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>ENSG00000244734</th>
-      <td>0.126091</td>
-      <td>0.096292</td>
-    </tr>
-    <tr>
-      <th>ENSG00000158528</th>
-      <td>0.043926</td>
-      <td>0.117714</td>
-    </tr>
-    <tr>
-      <th>ENSG00000198478</th>
-      <td>0.091268</td>
-      <td>0.107199</td>
-    </tr>
-    <tr>
-      <th>ENSG00000175445</th>
-      <td>0.065235</td>
-      <td>0.146637</td>
-    </tr>
-    <tr>
-      <th>ENSG00000174469</th>
-      <td>0.197567</td>
-      <td>0.098666</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[40]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">H_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;latent_1&quot;</span><span class="p">,</span> <span class="s2">&quot;latent_2&quot;</span><span class="p">])</span>
-<span class="n">H_df</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[40]:</div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>H045</th>
-      <th>H109</th>
-      <th>H024</th>
-      <th>H056</th>
-      <th>H079</th>
-      <th>H164</th>
-      <th>H059</th>
-      <th>H167</th>
-      <th>H113</th>
-      <th>H049</th>
-      <th>...</th>
-      <th>H271</th>
-      <th>H006</th>
-      <th>H084</th>
-      <th>H260</th>
-      <th>H192</th>
-      <th>H070</th>
-      <th>H255</th>
-      <th>H135</th>
-      <th>H247</th>
-      <th>H066</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>latent_1</th>
-      <td>0.005286</td>
-      <td>0.001123</td>
-      <td>0.116696</td>
-      <td>0.1156</td>
-      <td>0.008202</td>
-      <td>0.000000</td>
-      <td>0.108295</td>
-      <td>0.004208</td>
-      <td>0.068335</td>
-      <td>0.053253</td>
-      <td>...</td>
-      <td>0.112052</td>
-      <td>0.117386</td>
-      <td>0.000702</td>
-      <td>0.005236</td>
-      <td>0.05371</td>
-      <td>0.112368</td>
-      <td>0.012251</td>
-      <td>0.113764</td>
-      <td>0.116019</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>latent_2</th>
-      <td>0.144156</td>
-      <td>0.149550</td>
-      <td>0.000000</td>
-      <td>0.0000</td>
-      <td>0.140064</td>
-      <td>0.150715</td>
-      <td>0.009437</td>
-      <td>0.145258</td>
-      <td>0.061816</td>
-      <td>0.082893</td>
-      <td>...</td>
-      <td>0.004414</td>
-      <td>0.000000</td>
-      <td>0.150970</td>
-      <td>0.142550</td>
-      <td>0.08071</td>
-      <td>0.004421</td>
-      <td>0.134242</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.152084</td>
-    </tr>
-  </tbody>
-</table>
-<p>2 rows × 135 columns</p>
-</div>
-</div>
-
 </div>
 
 </div>
@@ -15358,223 +14733,27 @@ pip install snfpy
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><strong>Clustering</strong></p>
+<p>Can we figure out the hidden factors? We can do this in one of two ways, if we know the real afflictions, or as it is in our toy model, we only know the effect of our omics features. Thus, we have to look into W (weights or factors matrix)</p>
 <ul>
-<li>Clustering the samples on two subtypes doesn't require any specific clustering algorithms :) But for more subtypes you are welcome to measure up against MOFA.</li>
+<li>melancholy_gene has the strongest weight on latent 3. Latent3 also contains strong weights for all other afflictions but it is separating well only the melancholy factor.</li>
+<li>latent1 contains strong weights for diabetes.</li>
+<li>latent2 contains strong weights for the cancer protein</li>
 </ul>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[38]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="n">clusters</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">clusters</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[38]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>array([1, 1, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1,
-       0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0,
-       0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0,
-       0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0,
-       0, 1, 1, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0,
-       1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1,
-       0, 0, 1], dtype=int64)</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="NMF-analysis">NMF analysis<a class="anchor-link" href="#NMF-analysis">&#182;</a></h3><p>What samples drive our first component (cluster)?</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[70]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">samples</span> <span class="o">=</span> <span class="n">H_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;latent_1&quot;</span><span class="p">,]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">samples</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[70]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>H022    0.117501
-H006    0.117386
-H110    0.116995
-H236    0.116745
-H024    0.116696
-          ...   
-H042    0.000000
-H077    0.000000
-H008    0.000000
-H027    0.000000
-H066    0.000000
-Name: latent_1, Length: 135, dtype: float64</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[61]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">top10</span> <span class="o">=</span> <span class="n">samples</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
-<span class="n">top10</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[61]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>array([&#39;H022&#39;, &#39;H006&#39;, &#39;H110&#39;, &#39;H236&#39;, &#39;H024&#39;, &#39;H099&#39;, &#39;H038&#39;, &#39;H247&#39;,
-       &#39;H133&#39;, &#39;H060&#39;], dtype=object)</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Similarly, what transcripts ID and methylation probes are driving the signal in the same component?</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[67]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># first component of W</span>
-<span class="n">features</span> <span class="o">=</span> <span class="n">W_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">features</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[67]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>ENSG00000092820    0.298223
-ENSG00000067082    0.293701
-ENSG00000142102    0.285527
-ENSG00000177606    0.282739
-ENSG00000156738    0.281571
-                     ...   
-cg18766900_p       0.000000
-cg06528737_p       0.000000
-cg10853431_p       0.000000
-cg07240413_p       0.000000
-cg04387658_p       0.000000
-Name: latent_1, Length: 13496, dtype: float64</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Let's get the first ten genes and the first ten probes...</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[69]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">top_g</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">features</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span> <span class="k">if</span> <span class="n">f</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span><span class="o">==</span><span class="s2">&quot;EN&quot;</span><span class="p">]</span>
-<span class="n">top_p</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">features</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span> <span class="k">if</span> <span class="n">f</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span><span class="o">==</span><span class="s2">&quot;cg&quot;</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">top_g</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">top_p</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">latent_factors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Diabetes&#39;</span><span class="p">,</span> <span class="s1">&#39;Cancer&#39;</span><span class="p">,</span> <span class="s1">&#39;Melancholy&#39;</span><span class="p">]</span>
+<span class="n">H</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">nmf</span><span class="o">.</span><span class="n">components_</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="n">V</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">W</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">nmf</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">V</span><span class="p">),</span><span class="mi">2</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="n">latent_factors</span><span class="p">)</span>
+<span class="n">H</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">latent_factors</span>
+<span class="n">W</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">V</span><span class="o">.</span><span class="n">index</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15594,8 +14773,17 @@ Name: latent_1, Length: 13496, dtype: float64</pre>
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>[&#39;ENSG00000092820&#39;, &#39;ENSG00000067082&#39;, &#39;ENSG00000142102&#39;, &#39;ENSG00000177606&#39;, &#39;ENSG00000156738&#39;, &#39;ENSG00000077238&#39;, &#39;ENSG00000215301&#39;, &#39;ENSG00000087074&#39;, &#39;ENSG00000112149&#39;, &#39;ENSG00000143297&#39;]
-[&#39;cg04813697_n&#39;, &#39;cg01360627_n&#39;, &#39;cg06401414_n&#39;, &#39;cg03633073_p&#39;, &#39;cg04694619_n&#39;, &#39;cg02650512_n&#39;, &#39;cg05277504_p&#39;, &#39;cg04173586_n&#39;, &#39;cg05656688_n&#39;, &#39;cg10379077_n&#39;]
+<pre>            John  Alice  Mary  Greg  Peter  Jennifer
+Diabetes    0.00   1.95  0.00  0.41   9.68     11.86
+Cancer      4.32   4.96  1.22  0.00   2.48      2.10
+Melancholy  0.00   0.88  1.30  1.76   0.43      0.44
+                       Diabetes  Cancer  Melancholy
+diabetes_gene1             0.17    0.03        0.37
+diabetes_gene2             0.30    0.00        0.58
+cancer_protein1            0.07    0.47        0.49
+unclear                    0.04    0.21        0.16
+melancholy_gene            0.00    0.00        2.29
+cofee_dependency_gene      0.04    0.00        0.00
 </pre>
 </div>
 </div>
@@ -15607,25 +14795,288 @@ Name: latent_1, Length: 13496, dtype: float64</pre>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Does-is-look-simpler-than-MOFA?">Does is look simpler than MOFA?<a class="anchor-link" href="#Does-is-look-simpler-than-MOFA?">&#182;</a></h3><p>well...</p>
-<p>Now, for finer points, expand this study:</p>
+<p>Example findings:</p>
 <ul>
-<li>Use a range of K values and fit the model then cluster via Kmeans and perform silhouette coefficient testing.<ul>
-<li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html">https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html</a></li>
-<li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.silhouette_score.html">https://scikit-learn.org/stable/modules/generated/sklearn.metrics.silhouette_score.html</a></li>
+<li>What disease is NMF suspeting for Jennifer? Indeed, it is diabetes. We would not know this from a PCA study, because some of the scores can be negative and so are some of the loadings. The cumulative effect is obscured by the linear transformations.</li>
+<li>The "unclear" feature is strongly related to cancer.</li>
+</ul>
+<p>Hipothesis hunting: W x H is an approximation of V, so by transforming the dataset based on the NMF model we can learn some new things.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">reconstructed</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">W</span><span class="p">,</span><span class="n">H</span><span class="p">),</span><span class="mi">2</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="n">V</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">reconstructed</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">V</span><span class="o">.</span><span class="n">index</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">reconstructed</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>                       John  Alice  Mary  Greg  Peter  Jennifer
+diabetes_gene1         0.13   0.81  0.52  0.72   1.88      2.24
+diabetes_gene2         0.00   1.10  0.75  1.14   3.15      3.81
+cancer_protein1        2.03   2.90  1.21  0.89   2.05      2.03
+unclear                0.91   1.26  0.46  0.30   0.98      0.99
+melancholy_gene        0.00   2.02  2.98  4.03   0.98      1.01
+cofee_dependency_gene  0.00   0.08  0.00  0.02   0.39      0.47
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<ul>
+<li>Jennifer and Peter are both suspected diabetes based on their H values. </li>
+<li>Peter is showing signal on the coffee dependency gene in the initial dataset. The model infers that maybe the signal for that gene was lost during processing. The model predicts even higher signal on that gene than Peter has. This is based on how similar Jeniffer is to Peter compared to all the other patients.</li>
+<li>This is the essence of collaborative filtering: People that share the same signals in certain kind of diseases will also share the same signals in some other kind of features.</li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Why-is-NMF-so-important?">Why is NMF so important?<a class="anchor-link" href="#Why-is-NMF-so-important?">&#182;</a></h3><ul>
+<li>Because it provides an intuitive interpretation of the results, due to its enforcement of the positive values rule.</li>
+<li>The higher the factor weight, the more “determined” the column (segment) is</li>
+<li>First components are more "determined" based on the data.</li>
+<li>During the lab, you will learn to reccomend interesting gene therapies to cancer patients, based on their hidden subtypes!</li>
+</ul>
+<p>Reference: For the toy example I drew inspiration from the following Medium article:</p>
+<ul>
+<li><a href="https://medium.com/logicai/non-negative-matrix-factorization-for-recommendation-systems-985ca8d5c16c">https://medium.com/logicai/non-negative-matrix-factorization-for-recommendation-systems-985ca8d5c16c</a></li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="NMF-usage-observations-and-applications">NMF usage observations and applications<a class="anchor-link" href="#NMF-usage-observations-and-applications">&#182;</a></h2><p>NMF has many solvers, that are ultra efficient:</p>
+<ul>
+<li>multiplicative update algorithms</li>
+<li>Alternating Least Square</li>
+<li>NMF based on projection gradient algorithms</li>
+<li>PNMF probabilistic nonnegative matrix factorization</li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Multiple-normalities">Multiple normalities<a class="anchor-link" href="#Multiple-normalities">&#182;</a></h3><ul>
+<li>A basic transformation to allign the norms was described before!</li>
+<li>However if the omics datasets have widely different distribution it can happen that one omics dataset will drive all variational signal in the data. </li>
+<li>In such case a more thorough transformation may be necessary (for example via methods such as iCluster+, MOFA, etc) prior to applying NMF.</li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Should-data-be-normalized-before-coercing-it-into-a-matrix-factorization-model?">Should data be normalized before coercing it into a matrix factorization model?<a class="anchor-link" href="#Should-data-be-normalized-before-coercing-it-into-a-matrix-factorization-model?">&#182;</a></h3><ul>
+<li>Generally yes, and this generally goes before any application of machine learning to real data.</li>
+<li>If the normalization is a big issue for your data (such as huge differences in scale) then you should opt for Tree Boosting methods (random forest, ensemble learning) or SNF, rather than matrix factorization.</li>
+<li>In matrix factorization the variables are not considered independently, instead everyting is dependent (linearly) on everything else.</li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Missingness-and-regularization">Missingness and regularization<a class="anchor-link" href="#Missingness-and-regularization">&#182;</a></h3><ul>
+<li>Biological data usually contain missing values. How can the matrix factorization handle it?</li>
+<li>Use initialization methods such as nndsvd that are friendlier towards sparse matrices is number one.</li>
+<li>For the optimization norm I would pick KL if you have large matrices with a lot of missingness. Rather than doing distances KL would evaluate changes in how data is distributed.</li>
+<li>Also note that you can add a regularization term to the fitness function. This does not help directly but in sparse datasets it is easy to get trapped in local optima.</li>
+</ul>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.NMF.html">https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.NMF.html</a></p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="SNMF---Sparse-NMF">SNMF - Sparse NMF<a class="anchor-link" href="#SNMF---Sparse-NMF">&#182;</a></h3><ul>
+<li>Yuan Gao, George Church, Improving molecular cancer class discovery through sparse non-negative matrix factorization, Bioinformatics, Volume 21, Issue 21, , Pages 3970–3975, <a href="https://doi.org/10.1093/bioinformatics/bti653">https://doi.org/10.1093/bioinformatics/bti653</a></li>
+<li>Brunet et al., 2004, Metagenes and molecular pattern discovery using matrix factorization
+PNAS, Mar 2004, 101 (12) 4164-4169; <a href="https://doi.org/10.1073/pnas.0308531101">https://doi.org/10.1073/pnas.0308531101</a></li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<ul>
+<li>cancer subtyping in microarrays, dealing with sparse data</li>
+<li>not an integrative example, but one about treating sparsity</li>
+<li>rank estimation of NMF models</li>
+<li>the representation learned is sparse and hierarchical</li>
+<li>$A \approx WH$ The more sparse the matrix of H, the more sparse is the feature matrix W. Therefore, enforcing the sparseness of H will give rise to metagenes that comprised few dominantly deterministic genes.</li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="jNMF---the-MOFA-of-NMFs">jNMF - the MOFA of NMFs<a class="anchor-link" href="#jNMF---the-MOFA-of-NMFs">&#182;</a></h3><ul>
+<li>Fujita, N., Mizuarai, S., Murakami, K. et al. Biomarker discovery by integrated joint non-negative matrix factorization and pathway signature analyses. Sci Rep 8, 9743 (2018). <a href="https://doi.org/10.1038/s41598-018-28066-w">https://doi.org/10.1038/s41598-018-28066-w</a></li>
+<li>biomarker discovery</li>
+<li>is theoretically and practically equivalent to a standard NMF method with concatenated inputs</li>
+<li>common clusters (co-modules) from mRNA expression, microRNA expression, and DNA methylation data of cancer patients</li>
+<li>objective function: $\sum_{i=1}^N \|X_i - WH_i\|$</li>
+<li>NMF method was modified to deal with missingness, by using a mask</li>
+<li><a href="https://rdrr.io/cran/nnTensor/man/jNMF.html">https://rdrr.io/cran/nnTensor/man/jNMF.html</a></li>
+<li>single cell follow-up: SC-JNMF: Single-cell clustering integrating multiple quantification methods based on joint non-negative matrix factorization, Shiga et al, 2020, preprint at <a href="https://www.biorxiv.org/content/10.1101/2020.09.30.319921v1.full.pdf">https://www.biorxiv.org/content/10.1101/2020.09.30.319921v1.full.pdf</a></li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><img src="img/jnmf_pharma.png" width="500"/></p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="iNMF---for-active-learning">iNMF - for active learning<a class="anchor-link" href="#iNMF---for-active-learning">&#182;</a></h3><ul>
+<li>Zi Yang and George Michailidis, A non-negative matrix factorization method for detecting modules in heterogeneous omics multi-modal data, <a href="https://doi.org/10.1093/bioinformatics/btv544">https://doi.org/10.1093/bioinformatics/btv544</a></li>
+<li>similar to jNMF (based on it) but it uses online learning, this means that one can add information sequentially to improve the model , code here: <a href="https://github.com/yangzi4/iNMF">https://github.com/yangzi4/iNMF</a></li>
+<li><p>got a pytorch module: <a href="https://pypi.org/project/nmf-torch/">https://pypi.org/project/nmf-torch/</a></p>
+</li>
+<li><p>Used recently in a method for online learning of integrative omics for single cell:</p>
+<ul>
+<li>Gao, C., Liu, J., Kriebel, A.R. et al. Iterative single-cell multi-omic integration using online learning. Nat Biotechnol (2021). <a href="https://doi.org/10.1038/s41587-021-00867-x">https://doi.org/10.1038/s41587-021-00867-x</a></li>
 </ul>
 </li>
-<li>Observe convergence by computing the mean squared error.<ul>
-<li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html">https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html</a></li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Deep-NMF---a-novel-paradigm,-doing-MF-as-part-of-a-deep-NN">Deep NMF - a novel paradigm, doing MF as part of a deep NN<a class="anchor-link" href="#Deep-NMF---a-novel-paradigm,-doing-MF-as-part-of-a-deep-NN">&#182;</a></h3><ul>
+<li>Flenner, J., &amp; Hunter, B. (2017). A Deep Non-Negative Matrix Factorization Neural Network.<ul>
+<li><a href="https://www1.cmc.edu/pages/faculty/BHunter/papers/deep-negative-matrix.pdf">https://www1.cmc.edu/pages/faculty/BHunter/papers/deep-negative-matrix.pdf</a></li>
+<li>Normal NMF is performed by a single encoding layer</li>
 </ul>
 </li>
-<li>Use the other omics tables as well, for .. something.</li>
-<li>Compare with the results from the MOFA analysis
-<a href="https://bioconductor.riken.jp/packages/3.9/bioc/vignettes/MOFA/inst/doc/MOFA_example_CLL.html">https://bioconductor.riken.jp/packages/3.9/bioc/vignettes/MOFA/inst/doc/MOFA_example_CLL.html</a></li>
 </ul>
-<p>Shameless self promotion:</p>
+<p><img src="img/nmf_onelayer.png" width="200"/></p>
+
+<pre><code>- Deep architecture: CNN, with backpropagation, each NMF layer performs a hierarchical decomposition
+</code></pre>
+<p><img src="img/nmf_multilayered.png" width="200"/></p>
 <ul>
-<li>I hold a course of data science using advanced python, that covers everything, from numerical computing to deep learning. For details check the SciLifeLab page.</li>
+<li>Attention networks<ul>
+<li>NMF can be used to focus attention mechanisms in NNs.</li>
+<li>Chen et al, Attention-Based Multi-NMF Deep Neural Network with Multimodality Data for Breast Cancer Prognosis Model, Volume 2019 |Article ID 9523719 | <a href="https://doi.org/10.1155/2019/9523719">https://doi.org/10.1155/2019/9523719</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="NMF-for-single-cell-experiments">NMF for single cell experiments<a class="anchor-link" href="#NMF-for-single-cell-experiments">&#182;</a></h3><ul>
+<li>general trends: Bayesian modeling for data sparsity, improvement of model fitting and multi-processing.</li>
+<li>Applications in single cell analysis, pathway enrichment, etc</li>
+<li>Detecting heterogeneity in single-cell RNA-Seq data by non-negative matrix factorization, Zhu et al, 2017, <a href="https://pubmed.ncbi.nlm.nih.gov/28133571/">https://pubmed.ncbi.nlm.nih.gov/28133571/</a><blockquote><p>In comparison to other unsupervised clustering methods including K-means and hierarchical clustering, NMF has higher accuracy in separating similar groups in various datasets. We ranked genes by their importance scores (D-scores) in separating these groups, and discovered that NMF uniquely identifies genes expressed at intermediate levels as top-ranked genes.</p>
+</blockquote>
+</li>
+<li>CoGAPS 3: Bayesian non-negative matrix factorization for single-cell analysis with asynchronous updates and sparse data structures, Sherman et al, 2020, <a href="https://pubmed.ncbi.nlm.nih.gov/33054706/">https://pubmed.ncbi.nlm.nih.gov/33054706/</a></li>
+<li>Bayesian semi-nonnegative matrix tri-factorization to identify pathways associated with cancer phenotypes, Park et al, <a href="https://pubmed.ncbi.nlm.nih.gov/31797616/">https://pubmed.ncbi.nlm.nih.gov/31797616/</a></li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Matrix-Factorization---beyond-NMF">Matrix Factorization - beyond NMF<a class="anchor-link" href="#Matrix-Factorization---beyond-NMF">&#182;</a></h3><ul>
+<li>Scluster method (a mix of MF and SNF): integrates different types of data and maps them into an effective low-dimensional subspace. First, Scluster uses adaptive sparse reduced-rank regression (S-rrr) to map the original data into the principal subspaces. Next, a fused patient-by-patient network is abstracted for these subgroups by a scaled exponential similarity kernel method. It can then obtain the cancer subtypes by spectral clustering.<ul>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/28113782/">https://pubmed.ncbi.nlm.nih.gov/28113782/</a></li>
+</ul>
+</li>
+<li>SRF : rank based multi-view bi-clustering, very related to NMF, possibly reducible to it, it does subtyping and identification of subtype-specific features simultaneously.<ul>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/27587661/">https://pubmed.ncbi.nlm.nih.gov/27587661/</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="Software-and-bibliography:">Software and bibliography:<a class="anchor-link" href="#Software-and-bibliography:">&#182;</a></h1><ul>
+<li>Python:<ul>
+<li>recommender systems library: <a href="http://surpriselib.com/">http://surpriselib.com/</a></li>
+<li>NMF library: <a href="http://nimfa.biolab.si/">http://nimfa.biolab.si/</a></li>
+<li><a href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.decomposition">https://scikit-learn.org/stable/modules/classes.html#module-sklearn.decomposition</a></li>
+</ul>
+</li>
+<li>R:<ul>
+<li>general NMF: <a href="http://cran.r-project.org/package=NMF">http://cran.r-project.org/package=NMF</a></li>
+<li>usage example: <a href="https://compgenomr.github.io/book/biological-interpretation-of-latent-factors.html">https://compgenomr.github.io/book/biological-interpretation-of-latent-factors.html</a></li>
+<li>joint NMF library: <a href="https://github.com/rikenbit/nnTensor/">https://github.com/rikenbit/nnTensor/</a></li>
+</ul>
+</li>
+<li>Deep Semi NMF: <a href="https://github.com/trigeorgis/Deep-Semi-NMF">https://github.com/trigeorgis/Deep-Semi-NMF</a></li>
+</ul>
+<p>Rank estimation of NMF:</p>
+<ul>
+<li>Jean-Philippe Brunet. et. al., (2004). Metagenes and molecular pattern discovery using matrix factorization. PNAS</li>
+<li>Xiaoxu Han. (2007). CANCER MOLECULAR PATTERN DISCOVERY BY SUBSPACE CONSENSUS KERNEL CLASSIFICATION</li>
+<li>Attila Frigyesi. et. al., (2008). Non-Negative Matrix Factorization for the Analysis of Complex Gene Expression Data: Identification of Clinically Relevant Tumor Subtypes. Cancer Informatics</li>
+<li>Haesun Park. et. al., (2019). Lecture 3: Nonnegative Matrix Factorization: Algorithms and Applications. SIAM Gene Golub Summer School, Aussois France, June 18, 2019</li>
+<li>Chunxuan Shao. et. al., (2017). Robust classification of single-cell transcriptome data by nonnegative matrix factorization. Bioinformatics</li>
+</ul>
+<p>Other integrative NMF:</p>
+<ul>
+<li>intNMF: <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0176278">https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0176278</a></li>
+<li>Simultaneous Non-negative Matrix Factorization (siNMF) : Extracting Gene Expression Profiles Common to Colon and Pancreatic Adenocarcinoma using Simultaneous nonnegative matrix factorization, Liviu Badea, Pacific Symposium on Biocomputing, 13:279-290, 2009, </li>
+<li>Discovery of multi-dimensional modules by integrative analysis of cancer genomic data. Shihua Zhang, et al., Nucleic Acids Research, 40(19), 9379-9391, 2012</li>
+<li>Probabilistic Latent Tensor Factorization, International Conference on Latent Variable Analysis and Signal Separation, Y. Kenan Yilmaz et al., 346-353, 2010</li>
+</ul>
+<p>Fast Tensorial Calculus:</p>
+<ul>
+<li>Non-negative Matrix Factorization (NMF) : <a href="https://pdfs.semanticscholar.org/94cc/6daad548a03c6edb0351d686c2d4aa364634.pdf">Nonnegative Matrix and Tensor Factorizations, Andrzej CICHOCK, et. al., 2009</a>, </li>
+<li><a href="https://eprints.lib.hokudai.ac.jp/dspace/bitstream/2115/65379/1/Keigo_Kimura.pdf">A Study on Efficient Algorithms for Nonnegative Matrix/Tensor Factorization, Keigo Kimura, 2017</a></li>
+</ul>
+<p>Non-negative CP Decomposition (NTF)</p>
+<ul>
+<li>α-Divergence (KL, Pearson, Hellinger, Neyman) / β-Divergence (KL, Frobenius, IS) : <a href="http://mlg.postech.ac.kr/static/publications/inter_conf/2007/icassp07_cichocki.pdf">Non-negative Tensor Factorization using Alpha and Beta Divergence, Andrzej CICHOCKI et. al., 2007</a>, <a href="https://gist.github.com/mathieubray/d83ce9c13fcb60f723f957c13ad85ac5">TensorKPD.R (gist of mathieubray)</a></li>
+<li>Fast HALS : <a href="http://www.ieice.org/proceedings/NOLTA2008/articles/A1L-D3-Phan-2045.pdf">Multi-way Nonnegative Tensor Factorization Using Fast Hierarchical Alternating Least Squares Algorithm (HALS), Anh Huy PHAN et. al., 2008</a></li>
+<li>α-HALS/β-HALS : <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.214.6398&amp;rep=rep1&amp;type=pdf">Fast Local Algorithms for Large Scale Nonnegative Matrix and Tensor Factorizations, Andrzej CICHOCKI et. al., 2008</a><ul>
+<li>Non-negative Tucker Decomposition (NTD)</li>
+</ul>
+</li>
+<li>KL, Frobenius : <a href="https://pdfs.semanticscholar.org/f388/99be8ebd8b9aa7029b2b4f187dac4b04d816.pdf">Nonnegative Tucker Decomposition, Yong-Deok Kim et. al., 2007</a></li>
+<li>α-Divergence (KL, Pearson, Hellinger, Neyman) / β-Divergence (KL, Frobenius, IS) : <a href="https://pdfs.semanticscholar.org/f01b/7354619f053863048217c58cc517def86aeb.pdf">Nonneegative Tucker Decomposition With Alpha-Divergence, Yong-Deok Kim et. al., 2008</a>, <a href="https://link.springer.com/chapter/10.1007/978-3-540-87734-9_88">Fast and efficient algorithms for nonnegative Tucker decomposition, Anh Huy Phan, 2008</a></li>
+<li>Fast HALS : <a href="https://www.sciencedirect.com/science/article/pii/S0925231211000427">Extended HALS algorithm for nonnegative Tucker decomposition and its applications for multiway analysis and classification, Anh Hyu Phan et. al., 2011</a></li>
 </ul>
 
 </div>

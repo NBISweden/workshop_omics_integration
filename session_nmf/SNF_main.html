@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>NMF_lab</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>SNF_main</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -14259,1373 +14259,524 @@ a.anchor-link {
 
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="NMF-lab">NMF lab<a class="anchor-link" href="#NMF-lab">&#182;</a></h1>
+<h1 id="Similarity-Network-Fusion---SNF">Similarity Network Fusion - SNF<a class="anchor-link" href="#Similarity-Network-Fusion---SNF">&#182;</a></h1><p>Sergiu Netotea, PhD, NBIS, Chalmers</p>
+<ul>
+<li>Similarity networks</li>
+<li>SNF method</li>
+<li>Applications</li>
+</ul>
+
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Task-(45-minutes)">Task (45 minutes)<a class="anchor-link" href="#Task-(45-minutes)">&#182;</a></h3><p><strong>Important</strong></p>
+<h2 id="Similarity-networks">Similarity networks<a class="anchor-link" href="#Similarity-networks">&#182;</a></h2><p>Network models are a very complex representation of data:</p>
 <ul>
-<li>This task is optimized for speedrun and not quality. Normaly you would look into more components-</li>
+<li>Power law sophistication: for every n vertices there are up to n(n-1) possible edges</li>
+<li>This fits biological complexity, and draws a paralel to the "curse of dimensionality"</li>
+<li>I like to see graphs as yet another data representation format, along with tabular data, multi channel signal intensities or spatial microscopy..</li>
+<li>Networks too can handle differences in scale, collection bias and noise in each data set</li>
+<li>They can also handle the complementary nature of the information provided by different types of data</li>
 </ul>
-<p>Data: MOFA's CLL dataset</p>
-<ol>
-<li>Load and prepare data, then perform NMR on the joint representation of the methylation and mRNA datasets.</li>
-<li>Assume that there are two cancer subtypes and cluster them :)</li>
-<li>Find the driving features and verify their functionality.</li>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<ul>
+<li>the potential for feature cleaning and data transformation using a network structure are great</li>
+<li>one important tradeoff: losing a weak signal due to a poorly made network model</li>
+<li>...one important benefit: recovering a weak signal due to the cummulative power of weak links</li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Common-network-(graph)-representation">Common network (graph) representation<a class="anchor-link" href="#Common-network-(graph)-representation">&#182;</a></h3><p>Typical dataset:</p>
+<ul>
+<li>features: samples, patients, genes, metabolites, clinical descriptors etc</li>
+<li>instances: any repeated measurements of the above!</li>
+</ul>
+<blockquote><p>Via network modelling, all instances are turned into feature relationships</p>
+</blockquote>
+<ul>
+<li>Nodes (vertices): features</li>
+<li>Links (edges): numerical relationship between nodes (directional, boolean, discrete, continuous)</li>
+</ul>
+<blockquote><p>Via <strong>network fusion</strong>, the feature relationships (links) are described based on multiple datasets.</p>
+</blockquote>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><img src="img/nf_basics.png" alt="NF basics" title="NF basics"></p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="How-can-networks-be-fused?">How can networks be fused?<a class="anchor-link" href="#How-can-networks-be-fused?">&#182;</a></h3><p><em>Simple rule: average edge values by summing up adjacency matrices!</em></p>
+<p>Pitfalls:</p>
+<ul>
+<li>Most omics networks are sparse: some feature relationships eh .. are prevalent only on certain 'omics levels!</li>
+<li>Guilt of association is not captured: features similar to pan-omics features should not the treated equally.</li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><em>Complex rule: take in consideration the infomation difussivity in each network when fusing them!</em></p>
+<ul>
+<li>in graph computing this is called "message passing".</li>
+<li>pitfalls: model parametrization</li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="(Perceived)-advantages-of-network-fusion">(Perceived) advantages of network fusion<a class="anchor-link" href="#(Perceived)-advantages-of-network-fusion">&#182;</a></h3><p>Very useful when:</p>
+<ul>
+<li>data is incomplete</li>
+<li>dataset quality is not uniform</li>
+<li>data from multiple sources is used</li>
+<li>networks can be built in complex ways, taking into account additional, annotated information.</li>
+<li>easy to transfer knowledge from alternative models</li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>It is a generative model!</p>
+<ul>
+<li>example: generate data from similarity matrix<ul>
+<li><a href="https://en.wikipedia.org/wiki/Multidimensional_scaling">https://en.wikipedia.org/wiki/Multidimensional_scaling</a></li>
+</ul>
+</li>
+<li>the generated networks can be used for graph clustering, regression, classification.</li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="SNF:-Similarity-Network-Fusion">SNF: Similarity Network Fusion<a class="anchor-link" href="#SNF:-Similarity-Network-Fusion">&#182;</a></h3><p>Wang, Bo et al. “Similarity network fusion for aggregating data types on a genomic scale.” Nature methods vol. 11,3 (2014): 333-7.</p>
+<p><a href="https://doi.org/10.1038/nmeth.2810">https://doi.org/10.1038/nmeth.2810</a></p>
+<ul>
+<li>mRNA expression, DNA methylation and microRNA (miRNA) expression data for five cancer data sets.</li>
+<li>clustering cancer subtypes and predicting survival</li>
+<li>uses networks of samples (patient networks) as a basis for integration. </li>
+<li>at the time patient-similarity networks have not been used specifically for integrating biological data</li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Similarity-networks">Similarity networks<a class="anchor-link" href="#Similarity-networks">&#182;</a></h3><ul>
+<li>At every 'omics level, there are multiple ways to compute a network.</li>
+<li>Similarity networks are only investigating the similarity of one feature to another, with regards to a distance measure.</li>
+<li>Every similarity distance is different. See <a href="https://en.wikipedia.org/wiki/Metric_space">https://en.wikipedia.org/wiki/Metric_space</a>
+TODO: similarity tables</li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><img src="img/similarity.png" alt="similarity"></p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="SNF-Method">SNF Method<a class="anchor-link" href="#SNF-Method">&#182;</a></h2><p>Similarity distance:</p>
+<ul>
+<li>contininuous data: euclidean distance, weighted using an exponential kernel function
+$f(x) = \exp{\left( -\frac{\sum_{i=1}^{n}(x_i-y_j)^2}{2\sigma^2} \right)}$</li>
+<li>discrete data: chi squared distance
+$\sum_{i=1}^{n} \cfrac{(x_i - y_i)^2} {(x_i + y_i)}$</li>
+<li>boolean data: agreement based distances (Jaccard, Hamming)</li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="SNF-Method---the-similarity-matrix">SNF Method - the similarity matrix<a class="anchor-link" href="#SNF-Method---the-similarity-matrix">&#182;</a></h3><ul>
+<li>P measures a given patient's similarity to all other patients</li>
+<li>In order to fuse the supplied m simmilarity (affinity) matrices, each must be normalized.</li>
+<li>A traditional normalization on an affinity matrix would suffer from numerical instabilities due to the self-similarity along the diagonal; thus, a modified normalization is used:</li>
+</ul>
+$$
+      \mathbf{P}(i,j) =
+         \left\{\begin{array}{rr}
+           \frac{\mathbf{W}_(i,j)}
+                 {2 \sum_{k\neq i}^{} \mathbf{W}_(i,k)} ,&amp; j \neq i \\
+                                                       1/2 ,&amp; j = i
+         \end{array}\right.
+$$
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="SNF-Method---the-kernel-matrix">SNF Method - the kernel matrix<a class="anchor-link" href="#SNF-Method---the-kernel-matrix">&#182;</a></h3><ul>
+<li>Under the assumption that local similarities are more important than distant ones, a more sparse weight matrix is calculated based on a KNN framework:</li>
+<li>S measures a given patient's similarity to the K most similar patients.</li>
+</ul>
+$$
+      \mathbf{S}(i,j) =
+         \left\{\begin{array}{rr}
+           \frac{\mathbf{W}_(i,j)}
+                 {\sum_{k\in N_{i}}^{}\mathbf{W}_(i,k)} ,&amp; j \in N_{i} \\
+                                                         0 ,&amp; \text{otherwise}
+         \end{array}\right.
+$$
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="SNF-Method---Inductive-network-fusion">SNF Method - Inductive network fusion<a class="anchor-link" href="#SNF-Method---Inductive-network-fusion">&#182;</a></h3><ul>
+<li>The two weight matrices P and S thus provide information about a given patient's similarity to all other patients and the K most similar patients, respectively.</li>
+<li>These m matrices are then iteratively fused. At each iteration, the matrices are made more similar to each other via message passing:</li>
+</ul>
+$$
+\mathbf{P}^{(v)} = \mathbf{S}^{(v)}
+                          \times
+                          \frac{\sum_{k\neq v}^{}\mathbf{P}^{(k)}}{m-1}
+                          \times
+                          (\mathbf{S}^{(v)})^{T},
+                          v = 1, 2, ..., m
+$$
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Obs:</p>
+<ul>
+<li>After each iteration, the resultant P matrices are normalized via the equation above.</li>
+<li>Fusion stops after <code>t</code> iterations, or when the matrices $\mathbf{P}^{(v)}, v = 1, 2, ..., m$ converge.</li>
+<li>The output fused matrix is full rank and can be subjected to clustering and classification.</li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Different usage of the fused matrix:</p>
+<ul>
+<li>clustering: spectral clustering, consensus clustering</li>
+<li>network model based subtype prediction: label propagation</li>
+<li>network model based feature selection: measuring the change in consistence brought by SNF on a single feature</li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Post-fusion-analysis---Spectral-clustering">Post-fusion analysis - Spectral clustering<a class="anchor-link" href="#Post-fusion-analysis---Spectral-clustering">&#182;</a></h3><p>The fitted model is a similarity network (an affinity matrix). Thus to cluster one must use graph algorithms such as spectral clustering. Other popular graph clustering methods are: K-neighbors clustering, MCL clustering</p>
+<p>Spectral clustering:</p>
+<ul>
+<li>eigenvalues, eigenvectors $A x = \lambda x$</li>
+<li>graph laplacian: degree matrix - adjacency matrix</li>
+<li>the increasing ordered eigenvalues of the graph laplacian matrix are describing the clusters in their increased network effect</li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="SNF-usage-examples">SNF usage examples<a class="anchor-link" href="#SNF-usage-examples">&#182;</a></h2>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="(latest-trents)-MoGCN,-graph-neural-networks">(latest trents) MoGCN, graph neural networks<a class="anchor-link" href="#(latest-trents)-MoGCN,-graph-neural-networks">&#182;</a></h3><ul>
+<li>Graph neural networks are a new hot topic in integrative omics.</li>
+<li>MoGCN, a multi-omics integration model based on graph convolutional network (GCN)<ul>
+<li><a href="https://github.com/Lifoof/MoGCN">https://github.com/Lifoof/MoGCN</a></li>
+<li>Li X, Ma J, Leng L, Han M, Li M, He F, Zhu Y. MoGCN: A Multi-Omics Integration Method Based on Graph Convolutional Network for Cancer Subtype Analysis. Front Genet. 2022 Feb 2;13:806842. doi: 10.3389/fgene.2022.806842. PMID: 35186034; PMCID: PMC8847688.</li>
+<li>cancer subtype classification and analysis. Genomics, transcriptomics and proteomics datasets for 511 breast invasive carcinoma (BRCA) samples were downloaded from the Cancer Genome Atlas (TCGA). </li>
+<li>The autoencoder (AE) and the similarity network fusion (SNF) methods were used to reduce dimensionality and construct the patient similarity network (PSN), respectively</li>
+<li>Then the vector features and the PSN were input into the GCN for training and testing. Feature extraction and network visualization were used for further biological knowledge discovery and subtype classification. </li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><img src="img/MoGCN.png" width="900"/></p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Latest-trends---single-cell-integration">Latest trends - single cell integration<a class="anchor-link" href="#Latest-trends---single-cell-integration">&#182;</a></h3><ul>
+<li>Using SNF and autoencoders for single cell clustering<ul>
+<li>Tran, B., Tran, D., Nguyen, H. et al. scCAN: single-cell clustering using autoencoder and network fusion. Sci Rep 12, 10267 (2022). <a href="https://doi.org/10.1038/s41598-022-14218-6">https://doi.org/10.1038/s41598-022-14218-6</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Consensus-clustering">Consensus clustering<a class="anchor-link" href="#Consensus-clustering">&#182;</a></h3><ul>
+<li>Monti, S., Tamayo, P., Mesirov, J. et al. Consensus Clustering: A Resampling-Based Method for Class Discovery and Visualization of Gene Expression Microarray Data. Machine Learning 52, 91–118 (2003). <a href="https://doi.org/10.1023/A:1023949509487">https://doi.org/10.1023/A:1023949509487</a></li>
+<li>Implementation: <a href="http://www.bioconductor.org/packages/release/bioc/html/CancerSubtypes.html">http://www.bioconductor.org/packages/release/bioc/html/CancerSubtypes.html</a></li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>SNF drawbacks:</p>
+<ul>
+<li>the unstable nature of kernel-based clustering </li>
+<li>sensitive to small changes in molecular measurements</li>
+<li>need for hyper-parametrization</li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Details:</p>
+<ul>
+<li>The data are first partitioned with different values of k (number of clusters).</li>
+<li>For each value of k, we construct the pair-wise connectivity matrix.</li>
+<li>To identify the number of clusters we add noise to the data and then build the pairwise connectivity for the perturbed data.</li>
+<li>We calculate the discrepancy in pairwise connectivity before and after data perturbation. We choose opt_k as the optimal number of clusters for which the pair-wise connectivity is the most stable.</li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Integrative-SNF-CC-example:">Integrative SNF-CC example:<a class="anchor-link" href="#Integrative-SNF-CC-example:">&#182;</a></h3><ul>
+<li>Nguyen, Tin et al. “A novel approach for data integration and disease subtyping.” Genome research vol. 27,12 (2017): 2025-2039.</li>
+<li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5741060/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5741060/</a></li>
+</ul>
+<p>Stages:</p>
+<ul>
+<li>construct the combined similarity matrix between patients using the connectivity information from individual data types. </li>
+<li>partition the patients using the integrated similarity matrix.</li>
+<li>further split each discovered group of patients into subgroups if possible.</li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Weighted-similarity-network-fusion">Weighted similarity network fusion<a class="anchor-link" href="#Weighted-similarity-network-fusion">&#182;</a></h3><p>Links:</p>
+<ul>
+<li>Xu T, Le TD, Liu L, Wang R, Sun B, et al. (2016) Identifying Cancer Subtypes from miRNA-TF-mRNA Regulatory Networks and Expression Data. PLOS ONE 11(4): e0152792. <a href="https://doi.org/10.1371/journal.pone.0152792">https://doi.org/10.1371/journal.pone.0152792</a></li>
+<li>Implementation:<ul>
+<li><a href="https://rdrr.io/bioc/CancerSubtypes/">https://rdrr.io/bioc/CancerSubtypes/</a></li>
+<li><a href="https://rdrr.io/cran/IntClust/">https://rdrr.io/cran/IntClust/</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="WSNF---Method-(1)">WSNF - Method (1)<a class="anchor-link" href="#WSNF---Method-(1)">&#182;</a></h3><ol>
+<li>Compute PageRank based ranking of features. Important features are ranked based on the in-number of TFs.<ul>
+<li>Build the regulatory network where the nodes represent the features, i.e. the microRNAs (miRNAs), transcription factors (TFs) and messenger RNAs (mRNAs) and the edges indicate the interactions between the features.</li>
+<li>The interactions are retrieved from various interatomic databases.</li>
+</ul>
+</li>
 </ol>
-<p>Code:</p>
-<ul>
-<li>Lab example uses a NMF implementation in Python:<ul>
-<li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.NMF.html#sklearn.decomposition.NMF">https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.NMF.html#sklearn.decomposition.NMF</a></li>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><img src="img/wsnf_data.png" width="600"/></p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="WSNF---Method-(2)">WSNF - Method (2)<a class="anchor-link" href="#WSNF---Method-(2)">&#182;</a></h3><ol>
+<li>Integrate feature ranking with feature variation. Gene expression based.<ul>
+<li>Use knn based kernels and the expression data of the miRNAs, TFs and mRNAs to calculate the weight of the features, representing the level of importance of the features.</li>
 </ul>
 </li>
-<li>For R, feel free to use this package:<ul>
-<li><a href="https://cran.r-project.org/web/packages/NMF/index.html">https://cran.r-project.org/web/packages/NMF/index.html</a></li>
+<li>Weighted SNF<ul>
+<li>The feature weight is then integrated into a network fusion approach to cluster the samples (patients) and thus to identify cancer subtypes. </li>
+<li>$D(s_i, s_j) = \sqrt{\sum_{m=1}^p{W(f_m)*(f_m^{s_i}-f_m^{s_j})^2}}$</li>
+</ul>
+</li>
+</ol>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><img src="img/wsnf.png" width="600"/></p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="ANF---Affinity-network-fusion">ANF - Affinity network fusion<a class="anchor-link" href="#ANF---Affinity-network-fusion">&#182;</a></h3><ul>
+<li>Tianle Ma, Aidong Zhang, Affinity Network Fusion and Semi-supervised Learning for Cancer Patient Clustering, 2019, <a href="https://doi.org/10.1016/j.ymeth.2018.05.020">https://doi.org/10.1016/j.ymeth.2018.05.020</a></li>
+<li>Software: <a href="https://www.bioconductor.org/packages/release/bioc/html/ANF.html">https://www.bioconductor.org/packages/release/bioc/html/ANF.html</a><ul>
+<li><a href="https://github.com/BeautyOfWeb/ANF">https://github.com/BeautyOfWeb/ANF</a></li>
+</ul>
+</li>
+<li>Data: gene expression, miRNA expression and DNA methylation</li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><img src="img/anf_alg.jpg" width="600"/></p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<ul>
+<li>Overall, the methodology is similar to SNF. Weak edges derived from a similarity distance are pruned using a kNN based kernel. The same is acomplished using the message passing kernel in SNF.</li>
+<li>The matrix fusion process is random-walk based, and it is a bit more clear, although it parametrizes feature importance with a set of omics-specific weights:<ul>
+<li>$ W = \sum_{v=1}^n{w_v * W^{(v)}}$, $\sum_{v=1}^n{w_v}=1$</li>
 </ul>
 </li>
 </ul>
 
 </div>
-</div>conda create -n iocourse
-conda activate iocourse
-conda install jupyterlab pandas numpy scikit-learn
-pip install snfpy
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Load the datasets:</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_loc</span> <span class="o">=</span> <span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">mydata</span><span class="se">\\</span><span class="s2">work</span><span class="se">\\</span><span class="s2">io_course</span><span class="se">\\</span><span class="s2">data</span><span class="se">\\</span><span class="s2">&quot;</span>
-
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="n">df_meth</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_loc</span> <span class="o">+</span> <span class="s2">&quot;CLL_data_Methylation.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">df_mrna</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_loc</span> <span class="o">+</span> <span class="s2">&quot;CLL_data_mRNA.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-
-<span class="c1"># drop nans by column</span>
-<span class="n">df_mrna</span> <span class="o">=</span> <span class="n">df_mrna</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
-<span class="n">df_meth</span> <span class="o">=</span> <span class="n">df_meth</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
-
-<span class="n">df_mrna</span> <span class="o">=</span> <span class="n">df_mrna</span><span class="o">.</span><span class="n">T</span>
-<span class="n">df_meth</span> <span class="o">=</span> <span class="n">df_meth</span><span class="o">.</span><span class="n">T</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_meth</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>cg10146935</th>
-      <th>cg26837773</th>
-      <th>cg17801765</th>
-      <th>cg13244315</th>
-      <th>cg06181703</th>
-      <th>cg19626656</th>
-      <th>cg15207968</th>
-      <th>cg12755103</th>
-      <th>cg23651812</th>
-      <th>cg14287724</th>
-      <th>...</th>
-      <th>cg07016730</th>
-      <th>cg25152348</th>
-      <th>cg08425796</th>
-      <th>cg05418105</th>
-      <th>cg22249529</th>
-      <th>cg07600533</th>
-      <th>cg08260245</th>
-      <th>cg19112186</th>
-      <th>cg10770023</th>
-      <th>cg00270625</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>H045</th>
-      <td>1.811086</td>
-      <td>-5.172572</td>
-      <td>5.411526</td>
-      <td>-0.118825</td>
-      <td>5.120384</td>
-      <td>0.145951</td>
-      <td>-3.436869</td>
-      <td>-3.844246</td>
-      <td>2.075422</td>
-      <td>3.501829</td>
-      <td>...</td>
-      <td>3.547843</td>
-      <td>0.060132</td>
-      <td>4.442026</td>
-      <td>2.861301</td>
-      <td>5.246799</td>
-      <td>3.901933</td>
-      <td>5.713831</td>
-      <td>5.703520</td>
-      <td>5.166255</td>
-      <td>4.911655</td>
-    </tr>
-    <tr>
-      <th>H109</th>
-      <td>-3.997508</td>
-      <td>1.594870</td>
-      <td>5.412693</td>
-      <td>1.043871</td>
-      <td>1.279480</td>
-      <td>-3.928433</td>
-      <td>2.989245</td>
-      <td>0.393004</td>
-      <td>4.800121</td>
-      <td>3.159201</td>
-      <td>...</td>
-      <td>0.887926</td>
-      <td>-0.214753</td>
-      <td>4.561187</td>
-      <td>3.919911</td>
-      <td>5.058302</td>
-      <td>2.634941</td>
-      <td>5.107460</td>
-      <td>1.326244</td>
-      <td>0.677912</td>
-      <td>5.281115</td>
-    </tr>
-    <tr>
-      <th>H024</th>
-      <td>-2.844313</td>
-      <td>0.161170</td>
-      <td>0.365706</td>
-      <td>-4.219236</td>
-      <td>0.721100</td>
-      <td>-3.418859</td>
-      <td>-3.250385</td>
-      <td>-2.691305</td>
-      <td>0.534854</td>
-      <td>-4.629484</td>
-      <td>...</td>
-      <td>-4.486709</td>
-      <td>0.121749</td>
-      <td>-2.841373</td>
-      <td>-3.607177</td>
-      <td>0.765651</td>
-      <td>1.516759</td>
-      <td>5.676245</td>
-      <td>5.488636</td>
-      <td>4.221828</td>
-      <td>5.379716</td>
-    </tr>
-    <tr>
-      <th>H056</th>
-      <td>-3.338656</td>
-      <td>-2.093433</td>
-      <td>0.373634</td>
-      <td>-1.592196</td>
-      <td>4.047059</td>
-      <td>0.226601</td>
-      <td>2.377386</td>
-      <td>-2.775075</td>
-      <td>0.419985</td>
-      <td>0.312388</td>
-      <td>...</td>
-      <td>-4.238214</td>
-      <td>0.137862</td>
-      <td>-3.964855</td>
-      <td>-2.270940</td>
-      <td>-2.631909</td>
-      <td>-3.884756</td>
-      <td>5.950338</td>
-      <td>5.354059</td>
-      <td>4.934536</td>
-      <td>5.366823</td>
-    </tr>
-    <tr>
-      <th>H079</th>
-      <td>-0.019362</td>
-      <td>3.748980</td>
-      <td>5.412010</td>
-      <td>1.416418</td>
-      <td>5.237422</td>
-      <td>0.324213</td>
-      <td>-0.647632</td>
-      <td>-3.098837</td>
-      <td>5.397188</td>
-      <td>3.410770</td>
-      <td>...</td>
-      <td>2.758021</td>
-      <td>0.021011</td>
-      <td>0.673296</td>
-      <td>3.455230</td>
-      <td>-3.140733</td>
-      <td>-4.238106</td>
-      <td>6.040756</td>
-      <td>5.584746</td>
-      <td>5.095111</td>
-      <td>5.338470</td>
-    </tr>
-  </tbody>
-</table>
-<p>5 rows × 4248 columns</p>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>To ensure non-negativity, add the negative modality data as new features. Just some ugly code, not important. :)</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cols</span> <span class="o">=</span> <span class="n">df_meth</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">columns</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cols</span><span class="p">:</span>
-    <span class="n">mask</span> <span class="o">=</span> <span class="n">df_meth</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span>
-    <span class="n">columns</span><span class="p">[</span><span class="n">c</span> <span class="o">+</span> <span class="s1">&#39;_p&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_meth</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">mask</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span>
-    <span class="n">columns</span><span class="p">[</span><span class="n">c</span> <span class="o">+</span> <span class="s1">&#39;_n&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span> <span class="n">df_meth</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">mask</span><span class="p">(</span><span class="o">~</span><span class="n">mask</span><span class="p">)</span>
-<span class="n">df_meth</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="p">()),</span> <span class="n">keys</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">columns</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  
-<span class="n">df_meth</span> <span class="o">=</span> <span class="n">df_meth</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_meth</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[21]:</div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>H045</th>
-      <th>H109</th>
-      <th>H024</th>
-      <th>H056</th>
-      <th>H079</th>
-      <th>H164</th>
-      <th>H059</th>
-      <th>H167</th>
-      <th>H113</th>
-      <th>H049</th>
-      <th>...</th>
-      <th>H106</th>
-      <th>H176</th>
-      <th>H136</th>
-      <th>H178</th>
-      <th>H166</th>
-      <th>H174</th>
-      <th>H177</th>
-      <th>H259</th>
-      <th>H175</th>
-      <th>H179</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>cg10146935_p</th>
-      <td>1.811086</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>cg10146935_n</th>
-      <td>0.000000</td>
-      <td>3.997508</td>
-      <td>2.844313</td>
-      <td>3.338656</td>
-      <td>0.019362</td>
-      <td>2.485997</td>
-      <td>1.460211</td>
-      <td>4.952291</td>
-      <td>2.980209</td>
-      <td>0.091713</td>
-      <td>...</td>
-      <td>4.946979</td>
-      <td>0.838754</td>
-      <td>4.684879</td>
-      <td>5.077259</td>
-      <td>0.625954</td>
-      <td>4.918812</td>
-      <td>4.727493</td>
-      <td>5.193812</td>
-      <td>4.437189</td>
-      <td>5.060459</td>
-    </tr>
-    <tr>
-      <th>cg26837773_p</th>
-      <td>0.000000</td>
-      <td>1.594870</td>
-      <td>0.161170</td>
-      <td>0.000000</td>
-      <td>3.748980</td>
-      <td>0.060530</td>
-      <td>0.000000</td>
-      <td>0.547577</td>
-      <td>2.440098</td>
-      <td>2.940767</td>
-      <td>...</td>
-      <td>0.199544</td>
-      <td>0.341156</td>
-      <td>3.496116</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>3.214163</td>
-      <td>2.036858</td>
-      <td>0.000000</td>
-      <td>4.043775</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>cg26837773_n</th>
-      <td>5.172572</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>2.093433</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>3.472232</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>4.821910</td>
-      <td>0.858200</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.816088</td>
-      <td>0.000000</td>
-      <td>2.345652</td>
-    </tr>
-    <tr>
-      <th>cg17801765_p</th>
-      <td>5.411526</td>
-      <td>5.412693</td>
-      <td>0.365706</td>
-      <td>0.373634</td>
-      <td>5.412010</td>
-      <td>5.268908</td>
-      <td>0.000000</td>
-      <td>5.337081</td>
-      <td>0.749546</td>
-      <td>0.426493</td>
-      <td>...</td>
-      <td>0.574758</td>
-      <td>0.707883</td>
-      <td>0.438992</td>
-      <td>4.873615</td>
-      <td>0.753594</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.547390</td>
-      <td>4.086683</td>
-      <td>0.135581</td>
-    </tr>
-  </tbody>
-</table>
-<p>5 rows × 196 columns</p>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Apply the frobenius norms to normalize the datasets, then concatenate the data.</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df_mrna</span><span class="o">.</span><span class="n">T</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">/</span><span class="n">df</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="n">fro</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">**</span><span class="mf">.5</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">df_mrna</span> <span class="o">=</span> <span class="n">df</span> <span class="o">/</span> <span class="n">fro</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df_meth</span><span class="o">.</span><span class="n">T</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">/</span><span class="n">df</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="n">fro</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">**</span><span class="mf">.5</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">df_meth</span> <span class="o">=</span> <span class="n">df</span> <span class="o">/</span> <span class="n">fro</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Unfortunately the dataset is not column matched, so we got to do it ourselves.</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_mrna</span><span class="p">,</span> <span class="n">df_meth</span><span class="p">])</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>(13496, 135)
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[25]:</div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>H045</th>
-      <th>H109</th>
-      <th>H024</th>
-      <th>H056</th>
-      <th>H079</th>
-      <th>H164</th>
-      <th>H059</th>
-      <th>H167</th>
-      <th>H113</th>
-      <th>H049</th>
-      <th>...</th>
-      <th>H271</th>
-      <th>H006</th>
-      <th>H084</th>
-      <th>H260</th>
-      <th>H192</th>
-      <th>H070</th>
-      <th>H255</th>
-      <th>H135</th>
-      <th>H247</th>
-      <th>H066</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>ENSG00000244734</th>
-      <td>0.009022</td>
-      <td>0.005391</td>
-      <td>0.020382</td>
-      <td>0.026755</td>
-      <td>0.012140</td>
-      <td>0.005026</td>
-      <td>0.010195</td>
-      <td>0.003092</td>
-      <td>0.004567</td>
-      <td>0.005180</td>
-      <td>...</td>
-      <td>0.008746</td>
-      <td>0.017387</td>
-      <td>0.021283</td>
-      <td>0.024401</td>
-      <td>0.013766</td>
-      <td>0.006895</td>
-      <td>0.006624</td>
-      <td>0.003180</td>
-      <td>0.017701</td>
-      <td>0.007995</td>
-    </tr>
-    <tr>
-      <th>ENSG00000158528</th>
-      <td>0.023238</td>
-      <td>0.026321</td>
-      <td>0.004801</td>
-      <td>0.006514</td>
-      <td>0.023816</td>
-      <td>0.022488</td>
-      <td>0.011320</td>
-      <td>0.005297</td>
-      <td>0.005619</td>
-      <td>0.005180</td>
-      <td>...</td>
-      <td>0.007797</td>
-      <td>0.007975</td>
-      <td>0.005282</td>
-      <td>0.025212</td>
-      <td>0.006281</td>
-      <td>0.003239</td>
-      <td>0.025178</td>
-      <td>0.003180</td>
-      <td>0.006260</td>
-      <td>0.024524</td>
-    </tr>
-    <tr>
-      <th>ENSG00000198478</th>
-      <td>0.017657</td>
-      <td>0.005391</td>
-      <td>0.025392</td>
-      <td>0.016334</td>
-      <td>0.009752</td>
-      <td>0.024930</td>
-      <td>0.007419</td>
-      <td>0.008332</td>
-      <td>0.010429</td>
-      <td>0.005966</td>
-      <td>...</td>
-      <td>0.004636</td>
-      <td>0.010719</td>
-      <td>0.018570</td>
-      <td>0.020788</td>
-      <td>0.012456</td>
-      <td>0.003239</td>
-      <td>0.005890</td>
-      <td>0.003180</td>
-      <td>0.016220</td>
-      <td>0.023507</td>
-    </tr>
-    <tr>
-      <th>ENSG00000175445</th>
-      <td>0.025108</td>
-      <td>0.021643</td>
-      <td>0.003135</td>
-      <td>0.003081</td>
-      <td>0.026607</td>
-      <td>0.021274</td>
-      <td>0.023107</td>
-      <td>0.023463</td>
-      <td>0.004567</td>
-      <td>0.005966</td>
-      <td>...</td>
-      <td>0.004636</td>
-      <td>0.018250</td>
-      <td>0.018723</td>
-      <td>0.023259</td>
-      <td>0.003126</td>
-      <td>0.009398</td>
-      <td>0.023147</td>
-      <td>0.003180</td>
-      <td>0.011393</td>
-      <td>0.021184</td>
-    </tr>
-    <tr>
-      <th>ENSG00000174469</th>
-      <td>0.005235</td>
-      <td>0.025055</td>
-      <td>0.003135</td>
-      <td>0.027334</td>
-      <td>0.010923</td>
-      <td>0.021449</td>
-      <td>0.016399</td>
-      <td>0.005297</td>
-      <td>0.004567</td>
-      <td>0.026762</td>
-      <td>...</td>
-      <td>0.028580</td>
-      <td>0.020996</td>
-      <td>0.024090</td>
-      <td>0.018633</td>
-      <td>0.010119</td>
-      <td>0.026308</td>
-      <td>0.003097</td>
-      <td>0.026659</td>
-      <td>0.019995</td>
-      <td>0.021093</td>
-    </tr>
-  </tbody>
-</table>
-<p>5 rows × 135 columns</p>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Fiting-an-NMF-model">Fiting an NMF model<a class="anchor-link" href="#Fiting-an-NMF-model">&#182;</a></h3><ul>
-<li>So now we fit a two component NMF model and check results..</li>
-</ul>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">NMF</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">NMF</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="s1">&#39;random&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">W</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<span class="n">H</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">components_</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">H</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">W</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>(2, 135) (13496, 2)
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[33]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">W</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[33]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>array([[0.12609143, 0.0962925 ],
-       [0.04392555, 0.11771427],
-       [0.09126849, 0.10719918],
-       ...,
-       [0.00193168, 0.01028896],
-       [0.17476978, 0.07858805],
-       [0.00302261, 0.02073489]])</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[37]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#W_df = pd.DataFrame(W, columns=X.index.values)</span>
-<span class="n">W_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;latent_1&quot;</span><span class="p">,</span> <span class="s2">&quot;latent_2&quot;</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
-<span class="n">W_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[37]:</div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>latent_1</th>
-      <th>latent_2</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>ENSG00000244734</th>
-      <td>0.126091</td>
-      <td>0.096292</td>
-    </tr>
-    <tr>
-      <th>ENSG00000158528</th>
-      <td>0.043926</td>
-      <td>0.117714</td>
-    </tr>
-    <tr>
-      <th>ENSG00000198478</th>
-      <td>0.091268</td>
-      <td>0.107199</td>
-    </tr>
-    <tr>
-      <th>ENSG00000175445</th>
-      <td>0.065235</td>
-      <td>0.146637</td>
-    </tr>
-    <tr>
-      <th>ENSG00000174469</th>
-      <td>0.197567</td>
-      <td>0.098666</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[40]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">H_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;latent_1&quot;</span><span class="p">,</span> <span class="s2">&quot;latent_2&quot;</span><span class="p">])</span>
-<span class="n">H_df</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[40]:</div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>H045</th>
-      <th>H109</th>
-      <th>H024</th>
-      <th>H056</th>
-      <th>H079</th>
-      <th>H164</th>
-      <th>H059</th>
-      <th>H167</th>
-      <th>H113</th>
-      <th>H049</th>
-      <th>...</th>
-      <th>H271</th>
-      <th>H006</th>
-      <th>H084</th>
-      <th>H260</th>
-      <th>H192</th>
-      <th>H070</th>
-      <th>H255</th>
-      <th>H135</th>
-      <th>H247</th>
-      <th>H066</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>latent_1</th>
-      <td>0.005286</td>
-      <td>0.001123</td>
-      <td>0.116696</td>
-      <td>0.1156</td>
-      <td>0.008202</td>
-      <td>0.000000</td>
-      <td>0.108295</td>
-      <td>0.004208</td>
-      <td>0.068335</td>
-      <td>0.053253</td>
-      <td>...</td>
-      <td>0.112052</td>
-      <td>0.117386</td>
-      <td>0.000702</td>
-      <td>0.005236</td>
-      <td>0.05371</td>
-      <td>0.112368</td>
-      <td>0.012251</td>
-      <td>0.113764</td>
-      <td>0.116019</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>latent_2</th>
-      <td>0.144156</td>
-      <td>0.149550</td>
-      <td>0.000000</td>
-      <td>0.0000</td>
-      <td>0.140064</td>
-      <td>0.150715</td>
-      <td>0.009437</td>
-      <td>0.145258</td>
-      <td>0.061816</td>
-      <td>0.082893</td>
-      <td>...</td>
-      <td>0.004414</td>
-      <td>0.000000</td>
-      <td>0.150970</td>
-      <td>0.142550</td>
-      <td>0.08071</td>
-      <td>0.004421</td>
-      <td>0.134242</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.152084</td>
-    </tr>
-  </tbody>
-</table>
-<p>2 rows × 135 columns</p>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><strong>Clustering</strong></p>
 <ul>
-<li>Clustering the samples on two subtypes doesn't require any specific clustering algorithms :) But for more subtypes you are welcome to measure up against MOFA.</li>
-</ul>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[38]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="n">clusters</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">clusters</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[38]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>array([1, 1, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1,
-       0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0,
-       0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0,
-       0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0,
-       0, 1, 1, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0,
-       1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1,
-       0, 0, 1], dtype=int64)</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="NMF-analysis">NMF analysis<a class="anchor-link" href="#NMF-analysis">&#182;</a></h3><p>What samples drive our first component (cluster)?</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[70]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">samples</span> <span class="o">=</span> <span class="n">H_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;latent_1&quot;</span><span class="p">,]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">samples</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[70]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>H022    0.117501
-H006    0.117386
-H110    0.116995
-H236    0.116745
-H024    0.116696
-          ...   
-H042    0.000000
-H077    0.000000
-H008    0.000000
-H027    0.000000
-H066    0.000000
-Name: latent_1, Length: 135, dtype: float64</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[61]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">top10</span> <span class="o">=</span> <span class="n">samples</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
-<span class="n">top10</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[61]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>array([&#39;H022&#39;, &#39;H006&#39;, &#39;H110&#39;, &#39;H236&#39;, &#39;H024&#39;, &#39;H099&#39;, &#39;H038&#39;, &#39;H247&#39;,
-       &#39;H133&#39;, &#39;H060&#39;], dtype=object)</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Similarly, what transcripts ID and methylation probes are driving the signal in the same component?</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[67]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># first component of W</span>
-<span class="n">features</span> <span class="o">=</span> <span class="n">W_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">features</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[67]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>ENSG00000092820    0.298223
-ENSG00000067082    0.293701
-ENSG00000142102    0.285527
-ENSG00000177606    0.282739
-ENSG00000156738    0.281571
-                     ...   
-cg18766900_p       0.000000
-cg06528737_p       0.000000
-cg10853431_p       0.000000
-cg07240413_p       0.000000
-cg04387658_p       0.000000
-Name: latent_1, Length: 13496, dtype: float64</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Let's get the first ten genes and the first ten probes...</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[69]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">top_g</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">features</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span> <span class="k">if</span> <span class="n">f</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span><span class="o">==</span><span class="s2">&quot;EN&quot;</span><span class="p">]</span>
-<span class="n">top_p</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">features</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span> <span class="k">if</span> <span class="n">f</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span><span class="o">==</span><span class="s2">&quot;cg&quot;</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">top_g</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">top_p</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>[&#39;ENSG00000092820&#39;, &#39;ENSG00000067082&#39;, &#39;ENSG00000142102&#39;, &#39;ENSG00000177606&#39;, &#39;ENSG00000156738&#39;, &#39;ENSG00000077238&#39;, &#39;ENSG00000215301&#39;, &#39;ENSG00000087074&#39;, &#39;ENSG00000112149&#39;, &#39;ENSG00000143297&#39;]
-[&#39;cg04813697_n&#39;, &#39;cg01360627_n&#39;, &#39;cg06401414_n&#39;, &#39;cg03633073_p&#39;, &#39;cg04694619_n&#39;, &#39;cg02650512_n&#39;, &#39;cg05277504_p&#39;, &#39;cg04173586_n&#39;, &#39;cg05656688_n&#39;, &#39;cg10379077_n&#39;]
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Does-is-look-simpler-than-MOFA?">Does is look simpler than MOFA?<a class="anchor-link" href="#Does-is-look-simpler-than-MOFA?">&#182;</a></h3><p>well...</p>
-<p>Now, for finer points, expand this study:</p>
-<ul>
-<li>Use a range of K values and fit the model then cluster via Kmeans and perform silhouette coefficient testing.<ul>
-<li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html">https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html</a></li>
-<li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.silhouette_score.html">https://scikit-learn.org/stable/modules/generated/sklearn.metrics.silhouette_score.html</a></li>
+<li>W regarded as a "state transition matrix", and multiplying it r times is a random walk in its generated graph. $W = W^r$<ul>
+<li>this step is similar to the inductive message passing in SNF</li>
+<li>r parameter must be small (2, 3), or W becomes a rank one matrix</li>
+<li>a more complex random walk was also explored, that uses some of the knn pruned weaker edges.</li>
 </ul>
 </li>
-<li>Observe convergence by computing the mean squared error.<ul>
-<li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html">https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html</a></li>
+</ul>
+<blockquote><p><strong>Obs.</strong> While the SNF fitting process might look long, the patient matrix is usually a small network (most clinical datasets are in the order of tens - hundreds)!</p>
+</blockquote>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="ANF-application---Semi-supervised-learning-on-patient-affinity-networks">ANF application - Semi-supervised learning on patient affinity networks<a class="anchor-link" href="#ANF-application---Semi-supervised-learning-on-patient-affinity-networks">&#182;</a></h3><p><a href="https://arxiv.org/abs/1805.09673">https://arxiv.org/abs/1805.09673</a></p>
+<ul>
+<li>a good example for the potential of NF to combine supervised and unsupervised learning through good representation learning.</li>
+<li>97% accuracy on test set with training less than 1% of data for classifying patients into correct disease types</li>
+<li>ANF obtains effective kNN-based nonlinear transformations that reduce noise in multi-omic data</li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><img src="img/anf_nn.jpg" width="300"/></p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Subsequent-SNF-studies:">Subsequent SNF studies:<a class="anchor-link" href="#Subsequent-SNF-studies:">&#182;</a></h3><ul>
+<li>Guo, Yang et al. “Improvement of cancer subtype prediction by incorporating transcriptome expression data and heterogeneous biological networks.” BMC medical genomics vol. 11,Suppl 6 119. 31 Dec. 2018, doi:10.1186/s12920-018-0435-x</li>
+<li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6311915/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6311915/</a></li>
+</ul>
+<p>Main ideas:</p>
+<ul>
+<li>ANF did not consider the feature importance and the feature relationships in data integration (different regulatory mechanisms may exist in different cancer subtypes).</li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<ul>
+<li>Method: CSPRV (Cancer Subtype Prediction using RV2)<blockquote><p>Given the expression data of genome elements, we first extract multiple expression features for each regulatory element based on the heterogeneous biological networks. Based on the extracted feature matrices of samples, we use a matrix correlation method, RV2, to predict the similarities between samples in each expression data-view, and then fuse the similarity information in samples from all considering data-views according to different integration weights. Finally, we cluster patient samples into different cancer subtypes based on the predicted integrative similarity network between samples.</p>
+</blockquote>
+</li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="SKF---Similarity-Kernel-Fusion">SKF - Similarity Kernel Fusion<a class="anchor-link" href="#SKF---Similarity-Kernel-Fusion">&#182;</a></h3><ul>
+<li><a href="https://en.wikipedia.org/wiki/Kernel_method">https://en.wikipedia.org/wiki/Kernel_method</a></li>
+<li>multiple papers:<ul>
+<li>Jiang, Limin et al. “Discovering Cancer Subtypes via an Accurate Fusion Strategy on Multiple Profile Data.” Frontiers in genetics vol. 10 20. 5 Feb. 2019, doi:10.3389/fgene.2019.00020</li>
+<li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6370730/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6370730/</a></li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/30619454/">https://pubmed.ncbi.nlm.nih.gov/30619454/</a></li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/31514111/">https://pubmed.ncbi.nlm.nih.gov/31514111/</a></li>
 </ul>
 </li>
-<li>Use the other omics tables as well, for .. something.</li>
-<li>Compare with the results from the MOFA analysis
-<a href="https://bioconductor.riken.jp/packages/3.9/bioc/vignettes/MOFA/inst/doc/MOFA_example_CLL.html">https://bioconductor.riken.jp/packages/3.9/bioc/vignettes/MOFA/inst/doc/MOFA_example_CLL.html</a></li>
+<li>Also search for MKL (multiple kernel learning)</li>
 </ul>
-<p>Shameless self promotion:</p>
-<ul>
-<li>I hold a course of data science using advanced python, that covers everything, from numerical computing to deep learning. For details check the SciLifeLab page.</li>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="The-Kernel-trick">The Kernel trick<a class="anchor-link" href="#The-Kernel-trick">&#182;</a></h3><ul>
+<li>(wikipedia) "kernel functions, enable them to operate in a high-dimensional, implicit feature space without ever computing the coordinates of the data in that space, but rather by simply computing the inner products between the images of all pairs of data in the feature space."</li>
+</ul>
+<p>$P_l^{t+1}=\alpha(S_l \times \frac{\sum_{r \neq l}P_r^t}{n} \times S_l^T) + (1-\alpha) \frac{\sum_{r \neq l}P_r^t}{n}$</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><img src="img/skf.png" width="400"/></p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Software,-papers,-further-reading">Software, papers, further reading<a class="anchor-link" href="#Software,-papers,-further-reading">&#182;</a></h2>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Papers:">Papers:<a class="anchor-link" href="#Papers:">&#182;</a></h3><ul>
+<li>SNF similarity network fusion: <a href="https://www.nature.com/articles/nmeth.2810">https://www.nature.com/articles/nmeth.2810</a><ul>
+<li><a href="https://media.nature.com/original/nature-assets/nmeth/journal/v11/n3/extref/nmeth.2810-S1.pdf">https://media.nature.com/original/nature-assets/nmeth/journal/v11/n3/extref/nmeth.2810-S1.pdf</a></li>
+</ul>
+</li>
+<li>SNF.CC: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5741060/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5741060/</a></li>
+<li>WSNF: <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0152792">https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0152792</a></li>
+<li>SKF: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6370730/#:~:text=(2016)%20proposed%20Weighted%20Similarity%20Network,cancer%20types%20to%20demonstrate%20performance">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6370730/#:~:text=(2016)%20proposed%20Weighted%20Similarity%20Network,cancer%20types%20to%20demonstrate%20performance</a>.</li>
+<li>Speicher and Pfeifer (2015) <a href="https://pubmed.ncbi.nlm.nih.gov/26072491/">https://pubmed.ncbi.nlm.nih.gov/26072491/</a> pointed out that iCluster has high computational complexity and proposed a dimensionality reduction method to integrate multiple similarity kernels. This method is evaluated by using five cancer types. </li>
+<li>ANF affinity network fusion: <a href="https://arxiv.org/abs/1805.09673">https://arxiv.org/abs/1805.09673</a> </li>
+<li>INF integrative network fusion: <a href="https://www.frontiersin.org/articles/10.3389/fonc.2020.01065/full">https://www.frontiersin.org/articles/10.3389/fonc.2020.01065/full</a></li>
+<li>fusion methods review (2020): <a href="https://www.sciencedirect.com/science/article/pii/S2001037019304155">https://www.sciencedirect.com/science/article/pii/S2001037019304155</a></li>
+<li>icluster: <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0035236">https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0035236</a><ul>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/19759197/">https://pubmed.ncbi.nlm.nih.gov/19759197/</a></li>
+</ul>
+</li>
+<li>IntClust <a href="https://rdrr.io/cran/IntClust/">https://rdrr.io/cran/IntClust/</a></li>
+</ul>
+<h3 id="Software:">Software:<a class="anchor-link" href="#Software:">&#182;</a></h3><ul>
+<li>ANF: <a href="https://www.bioconductor.org/packages/release/bioc/html/ANF.html">https://www.bioconductor.org/packages/release/bioc/html/ANF.html</a><ul>
+<li><a href="https://github.com/BeautyOfWeb/ANF">https://github.com/BeautyOfWeb/ANF</a></li>
+</ul>
+</li>
+<li>R: CancerSubtypes <a href="https://bioconductor.org/packages/devel/bioc/vignettes/CancerSubtypes/inst/doc/CancerSubtypes-vignette.html">https://bioconductor.org/packages/devel/bioc/vignettes/CancerSubtypes/inst/doc/CancerSubtypes-vignette.html</a></li>
+<li>SNF Python: <a href="https://github.com/rmarkello/snfpy">https://github.com/rmarkello/snfpy</a></li>
+<li>SNF IntClust: <a href="https://rdrr.io/cran/IntClust/man/SNF.html">https://rdrr.io/cran/IntClust/man/SNF.html</a></li>
 </ul>
 
 </div>
