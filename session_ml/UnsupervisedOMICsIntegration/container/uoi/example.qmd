@@ -1,0 +1,23 @@
+---
+title: "Quarto Demo"
+format: 
+  html:
+    code-fold: true
+---
+
+## Air Quality
+
+@fig-airquality further explores the impact of temperature on ozone level.
+
+```{r}
+#| label: fig-airquality
+#| fig-cap: Temperature and ozone level.
+#| warning: false
+
+library(ggplot2)
+
+ggplot(airquality, aes(Temp, Ozone)) + 
+  geom_point() + 
+  geom_smooth(method = "loess"
+)
+```
