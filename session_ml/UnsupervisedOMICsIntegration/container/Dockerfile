@@ -1,7 +1,7 @@
 FROM ubuntu:20.04 as base
 
 ARG RSTUDIO_ARCH="amd64"
-ARG RSTUDIO_VERSION=2022.12.0+353
+ARG RSTUDIO_VERSION="2023.12.1+402"
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
@@ -38,7 +38,7 @@ RUN curl -LOs https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64
     && ln -s /usr/local/miniconda3/bin/mamba /usr/local/bin/mamba
 
 # Set up environment
-ENV PATH="/usr/local/miniconda3/envs:${PATH}"
+ENV PATH="/usr/local/miniconda3/bin:${PATH}"
 
 # Install R
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9 \
@@ -55,14 +55,21 @@ COPY environment.yml /tmp/environment.yml
 RUN mamba env create -f /tmp/environment.yml \
     && rm /tmp/environment.yml
 
+# Download and install RStudio Server
+RUN curl -sL "https://download2.rstudio.org/server/focal/${RSTUDIO_ARCH}/rstudio-server-${RSTUDIO_VERSION//+/-}-${RSTUDIO_ARCH}.deb" -o /tmp/rstudio-server.deb && \
+    echo "64044984a5791690586e21bf4411019ed3dccaf32a69e0838090762f3eba8da0  /tmp/rstudio-server.deb" | sha256sum -c - && \
+    dpkg -i /tmp/rstudio-server.deb && \
+    rm -f /tmp/rstudio-server.deb && \
+    echo "lock-type=advisory" > /etc/rstudio/file-locks \
+    && echo "www-frame-origin=same" >> /etc/rstudio/rserver.conf
 
-RUN curl -sL "https://download2.rstudio.org/server/bionic/${RSTUDIO_ARCH}/rstudio-server-${RSTUDIO_VERSION//+/-}-${RSTUDIO_ARCH}.deb" -o /tmp/rstudio-server.deb \
- && gpg --keyserver keys.gnupg.net --keyserver pgp.surfnet.nl --recv-keys 3F32EE77E331692F \
- && dpkg-sig --verify /tmp/rstudio-server.deb \
- && dpkg -i /tmp/rstudio-server.deb \
- && rm -f /tmp/rstudio-server.deb \
- && echo "lock-type=advisory" > /etc/rstudio/file-locks \
- && echo "www-frame-origin=same" >> /etc/rstudio/rserver.conf
+# RUN curl -sL "https://download2.rstudio.org/server/focal/${RSTUDIO_ARCH}/rstudio-server-${RSTUDIO_VERSION//+/-}-${RSTUDIO_ARCH}.deb" -o /tmp/rstudio-server.deb \
+#     && gpg --keyserver keys.gnupg.net --keyserver pgp.surfnet.nl --recv-keys 3F32EE77E331692F \
+#     && dpkg-sig --verify /tmp/rstudio-server.deb \
+#     && dpkg -i /tmp/rstudio-server.deb \
+#     && rm -f /tmp/rstudio-server.deb \
+#     && echo "lock-type=advisory" > /etc/rstudio/file-locks \
+#     && echo "www-frame-origin=same" >> /etc/rstudio/rserver.conf
 
 # Common environment variables
 ENV USER jovyan
