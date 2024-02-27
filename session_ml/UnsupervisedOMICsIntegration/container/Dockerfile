@@ -63,14 +63,6 @@ RUN curl -sL "https://download2.rstudio.org/server/focal/${RSTUDIO_ARCH}/rstudio
     echo "lock-type=advisory" > /etc/rstudio/file-locks \
     && echo "www-frame-origin=same" >> /etc/rstudio/rserver.conf
 
-# RUN curl -sL "https://download2.rstudio.org/server/focal/${RSTUDIO_ARCH}/rstudio-server-${RSTUDIO_VERSION//+/-}-${RSTUDIO_ARCH}.deb" -o /tmp/rstudio-server.deb \
-#     && gpg --keyserver keys.gnupg.net --keyserver pgp.surfnet.nl --recv-keys 3F32EE77E331692F \
-#     && dpkg-sig --verify /tmp/rstudio-server.deb \
-#     && dpkg -i /tmp/rstudio-server.deb \
-#     && rm -f /tmp/rstudio-server.deb \
-#     && echo "lock-type=advisory" > /etc/rstudio/file-locks \
-#     && echo "www-frame-origin=same" >> /etc/rstudio/rserver.conf
-
 # Common environment variables
 ENV USER jovyan
 ENV GROUP users
