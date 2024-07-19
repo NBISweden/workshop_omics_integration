@@ -1,4 +1,4 @@
-FROM ubuntu:20.04 as base
+FROM ubuntu:20.04 AS base
 
 ARG RSTUDIO_ARCH="amd64"
 ARG RSTUDIO_VERSION="2023.12.1+402"
@@ -6,9 +6,9 @@ ARG RSTUDIO_VERSION="2023.12.1+402"
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Set locale configs
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US.UTF-8
-ENV LC_ALL en_US.UTF-8
+ENV LANG=en_US.UTF-8
+ENV LANGUAGE=en_US.UTF-8
+ENV LC_ALL=en_US.UTF-8
 
 # Install useful Linux packages and cleanup
 RUN export DEBIAN_FRONTEND=noninteractive \
@@ -50,10 +50,21 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD5
     && rm -rf /var/lib/apt/lists/* \ 
     && apt-get autoremove -yq && apt-get autoclean -yq
 
+# Install necessary libraries for GLIBCXX_3.4.29
+RUN apt-get -yq update \
+    && apt-get -yq install --no-install-recommends \
+    software-properties-common \
+    && add-apt-repository ppa:ubuntu-toolchain-r/test \
+    && apt-get -yq update \
+    && apt-get -yq install --no-install-recommends \
+    libstdc++6 \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
 # INSTALL R packages using Mamba
-COPY environment.yml /tmp/environment.yml
-RUN mamba env create -f /tmp/environment.yml \
-    && rm /tmp/environment.yml
+COPY UnsupervisedOMICsIntegration_env.yml /tmp/UnsupervisedOMICsIntegration_env.yml
+RUN mamba env create -f /tmp/UnsupervisedOMICsIntegration_env.yml \
+    && rm /tmp/UnsupervisedOMICsIntegration_env.yml
 
 # Download and install RStudio Server
 RUN curl -sL "https://download2.rstudio.org/server/focal/${RSTUDIO_ARCH}/rstudio-server-${RSTUDIO_VERSION//+/-}-${RSTUDIO_ARCH}.deb" -o /tmp/rstudio-server.deb && \
@@ -64,13 +75,13 @@ RUN curl -sL "https://download2.rstudio.org/server/focal/${RSTUDIO_ARCH}/rstudio
     && echo "www-frame-origin=same" >> /etc/rstudio/rserver.conf
 
 # Common environment variables
-ENV USER jovyan
-ENV GROUP users
-ENV PASSWORD default
-ENV DISABLE_AUTH 1
-ENV UID 1000
-ENV HOME /home/$USER
-ENV R_HOME usr/lib/R
+ENV USER=jovyan
+ENV GROUP=users
+ENV PASSWORD=default
+ENV DISABLE_AUTH=1
+ENV UID=1000
+ENV HOME=/home/${USER}
+ENV R_HOME=usr/lib/R
 
 RUN useradd -s /bin/bash -N -u ${UID} -l ${USER} \
     && mkdir -p ${HOME} \
@@ -81,21 +92,19 @@ RUN useradd -s /bin/bash -N -u ${UID} -l ${USER} \
     && chown -R ${USER}:${GROUP} /usr/lib/rstudio-server/ \
     && chown -R ${USER}:${GROUP} /var/lib/rstudio-server/
 
-
 # R needs TZ set
 RUN echo "TZ=Etc/UTC" >> ${R_HOME}/etc/Renviron.site
 
 # Set default CRAN repo to RSPM (it has pre-compiled R packages, increasing user install speed)
-RUN echo 'options(repos=c(CRAN="https://packagemanager.rstudio.com/all/__linux__/focal/latest"))' >>  ${R_HOME}/etc/Rprofile.site \
+RUN echo 'options(repos=c(CRAN="https://packagemanager.rstudio.com/all/__linux__/focal/latest"))' >> ${R_HOME}/etc/Rprofile.site \
  && echo 'options(HTTPUserAgent=sprintf("R/%s R (%s)", getRversion(), paste(getRversion(), R.version$platform, R.version$arch, R.version$os)))' >> ${R_HOME}/etc/Rprofile.site
 
-
-WORKDIR $HOME
+WORKDIR ${HOME}
 
 COPY run.sh /etc/run.sh
 RUN chmod +x /etc/run.sh
-COPY lab /home/jovyan/lab
-RUN chmod +x /home/jovyan/lab
+COPY lab ${HOME}/lab
+RUN chmod +x ${HOME}/lab
 
 USER ${USER}
 EXPOSE 8787

@@ -1,4 +1,4 @@
-name: myenv
+name: UnsupervisedOMICsIntegration
 channels:
   - defaults
   - conda-forge
@@ -13,3 +13,5 @@ dependencies:
   - r-mixomics
   - bioconductor-mofa2
   - r-reticulate
+  - mofapy2
+  - scipy==1.8.1

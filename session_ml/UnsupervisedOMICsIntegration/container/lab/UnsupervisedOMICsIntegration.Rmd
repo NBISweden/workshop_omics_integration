@@ -19,8 +19,8 @@ knitr::opts_chunk$set(echo = TRUE)
 knitr::opts_knit$set(root.dir="/home/jovyan/lab")
 
 ### be sure to update the environment name if applicable
-#library(reticulate)
-#reticulate::use_condaenv('ismb_dr_ui_na')
+library(reticulate)
+reticulate::use_condaenv('UnsupervisedOMICsIntegration')
 ```
 
 
@@ -185,9 +185,12 @@ TrainOptions
 Finally, we are ready to run MOFA:
 
 ```{r,fig.width=10,fig.height=8, warning=F}
+reticulate::use_python("/usr/local/miniconda3/envs/UnsupervisedOMICsIntegration/bin/python3")
+reticulate::use_condaenv("UnsupervisedOMICsIntegration", required = TRUE)
+```
+
+```{r,fig.width=10,fig.height=8, warning=F}
 MOFAobject <- prepare_mofa(MOFAobject, data_options = DataOptions, model_options = ModelOptions, training_options = TrainOptions)
-#reticulate::use_python("/home/nikolay/miniconda3/envs/HOPS/bin/python3")
-#reticulate::use_condaenv("/home/nikolay/miniconda3/envs/HOPS", required = TRUE)
 MOFAobject <- run_mofa(MOFAobject, use_basilisk = FALSE)
 MOFAobject
 ```
