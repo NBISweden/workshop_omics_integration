@@ -1,0 +1,18 @@
+name: SupervisedOMICsIntegration
+channels:
+  - defaults
+  - conda-forge
+  - bioconda
+dependencies:
+  - r-ggplot2
+  - r-rmarkdown
+  - r-knitr
+  - r-plotly
+  - r-dplyr
+  - r-tidyr
+  - r-mixomics
+  - r-reticulate
+  - r-matrixStats
+  - r-glmnet
+  - r-snow
+  
