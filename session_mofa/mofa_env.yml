@@ -1,0 +1,28 @@
+name: mofa_env
+channels:
+  - defaults
+  - conda-forge
+  - bioconda
+dependencies:
+  - r-ggplot2
+  - r-rmarkdown
+  - r-knitr
+  - r-plotly
+  - r-dplyr
+  - r-tidyr
+  - r-data.table
+  - r-tidyverse
+  - r-mixomics
+  - bioconductor-mofa2
+  - bioconductor-mofadata
+  - bioconductor-deseq2
+  - bioconductor-biostrings
+  - r-reticulate
+  - mofapy2
+  - scipy=1.8.1
+  - r-stringr
+  - r-survival
+  - r-survminer
+  - r-randomforest
+  - r-r.utils
+  - r-psych
