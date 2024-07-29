@@ -1,0 +1,11 @@
+name: meta_env
+channels:
+  - defaults
+  - conda-forge
+  - bioconda
+dependencies:
+  - r-rmarkdown
+  - r-knitr
+  - r-reticulate
+
+
