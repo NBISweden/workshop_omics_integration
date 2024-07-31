@@ -4,8 +4,83 @@ channels:
   - conda-forge
   - bioconda
 dependencies:
+  - r-base
   - r-rmarkdown
   - r-knitr
   - r-reticulate
+  - r-magrittr
+  - r-plyr
+  - r-devtools
+  - r-ggplot2
+  - r-plotly
+  - r-reshape2
+  - r-dplyr
+  - r-readr
+  - r-tidyr
+  - r-stringr
+  - r-xml2
+  - r-jsonlite
+  - r-httr
+  - r-aws.s3
+  - r-rcurl
+  - r-shiny
+  - r-shinydashboard
+  - r-rjava
+  - r-gplots
+  - r-ggraph
+  - r-igraph
+  - r-gsubfn
+  - r-formattable
+  - r-here
+  - r-pheatmap
+  - r-rcolorbrewer
+  - r-viridis
+  - r-svglite
+  - r-data.table
+  - r-gridextra
+  - r-cowplot
+  - r-future
+  - r-promises
+  - r-htmlwidgets
+  - r-crosstalk
+  - r-networkd3
+  - r-visnetwork
+  - r-dt
+  - r-caret
+  - r-ranger
+  - r-xgboost
+  - r-microbenchmark
+  - r-rsconnect
+  - r-renv
 
+  # System dependencies
+  - libxml2
+  - libcurl
+  - pandoc
+  - unixodbc
+  - gfortran
+  - gcc
+  - gxx_linux-64
+  - make
+  - cmake
 
+  # Python dependencies
+  - python=3.8
+  - pip
+  - notebook
+  - jupyterlab
+  - ipykernel
+  - numpy
+  - pandas
+  - scipy
+  - matplotlib
+  - seaborn
+  - scikit-learn
+  - statsmodels
+  - plotly
+  - pyvis
+  - pycairo
+  - bokeh
+  - requests
+  - beautifulsoup4
+  - lxml

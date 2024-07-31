@@ -26,6 +26,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
       libxml2 \ 
       libodbc1 \
       libglpk-dev \
+      git \
     && echo "en_US.UTF-8 UTF-8" > /etc/locale.gen \
     && locale-gen \
     && rm -rf /var/lib/apt/lists/*
@@ -65,6 +66,12 @@ RUN apt-get -yq update \
 COPY meta_env.yml /tmp/meta_env.yml
 RUN mamba env create -f /tmp/meta_env.yml \
     && rm /tmp/meta_env.yml
+
+# Install additional R packages from CRAN and Bioconductor, then install preproc from GitHub
+RUN R -e "install.packages(c('devtools', 'DMwR2', 'MetaQC', 'MetaDE', 'MetaPath', 'MetaDCN', 'ComplexHeatmap'), repos='http://cran.rstudio.com/'); \
+          if (!requireNamespace('BiocManager', quietly = TRUE)) install.packages('BiocManager'); \
+          BiocManager::install('AnnotationDbi'); \
+          devtools::install_github('metaOmics/preproc')"
 
 # Download and install RStudio Server
 RUN curl -sL "https://download2.rstudio.org/server/focal/${RSTUDIO_ARCH}/rstudio-server-${RSTUDIO_VERSION//+/-}-${RSTUDIO_ARCH}.deb" -o /tmp/rstudio-server.deb && \

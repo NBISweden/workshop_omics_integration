@@ -1,4 +1,4 @@
-docker build --platform=linux/amd64 -t docker.io/rasoolsnbis/omicsint_h24:session_gsa-1.0.0 -f "session_gsa/Dockerfile" "session_gsa"
+docker build --platform=linux/amd64 -t docker.io/rasoolsnbis/omicsint_h24:session_ml_umap-1.0.0 -f "session_ml/UMAP_DataIntegration/Dockerfile" "session_ml/UMAP_DataIntegration/"
 
 docker run -d -p 8787:8787 --platform=linux/amd64 --name session_mofa docker.io/rasoolsnbis/omicsint_h24:session_mofa-1.0.0
 

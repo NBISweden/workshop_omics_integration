@@ -18,23 +18,15 @@ output:
           css: "assets/lab.css"
 ---
 
-```{r,child="assets/header-lab.Rmd"}
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+# #If you want to knit the whole notebook, please specify below correct path to the Rmd-file
+knitr::opts_knit$set(root.dir="/home/jovyan/lab")
+
+### be sure to update the environment name if applicable
+library(reticulate)
+reticulate::use_condaenv('meta_env')
 ```
-
-
-## Installation and setup
-
-The docker image provided for the course contains required packages for this session. If you have any difficulty with installation, you can use "tuturial_meta.lock" to build the environment for this session.
-
-
-```{r, eval=FALSE}
-## make sure that the renv.lock file for the session exists and do following.
-install.packages("renv")
-setwd("path/to/workshop_omics_integration")# first set the path to session_meta
-renv::restore(lockfile = "./Meta_tutorial/tuturial_meta.lock", prompt = TRUE)
-
-```
-
 
 # Introduction
 
