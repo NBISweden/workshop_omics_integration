@@ -1,0 +1,17 @@
+name: umap
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.8
+  - numpy
+  - pandas
+  - matplotlib
+  - scikit-learn
+  - umap-learn
+  - tensorflow
+  - ipykernel
+  - pip
+  - pip:
+      - pydot
+      - graphviz

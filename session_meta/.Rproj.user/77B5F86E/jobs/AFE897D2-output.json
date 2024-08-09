@@ -1,8 +1,0 @@
-[1,"** Installing R Package Dependencies for Shiny Add-Ins: 'miniUI', 'rstudioapi'\n"]
-[1,"[1/2] Installing miniUI...\n"]
-[1,"Installing miniUI [0.1.1.1] ...\n"]
-[1,"\tOK [linked cache]\n"]
-[1,"[2/2] Installing rstudioapi...\n"]
-[1,"Installing rstudioapi [0.13] ...\n"]
-[1,"\tOK [linked cache]\n"]
-[2,"\n\n✔ Packages successfully installed.\n"]
