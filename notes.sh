@@ -1,4 +1,4 @@
-docker build --platform=linux/amd64 -t docker.io/rasoolsnbis/omicsint_h24:session_topology-1.0.0 -f "session_topology/Dockerfile" "session_topology/"
+docker build --platform=linux/amd64 -t docker.io/rasoolsnbis/omicsint_h24:session_gems-1.0.0 -f "session_gems/Dockerfile" "session_gems/"
 
 
 
@@ -8,3 +8,5 @@ Labs:
 - Session meta lab is problematic for making the required env.
 
 - Session topology lab is running well, but code chunk 21 is problematic, which I couldn’t figure out what is the source of it. 
+
+- GEMs session lab, not all the notebooks run properly, we need to check them and fix them.
