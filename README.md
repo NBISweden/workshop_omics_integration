@@ -33,5 +33,6 @@ In each of these folder we have this pattern:
 - [lab_name].ipynb or [lab_name].rmd
 - slides for the lab
 
-using the dockerfile you can make the desired docker. It copies all other files inside the docker and makes a conda env inside the docker based in [lab_name]_env.yml file. 
-For contribution please first either create an issue or pick one of the currently available uses, and then create a branch based on the issue. After finishing edits please make a pull request to the OMICSINT_H24 branch.
+Using the dockerfile you can make the desired docker. It copies all other files inside the docker and makes a conda env inside the docker based on [lab_name]_env.yml file.
+
+For contribution please first either create an issue or pick one of the currently available issues, and then create a branch based on the issue. After finishing edits please make a pull request to the OMICSINT_H24 branch.
