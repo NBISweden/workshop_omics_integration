@@ -3,6 +3,8 @@ layout: default
 title:  'Labs'
 ---
 
+// todo: #47 Edit labs.md to include the labs for the workshop omicsint_h24
+
 ### <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="25" height="25"> Lab instructions
 
 #### Clone the course repository
