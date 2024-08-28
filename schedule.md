@@ -2,6 +2,8 @@
 layout: default
 title:  'Schedule'
 ---
+
+// todo: #48 Update the schedule for the workshop omicsint_h24
 #### <img border="0" src="https://www.svgrepo.com/show/20800/event-date-and-time-symbol.svg" width="25" height="25"> Course schedule
 
 This page is under update.

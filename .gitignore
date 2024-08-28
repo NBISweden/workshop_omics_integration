@@ -1,9 +1,5 @@
 #Folders
-_site
-*.ipynb_checkpoints/
-*-env/
-admin_docs/
-session_topology/data/association_matrix.tsv
+session_topology/lab/data/association_matrix.tsv
 
 #Files
 .Rhistory
