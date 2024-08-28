@@ -1,0 +1,18 @@
+name: topology
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - scikit-learn
+  - pandas
+  - numpy
+  - scipy
+  - statsmodels
+  - matplotlib
+  - seaborn
+  - ipykernel
+  - pip
+  - pip:
+      - gseapy
+      - igraph
