@@ -11,6 +11,7 @@ dependencies:
   - umap-learn
   - tensorflow
   - ipykernel
+  - jq
   - pip
   - pip:
       - pydot
