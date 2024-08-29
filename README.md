@@ -35,4 +35,10 @@ In each of these folder we have this pattern:
 
 Using the dockerfile you can make the desired docker. It copies all other files inside the docker and makes a conda env inside the docker based on [lab_name]_env.yml file.
 
-For contribution please first either create an issue or pick one of the currently available issues, and then create a branch based on the issue. After finishing edits please make a pull request to the OMICSINT_H24 branch.
+## For contribution:
+
+1. First either create an issue or pick one of the currently available issues.
+2. Create a branch based on the issue from OMICSINT_H24 brnach.
+3. Make your changes on the lab, Dockerfile, [lab_name]_env.yml, [lab_name].ipynb or [lab_name].rmd
+4. Make sure that the docker works properly by testing it on your local machine.
+5. Make a PR to OMICSINT_H24 brnach and assign it to one of the reviewers.
