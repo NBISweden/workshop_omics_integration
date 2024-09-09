@@ -7,3 +7,6 @@ session_topology/lab/data/association_matrix.tsv
 *~
 .DS_Store
 Gemfile.lock
+
+# ignore .vscode folder
+.vscode
