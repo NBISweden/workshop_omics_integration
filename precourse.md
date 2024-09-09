@@ -5,8 +5,6 @@ title:  Pre-course
 
 {::options parse_block_html="true" /}
 
-// todo: #46 edit precourse.md to include the pre-course content for the workshop omicsint_h24
-
 #### <img border="0" src="https://www.svgrepo.com/show/26916/book.svg" width="15" height="15"> Preparation for the tutorial
 ***
 
