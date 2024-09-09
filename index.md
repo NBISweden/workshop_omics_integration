@@ -1,8 +1,10 @@
 ---
+layout: default
 title: Omics Integration and Systems Biology
 ---
 
 #### <img border="0" src="https://s3-us-west-2.amazonaws.com/slack-files2/avatars/2019-09-12/751389607265_d59c0d58846bb2db7123_132.jpg" width="50" height="50"> Omics Integration and Systems Biology
+
 [![DOI](https://zenodo.org/badge/172930292.svg)](https://zenodo.org/badge/latestdoi/172930292) <img border="0" src="https://www.svgrepo.com/show/305241/github.svg" width="20" height="20"> [Github repository](https://github.com/NBISweden/workshop_omics_integration)  
 
 Please refer to [the new homepage](https://uppsala.instructure.com/courses/52162) for updated information.
