@@ -1,21 +1,45 @@
+# Site settings
 title: "Omics Integration and Systems Biology Workshop"
-description: "Course Website for the Omics Integration and Systems Biology Workshop 2024"
-baseurl: "/workshop_omics_integration"
-url: "https://nbisweden.github.io"
-remote_theme: "mmistakes/minimal-mistakes" # Your chosen theme
-author:
-  name: "NBIS Sweden"
-  email: "edu.omics-integration@nbis.se"
+description: "Course website for the Omics Integration and Systems Biology Workshop 2024"
+baseurl: "/workshop_omics_integration" # Adjust this if necessary
+url: "https://nbisweden.github.io" # Your GitHub Pages URL
+remote_theme: "mmistakes/minimal-mistakes" # Using the Minimal Mistakes theme
+plugins:
+  - jekyll-remote-theme
+  - jekyll-seo-tag
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-github-metadata
+  - jekyll-feed
+
+# Ignore specific file types
+exclude:
+  - "*.Rmd"  # Exclude R Markdown files to avoid Liquid syntax errors
+  - "Gemfile"
+  - "Gemfile.lock"
+  - "README.md"
+  - "node_modules"
+  - "vendor"
+
+# Pagination settings (optional, if you're paginating blog posts or content)
+paginate: 5
+paginate_path: "/page:num/"
+
+# Markdown processor
 markdown: kramdown
+kramdown:
+  input: GFM
+
+# SEO settings (default provided by Jekyll SEO Tag plugin)
+seo:
+  title: "Omics Integration and Systems Biology"
+  description: "Course website for Omics Integration and Systems Biology Workshop 2024"
+
+# URL structure
 permalink: pretty
 
-# Custom CSS
-sass:
-  sass_dir: _sass
-  style: compressed
-custom_css: "assets/css/custom.css"
-
-# Navigation settings
+# Navigation settings (for navbar or sidebar, depending on the theme)
 navigation:
   - title: "Home"
     url: "/"
@@ -29,3 +53,39 @@ navigation:
     url: "/reading_materials.html"
   - title: "Contact"
     url: "/contact.html"
+
+# Jekyll theme options (specific to Minimal Mistakes)
+# You can customize this part depending on how much you want to configure the theme.
+minima:
+  social_links:
+    - github: https://github.com/NBISweden/workshop_omics_integration
+    - email: edu.omics-integration@nbis.se
+  author:
+    name: "NBIS Sweden"
+    email: "edu.omics-integration@nbis.se"
+  show_description: true
+
+# Custom build settings
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# Site-wide settings for Liquid tags and Markdown rendering
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+
+# Other optional settings
+show_excerpts: true
+show_categories: true
+
+# Build settings
+future: false
