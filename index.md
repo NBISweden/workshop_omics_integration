@@ -21,10 +21,10 @@ Course in nformation can be found under the following pages:
 - [Pre-course preparation][4]
 
 
-[4]: https://github.com/NBISweden/workshop_omics_integration/tree/course2104
-[3]: https://github.com/NBISweden/workshop_omics_integration/tree/course2010
-[2]: https://github.com/NBISweden/workshop_omics_integration/tree/c60abb4579849bb8a0acd756d1aa9e71125265ac
-[1]: https://github.com/NBISweden/workshop_omicsint_ISMBECCB/
+[4]: 
+[3]: 
+[2]: 
+[1]: 
 
 =========================================
 

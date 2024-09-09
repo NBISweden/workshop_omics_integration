@@ -1,30 +1,31 @@
-title: "Omics Integration and Systems Biology"
-baseurl: /workshop_omics_integration
+title: "Omics Integration and Systems Biology Workshop"
+description: "Course Website for the Omics Integration and Systems Biology Workshop 2024"
+baseurl: "/workshop_omics_integration"
+url: "https://nbisweden.github.io"
+remote_theme: "mmistakes/minimal-mistakes" # Your chosen theme
+author:
+  name: "NBIS Sweden"
+  email: "edu.omics-integration@nbis.se"
+markdown: kramdown
+permalink: pretty
 
-# where things are
-# where things are
-layouts_dir: ./workshop-common/layouts
-includes_dir: ./workshop-common/includes
+# Custom CSS
 sass:
-  sass_dir: ./workshop-common/sass
+  sass_dir: _sass
+  style: compressed
+custom_css: "assets/css/custom.css"
 
-plugins:
-  - jemoji
-
-defaults:
-  - values:
-      logosnav: true
-
-# menu:
-#   - title: Overview
-#     url:
-#   - title: Schedule
-#     url: schedule
-#   - title: Labs
-#     url: labs
-#   - title: Reading materials
-#     url: reading_materials
-#   - title: Pre-course
-#     url: precourse
-#   - title: Contact
-#     url: contact
+# Navigation settings
+navigation:
+  - title: "Home"
+    url: "/"
+  - title: "Schedule"
+    url: "/schedule.html"
+  - title: "Pre-course Preparation"
+    url: "/precourse.html"
+  - title: "Labs"
+    url: "/labs.html"
+  - title: "Reading Materials"
+    url: "/reading_materials.html"
+  - title: "Contact"
+    url: "/contact.html"
