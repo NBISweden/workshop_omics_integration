@@ -1,30 +1,37 @@
 ---
-layout: default
-title: Omics Integration and Systems Biology
+layout: home
+title: "Omics Integration and Systems Biology Workshop"
 ---
 
-#### <img border="0" src="https://s3-us-west-2.amazonaws.com/slack-files2/avatars/2019-09-12/751389607265_d59c0d58846bb2db7123_132.jpg" width="50" height="50"> Omics Integration and Systems Biology Workshop - 2024
+# Omics Integration and Systems Biology Workshop - 2024
 
-[Github repository](https://github.com/NBISweden/workshop_omics_integration/tree/OMICSINT_H24)  
+Welcome to the **Omics Integration and Systems Biology Workshop**. This website contains all the necessary resources for the course, including schedules, lab materials, reading lists, and practical information.
 
-[Canvas course homepage](https://uppsala.instructure.com/courses/96642)
+Explore the different sections of the course:
 
-Contact `edu.omics-integration [at] nbis.se` for questions.
+- [Practical Information](practical_information.html)
+- [Course Schedule](schedule.html)
+- [Pre-course Preparation](precourse.html)
+- [Labs](labs.html)
+- [Reading Materials](reading_materials.html)
+
+### Workshop Objectives:
+In this workshop, we will explore a range of topics including:
+- Data management for multi-omics integration.
+- Gene set analysis.
+- Machine learning approaches in omics.
+- Meta-analysis methods.
+- Visualization techniques.
+
+By the end of the workshop, participants will be able to handle, analyze, and visualize omics data in a multi-disciplinary context.
+
+### Quick Links:
+- [Canvas Course Homepage](https://uppsala.instructure.com/courses/96642)
+- [GitHub Repository](https://github.com/NBISweden/workshop_omics_integration/tree/OMICSINT_H24)
 
 <hr>
 
-Course in nformation can be found under the following pages:
-
-- [Pratical information][1]
-- [Course schedule][2]
-- [Reading materials][3]
-- [Pre-course preparation][4]
-
-
-[4]: 
-[3]: 
-[2]: 
-[1]: 
-
-=========================================
+### Contact Us:
+For any questions or issues related to the course, please contact us at:  
+**Email**: `edu.omics-integration [at] nbis.se`
 
