@@ -1,5 +1,4 @@
 ---
-layout: default
 title: Omics Integration and Systems Biology
 ---
 
