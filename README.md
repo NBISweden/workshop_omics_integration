@@ -29,7 +29,15 @@ For any questions or concerns, feel free to contact:
 **Rasool Saghaleyni**  
 `rasool.saghaleyni@nbis.se`
 
-## Course previous itterations:
+## For contribution:
+
+1. First either create an issue or pick one of the currently available issues.
+2. Create a branch based on the issue from OMICSINT_H24 brnach.
+3. Make your changes on the lab, Dockerfile, [lab_name]_env.yml, [lab_name].ipynb or [lab_name].rmd
+4. Make sure that the docker works properly by testing it on your local machine.
+5. Make a PR to OMICSINT_H24 brnach and assign it to one of the reviewers.
+
+## Course previous itterations
 
 - [Online 8 February - 10 February 2023][8]
 - [Online 18 March - 22 April 2022, CZI Uppdragsutbilding][6] ([github repo][7])  
