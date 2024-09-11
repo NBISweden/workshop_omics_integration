@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Omics Integration and Systems Biology</title>
+<title>Pre-course</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,16 +23,16 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="index_files/libs/clipboard/clipboard.min.js"></script>
-<script src="index_files/libs/quarto-html/quarto.js"></script>
-<script src="index_files/libs/quarto-html/popper.min.js"></script>
-<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="index_files/libs/quarto-html/anchor.min.js"></script>
-<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="index_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="precourse_files/libs/clipboard/clipboard.min.js"></script>
+<script src="precourse_files/libs/quarto-html/quarto.js"></script>
+<script src="precourse_files/libs/quarto-html/popper.min.js"></script>
+<script src="precourse_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="precourse_files/libs/quarto-html/anchor.min.js"></script>
+<link href="precourse_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="precourse_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="precourse_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="precourse_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="precourse_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
 
 </head>
@@ -45,7 +45,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Omics Integration and Systems Biology</h1>
+<h1 class="title">Pre-course</h1>
 </div>
 
 
@@ -60,24 +60,71 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<div style="border: 1px solid #ccc; padding: 10px;">
-<p><strong>Note:</strong> Course website has under frequent updates.</p>
-</div>
-<section id="omics-integration-and-systems-biology-workshop-2024" class="level4">
-<h4 class="anchored" data-anchor-id="omics-integration-and-systems-biology-workshop-2024"><img border="0" src="https://s3-us-west-2.amazonaws.com/slack-files2/avatars/2019-09-12/751389607265_d59c0d58846bb2db7123_132.jpg" width="50" height="50"> Omics Integration and Systems Biology Workshop, 2024</h4>
-<p><br></p>
-<p><a href="https://github.com/NBISweden/workshop_omics_integration/tree/OMICSINT_H24">Github repository</a></p>
-<p><a href="https://uppsala.instructure.com/courses/96642">Course canvas homepage</a>.</p>
-<p>Contact <code>rasool.saghaleyni@nbis.se</code> for questions.</p>
+<p>{::options parse_block_html=“true” /}</p>
+<section id="preparation-for-the-tutorial" class="level4">
+<h4 class="anchored" data-anchor-id="preparation-for-the-tutorial"><img border="0" src="https://www.svgrepo.com/show/26916/book.svg" width="15" height="15"> Preparation for the tutorial</h4>
 <hr>
-<p>Course information can be found under the following pages:</p>
-<ul>
-<li><a href="practical_info.html">Practical information</a></li>
-<li><a href="schedule.html">Schedule</a></li>
-<li><a href="reading_materials.html">Reading materials</a></li>
-<li><a href="precourse.html">Pre-course preparation</a></li>
-<li><a href="invited_speakers.html">Ivited speakers</a></li>
-</ul>
+<p>This workshop will comprise both lectures and hands-on exercises. While you will be able to follow all exercises from the html files, we recommend that you prepare by 1. <a href="#-programming-with-r-and-python">familiarizing yourself with basic R and Python</a>, 2. <a href="#-docker-instructions">installing the containers</a>. If you are interested you can go through the <a href="reading_materials.md">additional reading materials</a>.</p>
+</section>
+<section id="programming-with-r-and-python" class="level4">
+<h4 class="anchored" data-anchor-id="programming-with-r-and-python"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="25" height="25"> Programming with R and Python</h4>
+<hr>
+<p>The course will be taught using both R and Python depending on the tools available. While you will be able to follow all lectures and exercises conceptually, it is helpful if you are familiar with basic usage of both programming languages: - <a href="https://swcarpentry.github.io/r-novice-inflammation/">R (part_1)</a> - <a href="http://swcarpentry.github.io/r-novice-gapminder/">R (part_2)</a> - <a href="https://swcarpentry.github.io/python-novice-inflammation/">Python (part_1)</a> - <a href="http://swcarpentry.github.io/python-novice-gapminder/">Python (part_2)</a></p>
+<p>You should also be familiar with basic command line input (<code>mkdir</code>, <code>cd</code>, <code>ls</code>, <code>cp</code>, <code>mv</code>).</p>
+</section>
+<section id="docker-instructions" class="level4">
+<h4 class="anchored" data-anchor-id="docker-instructions"><img border="0" src="https://www.svgrepo.com/show/303231/docker-logo.svg" width="25" height="25"> Docker instructions</h4>
+<hr>
+<p>To reproduce all analyses you will need to: - <a href="https://docs.docker.com/get-docker/">Install Docker</a>; - <a href="#download-the-github-repository">Download the latest Github repository</a>; - <a href="#create-the-containers">Create the containers</a>; - <a href="#launch-rstudio-or-jupyter">Launch rstudio or jupyter</a>; - <a href="#stop-the-containers">Stop the containers</a></p>
+<section id="download-the-github-repository" class="level5">
+<h5 class="anchored" data-anchor-id="download-the-github-repository">Download the Github repository</h5>
+<p>Download and unzip the github repository <a href="https://github.com/NBISweden/workshop_omics_integration/">from here</a> or run:</p>
+<pre><code>wget -qO- https://github.com/NBISweden/workshop_omics_integration/archive/refs/heads/main.zip | bsdtar -xvf-
+mv workshop_omics_integration-main workshop_omics_integration</code></pre>
+<p>Note that you download it manually you should name the unziped folder as <code>workshop_omics_integration</code>. All the subsequent commands should be run in the parent of this directory.</p>
+</section>
+<section id="create-the-containers" class="level5">
+<h5 class="anchored" data-anchor-id="create-the-containers">Create the containers</h5>
+<p>At this point you need to create the two containers for all Rstudio or Jupyter notebooks. In a directory containing the unzip folder <code>workshop_omics_integration/</code>, create the containers by either:</p>
+<details>
+<summary>
+<strong>&gt; Download image from Dockerhub</strong> (recommended)
+</summary>
+<p>Pull and start the images. Remember to replace <code>&lt;yourpassword&gt;</code> with your password, and <code>/path/to/your/</code> with the path to your directory. If you want to use the current working directory, use <code>$(pwd)</code> in MacOS/Linux and <code>$(PWD}</code> in Windows powershell.</p>
+<pre><code>  ########### Rstudio image ###########
+  # Your user is 'rstudio' (without the quotes)
+  sudo docker run -d --rm -p 8787:8787 \
+    -e PASSWORD=&lt;yourpassword&gt; \ 
+    -v /path/to/your/workshop_omics_integration:/home/rstudio/workshop_omics_integration/ \
+    ruibenfeitas/rstudio:30_08_2021
+  
+  ########### Jupyter image ###########
+  # Your user is 'jovyan' (without the quotes)
+  sudo docker run -d --rm -p 8888:8888 \
+    -e JUPYTER_TOKEN=&lt;yourpassword&gt; \
+    -v /path/to/your/workshop_omics_integration/:/home/jovyan/workshop_omics_integration/ \
+    ruibenfeitas/jupyter:30_08_2021</code></pre>
+</details>
+<details>
+<summary>
+<strong>&gt; Download the dockerfiles from github</strong>
+</summary>
+<p>On github you will find the dockerfiles necessary from the github repository, under <code>workshop_omics_integration/docker/</code> (you need the files <code>Dockerfile_jupyter</code>, <code>Dockerfile_rstudio</code>, <code>docker-compose.yml</code> and <code>environment_jupyter</code>). <a href="https://docs.docker.com/compose/install/">Install docker compose</a> and then:</p>
+<pre><code>## copy the dockerfiles found in the downloaded directory to the directory above
+cp -r /path/to/your/workshop_omics_integration/docker/* /path/to/your/</code></pre>
+<p>Build and start the containers</p>
+<pre><code>docker-compose up -d --build</code></pre>
+</details>
+</section>
+<section id="launch-rstudio-or-jupyter" class="level5">
+<h5 class="anchored" data-anchor-id="launch-rstudio-or-jupyter">Launch RStudio or Jupyter</h5>
+<p>Ensure you have followed all the instructions above and that your containers are running. If you have followed the instructions from the recommended solution you can simply access either RStudio or Jupyter from your browser with: - <code>localhost:8888</code> to launch jupyter - <code>localhost:8787</code> to launch rstudio</p>
+<p>All notebooks are found within the folder <code>workshop_omics_integration/</code>. If you want to verify that your containers are running use <code>docker ps</code>.</p>
+</section>
+<section id="stop-the-containers" class="level5">
+<h5 class="anchored" data-anchor-id="stop-the-containers">Stop the containers</h5>
+<p>To stop the containers write <code>docker stop [container name]</code>.</p>
+</section>
 </section>
 
 </main>
