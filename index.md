@@ -4,7 +4,7 @@ title: Omics Integration and Systems Biology
 ---
 
 <div style="border: 1px solid #ccc; padding: 10px;">
-<strong>Note:</strong> Course website has under frequent updates.
+<strong>Note:</strong> Currently course website has frequent updates.
 </div>
 
 #### <img border="0" src="https://s3-us-west-2.amazonaws.com/slack-files2/avatars/2019-09-12/751389607265_d59c0d58846bb2db7123_132.jpg" width="50" height="50"> Omics Integration and Systems Biology Workshop, 2024
