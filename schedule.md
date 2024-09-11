@@ -2,9 +2,6 @@
 layout: default
 title:  'Schedule - Omics integration and systems biology - 2024'
 ---
-<div style="border: 1px solid #ccc; padding: 10px;">
-<strong>Note:</strong> This page is under update.
-</div>
 
 #### <img border="0" src="https://www.svgrepo.com/show/20800/event-date-and-time-symbol.svg" width="25" height="25"> Course schedule
 
@@ -22,6 +19,10 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 **Prepare** [Pre-course materials](./precourse.md) and pre-processing introduction ([notebook](./session_preprocessing/preprocessing.ipynb), [html](./session_preprocessing/preprocessing.html)).
 <br>
 <br>
+
+<div style="border: 1px solid #ccc; padding: 10px;">
+<strong>Note:</strong> Schedule is under update.
+</div>
 
 ##### Day 1
 
