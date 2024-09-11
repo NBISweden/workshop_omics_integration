@@ -29,10 +29,8 @@ For any questions or concerns, feel free to contact:
 **Rasool Saghaleyni**  
 `rasool.saghaleyni@nbis.se`
 
+## Course previous itterations:
 
-[Course homepage](https://uppsala.instructure.com/courses/52162)
-
-Past editions:
 - [Online 8 February - 10 February 2023][8]
 - [Online 18 March - 22 April 2022, CZI Uppdragsutbilding][6] ([github repo][7])  
 - [Online 6 - 10 September 2021, ELIXIR Omics Integration][5]
