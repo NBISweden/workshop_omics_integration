@@ -1,6 +1,6 @@
 ---
 layout: default
-title:  'Schedule'
+title:  'Schedule - Omics integration and systems biology - 2024'
 ---
 <div style="border: 1px solid #ccc; padding: 10px;">
 <strong>Note:</strong> This page is under update.
