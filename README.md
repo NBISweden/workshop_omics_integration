@@ -1,6 +1,33 @@
 [![DOI](https://zenodo.org/badge/172930292.svg)](https://zenodo.org/badge/latestdoi/172930292)
 =========================================
-# Omics Integration and Systems Biology 
+# Omics Integration and Systems Biology Workshop, 2024
+
+Welcome to the **Omics Integration and Systems Biology Workshop** GitHub repository! This repository contains resources, materials, and updates related to the 2024 workshop.
+
+## Course Information
+
+This workshop focuses on the integration of omics data and systems biology approaches. Keep an eye on this repository as it will receive frequent updates. Make sure to also visit our [course homepage on Canvas](https://uppsala.instructure.com/courses/96642) for additional materials and information.
+
+## Table of Contents
+
+- [Practical Information](practical_info.html)
+- [Workshop Schedule](schedule.html)
+- [Reading Materials](reading_materials.html)
+- [Pre-course Preparation](precourse.html)
+- [Invited Speakers](invited_speakers.html)
+
+## Important Links
+
+- **GitHub repository**: [Workshop Omics Integration Repo](https://github.com/NBISweden/workshop_omics_integration/tree/OMICSINT_H24)
+- **Course homepage**: [Canvas Course Page](https://uppsala.instructure.com/courses/96642)
+
+## Contact Information
+
+For any questions or concerns, feel free to contact:
+
+**Rasool Saghaleyni**  
+`rasool.saghaleyni@nbis.se`
+
 
 [Course homepage](https://uppsala.instructure.com/courses/52162)
 
