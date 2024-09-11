@@ -10,15 +10,16 @@ This workshop focuses on the integration of omics data and systems biology appro
 
 ## Table of Contents
 
-- [Practical Information](practical_info.html)
-- [Workshop Schedule](schedule.html)
-- [Reading Materials](reading_materials.html)
-- [Pre-course Preparation](precourse.html)
-- [Invited Speakers](invited_speakers.html)
+- [Practical Information](https://nbisweden.github.io/workshop_omics_integration/practical_info.html)
+- [Workshop Schedule](https://nbisweden.github.io/workshop_omics_integration/schedule.html)
+- [Reading Materials](https://nbisweden.github.io/workshop_omics_integration/reading_materials.html)
+- [Pre-course Preparation](https://nbisweden.github.io/workshop_omics_integration/precourse.html)
+- [Invited Speakers](https://nbisweden.github.io/workshop_omics_integration/invited_speakers.html)
 
 ## Important Links
 
-- **GitHub repository**: [Workshop Omics Integration Repo](https://github.com/NBISweden/workshop_omics_integration/tree/OMICSINT_H24)
+- **Course homepage**: [GitHub Pages](https://nbisweden.github.io/workshop_omics_integration/)
+
 - **Course homepage**: [Canvas Course Page](https://uppsala.instructure.com/courses/96642)
 
 ## Contact Information
