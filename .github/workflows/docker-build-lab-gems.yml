@@ -11,6 +11,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    if: github.repository == 'NBISweden/workshop_omics_integration'
+
     steps:
       # Checkout the repository
       - name: Checkout repository
