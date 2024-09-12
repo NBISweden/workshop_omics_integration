@@ -10,4 +10,7 @@ Gemfile.lock
 
 # ignore .vscode folder
 .vscode
+
+# ignore data
+session_ml/SingleCell/lab/data
 **/data/
