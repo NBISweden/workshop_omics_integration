@@ -3,6 +3,12 @@ layout: default
 title:  'Schedule - Omics integration and systems biology - 2024'
 ---
 
+#### Before the course
+
+**Prepare** [Pre-course materials](./precourse.md) and pre-processing introduction ([notebook](./session_preprocessing/preprocessing.ipynb), [html](./session_preprocessing/preprocessing.html)).
+<br>
+<br>
+
 #### <img border="0" src="https://www.svgrepo.com/show/20800/event-date-and-time-symbol.svg" width="25" height="25"> Course schedule
 
 <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> - lecture
@@ -14,15 +20,11 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> - break
 
 
-#### Before the course
-
-**Prepare** [Pre-course materials](./precourse.md) and pre-processing introduction ([notebook](./session_preprocessing/preprocessing.ipynb), [html](./session_preprocessing/preprocessing.html)).
 <br>
-<br>
-
 <div style="border: 1px solid #ccc; padding: 10px;">
-<strong>Note:</strong> Schedule is under update.
+<strong>Note!</strong> Schedule is under update.
 </div>
+<br>
 
 ##### Day 1
 
