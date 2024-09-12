@@ -1,0 +1,19 @@
+name: deepLearningDataIntegration
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.8
+  - numpy>=1.20
+  - pandas>=1.2
+  - matplotlib>=3.3
+  - scikit-learn>=0.24
+  - umap-learn>=0.5
+  - tensorflow>=2.4
+  - ipykernel>=5.3
+  - jq>=1.6
+  - pip>=21.0
+  - pip:
+      - pydot
+      - graphviz
+      - ipython
