@@ -26,27 +26,66 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 
 ##### Day 1
 
-**09.00 - 09.15** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Introduction and contextualization ([Rasool][2], [slides](./session_intro/course_intro.pdf))
+**09.00 - 09.15** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Introduction and contextualization ([Rasool][2])
+<details>
+  <summary>Resources</summary>
+  <ul>
+    <li><a href="./session_intro/course_intro.pdf">Slides</a></li>
+  </ul>
+</details>
 
-**09.15 - 09.55** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Machine Learning view of Omics integration ([Nikolay][1], [slides](./session_ml/MachineLearningViewOmicsIntegration_Oskolkov.pdf))
+**09.15 - 09.55** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Machine Learning view of Omics integration ([Nikolay][1])
+<details>
+  <summary>Resources</summary>
+  <ul>
+    <li><a href="./session_ml/MachineLearningViewOmicsIntegration_Oskolkov.pdf">Slides</a></li>
+  </ul>
+</details>
 
 **09.55 - 10.05** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Break
 
-**10.05 - 10.55** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Feature Selection and Supervised Omics integration ([Nikolay][1], [slides](./session_ml/SupervisedOMICsIntegration/SupervisedOmicsIntegration_Oskolkov.pdf))
+**10.05 - 10.55** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Feature Selection and Supervised Omics integration ([Nikolay][1])
+<details>
+  <summary>Resources</summary>
+  <ul>
+    <li><a href="./session_ml/SupervisedOMICsIntegration/SupervisedOmicsIntegration_Oskolkov.pdf">Slides</a></li>
+    <li><a href="./session_ml/FeatureSelectionIntegrOMICs/OmicsIntegration_FeatureSelection.html">Feature Selection Notebook</a></li>
+    <li><a href="./session_ml/SupervisedOMICsIntegration/supervised_omics_integr_CLL.html">Supervised Integration Notebook</a></li>
+  </ul>
+</details>
 
 **10.55 - 11.00** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Break
 
-**11.00 - 12.00** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Feature Selection and Supervised Omics integration ([Nikolay][1],[feature selection notebook](./session_ml/FeatureSelectionIntegrOMICs/OmicsIntegration_FeatureSelection.html), [supervised integration notebook](./session_ml/SupervisedOMICsIntegration/supervised_omics_integr_CLL.html))
+**11.00 - 12.00** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Feature Selection and Supervised Omics integration ([Nikolay][1])
+<details>
+  <summary>Resources</summary>
+  <ul>
+    <li><a href="./session_ml/FeatureSelectionIntegrOMICs/OmicsIntegration_FeatureSelection.html">Feature Selection Notebook</a></li>
+    <li><a href="./session_ml/SupervisedOMICsIntegration/supervised_omics_integr_CLL.html">Supervised Integration Notebook</a></li>
+  </ul>
+</details>
 
 **12.00 - 13.00** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Lunch
 
 **13.00 - 13.10** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Lab recap ([Nikolay][1])
 
-**13.10 - 14.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Unsupervised Omics integration ([Nikolay][1], [slides](./session_ml/UnsupervisedOMICsIntegration/UnsupervisedOmicsIntegration_Oskolkov.pdf))
+**13.10 - 14.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Unsupervised Omics integration ([Nikolay][1])
+<details>
+  <summary>Resources</summary>
+  <ul>
+    <li><a href="./session_ml/UnsupervisedOMICsIntegration/UnsupervisedOmicsIntegration_Oskolkov.pdf">Slides</a></li>
+  </ul>
+</details>
 
 **14.00 - 14.05** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Break
 
-**14.05 - 15.20** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Unsupervised Omics integration ([Nikolay][1], [notebook](./session_ml/UnsupervisedOMICsIntegration/UnsupervisedOMICsIntegration.html))
+**14.05 - 15.20** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Unsupervised Omics integration ([Nikolay][1])
+<details>
+  <summary>Resources</summary>
+  <ul>
+    <li><a href="./session_ml/UnsupervisedOMICsIntegration/UnsupervisedOMICsIntegration.html">Notebook</a></li>
+  </ul>
+</details>
 
 **15.20 - 15.30** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Lab recap ([Nikolay][1])
 
@@ -59,7 +98,13 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 
 **09.00 - 09.20** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Review ([Nikolay][1])
 
-**09.20 - 09.50** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Single Cell Omics integration ([Nikolay][1], [slides](./session_ml/DimReductSingleCell/DimensionReduction_Oskolkov.pdf))
+**09.20 - 09.50** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Single Cell Omics integration ([Nikolay][1])
+<details>
+  <summary>Resources</summary>
+  <ul>
+    <li><a href="./session_ml/DimReductSingleCell/DimensionReduction_Oskolkov.pdf">Slides</a></li>
+  </ul>
+</details>
 
 **09.50 - 10.00** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Break
 
@@ -67,21 +112,48 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 
 **11.00 - 11.15** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Break
 
-**11.15 - 12.00** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> CCA + WNN integration ([Nikolay][1], [DL notebook](./session_ml/DeepLearningDataIntegration/DeepLearningDataIntegration.html), [DL in single cell](./session_ml/DeepLearningDataIntegration/DeepLearning_SingleCell_10X_1.3Mcells.html))
+**11.15 - 12.00** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> CCA + WNN integration ([Nikolay][1])
+<details>
+  <summary>Resources</summary>
+  <ul>
+    <li><a href="./session_ml/DeepLearningDataIntegration/DeepLearningDataIntegration.html">DL Notebook</a></li>
+    <li><a href="./session_ml/DeepLearningDataIntegration/DeepLearning_SingleCell_10X_1.3Mcells.html">DL in Single Cell</a></li>
+  </ul>
+</details>
 
 **12.00 - 13.00** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Lunch
 
-**13.00 - 13.45** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> CCA + WNN integration ([Nikolay][1], [DL notebook](./session_ml/DeepLearningDataIntegration/DeepLearningDataIntegration.html), [DL in single cell](./session_ml/DeepLearningDataIntegration/DeepLearning_SingleCell_10X_1.3Mcells.html))
+**13.00 - 13.45** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> CCA + WNN integration ([Nikolay][1])
+<details>
+  <summary>Resources</summary>
+  <ul>
+    <li><a href="./session_ml/DeepLearningDataIntegration/DeepLearningDataIntegration.html">DL Notebook</a></li>
+    <li><a href="./session_ml/DeepLearningDataIntegration/DeepLearning_SingleCell_10X_1.3Mcells.html">DL in Single Cell</a></li>
+  </ul>
+</details>
 
 **13.45 - 13.55** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Lab recap ([Nikolay][1])
 
 **13.55 - 14.05** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Break
 
-**14.05 - 14.45** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Deep Learning for Omics integration ([Nikolay][1], [slides](./session_ml/DeepLearningDataIntegration/DeepLearningOmicsIntegration_Oskolkov.pdf))
+**14.05 - 14.45** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Deep Learning for Omics integration ([Nikolay][1])
+<details>
+  <summary>Resources</summary>
+  <ul>
+    <li><a href="./session_ml/DeepLearningDataIntegration/DeepLearningOmicsIntegration_Oskolkov.pdf">Slides</a></li>
+  </ul>
+</details>
 
 **14.45 - 15.00** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Break
 
-**15.00 - 16.15** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Deep Learning for Omics integration ([Nikolay][1], [single cell notebook](./session_ml/SingleCell/SingleCell_OmicsIntegration.html), [UMAP notebook](./session_ml/UMAP_DataIntegration/UMAP_DataIntegration.html))
+**15.00 - 16.15** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Deep Learning for Omics integration ([Nikolay][1])
+<details>
+  <summary>Resources</summary>
+  <ul>
+    <li><a href="./session_ml/SingleCell/SingleCell_OmicsIntegration.html">Single Cell Notebook</a></li>
+    <li><a href="./session_ml/UMAP_DataIntegration/UMAP_DataIntegration.html">UMAP Notebook</a></li>
+  </ul>
+</details>
 
 **16.15 - 16.30** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Lab recap ([Nikolay][1])
 
@@ -92,21 +164,46 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 
 ##### Day 3
 
-**09.00 - 10.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Introduction to biological network analysis ([Sergiu][3], [slides](./session_topology/lecture_short.pdf))
+**09.00 - 10.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Introduction to biological network analysis ([Sergiu][3])
+<details>
+  <summary>Resources</summary>
+  <ul>
+    <li><a href="./session_topology/lecture_short.pdf">Slides</a></li>
+  </ul>
+</details>
 
 **10.00 - 10.15** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Break
 
-**10.15 - 11.00** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Network inference ([Sergiu][3], [notebook](./session_topology/lab.html))
+**10.15 - 11.00** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Network inference ([Sergiu][3])
+<details>
+  <summary>Resources</summary>
+  <ul>
+    <li><a href="./session_topology/lab.html">Notebook</a></li>
+  </ul>
+</details>
 
 **11.00 - 11.30** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Review ([Sergiu][3])
 
 **12.00 - 13.00** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Lunch
 
-**13.00 - 14.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Community analysis ([Sergiu][3], [slides](./session_topology/lecture_short.pdf))
+**13.00 - 14.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Community analysis ([Sergiu][3], [Jennifer][5])
+<details>
+  <summary>Resources</summary>
+  <ul>
+    <li><a href="./session_topology/lecture_short.pdf">Slides</a></li>
+    <li><a href="./session_topology/lab.html">Notebook</a></li>
+  </ul>
+</details>
 
 **14.00 - 14.15** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Break
 
-**14.15 - 16.15** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Community analysis ([Sergiu][3], [Jennifer][5] [notebook](./session_topology/lab.html))
+**14.15 - 16.15** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Community analysis ([Sergiu][3], [Jennifer][5])
+<details>
+  <summary>Resources</summary>
+  <ul>
+    <li><a href="./session_topology/lab.html">Notebook</a></li>
+  </ul>
+</details>
 
 **16.15 - 16.30** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Lab recap ([Sergiu][3], [Jennifer][5])
 
@@ -117,11 +214,23 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 
 ##### Day 4
 
-**09.00 - 10.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Genome-scale metabolic models for integration ([Rasool][2], [slides](./session_gems/lecture.pdf))
+**09.00 - 10.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Genome-scale metabolic models for integration ([Rasool][2])
+<details>
+  <summary>Resources</summary>
+  <ul>
+    <li><a href="./session_gems/lecture.pdf">Slides</a></li>
+  </ul>
+</details>
 
 **10.00 - 10.15** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Break
 
-**10.15 - 11.30** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Genome-scale metabolic models for integration ([Rasool][2], [notebook](./session_gems/lab.html))
+**10.15 - 11.30** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Genome-scale metabolic models for integration ([Rasool][2])
+<details>
+  <summary>Resources</summary>
+  <ul>
+    <li><a href="./session_gems/lab.html">Notebook</a></li>
+  </ul>
+</details>
 
 **11.30 - 11.45** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Lab recap ([Rasool][2])
 
@@ -131,15 +240,39 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 
 **14.00 - 14.15** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Break
 
-**14.15 - 14.45** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Non-negative Matrix Factorization ([Sergiu][3], [slides](./session_nmf/NMF_main.html))
+**14.15 - 14.45** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Non-negative Matrix Factorization ([Sergiu][3])
+<details>
+  <summary>Resources</summary>
+  <ul>
+    <li><a href="./session_nmf/NMF_main.html">Slides</a></li>
+  </ul>
+</details>
 
-**14.45 - 15.15** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Similarity network fusion ([Sergiu][4], [slides](./session_nmf/SNF_main.html))
+**14.45 - 15.15** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Similarity network fusion ([Sergiu][3], [Jennifer][5])
+<details>
+  <summary>Resources</summary>
+  <ul>
+    <li><a href="./session_nmf/SNF_main.html">Slides</a></li>
+  </ul>
+</details>
 
 **15.15 - 15.30** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Break
 
-**15.30 - 16.00** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Non-negative Matrix Factorization ([Sergiu][3], [Jennifer][5], [notebook](./session_nmf/NMF_lab.html))
+**15.30 - 16.00** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Non-negative Matrix Factorization ([Sergiu][3], [Jennifer][5])
+<details>
+  <summary>Resources</summary>
+  <ul>
+    <li><a href="./session_nmf/NMF_lab.html">Notebook</a></li>
+  </ul>
+</details>
 
-**16.00 - 16.30** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Similarity network fusion ([Sergiu][3], [Jennifer][5], [notebook](./session_nmf/SNF_lab.html))
+**16.00 - 16.30** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Similarity network fusion ([Sergiu][3], [Jennifer][5])
+<details>
+  <summary>Resources</summary>
+  <ul>
+    <li><a href="./session_nmf/SNF_lab.html">Notebook</a></li>
+  </ul>
+</details>
 
 **16.30 - 16.45** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Lab recap ([Sergiu][3], [Jennifer][5])
 
@@ -148,20 +281,33 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 
 ##### Day 5
 
-**09.00 - 09.45** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Gene set analysis and reporter features ([Rasool][2], [lecture](./session_gsa/GEM_session_day2.pdf))
+**09.00 - 09.45** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Gene set analysis and reporter features ([Rasool][2])
+<details>
+  <summary>Resources</summary>
+  <ul>
+    <li><a href="./session_gsa/GEM_session_day2.pdf">Slides</a></li>
+  </ul>
+</details>
 
 **09.55 - 10.00** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Break
 
 **10.00 - 11.00** <img border="0" src="https://www.svgrepo.com/show/307069/public-speaking-speak-tell-talk.svg" width="15" height="15"> [Mats Nilsson][9] - “Targeted in situ sequencing for characterization of the genetic, molecular and cellular diversity of healthy and disease tissues”
 
-**11.00 - 11.45** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Gene set analysis and reporter features ([Rasool][2], [GSA notebook](./session_gsa/GEM_GSA.html), [RCytoscape notebook](./session_visualization/Cytoscape_tutorial.html), [Circos notebook](./session_visualization/RCircos-HiveR.html))
+**11.00 - 11.45** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Gene set analysis and reporter features ([Rasool][2])
+<details>
+  <summary>Resources</summary>
+  <ul>
+    <li><a href="./session_gsa/GEM_GSA.html">GSA Notebook</a></li>
+    <li><a href="./session_visualization/Cytoscape_tutorial.html">RCytoscape Notebook</a></li>
+    <li><a href="./session_visualization/RCircos-HiveR.html">Circos Notebook</a></li>
+  </ul>
+</details>
 
 **11.45 - 12.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Lab recap ([Rasool][2])
 
 **12.00 - 13.10** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Lunch
 
 **13.00 - 14.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Discussions and course end
-
 
 <br>
 <br>
