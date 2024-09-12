@@ -118,8 +118,7 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 <details>
   <summary>Resources</summary>
   <ul>
-    <li><a href="./session_ml/DeepLearningDataIntegration/DeepLearningDataIntegration.html">DL Notebook</a></li>
-    <li><a href="./session_ml/DeepLearningDataIntegration/DeepLearning_SingleCell_10X_1.3Mcells.html">DL in Single Cell</a></li>
+    <li><a href="./session_ml/DeepLearningDataIntegration/SingleCell_OmicsIntegration.html"> CCA + WNN integration</a></li>
   </ul>
 </details>
 
@@ -129,8 +128,7 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 <details>
   <summary>Resources</summary>
   <ul>
-    <li><a href="./session_ml/DeepLearningDataIntegration/DeepLearningDataIntegration.html">DL Notebook</a></li>
-    <li><a href="./session_ml/DeepLearningDataIntegration/DeepLearning_SingleCell_10X_1.3Mcells.html">DL in Single Cell</a></li>
+    <li><a href="./session_ml/DeepLearningDataIntegration/SingleCell_OmicsIntegration.html"> CCA + WNN integration</a></li>
   </ul>
 </details>
 
@@ -152,8 +150,10 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 <details>
   <summary>Resources</summary>
   <ul>
-    <li><a href="./session_ml/SingleCell/SingleCell_OmicsIntegration.html">Single Cell Notebook</a></li>
-    <li><a href="./session_ml/UMAP_DataIntegration/UMAP_DataIntegration.html">UMAP Notebook</a></li>
+    <li><a href="https://oisb-h24-lab-deeplearningintegration.serve.scilifelab.se/doc/workspaces/auto-x/tree/DeepLearningDataIntegration.ipynb">Deep Learning for data integration lab on s-serve</a></li>
+    <li><a href="./session_ml/DeepLearningDataIntegration/lab/DeepLearningDataIntegration.html">Deep Learning for data integration lab html</a></li>
+    <li>Docker image: <code>docker pull rasoolsnbis/omicsint_h24:session_ml_deep_learning_integration</code>
+    </li>
   </ul>
 </details>
 

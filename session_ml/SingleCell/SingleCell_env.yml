@@ -1,0 +1,17 @@
+name: SingleCell_env
+channels:
+  - defaults
+  - conda-forge
+  - bioconda
+dependencies:
+  - r-ggplot2
+  - r-rmarkdown
+  - r-knitr
+  - r-dplyr
+  - r-glmnet
+  - r-mixomics
+  - r-reticulate
+  - r-stringr
+  - r-survival
+  - scipy=1.8.1
+
