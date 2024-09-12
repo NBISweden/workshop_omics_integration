@@ -1,5 +1,5 @@
-For the most updated version of the course visit [OMICINT_H24 branch](https://github.com/NBISweden/workshop_omics_integration/tree/OMICSINT_H24)
-=========================================
+### For the most updated version of the course visit [OMICINT_H24 branch](https://github.com/NBISweden/workshop_omics_integration/tree/OMICSINT_H24)
+==================================================================================
 # Omics Integration and Systems Biology Workshop, 2024
 
 Welcome to the **Omics Integration and Systems Biology Workshop** GitHub repository! This repository contains resources, materials, and updates related to the 2024 workshop.
