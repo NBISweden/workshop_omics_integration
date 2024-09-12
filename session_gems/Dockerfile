@@ -11,8 +11,13 @@ COPY start-script.sh /usr/local/bin/start-script.sh
 
 # Switch to root user to perform installations
 USER root
-RUN apt-get update && apt-get install curl -y --no-install-recommends && \
+RUN apt-get update && apt-get install curl unzip -y --no-install-recommends && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Download and extract the data folder into /home/jovyan/lab
+RUN curl -L -o /tmp/data.zip "https://chalmers-my.sharepoint.com/:f:/g/personal/rasools_chalmers_se/Ep0bmJLtiDFMmPUwuHbYY6QBRBbm9VegjX-fLyYFCJzgGw?e=VnGVAR" && \
+    unzip /tmp/data.zip -d /home/jovyan/lab/data && \
+    rm /tmp/data.zip
 
 # Install pip requirements as root
 RUN pip install --no-cache-dir -r /tmp/requirements.txt
