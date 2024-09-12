@@ -104,7 +104,8 @@ WORKDIR ${HOME}
 COPY run.sh /etc/run.sh
 RUN chmod +x /etc/run.sh
 COPY lab ${HOME}/lab
-RUN chmod +x ${HOME}/lab
+RUN chown -R ${USER}:${GROUP} ${HOME}/lab \
+    && chmod -R u+w ${HOME}/lab
 
 USER ${USER}
 EXPOSE 8787
