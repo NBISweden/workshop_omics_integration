@@ -15,7 +15,7 @@ title: Omics Integration and Systems Biology
 
 [Course canvas homepage](https://uppsala.instructure.com/courses/96642).
 
-Contact `rasool.saghaleyni@nbis.se` for questions.
+Contact `nikolay.oskolkov@scilifelab.se` or `rasool.saghaleyni@nbis.se` for questions.
 
 <hr>
 
@@ -26,6 +26,7 @@ Course information can be found under the following pages:
 - [Reading materials][3]
 - [Pre-course preparation][4]
 - [Ivited speakers][5]
+- [Contact][6]
 
 
 [1]: practical_info.html
@@ -33,3 +34,4 @@ Course information can be found under the following pages:
 [3]: reading_materials.html
 [4]: precourse.html
 [5]: invited_speakers.html
+[6]: contact.html
