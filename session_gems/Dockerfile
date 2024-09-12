@@ -33,6 +33,8 @@ RUN /opt/conda/envs/gems/bin/pip install ipykernel && \
 # Fix permissions and make the script executable
 RUN chown -R jovyan:users /opt/conda /home/jovyan/.cache /home/jovyan/lab && \
     chmod -R a+rwx /home/jovyan/lab && \
+    find /home/jovyan/lab -type d -exec chmod a+rwx {} \; && \
+    find /home/jovyan/lab -type f -exec chmod a+rw {} \; && \
     chmod +x /usr/local/bin/start-script.sh
 
 # Switch back to the non-root user

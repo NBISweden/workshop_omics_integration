@@ -62,9 +62,12 @@ RUN apt-get -yq update \
     && rm -rf /var/lib/apt/lists/*
 
 # INSTALL R packages using Mamba
-COPY FeatureSelection_env.yml /tmp/FeatureSelection_env.yml
-RUN mamba env create -f /tmp/FeatureSelection_env.yml \
-    && rm /tmp/FeatureSelection_env.yml
+COPY SingleCell_env.yml /tmp/SingleCell_env.yml
+RUN mamba env create -f /tmp/SingleCell_env.yml && rm /tmp/SingleCell_env.yml
+
+# Install R packages that are not available via conda (SeuratData)
+RUN R -e "install.packages('remotes', repos='http://cran.us.r-project.org')"
+RUN R -e "remotes::install_github('satijalab/seurat-data')"
 
 # Download and install RStudio Server
 RUN curl -sL "https://download2.rstudio.org/server/focal/${RSTUDIO_ARCH}/rstudio-server-${RSTUDIO_VERSION//+/-}-${RSTUDIO_ARCH}.deb" -o /tmp/rstudio-server.deb && \
