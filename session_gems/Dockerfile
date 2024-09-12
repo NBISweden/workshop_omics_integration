@@ -11,8 +11,15 @@ COPY start-script.sh /usr/local/bin/start-script.sh
 
 # Switch to root user to perform installations
 USER root
-RUN apt-get update && apt-get install curl unzip -y --no-install-recommends && \
+RUN apt-get update && apt-get install curl git -y --no-install-recommends && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Clone the data folder from GitHub
+RUN git clone --depth=1 --filter=blob:none --sparse https://github.com/NBISweden/workshop_omics_integration.git /tmp/repo && \
+    cd /tmp/repo && \
+    git sparse-checkout set session_gems/lab/data && \
+    mv session_gems/lab/data /home/jovyan/lab/data && \
+    rm -rf /tmp/repo
 
 # Install pip requirements as root
 RUN pip install --no-cache-dir -r /tmp/requirements.txt
