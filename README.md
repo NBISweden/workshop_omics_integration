@@ -23,13 +23,9 @@ This workshop focuses on the integration of omics data and systems biology appro
 - **Course homepage**: [Canvas Course Page](https://uppsala.instructure.com/courses/96642)
 
 ## Contact Information
+For information about this course please contact through the email `rasool.saghaleyni@nbis.se` or `edu.omics-integration.nbis.se`.
 
-For any questions or concerns, feel free to contact:
-
-**Rasool Saghaleyni**  
-`rasool.saghaleyni@nbis.se`
-
-## For contribution:
+## For contribution
 
 1. First either create an issue or pick one of the currently available issues.
 2. Create a branch based on the issue from OMICSINT_H24 brnach.
