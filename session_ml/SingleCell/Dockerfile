@@ -15,6 +15,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     && apt-get -yq update \
     && apt-get -yq install --no-install-recommends \
       curl \
+      wget \
       dpkg-sig \
       libpq5 \
       psmisc \
@@ -68,6 +69,13 @@ RUN mamba env create -f /tmp/SingleCell_env.yml && rm /tmp/SingleCell_env.yml
 # Install R packages that are not available via conda (SeuratData)
 RUN R -e "install.packages('remotes', repos='http://cran.us.r-project.org')"
 RUN R -e "remotes::install_github('satijalab/seurat-data')"
+
+# Download required files to the data directory
+RUN mkdir -p /home/jovyan/lab/data \
+    && wget -O /home/jovyan/lab/data/google_drive_file.csv "https://drive.google.com/uc?export=download&id=1hBeh2L5PC-T87YObCmJv4Qcm59IqkkOf" \
+    && wget -O /home/jovyan/lab/data/atac_v1_pbmc_10k_singlecell.csv "https://cf.10xgenomics.com/samples/cell-atac/1.0.1/atac_v1_pbmc_10k/atac_v1_pbmc_10k_singlecell.csv" \
+    && wget -O /home/jovyan/lab/data/atac_v1_pbmc_10k_filtered_peak_bc_matrix.h5 "https://cf.10xgenomics.com/samples/cell-atac/1.0.1/atac_v1_pbmc_10k/atac_v1_pbmc_10k_filtered_peak_bc_matrix.h5" \
+    && wget -O /home/jovyan/lab/data/pbmc_10k_v3.rds "https://www.dropbox.com/s/3f3p5nxrn5b3y4y/pbmc_10k_v3.rds?dl=1"
 
 # Download and install RStudio Server
 RUN curl -sL "https://download2.rstudio.org/server/focal/${RSTUDIO_ARCH}/rstudio-server-${RSTUDIO_VERSION//+/-}-${RSTUDIO_ARCH}.deb" -o /tmp/rstudio-server.deb && \
