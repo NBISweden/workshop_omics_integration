@@ -26,6 +26,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
       libxml2 \ 
       libodbc1 \
       libglpk-dev \
+      wget \
     && echo "en_US.UTF-8 UTF-8" > /etc/locale.gen \
     && locale-gen \
     && rm -rf /var/lib/apt/lists/*
@@ -65,6 +66,13 @@ RUN apt-get -yq update \
 COPY FeatureSelection_env.yml /tmp/FeatureSelection_env.yml
 RUN mamba env create -f /tmp/FeatureSelection_env.yml \
     && rm /tmp/FeatureSelection_env.yml
+
+# Download required files to the data directory
+RUN mkdir -p /home/jovyan/lab/data \
+    && wget -O /home/jovyan/lab/data/GTEX_SkeletalMuscles_157Samples_1000Genes.txt "https://github.com/NBISweden/workshop_omics_integration/blob/main/session_ml/FeatureSelectionIntegrOMICs/GTEX_SkeletalMuscles_157Samples_1000Genes.txt" \
+    && wget -O /home/jovyan/lab/data/GTEX_SkeletalMuscles_157Samples_Gender.txt "https://github.com/NBISweden/workshop_omics_integration/blob/main/session_ml/FeatureSelectionIntegrOMICs/GTEX_SkeletalMuscles_157Samples_Gender.txt" \
+    && wget -O /home/jovyan/lab/data/aGTEx_Data_2014-01-17_Annotations_SubjectPhenotypes_DS.txt "https://github.com/NBISweden/workshop_omics_integration/blob/main/session_ml/FeatureSelectionIntegrOMICs/GTEx_Data_2014-01-17_Annotations_SubjectPhenotypes_DS.txt" \
+    && wget -O /home/jovyan/lab/data/TMM_NormalizedCounts_157_Samples_Muscle.txt "https://github.com/NBISweden/workshop_omics_integration/blob/main/session_ml/FeatureSelectionIntegrOMICs/TMM_NormalizedCounts_157_Samples_Muscle.txt"
 
 # Download and install RStudio Server
 RUN curl -sL "https://download2.rstudio.org/server/focal/${RSTUDIO_ARCH}/rstudio-server-${RSTUDIO_VERSION//+/-}-${RSTUDIO_ARCH}.deb" -o /tmp/rstudio-server.deb && \

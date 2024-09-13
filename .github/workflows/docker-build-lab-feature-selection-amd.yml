@@ -1,9 +1,9 @@
-# name: Build and Push Docker Image for Session Gems
+# name: Build and Push Docker Image for lab feature selection 
 
 # on:
 #   push:
 #     paths:
-#       - 'session_gems/**'
+#       - 'session_ml/FeatureSelectionIntegrOMICs/**'
 #     branches:
 #       - OMICSINT_H24
 
@@ -11,7 +11,7 @@
 #   build:
 #     runs-on: ubuntu-latest
 
-#     if: github.repository == 'NBISweden/workshop_omics_integration'
+#     if: github.repository == 'nbisweden/workshop_omics_integration'
 
 #     steps:
 #       # Checkout the repository
@@ -29,16 +29,16 @@
 #           username: ${{ secrets.DOCKER_HUB_USERNAME }} 
 #           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
-#       # Build and push the Docker image for both amd64 and arm64
-#       - name: Build and Push Docker Image for Session Gems
+#       # Build and push the Docker image for both amd64 to Docker Hub
+#       - name: Build and Push Docker Image to Docker Hub
 #         uses: docker/build-push-action@v4
 #         with:
-#           context: ./session_gems
-#           file: session_gems/Dockerfile
+#           context: ./session_ml/FeatureSelectionIntegrOMICs
+#           file: session_ml/FeatureSelectionIntegrOMICs/Dockerfile
 #           platforms: linux/amd64
 #           push: true
 #           no-cache: true
-#           tags: docker.io/rasoolsnbis/omicsint_h24:session_gems_amd
+#           tags: docker.io/rasoolsnbis/omicsint_h24:session_ml_feature_selection_amd
 
 #       - name: Inspect Docker Image
-#         run: docker buildx imagetools inspect docker.io/rasoolsnbis/omicsint_h24:session_gems_amd
+#         run: docker buildx imagetools inspect docker.io/rasoolsnbis/omicsint_h24:session_ml_feature_selection_amd
