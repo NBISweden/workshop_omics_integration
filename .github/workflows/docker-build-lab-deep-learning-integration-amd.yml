@@ -37,6 +37,7 @@ jobs:
           file: session_ml/DeepLearningDataIntegration/Dockerfile
           platforms: linux/amd64
           push: true
+          no-cache: true
           tags: docker.io/rasoolsnbis/omicsint_h24:session_ml_deep_learning_integration_amd
 
       - name: Inspect Docker Image
