@@ -14,14 +14,15 @@ USER root
 RUN apt-get update && apt-get install curl -y --no-install-recommends && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Clone the repository and checkout only .txt files from the DeepLearningDataIntegration folder
-RUN git clone --depth=1 --filter=blob:none --sparse https://github.com/NBISweden/workshop_omics_integration.git /tmp/repo && \
-    cd /tmp/repo && \
-    git sparse-checkout init --cone && \
-    git sparse-checkout set session_ml/DeepLearningDataIntegration && \
-    find session_ml/DeepLearningDataIntegration -name "*.txt" -exec mv {} /home/jovyan/lab/data/ \; && \
-    rm -rf /tmp/repo
+# Create data directory
+RUN mkdir -p /home/jovyan/lab/data
 
+# Download specific .txt files from GitHub
+RUN curl -L https://github.com/NBISweden/workshop_omics_integration/blob/main/session_ml/DeepLearningDataIntegration/scATACseq.txt -o /home/jovyan/lab/data/scATACseq.txt && \
+    curl -L https://github.com/NBISweden/workshop_omics_integration/blob/main/session_ml/DeepLearningDataIntegration/scBSseq.txt -o /home/jovyan/lab/data/scBSseq.txt && \
+    curl -L https://github.com/NBISweden/workshop_omics_integration/blob/main/session_ml/DeepLearningDataIntegration/scRNAseq.txt -o /home/jovyan/lab/data/scRNAseq.txt && \
+    curl -L https://github.com/NBISweden/workshop_omics_integration/blob/main/session_ml/DeepLearningDataIntegration/scRNAseq.txt -o /home/jovyan/lab/data/scRNAseq_CITEseq.txt
+    
 # Install pip requirements as root
 RUN pip install --no-cache-dir -r /tmp/requirements.txt
 
