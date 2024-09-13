@@ -14,6 +14,13 @@ USER root
 RUN apt-get update && apt-get install curl -y --no-install-recommends && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
+# Clone the data folder from GitHub
+RUN git clone --depth=1 --filter=blob:none --sparse https://github.com/NBISweden/workshop_omics_integration.git /tmp/repo && \
+    cd /tmp/repo && \
+    git sparse-checkout set session_gems/lab/data && \
+    mv session_ml/DeepLearningDataIntegration/lab/data /home/jovyan/lab/data && \
+    rm -rf /tmp/repo
+
 # Install pip requirements as root
 RUN pip install --no-cache-dir -r /tmp/requirements.txt
 

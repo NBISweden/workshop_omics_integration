@@ -1,9 +1,9 @@
-name: Build and Push Docker Image for Session Gems
+name: Build and Push Docker Image for lab deep learning integration 
 
 on:
   push:
     paths:
-      - 'session_gems/**'
+      - 'session_ml/DeepLearningDataIntegration/**'
     branches:
       - OMICSINT_H24
 
@@ -34,10 +34,10 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: ./session_gems
-          file: session_gems/Dockerfile
-          platforms: linux/arm64
+          file: session_ml/DeepLearningDataIntegration/Dockerfile
+          platforms: linux/amd64
           push: true
-          tags: docker.io/rasoolsnbis/omicsint_h24:session_gems_arm
+          tags: docker.io/rasoolsnbis/omicsint_h24:session_ml_deep_learning_integration_amd
 
       - name: Inspect Docker Image
-        run: docker buildx imagetools inspect docker.io/rasoolsnbis/omicsint_h24:session_gems_arm
+        run: docker buildx imagetools inspect docker.io/rasoolsnbis/omicsint_h24:session_ml_deep_learning_integration_amd
