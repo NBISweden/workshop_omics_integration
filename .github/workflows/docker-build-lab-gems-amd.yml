@@ -40,5 +40,16 @@ jobs:
           no-cache: true
           tags: docker.io/rasoolsnbis/omicsint_h24:session_gems_amd
 
+      # Build and push the Docker image to GitHub Container Registry (GHCR)
+      - name: Build and Push Docker Image to GHCR
+        uses: docker/build-push-action@v4
+        with:
+          context: ./session_gems
+          file: session_gems/Dockerfile
+          platforms: linux/amd64
+          push: true
+          no-cache: true
+          tags: ghcr.io/nbisweden/omicsint_h24:session_gems_amd
+
       - name: Inspect Docker Image
         run: docker buildx imagetools inspect docker.io/rasoolsnbis/omicsint_h24:session_gems_amd
