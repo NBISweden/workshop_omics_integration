@@ -29,6 +29,14 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }} 
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
+      # Log in to GitHub Container Registry (GHCR)
+      - name: Log in to GHCR
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
       # Build and push the Docker image for both amd64 and arm64
       - name: Build and Push Docker Image for Session Gems
         uses: docker/build-push-action@v4
