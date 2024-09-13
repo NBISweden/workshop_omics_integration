@@ -45,16 +45,16 @@ jobs:
         id: changes
         run: |
           echo "## Detecting changes in the repository..."
-          if git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep -q 'session_ml/DeepLearningDataIntegration'; then
+          if git diff ${{ github.event.before }} --name-only | grep -q 'session_ml/DeepLearningDataIntegration'; then
             echo "deep_learning=true" >> $GITHUB_ENV
           fi
-          if git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep -q 'session_ml/FeatureSelectionIntegrOMICs'; then
+          if git diff ${{ github.event.before }} --name-only | grep -q 'session_ml/FeatureSelectionIntegrOMICs'; then
             echo "feature_selection=true" >> $GITHUB_ENV
           fi
-          if git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep -q 'session_ml/SingleCell'; then
+          if git diff ${{ github.event.before }} --name-only | grep -q 'session_ml/SingleCell'; then
             echo "single_cell=true" >> $GITHUB_ENV
           fi
-          if git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep -q 'session_gems'; then
+          if git diff ${{ github.event.before }} --name-only | grep -q 'session_gems'; then
             echo "gems=true" >> $GITHUB_ENV
           fi
 
