@@ -15,6 +15,7 @@ RUN apt-get update && apt-get install curl -y --no-install-recommends && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /home/jovyan/lab/data
+
 # Clone the repository and checkout only .txt files from the DeepLearningDataIntegration folder
 RUN git clone --depth=1 --filter=blob:none --sparse https://github.com/NBISweden/workshop_omics_integration.git /tmp/repo && \
     cd /tmp/repo && \
