@@ -33,7 +33,7 @@ jobs:
       - name: Build and Push Docker Image for Session Gems
         uses: docker/build-push-action@v4
         with:
-          context: ./session_gems
+          context: ./session_ml/DeepLearningDataIntegration
           file: session_ml/DeepLearningDataIntegration/Dockerfile
           platforms: linux/amd64
           push: true
