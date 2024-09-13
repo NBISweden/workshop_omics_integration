@@ -57,7 +57,7 @@ jobs:
           platforms: linux/amd64
           push: true
           no-cache: true
-          tags: ghcr.io/${{ github.repository_owner }}/omicsint_h24:session_ml_single_cell_amd
+          tags: ghcr.io/nbisweden/omicsint_h24:session_ml_single_cell_amd
 
       - name: Inspect Docker Image
         run: docker buildx imagetools inspect docker.io/rasoolsnbis/omicsint_h24:session_ml_single_cell_amd
