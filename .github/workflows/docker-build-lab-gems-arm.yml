@@ -35,9 +35,9 @@ jobs:
         with:
           context: ./session_gems
           file: session_gems/Dockerfile
-          platforms: linux/amd64
+          platforms: linux/arm64
           push: true
-          tags: docker.io/rasoolsnbis/omicsint_h24:session_gems_amd
+          tags: docker.io/rasoolsnbis/omicsint_h24:session_gems_arm
 
       - name: Inspect Docker Image
-        run: docker buildx imagetools inspect docker.io/rasoolsnbis/omicsint_h24:session_gems_amd
+        run: docker buildx imagetools inspect docker.io/rasoolsnbis/omicsint_h24:session_gems_arm
