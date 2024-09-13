@@ -19,3 +19,4 @@ dependencies:
     - cameo
     - escher>=1.6.0
     - cplex
+    
