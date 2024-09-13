@@ -14,11 +14,12 @@ USER root
 RUN apt-get update && apt-get install curl -y --no-install-recommends && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Clone the data folder from GitHub
+# Clone the repository and checkout only .txt files from the DeepLearningDataIntegration folder
 RUN git clone --depth=1 --filter=blob:none --sparse https://github.com/NBISweden/workshop_omics_integration.git /tmp/repo && \
     cd /tmp/repo && \
-    git sparse-checkout set session_gems/lab/data && \
-    mv session_ml/DeepLearningDataIntegration/lab/data /home/jovyan/lab/data && \
+    git sparse-checkout init --cone && \
+    git sparse-checkout set session_ml/DeepLearningDataIntegration && \
+    find session_ml/DeepLearningDataIntegration -name "*.txt" -exec mv {} /home/jovyan/lab/data/ \; && \
     rm -rf /tmp/repo
 
 # Install pip requirements as root
