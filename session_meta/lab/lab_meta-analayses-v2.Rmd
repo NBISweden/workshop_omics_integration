@@ -138,13 +138,33 @@ A summary of the methods and their implementations for respective
 outcome variables are listed in the table below as presented in the
 original publication.
 
-![](images/Statistical_methods_MetaDE.png)
+![](assets/Statistical_methods_MetaDE.png)
 
 For a detailed review of the applied methods for meta analyses, related
 benchmarks and
 
 
 ## Required packages
+
+```{r packages, warning=FALSE, message=FALSE, eval=TRUE}
+# Install dependencies
+install.packages(c("xts", "quantmod", "zoo", "abind", "rpart", "class", "ROCR","proto", "foreach", "iterators", "combinat", "remotes", "plyr"))
+
+# Install packages from CRAN and Bioconductor
+install.packages("https://cran.r-project.org/src/contrib/Archive/DMwR/DMwR_0.4.1.tar.gz", repos = NULL, type = "source")
+install.packages("https://cran.r-project.org/src/contrib/Archive/MetaQC/MetaQC_0.1.13.tar.gz", repos = NULL, type = "source")
+install.packages("https://cran.r-project.org/src/contrib/Archive/MetaDE/MetaDE_1.0.5.tar.gz", repos = NULL, type = "source")
+install.packages("https://cran.r-project.org/src/contrib/Archive/impute/impute_1.26.0.tar.gz", repos = NULL, type = "source")
+install.packages("https://cran.r-project.org/src/contrib/Archive/MetaPath/MetaPath_1.0.tar.gz", repos = NULL, type = "source")
+
+# Install Bioconductor packages
+if (!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager")
+BiocManager::install(c("AnnotationDbi", "genefilter", "GSEABase"))
+
+# Install packages from GitHub
+remotes::install_github("metaOmic/preproc")
+remotes::install_github("metaOmics/MetaDCN")
+```
 
 ```{r packages, warning=FALSE, message=FALSE, eval=TRUE}
 library(magrittr)
@@ -154,8 +174,6 @@ library(MetaQC)
 library(MetaDE)
 library(MetaPath)
 library(MetaDCN)
-
-
 ```
 
 

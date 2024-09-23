@@ -14,6 +14,16 @@ USER root
 RUN apt-get update && apt-get install curl -y --no-install-recommends && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
+RUN mkdir -p /home/jovyan/lab/data
+
+# Clone the repository and checkout only .txt files from the DeepLearningDataIntegration folder
+RUN git clone --depth=1 --filter=blob:none --sparse https://github.com/NBISweden/workshop_omics_integration.git /tmp/repo && \
+    cd /tmp/repo && \
+    git sparse-checkout init --cone && \
+    git sparse-checkout set session_ml/DeepLearningDataIntegration && \
+    find session_ml/UMAP_DataIntegration -name "*.txt" -exec mv {} /home/jovyan/lab/data/ \; && \
+    rm -rf /tmp/repo
+
 # Install pip requirements as root
 RUN pip install --no-cache-dir -r /tmp/requirements.txt
 

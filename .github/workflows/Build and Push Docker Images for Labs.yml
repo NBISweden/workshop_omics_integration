@@ -6,7 +6,9 @@ on:
       - 'session_ml/DeepLearningDataIntegration/**'
       - 'session_ml/FeatureSelectionIntegrOMICs/**'
       - 'session_ml/SingleCell/**'
+      - 'session_ml/UMAP_DataIntegration/**'
       - 'session_gems/**'
+      - 'session_gsa/**'
     branches:
       - OMICSINT_H24
 
@@ -60,6 +62,9 @@ jobs:
           if git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep -q '^session_gems'; then
             echo "gems=true" >> $GITHUB_ENV
           fi
+          if git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep -q '^session_gsa'; then
+            echo "gsa=true" >> $GITHUB_ENV
+          fi
 
       # Conditionally build and push images for Deep Learning Lab
       - name: Build and Push Docker Image for Deep Learning Lab
@@ -72,8 +77,8 @@ jobs:
           push: true
           no-cache: true
           tags: |
-            docker.io/rasoolsnbis/omicsint_h24:session_ml_deep_learning_integration_amd
-            ghcr.io/nbisweden/omicsint_h24:session_ml_deep_learning_integration_amd
+            docker.io/rasoolsnbis/omicsint_h24:session_ml_deep_learning_integration_amd_v.24.1
+            ghcr.io/nbisweden/omicsint_h24:session_ml_deep_learning_integration_amd_v.24.1
 
       # Conditionally build and push images for Feature Selection Lab
       - name: Build and Push Docker Image for Feature Selection Lab
@@ -86,8 +91,8 @@ jobs:
           push: true
           no-cache: true
           tags: |
-            docker.io/rasoolsnbis/omicsint_h24:session_ml_feature_selection_amd
-            ghcr.io/nbisweden/omicsint_h24:session_ml_feature_selection_amd
+            docker.io/rasoolsnbis/omicsint_h24:session_ml_feature_selection_amd_v.24.1
+            ghcr.io/nbisweden/omicsint_h24:session_ml_feature_selection_amd_v.24.1
 
       # Conditionally build and push images for Single Cell Lab
       - name: Build and Push Docker Image for Single Cell Lab
@@ -100,8 +105,22 @@ jobs:
           push: true
           no-cache: true
           tags: |
-            docker.io/rasoolsnbis/omicsint_h24:session_ml_single_cell_amd
-            ghcr.io/nbisweden/omicsint_h24:session_ml_single_cell_amd
+            docker.io/rasoolsnbis/omicsint_h24:session_ml_single_cell_amd_v.24.1
+            ghcr.io/nbisweden/omicsint_h24:session_ml_single_cell_amd_v.24.1
+
+      # Conditionally build and push images for UMAP Data Integration Lab
+      - name: Build and Push Docker Image for UMAP Data Integration Lab
+        if: env.umap_data_integration == 'true'
+        uses: docker/build-push-action@v4
+        with:
+          context: ./session_ml/UMAP_DataIntegration
+          file: session_ml/UMAP_DataIntegration/Dockerfile
+          platforms: linux/amd64
+          push: true
+          no-cache: true
+          tags: |
+            docker.io/rasoolsnbis/omicsint_h24:session_ml_umap_data_integration_amd_v.24.1
+            ghcr.io/nbisweden/omicsint_h24:session_ml_umap_data_integration_amd_v.24.1
 
       # Conditionally build and push images for Gems Lab
       - name: Build and Push Docker Image for Gems Lab
@@ -114,5 +133,20 @@ jobs:
           push: true
           no-cache: true
           tags: |
-            docker.io/rasoolsnbis/omicsint_h24:session_gems_amd
-            ghcr.io/nbisweden/omicsint_h24:session_gems_amd
+            docker.io/rasoolsnbis/omicsint_h24:session_gems_amd_v.24.1
+            ghcr.io/nbisweden/omicsint_h24:session_gems_amd_v.24.1
+      
+      # Conditionally build and push images for GSA lab
+      - name: Build and Push Docker Image for GSA Lab
+        if: env.gsa == 'true'
+        uses: docker/build-push-action@v4
+        with:
+          context: ./session_gsa
+          file: session_gsa/Dockerfile
+          platforms: linux/amd64
+          push: true
+          no-cache: true
+          tags: |
+            docker.io/rasoolsnbis/omicsint_h24:session_gsa_amd_v.24.1
+            ghcr.io/nbisweden/omicsint_h24:session_gsa_amd_v.24.1
+      

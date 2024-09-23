@@ -15,6 +15,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     && apt-get -yq update \
     && apt-get -yq install --no-install-recommends \
       curl \
+      wget \
       dpkg-sig \
       libpq5 \
       psmisc \
@@ -26,7 +27,6 @@ RUN export DEBIAN_FRONTEND=noninteractive \
       libxml2 \ 
       libodbc1 \
       libglpk-dev \
-      git \
     && echo "en_US.UTF-8 UTF-8" > /etc/locale.gen \
     && locale-gen \
     && rm -rf /var/lib/apt/lists/*
@@ -40,6 +40,16 @@ RUN curl -LOs https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64
 
 # Set up environment
 ENV PATH="/usr/local/miniconda3/bin:${PATH}"
+
+# # Create a data directory
+# RUN mkdir -p /home/jovyan/lab/data
+
+# # Install unzip and download the repository zip file
+# RUN apt-get update && apt-get install -y unzip && \
+#     wget https://github.com/NBISweden/workshop_omics_integration/archive/refs/heads/main.zip -O /tmp/repo.zip && \   
+#     unzip /tmp/repo.zip 'workshop_omics_integration-main/session_meta/lab/data/*' -d /tmp && \
+#     mv /tmp/workshop_omics_integration-main/session_meta/lab/data/* /home/jovyan/lab/data/ && \
+#     rm -rf /tmp/repo.zip /tmp/workshop_omics_integration-main
 
 # Install R
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9 \
@@ -66,12 +76,6 @@ RUN apt-get -yq update \
 COPY meta_env.yml /tmp/meta_env.yml
 RUN mamba env create -f /tmp/meta_env.yml \
     && rm /tmp/meta_env.yml
-
-# Install additional R packages from CRAN and Bioconductor, then install preproc from GitHub
-RUN R -e "install.packages(c('devtools', 'DMwR2', 'MetaQC', 'MetaDE', 'MetaPath', 'MetaDCN', 'ComplexHeatmap'), repos='http://cran.rstudio.com/'); \
-          if (!requireNamespace('BiocManager', quietly = TRUE)) install.packages('BiocManager'); \
-          BiocManager::install('AnnotationDbi'); \
-          devtools::install_github('metaOmics/preproc')"
 
 # Download and install RStudio Server
 RUN curl -sL "https://download2.rstudio.org/server/focal/${RSTUDIO_ARCH}/rstudio-server-${RSTUDIO_VERSION//+/-}-${RSTUDIO_ARCH}.deb" -o /tmp/rstudio-server.deb && \

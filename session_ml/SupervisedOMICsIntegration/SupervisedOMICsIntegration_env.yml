@@ -15,4 +15,5 @@ dependencies:
   - r-matrixStats
   - r-glmnet
   - r-snow
+  - r-devtools
   
