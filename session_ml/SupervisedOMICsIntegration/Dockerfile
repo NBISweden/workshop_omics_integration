@@ -26,6 +26,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
       libxml2 \ 
       libodbc1 \
       libglpk-dev \
+      libcurl4-gnutls-dev \ 
     && echo "en_US.UTF-8 UTF-8" > /etc/locale.gen \
     && locale-gen \
     && rm -rf /var/lib/apt/lists/*
@@ -50,18 +51,18 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD5
     && rm -rf /var/lib/apt/lists/* \ 
     && apt-get autoremove -yq && apt-get autoclean -yq
 
-# Install necessary libraries for GLIBCXX_3.4.29
-RUN apt-get -yq update \
-    && apt-get -yq install --no-install-recommends \
-    software-properties-common \
-    && add-apt-repository ppa:ubuntu-toolchain-r/test \
-    && apt-get -yq update \
-    && apt-get -yq install --no-install-recommends \
-    libstdc++6 \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+# # Install necessary libraries for GLIBCXX_3.4.29
+# RUN apt-get -yq update \
+#     && apt-get -yq install --no-install-recommends \
+#     software-properties-common \
+#     && add-apt-repository ppa:ubuntu-toolchain-r/test \
+#     && apt-get -yq update \
+#     && apt-get -yq install --no-install-recommends \
+#     libstdc++6 \
+#     && apt-get clean \
+#     && rm -rf /var/lib/apt/lists/*
 
-# INSTALL R packages using Mamba
+# Create Env using Mamba
 COPY SupervisedOMICsIntegration_env.yml /tmp/SupervisedOMICsIntegration_env.yml
 RUN mamba env create -f /tmp/SupervisedOMICsIntegration_env.yml \
     && rm /tmp/SupervisedOMICsIntegration_env.yml
@@ -95,9 +96,9 @@ RUN useradd -s /bin/bash -N -u ${UID} -l ${USER} \
 # R needs TZ set
 RUN echo "TZ=Etc/UTC" >> ${R_HOME}/etc/Renviron.site
 
-# Set default CRAN repo to RSPM (it has pre-compiled R packages, increasing user install speed)
-RUN echo 'options(repos=c(CRAN="https://packagemanager.rstudio.com/all/__linux__/focal/latest"))' >> ${R_HOME}/etc/Rprofile.site \
- && echo 'options(HTTPUserAgent=sprintf("R/%s R (%s)", getRversion(), paste(getRversion(), R.version$platform, R.version$arch, R.version$os)))' >> ${R_HOME}/etc/Rprofile.site
+# # Set default CRAN repo to RSPM (it has pre-compiled R packages, increasing user install speed)
+# RUN echo 'options(repos=c(CRAN="https://packagemanager.rstudio.com/all/__linux__/focal/latest"))' >> ${R_HOME}/etc/Rprofile.site \
+#  && echo 'options(HTTPUserAgent=sprintf("R/%s R (%s)", getRversion(), paste(getRversion(), R.version$platform, R.version$arch, R.version$os)))' >> ${R_HOME}/etc/Rprofile.site
 
 WORKDIR ${HOME}
 

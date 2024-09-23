@@ -65,25 +65,12 @@ For this exercise we will use publically available RNA-Seq data from [The Cancer
 </br>
 
 ```{r, echo=FALSE, fig.cap='*Image from US National Cancer Institute GDC Portal homepage (portal.gdc.cancer.gov)*', out.width = '85%', fig.align='center'}
-knitr::include_graphics('img/tcga_gdc_banner.png')
+knitr::include_graphics('lab/assests/tcga_gdc_banner.png')
 ```
 
 
 Setup option 
 =====
-
-**In r/rmarkdown run the following code**
-
-`r sn<-sn+1; paste0(sn,"\\. ")` If your docker installation fails, navigate to the directory where "renv.lock" file is located and run following code chunk.
-
-```{r, eval=FALSE}
-install.packages("renv")
-renv::restore("renv.lock")
-```
-
-</br>
-
-**In R Studio**
 
 `r sn<-sn+1; paste0(sn,"\\. ")` Load the R packages that will be used in this exercise
 ```{r, message=FALSE, warning=FALSE, results='hide'}
@@ -113,7 +100,7 @@ library(org.Hs.eg.db)
 
 `r sn<-sn+1; paste0(sn,"\\. ")` Specify the location of the main tutorial directory
 ```{r}
-main_dir = './session_gsa'
+main_dir = 'lab'
 
 ```
 </br>

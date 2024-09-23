@@ -104,7 +104,17 @@ WORKDIR ${HOME}
 COPY run.sh /etc/run.sh
 RUN chmod +x /etc/run.sh
 COPY lab ${HOME}/lab
-RUN chmod +x ${HOME}/lab
+
+# Create a data directory
+RUN mkdir -p /home/jovyan/lab/data
+# Install git to clone the repository
+RUN apt-get update && apt-get install -y git && \
+    git clone https://github.com/NBISweden/workshop_omics_integration.git /tmp/repo && \
+    cp -r /tmp/repo/session_gsa/lab/data/* /home/jovyan/lab/data/ && \
+    rm -rf /tmp/repo
+
+RUN chown -R ${USER}:${GROUP} ${HOME}/lab \
+    && chmod -R u+w ${HOME}/lab
 
 USER ${USER}
 EXPOSE 8787
