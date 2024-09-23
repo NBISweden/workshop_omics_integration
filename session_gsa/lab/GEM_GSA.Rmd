@@ -1,5 +1,6 @@
 ---
 title: "GEM-based gene set analysis"
+subtitle: "Jonathan Robinson, Rasool Saghaleyni, OMICSINT_H24" 
 Author: "Jonathan Robinson, Rasool Saghaleyni"
 output: 
   html_document:
