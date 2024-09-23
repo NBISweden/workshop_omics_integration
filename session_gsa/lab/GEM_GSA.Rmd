@@ -1,5 +1,6 @@
 ---
 title: "GEM-based gene set analysis"
+Author: "Jonathan Robinson, Rasool Saghaleyni"
 output: 
   html_document:
     toc: true
@@ -161,6 +162,7 @@ query <- GDCquery(project='TCGA-BRCA',  # breast cancer
 
 `r sn<-sn+1; paste0(sn,"\\. ")` Download count data. The data will be stored in separate folders for every sample, with very non-human-friendly names (take a look into the directory to see for yourself...).
 ```{r, message=F, warning=F, results='hide', eval=RunAll}
+tcga_dir <- file.path('data', 'TCGA_data')
 GDCdownload(query, directory=tcga_dir)
 ```
 </br>
