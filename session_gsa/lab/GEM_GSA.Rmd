@@ -49,17 +49,16 @@ div.answer { display: true;}
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-# #If you want to knit the whole notebook, please specify below correct path to the Rmd-file
+#If you want to knit the whole notebook, please specify below correct path to the Rmd-file
 knitr::opts_knit$set(root.dir="/home/jovyan/lab")
 
 ### be sure to update the environment name if applicable
 library(reticulate)
 reticulate::use_condaenv('GEM_GSA_env')
-```
-
-```{r setup, include=F}
 knitr::opts_chunk$set(echo=T, tidy=F, eval=T, cache=F)
 qn <- sn <- 0
+
+setwd("/home/jovyan/lab")
 ```
 
 Introduction
@@ -74,7 +73,7 @@ For this exercise we will use publically available RNA-Seq data from [The Cancer
 </br>
 
 ```{r, echo=FALSE, fig.cap='*Image from US National Cancer Institute GDC Portal homepage (portal.gdc.cancer.gov)*', out.width = '85%', fig.align='center'}
-knitr::include_graphics('lab/assets/tcga_gdc_banner.png')
+knitr::include_graphics('assets/tcga_gdc_banner.png')
 ```
 
 
@@ -114,20 +113,6 @@ library(tibble)
 library(org.Hs.eg.db)
 ```
 </br>
-
-`r sn<-sn+1; paste0(sn,"\\. ")` Specify the location of the main tutorial directory
-```{r}
-main_dir = './lab'
-
-```
-</br>
-
-`r sn<-sn+1; paste0(sn,"\\. ")` Create a `TCGA_data/` subdirectory within `data/` (if it does not yet exist)
-```{r}
-tcga_dir <- file.path(main_dir, 'data', 'TCGA_data')
-if (!dir.exists(tcga_dir)) { dir.create(tcga_dir) }
-```
-
 
 Retrieve RNA-Seq data
 =====================
@@ -301,15 +286,15 @@ There are many different methods for performing gene set analysis (GSA), but Pia
 
 `r sn<-sn+1; paste0(sn,"\\. ")` Load DE results (if not already loaded)
 ```{r}
-de.res <- read.delim("./lab/data/TCGA_data/DE_results.txt", row.names=1)
+de.res <- read.delim("data/TCGA_data/DE_results.txt", row.names=1)
 ```
 </br>
 
 `r sn<-sn+1; paste0(sn,"\\. ")` Load one of the GEM-derived gene set collections
 ```{r}
-#gsc <- loadGSC(file.path(main_dir, 'data', 'gene_set_collections', 'HumanGEM_subsystem_GSC.gmt'))
-gsc <- piano::loadGSC("./lab/data/gene_set_collections/HumanGEM_subsystem_GSC.gmt")
-# gsc <- loadGSC(file.path(main_dir, 'data', 'gene_set_collections', 'HumanGEM_metabolite_GSC.gmt'))
+#gsc <- loadGSC(file.path('data', 'gene_set_collections', 'HumanGEM_subsystem_GSC.gmt'))
+gsc <- piano::loadGSC("data/gene_set_collections/HumanGEM_subsystem_GSC.gmt")
+# gsc <- loadGSC(file.path('data', 'gene_set_collections', 'HumanGEM_metabolite_GSC.gmt'))
 ```
 </br>
 
@@ -515,7 +500,7 @@ names(gene_scores) <- rownames(de.res)
 
 ```{r}
 # Option 1: GSC based on GEM subsystems
-gsc_fgsea <- fgsea::gmtPathways("./lab/data/gene_set_collections/HumanGEM_subsystem_GSC.gmt")
+gsc_fgsea <- fgsea::gmtPathways("data/gene_set_collections/HumanGEM_subsystem_GSC.gmt")
 
 # Option 2: GSC based on GEM metabolites
 # gsc_fgsea <- gmtPathways("./data/gene_set_collections/HumanGEM_metabolite_GSC.gmt"))
@@ -606,7 +591,7 @@ It is always good to go back to the original gene-level data when interpreting G
 
 `r sn<-sn+1; paste0(sn,"\\. ")` Load the RNA-Seq gene count matrix
 ```{r}
-counts <- read.table("./lab/data/TCGA_data/count_matrix.txt", row.names=1, header=T)
+counts <- read.table("data/TCGA_data/count_matrix.txt", row.names=1, header=T)
 ```
 </br>
 
@@ -696,7 +681,7 @@ To demonstrate the data overlay function, we will use the median gene CPM values
 
 </br>
 ```{r, echo=FALSE, fig.align='center', out.width='50%'}
-knitr::include_graphics('./lab/assets/MA_subystem_menu.png')
+knitr::include_graphics('assets/MA_subystem_menu.png')
 ```
 </br>
 
@@ -716,19 +701,19 @@ You should now see the file name `median_cpm.txt` in green below the button, ind
 
 </br>
 ```{r, echo=FALSE, fig.align='center', out.width='30%'}
-knitr::include_graphics('./lab/assets/MA_overlay_sidebar.png')
+knitr::include_graphics('assets/MA_overlay_sidebar.png')
 ```
 </br>
 
 The log fold-change in median CPM should now be overlaid onto the gene labels of the map as a color, ranging from blue (decrease) to red (increase). It is usually easier to view the colors if the subsystem highlighting is removed, by toggling the **Show/Hide subsystem** button:
 ```{r, echo=FALSE, fig.align='center'}
-knitr::include_graphics('./lab/assets/MA_button_hide_subsys.png')
+knitr::include_graphics('assets/MA_button_hide_subsys.png')
 ```
 </br>
 
 To make the map view larger, you can collapse the **DATA OVERLAY** side panel by clicking its green bar, or use the **full screen** button:
 ```{r, echo=FALSE, fig.align='center'}
-knitr::include_graphics('./lab/assets/MA_button_fullscreen.png')
+knitr::include_graphics('assets/MA_button_fullscreen.png')
 ```
 </br>
 
@@ -736,7 +721,7 @@ The map should look something like this:
 
 </br>
 ```{r, echo=FALSE, fig.align='center'}
-knitr::include_graphics('./lab/assets/serotonin_pathway.svg')
+knitr::include_graphics('assets/serotonin_pathway.svg')
 ```
 </br>
 
@@ -762,7 +747,7 @@ The interaction partners graph for 4-hydroxyproline will open, showing the genes
 
 </br>
 ```{r, echo=FALSE, fig.align='center', out.width='85%'}
-knitr::include_graphics('./lab/assets/proline_interaction_partners.png')
+knitr::include_graphics('assets/proline_interaction_partners.png')
 ```
 </br>
 
@@ -782,7 +767,7 @@ We can now view the trans-4-hydroxy-L-proline metabolite within its reaction pat
 
 </br>
 ```{r, echo=FALSE, fig.align='center', out.width='60%'}
-knitr::include_graphics('./lab/assets/arginine_and_proline_metabolism.svg')
+knitr::include_graphics('assets/arginine_and_proline_metabolism.svg')
 ```
 </br>
 
