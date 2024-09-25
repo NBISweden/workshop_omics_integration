@@ -70,9 +70,14 @@ RUN mamba env create -f /tmp/SingleCell_env.yml && rm /tmp/SingleCell_env.yml
 RUN R -e "install.packages('remotes', repos='http://cran.us.r-project.org')"
 RUN R -e "remotes::install_github('satijalab/seurat-data')"
 
-# Download required files to the data directory
 RUN mkdir -p /home/jovyan/lab/data \
-    && wget --no-check-certificate -O /home/jovyan/lab/data/scatacseq_activity_matrix.txt "https://drive.google.com/uc?export=download&id=1hBeh2L5PC-T87YObCmJv4Qcm59IqkkOf&confirm=t" \
+    && fileid="1hBeh2L5PC-T87YObCmJv4Qcm59IqkkOf" \
+    && filename="scatacseq_activity_matrix.txt" \
+    && wget --save-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&id=${fileid}" -O- \
+        | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1/p' > /tmp/confirm.txt \
+    && wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(cat /tmp/confirm.txt)&id=${fileid}" \
+        -O /home/jovyan/lab/data/${filename} \
+    && rm -rf /tmp/cookies.txt /tmp/confirm.txt \
     && wget -O /home/jovyan/lab/data/atac_v1_pbmc_10k_singlecell.csv "https://cf.10xgenomics.com/samples/cell-atac/1.0.1/atac_v1_pbmc_10k/atac_v1_pbmc_10k_singlecell.csv" \
     && wget -O /home/jovyan/lab/data/atac_v1_pbmc_10k_filtered_peak_bc_matrix.h5 "https://cf.10xgenomics.com/samples/cell-atac/1.0.1/atac_v1_pbmc_10k/atac_v1_pbmc_10k_filtered_peak_bc_matrix.h5" \
     && wget -O /home/jovyan/lab/data/pbmc_10k_v3.rds "https://www.dropbox.com/s/3f3p5nxrn5b3y4y/pbmc_10k_v3.rds?dl=1"
