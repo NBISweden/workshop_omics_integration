@@ -28,6 +28,10 @@ jobs:
         with:
           fetch-depth: 0
 
+      # Set short commit hash
+      - name: Set short commit hash
+        run: echo "SHORT_SHA=${GITHUB_SHA::7}" >> $GITHUB_ENV
+
       # Set up Docker Buildx for multi-platform builds
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
@@ -89,8 +93,8 @@ jobs:
           push: true
           no-cache: true
           tags: |
-            docker.io/rasoolsnbis/omicsint_h24:session_ml_deep_learning_integration_amd_v.h24.${{ github.sha }}
-            ghcr.io/nbisweden/omicsint_h24:session_ml_deep_learning_integration_amd_v.h24.${{ github.sha }}
+            docker.io/rasoolsnbis/omicsint_h24:session_ml_deep_learning_integration_amd_v.h24.${{ env.SHORT_SHA }}
+            ghcr.io/nbisweden/omicsint_h24:session_ml_deep_learning_integration_amd_v.h24.${{ env.SHORT_SHA }}
 
       # Conditionally build and push images for Feature Selection Lab
       - name: Build and Push Docker Image for Feature Selection Lab
@@ -103,8 +107,8 @@ jobs:
           push: true
           no-cache: true
           tags: |
-            docker.io/rasoolsnbis/omicsint_h24:session_ml_feature_selection_amd_v.h24.${{ github.sha }}
-            ghcr.io/nbisweden/omicsint_h24:session_ml_feature_selection_amd_v.h24.${{ github.sha }}
+            docker.io/rasoolsnbis/omicsint_h24:session_ml_feature_selection_amd_v.h24.${{ env.SHORT_SHA }}
+            ghcr.io/nbisweden/omicsint_h24:session_ml_feature_selection_amd_v.h24.${{ env.SHORT_SHA }}
 
       # Conditionally build and push images for Single Cell Lab
       - name: Build and Push Docker Image for Single Cell Lab
@@ -117,8 +121,8 @@ jobs:
           push: true
           no-cache: true
           tags: |
-            docker.io/rasoolsnbis/omicsint_h24:session_ml_single_cell_amd_v.h24.${{ github.sha }}
-            ghcr.io/nbisweden/omicsint_h24:session_ml_single_cell_amd_v.h24.${{ github.sha }}
+            docker.io/rasoolsnbis/omicsint_h24:session_ml_single_cell_amd_v.h24.${{ env.SHORT_SHA }}
+            ghcr.io/nbisweden/omicsint_h24:session_ml_single_cell_amd_v.h24.${{ env.SHORT_SHA }}
 
       # Conditionally build and push images for UMAP Data Integration Lab
       - name: Build and Push Docker Image for UMAP Data Integration Lab
@@ -131,8 +135,8 @@ jobs:
           push: true
           no-cache: true
           tags: |
-            docker.io/rasoolsnbis/omicsint_h24:session_ml_umap_data_integration_amd_v.h24.${{ github.sha }}
-            ghcr.io/nbisweden/omicsint_h24:session_ml_umap_data_integration_amd_v.h24.${{ github.sha }}
+            docker.io/rasoolsnbis/omicsint_h24:session_ml_umap_data_integration_amd_v.h24.${{ env.SHORT_SHA }}
+            ghcr.io/nbisweden/omicsint_h24:session_ml_umap_data_integration_amd_v.h24.${{ env.SHORT_SHA }}
 
       
 
@@ -147,8 +151,8 @@ jobs:
           push: true
           no-cache: true
           tags: |
-            docker.io/rasoolsnbis/omicsint_h24:session_ml_supervised_omics_integration_amd_v.h24.${{ github.sha }}
-            ghcr.io/nbisweden/omicsint_h24:session_ml_supervised_omics_integration_amd_v.h24.${{ github.sha }}
+            docker.io/rasoolsnbis/omicsint_h24:session_ml_supervised_omics_integration_amd_v.h24.${{ env.SHORT_SHA }}
+            ghcr.io/nbisweden/omicsint_h24:session_ml_supervised_omics_integration_amd_v.h24.${{ env.SHORT_SHA }}
 
       # Conditionally build and push images for Unsupervised OMICs Integration Lab
       - name: Build and Push Docker Image for Unsupervised OMICs Integration Lab
@@ -161,8 +165,8 @@ jobs:
           push: true
           no-cache: true
           tags: |
-            docker.io/rasoolsnbis/omicsint_h24:session_ml_unsupervised_omics_integration_amd_v.h24.${{ github.sha }}
-            ghcr.io/nbisweden/omicsint_h24:session_ml_unsupervised_omics_integration_amd_v.h24.${{ github.sha }}
+            docker.io/rasoolsnbis/omicsint_h24:session_ml_unsupervised_omics_integration_amd_v.h24.${{ env.SHORT_SHA }}
+            ghcr.io/nbisweden/omicsint_h24:session_ml_unsupervised_omics_integration_amd_v.h24.${{ env.SHORT_SHA }}
 
       # Conditionally build and push images for Gems Lab
       - name: Build and Push Docker Image for Gems Lab
@@ -175,8 +179,8 @@ jobs:
           push: true
           no-cache: true
           tags: |
-            docker.io/rasoolsnbis/omicsint_h24:session_gems_amd_v.h24.${{ github.sha }}
-            ghcr.io/nbisweden/omicsint_h24:session_gems_amd_v.h24.${{ github.sha }}
+            docker.io/rasoolsnbis/omicsint_h24:session_gems_amd_v.h24.${{ env.SHORT_SHA }}
+            ghcr.io/nbisweden/omicsint_h24:session_gems_amd_v.h24.${{ env.SHORT_SHA }}
       
       # Conditionally build and push images for GSA lab
       - name: Build and Push Docker Image for GSA Lab
@@ -189,6 +193,6 @@ jobs:
           push: true
           no-cache: true
           tags: |
-            docker.io/rasoolsnbis/omicsint_h24:session_gsa_amd_v.h24.${{ github.sha }}
-            ghcr.io/nbisweden/omicsint_h24:session_gsa_amd_v.h24.${{ github.sha }}
+            docker.io/rasoolsnbis/omicsint_h24:session_gsa_amd_v.h24.${{ env.SHORT_SHA }}
+            ghcr.io/nbisweden/omicsint_h24:session_gsa_amd_v.h24.${{ env.SHORT_SHA }}
       
