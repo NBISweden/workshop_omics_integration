@@ -16,11 +16,11 @@ RUN apt-get update && apt-get install curl -y --no-install-recommends && \
 
 RUN mkdir -p /home/jovyan/lab/data
 
-# Clone the repository and checkout only .txt files from the DeepLearningDataIntegration folder
+# Clone the repository and checkout only .txt files from the UMAP_DataIntegration folder
 RUN git clone --depth=1 --filter=blob:none --sparse https://github.com/NBISweden/workshop_omics_integration.git /tmp/repo && \
     cd /tmp/repo && \
     git sparse-checkout init --cone && \
-    git sparse-checkout set session_ml/DeepLearningDataIntegration && \
+    git sparse-checkout set session_ml/UMAP_DataIntegration && \
     find session_ml/UMAP_DataIntegration -name "*.txt" -exec mv {} /home/jovyan/lab/data/ \; && \
     rm -rf /tmp/repo
 
