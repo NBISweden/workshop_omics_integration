@@ -66,6 +66,13 @@ COPY UnsupervisedOMICsIntegration_env.yml /tmp/UnsupervisedOMICsIntegration_env.
 RUN mamba env create -f /tmp/UnsupervisedOMICsIntegration_env.yml \
     && rm /tmp/UnsupervisedOMICsIntegration_env.yml
 
+# Download required files to the data directory
+RUN mkdir -p /home/jovyan/lab/data \
+    && wget -O /home/jovyan/lab/data/scATACseq.txt "https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/main/session_ml/UnsupervisedOMICsIntegration/scATACseq.txt" \
+    && wget -O /home/jovyan/lab/data/scBSseq.txt "https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/main/session_ml/UnsupervisedOMICsIntegration/scBSseq.txt" \
+    && wget -O /home/jovyan/lab/data/scRNAseq.txt "https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/main/session_ml/UnsupervisedOMICsIntegration/scRNAseq.txt" \
+    && wget -O /home/jovyan/lab/data/workflow.png "https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/main/session_ml/UnsupervisedOMICsIntegration/workflow.png"
+    
 # Download and install RStudio Server
 RUN curl -sL "https://download2.rstudio.org/server/focal/${RSTUDIO_ARCH}/rstudio-server-${RSTUDIO_VERSION//+/-}-${RSTUDIO_ARCH}.deb" -o /tmp/rstudio-server.deb && \
     echo "64044984a5791690586e21bf4411019ed3dccaf32a69e0838090762f3eba8da0  /tmp/rstudio-server.deb" | sha256sum -c - && \
