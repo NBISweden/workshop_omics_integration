@@ -1,5 +1,0 @@
-"0","setCurrentNetwork(network=""AgeingExpeNet"")
-"
-"2","Error in getNetworkSuid(network, base.url) : 
-  Network does not exist: AgeingExpeNet
-"

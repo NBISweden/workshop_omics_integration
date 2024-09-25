@@ -6,6 +6,8 @@ on:
       - 'session_ml/DeepLearningDataIntegration/**'
       - 'session_ml/FeatureSelectionIntegrOMICs/**'
       - 'session_ml/SingleCell/**'
+      - 'session_ml/SupervisedLearningDataIntegration/**'
+      - 'session_ml/UnsupervisedOMICsIntegration/**'
       - 'session_ml/UMAP_DataIntegration/**'
       - 'session_gems/**'
       - 'session_gsa/**'
@@ -58,6 +60,15 @@ jobs:
           fi
           if git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep -q '^session_ml/SingleCell'; then
             echo "single_cell=true" >> $GITHUB_ENV
+          fi
+          if git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep -q '^session_ml/UMAP_DataIntegration'; then
+            echo "umap_data_integration=true" >> $GITHUB_ENV
+          fi
+          if git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep -q '^session_ml/SupervisedLearningDataIntegration'; then
+            echo "umap_data_integration=true" >> $GITHUB_ENV
+          fi
+          if git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep -q '^session_ml/UnsupervisedOMICsIntegration'; then
+            echo "unsupervised_omics_integration=true" >> $GITHUB_ENV
           fi
           if git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep -q '^session_gems'; then
             echo "gems=true" >> $GITHUB_ENV
@@ -121,6 +132,34 @@ jobs:
           tags: |
             docker.io/rasoolsnbis/omicsint_h24:session_ml_umap_data_integration_amd_v.24.1
             ghcr.io/nbisweden/omicsint_h24:session_ml_umap_data_integration_amd_v.24.1
+
+      # Conditionally build and push images for Supervised Learning Data Integration Lab
+      - name: Build and Push Docker Image for Supervised Learning Data Integration Lab
+        if: env.supervised_learning_data_integration == 'true'
+        uses: docker/build-push-action@v4
+        with:
+          context: ./session_ml/SupervisedLearningDataIntegration
+          file: session_ml/SupervisedLearningDataIntegration/Dockerfile
+          platforms: linux/amd64
+          push: true
+          no-cache: true
+          tags: |
+            docker.io/rasoolsnbis/omicsint_h24:session_ml_supervised_learning_data_integration_amd_v.24.1
+            ghcr.io/nbisweden/omicsint_h24:session_ml_supervised_learning_data_integration_amd_v.24.1
+
+      # Conditionally build and push images for Unsupervised OMICs Integration Lab
+      - name: Build and Push Docker Image for Unsupervised OMICs Integration Lab
+        if: env.unsupervised_omics_integration == 'true'
+        uses: docker/build-push-action@v4
+        with:
+          context: ./session_ml/UnsupervisedOMICsIntegration
+          file: session_ml/UnsupervisedOMICsIntegration/Dockerfile
+          platforms: linux/amd64
+          push: true
+          no-cache: true
+          tags: |
+            docker.io/rasoolsnbis/omicsint_h24:session_ml_unsupervised_omics_integration_amd_v.24.1
+            ghcr.io/nbisweden/omicsint_h24:session_ml_unsupervised_omics_integration_amd_v.24.1
 
       # Conditionally build and push images for Gems Lab
       - name: Build and Push Docker Image for Gems Lab
