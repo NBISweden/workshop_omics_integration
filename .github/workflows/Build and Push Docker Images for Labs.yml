@@ -65,7 +65,7 @@ jobs:
             echo "umap_data_integration=true" >> $GITHUB_ENV
           fi
           if git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep -q '^session_ml/SupervisedLearningDataIntegration'; then
-            echo "umap_data_integration=true" >> $GITHUB_ENV
+            echo "supervised_learning_data_integration=true" >> $GITHUB_ENV
           fi
           if git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep -q '^session_ml/UnsupervisedOMICsIntegration'; then
             echo "unsupervised_omics_integration=true" >> $GITHUB_ENV
