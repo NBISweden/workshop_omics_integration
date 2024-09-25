@@ -59,3 +59,4 @@ RUN /opt/conda/envs/gems/bin/jupyter notebook --generate-config && \
 
 # Set the startup script as the entrypoint
 ENTRYPOINT ["/usr/local/bin/start-script.sh"]
+
