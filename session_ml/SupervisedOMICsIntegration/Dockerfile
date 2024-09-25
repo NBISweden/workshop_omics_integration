@@ -113,24 +113,21 @@ RUN useradd -s /bin/bash -N -u ${UID} -l ${USER} \
 # R needs TZ set
 RUN echo "TZ=Etc/UTC" >> ${R_HOME}/etc/Renviron.site
 
-#Get data from remote repo
-RUN git clone --depth=1 --filter=blob:none --sparse https://github.com/NBISweden/workshop_omics_integration.git /tmp/repo
-    
-RUN cd /tmp/repo && \
-    git sparse-checkout set session_ml/SupervisedOMICsIntegration/lab
-
-RUN ls -lh /tmp/repo/session_ml/SupervisedOMICsIntegration/lab/data
-
-RUN mv /tmp/repo/session_ml/SupervisedOMICsIntegration/lab/data /home/jovyan/lab/data && \
-    rm -rf /tmp/repo
-
 WORKDIR ${HOME}
 
 COPY run.sh /etc/run.sh
 RUN chmod +x /etc/run.sh
-COPY lab ${HOME}/${USER}/lab
-RUN chown -R ${USER}:${GROUP} ${HOME}/${USER}/lab \
-    && chmod -R u+w ${HOME}/lab 
+COPY lab ${HOME}/lab
+#Get data from remote repo
+RUN git clone --depth=1 --filter=blob:none --sparse https://github.com/NBISweden/workshop_omics_integration.git /tmp/repo
+RUN cd /tmp/repo && \
+    git sparse-checkout set session_ml/SupervisedOMICsIntegration/lab
+RUN ls -lh /tmp/repo/session_ml/SupervisedOMICsIntegration/lab/data
+RUN mv /tmp/repo/session_ml/SupervisedOMICsIntegration/lab/data /home/jovyan/lab/data && \
+    rm -rf /tmp/repo
+
+RUN chown -R ${USER}:${GROUP} ${HOME}/lab \
+    && chmod -R u+w ${HOME}/lab
 
 USER ${USER}
 EXPOSE 8787
