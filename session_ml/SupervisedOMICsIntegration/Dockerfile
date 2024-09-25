@@ -113,19 +113,15 @@ RUN useradd -s /bin/bash -N -u ${UID} -l ${USER} \
 # R needs TZ set
 RUN echo "TZ=Etc/UTC" >> ${R_HOME}/etc/Renviron.site
 
-# # Set default CRAN repo to RSPM (it has pre-compiled R packages, increasing user install speed)
-# RUN echo 'options(repos=c(CRAN="https://packagemanager.rstudio.com/all/__linux__/focal/latest"))' >> ${R_HOME}/etc/Rprofile.site \
-#  && echo 'options(HTTPUserAgent=sprintf("R/%s R (%s)", getRversion(), paste(getRversion(), R.version$platform, R.version$arch, R.version$os)))' >> ${R_HOME}/etc/Rprofile.site
-
 #Get data from remote repo
 RUN git clone --depth=1 --filter=blob:none --sparse https://github.com/NBISweden/workshop_omics_integration.git /tmp/repo
     
 RUN cd /tmp/repo && \
     git sparse-checkout set session_ml/SupervisedOMICsIntegration/lab
 
-RUN ls -lh /tmp/repo/session_ml/SupervisedOMICsIntegration/lab/
+RUN ls -lh /tmp/repo/session_ml/SupervisedOMICsIntegration/lab/data
 
-RUN mv /tmp/repo/session_ml/SupervisedOMICsIntegration/lab /home/jovyan/lab && \
+RUN mv /tmp/repo/session_ml/SupervisedOMICsIntegration/lab/data /home/jovyan/lab/data && \
     rm -rf /tmp/repo
 
 WORKDIR ${HOME}
@@ -134,8 +130,7 @@ COPY run.sh /etc/run.sh
 RUN chmod +x /etc/run.sh
 COPY lab ${HOME}/${USER}/lab
 RUN chown -R ${USER}:${GROUP} ${HOME}/${USER}/lab \
-    && chmod -R u+w ${HOME}/lab \
-    && chmod -R u+w ${HOME}/lab/data
+    && chmod -R u+w ${HOME}/lab 
 
 USER ${USER}
 EXPOSE 8787
