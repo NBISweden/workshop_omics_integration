@@ -1,4 +1,5 @@
-[![DOI](https://zenodo.org/badge/172930292.svg)](https://zenodo.org/badge/latestdoi/172930292)
+[![Build and Push Docker Images for Labs](https://github.com/NBISweden/workshop_omics_integration/actions/workflows/Build%20and%20Push%20Docker%20Images%20for%20Labs.yml/badge.svg)](https://github.com/NBISweden/workshop_omics_integration/actions/workflows/Build%20and%20Push%20Docker%20Images%20for%20Labs.yml)
+
 =========================================
 # Omics Integration and Systems Biology Workshop, 2024
 
