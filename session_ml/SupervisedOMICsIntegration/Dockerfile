@@ -1,7 +1,7 @@
 FROM ubuntu:20.04 AS base
 
 ARG RSTUDIO_ARCH="amd64"
-ARG RSTUDIO_VERSION="2023.12.1+402"
+ARG RSTUDIO_VERSION="2024.04.2-764"
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
@@ -13,7 +13,7 @@ ENV LC_ALL=en_US.UTF-8
 # Install useful Linux packages and cleanup
 RUN export DEBIAN_FRONTEND=noninteractive \
     && apt-get -yq update \
-    && apt-get -yq install --no-install-recommends \
+    && apt-get -yq install \
       curl \
       dpkg-sig \
       libpq5 \
@@ -26,50 +26,67 @@ RUN export DEBIAN_FRONTEND=noninteractive \
       libxml2 \ 
       libodbc1 \
       libglpk-dev \
-      libcurl4-gnutls-dev \ 
+      libssl-dev \
+      libxml2-dev \
+      libcurl4-gnutls-dev \
+      libpq-dev \
+      libz-dev \
+      make \
+      gcc \
+      ca-certificates \
+      gettext \
+      libexpat1-dev \
+      dh-autoreconf \
+      libcurl3-gnutls \
     && echo "en_US.UTF-8 UTF-8" > /etc/locale.gen \
     && locale-gen \
     && rm -rf /var/lib/apt/lists/*
-
-# Install Miniconda and Mamba
-RUN curl -LOs https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
-    && bash Miniconda3-latest-Linux-x86_64.sh -bfp /usr/local/miniconda3 \
-    && rm Miniconda3-latest-Linux-x86_64.sh \
-    && /usr/local/miniconda3/bin/conda install -n base -c conda-forge mamba \
-    && ln -s /usr/local/miniconda3/bin/mamba /usr/local/bin/mamba
-
-# Set up environment
-ENV PATH="/usr/local/miniconda3/bin:${PATH}"
 
 # Install R
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9 \
     && echo 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/' >> /etc/apt/sources.list \
     && apt-get -yq update \
-    && apt-get -yq install --no-install-recommends \
+    && apt-get -yq install \
     r-base \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \ 
     && apt-get autoremove -yq && apt-get autoclean -yq
 
-# # Install necessary libraries for GLIBCXX_3.4.29
-# RUN apt-get -yq update \
-#     && apt-get -yq install --no-install-recommends \
-#     software-properties-common \
-#     && add-apt-repository ppa:ubuntu-toolchain-r/test \
-#     && apt-get -yq update \
-#     && apt-get -yq install --no-install-recommends \
-#     libstdc++6 \
-#     && apt-get clean \
-#     && rm -rf /var/lib/apt/lists/*
+# Install necessary libraries for GLIBCXX_3.4.29
+RUN apt-get -yq update \
+    && apt-get -yq install --no-install-recommends \
+    software-properties-common \
+    && add-apt-repository ppa:ubuntu-toolchain-r/test \
+    && apt-get -yq update \
+    && apt-get -yq install \
+    libstdc++6 \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
-# Create Env using Mamba
-COPY SupervisedOMICsIntegration_env.yml /tmp/SupervisedOMICsIntegration_env.yml
-RUN mamba env create -f /tmp/SupervisedOMICsIntegration_env.yml \
-    && rm /tmp/SupervisedOMICsIntegration_env.yml
+# Download and compile Git from source
+RUN curl -L https://github.com/git/git/archive/v2.37.3.tar.gz | tar xz && \
+    cd git-2.37.3 && \
+    make prefix=/usr/local all && \
+    make prefix=/usr/local install
+
+# Clean up packages that were only needed for building
+RUN apt-get remove -y dh-autoreconf libz-dev && \
+    apt-get autoremove -y && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /git-2.37.3
+
+# Set git to be used
+RUN git --version
+
+#Install R packages
+RUN Rscript -e "install.packages(c('BiocManager', 'ggplot2', 'rmarkdown', 'knitr', 'plotly', 'dplyr', 'tidyr', 'reticulate', 'glmnet', 'snow'), dependencies=TRUE)"
+
+#Install BiocManager packages
+RUN Rscript -e "BiocManager::install(c('mixOmics', 'BiocParallel'), ask=FALSE)"
 
 # Download and install RStudio Server
 RUN curl -sL "https://download2.rstudio.org/server/focal/${RSTUDIO_ARCH}/rstudio-server-${RSTUDIO_VERSION//+/-}-${RSTUDIO_ARCH}.deb" -o /tmp/rstudio-server.deb && \
-    echo "64044984a5791690586e21bf4411019ed3dccaf32a69e0838090762f3eba8da0  /tmp/rstudio-server.deb" | sha256sum -c - && \
+    echo "bca4cccfabac87af2a54584f48a9751107c7dac82c845f397dc616bc02b27b4a /tmp/rstudio-server.deb" | sha256sum -c - && \
     dpkg -i /tmp/rstudio-server.deb && \
     rm -f /tmp/rstudio-server.deb && \
     echo "lock-type=advisory" > /etc/rstudio/file-locks \
@@ -100,13 +117,25 @@ RUN echo "TZ=Etc/UTC" >> ${R_HOME}/etc/Renviron.site
 # RUN echo 'options(repos=c(CRAN="https://packagemanager.rstudio.com/all/__linux__/focal/latest"))' >> ${R_HOME}/etc/Rprofile.site \
 #  && echo 'options(HTTPUserAgent=sprintf("R/%s R (%s)", getRversion(), paste(getRversion(), R.version$platform, R.version$arch, R.version$os)))' >> ${R_HOME}/etc/Rprofile.site
 
+#Get data from remote repo
+RUN git clone --depth=1 --filter=blob:none --sparse https://github.com/NBISweden/workshop_omics_integration.git /tmp/repo
+    
+RUN cd /tmp/repo && \
+    git sparse-checkout set session_ml/SupervisedOMICsIntegration/lab
+
+RUN ls -lh /tmp/repo/session_ml/SupervisedOMICsIntegration/lab/
+
+RUN mv /tmp/repo/session_ml/SupervisedOMICsIntegration/lab /home/jovyan/lab && \
+    rm -rf /tmp/repo
+
 WORKDIR ${HOME}
 
 COPY run.sh /etc/run.sh
 RUN chmod +x /etc/run.sh
-COPY lab ${HOME}/lab
-RUN chown -R ${USER}:${GROUP} ${HOME}/lab \
-    && chmod -R u+w ${HOME}/lab
+COPY lab ${HOME}/${USER}/lab
+RUN chown -R ${USER}:${GROUP} ${HOME}/${USER}/lab \
+    && chmod -R u+w ${HOME}/lab \
+    && chmod -R u+w ${HOME}/lab/data
 
 USER ${USER}
 EXPOSE 8787
