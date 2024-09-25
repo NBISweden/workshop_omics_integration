@@ -1,5 +1,0 @@
-node.lab, angle, radius, offset, width, path
-eye_33, 105, 2.25, 0.2, 0.75,"GreenEye.jpg"
-eye_37, 115, 2.0, 0.2, 0.75,"HazelEye.jpg"
-eye_41, 125, 1.5, 0.2, 0.75,"BlueEye.jpg"
-eye_45, 135, 0.0, 0.0, 0.75,"BrownEye.jpg"

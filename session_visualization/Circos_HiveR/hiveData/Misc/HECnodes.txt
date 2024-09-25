@@ -1,9 +1,0 @@
-node.lab,node.text,angle,radius,offset,hjust,vjust
-eye_33, "green", 240, 2.5, 0.2, 0.5, 0.5
-eye_37, "hazel", 240, 2.5, 0.2, 0.5, 0.5
-eye_41, "blue", 240, 2.5, 0.2, 0.5, 0.5
-eye_45, "brown", 240, 2.5, 0.2, 0.5, 0.5
-hair_1, "black", 60, 2.0, 0.2, 0.5, 0.5
-hair_2, "brown", 60, 2.0, 0.2, 0.5, 0.5
-hair_3, "red", 60, 2.0, 0.2, 0.5, 0.5
-hair_4, "blond", 60, 2.0, 0.2, 0.5, 0.5

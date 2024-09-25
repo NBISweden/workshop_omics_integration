@@ -1,7 +1,0 @@
-"0","AgeingMeth_string_interaction_cmd <- paste('string protein query taxonID=9606 cutoff=0.9 query=', paste(Age_meth$Gene, collapse="",""),'""',sep="""")"
-"0","commandsGET(AgeingMeth_string_interaction_cmd)"
-"1","[1]"
-"1"," ""Loaded network 'STRING network - 2' with 109 nodes and 97 edges"""
-"1","
-"
-"0","renameNetwork(""AgeingMethNet"")"
