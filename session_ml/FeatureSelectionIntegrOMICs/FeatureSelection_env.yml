@@ -14,3 +14,4 @@ dependencies:
   - r-stringr
   - r-survival
   - scipy=1.8.1
+  
