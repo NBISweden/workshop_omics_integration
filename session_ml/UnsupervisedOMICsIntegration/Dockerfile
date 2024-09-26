@@ -13,7 +13,7 @@ ENV LC_ALL=en_US.UTF-8
 # Install useful Linux packages and cleanup
 RUN export DEBIAN_FRONTEND=noninteractive \
     && apt-get -yq update \
-    && apt-get -yq install --no-install-recommends \
+    && apt-get -yq install \
       curl \
       dpkg-sig \
       libpq5 \
@@ -26,6 +26,18 @@ RUN export DEBIAN_FRONTEND=noninteractive \
       libxml2 \ 
       libodbc1 \
       libglpk-dev \
+      libssl-dev \
+      libxml2-dev \
+      libcurl4-gnutls-dev \
+      libpq-dev \
+      libz-dev \
+      make \
+      gcc \
+      ca-certificates \
+      gettext \
+      libexpat1-dev \
+      dh-autoreconf \
+      libcurl3-gnutls \
       wget \
     && echo "en_US.UTF-8 UTF-8" > /etc/locale.gen \
     && locale-gen \
