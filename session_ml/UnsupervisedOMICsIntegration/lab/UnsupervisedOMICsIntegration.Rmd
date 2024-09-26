@@ -14,9 +14,10 @@ abstract: |
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, force=TRUE)
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_knit$set(root.dir="/home/jovyan/lab")
 library(reticulate)
-reticulate::use_condaenv("UnsupervisedOMICsIntegration", conda = "/usr/local/miniconda3/bin/conda", required = TRUE)
+reticulate::use_condaenv('UnsupervisedOMICsIntegration')
 ```
 
 
