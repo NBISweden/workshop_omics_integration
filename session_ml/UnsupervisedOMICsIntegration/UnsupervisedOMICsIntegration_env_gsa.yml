@@ -1,0 +1,28 @@
+name: UnsupervisedOMICsIntegration
+channels:
+  - defaults
+  - conda-forge
+  - bioconda
+dependencies:
+  - r-base
+  - r-ggplot2
+  - r-rmarkdown
+  - r-knitr
+  - r-reticulate
+  - r-plotly
+  - r-dplyr
+  - r-tidyr
+  - r-matrixStats
+  - r-glmnet
+  - r-snow
+  - r-tibble
+  - r-viridisLite
+  - r-gridExtra
+  - r-pheatmap
+  - bioconductor-tcgabiolinks
+  - bioconductor-summarizedexperiment
+  - bioconductor-edger
+  - bioconductor-fgsea
+  - bioconductor-piano
+  - bioconductor-org.hs.eg.db
+  - bioconductor-annotationdbi
