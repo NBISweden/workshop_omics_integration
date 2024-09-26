@@ -14,13 +14,9 @@ abstract: |
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-# #If you want to knit the whole notebook, please specify below correct path to the Rmd-file
-knitr::opts_knit$set(root.dir="/home/jovyan/lab")
-
-### be sure to update the environment name if applicable
+knitr::opts_chunk$set(echo = TRUE, force=TRUE)
 library(reticulate)
-reticulate::use_condaenv('UnsupervisedOMICsIntegration')
+reticulate::use_condaenv("UnsupervisedOMICsIntegration", conda = "/usr/local/miniconda3/bin/conda", required = TRUE)
 ```
 
 
