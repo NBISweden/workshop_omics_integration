@@ -35,7 +35,8 @@ RUN curl -LOs https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64
     && bash Miniconda3-latest-Linux-x86_64.sh -bfp /usr/local/miniconda3 \
     && rm Miniconda3-latest-Linux-x86_64.sh \
     && /usr/local/miniconda3/bin/conda install -n base -c conda-forge mamba \
-    && ln -s /usr/local/miniconda3/bin/mamba /usr/local/bin/mamba
+    && ln -s /usr/local/miniconda3/bin/mamba /usr/local/bin/mamba \
+    && /usr/local/miniconda3/bin/conda init bash
 
 # Set up environment
 ENV PATH="/usr/local/miniconda3/bin:${PATH}"
@@ -66,12 +67,8 @@ COPY UnsupervisedOMICsIntegration_env.yml /tmp/UnsupervisedOMICsIntegration_env.
 RUN mamba env create -f /tmp/UnsupervisedOMICsIntegration_env.yml \
     && rm /tmp/UnsupervisedOMICsIntegration_env.yml
 
-RUN mkdir -p /home/jovyan/lab/data
-RUN apt-get update && apt-get install -y git && \
-    git clone https://github.com/NBISweden/workshop_omics_integration.git /tmp/repo && \
-    cd /tmp/repo && \
-    find session_ml/UnsupervisedOMICsIntegration -name "*.txt" -exec mv {} /home/jovyan/lab/data/ \; && \
-    rm -rf /tmp/repo
+# Install reticulate package explicitly in R
+RUN R -e "install.packages('reticulate', repos='https://cloud.r-project.org/')"
 
 # Download and install RStudio Server
 RUN curl -sL "https://download2.rstudio.org/server/focal/${RSTUDIO_ARCH}/rstudio-server-${RSTUDIO_VERSION//+/-}-${RSTUDIO_ARCH}.deb" -o /tmp/rstudio-server.deb && \
@@ -111,11 +108,9 @@ WORKDIR ${HOME}
 COPY run.sh /etc/run.sh
 RUN chmod +x /etc/run.sh
 COPY lab ${HOME}/lab
-RUN chown -R ${USER}:${GROUP} ${HOME}/lab \
-    && chmod -R u+w ${HOME}/lab
+RUN chmod +x ${HOME}/lab
 
 USER ${USER}
 EXPOSE 8787
 
 ENTRYPOINT ["/etc/run.sh"]
- 
