@@ -14,6 +14,8 @@ abstract: |
 
 ```{r new setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+#If you want to knit the whole notebook, please specify below correct path to the Rmd-file
+knitr::opts_knit$set(root.dir="/home/nikolay/Documents/Teaching/IntegrativeOMICs2021/session_ml/FeatureSelectionIntegrOMICs")
 ```
 
 
@@ -28,7 +30,7 @@ Here we have a typical biological case scanario where the number of drivers / ca
 
 ### GTEX Skeletal Muscles Gene Expression Data Set
 
-Here, we are going to go through methods for a) Univariate (one-by-one) Feature Selection, and b) Multivariate (all together) Feature Selection. For practicing the concept of Feature Selection, we will use the skeletal muscle gene expression subset from GTEX Human Tussue Gene Expression Consortium [1]. In order to speed up computations we randomly sampled 1000 genes / features from the data set. Here, we load the gene expression matrix X, remove lowly expressed genes and pre-view it:
+Here, we are going to go through methods for a) Univariate (one-by-one) Feature Selection, and b) Multivariate (all together) Feature Selection. For practicing the concept of Feature Selection, we will use the skeletal muscle gene expression subset from GTEX Human Tissue Gene Expression Consortium [1]. In order to speed up computations we randomly sampled 1000 genes / features from the data set. Here, we load the gene expression matrix X, remove lowly expressed genes and pre-view it:
 
 ```{r X,fig.width=10,fig.height=8}
 #Uncomment this in case you can not change your working directory
@@ -45,6 +47,7 @@ We can see that the gene expression data set includes p = 546 expressed genes (f
 
 ```{r Y,fig.width=10,fig.height=8}
 Y<-read.table("data/GTEX_SkeletalMuscles_157Samples_Gender.txt",header=TRUE,sep="\t")$GENDER
+names(Y)<-rownames(X)
 summary(Y)
 length(Y)
 ```
@@ -56,7 +59,11 @@ library("mixOmics")
 pca.gtex <- pca(X, ncomp=10)
 pca.gtex
 plot(pca.gtex)
-plotIndiv(pca.gtex, group = Y, ind.names = FALSE, legend = TRUE, title = 'PCA on GTEX Skeletal Muscles')
+plotIndiv(pca.gtex, group = Y, ind.names = FALSE, legend = TRUE, 
+          title = 'PCA on GTEX Skeletal Muscles', 
+          col.per.group = c("#f99943", "#44a7c4"),
+          pch = c(1,2)[match(Y, levels(factor(Y)))],
+          pch.levels = Y)
 ```
 
 The PCA plot demonstrates that there is a lot of variation between samples with respect to both PC1 and PC2, but there is no clear seggregation of Males and Females based on their skeletal muscle gene expression data. Now, we are going to start with a simple gene-by-gene Univariate Feature Selection, later and compare its results with the Multivariate Feature Selection.
@@ -108,7 +115,7 @@ $$
 \textrm{OLS} = (y-\beta_1X_1-\beta_2X_2)^2
 $$
 
-Here, for simplicity we used only two predictors X1 and X2, but there can be thousands and millions of them. It implies that in order to minimize the OLS cost function we have to do it in a highly-dimensional space which is notoriously difficult because of the **Curse of Dimensionality**. This leads to a very unstable sulution of multiple linear reression. To vercome this obstacle we can add a penalty term to the OLS cost function:
+Here, for simplicity we used only two predictors X1 and X2, but there can be thousands and millions of them. It implies that in order to minimize the OLS cost function we have to do it in a highly-dimensional space which is notoriously difficult because of the **Curse of Dimensionality**. This leads to a very unstable solution of multiple linear regression. To vercome this obstacle we can add a penalty term to the OLS cost function:
 
 $$
 \textrm{Penalized OLS} = (y-\beta_1X_1-\beta_2X_2)^2 + \lambda[\alpha(|\beta_1|+|\beta_2|)+(1-\alpha)(\beta_1^2+\beta_2^2)]
@@ -158,10 +165,15 @@ This algorithm can roughly be viewed as a process of collective selection of fea
 library("mixOmics")
 gtex.plsda <- plsda(X, Y, ncomp = 2)
 background = background.predict(gtex.plsda, comp.predicted = 2, dist = "max.dist")
-plotIndiv(gtex.plsda , comp = 1:2, group = Y, ind.names = FALSE, ellipse = TRUE, legend = TRUE, title = 'PLSDA on GTEX Skeletal Muscles', background = background)
+plotIndiv(gtex.plsda , comp = 1:2, group = Y, ind.names = FALSE, ellipse = TRUE, 
+          legend = TRUE, title = 'PLSDA on GTEX Skeletal Muscles', 
+          background = background,
+          col.per.group = c("#f99943", "#44a7c4"),
+          pch = c(1,2)[match(Y, levels(factor(Y)))],
+          pch.levels = Y)
 ```
 
-Now we observe a much more clear separation between Males and Females compared to the PCA plot above. This separation is achied by selecting most informative features that correlate with Gender. The selected features can be visualized and ranked by their importances via the PLS loadings:
+Now we observe a much more clear separation between Males and Females compared to the PCA plot above. This separation is acheived by selecting most informative features that correlate with Gender. The selected features can be visualized and ranked by their importances via the PLS loadings:
 
 ```{r PLS Loadings, fig.width=10,fig.height=8}
 plotLoadings(gtex.plsda, comp = 1, title = 'Loadings on comp 1', contrib = 'max', method = 'median', ndisplay = 10, size.name = 0.6)
