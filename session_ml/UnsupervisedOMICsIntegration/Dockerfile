@@ -104,11 +104,19 @@ RUN echo 'options(repos=c(CRAN="https://packagemanager.rstudio.com/all/__linux__
  && echo 'options(HTTPUserAgent=sprintf("R/%s R (%s)", getRversion(), paste(getRversion(), R.version$platform, R.version$arch, R.version$os)))' >> ${R_HOME}/etc/Rprofile.site
 
 WORKDIR ${HOME}
-
 COPY run.sh /etc/run.sh
 RUN chmod +x /etc/run.sh
 COPY lab ${HOME}/lab
-RUN chmod +x ${HOME}/lab
+
+RUN mkdir -p /home/jovyan/lab/data
+RUN apt-get update && apt-get install -y git && \
+git clone https://github.com/NBISweden/workshop_omics_integration.git /tmp/repo && \
+cd /tmp/repo && \
+find session_ml/UnsupervisedOMICsIntegration -name "*.txt" -exec mv {} /home/jovyan/lab/data/ \; && \
+rm -rf /tmp/repo
+
+RUN chown -R ${USER}:${GROUP} ${HOME}/lab \
+    && chmod -R u+w ${HOME}/lab
 
 USER ${USER}
 EXPOSE 8787
