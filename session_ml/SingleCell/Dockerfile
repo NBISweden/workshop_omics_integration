@@ -69,6 +69,7 @@ RUN mamba env create -f /tmp/SingleCell_env.yml && rm /tmp/SingleCell_env.yml
 # Install R packages that are not available via conda (SeuratData)
 RUN R -e "install.packages('remotes', repos='http://cran.us.r-project.org')"
 RUN R -e "remotes::install_github('satijalab/seurat-data')"
+RUN R -e "install.packages('irlba', type='source', force=TRUE)"
 
 # Download required files to the data directory
 RUN apt-get update && apt-get install -y python3-pip \
