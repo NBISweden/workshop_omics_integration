@@ -79,8 +79,9 @@ RUN apt-get remove -y dh-autoreconf libz-dev && \
 RUN git --version
 
 #Install R packages
-RUN Rscript -e "install.packages(c('BiocManager', 'ggplot2', 'rmarkdown', 'knitr', 'plotly', 'dplyr', 'tidyr', 'reticulate', 'bioconductor-mofa2'), dependencies=TRUE)"
-RUN pip3 install mofapy2 scipy==1.8.1
+RUN Rscript -e "install.packages(c('BiocManager', 'ggplot2', 'rmarkdown', 'knitr', 'plotly', 'dplyr', 'tidyr', 'reticulate', 'bioconductor-mofa2', 'mixomics'), dependencies=TRUE)"
+RUN mamba install -n UnsupervisedOMICsIntegration -c conda-forge mofapy2 scipy=1.8.1
+RUN R -e "BiocManager::install('bioconductor-mofa2','mixomics')"
 
 #Install BiocManager packages
 RUN Rscript -e "BiocManager::install(c('mixOmics', 'BiocParallel'), ask=FALSE)"
