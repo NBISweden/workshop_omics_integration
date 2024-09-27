@@ -78,15 +78,17 @@ RUN apt-get remove -y dh-autoreconf libz-dev && \
 # Set git to be used
 RUN git --version
 
-# Install Miniconda and Mamba
+# Install Miniconda
 RUN curl -LOs https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
     && bash Miniconda3-latest-Linux-x86_64.sh -bfp /usr/local/miniconda3 \
     && rm Miniconda3-latest-Linux-x86_64.sh
 
 # Set up environment
 ENV PATH="/usr/local/miniconda3/bin:${PATH}"
+RUN conda install -c conda-forge scipy=1.8.1
 
-RUN conda install -n base -c conda-forge mofapy2 scipy=1.8.1
+# Install mofapy2 using pip
+RUN pip install mofapy2
 
 #Install R packages
 RUN Rscript -e "install.packages(c('BiocManager', 'ggplot2', 'rmarkdown', 'knitr', 'plotly', 'dplyr', 'tidyr', 'reticulate', 'bioconductor-mofa2', 'mixomics'), dependencies=TRUE)"
