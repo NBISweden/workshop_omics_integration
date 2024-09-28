@@ -20,7 +20,7 @@ knitr::opts_knit$set(root.dir="/home/jovyan/lab")
 
 ### be sure to update the environment name if applicable
 library(reticulate)
-reticulate::use_condaenv('UnsupervisedOMICsIntegration')
+reticulate::use_condaenv('base')
 ```
 
 
@@ -30,7 +30,7 @@ MOFA is a typical hypothesis-free data exploration framework, [https://www.embop
 overlapping sets of samples, MOFA infers a low-dimensional data representation in
 terms of (hidden) factors which can be then visualized and interpreted.
 
-![](assets/workflow.png)
+![](/home/jovyan/lab/assests/workflow.png)
 
 Importantly, MOFA disentangles whether the underlying axes of heterogeneity are unique to a single data modality or are manifested in multiple modalities, thereby identifying links between the different ‘omics. Once trained, the model output can be used for a range of downstream analyses, including
 
@@ -42,7 +42,7 @@ Importantly, MOFA disentangles whether the underlying axes of heterogeneity are 
 
 How does a typical MOFA output look like? In the MOFA paper they applied this method to Chronic Lymphocytic Leukaemia (CLL) on 200 human patients that combined 1) drug response, 2) somatic mutations (targeted sequencing), 3) RNAseq data, and 4) Methylation array data.
 
-![](assets/MOFA_Output.png)
+![](/home/jovyan/lab/assests/MOFA_Output.png)
 
 Notably, nearly **40% of the 200 samples were profiled with some but not all OMICs types**; such a missing value scenario is not uncommon in large cohort studies, and MOFA is designed to cope with it. 
 
@@ -52,11 +52,11 @@ One can inspect loadings of MOFA hidden factors and observe known bio-markers fo
 
 Next MOFA can perform efficient imputation of missing values including imputation of "missing patients", i.e. when a patient is present in one OMICs layer but absent in another, this absent layer can be reconstructed for the patient, i.e. gray bars in the panel a) of the figure above can be filled.
 
-![](assets/MOFA_Imputation.png)
+![](/home/jovyan/lab/assests/MOFA_Imputation.png)
 
 Finally, latent factors inferred by MOFA are predictive of clinical outcomes. The authors of MOFa paper assessed the prediction performance when combining the **10 MOFA factors** in a multivariate Cox regression model (assessed using cross-validation). Notably, this model yielded **higher prediction accuracy than the 10 factors derived from conventional PCA or using the individual features**.
 
-![](assests/MOFA_Prediction.png)
+![](/home/jovyan/lab/assests/MOFA_Prediction.png)
 
 Important to realize that despite the results of PCA and Factor Analysis visually look very similar, as they both provide linear variance-covariance matrix decomposition, they have quite a different math behind. While PCA is a pure matrix factorization technique which splits the total variance into orthogonal Principal Components (PCs), Factor Analysis seeks to construct hidden latent variables that generate the observed data, therefore Factor Analysis is a generative model.
 
@@ -185,11 +185,7 @@ TrainOptions
 Finally, we are ready to run MOFA:
 
 ```{r,fig.width=10,fig.height=8, warning=F}
-reticulate::use_python("/usr/local/miniconda3/envs/UnsupervisedOMICsIntegration/bin/python3")
-reticulate::use_condaenv("UnsupervisedOMICsIntegration", required = TRUE)
-```
-
-```{r,fig.width=10,fig.height=8, warning=F}
+reticulate::use_condaenv("base", required = TRUE)
 MOFAobject <- prepare_mofa(MOFAobject, data_options = DataOptions, model_options = ModelOptions, training_options = TrainOptions)
 MOFAobject <- run_mofa(MOFAobject, use_basilisk = FALSE)
 MOFAobject
