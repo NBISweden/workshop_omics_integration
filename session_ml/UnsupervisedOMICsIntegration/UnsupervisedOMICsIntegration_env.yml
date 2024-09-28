@@ -1,9 +1,10 @@
-name: UnsupervisedOMICsIntegration
+name: base
 channels:
   - defaults
   - conda-forge
   - bioconda
 dependencies:
+  - python=3.8
   - r-ggplot2
   - r-rmarkdown
   - r-knitr
@@ -13,6 +14,6 @@ dependencies:
   - r-reticulate
   - r-stringr
   - r-survival
-  - scipy=1.8.1
+  - scipy
   - mofapy2
   - bioconductor-mofa2

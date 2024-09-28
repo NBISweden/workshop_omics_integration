@@ -38,6 +38,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
       libexpat1-dev \
       dh-autoreconf \
       libcurl3-gnutls \
+      python3-pip \
     && echo "en_US.UTF-8 UTF-8" > /etc/locale.gen \
     && locale-gen \
     && rm -rf /var/lib/apt/lists/*
@@ -78,15 +79,18 @@ RUN apt-get remove -y dh-autoreconf libz-dev && \
 # Set git to be used
 RUN git --version
 
-# Install mofapy2 using pip
-RUN pip install mofapy2
+# Install Miniconda
+RUN curl -LO https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
+    && bash Miniconda3-latest-Linux-x86_64.sh -bfp /usr/local/miniconda3 \
+    && rm Miniconda3-latest-Linux-x86_64.sh
 
-#Install R packages
-RUN Rscript -e "install.packages(c('BiocManager', 'ggplot2', 'rmarkdown', 'knitr', 'plotly', 'dplyr', 'tidyr', 'reticulate', 'bioconductor-mofa2', 'mixomics'), dependencies=TRUE)"
-RUN R -e "BiocManager::install('bioconductor-mofa2','mixomics')"
+# Set up environment
+ENV PATH="/usr/local/miniconda3/bin:$PATH"
 
-#Install BiocManager packages
-RUN Rscript -e "BiocManager::install(c('mixOmics', 'BiocParallel'), ask=FALSE)"
+COPY UnsupervisedOMICsIntegration_env.yml /tmp/UnsupervisedOMICsIntegration_env.yml
+RUN conda env update -n base -f /tmp/UnsupervisedOMICsIntegration_env.yml
+# Clean up Conda cache to reduce image size
+RUN conda clean -afy
 
 # Download and install RStudio Server
 RUN curl -sL "https://download2.rstudio.org/server/focal/${RSTUDIO_ARCH}/rstudio-server-${RSTUDIO_VERSION//+/-}-${RSTUDIO_ARCH}.deb" -o /tmp/rstudio-server.deb && \
