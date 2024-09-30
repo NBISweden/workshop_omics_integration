@@ -57,14 +57,14 @@ RUN conda env update -n base -f /tmp/SingleCell_env.yml
 # Clean up Conda cache to reduce image size
 RUN conda clean -afy
 
-# Install R 4.4.x (for Ubuntu focal)
+# Install R
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9 \
-    && echo "deb https://cloud.r-project.org/bin/linux/ubuntu jammy-cran40/" >> /etc/apt/sources.list \
+    && echo 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/' >> /etc/apt/sources.list \
     && apt-get -yq update \
     && apt-get -yq install --no-install-recommends \
     r-base \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists/* \
+    && rm -rf /var/lib/apt/lists/* \ 
     && apt-get autoremove -yq && apt-get autoclean -yq
 
 # Install necessary libraries for GLIBCXX_3.4.29
