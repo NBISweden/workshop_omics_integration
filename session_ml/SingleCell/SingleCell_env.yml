@@ -15,4 +15,5 @@ dependencies:
   - r-signac
   - r-cowplot
   - r-hdf5r
+  - r-matrix=1.5-1
   
