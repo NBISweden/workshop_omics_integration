@@ -2,7 +2,7 @@
 
 # Activate Conda environment
 export PATH="/usr/local/miniconda3/bin:$PATH"
-source activate SingleCell_env
+source activate base
 
 # using rstudio with non-root and `--auth-none=1` inexplicably requires USER to be set
 echo -e "password123\n${PASSWORD}\n${PASSWORD}" | passwd

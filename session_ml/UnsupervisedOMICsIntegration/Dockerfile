@@ -1,7 +1,7 @@
 FROM ubuntu:20.04 AS base
 
 ARG RSTUDIO_ARCH="amd64"
-ARG RSTUDIO_VERSION="2023.12.1+402"
+ARG RSTUDIO_VERSION="2024.04.2-764"
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
@@ -38,26 +38,16 @@ RUN export DEBIAN_FRONTEND=noninteractive \
       libexpat1-dev \
       dh-autoreconf \
       libcurl3-gnutls \
-      wget \
+      python3-pip \
     && echo "en_US.UTF-8 UTF-8" > /etc/locale.gen \
     && locale-gen \
     && rm -rf /var/lib/apt/lists/*
-
-# Install Miniconda and Mamba
-RUN curl -LOs https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
-    && bash Miniconda3-latest-Linux-x86_64.sh -bfp /usr/local/miniconda3 \
-    && rm Miniconda3-latest-Linux-x86_64.sh \
-    && /usr/local/miniconda3/bin/conda install -n base -c conda-forge mamba \
-    && ln -s /usr/local/miniconda3/bin/mamba /usr/local/bin/mamba
-
-# Set up environment
-ENV PATH="/usr/local/miniconda3/bin:${PATH}"
 
 # Install R
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9 \
     && echo 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/' >> /etc/apt/sources.list \
     && apt-get -yq update \
-    && apt-get -yq install --no-install-recommends \
+    && apt-get -yq install \
     r-base \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \ 
@@ -69,26 +59,42 @@ RUN apt-get -yq update \
     software-properties-common \
     && add-apt-repository ppa:ubuntu-toolchain-r/test \
     && apt-get -yq update \
-    && apt-get -yq install --no-install-recommends \
+    && apt-get -yq install \
     libstdc++6 \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# INSTALL R packages using Mamba
-COPY UnsupervisedOMICsIntegration_env.yml /tmp/UnsupervisedOMICsIntegration_env.yml
-RUN mamba env create -f /tmp/UnsupervisedOMICsIntegration_env.yml \
-    && rm /tmp/UnsupervisedOMICsIntegration_env.yml
+# Download and compile Git from source
+RUN curl -L https://github.com/git/git/archive/v2.37.3.tar.gz | tar xz && \
+    cd git-2.37.3 && \
+    make prefix=/usr/local all && \
+    make prefix=/usr/local install
 
-# Download required files to the data directory
-RUN mkdir -p /home/jovyan/lab/data \
-    && wget -O /home/jovyan/lab/data/scATACseq.txt "https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/main/session_ml/UnsupervisedOMICsIntegration/scATACseq.txt" \
-    && wget -O /home/jovyan/lab/data/scBSseq.txt "https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/main/session_ml/UnsupervisedOMICsIntegration/scBSseq.txt" \
-    && wget -O /home/jovyan/lab/data/scRNAseq.txt "https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/main/session_ml/UnsupervisedOMICsIntegration/scRNAseq.txt" \
-    && wget -O /home/jovyan/lab/data/workflow.png "https://raw.githubusercontent.com/NBISweden/workshop_omics_integration/main/session_ml/UnsupervisedOMICsIntegration/workflow.png"
-    
+# Clean up packages that were only needed for building
+RUN apt-get remove -y dh-autoreconf libz-dev && \
+    apt-get autoremove -y && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /git-2.37.3
+
+# Set git to be used
+RUN git --version
+
+# Install Miniconda
+RUN curl -LO https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
+    && bash Miniconda3-latest-Linux-x86_64.sh -bfp /usr/local/miniconda3 \
+    && rm Miniconda3-latest-Linux-x86_64.sh
+
+# Set up environment
+ENV PATH="/usr/local/miniconda3/bin:$PATH"
+
+COPY UnsupervisedOMICsIntegration_env.yml /tmp/UnsupervisedOMICsIntegration_env.yml
+RUN conda env update -n base -f /tmp/UnsupervisedOMICsIntegration_env.yml
+# Clean up Conda cache to reduce image size
+RUN conda clean -afy
+
 # Download and install RStudio Server
 RUN curl -sL "https://download2.rstudio.org/server/focal/${RSTUDIO_ARCH}/rstudio-server-${RSTUDIO_VERSION//+/-}-${RSTUDIO_ARCH}.deb" -o /tmp/rstudio-server.deb && \
-    echo "64044984a5791690586e21bf4411019ed3dccaf32a69e0838090762f3eba8da0  /tmp/rstudio-server.deb" | sha256sum -c - && \
+    echo "bca4cccfabac87af2a54584f48a9751107c7dac82c845f397dc616bc02b27b4a /tmp/rstudio-server.deb" | sha256sum -c - && \
     dpkg -i /tmp/rstudio-server.deb && \
     rm -f /tmp/rstudio-server.deb && \
     echo "lock-type=advisory" > /etc/rstudio/file-locks \
@@ -115,15 +121,18 @@ RUN useradd -s /bin/bash -N -u ${UID} -l ${USER} \
 # R needs TZ set
 RUN echo "TZ=Etc/UTC" >> ${R_HOME}/etc/Renviron.site
 
-# Set default CRAN repo to RSPM (it has pre-compiled R packages, increasing user install speed)
-RUN echo 'options(repos=c(CRAN="https://packagemanager.rstudio.com/all/__linux__/focal/latest"))' >> ${R_HOME}/etc/Rprofile.site \
- && echo 'options(HTTPUserAgent=sprintf("R/%s R (%s)", getRversion(), paste(getRversion(), R.version$platform, R.version$arch, R.version$os)))' >> ${R_HOME}/etc/Rprofile.site
-
 WORKDIR ${HOME}
-
 COPY run.sh /etc/run.sh
 RUN chmod +x /etc/run.sh
 COPY lab ${HOME}/lab
+
+RUN mkdir -p /home/jovyan/lab/data
+RUN apt-get update && apt-get install -y git && \
+git clone https://github.com/NBISweden/workshop_omics_integration.git /tmp/repo && \
+cd /tmp/repo && \
+find session_ml/UnsupervisedOMICsIntegration -name "*.txt" -exec mv {} /home/jovyan/lab/data/ \; && \
+rm -rf /tmp/repo
+
 RUN chown -R ${USER}:${GROUP} ${HOME}/lab \
     && chmod -R u+w ${HOME}/lab
 

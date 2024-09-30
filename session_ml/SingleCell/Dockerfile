@@ -13,9 +13,8 @@ ENV LC_ALL=en_US.UTF-8
 # Install useful Linux packages and cleanup
 RUN export DEBIAN_FRONTEND=noninteractive \
     && apt-get -yq update \
-    && apt-get -yq install --no-install-recommends \
+    && apt-get -yq install \
       curl \
-      wget \
       dpkg-sig \
       libpq5 \
       psmisc \
@@ -27,29 +26,46 @@ RUN export DEBIAN_FRONTEND=noninteractive \
       libxml2 \ 
       libodbc1 \
       libglpk-dev \
+      libssl-dev \
+      libxml2-dev \
+      libcurl4-gnutls-dev \
+      libpq-dev \
+      libz-dev \
+      make \
+      gcc \
+      ca-certificates \
+      gettext \
+      libexpat1-dev \
+      dh-autoreconf \
+      libcurl3-gnutls \
+      python3-pip \
+      wget \
     && echo "en_US.UTF-8 UTF-8" > /etc/locale.gen \
     && locale-gen \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Miniconda and Mamba
-RUN curl -LOs https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
+# Install Miniconda
+RUN curl -LO https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
     && bash Miniconda3-latest-Linux-x86_64.sh -bfp /usr/local/miniconda3 \
-    && rm Miniconda3-latest-Linux-x86_64.sh \
-    && /usr/local/miniconda3/bin/conda install -n base -c conda-forge mamba \
-    && ln -s /usr/local/miniconda3/bin/mamba /usr/local/bin/mamba
+    && rm Miniconda3-latest-Linux-x86_64.sh
 
 # Set up environment
-ENV PATH="/usr/local/miniconda3/bin:${PATH}"
+ENV PATH="/usr/local/miniconda3/bin:$PATH"
+
+COPY SingleCell_env.yml /tmp/SingleCell_env.yml
+RUN conda env update -n base -f /tmp/SingleCell_env.yml
+# Clean up Conda cache to reduce image size
+RUN conda clean -afy
 
 # Install R
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9 \
-    && echo 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/' >> /etc/apt/sources.list \
-    && apt-get -yq update \
-    && apt-get -yq install --no-install-recommends \
-    r-base \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/* \ 
-    && apt-get autoremove -yq && apt-get autoclean -yq
+# RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9 \
+#     && echo 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/' >> /etc/apt/sources.list \
+#     && apt-get -yq update \
+#     && apt-get -yq install --no-install-recommends \
+#     r-base \
+#     && apt-get clean \
+#     && rm -rf /var/lib/apt/lists/* \ 
+#     && apt-get autoremove -yq && apt-get autoclean -yq
 
 # Install necessary libraries for GLIBCXX_3.4.29
 RUN apt-get -yq update \
@@ -62,10 +78,10 @@ RUN apt-get -yq update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
+
 # INSTALL R packages using Mamba
 COPY SingleCell_env.yml /tmp/SingleCell_env.yml
 RUN mamba env create -f /tmp/SingleCell_env.yml && rm /tmp/SingleCell_env.yml
-
 
 # Download required files to the data directory
 RUN apt-get update && apt-get install -y python3-pip \
