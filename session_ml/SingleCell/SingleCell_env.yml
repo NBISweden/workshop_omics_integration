@@ -1,4 +1,4 @@
-name: SingleCell_env
+name: base
 channels:
   - defaults
   - conda-forge

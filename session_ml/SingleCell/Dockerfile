@@ -31,15 +31,18 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     && locale-gen \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Miniconda and Mamba
-RUN curl -LOs https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
+# Install Miniconda
+RUN curl -LO https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
     && bash Miniconda3-latest-Linux-x86_64.sh -bfp /usr/local/miniconda3 \
-    && rm Miniconda3-latest-Linux-x86_64.sh \
-    && /usr/local/miniconda3/bin/conda install -n base -c conda-forge mamba \
-    && ln -s /usr/local/miniconda3/bin/mamba /usr/local/bin/mamba
+    && rm Miniconda3-latest-Linux-x86_64.sh
 
 # Set up environment
-ENV PATH="/usr/local/miniconda3/bin:${PATH}"
+ENV PATH="/usr/local/miniconda3/bin:$PATH"
+
+COPY SingleCell_env.yml /tmp/SingleCell_env.yml
+RUN conda env update -n base -f /tmp/SingleCell_env.yml
+# Clean up Conda cache to reduce image size
+RUN conda clean -afy
 
 # Install R
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9 \
@@ -61,10 +64,6 @@ RUN apt-get -yq update \
     libstdc++6 \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
-
-# INSTALL R packages using Mamba
-COPY SingleCell_env.yml /tmp/SingleCell_env.yml
-RUN mamba env create -f /tmp/SingleCell_env.yml && rm /tmp/SingleCell_env.yml
 
 # Install R packages that are not available via conda (SeuratData)
 RUN R -e "install.packages('remotes', repos='http://cran.us.r-project.org')"
