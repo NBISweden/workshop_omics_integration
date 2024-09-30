@@ -21,20 +21,20 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Seurat is a tool developed by the lab of Rahul Satija to facilitate analysis of Single Cell Omics (scOmics) data. Started as a pipeline tool, i.e. a collection of all known pre-processing and scOmics analysis steps, Seurat developed a few original methods on normalization and batch-effect correction. With the rise of Human Cell Atlas (HCA) consortium, Seurat contributed to ideas on data harmonization across multiple labs and technologies. The ambition of HCA was to develop an Atlas of all human cells from all human tissues, that could serve as a refernce for the future research, i.e. human cells from a particular experiment could have been quickly assigned to a particular cell type without performing the regular single cell analysis steps.
 
-![](./assets/HCA_Press_Release.jpg){ width="800" height="600" style="display: block; margin: 0 auto" }
+![](/home/jovyan/lab/assets/HCA_Press_Release.jpg){ width="800" height="600" style="display: block; margin: 0 auto" }
 
 Seurat was for a very long time *de-facto* a standard tool for single cell data analysis in 2016-2018, especially in North America, before first two Seurat articles got published in 2018 and 2019. Nowadays, there are alternative single cell analysis workflows, such as SCRAN (lab of John Marioni at EBI) and SCANPY (lab of Fabian Thejs in Munich), that can compete with Seurat. In the first paper of A. Butler et al., **Integrating single cell transcriptomic data across different conditions, technilogies and species** in Nature Biotechnology, 2018, Seurat suggested an interesting modification of the Canonical Correlation Analysis (CCA), that belongs to the same family of algorithms as PLS, OPLS, JIVE and DISCO. The modification was to include an **alignment** of canonical correlation vectors (PLS-components) with the **Dynamic Time Warping (DTW)**, which typically serves as a trajectory similarity measure in Time Series data analysis.
 
 The idea of data integration by Seurat is that CCA delivers components representing linear combinations of features across data sets that are maximally correlated (capture correlation structures across data sets), but not necessarily aligned. Next, Dynamic Time Warping (DTW) is used to locally compress or stretch the vectors during alignment to correct for  changes in population density. As a result, the data sets are represented in a single, integrated low-dimensional space.
 
 
-![](./assets/Seurat_OmicsIntegration.png){ width="800" height="600" style="display: block; margin: 0 auto" }
+![](/home/jovyan/lab/assets/Seurat_OmicsIntegration.png){ width="800" height="600" style="display: block; margin: 0 auto" }
 
 The CCA + DTW strategy was successfully used for data harmonization across multiple conditions, species, labs and technologies. However, those examples were a sort of single cell oriented batch-effect correction that has been known as a big problem in data analysis for years. In other words, despite CCA + DTW offer an impressive integrative framework, possibly adjusted for single cell data analysis, this methodology is for **integration across samples** and not straghtforward to extend to the **integration across Omics**, which is the main challenge and focus of multi-Omics data integration.
 
 Later, Seurat extended the CCA approach for integrating across Omics in the work [Stuart et al. 2019](https://www.cell.com/cell/fulltext/S0092-8674(19)30559-8), where they used an interesting "anchor" idea borrowed from the Mutual Nearest Neighbors (MNN) algorithm of [Haghverdi et al. 2018](https://www.nature.com/articles/nbt.4091). The idea is based on identifying cells across two Omics that are most similar to each other (anchors), i.e. most likely belong to the same cell population, and align all the rest cells accordingly. This was probably the first true integration across Omics for single cell area.
 
-![](./aasets/Anchors.png){ width="800" height="500" style="display: block; margin: 0 auto" }
+![](/home/jovyan/lab/assets/Anchors.png){ width="800" height="500" style="display: block; margin: 0 auto" }
 
 Below, we will demonstrate how to use the "anchors" approach for integrating scRNAseq (9432 cells) and scATACseq (8728 cells) data from PBMC cells. Please note that the two modalities were not measures on the physically same cells but on cells from the same tissue. This was because there was no high-throughput technology available at that time that could produce multiple modalities from the same biological cells. Nowadays, with the advent of 10X Multiome technology, the "anchor" method was replaced by the Weighted Nearest Neighbors (WNN) method.
 
