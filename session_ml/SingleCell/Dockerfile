@@ -66,10 +66,6 @@ RUN apt-get -yq update \
 COPY SingleCell_env.yml /tmp/SingleCell_env.yml
 RUN mamba env create -f /tmp/SingleCell_env.yml && rm /tmp/SingleCell_env.yml
 
-# Install R packages that are not available via conda (SeuratData)
-RUN R -e "install.packages('remotes', repos='http://cran.us.r-project.org')"
-RUN R -e "remotes::install_github('satijalab/seurat-data')"
-RUN R -e "install.packages('irlba', type='source', force=TRUE)"
 
 # Download required files to the data directory
 RUN apt-get update && apt-get install -y python3-pip \
@@ -113,6 +109,12 @@ RUN echo "TZ=Etc/UTC" >> ${R_HOME}/etc/Renviron.site
 RUN echo 'options(repos=c(CRAN="https://packagemanager.rstudio.com/all/__linux__/focal/latest"))' >> ${R_HOME}/etc/Rprofile.site \
  && echo 'options(HTTPUserAgent=sprintf("R/%s R (%s)", getRversion(), paste(getRversion(), R.version$platform, R.version$arch, R.version$os)))' >> ${R_HOME}/etc/Rprofile.site
 
+
+# Install R packages that are not available via conda (SeuratData)
+RUN R -e ".libPaths('/usr/local/miniconda3/envs/SingleCell_env/lib/R/library'); \
+  install.packages('irlba', type='source', force=TRUE)"
+
+
 WORKDIR ${HOME}
 
 COPY run.sh /etc/run.sh
@@ -120,6 +122,7 @@ RUN chmod +x /etc/run.sh
 COPY lab ${HOME}/lab
 RUN chown -R ${USER}:${GROUP} ${HOME}/lab \
     && chmod -R u+w ${HOME}/lab
+
 
 USER ${USER}
 EXPOSE 8787
