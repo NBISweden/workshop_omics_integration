@@ -110,10 +110,9 @@ RUN echo 'options(repos=c(CRAN="https://packagemanager.rstudio.com/all/__linux__
  && echo 'options(HTTPUserAgent=sprintf("R/%s R (%s)", getRversion(), paste(getRversion(), R.version$platform, R.version$arch, R.version$os)))' >> ${R_HOME}/etc/Rprofile.site
 
 
-# Install R packages that are not available via conda (SeuratData)
+# Install R packages that are not available via conda (irlba from source)
 RUN R -e ".libPaths('/usr/local/miniconda3/envs/SingleCell_env/lib/R/library'); \
   install.packages('irlba', type='source', force=TRUE)"
-
 
 WORKDIR ${HOME}
 
