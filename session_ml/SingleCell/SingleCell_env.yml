@@ -10,7 +10,7 @@ dependencies:
   - r-dplyr
   - r-reticulate
   - r-stringr
-  - scipy=1.8.1
+  - scipy
   - r-seurat
   - r-signac
   - r-cowplot
