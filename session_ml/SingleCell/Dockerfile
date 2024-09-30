@@ -79,10 +79,6 @@ RUN apt-get -yq update \
     && rm -rf /var/lib/apt/lists/*
 
 
-# INSTALL R packages using Mamba
-COPY SingleCell_env.yml /tmp/SingleCell_env.yml
-RUN mamba env create -f /tmp/SingleCell_env.yml && rm /tmp/SingleCell_env.yml
-
 # Download required files to the data directory
 RUN apt-get update && apt-get install -y python3-pip \
     && pip3 install gdown \
@@ -127,7 +123,7 @@ RUN echo 'options(repos=c(CRAN="https://packagemanager.rstudio.com/all/__linux__
 
 
 # Install R packages that are not available via conda (irlba from source)
-RUN R -e ".libPaths('/usr/local/miniconda3/envs/SingleCell_env/lib/R/library'); \
+RUN R -e ".libPaths('/usr/local/miniconda3/envs/base/lib/R/library'); \
   install.packages('irlba', type='source', force=TRUE)"
 
 WORKDIR ${HOME}
