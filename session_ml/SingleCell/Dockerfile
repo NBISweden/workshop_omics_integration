@@ -39,6 +39,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
       dh-autoreconf \
       libcurl3-gnutls \
       python3-pip \
+      wget \
     && echo "en_US.UTF-8 UTF-8" > /etc/locale.gen \
     && locale-gen \
     && rm -rf /var/lib/apt/lists/*
