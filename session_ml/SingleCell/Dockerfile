@@ -58,11 +58,21 @@ RUN conda env update -n base -f /tmp/SingleCell_env.yml
 RUN conda clean -afy
 
 # Install R 4.4.x from the Jammy repository
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9 \
-    && echo "deb https://cloud.r-project.org/bin/linux/ubuntu jammy-cran40/" >> /etc/apt/sources.list \
+# RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9 \
+#     && echo "deb https://cloud.r-project.org/bin/linux/ubuntu jammy-cran40/" >> /etc/apt/sources.list \
+#     && apt-get -yq update \
+#     && apt-get -yq install --no-install-recommends \
+#     r-base \
+#     && apt-get clean \
+#     && rm -rf /var/lib/apt/lists/* \
+#     && apt-get autoremove -yq && apt-get autoclean -yq
+
+# Install R 4.4.x from the Jammy repository
+RUN mkdir -p /etc/apt/keyrings \
+    && curl -fsSL https://cloud.r-project.org/bin/linux/ubuntu/jammy-cran40.key | gpg --dearmor -o /etc/apt/keyrings/r-project.gpg \
+    && echo "deb [signed-by=/etc/apt/keyrings/r-project.gpg] https://cloud.r-project.org/bin/linux/ubuntu jammy-cran40/" | tee -a /etc/apt/sources.list.d/r-project.list \
     && apt-get -yq update \
-    && apt-get -yq install --no-install-recommends \
-    r-base \
+    && apt-get -yq install --no-install-recommends r-base \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get autoremove -yq && apt-get autoclean -yq
