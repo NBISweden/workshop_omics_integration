@@ -19,11 +19,11 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ### Seurat Single Cell Omics Integration
 
-Seurat is a tool developed by the lab of Rahul Satija to facilitate analysis of Single Cell Omics (scOmics) data. Started as a pipeline tool, i.e. a collection of all known pre-processing and scOmics analysis steps, Seurat developed a few original methods on normalization and batch-effect correction. With the rise of Human Cell Atlas (HCA) consortium, Seurat contributed to ideas on data harmonization across multiple labs and technologies. The ambition of HCA was to develop an Atlas of all human cells from all human tissues, that could serve as a refernce for the future research, i.e. human cells from a particular experiment could have been quickly assigned to a particular cell type without performing the regular single cell analysis steps.
+Seurat is a tool developed by the lab of Rahul Satija to facilitate analysis of Single Cell Omics (scOmics) data. Started as a pipeline tool, i.e. a collection of all known pre-processing and scOmics analysis steps, Seurat developed a few original methods on normalization and batch-effect correction. With the rise of Human Cell Atlas (HCA) consortium, Seurat contributed to ideas on data harmonization across multiple labs and technologies. The ambition of HCA was to develop an Atlas of all human cells from all human tissues, that could serve as a reference for the future research, i.e. human cells from a particular experiment could have been quickly assigned to a particular cell type without performing the regular single cell analysis steps.
 
 ![](/home/jovyan/lab/assets/HCA_Press_Release.jpg){ width="800" height="600" style="display: block; margin: 0 auto" }
 
-Seurat was for a very long time *de-facto* a standard tool for single cell data analysis in 2016-2018, especially in North America, before first two Seurat articles got published in 2018 and 2019. Nowadays, there are alternative single cell analysis workflows, such as SCRAN (lab of John Marioni at EBI) and SCANPY (lab of Fabian Thejs in Munich), that can compete with Seurat. In the first paper of A. Butler et al., **Integrating single cell transcriptomic data across different conditions, technilogies and species** in Nature Biotechnology, 2018, Seurat suggested an interesting modification of the Canonical Correlation Analysis (CCA), that belongs to the same family of algorithms as PLS, OPLS, JIVE and DISCO. The modification was to include an **alignment** of canonical correlation vectors (PLS-components) with the **Dynamic Time Warping (DTW)**, which typically serves as a trajectory similarity measure in Time Series data analysis.
+Seurat was for a very long time *de-facto* a standard tool for single cell data analysis in 2016-2018, especially in North America, before the first two Seurat articles got published in 2018 and 2019. Nowadays, there are alternative single cell analysis workflows, such as SCRAN (lab of John Marioni at EBI) and SCANPY (lab of Fabian Thejs in Munich), that can compete with Seurat. In the first paper of A. Butler et al., **Integrating single cell transcriptomic data across different conditions, technilogies and species** in Nature Biotechnology, 2018, Seurat suggested an interesting modification of the Canonical Correlation Analysis (CCA), that belongs to the same family of algorithms as PLS, OPLS, JIVE and DISCO. The modification was to include an **alignment** of canonical correlation vectors (PLS-components) with the **Dynamic Time Warping (DTW)**, which typically serves as a trajectory similarity measure in Time Series data analysis.
 
 The idea of data integration by Seurat is that CCA delivers components representing linear combinations of features across data sets that are maximally correlated (capture correlation structures across data sets), but not necessarily aligned. Next, Dynamic Time Warping (DTW) is used to locally compress or stretch the vectors during alignment to correct for  changes in population density. As a result, the data sets are represented in a single, integrated low-dimensional space.
 
@@ -63,7 +63,7 @@ activity.matrix[1:5,1:5]
 
 #Seurat object setup
 pbmc.atac <- CreateSeuratObject(counts = peaks, assay = "ATAC", project = "10x_ATAC")
-pbmc.atac@assays$ATAC@counts[1:5,1:5]
+pbmc.atac@assays$ATAC@layers$counts[1:5,1:5]
 pbmc.atac[["ACTIVITY"]] <- CreateAssayObject(counts = activity.matrix)
 pbmc.atac
 
@@ -73,6 +73,9 @@ meta <- meta[colnames(pbmc.atac), ]
 pbmc.atac <- AddMetaData(pbmc.atac, metadata = meta)
 pbmc.atac <- subset(pbmc.atac, subset = nCount_ATAC > 10000)
 pbmc.atac$tech <- "atac"
+
+rm(activity.matrix, peaks, meta)
+gc()
 ```
 
 Next we filter the individual data sets and visualize the individual scRNAseq and scATACseq data sets. Here we perform Latent Semantic Indexing (LSI)) to reduce the dimensionality of the scATAC-seq data down to 30 dimensions. This procedure learns an 'internal' structure for the scRNA-seq data, and is important when determining the appropriate weights for the anchors when transferring information. We utilize Latent Semantic Indexing (LSI) to learn the structure of ATAC-seq data, as proposed in Cusanovich et al, Science 2015. LSI is implemented here by performing computing the term frequency-inverse document frequency (TF-IDF) followed by SVD. We use all peaks that have at least 1000 reads across all cells. We also include a pre-processed scRNAseq PBMC cells data set that was used in many other Seurat vignettes as a benchmark data set. We exclude the first dimension as this is typically correlated with sequencing depth.
@@ -94,6 +97,7 @@ pbmc.atac <- RunTSNE(pbmc.atac, reduction = "lsi", dims = 2:30)
 
 #Reading scRNAseq data set
 pbmc.rna <- readRDS("data/pbmc_10k_v3.rds")
+pbmc.rna = UpdateSeuratObject(pbmc.rna)
 dim(pbmc.rna@assays$RNA@counts)
 pbmc.rna@assays$RNA@counts[1:5,1:5]
 pbmc.rna$tech <- "rna"
@@ -146,6 +150,7 @@ imputation <- TransferData(anchorset = transfer.anchors, refdata = refdata, weig
 # this line adds the imputed data matrix to the pbmc.atac object
 pbmc.atac[["RNA"]] <- imputation
 coembed <- merge(x = pbmc.rna, y = pbmc.atac)
+rm(pbmc.rna, pbmc.atac)
 
 # Finally, we run PCA and UMAP on this combined object, to visualize the co-embedding of both datasets
 coembed <- ScaleData(coembed, features = genes.use, do.scale = FALSE)
@@ -162,6 +167,9 @@ p1 + p2
 
 We conclude that scATACseq and scRNAseq demonstrate a very nice overlapping implying that the function of the cell clusters can be explain from both transcriptomic and epigenetic point of view, i.e. those two layers of information are complementary and one can be used instead of the other one to enhance the signal in case of experiemntal technical failure for any group of cells.
 
+```{r}
+rm(list = ls())
+```
 
 
 ### WNN Integration of CITEseq: scRNAseq and scProteomics (ADT) on PBMC Cells
@@ -193,10 +201,10 @@ bm <- LoadData(ds = "bmcite")
 The gene expression and protein abundance matrices can be accesed as follows:
 
 ```{r}
-bm@assays$RNA[1:5,1:5]
+bm@assays$RNA$counts[1:5,1:5]
 dim(bm@assays$RNA)
 
-bm@assays$ADT[1:5,1:5]
+bm@assays$ADT@counts[1:5,1:5]
 dim(bm@assays$ADT)
 ```
 

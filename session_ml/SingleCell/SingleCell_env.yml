@@ -1,19 +1,21 @@
-name: base
+name: SingleCell_env
 channels:
   - defaults
   - conda-forge
   - bioconda
 dependencies:
   - r-ggplot2
+  - r-base
   - r-rmarkdown
   - r-knitr
   - r-dplyr
   - r-reticulate
   - r-stringr
-  - scipy
-  - r-seurat
-  - r-signac
+  - scipy=1.8.1
+  - r-matrix=1.6.3
+  - r-seurat=5.0.1
+  - r-seuratobject=5.0.1
+  - r-signac=1.12
+  - r-seurat-data
   - r-cowplot
   - r-hdf5r
-  - r-matrix
-  - r-irlba
