@@ -118,7 +118,7 @@ RUN useradd -s /bin/bash -N -u ${UID} -l ${USER} \
     && chown -R ${USER}:${GROUP} /var/lib/rstudio-server/
 
 # R needs TZ set
-RUN echo "TZ=Etc/UTC" >> ${R_HOME}/etc/Renviron.site
+# RUN echo "TZ=Etc/UTC" >> ${R_HOME}/etc/Renviron.site
 
 # Set default CRAN repo to RSPM (it has pre-compiled R packages, increasing user install speed)
 RUN echo 'options(repos=c(CRAN="https://packagemanager.rstudio.com/all/__linux__/focal/latest"))' >> ${R_HOME}/etc/Rprofile.site \
