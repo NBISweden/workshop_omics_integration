@@ -56,7 +56,6 @@ knitr::opts_knit$set(root.dir="/home/jovyan/lab")
 
 ### be sure to update the environment name if applicable
 library(reticulate)
-reticulate::use_condaenv('GEM_GSA_env')
 knitr::opts_chunk$set(echo=T, tidy=F, eval=T, cache=F)
 qn <- sn <- 0
 
