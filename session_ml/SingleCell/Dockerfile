@@ -67,12 +67,16 @@ RUN conda clean -afy
 #     && rm -rf /var/lib/apt/lists/* \
 #     && apt-get autoremove -yq && apt-get autoclean -yq
 
-# Install R 4.4.x from the Jammy repository
-RUN mkdir -p /etc/apt/keyrings \
+# Install dependencies for gpg and add the R 4.4.x repository
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+       gnupg2 \
+       dirmngr \
+    && mkdir -p /etc/apt/keyrings \
     && curl -fsSL https://cloud.r-project.org/bin/linux/ubuntu/jammy-cran40.key | gpg --dearmor -o /etc/apt/keyrings/r-project.gpg \
-    && echo "deb [signed-by=/etc/apt/keyrings/r-project.gpg] https://cloud.r-project.org/bin/linux/ubuntu jammy-cran40/" | tee -a /etc/apt/sources.list.d/r-project.list \
-    && apt-get -yq update \
-    && apt-get -yq install --no-install-recommends r-base \
+    && echo "deb [signed-by=/etc/apt/keyrings/r-project.gpg] https://cloud.r-project.org/bin/linux/ubuntu jammy-cran40/" | tee /etc/apt/sources.list.d/r-project.list \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends r-base \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get autoremove -yq && apt-get autoclean -yq
