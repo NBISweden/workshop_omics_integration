@@ -24,7 +24,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
       libclang-dev \
       locales \
       ca-certificates \
-      libxml2 \ 
+      libxml2 \
       libodbc1 \
       libglpk-dev \
     && echo "en_US.UTF-8 UTF-8" > /etc/locale.gen \
@@ -41,14 +41,33 @@ RUN curl -LOs https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64
 # Set up environment
 ENV PATH="/usr/local/miniconda3/bin:${PATH}"
 
-# Install R
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9 \
-    && echo 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/' >> /etc/apt/sources.list \
-    && apt-get -yq update \
-    && apt-get -yq install --no-install-recommends \
-    r-base \
+# Install R 4.4.x from the Jammy repository
+# RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9 \
+#     && echo "deb https://cloud.r-project.org/bin/linux/ubuntu jammy-cran40/" >> /etc/apt/sources.list \
+#     && apt-get -yq update \
+#     && apt-get -yq install --no-install-recommends \
+#     r-base \
+#     && apt-get clean \
+#     && rm -rf /var/lib/apt/lists/* \
+#     && apt-get autoremove -yq && apt-get autoclean -yq
+
+# Install dependencies for gpg and add the R 4.4.x repository
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+       gnupg2 \
+       dirmngr \
+       software-properties-common \
+    && mkdir -p /etc/apt/keyrings \
+    && curl -fsSL https://cloud.r-project.org/bin/linux/ubuntu/jammy-cran40.key | gpg --dearmor -o /etc/apt/keyrings/r-project.gpg
+
+# Add the R 4.4.x repository for Jammy
+RUN echo "deb [signed-by=/etc/apt/keyrings/r-project.gpg] https://cloud.r-project.org/bin/linux/ubuntu jammy-cran40/" | tee /etc/apt/sources.list.d/r-project.list
+
+# Update and install R
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends r-base \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists/* \ 
+    && rm -rf /var/lib/apt/lists/* \
     && apt-get autoremove -yq && apt-get autoclean -yq
 
 # Install necessary libraries for GLIBCXX_3.4.29
