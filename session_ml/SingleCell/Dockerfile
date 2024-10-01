@@ -31,44 +31,33 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     && locale-gen \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Miniconda and Mamba
-RUN curl -LOs https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
+# Install Miniconda
+RUN curl -LO https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
     && bash Miniconda3-latest-Linux-x86_64.sh -bfp /usr/local/miniconda3 \
-    && rm Miniconda3-latest-Linux-x86_64.sh \
-    && /usr/local/miniconda3/bin/conda install -n base -c conda-forge mamba \
-    && ln -s /usr/local/miniconda3/bin/mamba /usr/local/bin/mamba
+    && rm Miniconda3-latest-Linux-x86_64.sh
 
 # Set up environment
-ENV PATH="/usr/local/miniconda3/bin:${PATH}"
+ENV PATH="/usr/local/miniconda3/bin:$PATH"
 
-# Install R 4.4.x from the Jammy repository
-# RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9 \
-#     && echo "deb https://cloud.r-project.org/bin/linux/ubuntu jammy-cran40/" >> /etc/apt/sources.list \
-#     && apt-get -yq update \
-#     && apt-get -yq install --no-install-recommends \
-#     r-base \
-#     && apt-get clean \
-#     && rm -rf /var/lib/apt/lists/* \
-#     && apt-get autoremove -yq && apt-get autoclean -yq
-
-# Install dependencies for gpg and add the R 4.4.x repository
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-       gnupg2 \
-       dirmngr \
+# Update package indices and install helper packages
+RUN apt-get update -qq \
+    && apt-get install --no-install-recommends -y \
        software-properties-common \
-    && mkdir -p /etc/apt/keyrings \
-    && curl -fsSL https://cloud.r-project.org/bin/linux/ubuntu/jammy-cran40.key | gpg --dearmor -o /etc/apt/keyrings/r-project.gpg
+       dirmngr \
+       wget \
+    && rm -rf /var/lib/apt/lists/*
 
-# Add the R 4.4.x repository for Jammy
-RUN echo "deb [signed-by=/etc/apt/keyrings/r-project.gpg] https://cloud.r-project.org/bin/linux/ubuntu jammy-cran40/" | tee /etc/apt/sources.list.d/r-project.list
+# Add the CRAN repository GPG key
+RUN wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
 
-# Update and install R
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends r-base \
+# Add the R repository for Ubuntu Focal (or your Ubuntu version)
+RUN add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/"
+
+# Install R
+RUN apt-get update -qq \
+    && apt-get install --no-install-recommends -y r-base \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists/* \
-    && apt-get autoremove -yq && apt-get autoclean -yq
+    && rm -rf /var/lib/apt/lists/*
 
 # Install necessary libraries for GLIBCXX_3.4.29
 RUN apt-get -yq update \
@@ -83,8 +72,8 @@ RUN apt-get -yq update \
 
 # INSTALL R packages using Mamba
 COPY SingleCell_env.yml /tmp/SingleCell_env.yml
-RUN mamba env create -f /tmp/SingleCell_env.yml && rm /tmp/SingleCell_env.yml
-RUN mamba clean -afy
+RUN conda env update -n base -f /tmp/SingleCell_env.yml
+RUN conda clean -afy
 
 # Download required files to the data directory
 RUN apt-get update && apt-get install -y python3-pip \
@@ -130,8 +119,8 @@ RUN echo 'options(repos=c(CRAN="https://packagemanager.rstudio.com/all/__linux__
 
 
 # Install R packages that are not available via conda (irlba from source)
-RUN R -e ".libPaths('/usr/local/miniconda3/envs/SingleCell_env/lib/R/library'); \
-  install.packages('irlba', type='source', force=TRUE)"
+RUN R -e ".libPaths('/usr/local/miniconda3/envs/base/lib/R/library'); \
+  install.packages('irlba', repos='https://cloud.r-project.org', type='source', force=TRUE)"
 
 WORKDIR ${HOME}
 
@@ -140,7 +129,6 @@ RUN chmod +x /etc/run.sh
 COPY lab ${HOME}/lab
 RUN chown -R ${USER}:${GROUP} ${HOME}/lab \
     && chmod -R u+w ${HOME}/lab
-
 
 USER ${USER}
 EXPOSE 8787
