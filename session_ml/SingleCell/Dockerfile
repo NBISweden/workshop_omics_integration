@@ -67,6 +67,15 @@ RUN conda clean -afy
 #     && rm -rf /var/lib/apt/lists/* \ 
 #     && apt-get autoremove -yq && apt-get autoclean -yq
 
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9 \
+    && echo "deb https://cloud.r-project.org/bin/linux/ubuntu jammy-cran40/" >> /etc/apt/sources.list \
+    && apt-get -yq update \
+    && apt-get -yq install --no-install-recommends \
+    r-base \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get autoremove -yq && apt-get autoclean -yq
+
 # Install necessary libraries for GLIBCXX_3.4.29
 RUN apt-get -yq update \
     && apt-get -yq install --no-install-recommends \
@@ -118,7 +127,7 @@ RUN useradd -s /bin/bash -N -u ${UID} -l ${USER} \
     && chown -R ${USER}:${GROUP} /var/lib/rstudio-server/
 
 # R needs TZ set
-# RUN echo "TZ=Etc/UTC" >> ${R_HOME}/etc/Renviron.site
+RUN echo "TZ=Etc/UTC" >> ${R_HOME}/etc/Renviron.site
 
 # Set default CRAN repo to RSPM (it has pre-compiled R packages, increasing user install speed)
 RUN echo 'options(repos=c(CRAN="https://packagemanager.rstudio.com/all/__linux__/focal/latest"))' >> ${R_HOME}/etc/Rprofile.site \
