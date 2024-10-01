@@ -1,4 +1,4 @@
-name: SingleCell_env
+name: base
 channels:
   - defaults
   - conda-forge
@@ -11,7 +11,7 @@ dependencies:
   - r-dplyr
   - r-reticulate
   - r-stringr
-  - scipy=1.8.1
+  - scipy
   - r-matrix=1.6.3
   - r-seurat=5.0.1
   - r-seuratobject=5.0.1
