@@ -3,17 +3,17 @@ layout: default
 title:  Pre-course
 ---
 
-#### <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="25" height="25"> Programming with R and Python {#programming-with-r-and-python}
+#### <img border="0" src="https://www.svgrepo.com/show/26916/book.svg" width="15" height="15"> Preparation for the tutorial
 ***
 
 This workshop will comprise both lectures and hands-on exercises. While you will be able to follow all exercises from the html files, we recommend that you prepare by 
 
 1. [Familiarizing yourself with basic R and Python](#programming-with-r-and-python)
-2. [Installing the containers](#-docker-instructions).
+2. [Installing the containers](#docker-instructions).
 
 If you are interested you can go through the [additional reading materials][5].
 
-#### <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="25" height="25"> Programming with R and Python
+#### <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="25" height="25"> Programming with R and Python {#programming-with-r-and-python}
 ***
 
 The course will be taught using both R and Python depending on the tools available. While you will be able to follow all lectures and exercises conceptually, it is helpful if you are familiar with basic usage of both programming languages:
@@ -24,7 +24,7 @@ The course will be taught using both R and Python depending on the tools availab
 
 You should also be familiar with basic command line input (`mkdir`, `cd`, `ls`, `cp`, `mv`).
 
-#### <img border="0" src="https://www.svgrepo.com/show/303231/docker-logo.svg" width="25" height="25"> Docker instructions
+#### <img border="0" src="https://www.svgrepo.com/show/303231/docker-logo.svg" width="25" height="25"> Docker instructions {#docker-instructions}
 ***
 
 To reproduce all analyses you will need to:
