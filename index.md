@@ -25,7 +25,7 @@ Course information can be found under the following pages:
 - [Schedule][2]
 - [Reading materials][3]
 - [Pre-course preparation][4]
-- [Ivited speakers][5]
+- [Invited speakers][5]
 - [Contact][6]
 
 
