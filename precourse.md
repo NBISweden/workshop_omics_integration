@@ -3,10 +3,15 @@ layout: default
 title:  Pre-course
 ---
 
-#### <img border="0" src="https://www.svgrepo.com/show/26916/book.svg" width="15" height="15"> Preparation for the tutorial
+#### <img border="0" src="https://www.svgrepo.com/show/529862/server-path.svg" width="15" height="15"> Registration on SciLifeLab Serve
 ***
 
-In order to be able to access the lab notebooks for this course you need to have access to [SciLifeLab Serve](https://serve.scilifelab.se). Please register with your university email address. In the registration form there is a field called “Do you require support?”, in here please write that you are registering to take part in the course OMICSINT_H24. Do not forget to also confirm your e-mail address by clicking on a link in the activation email. This needs to be done before Friday October 11 so that the SciLifeLab Serve admins can set up your account in the way that is required by the course.
+In order to be able to access the lab notebooks for this course you need to have access to [SciLifeLab Serve](https://serve.scilifelab.se). 
+
+Please register with your university email address. In the registration form there is a field called “Do you require support?”, in here please write that you are registering to take part in the course OMICSINT_H24. Do not forget to also confirm your e-mail address by clicking on a link in the activation email. This needs to be done before Friday October 11 so that the SciLifeLab Serve admins can set up your account in the way that is required by the course.
+
+#### <img border="0" src="https://www.svgrepo.com/show/26916/book.svg" width="15" height="15"> Preparation for the tutorial
+***
 
 This workshop will comprise both lectures and hands-on exercises. While you will be able to follow all exercises from the html files, we recommend that you prepare by 
 
