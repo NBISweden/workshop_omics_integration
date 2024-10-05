@@ -79,5 +79,5 @@ To stop the containers write `docker stop [container name]`.
 [2]: https://datacarpentry.org/genomics-r-intro/
 [3]: https://datacarpentry.org/python-ecology-lesson/
 [4]: https://nbisweden.github.io/workshop-python/ht19/
-[5]: reading_materials.md
+[5]: reading_materials.html
 [6]: https://nbisweden.github.io/workshop-r/
