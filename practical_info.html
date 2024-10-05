@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Pre-course</title>
+<title>practical_info</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -43,87 +43,35 @@ ul.task-list li input[type="checkbox"] {
 
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Pre-course</h1>
-</div>
 
 
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-</header>
-
-<p>{::options parse_block_html=“true” /}</p>
-<section id="preparation-for-the-tutorial" class="level4">
-<h4 class="anchored" data-anchor-id="preparation-for-the-tutorial"><img border="0" src="https://www.svgrepo.com/show/26916/book.svg" width="15" height="15"> Preparation for the tutorial</h4>
+<section id="workshop-location" class="level1">
+<h1>Workshop Location</h1>
+<section id="lund-sweden" class="level3">
+<h3 class="anchored" data-anchor-id="lund-sweden">Lund, Sweden</h3>
+<p><strong>Room</strong>: Cerebrum D215 Biologihuset <strong>Venue</strong>: Biologihuset, Lund University <strong>Address</strong>: Sölvegatan 35, 223 62 Lund, Sweden</p>
+</section>
+<section id="selected-hotels-nearby" class="level3">
+<h3 class="anchored" data-anchor-id="selected-hotels-nearby">Selected Hotels Nearby:</h3>
+<ol type="1">
+<li><a href="https://www.elite.se/hotell/lund/elite-hotel-ideon-lund/?gad_source=1&amp;gclid=CjwKCAjwx4O4BhAnEiwA42SbVObsGaYPDOeWuw1cO0jqcFTxJ0ITUpfXkhlmnR0OU9wp68RcMc59ghoCE2QQAvD_BwE">Elite Hotel Ideon</a> (650 m, 9 min walk)</li>
+<li><a href="https://ligula.se/motel-l/motel-l-lund/?gad_source=1&amp;gclid=CjwKCAjwx4O4BhAnEiwA42SbVOyp_VI3E2gFrSSYlOFuRBGjz4d-Cj5uIql3Rg_vtQ-2aiI3LT5ihBoCffIQAvD_BwE">Akademihotellet</a> (1.7 Km, 25 min walk)</li>
+</ol>
+</section>
+<section id="public-transport" class="level3">
+<h3 class="anchored" data-anchor-id="public-transport">Public Transport:</h3>
+<ul>
+<li>Use the <a href="https://www.skanetrafiken.se/">Skånetrafiken website</a> or the <a href="https://www.skanetrafiken.se/sv/sa-reser-du-med-oss/skanetrafiken-appen/">Skånetrafiken app</a> for bus and train services around Lund.</li>
+<li>From <strong>Lund Centralstation</strong>, take Bus <strong>1</strong> (towards Norra Fäladen) or Bus <strong>6</strong> (towards Linero), and get off at the stop <strong>Lund University Hospital</strong>.</li>
+<li>Bus tickets can be purchased in the app or directly from the driver using a credit card.</li>
+</ul>
 <hr>
-<p>This workshop will comprise both lectures and hands-on exercises. While you will be able to follow all exercises from the html files, we recommend that you prepare by 1. <a href="#-programming-with-r-and-python">familiarizing yourself with basic R and Python</a>, 2. <a href="#-docker-instructions">installing the containers</a>. If you are interested you can go through the <a href="reading_materials.md">additional reading materials</a>.</p>
 </section>
-<section id="programming-with-r-and-python" class="level4">
-<h4 class="anchored" data-anchor-id="programming-with-r-and-python"><img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="25" height="25"> Programming with R and Python</h4>
-<hr>
-<p>The course will be taught using both R and Python depending on the tools available. While you will be able to follow all lectures and exercises conceptually, it is helpful if you are familiar with basic usage of both programming languages: - <a href="https://swcarpentry.github.io/r-novice-inflammation/">R (part_1)</a> - <a href="http://swcarpentry.github.io/r-novice-gapminder/">R (part_2)</a> - <a href="https://swcarpentry.github.io/python-novice-inflammation/">Python (part_1)</a> - <a href="http://swcarpentry.github.io/python-novice-gapminder/">Python (part_2)</a></p>
-<p>You should also be familiar with basic command line input (<code>mkdir</code>, <code>cd</code>, <code>ls</code>, <code>cp</code>, <code>mv</code>).</p>
-</section>
-<section id="docker-instructions" class="level4">
-<h4 class="anchored" data-anchor-id="docker-instructions"><img border="0" src="https://www.svgrepo.com/show/303231/docker-logo.svg" width="25" height="25"> Docker instructions</h4>
-<hr>
-<p>To reproduce all analyses you will need to: - <a href="https://docs.docker.com/get-docker/">Install Docker</a>; - <a href="#download-the-github-repository">Download the latest Github repository</a>; - <a href="#create-the-containers">Create the containers</a>; - <a href="#launch-rstudio-or-jupyter">Launch rstudio or jupyter</a>; - <a href="#stop-the-containers">Stop the containers</a></p>
-<section id="download-the-github-repository" class="level5">
-<h5 class="anchored" data-anchor-id="download-the-github-repository">Download the Github repository</h5>
-<p>Download and unzip the github repository <a href="https://github.com/NBISweden/workshop_omics_integration/">from here</a> or run:</p>
-<pre><code>wget -qO- https://github.com/NBISweden/workshop_omics_integration/archive/refs/heads/main.zip | bsdtar -xvf-
-mv workshop_omics_integration-main workshop_omics_integration</code></pre>
-<p>Note that you download it manually you should name the unziped folder as <code>workshop_omics_integration</code>. All the subsequent commands should be run in the parent of this directory.</p>
-</section>
-<section id="create-the-containers" class="level5">
-<h5 class="anchored" data-anchor-id="create-the-containers">Create the containers</h5>
-<p>At this point you need to create the two containers for all Rstudio or Jupyter notebooks. In a directory containing the unzip folder <code>workshop_omics_integration/</code>, create the containers by either:</p>
-<details>
-<summary>
-<strong>&gt; Download image from Dockerhub</strong> (recommended)
-</summary>
-<p>Pull and start the images. Remember to replace <code>&lt;yourpassword&gt;</code> with your password, and <code>/path/to/your/</code> with the path to your directory. If you want to use the current working directory, use <code>$(pwd)</code> in MacOS/Linux and <code>$(PWD}</code> in Windows powershell.</p>
-<pre><code>  ########### Rstudio image ###########
-  # Your user is 'rstudio' (without the quotes)
-  sudo docker run -d --rm -p 8787:8787 \
-    -e PASSWORD=&lt;yourpassword&gt; \ 
-    -v /path/to/your/workshop_omics_integration:/home/rstudio/workshop_omics_integration/ \
-    ruibenfeitas/rstudio:30_08_2021
-  
-  ########### Jupyter image ###########
-  # Your user is 'jovyan' (without the quotes)
-  sudo docker run -d --rm -p 8888:8888 \
-    -e JUPYTER_TOKEN=&lt;yourpassword&gt; \
-    -v /path/to/your/workshop_omics_integration/:/home/jovyan/workshop_omics_integration/ \
-    ruibenfeitas/jupyter:30_08_2021</code></pre>
-</details>
-<details>
-<summary>
-<strong>&gt; Download the dockerfiles from github</strong>
-</summary>
-<p>On github you will find the dockerfiles necessary from the github repository, under <code>workshop_omics_integration/docker/</code> (you need the files <code>Dockerfile_jupyter</code>, <code>Dockerfile_rstudio</code>, <code>docker-compose.yml</code> and <code>environment_jupyter</code>). <a href="https://docs.docker.com/compose/install/">Install docker compose</a> and then:</p>
-<pre><code>## copy the dockerfiles found in the downloaded directory to the directory above
-cp -r /path/to/your/workshop_omics_integration/docker/* /path/to/your/</code></pre>
-<p>Build and start the containers</p>
-<pre><code>docker-compose up -d --build</code></pre>
-</details>
-</section>
-<section id="launch-rstudio-or-jupyter" class="level5">
-<h5 class="anchored" data-anchor-id="launch-rstudio-or-jupyter">Launch RStudio or Jupyter</h5>
-<p>Ensure you have followed all the instructions above and that your containers are running. If you have followed the instructions from the recommended solution you can simply access either RStudio or Jupyter from your browser with: - <code>localhost:8888</code> to launch jupyter - <code>localhost:8787</code> to launch rstudio</p>
-<p>All notebooks are found within the folder <code>workshop_omics_integration/</code>. If you want to verify that your containers are running use <code>docker ps</code>.</p>
-</section>
-<section id="stop-the-containers" class="level5">
-<h5 class="anchored" data-anchor-id="stop-the-containers">Stop the containers</h5>
-<p>To stop the containers write <code>docker stop [container name]</code>.</p>
+<section id="contact" class="level2">
+<h2 class="anchored" data-anchor-id="contact">Contact</h2>
+<p>This workshop is run by the <strong>National Bioinformatics Infrastructure Sweden (NBIS)</strong>.<br>
+NBIS is a platform at <a href="https://www.scilifelab.se/">SciLifeLab</a> and the Swedish node of <a href="https://elixir-europe.org/">Elixir</a>.</p>
+<p>For inquiries, contact: edu.sc [at] nbis.se</p>
 </section>
 </section>
 
