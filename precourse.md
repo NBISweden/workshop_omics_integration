@@ -3,12 +3,15 @@ layout: default
 title:  Pre-course
 ---
 
-{::options parse_block_html="true" /}
-
-#### <img border="0" src="https://www.svgrepo.com/show/26916/book.svg" width="15" height="15"> Preparation for the tutorial
+#### <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="25" height="25"> Programming with R and Python {#programming-with-r-and-python}
 ***
 
-This workshop will comprise both lectures and hands-on exercises. While you will be able to follow all exercises from the html files, we recommend that you prepare by 1. [familiarizing yourself with basic R and Python](#-programming-with-r-and-python), 2. [installing the containers](#-docker-instructions). If you are interested you can go through the [additional reading materials][5].
+This workshop will comprise both lectures and hands-on exercises. While you will be able to follow all exercises from the html files, we recommend that you prepare by 
+
+1. [Familiarizing yourself with basic R and Python](#programming-with-r-and-python)
+2. [Installing the containers](#-docker-instructions).
+
+If you are interested you can go through the [additional reading materials][5].
 
 #### <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="25" height="25"> Programming with R and Python
 ***
