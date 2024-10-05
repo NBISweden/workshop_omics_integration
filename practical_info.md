@@ -2,9 +2,9 @@
 
 ### Lund, Sweden
 
-**Room**: Cerebrum D215 Biologihuset
-**Venue**: Biologihuset, Lund University
-**Address**: Sölvegatan 35, 223 62 Lund, Sweden  
+- **Room**: Cerebrum D215 Biologihuset
+- **Venue**: Biologihuset, Lund University
+- **Address**: Sölvegatan 35, 223 62 Lund, Sweden  
 
 ### Selected Hotels Nearby:
 
