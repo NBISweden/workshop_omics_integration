@@ -12,6 +12,7 @@ on:
       - 'session_ml/UMAP_DataIntegration/**'
       - 'session_gems/**'
       - 'session_gsa/**'
+      - 'session_toplogy/**'
     branches:
       - OMICSINT_H24
 
@@ -80,6 +81,9 @@ jobs:
           fi
           if git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep -q '^session_gsa'; then
             echo "gsa=true" >> $GITHUB_ENV
+          fi
+          if git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep -q '^session_topology'; then
+            echo "topology=true" >> $GITHUB_ENV
           fi
 
       # Conditionally build and push images for Deep Learning Lab
@@ -195,4 +199,18 @@ jobs:
           tags: |
             docker.io/rasoolsnbis/omicsint_h24:session_gsa_amd_v.h24.${{ env.SHORT_SHA }}
             ghcr.io/nbisweden/omicsint_h24:session_gsa_amd_v.h24.${{ env.SHORT_SHA }}
+          
+      # Conditionally build and push images for Topology lab
+      - name: Build and Push Docker Image for Topology Lab
+        if: env.topology == 'true'
+        uses: docker/build-push-action@v4
+        with:
+          context: ./session_topology
+          file: session_topology/Dockerfile
+          platforms: linux/amd64
+          push: true
+          no-cache: true
+          tags: |
+            docker.io/rasoolsnbis/omicsint_h24:session_topology_amd_v.h24.${{ env.SHORT_SHA }}
+            ghcr.io/nbisweden/omicsint_h24:session_topology_amd_v.h24.${{ env.SHORT_SHA }}
       
