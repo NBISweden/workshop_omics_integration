@@ -1,9 +1,9 @@
-name: topology
+name: datasci
 channels:
   - conda-forge
   - defaults
 dependencies:
-  - python=3.9
+  - python=3.12
   - scikit-learn
   - pandas
   - numpy
@@ -11,8 +11,32 @@ dependencies:
   - statsmodels
   - matplotlib
   - seaborn
-  - ipykernel
-  - pip
+  - jupyterlab
+  
+---
+name: igraph
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.12
+  - pandas
+  - numpy
+  - jupyterlab
+  - leidenalg
+  - pycairo
+  - pip:
+      - igraph
+
+---
+name: gseapy
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.12
+  - pandas
+  - numpy
+  - jupyterlab
   - pip:
       - gseapy
-      - igraph
