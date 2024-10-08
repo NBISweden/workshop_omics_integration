@@ -13,9 +13,9 @@
 
 ### Public Transport:
 
-- Use the [Skånetrafiken website](https://www.skanetrafiken.se/) or the [Skånetrafiken app](https://www.skanetrafiken.se/sv/sa-reser-du-med-oss/skanetrafiken-appen/) for bus and train services around Lund.
-- From **Lund Centralstation**, take Bus **1** (towards Norra Fäladen) or Bus **6** (towards Linero), and get off at the stop **Lund University Hospital**.
-- Bus tickets can be purchased in the app or directly from the driver using a credit card.
+- Use the [Skånetrafiken app](https://www.skanetrafiken.se/sv/sa-reser-du-med-oss/skanetrafiken-appen/) or [Skånetrafiken website](https://www.skanetrafiken.se/) for tram/bus and train services around Lund.
+- From **Lund Centralstation**, take Tram **1**, and get off at the stop **LTH**.
+- Tickets can be purchased in the app or directly from the driver using a credit card.
 
 ---
 
