@@ -44,6 +44,14 @@ RUN /opt/conda/envs/igraph/bin/pip install ipykernel && \
 RUN /opt/conda/envs/gseapy/bin/pip install ipykernel && \
     /opt/conda/envs/gseapy/bin/python -m ipykernel install --name gseapy --display-name "Python (gseapy)"
 
+# Create a data directory
+RUN mkdir -p /home/jovyan/lab/data
+# Install git to clone the repository
+RUN apt-get update && apt-get install -y git && \
+    git clone https://github.com/NBISweden/workshop_omics_integration.git /tmp/repo && \
+    cp -r /tmp/repo/session_topology/lab/data/* /home/jovyan/lab/data/ && \
+    rm -rf /tmp/repo
+
 # Fix permissions and make the script executable
 RUN chown -R jovyan:users /opt/conda /home/jovyan/.cache /home/jovyan/lab && \
     chmod -R a+rwx /home/jovyan/lab && \
