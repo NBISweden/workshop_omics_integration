@@ -5,7 +5,7 @@ ARG SERVE_BRANCH=develop
 WORKDIR /home/jovyan
 
 COPY requirements.txt /tmp
-COPY topology_env.yml /tmp
+COPY *.yml /tmp
 COPY lab /home/jovyan/lab
 COPY start-script.sh /usr/local/bin/start-script.sh
 
@@ -20,15 +20,29 @@ RUN pip install --no-cache-dir -r /tmp/requirements.txt
 # Install mamba
 RUN conda install -n base -c conda-forge mamba
 
-# Create conda environment using mamba as root
-RUN mamba env create -f /tmp/topology_env.yml && conda clean --all --yes
+# Install datasci environment
+RUN mamba env create -f /tmp/datasci_env.yml && conda clean --all --yes
+
+# Install igraph environment
+RUN mamba env create -f /tmp/igraph_env.yml && conda clean --all --yes
+
+# Install gseapy environment
+RUN mamba env create -f /tmp/gseapy_env.yml && conda clean --all --yes
 
 # Activate conda environment
-RUN echo "conda activate topology" >> /etc/profile.d/conda.sh
+RUN echo "conda activate datasci" >> /etc/profile.d/conda.sh
 
-# Install ipykernel in the conda environment and create a kernel spec
-RUN /opt/conda/envs/topology/bin/pip install ipykernel && \
-    /opt/conda/envs/topology/bin/python -m ipykernel install --name topology --display-name "Python (topology)"
+# Install ipykernel in the datasci environment and create a kernel spec
+RUN /opt/conda/envs/datasci/bin/pip install ipykernel && \
+    /opt/conda/envs/datasci/bin/python -m ipykernel install --name datasci --display-name "Python (datasci)"
+
+# Install ipykernel in the igraph environment and create a kernel spec
+RUN /opt/conda/envs/igraph/bin/pip install ipykernel && \
+    /opt/conda/envs/igraph/bin/python -m ipykernel install --name igraph --display-name "Python (igraph)"
+
+# Install ipykernel in the gseapy environment and create a kernel spec
+RUN /opt/conda/envs/gseapy/bin/pip install ipykernel && \
+    /opt/conda/envs/gseapy/bin/python -m ipykernel install --name gseapy --display-name "Python (gseapy)"
 
 # Fix permissions and make the script executable
 RUN chown -R jovyan:users /opt/conda /home/jovyan/.cache /home/jovyan/lab && \
@@ -39,7 +53,7 @@ RUN chown -R jovyan:users /opt/conda /home/jovyan/.cache /home/jovyan/lab && \
 USER jovyan
 
 # Set default conda environment
-ENV PATH /opt/conda/envs/topology/bin:$PATH
+ENV PATH /opt/conda/envs/datasci/bin:$PATH
 
 # Disable Jupyter token authentication
 RUN jupyter notebook --generate-config && \

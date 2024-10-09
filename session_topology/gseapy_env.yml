@@ -1,0 +1,11 @@
+name: gseapy
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.12
+  - pandas
+  - numpy
+  - jupyterlab
+  - pip:
+      - gseapy
