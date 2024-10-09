@@ -19,13 +19,6 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 
 <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> - break
 
-
-<br>
-<div style="border: 1px solid #ccc; padding: 10px;">
-<strong>Note!</strong> Schedule is under update.
-</div>
-<br>
-
 ##### Day 1
 
 **09.00 - 09.15** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Introduction and contextualization ([Rasool][2])
