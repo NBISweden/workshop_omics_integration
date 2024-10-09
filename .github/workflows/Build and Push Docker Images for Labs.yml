@@ -12,7 +12,7 @@ on:
       - 'session_ml/UMAP_DataIntegration/**'
       - 'session_gems/**'
       - 'session_gsa/**'
-      - 'session_toplogy/**'
+      - 'session_topology/**'
     branches:
       - OMICSINT_H24
 
