@@ -64,3 +64,5 @@ Our work is focused on development of novel molecular analysis concept for use i
 ---
 
 We are excited to welcome these distinguished speakers and hope you enjoy their insights on omics integration!
+
+[Back to Homepage](https://nbisweden.github.io/workshop_omics_integration/)

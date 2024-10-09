@@ -13,3 +13,5 @@ For further information about NBIS support, training and infrastructure, see our
 
 [1]: https://www.chalmers.se/en/persons/rasools/?tab=0
 [2]: https://nbis.se/
+
+[Back to Homepage](https://nbisweden.github.io/workshop_omics_integration/)

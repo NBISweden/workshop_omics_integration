@@ -56,3 +56,5 @@ open the page in "Private Browsing" mode in your web browser.
 [19]: https://towardsdatascience.com/supervised-omics-integration-2158e1a6d23f
 [20]: https://medium.com/@nikolay.oskolkov/unsupervised-omics-integration-688bf8fa49bf
 [21]: https://link.springer.com/content/pdf/10.1186/s13059-017-1215-1.pdf
+
+[Back to Homepage](https://nbisweden.github.io/workshop_omics_integration/)

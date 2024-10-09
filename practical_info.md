@@ -25,3 +25,5 @@ This workshop is run by the **National Bioinformatics Infrastructure Sweden (NBI
 NBIS is a platform at [SciLifeLab](https://www.scilifelab.se/) and the Swedish node of [Elixir](https://elixir-europe.org/).
 
 For inquiries, contact: edu.sc [at] nbis.se
+
+[Back to Homepage](https://nbisweden.github.io/workshop_omics_integration/)

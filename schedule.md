@@ -362,3 +362,5 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 [7]: https://www.linkedin.com/in/muthas/?originalSubdomain=se
 [8]: https://getzlab.org/team/postdoctoral%20researcher/gustafsson-johan
 [9]: https://www.su.se/english/profiles/matsn-1.191373
+
+[Back to Homepage](https://nbisweden.github.io/workshop_omics_integration/)

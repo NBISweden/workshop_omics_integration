@@ -81,3 +81,5 @@ To stop the containers write `docker stop [container name]`.
 [4]: https://nbisweden.github.io/workshop-python/ht19/
 [5]: reading_materials.html
 [6]: https://nbisweden.github.io/workshop-r/
+
+[Back to Homepage](https://nbisweden.github.io/workshop_omics_integration/)
