@@ -18,3 +18,6 @@ session_ml/SingleCell/lab/data
 # for gems lab
 cplex_studio2211.linux_x86_64.bin
 install.properties
+
+# ignore .pptx files
+*.pptx
