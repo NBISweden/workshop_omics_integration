@@ -50,9 +50,7 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 <details>
   <summary>Resources</summary>
   <ul>
-    <li><a href="./session_ml/SupervisedOMICsIntegration/SupervisedOmicsIntegration_Oskolkov.pdf">Slides</a></li>
-    <li><a href="./session_ml/FeatureSelectionIntegrOMICs/OmicsIntegration_FeatureSelection.html">Feature Selection Notebook</a></li>
-    <li><a href="./session_ml/SupervisedOMICsIntegration/supervised_omics_integr_CLL.html">Supervised Integration Notebook</a></li>
+    <li><a href="./session_ml/SupervisedOMICsIntegration/lab/SupervisedOmicsIntegration_Oskolkov.pdf">Slides</a></li>
   </ul>
 </details>
 
@@ -62,8 +60,13 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 <details>
   <summary>Resources</summary>
   <ul>
-    <li><a href="./session_ml/FeatureSelectionIntegrOMICs/OmicsIntegration_FeatureSelection.html">Feature Selection Notebook</a></li>
-    <li><a href="./session_ml/SupervisedOMICsIntegration/supervised_omics_integr_CLL.html">Supervised Integration Notebook</a></li>
+    <li><a href="XXX">Feature Selection lab on s-serve</a></li>
+    <li><a href="./session_ml/FeatureSelectionIntegrOMICs/lab/OmicsIntegration_FeatureSelection.html">Feature Selection lab Notebook</a></li>
+    <li>Docker image: <code>docker pull rasoolsnbis/omicsint_h24:session_ml_feature_selection_amd_v.h24.9879876</code></li>
+<br>
+    <li><a href="XXX">Supervised Integration lab on s-serve</a></li>
+    <li><a href="./session_ml/SupervisedOMICsIntegration/lab/supervised_omics_integr_CLL.html">Supervised Integration lab Notebook</a></li>
+    <li>Docker image: <code>docker pull rasoolsnbis/omicsint_h24:session_ml_supervised_omics_integration_amd_v.h24.b327560adfd4536832cbc2fe7451468ee55b6188</code></li>
   </ul>
 </details>
 
@@ -75,7 +78,7 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 <details>
   <summary>Resources</summary>
   <ul>
-    <li><a href="./session_ml/UnsupervisedOMICsIntegration/UnsupervisedOmicsIntegration_Oskolkov.pdf">Slides</a></li>
+    <li><a href="./session_ml/UnsupervisedOMICsIntegration/lab/UnsupervisedOmicsIntegration.pdf">Slides</a></li>
   </ul>
 </details>
 
@@ -85,7 +88,9 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 <details>
   <summary>Resources</summary>
   <ul>
-    <li><a href="./session_ml/UnsupervisedOMICsIntegration/UnsupervisedOMICsIntegration.html">Notebook</a></li>
+    <li><a href="XXX">Unsupervised Integration lab on s-serve</a></li>
+    <li><a href="./session_ml/UnsupervisedOMICsIntegration/lab/UnsupervisedOMICsIntegration.html">Unsupervised Integration lab Notebook</a></li>
+    <li>Docker image: <code>docker pull rasoolsnbis/omicsint_h24:session_ml_unsupervised_omics_integration_amd_v.h24.8f4c21e</code></li>
   </ul>
 </details>
 
@@ -104,7 +109,7 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 <details>
   <summary>Resources</summary>
   <ul>
-    <li><a href="./session_ml/DimReductSingleCell/DimensionReduction_Oskolkov.pdf">Slides</a></li>
+    <li><a href="./session_ml/SingleCell/lab/SingleCellOmicsIntegration_Oskolkov.pdf">Slides</a></li>
   </ul>
 </details>
 
@@ -114,21 +119,33 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 
 **11.00 - 11.15** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Break
 
-**11.15 - 12.00** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> CCA + WNN integration ([Nikolay][1])
+**11.15 - 12.00** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Single cell omics integration ([Nikolay][1])
 <details>
   <summary>Resources</summary>
   <ul>
-    <li><a href="./session_ml/DeepLearningDataIntegration/SingleCell_OmicsIntegration.html"> CCA + WNN integration</a></li>
+    <li><a href="XXX">Single cell omics integration lab on s-serve</a></li>
+    <li><a href="./session_ml/SingleCell/lab/__lab_SingleCell_OmicsIntegration.html"> Single cell omics integration lab notebook</a></li>
+    <li>Docker image: <code>docker pull rasoolsnbis/omicsint_h24:session_ml_single_cell_amd_v.h24.7054451</code></li>
+<br>
+    <li><a href="XXX">UMAP lab on s-serve</a></li>
+    <li><a href="./session_ml/UMAP_DataIntegration/lab/UMAP_DataIntegration.html"> UMAP lab notebook</a></li>
+    <li>Docker image: <code>docker pull rasoolsnbis/omicsint_h24:session_ml_umap_data_integration_amd_v.h24.b327560adfd4536832cbc2fe7451468ee55b6188</code></li>
   </ul>
 </details>
 
 **12.00 - 13.00** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Lunch
 
-**13.00 - 13.45** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> CCA + WNN integration ([Nikolay][1])
+**13.00 - 13.45** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Single cell omics integration ([Nikolay][1])
 <details>
   <summary>Resources</summary>
   <ul>
-    <li><a href="./session_ml/DeepLearningDataIntegration/SingleCell_OmicsIntegration.html"> CCA + WNN integration</a></li>
+    <li><a href="XXX">Single cell omics integration lab on s-serve</a></li>
+    <li><a href="./session_ml/SingleCell/lab/__lab_SingleCell_OmicsIntegration.html"> Single cell omics integration lab notebook</a></li>
+    <li>Docker image: <code>docker pull rasoolsnbis/omicsint_h24:session_ml_single_cell_amd_v.h24.7054451</code></li>
+<br>
+    <li><a href="XXX">UMAP lab on s-serve</a></li>
+    <li><a href="./session_ml/UMAP_DataIntegration/lab/UMAP_DataIntegration.html"> UMAP lab notebook</a></li>
+    <li>Docker image: <code>docker pull rasoolsnbis/omicsint_h24:session_ml_umap_data_integration_amd_v.h24.b327560adfd4536832cbc2fe7451468ee55b6188</code></li>
   </ul>
 </details>
 
@@ -140,7 +157,7 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 <details>
   <summary>Resources</summary>
   <ul>
-    <li><a href="./session_ml/DeepLearningDataIntegration/DeepLearningOmicsIntegration_Oskolkov.pdf">Slides</a></li>
+    <li><a href="./session_ml/DeepLearningDataIntegration/lab/DeepLearningOmicsIntegration_Oskolkov_2023.pdf">Slides</a></li>
   </ul>
 </details>
 
@@ -150,9 +167,9 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 <details>
   <summary>Resources</summary>
   <ul>
-    <li><a href="https://oisb-h24-lab-deeplearningintegration.serve.scilifelab.se/doc/workspaces/auto-x/tree/DeepLearningDataIntegration.ipynb">Deep Learning for data integration lab on s-serve</a></li>
+    <li><a href="XXX">Deep Learning for data integration lab on s-serve</a></li>
     <li><a href="./session_ml/DeepLearningDataIntegration/lab/DeepLearningDataIntegration.html">Deep Learning for data integration lab html</a></li>
-    <li>Docker image: <code>docker pull rasoolsnbis/omicsint_h24:session_ml_deep_learning_integration</code>
+    <li>Docker image: <code>docker pull rasoolsnbis/omicsint_h24:session_ml_deep_learning_integration_amd_v.h24.e78e9bb81f52703200968a76e46c23738536f237</code>
     </li>
   </ul>
 </details>
@@ -170,17 +187,23 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 <details>
   <summary>Resources</summary>
   <ul>
-    <li><a href="./session_topology/lecture_short.pdf">Slides</a></li>
+    <li><a href="./session_topology/lab/lectures/1Introduction.pdf">Introduction</a></li>
+    <li><a href="./session_topology/lab/lectures/2Network_inference.pdf">Network inference</a></li>
+    <li><a href="./session_topology/lab/lectures/lecture_short.pdf">Biological network analysis</a></li>
   </ul>
 </details>
 
 **10.00 - 10.15** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Break
 
-**10.15 - 11.00** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Network inference ([Sergiu][3])
+**10.15 - 11.00** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Introduction to biological network analysis ([Sergiu][3])
 <details>
   <summary>Resources</summary>
   <ul>
-    <li><a href="./session_topology/lab.html">Notebook</a></li>
+    <li><a href="XXX">Topology lab on s-serve</a></li>
+    <li><a href="./session_topology/lab/topology_lab_part1.html">Topology lab Notebook part 1</a></li>
+    <li><a href="./session_topology/lab/topology_lab_part2.html">Topology lab Notebook part 2</a></li>
+    <li><a href="./session_topology/lab/topology_lab_part3.html">Topology lab Notebook part 3</a></li>
+    <li>Docker image: <code>docker pull rasoolsnbis/omicsint_h24:session_topology_amd_v.h24.a2b336c</code></li>
   </ul>
 </details>
 
@@ -192,8 +215,7 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 <details>
   <summary>Resources</summary>
   <ul>
-    <li><a href="./session_topology/lecture_short.pdf">Slides</a></li>
-    <li><a href="./session_topology/lab.html">Notebook</a></li>
+    <li><a href="./session_topology/lab/lectures/3Community_analysis.pdf">Slides</a></li>
   </ul>
 </details>
 
@@ -203,7 +225,11 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 <details>
   <summary>Resources</summary>
   <ul>
-    <li><a href="./session_topology/lab.html">Notebook</a></li>
+    <li><a href="XXX">Topology lab on s-serve</a></li>
+    <li><a href="./session_topology/lab/topology_lab_part1.html">Topology lab Notebook part 1</a></li>
+    <li><a href="./session_topology/lab/topology_lab_part2.html">Topology lab Notebook part 2</a></li>
+    <li><a href="./session_topology/lab/topology_lab_part3.html">Topology lab Notebook part 3</a></li>
+    <li>Docker image: <code>docker pull rasoolsnbis/omicsint_h24:session_topology_amd_v.h24.a2b336c</code></li>
   </ul>
 </details>
 
@@ -220,7 +246,8 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 <details>
   <summary>Resources</summary>
   <ul>
-    <li><a href="./session_gems/lecture.pdf">Slides</a></li>
+    <li><a href="./session_gems/MetabModel_JLR_distrib.pdf">Introduction</a></li>
+    <li><a href="./session_gems/Constraint-based-modeling-ELIXIR-Omics-Integration-and-Systems-Biology.pdf">Tools</a></li>
   </ul>
 </details>
 
@@ -230,7 +257,8 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 <details>
   <summary>Resources</summary>
   <ul>
-    <li><a href="./session_gems/lab.html">Notebook</a></li>
+    <li><a href="XXX">GEMs lab on s-serve</a></li>
+    <li>Docker image: <code>docker rasoolsnbis/omicsint_h24:session_gems_amd_v.h24.a2b336c</code></li>
   </ul>
 </details>
 
@@ -287,7 +315,7 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 <details>
   <summary>Resources</summary>
   <ul>
-    <li><a href="./session_gsa/GEM_session_day2.pdf">Slides</a></li>
+    <li><a href="./session_gsa/GEM_GSA.pdf"> Gene set analysis via GEMs</a></li>
   </ul>
 </details>
 
@@ -299,9 +327,9 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 <details>
   <summary>Resources</summary>
   <ul>
-    <li><a href="./session_gsa/GEM_GSA.html">GSA Notebook</a></li>
-    <li><a href="./session_visualization/Cytoscape_tutorial.html">RCytoscape Notebook</a></li>
-    <li><a href="./session_visualization/RCircos-HiveR.html">Circos Notebook</a></li>
+    <li><a href="XXX">Gene set analysis lab on s-serve</a></li>
+    <li><a href="./session_gsa/GEM_GSA.html">Gene set analysis lab Notebook</a></li>
+    <li>Docker image: <code>docker pull rasoolsnbis/omicsint_h24:session_gsa_amd_v.h24.a1ae0fc</code></li>
   </ul>
 </details>
 
