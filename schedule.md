@@ -5,9 +5,7 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 
 #### Before the course
 
-**Prepare** [Pre-course materials](./precourse.md) and pre-processing introduction ([notebook](./session_preprocessing/preprocessing.ipynb), [html](./session_preprocessing/preprocessing.html)).
-<br>
-<br>
+**Prepare** [Pre-course materials](https://nbisweden.github.io/workshop_omics_integration/precourse.html). In order to be able to access the lab notebooks for this course you need to have access to [SciLifeLab Serve](https://serve.scilifelab.se). For lunching practicals please follow the instructions [here](./session_intro/Instructions for course OMICSINT_H24.pdf).
 
 #### <img border="0" src="https://www.svgrepo.com/show/20800/event-date-and-time-symbol.svg" width="25" height="25"> Course schedule
 

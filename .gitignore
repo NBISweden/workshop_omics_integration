@@ -19,5 +19,6 @@ session_ml/SingleCell/lab/data
 cplex_studio2211.linux_x86_64.bin
 install.properties
 
-# ignore .pptx files
+# ignore .pptx and .docx files
 *.pptx
+*.docx
