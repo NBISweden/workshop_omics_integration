@@ -239,7 +239,7 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 <details>
   <summary>Resources</summary>
   <ul>
-    <li><a href="./session_gems/MetabModel_JLR_distrib.pdf">Introduction</a></li>
+    <li><a href="./session_gems/GEMs_concept.pdf">Introduction – Constraint-based modeling concept</a></li>
     <li><a href="./session_gems/Constraint-based-modeling-ELIXIR-Omics-Integration-and-Systems-Biology.pdf">Tools</a></li>
   </ul>
 </details>
