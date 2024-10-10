@@ -100,7 +100,7 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 <details>
   <summary>Resources</summary>
   <ul>
-    <li><a href="./session_ml/SingleCell/lab/scRNAseq_2024_DimReduct_Oskolkov.pdf">Slides</a></li>
+    <li><a href="./session_ml/SingleCell/lab/scRNAseq_2024_Integration_Oskolkov.pdf">Slides</a></li>
   </ul>
 </details>
 
