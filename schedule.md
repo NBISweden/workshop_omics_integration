@@ -33,7 +33,7 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 <details>
   <summary>Resources</summary>
   <ul>
-    <li><a href="./session_ml/MachineLearningViewOmicsIntegration_Oskolkov.pdf">Slides</a></li>
+    <li><a href="./session_ml/MachineLearningOmicsIntegration_Oskolkov.pdf">Slides</a></li>
   </ul>
 </details>
 
@@ -71,7 +71,7 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 <details>
   <summary>Resources</summary>
   <ul>
-    <li><a href="./session_ml/UnsupervisedOMICsIntegration/lab/UnsupervisedOmicsIntegration.pdf">Slides</a></li>
+    <li><a href="./session_ml/UnsupervisedOMICsIntegration/lab/Unsupervised_OmicsIntegration_Oskolkov.pdf">Slides</a></li>
   </ul>
 </details>
 
@@ -102,7 +102,7 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 <details>
   <summary>Resources</summary>
   <ul>
-    <li><a href="./session_ml/SingleCell/lab/SingleCellOmicsIntegration_Oskolkov.pdf">Slides</a></li>
+    <li><a href="./session_ml/SingleCell/lab/scRNAseq_2024_DimReduct_Oskolkov.pdf">Slides</a></li>
   </ul>
 </details>
 
