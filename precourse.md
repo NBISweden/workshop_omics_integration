@@ -10,6 +10,8 @@ In order to be able to access the lab notebooks for this course you need to have
 
 Please register with your university email address. In the registration form there is a field called “Do you require support?”, in here please write that you are registering to take part in the course OMICSINT_H24. Do not forget to also confirm your e-mail address by clicking on a link in the activation email. This needs to be done before Friday October 11 so that the SciLifeLab Serve admins can set up your account in the way that is required by the course.
 
+For lunching practicals please follow the instructions [here](./session_intro/Instructions for course OMICSINT_H24.pdf).
+
 #### <img border="0" src="https://www.svgrepo.com/show/26916/book.svg" width="15" height="15"> Preparation for the tutorial
 ***
 
