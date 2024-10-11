@@ -51,13 +51,13 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 <details>
   <summary>Resources</summary>
   <ul>
-    <li><a href="XXX">Feature Selection lab on s-serve</a></li>
+    <li>Launch <code>Lab feature selection</code> on <a href="https://serve.scilifelab.se/projects/">Scilifelab Serve</a>, use <code>Rstudio</code> app.</li>
     <li><a href="./session_ml/FeatureSelectionIntegrOMICs/lab/OmicsIntegration_FeatureSelection.html">Feature Selection lab Notebook</a></li>
     <li>Docker image: <code>docker pull rasoolsnbis/omicsint_h24:session_ml_feature_selection_amd_v.h24.9879876</code></li>
 <br>
-    <li><a href="XXX">Supervised Integration lab on s-serve</a></li>
+    <li>Launch <code>Lab supervised omics integration</code> on <a href="https://serve.scilifelab.se/projects/">Scilifelab Serve</a>, use <code>Rstudio</code> app.</li>
     <li><a href="./session_ml/SupervisedOMICsIntegration/lab/supervised_omics_integr_CLL.html">Supervised Integration lab Notebook</a></li>
-    <li>Docker image: <code>docker pull rasoolsnbis/omicsint_h24:session_ml_supervised_omics_integration_amd_v.h24.b327560adfd4536832cbc2fe7451468ee55b6188</code></li>
+    <li>Docker image: <code>docker pull rasoolsnbis/omicsint_h24:session_ml_supervised_omics_integration_amd_v.h24.38310b0</code></li>
   </ul>
 </details>
 
@@ -79,9 +79,9 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 <details>
   <summary>Resources</summary>
   <ul>
-    <li><a href="XXX">Unsupervised Integration lab on s-serve</a></li>
+    <li>Launch <code>Lab unsupervised omics integration</code> on <a href="https://serve.scilifelab.se/projects/">Scilifelab Serve</a>, use <code>Rstudio</code> app.</li>
     <li><a href="./session_ml/UnsupervisedOMICsIntegration/lab/UnsupervisedOMICsIntegration.html">Unsupervised Integration lab Notebook</a></li>
-    <li>Docker image: <code>docker pull rasoolsnbis/omicsint_h24:session_ml_unsupervised_omics_integration_amd_v.h24.8f4c21e</code></li>
+    <li>Docker image: <code>ddocker pull rasoolsnbis/omicsint_h24:session_ml_unsupervised_omics_integration_amd_v.h24.6d635ce</code></li>
   </ul>
 </details>
 
@@ -114,13 +114,13 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 <details>
   <summary>Resources</summary>
   <ul>
-    <li><a href="XXX">Single cell omics integration lab on s-serve</a></li>
+    <li>Launch <code>Lab single cell</code> on <a href="https://serve.scilifelab.se/projects/">Scilifelab Serve</a>, use <code>Rstudio</code> app.</li>
     <li><a href="./session_ml/SingleCell/lab/__lab_SingleCell_OmicsIntegration.html"> Single cell omics integration lab notebook</a></li>
     <li>Docker image: <code>docker pull rasoolsnbis/omicsint_h24:session_ml_single_cell_amd_v.h24.7054451</code></li>
 <br>
-    <li><a href="XXX">UMAP lab on s-serve</a></li>
+    <li>Launch <code>Lab UMAP</code> on <a href="https://serve.scilifelab.se/projects/">Scilifelab Serve</a>, use <code>Jupyter</code> app.</li>
     <li><a href="./session_ml/UMAP_DataIntegration/lab/UMAP_DataIntegration.html"> UMAP lab notebook</a></li>
-    <li>Docker image: <code>docker pull rasoolsnbis/omicsint_h24:session_ml_umap_data_integration_amd_v.h24.b327560adfd4536832cbc2fe7451468ee55b6188</code></li>
+    <li>Docker image: <code>docker pull rasoolsnbis/omicsint_h24:session_ml_umap_data_integration_amd_v.h24.6d635ce</code></li>
   </ul>
 </details>
 
@@ -130,13 +130,13 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 <details>
   <summary>Resources</summary>
   <ul>
-    <li><a href="XXX">Single cell omics integration lab on s-serve</a></li>
+    <li>Launch <code>Lab single cell</code> on <a href="https://serve.scilifelab.se/projects/">Scilifelab Serve</a>, use <code>Rstudio</code> app.</li>
     <li><a href="./session_ml/SingleCell/lab/__lab_SingleCell_OmicsIntegration.html"> Single cell omics integration lab notebook</a></li>
     <li>Docker image: <code>docker pull rasoolsnbis/omicsint_h24:session_ml_single_cell_amd_v.h24.7054451</code></li>
 <br>
-    <li><a href="XXX">UMAP lab on s-serve</a></li>
+    <li>Launch <code>Lab UMAP</code> on <a href="https://serve.scilifelab.se/projects/">Scilifelab Serve</a>, use <code>Jupyter</code> app.</li>
     <li><a href="./session_ml/UMAP_DataIntegration/lab/UMAP_DataIntegration.html"> UMAP lab notebook</a></li>
-    <li>Docker image: <code>docker pull rasoolsnbis/omicsint_h24:session_ml_umap_data_integration_amd_v.h24.b327560adfd4536832cbc2fe7451468ee55b6188</code></li>
+    <li>Docker image: <code>docker pull rasoolsnbis/omicsint_h24:session_ml_umap_data_integration_amd_v.h24.6d635ce</code></li>
   </ul>
 </details>
 
@@ -158,9 +158,9 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 <details>
   <summary>Resources</summary>
   <ul>
-    <li><a href="XXX">Deep Learning for data integration lab on s-serve</a></li>
+    <li>Launch <code>Lab deep learning integration</code> on <a href="https://serve.scilifelab.se/projects/">Scilifelab Serve</a>, use <code>Jupyter</code> app.</li>
     <li><a href="./session_ml/DeepLearningDataIntegration/lab/DeepLearningDataIntegration.html">Deep Learning for data integration lab html</a></li>
-    <li>Docker image: <code>docker pull rasoolsnbis/omicsint_h24:session_ml_deep_learning_integration_amd_v.h24.e78e9bb81f52703200968a76e46c23738536f237</code>
+    <li>Docker image: <code>docker pull rasoolsnbis/omicsint_h24:session_ml_deep_learning_integration_amd_v.h24.6d635ce</code>
     </li>
   </ul>
 </details>
@@ -190,7 +190,7 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 <details>
   <summary>Resources</summary>
   <ul>
-    <li><a href="XXX">Topology lab on s-serve</a></li>
+    <li>Launch <code>Lab topology</code> on <a href="https://serve.scilifelab.se/projects/">Scilifelab Serve</a>, use <code>Jupyter</code> app.</li>
     <li><a href="./session_topology/lab/topology_lab_part1.html">Topology lab Notebook part 1</a></li>
     <li><a href="./session_topology/lab/topology_lab_part2.html">Topology lab Notebook part 2</a></li>
     <li><a href="./session_topology/lab/topology_lab_part3.html">Topology lab Notebook part 3</a></li>
@@ -216,7 +216,7 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 <details>
   <summary>Resources</summary>
   <ul>
-    <li><a href="XXX">Topology lab on s-serve</a></li>
+    <li>Launch <code>Lab topology</code> on <a href="https://serve.scilifelab.se/projects/">Scilifelab Serve</a>, use <code>Jupyter</code> app.</li>
     <li><a href="./session_topology/lab/topology_lab_part1.html">Topology lab Notebook part 1</a></li>
     <li><a href="./session_topology/lab/topology_lab_part2.html">Topology lab Notebook part 2</a></li>
     <li><a href="./session_topology/lab/topology_lab_part3.html">Topology lab Notebook part 3</a></li>
@@ -248,8 +248,8 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 <details>
   <summary>Resources</summary>
   <ul>
-    <li><a href="XXX">GEMs lab on s-serve</a></li>
-    <li>Docker image: <code>docker rasoolsnbis/omicsint_h24:session_gems_amd_v.h24.a2b336c</code></li>
+    <li>Launch <code>Lab GEMs</code> on <a href="https://serve.scilifelab.se/projects/">Scilifelab Serve</a>, use <code>Jupyter</code> app.</li>
+    <li>Docker image: <code>docker pull rasoolsnbis/omicsint_h24:session_gems_amd_v.h24.a2b336c</code></li>
   </ul>
 </details>
 
@@ -318,7 +318,7 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 <details>
   <summary>Resources</summary>
   <ul>
-    <li><a href="XXX">Gene set analysis lab on s-serve</a></li>
+    <li>Launch <code>Lab GEM GSA</code> on <a href="https://serve.scilifelab.se/projects/">Scilifelab Serve</a>, use <code>Jupyter</code> app.</li>
     <li><a href="./session_gsa/GEM_GSA.html">Gene set analysis lab Notebook</a></li>
     <li>Docker image: <code>docker pull rasoolsnbis/omicsint_h24:session_gsa_amd_v.h24.a1ae0fc</code></li>
   </ul>
