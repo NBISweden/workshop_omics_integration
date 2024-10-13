@@ -28,7 +28,7 @@ RUN echo "conda activate nmf" >> /etc/profile.d/conda.sh
 
 # Install ipykernel in the nmf environment and create a kernel spec
 RUN /opt/conda/envs/datasci/bin/pip install ipykernel && \
-    /opt/conda/envs/datasci/bin/python -m ipykernel install --name datasci --display-name "Python (nmf)"
+    /opt/conda/envs/datasci/bin/python -m ipykernel install --name nmf --display-name "Python (nmf)"
 
 # Create a data directory
 RUN mkdir -p /home/jovyan/lab/data
