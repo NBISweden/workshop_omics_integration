@@ -1,0 +1,16 @@
+name: nmf
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.12
+  - scikit-learn
+  - pandas
+  - numpy
+  - scipy
+  - statsmodels
+  - matplotlib
+  - seaborn
+  - jupyterlab
+  - pip:
+      - snfpy
