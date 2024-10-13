@@ -265,7 +265,10 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 <details>
   <summary>Resources</summary>
   <ul>
-    <li><a href="./session_nmf/NMF_main.html">Slides</a></li>
+    <li><a href="./session_topology/lectures/1Introduction.pdf">Introduction</a></li>
+    <li><a href="./session_topology/lectures/2Network_inference.pdf">Network inference</a></li>
+    <li><a href="./session_topology/lectures/3Community_analysis.pdf">Community analysis</a></li>
+    <li><a href="./session_topology/lectures/Application_net_analysis.pdf">Applications of network analysis</a></li>
   </ul>
 </details>
 
@@ -273,7 +276,10 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 <details>
   <summary>Resources</summary>
   <ul>
-    <li><a href="./session_nmf/SNF_main.html">Slides</a></li>
+    <li><a href="./session_topology/lectures/1Introduction.pdf">Introduction</a></li>
+    <li><a href="./session_topology/lectures/2Network_inference.pdf">Network inference</a></li>
+    <li><a href="./session_topology/lectures/3Community_analysis.pdf">Community analysis</a></li>
+    <li><a href="./session_topology/lectures/Application_net_analysis.pdf">Applications of network analysis</a></li>
   </ul>
 </details>
 
@@ -283,7 +289,9 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 <details>
   <summary>Resources</summary>
   <ul>
-    <li><a href="./session_nmf/NMF_lab.html">Notebook</a></li>
+    <li>Launch <code>Lab NMF & SNF</code> on <a href="https://serve.scilifelab.se/projects/">Scilifelab Serve</a>, use <code>Jupyter</code> app.</li>
+    <li><a href="./session_nmf/NMF_lab.html">NMF lab Notebook</a></li>
+    <li>Docker image: <code>docker pull rasoolsnbis/omicsint_h24:session_nmf_amd_v.h24.1b36f11</code></li>
   </ul>
 </details>
 
@@ -291,7 +299,9 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 <details>
   <summary>Resources</summary>
   <ul>
-    <li><a href="./session_nmf/SNF_lab.html">Notebook</a></li>
+    <li>Launch <code>Lab NMF & SNF</code> on <a href="https://serve.scilifelab.se/projects/">Scilifelab Serve</a>, use <code>Jupyter</code> app.</li>
+    <li><a href="./session_nmf/SNF_lab.html">SNF lab Notebook</a></li>
+    <li>Docker image: <code>docker pull rasoolsnbis/omicsint_h24:session_nmf_amd_v.h24.1b36f11</code></li>
   </ul>
 </details>
 
