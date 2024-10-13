@@ -13,6 +13,7 @@ on:
       - 'session_gems/**'
       - 'session_gsa/**'
       - 'session_topology/**'
+      - 'session_nmf/**'
     branches:
       - OMICSINT_H24
 
@@ -84,6 +85,9 @@ jobs:
           fi
           if git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep -q '^session_topology'; then
             echo "topology=true" >> $GITHUB_ENV
+          fi
+          if git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep -q '^session_nmf'; then
+            echo "nmf=true" >> $GITHUB_ENV
           fi
 
       # Conditionally build and push images for Deep Learning Lab
@@ -213,4 +217,18 @@ jobs:
           tags: |
             docker.io/rasoolsnbis/omicsint_h24:session_topology_amd_v.h24.${{ env.SHORT_SHA }}
             ghcr.io/nbisweden/omicsint_h24:session_topology_amd_v.h24.${{ env.SHORT_SHA }}
+
+      # Conditionally build and push images for NMF lab
+      - name: Build and Push Docker Image for NMF Lab
+        if: env.nmf == 'true'
+        uses: docker/build-push-action@v4
+        with:
+          context: ./session_nmf
+          file: session_nmf/Dockerfile
+          platforms: linux/amd64
+          push: true
+          no-cache: true
+          tags: |
+            docker.io/rasoolsnbis/omicsint_h24:session_nmf_amd_v.h24.${{ env.SHORT_SHA }}
+            ghcr.io/nbisweden/omicsint_h24:session_nmf_amd_v.h24.${{ env.SHORT_SHA }}
       
