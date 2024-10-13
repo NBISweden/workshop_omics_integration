@@ -20,15 +20,15 @@ RUN pip install --no-cache-dir -r /tmp/requirements.txt
 # Install mamba
 RUN conda install -n base -c conda-forge mamba
 
-# Install datasci environment
+# Install nmf environment
 RUN mamba env create -f /tmp/nmf_snf_env.yml && conda clean --all --yes
 
 # Activate conda environment
 RUN echo "conda activate nmf" >> /etc/profile.d/conda.sh
 
 # Install ipykernel in the nmf environment and create a kernel spec
-RUN /opt/conda/envs/datasci/bin/pip install ipykernel && \
-    /opt/conda/envs/datasci/bin/python -m ipykernel install --name nmf --display-name "Python (nmf)"
+RUN /opt/conda/envs/nmf/bin/pip install ipykernel && \
+    /opt/conda/envs/nmf/bin/python -m ipykernel install --name nmf --display-name "Python (nmf)"
 
 # Create a data directory
 RUN mkdir -p /home/jovyan/lab/data
@@ -47,7 +47,7 @@ RUN chown -R jovyan:users /opt/conda /home/jovyan/.cache /home/jovyan/lab && \
 USER jovyan
 
 # Set default conda environment
-ENV PATH /opt/conda/envs/datasci/bin:$PATH
+ENV PATH /opt/conda/envs/nmf/bin:$PATH
 
 # Disable Jupyter token authentication
 RUN jupyter notebook --generate-config && \
