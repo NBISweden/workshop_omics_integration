@@ -90,7 +90,11 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 **15.30 - 17.00** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Assisted exercises
 
 <br>
+
+> ### **🌟 18:00** <img border="0" src="https://www.svgrepo.com/show/11965/restaurant.svg" width="15" height="15"> **Course Dinner** at [Valvet Steakhouse](https://www.valvetsteakhouse.se) 🌟
+
 <br>
+
 
 ##### Day 2
 
