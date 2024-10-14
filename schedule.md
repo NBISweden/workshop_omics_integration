@@ -80,8 +80,8 @@ title:  'Schedule - Omics integration and systems biology - 2024'
   <summary>Resources</summary>
   <ul>
     <li>Launch <code>Lab unsupervised omics integration</code> on <a href="https://serve.scilifelab.se/projects/">Scilifelab Serve</a>, use <code>Rstudio</code> app.</li>
-    <li><a href="./session_ml/UnsupervisedOMICsIntegration/UnsupervisedOMICsIntegration.html">Unsupervised Integration lab Notebook</a></li>
-    <li>Docker image: <code>ddocker pull rasoolsnbis/omicsint_h24:session_ml_unsupervised_omics_integration_amd_v.h24.6d635ce</code></li>
+    <li><a href="./session_ml/UnsupervisedOMICsIntegration/Multi-OMICs Factor Analysis (MOFA) and Unsupervised Data Learning.html">Unsupervised Integration lab Notebook</a></li>
+    <li>Docker image: <code>docker pull rasoolsnbis/omicsint_h24:session_ml_unsupervised_omics_integration_amd_v.h24.6d635ce</code></li>
   </ul>
 </details>
 
