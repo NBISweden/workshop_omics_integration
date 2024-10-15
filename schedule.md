@@ -104,7 +104,7 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 <details>
   <summary>Resources</summary>
   <ul>
-    <li><a href="./session_ml/SingleCell/lab/scRNAseq_2024_Integration_Oskolkov.pdf">Slides</a></li>
+    <li><a href="./session_ml/SingleCell/lab/Single_Cell_Integration_Oskolkov.pdf">Slides</a></li>
   </ul>
 </details>
 
@@ -152,7 +152,7 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 <details>
   <summary>Resources</summary>
   <ul>
-    <li><a href="./session_ml/DeepLearningDataIntegration/lab/DeepLearningOmicsIntegration_Oskolkov_2023.pdf">Slides</a></li>
+    <li><a href="./session_ml/DeepLearningDataIntegration/lab/DeepLearningOmicsIntegration_Oskolkov.pdf">Slides</a></li>
   </ul>
 </details>
 
@@ -241,8 +241,7 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 <details>
   <summary>Resources</summary>
   <ul>
-    <li><a href="./session_gems/GEMs_concept.pdf">Introduction – Constraint-based modeling concept</a></li>
-    <li><a href="./session_gems/Constraint-based-modeling-ELIXIR-Omics-Integration-and-Systems-Biology.pdf">Tools</a></li>
+    <li><a href="./session_gems/GEMs_concept.pdf">Introduction – Constraint-based modeling concepts</a></li>
   </ul>
 </details>
 
