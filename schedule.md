@@ -123,7 +123,7 @@ title:  'Schedule - Omics integration and systems biology - 2024'
     <li>Docker image: <code>docker pull rasoolsnbis/omicsint_h24:session_ml_single_cell_amd_v.h24.7054451</code></li>
 <br>
     <li>Launch <code>Lab UMAP</code> on <a href="https://serve.scilifelab.se/projects/">Scilifelab Serve</a>, use <code>Jupyter</code> app.</li>
-    <li><a href="./session_ml/UMAP_DataIntegration/lab/UMAP_DataIntegration.html"> UMAP lab notebook</a></li>
+    <li><a href="./session_ml/UMAP_DataIntegration/UMAP_DataIntegration.html"> UMAP lab notebook</a></li>
     <li>Docker image: <code>docker pull rasoolsnbis/omicsint_h24:session_ml_umap_data_integration_amd_v.h24.6d635ce</code></li>
   </ul>
 </details>
