@@ -9,7 +9,7 @@ session_topology/lab/data/association_matrix.tsv
 Gemfile.lock
 
 # ignore .vscode folder
-.vscode
+.vscode/
 
 # ignore data
 session_ml/SingleCell/lab/data
