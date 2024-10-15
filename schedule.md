@@ -264,25 +264,29 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 
 **14.00 - 14.15** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Break
 
-**14.15 - 14.45** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Non-negative Matrix Factorization ([Sergiu][3])
+**14.15 - 14.45** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Topology analysis ([Sergiu][3])
 <details>
   <summary>Resources</summary>
   <ul>
-    <li><a href="./session_topology/lectures/1Introduction.pdf">Introduction</a></li>
-    <li><a href="./session_topology/lectures/2Network_inference.pdf">Network inference</a></li>
-    <li><a href="./session_topology/lectures/3Community_analysis.pdf">Community analysis</a></li>
-    <li><a href="./session_topology/lectures/Application_net_analysis.pdf">Applications of network analysis</a></li>
+    <li><a href="./session_topology/lab/lectures/1Introduction.pdf">Introduction</a></li>
+    <li><a href="./session_topology/lab/lectures/2Network_inference.pdf">Network inference</a></li>
+    <li><a href="./session_topology/lab/lectures/3Community_analysis.pdf">Community analysis</a></li>
+    <li><a href="./session_nmf/NMF_main.html">Non-negative Matrix Factorization</a></li>
+    <li><a href="./session_nmf/SNF_main.ipynb">Similarity network fusion</a></li>
+    <li><a href="./session_nmf/Graph Neural Networks in Integrative Omics.html">Graph neural networks</a></li>
   </ul>
 </details>
 
-**14.45 - 15.15** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Similarity network fusion ([Sergiu][3], [Jennifer][5])
+**14.45 - 15.15** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Topology analysis ([Sergiu][3], [Jennifer][5])
 <details>
   <summary>Resources</summary>
   <ul>
-    <li><a href="./session_topology/lectures/1Introduction.pdf">Introduction</a></li>
-    <li><a href="./session_topology/lectures/2Network_inference.pdf">Network inference</a></li>
-    <li><a href="./session_topology/lectures/3Community_analysis.pdf">Community analysis</a></li>
-    <li><a href="./session_topology/lectures/Application_net_analysis.pdf">Applications of network analysis</a></li>
+    <li><a href="./session_topology/lab/lectures/1Introduction.pdf">Introduction</a></li>
+    <li><a href="./session_topology/lab/lectures/2Network_inference.pdf">Network inference</a></li>
+    <li><a href="./session_topology/lab/lectures/3Community_analysis.pdf">Community analysis</a></li>
+    <li><a href="./session_nmf/NMF_main.html">Non-negative Matrix Factorization</a></li>
+    <li><a href="./session_nmf/SNF_main.ipynb">Similarity network fusion</a></li>
+    <li><a href="./session_nmf/Graph Neural Networks in Integrative Omics.html">Graph neural networks</a></li>
   </ul>
 </details>
 

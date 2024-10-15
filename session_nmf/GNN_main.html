@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Graph Neural Networks in Integrative Omics</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="GNN_main_files/libs/clipboard/clipboard.min.js"></script>
+<script src="GNN_main_files/libs/quarto-html/quarto.js"></script>
+<script src="GNN_main_files/libs/quarto-html/popper.min.js"></script>
+<script src="GNN_main_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="GNN_main_files/libs/quarto-html/anchor.min.js"></script>
+<link href="GNN_main_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="GNN_main_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="GNN_main_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="GNN_main_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="GNN_main_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Graph Neural Networks in Integrative Omics</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<ul>
+<li>Sergiu Netotea, NBIS, 2024</li>
+</ul>
+<p>TODO: graph embeddings, geometric learning, graph models in LLMs, graph transformers https://pytorch-geometric.readthedocs.io/en/latest/tutorial/shallow_node_embeddings.html</p>
+<section id="graph-convolutional-networks-gcns" class="level2">
+<h2 class="anchored" data-anchor-id="graph-convolutional-networks-gcns">Graph Convolutional Networks (GCNs)</h2>
+<ul>
+<li><strong>Description</strong>: GCNs generalize convolutional operations to graph-structured data, focusing on neighborhood aggregation.</li>
+<li><strong>Example Uses</strong>: Social network analysis, where the goal is to predict user behavior based on the connections and interactions between users. Predicting labels of nodes in a partially labeled graph (e.g., classifying users in a social network). Predicting whether an edge exists between two nodes (e.g., friend recommendation in social networks). Classifying entire graphs (e.g., classifying molecules based on their structure).</li>
+<li><strong>Single-cell Transcriptomics:</strong> GCNs can model gene-gene interactions across different cells by representing the cells as nodes and the gene expression correlations as edges. This helps identify cell types and gene regulatory networks.
+<ul>
+<li><blockquote class="blockquote">
+<p>Wang, T., Bai, J. &amp; Nabavi, S. Single-cell classification using graph convolutional networks. BMC Bioinformatics 22, 364 (2021). https://doi.org/10.1186/s12859-021-04278-2</p>
+</blockquote></li>
+<li><blockquote class="blockquote">
+<p>Yuan, Y., Bar-Joseph, Z. GCNG: graph convolutional networks for inferring gene interaction from spatial transcriptomics data. Genome Biol 21, 300 (2020). https://doi.org/10.1186/s13059-020-02214-w</p>
+</blockquote></li>
+</ul></li>
+<li><strong>Bulk RNA-Seq &amp; omics integration:</strong> GCNs can be used to integrate bulk transcriptomic data with other omics data (like DNA methylation, protein, etc) by constructing a graph where nodes represent genes, and edges represent regulatory relationships, helping in uncovering gene expression regulation patterns.
+<ul>
+<li><blockquote class="blockquote">
+<p>Wang, T., Shao, W., Huang, Z. et al.&nbsp;MOGONET integrates multi-omics data using graph convolutional networks allowing patient classification and biomarker identification. Nat Commun 12, 3445 (2021). https://doi.org/10.1038/s41467-021-23774-w</p>
+</blockquote></li>
+<li><blockquote class="blockquote">
+<p>Chuang, YH., Huang, SH., Hung, TM. et al.&nbsp;Convolutional neural network for human cancer types prediction by integrating protein interaction networks and omics data. Sci Rep 11, 20691 (2021). https://doi.org/10.1038/s41598-021-98814-y</p>
+</blockquote></li>
+<li><blockquote class="blockquote">
+<p>Ji, R., Geng, Y. &amp; Quan, X. Inferring gene regulatory networks with graph convolutional network based on causal feature reconstruction. Sci Rep 14, 21342 (2024). https://doi.org/10.1038/s41598-024-71864-8</p>
+</blockquote></li>
+</ul></li>
+</ul>
+<p><strong>Key Concepts in GCNs</strong></p>
+<ul>
+<li><strong>Graph Structure</strong>: A graph G is typically represented by a set of nodes V, a set of edges E, where each edge connects two nodes. From the graph structure one can derive an adjacency matrix A. Apart</li>
+<li><strong>Node Features</strong>: Each node can have a feature vector associated with it. For example, in a single cell dataset the feature can be gene expression associated to a node.</li>
+<li><strong>Message Passing and Aggregation</strong>: The core mechanism in GCNs is the aggregation of information from a node’s neighbors to update the node’s feature representation. This process, sometimes called “message passing,” allows a node to gain a more informed representation based on its graph context.</li>
+</ul>
+<p><strong>GCN Layer (Graph Convolution Layer)</strong></p>
+<p>A GCN layer generalizes the concept of the standard convolutional layer. Instead of applying a kernel to a grid of pixels (as in CNNs), GCN layers perform a neighborhood aggregation operation.</p>
+<p>For each layer in a GCN, the node feature matrix $ H $ is updated as follows: <span class="math display">\[
+H^{(l+1)} = \sigma\left( \hat{A} H^{(l)} W^{(l)} \right)
+\]</span> Where: - $ H^{(l)} $ is the feature matrix at layer $ l $, with shape $ N D_l $ (i.e., $ N $ nodes and $ D_l $ features per node at layer $ l $). - $ $ is the adjacency matrix of the graph, normalized to prevent the exploding or vanishing of feature values. - $ W^{(l)} $ is the learnable weight matrix at layer $ l $. - $ $ is an activation function, such as ReLU.</p>
+<p>Main idea: - Neighborhood Aggregation: Instead of using a fixed kernel, the graph structure dictates how information is shared between nodes. - Weight Transformation: The aggregated features are transformed using a weight matrix, which is learned during training. This step is similar to the linear transformation in fully connected layers of neural networks. - The activation function, such as ReLU, is applied to introduce non-linearity, allowing the model to capture complex patterns in the graph. - Multi-Layer GCN: A GCN typically stacks multiple graph convolutional layers. Each layer aggregates more information from a larger neighborhood in the graph. After multiple layers, a node’s representation is influenced not only by its immediate neighbors but also by neighbors that are further away.</p>
+</section>
+<section id="graph-attention-networks-gat" class="level2">
+<h2 class="anchored" data-anchor-id="graph-attention-networks-gat">Graph Attention Networks (GAT)</h2>
+<ul>
+<li><strong>Description</strong>: GATs use attention mechanisms to learn the importance of neighboring nodes when aggregating information. This allows the model to focus on the most relevant neighbors when updating a node’s features.</li>
+<li><strong>Example Use</strong>: Citation networks, where a paper’s relevance is predicted by selectively focusing on certain referenced papers.</li>
+<li><strong>Spatial Transcriptomics, SCRNA-Seq:</strong> GATs can model spatial relationships between neighboring cells by treating each cell as a node, with attention mechanisms helping focus on spatially relevant neighboring cells. This allows for more accurate spatial gene expression patterns to emerge.
+<ul>
+<li><blockquote class="blockquote">
+<p>Sun H, Qu H, Duan K, Du W. scMGCN: A Multi-View Graph Convolutional Network for Cell Type Identification in scRNA-seq Data. Int J Mol Sci. 2024 Feb 13;25(4):2234. doi: 10.3390/ijms25042234. PMID: 38396909; PMCID: PMC10889820.</p>
+</blockquote></li>
+<li><blockquote class="blockquote">
+<p>Yang, W., Wang, P., Xu, S. et al.&nbsp;Deciphering cell–cell communication at single-cell resolution for spatial transcriptomics with subgraph-based graph attention network. Nat Commun 15, 7101 (2024). https://doi.org/10.1038/s41467-024-51329-2</p>
+</blockquote></li>
+<li><blockquote class="blockquote">
+<p>Zizhan Gao, Kai Cao, Lin Wan, Graspot: a graph attention network for spatial transcriptomics data integration with optimal transport, Bioinformatics, Volume 40, Issue Supplement_2, September 2024, Pages ii137–ii145, https://doi.org/10.1093/bioinformatics/btae394</p>
+</blockquote></li>
+<li><blockquote class="blockquote">
+<p>Long, Y., Ang, K.S., Li, M. et al.&nbsp;Spatially informed clustering, integration, and deconvolution of spatial transcriptomics with GraphST. Nat Commun 14, 1155 (2023). https://doi.org/10.1038/s41467-023-36796-3</p>
+</blockquote></li>
+<li><blockquote class="blockquote">
+<p>Guangyi Chen, Zhi-Ping Liu, Graph attention network for link prediction of gene regulations from single-cell RNA-sequencing data, Bioinformatics, Volume 38, Issue 19, October 2022, Pages 4522–4529, https://doi.org/10.1093/bioinformatics/btac559</p>
+</blockquote></li>
+<li><blockquote class="blockquote">
+<p>Li, H., Han, Z., Sun, Y. et al.&nbsp;CGMega: explainable graph neural network framework with attention mechanisms for cancer gene module dissection. Nat Commun 15, 5997 (2024). https://doi.org/10.1038/s41467-024-50426-6</p>
+</blockquote></li>
+</ul></li>
+<li><strong>Metagenomics:</strong> In metagenomic studies, GATs can integrate various layers of data, such as species abundance and functional annotations, by focusing on the most relevant species in a microbiome community, helping identify key microbes involved in disease.
+<ul>
+<li><blockquote class="blockquote">
+<p>Andre Lamurias, Mantas Sereika, Mads Albertsen, Katja Hose, Thomas Dyhre Nielsen, Metagenomic binning with assembly graph embeddings, Bioinformatics, Volume 38, Issue 19, October 2022, Pages 4481–4487, https://doi.org/10.1093/bioinformatics/btac557</p>
+</blockquote></li>
+</ul></li>
+</ul>
+<p><strong>Key concepts in GANs</strong> - Problem with Basic GNNs: In traditional GNNs, the information from neighboring nodes is aggregated uniformly, assuming all neighbors have equal importance. This may result in a loss of relevant information. Graph Attention Networks (GAT) are a type of neural network designed to process graph-structured data by leveraging the <strong>attention mechanism</strong> to assign different weights to neighboring nodes. - Input Features: Each node $ v_i V $ is associated with a feature vector $ h_i R^F $ , where $ F $ is the dimensionality of the node features. - Linear Transformation: First, apply a shared linear transformation to each node’s feature vector: $ h_i’ = W h_i $, where W is a learnable weight matrix, and f is the transformed feature vector for node i. - <strong>Attention Mechanism</strong>: For each node $ v_i $, compute attention coefficients for each of its neighboring nodes. The attention coefficient between nodes i and j is computed as a non-linear activation function (LeakyReLU) applied on a learnable attention vector and a concatenation based on the concatenation the two nodes transformed feature vectors ( the f - transformed feature vectors for node i and j respectively). <strong>Self-Attention</strong>: Attends to node pairs independently of the graph structure, making the model more flexible. <span class="math display">\[
+  e_{ij} = \text{LeakyReLU}\left( a^T [ h_i' \, || \, h_j' ] \right)
+  \]</span> - Normalization of attention coefficients (Softmax) to make them comparable<br>
+<span class="math display">\[
+   \alpha_{ij} = \frac{\exp(e_{ij})}{\sum_{k \in N(i)} \exp(e_{ik})}
+   \]</span> where $ _{ij} $ represents the normalized attention coefficient, reflecting the importance of node j in the neighborhood of node i .</p>
+<ul>
+<li>Aggregation:<br>
+The node features are then updated by aggregating the transformed features of its neighbors, weighted by the attention coefficients: <span class="math display">\[
+h_i^{(l+1)} = \sigma \left( \sum_{j \in N(i)} \alpha_{ij} h_j' \right)
+\]</span> , where ( ) is a non-linear activation function such as ReLU.</li>
+</ul>
+<ol start="6" type="1">
+<li><strong>Multi-head Attention</strong> (optional): To stabilize the learning process and increase model capacity, GAT uses multi-head attention. This means the attention mechanism is applied multiple times in parallel, and the results are concatenated or averaged. For K attention heads, the output for node i after multi-head attention is: <span class="math display">\[
+h_i^{(l+1)} = \, ||_{k=1}^K \sigma \left( \sum_{j \in N(i)} \alpha_{ij}^{(k)} h_j'^{(k)} \right)
+\]</span> where $ ||_{k=1}^K $ denotes concatenation of the results from each attention head $ k $.</li>
+</ol>
+</section>
+<section id="other-graph-nn-types" class="level2">
+<h2 class="anchored" data-anchor-id="other-graph-nn-types">Other Graph NN types</h2>
+<p>Here’s a very incomplete classification of the other graph neural networks (GNNs) along with some example use for each type. Each type of GNN serves a specific purpose, based on the structure and nature of the graph data.</p>
+<p><strong>Graph Recurrent Networks (GRN)</strong> - <strong>Description</strong>: GRNs introduce recurrent neural networks to handle graph sequences, useful for dynamic graphs. - <strong>Example Use</strong>: Traffic forecasting, where the road network’s state evolves over time, and predictions are made based on previous patterns. - <strong>Single-cell Temporal Analysis:</strong> GRNs can capture time-evolving cellular states in dynamic single-cell experiments. For example, in developmental biology, GRNs can track the progression of cells over time by integrating temporal transcriptomics data. - <strong>Spatial Transcriptomics Time-Series:</strong> For spatial data over time (e.g., tissue healing or disease progression), GRNs can model how spatial expression patterns change, helping understand how spatial gene expression correlates with temporal dynamics.</p>
+<p><strong>Graph Autoencoders (GAE)</strong> - <strong>Description</strong>: GAEs learn embeddings by encoding graph structures and then reconstructing the graph from these embeddings. - <strong>Example Use</strong>: Recommendation systems, where user-item interactions are represented as a graph and new recommendations are generated. - <strong>Bulk and Single-cell Omics Integration:</strong> GAEs can be applied to integrate bulk and single-cell data by encoding both types of data into a unified low-dimensional space, capturing common biological signals while reconstructing multi-omics profiles. This can help in identifying shared molecular pathways across different scales. - &gt; Dong, K., Zhang, S. Deciphering spatial domains from spatially resolved transcriptomics with an adaptive graph attention auto-encoder. Nat Commun 13, 1739 (2022). https://doi.org/10.1038/s41467-022-29439-6 - &gt; STGNNks: Identifying cell types in spatial transcriptomics data based on graph neural network, denoising auto-encoder, and k-sums clustering - ScienceDirect: https://www.sciencedirect.com/science/article/abs/pii/S0010482523009058 - <strong>Metagenomics:</strong> In metagenomics, GAEs can encode microbial community structures and gene abundance patterns to infer functional or ecological relationships between microbes, aiding in the identification of microbial communities driving disease.</p>
+<p><strong>Spatial-Temporal GNNs</strong> - <strong>Description</strong>: These models integrate spatial and temporal information, capturing both graph structure and time-evolving patterns. - <strong>Example Use</strong>: Predicting pedestrian movement in smart cities by analyzing how the flow of people changes over time. - <strong>Spatial Transcriptomics:</strong> These GNNs can combine spatial gene expression and temporal data to model processes like tissue regeneration, tracking how gene expression in different regions changes over time. It can provide insights into cellular differentiation and tissue architecture. - <strong>Single-cell Multi-omics:</strong> Spatial-temporal GNNs can integrate transcriptomics, epigenomics, and proteomics data from single cells, allowing for a detailed view of cellular dynamics, such as differentiation over time and space, important for developmental biology and cancer studies.</p>
+<p><strong>GraphSAGE</strong> - <strong>Description</strong>: GraphSAGE samples a fixed-size neighborhood for each node and aggregates its information, allowing it to scale to larger graphs. - <strong>Example Use</strong>: Large-scale molecular property prediction, where molecular structures are represented as graphs and properties are inferred from sampled subgraphs. - <strong>Single-cell RNA-seq and Proteomics Integration:</strong> GraphSAGE can be used to integrate gene expression data with protein expression data by aggregating information from neighboring cells or samples. This can reveal the co-regulation of genes and proteins, helping to identify pathways active in specific cell types. - <strong>Metagenomics and Bulk Omics:</strong> In metagenomics studies, GraphSAGE can scale to large datasets, integrating microbial abundance and functional genomics (like gene expression) across environments. This can help uncover how microbial communities influence host transcriptomes in different contexts, such as gut health or disease states. - &gt; Andre Lamurias, Mantas Sereika, Mads Albertsen, Katja Hose, Thomas Dyhre Nielsen, Metagenomic binning with assembly graph embeddings, Bioinformatics, Volume 38, Issue 19, October 2022, Pages 4481–4487, https://doi.org/10.1093/bioinformatics/btac557</p>
+<p>Libraries, platforms, etc: - Wandy, J., Daly, R. GraphOmics: an interactive platform to explore and integrate multi-omics data. BMC Bioinformatics 22, 603 (2021). https://doi.org/10.1186/s12859-021-04500-1 - Comparative Analysis of Multi-Omics Integration Using Advanced Graph Neural Networks for Cancer Classification, Fadi Alharbi, Aleksandar Vakanski, Boyu Zhang, Murtada K. Elbashir, Mohanad Mohammed, https://doi.org/10.48550/arXiv.2410.05325 - Stanford Graph ML course: https://snap.stanford.edu/class/cs224w-2023/ - https://huggingface.co/blog/intro-graphml - https://pytorch-geometric.readthedocs.io/en/latest/</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

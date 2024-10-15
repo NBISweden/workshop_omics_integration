@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>NMF - Non-Negative Matrix Factorization</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="NMF_main_files/libs/clipboard/clipboard.min.js"></script>
+<script src="NMF_main_files/libs/quarto-html/quarto.js"></script>
+<script src="NMF_main_files/libs/quarto-html/popper.min.js"></script>
+<script src="NMF_main_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="NMF_main_files/libs/quarto-html/anchor.min.js"></script>
+<link href="NMF_main_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="NMF_main_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="NMF_main_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="NMF_main_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="NMF_main_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">NMF - Non-Negative Matrix Factorization</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>by Sergiu Netotea, PhD, NBIS, Chalmers</p>
+<ul>
+<li>Basic NMF presentation and solving</li>
+<li>Comparisons to SvD and PCA. When to use what?</li>
+<li>Toy dataset example</li>
+<li>More complex NMF methods and their applications in omics integration</li>
+<li>NMF for dimensionality reduction (lab)
+<ul>
+<li>Reccomend a multi-omic cause (gene/protein/metabolite) for a phenotipic effect, or the opposite.</li>
+</ul></li>
+</ul>
+<p>Further read: - Seminal paper: NMF outperforms similar techniques at learning parts representation - Lee, D., Seung, H. Learning the parts of objects by non-negative matrix factorization. Nature 401, 788–791 (1999). https://doi.org/10.1038/44565</p>
+<p>Observations: - NMF was historically the best hidden feature based image segmentation prior to CNNs - In comparison to other MF methods (especially the orthogonality enforcing methods), NMF hidden features are not independent, but overlapping, in a hierarchical manner (thus good for hierarchical clustering)</p>
+<section id="nmf---non-negative-matrix-factorization" class="level2">
+<h2 class="anchored" data-anchor-id="nmf---non-negative-matrix-factorization">NMF - Non-Negative Matrix Factorization</h2>
+<ul>
+<li><p>Matrix factorization (MF): <img src="img/NMF.png" width="300"> [Credit: Wikipedia]</p></li>
+<li><p>Latent (hidden) factors:</p>
+<ul>
+<li>Each sample (feature) can be described by k attributes. Example: How likely is it that a person suffers from a certain type of cancer?</li>
+<li>Each observation (example: gene) can be described by an analagous set of k attributes or features. Example: How likely is it for the gene to be involved/co-regulated/induced etc in a certain type of cancer.</li>
+<li>Hidden features: We don’t always know what these features are, how many are relevant. We learn them, or rather let the machines pick.</li>
+</ul></li>
+<li><p>Model constraints: <span class="math inline">\(V\in\mathbb{R}_+^{m \times n}, V \approx WH, W \in \mathbb{R}_+^{m \times k}, H \in \mathbb{R}_+^{k \times n}\)</span></p>
+<ul>
+<li>NMF is a subtype of MF where the additional requirement is that the initial matrix and the decomposed matrices are positive.</li>
+<li>Why is non-negativity important? It implies the additivity of latent factors.</li>
+</ul></li>
+<li><p>As an optimization problem: $ min~|V-WH|_F, V , W , H $</p>
+<ul>
+<li>Frobenius norm. Fit function: $ F = <em>{u,i} (v</em>{ui} - w_u h_i<sup>T)</sup>2, v_{ui} w_u h_i^T = <em>k{w</em>{uk} h_{ki}}$</li>
+<li>This is non convex optimization (no global minima)!</li>
+<li>The number of latent factors is a result of global fitting</li>
+</ul></li>
+</ul>
+</section>
+<section id="nmf---some-intuitive-examples-from-multi-omics" class="level2">
+<h2 class="anchored" data-anchor-id="nmf---some-intuitive-examples-from-multi-omics">NMF - some intuitive examples from multi-omics:</h2>
+<table class="table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>V matrix (values matrix)</th>
+<th>(weights, scores) W matrix</th>
+<th>(hidden, loadings) H matrix</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>expression values (gene x samples)</td>
+<td>genes x factors (metagenes)</td>
+<td>factors (metagenes) x samples</td>
+</tr>
+<tr class="even">
+<td>protein counts (proteins x samples)</td>
+<td>proteins x factors (domains)</td>
+<td>factors (domains) x samples</td>
+</tr>
+<tr class="odd">
+<td>multiomics observations (genes, proteins, etc x samples)</td>
+<td>(genes, proteins, etc) x factors (multiomic features)</td>
+<td>factors (multiomic features) x samples</td>
+</tr>
+<tr class="even">
+<td>multiple datasets (genes x samples x batches)</td>
+<td>genes x factors (multi_batch domains)</td>
+<td>factors (multi_batch domains) x samples</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="nmf---in-general-contexts" class="level2">
+<h2 class="anchored" data-anchor-id="nmf---in-general-contexts">NMF - in general contexts:</h2>
+<table class="table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>V matrix (values matrix)</th>
+<th>(weights, scores) W matrix</th>
+<th>(hidden, loadings) H matrix</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>recommender systems (item x user)</td>
+<td>items x factors (preferences)</td>
+<td>factors (preferences) x users</td>
+</tr>
+<tr class="even">
+<td>collaborative filtering (user x user connections)</td>
+<td>user x factors (communities)</td>
+<td>factors (communities) x users</td>
+</tr>
+<tr class="odd">
+<td>language processing (word distribution x document)</td>
+<td>word x factors (topics)</td>
+<td>factors (topics) x documents</td>
+</tr>
+<tr class="even">
+<td>facial recognition (faces x labels)</td>
+<td>faces x factors (facial features)</td>
+<td>factors (facial features) x labels</td>
+</tr>
+<tr class="odd">
+<td>microscopy pictures (picture x samples)</td>
+<td>pictures x factors (image segments)</td>
+<td>factors x samples</td>
+</tr>
+<tr class="even">
+<td>spectrometry (spectra x sample)</td>
+<td>spectra x factors (component molecules)</td>
+<td>factors (component molecules) x samples</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="solving-nmf" class="level2">
+<h2 class="anchored" data-anchor-id="solving-nmf">Solving NMF</h2>
+<ul>
+<li>Similar to ICA, PCA, MFA it can be classified as an unsupervised dimensionality reduction / clustering technique.</li>
+<li>Uses the Frobenius norm, which is the matrix equivalent of the euclidean distance. But other cost functions are possible, that also include regularization. <span class="math display">\[
+\|X\|_F = \sqrt{\sum_i\sum_jx_{ij}^2}.
+\]</span></li>
+<li>Many algorithms exist, such as iterated coordinate descent (the original solver), hierarchical alternated least squares.</li>
+<li>Main solver works iteratively via alternating non-negative least squares (ANLS) as: <span class="math display">\[\begin{align}
+  W_{t+1} &amp;= W_t^T \frac{XH_t^T}{XH_tH_t^T} \\
+  H_{t+1} &amp;= H_t \frac{W_t^TX}{W^T_tW_tX}.
+\end{align}\]</span></li>
+<li>Weak convergence: it is reinitialized several times to avoid local minima, and the best result is kept.</li>
+<li>Optimal number of k components (RSS scores for example, Silhouettes scores etc)</li>
+</ul>
+<section id="alternating-non-negative-least-squares-anls" class="level3">
+<h3 class="anchored" data-anchor-id="alternating-non-negative-least-squares-anls">Alternating non-negative least squares (ANLS)</h3>
+<ul>
+<li>the iteration updates all of <span class="math inline">\(W\)</span> together, then all of <span class="math inline">\(H\)</span>: <span class="math display">\[
+W := \operatorname{argmin}_{W \geq 0} \|V-WH\|_F^2 \\
+H := \operatorname{argmin}_{H \geq 0} \|V-WH\|_F^2
+\]</span></li>
+<li>We can solve for each row of <span class="math inline">\(W\)</span> (or column of <span class="math inline">\(H\)</span>) independently by solving a <strong>non-negative least squares problem</strong>.<br>
+</li>
+<li>Non-negative least squares problems cannot be solved in a simple closed form! <span class="math display">\[
+\mbox{minimize } \|Vx-b\|^2 \mbox{ such that } x \geq 0;
+\]</span></li>
+<li>This it is a convex optimization problem that can be solved using any constrained optimization solver.</li>
+<li>Widely used solver is the active set methods, that start from an initial non-negative guess and partitioning the variables into a free set and a constrained set, then updates these sets and the best positive guess.</li>
+</ul>
+</section>
+<section id="nmf---multi-omics-usage-observations" class="level3">
+<h3 class="anchored" data-anchor-id="nmf---multi-omics-usage-observations">NMF - multi omics usage observations</h3>
+<ul>
+<li>The different omics datasets have different scales and normalities, and this will impact your results (but it also depends on assumptions, on the goal of your study).</li>
+<li>The second problem is enforcing the non-negativity constraint, which might imply additional transformations such as re-scaling and translating</li>
+<li>To bring the different datasets Frobenius norms to the same baseline one can do: <span class="math display">\[
+X = \begin{bmatrix}
+  \frac{x^{1j}}{\sum_jx^{1j}} /  \|\frac{x^{1j}}{\sum_jx^{1j}}\|_F \\
+  \frac{x^{2j}}{\sum_jx^{2j}} /  \|\frac{x^{2j}}{\sum_jx^{2j}}\|_F \\
+  \vdots \\
+  \frac{x^{Nj}}{\sum_jx^{Nj}} /  \|\frac{x^{Nj}}{\sum_jx^{Nj}}\|_F \\
+\end{bmatrix},
+\]</span></li>
+</ul>
+</section>
+</section>
+<section id="comparison-to-pca-and-autoencoders" class="level2">
+<h2 class="anchored" data-anchor-id="comparison-to-pca-and-autoencoders">Comparison to PCA and autoencoders</h2>
+<ul>
+<li>Overall:
+<ul>
+<li>PCA is good at isolating feature that contain sufficient signal, but will transform the dataset in the direction of maximal variability</li>
+<li>NMF will not have you lose the original features, you can see it as a data compression tool and has superior interpretability</li>
+<li>Autoencoders are good for high dimensional complex datasets, but it is difficult to interpret your findings beside a simple clustering</li>
+</ul></li>
+<li>Factors interpretability:
+<ul>
+<li>PCA: search for optimal rank k approximations, using it as a linear basis fit to re-write the data.</li>
+<li>NMF: your data is written as a weighted sum of the basis you learn, but multiple basis can be just as good.</li>
+<li>Autoencoder: fators are difficult to interpret, but can capture nonlinear effects.</li>
+</ul></li>
+<li>What it tries to explain:
+<ul>
+<li>PCA: variation in the data (it is an SvD on the covariation matrix, performing sequential normalizations of data along axes of variation)</li>
+<li>NMF: additive signal, the very purpose of NMF is to isolate distinct and interpretable signals (paterns) within the data</li>
+<li>Autoencoder: an autoencoder simply tries to reproduce it’s original signal.</li>
+</ul></li>
+<li>Dimensionality curse:
+<ul>
+<li>PCA: better at smaller datasets, covariation tends to be equal at large dimensions, good at isolating signal from noise from data</li>
+<li>NMF: even better at small datasets, provided a good signal fit is found, good at isolating paterns</li>
+<li>Autoencoder: better at complex and large datasets, were interpretability is not an end goal</li>
+</ul></li>
+</ul>
+<p>Further read: - https://towardsdatascience.com/step-by-step-signal-processing-with-machine-learning-pca-ica-nmf-8de2f375c422 - https://towardsdatascience.com/autoencoders-vs-pca-when-to-use-which-73de063f5d7 - https://iqbalamo93.medium.com/pca-and-nmf-a-quick-walkthrough-f53d30a968fc</p>
+</section>
+<section id="toy-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="toy-dataset">Toy dataset</h2>
+<ul>
+<li>Lets pretend that we manage to summarise the effective signal from several omics features in a cheap clinical test.</li>
+<li>Each sample is a private individual. Our test is targeted on one of these afflictions: (cancer, melancholy, diabetes). These are hidden factors: We don’t always know what these features are, how many are relevant. We learn them, or rather let the machines pick.</li>
+<li>Each individual is summarised by a few omics features. We will use NMF and collaborative filtering to extract knowledge from such a system.</li>
+</ul>
+<div class="cell" data-slideshow="{&quot;slide_type&quot;:&quot;subslide&quot;}" data-tags="[]" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> np.array([[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>],</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>             [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>], </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>             [<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>],</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>             [<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>],</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>             [<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">1</span>],</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>             [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>]])</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>dataset <span class="op">=</span> pd.DataFrame(m, columns<span class="op">=</span>[<span class="st">'John'</span>, <span class="st">'Alice'</span>, <span class="st">'Mary'</span>, <span class="st">'Greg'</span>, <span class="st">'Peter'</span>, <span class="st">'Jennifer'</span>])</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>dataset.index <span class="op">=</span> [<span class="st">'diabetes_gene1'</span>, <span class="st">'diabetes_gene2'</span>, <span class="st">'cancer_protein1'</span>, <span class="st">'unclear'</span>, <span class="st">'melancholy_gene'</span>, <span class="st">'cofee_dependency_gene'</span>]</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(groceries)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                       John  Alice  Mary  Greg  Peter  Jennifer
+diabetes_gene1            0      1     0     1      2         2
+diabetes_gene2            0      1     1     1      3         4
+cancer_protein1           2      3     1     1      2         2
+unclear                   1      1     1     0      1         1
+melancholy_gene           0      2     3     4      1         1
+cofee_dependency_gene     0      0     0     0      1         0</code></pre>
+</div>
+</div>
+<p>Intuitively we can see that the users (samples) are conected to their items (genes) via a hidden scheme, that could simplify this table. The elements of such a hidden scheme we call hidden (latent) factors. Here is a possible example:</p>
+<div class="cell" data-slideshow="{&quot;slide_type&quot;:&quot;fragment&quot;}" data-tags="[]" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>latent_factors <span class="op">=</span> [<span class="st">'latent1'</span>, <span class="st">'latent2'</span>,  <span class="st">'latent3'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-slideshow="{&quot;slide_type&quot;:&quot;fragment&quot;}" data-tags="[]" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.decomposition <span class="im">import</span> NMF</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>nmf <span class="op">=</span> NMF(<span class="dv">3</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>V <span class="op">=</span> dataset</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>nmf.fit(V)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>H <span class="op">=</span> pd.DataFrame(np.<span class="bu">round</span>(nmf.components_,<span class="dv">2</span>), columns<span class="op">=</span>V.columns)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>H.index <span class="op">=</span> latent_factors</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>W <span class="op">=</span> pd.DataFrame(np.<span class="bu">round</span>(nmf.transform(V),<span class="dv">2</span>), columns<span class="op">=</span>H.index)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>W.index <span class="op">=</span> V.index</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-slideshow="{&quot;slide_type&quot;:&quot;subslide&quot;}" data-tags="[]" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n\n</span><span class="st"> V - Initial Data matrix (features x samples):"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(V)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+
+ V - Initial Data matrix (features x samples):
+                       John  Alice  Mary  Greg  Peter  Jennifer
+diabetes_gene1            0      1     0     1      2         2
+diabetes_gene2            0      1     1     1      3         4
+cancer_protein1           2      3     1     1      2         2
+unclear                   1      1     1     0      1         1
+melancholy_gene           0      2     3     4      1         1
+cofee_dependency_gene     0      0     0     0      1         0</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n\n</span><span class="st"> W - factors matrix (features, factors):"</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(W)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+
+ W - factors matrix (features, factors):
+                       latent1  latent2  latent3
+diabetes_gene1            0.17     0.03     0.37
+diabetes_gene2            0.30     0.00     0.58
+cancer_protein1           0.07     0.47     0.49
+unclear                   0.04     0.21     0.16
+melancholy_gene           0.00     0.00     2.29
+cofee_dependency_gene     0.04     0.00     0.00</code></pre>
+</div>
+</div>
+<div class="cell" data-slideshow="{&quot;slide_type&quot;:&quot;subslide&quot;}" data-tags="[]" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n\n</span><span class="st"> H - coefficients matrix (factors, samples):"</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(H)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+
+ H - coefficients matrix (factors, samples):
+         John  Alice  Mary  Greg  Peter  Jennifer
+latent1  0.00   1.95  0.00  0.41   9.68     11.86
+latent2  4.32   4.96  1.22  0.00   2.48      2.10
+latent3  0.00   0.88  1.30  1.76   0.43      0.44</code></pre>
+</div>
+</div>
+<p>Can we figure out the hidden factors? We can do this in one of two ways, if we know the real afflictions, or as it is in our toy model, we only know the effect of our omics features. Thus, we have to look into W (weights or factors matrix)</p>
+<ul>
+<li>melancholy_gene has the strongest weight on latent 3. Latent3 also contains strong weights for all other afflictions but it is separating well only the melancholy factor.</li>
+<li>latent1 contains strong weights for diabetes.</li>
+<li>latent2 contains strong weights for the cancer protein</li>
+</ul>
+<div class="cell" data-slideshow="{&quot;slide_type&quot;:&quot;subslide&quot;}" data-tags="[]" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>latent_factors <span class="op">=</span> [<span class="st">'Diabetes'</span>, <span class="st">'Cancer'</span>, <span class="st">'Melancholy'</span>]</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>H <span class="op">=</span> pd.DataFrame(np.<span class="bu">round</span>(nmf.components_,<span class="dv">2</span>), columns<span class="op">=</span>V.columns)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>W <span class="op">=</span> pd.DataFrame(np.<span class="bu">round</span>(nmf.transform(V),<span class="dv">2</span>), columns<span class="op">=</span>latent_factors)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>H.index <span class="op">=</span> latent_factors</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>W.index <span class="op">=</span> V.index</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(H)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(W)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            John  Alice  Mary  Greg  Peter  Jennifer
+Diabetes    0.00   1.95  0.00  0.41   9.68     11.86
+Cancer      4.32   4.96  1.22  0.00   2.48      2.10
+Melancholy  0.00   0.88  1.30  1.76   0.43      0.44
+                       Diabetes  Cancer  Melancholy
+diabetes_gene1             0.17    0.03        0.37
+diabetes_gene2             0.30    0.00        0.58
+cancer_protein1            0.07    0.47        0.49
+unclear                    0.04    0.21        0.16
+melancholy_gene            0.00    0.00        2.29
+cofee_dependency_gene      0.04    0.00        0.00</code></pre>
+</div>
+</div>
+<p>Example findings: - What disease is NMF suspeting for Jennifer? Indeed, it is diabetes. We would not know this from a PCA study, because some of the scores can be negative and so are some of the loadings. The cumulative effect is obscured by the linear transformations. - The “unclear” feature is strongly related to cancer.</p>
+<p>Hipothesis hunting: W x H is an approximation of V, so by transforming the dataset based on the NMF model we can learn some new things.</p>
+<div class="cell" data-slideshow="{&quot;slide_type&quot;:&quot;subslide&quot;}" data-tags="[]" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>reconstructed <span class="op">=</span> pd.DataFrame(np.<span class="bu">round</span>(np.dot(W,H),<span class="dv">2</span>), columns<span class="op">=</span>V.columns)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>reconstructed.index <span class="op">=</span> V.index</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(reconstructed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                       John  Alice  Mary  Greg  Peter  Jennifer
+diabetes_gene1         0.13   0.81  0.52  0.72   1.88      2.24
+diabetes_gene2         0.00   1.10  0.75  1.14   3.15      3.81
+cancer_protein1        2.03   2.90  1.21  0.89   2.05      2.03
+unclear                0.91   1.26  0.46  0.30   0.98      0.99
+melancholy_gene        0.00   2.02  2.98  4.03   0.98      1.01
+cofee_dependency_gene  0.00   0.08  0.00  0.02   0.39      0.47</code></pre>
+</div>
+</div>
+<ul>
+<li>Jennifer and Peter are both suspected diabetes based on their H values.</li>
+<li>Peter is showing signal on the coffee dependency gene in the initial dataset. The model infers that maybe the signal for that gene was lost during processing. The model predicts even higher signal on that gene than Peter has. This is based on how similar Jeniffer is to Peter compared to all the other patients.</li>
+<li>This is the essence of collaborative filtering: People that share the same signals in certain kind of diseases will also share the same signals in some other kind of features.</li>
+</ul>
+<section id="why-is-nmf-so-important" class="level3">
+<h3 class="anchored" data-anchor-id="why-is-nmf-so-important">Why is NMF so important?</h3>
+<ul>
+<li>Because it provides an intuitive interpretation of the results, due to its enforcement of the positive values rule.</li>
+<li>The higher the factor weight, the more “determined” the column (segment) is</li>
+<li>First components are more “determined” based on the data.</li>
+<li>During the lab, you will learn to reccomend interesting gene therapies to cancer patients, based on their hidden subtypes!</li>
+</ul>
+<p>Reference: For the toy example I drew inspiration from the following Medium article: - https://medium.com/logicai/non-negative-matrix-factorization-for-recommendation-systems-985ca8d5c16c</p>
+</section>
+</section>
+<section id="nmf-usage-observations-and-applications" class="level2">
+<h2 class="anchored" data-anchor-id="nmf-usage-observations-and-applications">NMF usage observations and applications</h2>
+<p>NMF has many solvers, that are ultra efficient: - multiplicative update algorithms - Alternating Least Square - NMF based on projection gradient algorithms - PNMF probabilistic nonnegative matrix factorization</p>
+<section id="multiple-normalities" class="level3">
+<h3 class="anchored" data-anchor-id="multiple-normalities">Multiple normalities</h3>
+<ul>
+<li>A basic transformation to allign the norms was described before!</li>
+<li>However if the omics datasets have widely different distribution it can happen that one omics dataset will drive all variational signal in the data.</li>
+<li>In such case a more thorough transformation may be necessary (for example via methods such as iCluster+, MOFA, etc) prior to applying NMF.</li>
+</ul>
+</section>
+<section id="should-data-be-normalized-before-coercing-it-into-a-matrix-factorization-model" class="level3">
+<h3 class="anchored" data-anchor-id="should-data-be-normalized-before-coercing-it-into-a-matrix-factorization-model">Should data be normalized before coercing it into a matrix factorization model?</h3>
+<ul>
+<li>Generally yes, and this generally goes before any application of machine learning to real data.</li>
+<li>If the normalization is a big issue for your data (such as huge differences in scale) then you should opt for Tree Boosting methods (random forest, ensemble learning) or SNF, rather than matrix factorization.</li>
+<li>In matrix factorization the variables are not considered independently, instead everyting is dependent (linearly) on everything else.</li>
+</ul>
+</section>
+<section id="missingness-and-regularization" class="level3">
+<h3 class="anchored" data-anchor-id="missingness-and-regularization">Missingness and regularization</h3>
+<ul>
+<li>Biological data usually contain missing values. How can the matrix factorization handle it?</li>
+<li>Use initialization methods such as nndsvd that are friendlier towards sparse matrices is number one.</li>
+<li>For the optimization norm I would pick KL if you have large matrices with a lot of missingness. Rather than doing distances KL would evaluate changes in how data is distributed.</li>
+<li>Also note that you can add a regularization term to the fitness function. This does not help directly but in sparse datasets it is easy to get trapped in local optima.</li>
+</ul>
+<p>https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.NMF.html</p>
+</section>
+<section id="snmf---sparse-nmf" class="level3">
+<h3 class="anchored" data-anchor-id="snmf---sparse-nmf">SNMF - Sparse NMF</h3>
+<ul>
+<li><p>Yuan Gao, George Church, Improving molecular cancer class discovery through sparse non-negative matrix factorization, Bioinformatics, Volume 21, Issue 21, , Pages 3970–3975, https://doi.org/10.1093/bioinformatics/bti653</p></li>
+<li><p>Brunet et al., 2004, Metagenes and molecular pattern discovery using matrix factorization PNAS, Mar 2004, 101 (12) 4164-4169; https://doi.org/10.1073/pnas.0308531101</p></li>
+<li><p>cancer subtyping in microarrays, dealing with sparse data</p></li>
+<li><p>not an integrative example, but one about treating sparsity</p></li>
+<li><p>rank estimation of NMF models</p></li>
+<li><p>the representation learned is sparse and hierarchical</p></li>
+<li><p><span class="math inline">\(A \approx WH\)</span> The more sparse the matrix of H, the more sparse is the feature matrix W. Therefore, enforcing the sparseness of H will give rise to metagenes that comprised few dominantly deterministic genes.</p></li>
+</ul>
+</section>
+<section id="jnmf---the-mofa-of-nmfs" class="level3">
+<h3 class="anchored" data-anchor-id="jnmf---the-mofa-of-nmfs">jNMF - the MOFA of NMFs</h3>
+<ul>
+<li>Fujita, N., Mizuarai, S., Murakami, K. et al.&nbsp;Biomarker discovery by integrated joint non-negative matrix factorization and pathway signature analyses. Sci Rep 8, 9743 (2018). https://doi.org/10.1038/s41598-018-28066-w</li>
+<li>biomarker discovery</li>
+<li>is theoretically and practically equivalent to a standard NMF method with concatenated inputs</li>
+<li>common clusters (co-modules) from mRNA expression, microRNA expression, and DNA methylation data of cancer patients</li>
+<li>objective function: <span class="math inline">\(\sum_{i=1}^N \|X_i - WH_i\|\)</span></li>
+<li>NMF method was modified to deal with missingness, by using a mask</li>
+<li>https://rdrr.io/cran/nnTensor/man/jNMF.html</li>
+<li>single cell follow-up: SC-JNMF: Single-cell clustering integrating multiple quantification methods based on joint non-negative matrix factorization, Shiga et al, 2020, preprint at https://www.biorxiv.org/content/10.1101/2020.09.30.319921v1.full.pdf</li>
+</ul>
+<p><img src="img/jnmf_pharma.png" width="500"></p>
+</section>
+<section id="inmf---for-active-learning" class="level3">
+<h3 class="anchored" data-anchor-id="inmf---for-active-learning">iNMF - for active learning</h3>
+<ul>
+<li><p>Zi Yang and George Michailidis, A non-negative matrix factorization method for detecting modules in heterogeneous omics multi-modal data, https://doi.org/10.1093/bioinformatics/btv544</p></li>
+<li><p>similar to jNMF (based on it) but it uses online learning, this means that one can add information sequentially to improve the model , code here: https://github.com/yangzi4/iNMF</p></li>
+<li><p>got a pytorch module: https://pypi.org/project/nmf-torch/</p></li>
+<li><p>Used recently in a method for online learning of integrative omics for single cell:</p>
+<ul>
+<li>Gao, C., Liu, J., Kriebel, A.R. et al.&nbsp;Iterative single-cell multi-omic integration using online learning. Nat Biotechnol (2021). https://doi.org/10.1038/s41587-021-00867-x</li>
+</ul></li>
+</ul>
+</section>
+<section id="deep-nmf---a-novel-paradigm-doing-mf-as-part-of-a-deep-nn" class="level3">
+<h3 class="anchored" data-anchor-id="deep-nmf---a-novel-paradigm-doing-mf-as-part-of-a-deep-nn">Deep NMF - a novel paradigm, doing MF as part of a deep NN</h3>
+<ul>
+<li>Flenner, J., &amp; Hunter, B. (2017). A Deep Non-Negative Matrix Factorization Neural Network.
+<ul>
+<li>https://www1.cmc.edu/pages/faculty/BHunter/papers/deep-negative-matrix.pdf</li>
+<li>Normal NMF is performed by a single encoding layer</li>
+</ul></li>
+</ul>
+<p><img src="img/nmf_onelayer.png" width="200"> - Deep architecture: CNN, with backpropagation, each NMF layer performs a hierarchical decomposition <img src="img/nmf_multilayered.png" width="200"></p>
+<ul>
+<li>Attention networks
+<ul>
+<li>NMF can be used to focus attention mechanisms in NNs.</li>
+<li>Chen et al, Attention-Based Multi-NMF Deep Neural Network with Multimodality Data for Breast Cancer Prognosis Model, Volume 2019 |Article ID 9523719 | https://doi.org/10.1155/2019/9523719</li>
+</ul></li>
+</ul>
+</section>
+<section id="nmf-for-single-cell-experiments" class="level3">
+<h3 class="anchored" data-anchor-id="nmf-for-single-cell-experiments">NMF for single cell experiments</h3>
+<ul>
+<li>general trends: Bayesian modeling for data sparsity, improvement of model fitting and multi-processing.</li>
+<li>Applications in single cell analysis, pathway enrichment, etc</li>
+<li>Detecting heterogeneity in single-cell RNA-Seq data by non-negative matrix factorization, Zhu et al, 2017, https://pubmed.ncbi.nlm.nih.gov/28133571/ &gt; In comparison to other unsupervised clustering methods including K-means and hierarchical clustering, NMF has higher accuracy in separating similar groups in various datasets. We ranked genes by their importance scores (D-scores) in separating these groups, and discovered that NMF uniquely identifies genes expressed at intermediate levels as top-ranked genes.</li>
+<li>CoGAPS 3: Bayesian non-negative matrix factorization for single-cell analysis with asynchronous updates and sparse data structures, Sherman et al, 2020, https://pubmed.ncbi.nlm.nih.gov/33054706/</li>
+<li>Bayesian semi-nonnegative matrix tri-factorization to identify pathways associated with cancer phenotypes, Park et al, https://pubmed.ncbi.nlm.nih.gov/31797616/</li>
+</ul>
+</section>
+<section id="matrix-factorization---beyond-nmf" class="level3">
+<h3 class="anchored" data-anchor-id="matrix-factorization---beyond-nmf">Matrix Factorization - beyond NMF</h3>
+<ul>
+<li>Scluster method (a mix of MF and SNF): integrates different types of data and maps them into an effective low-dimensional subspace. First, Scluster uses adaptive sparse reduced-rank regression (S-rrr) to map the original data into the principal subspaces. Next, a fused patient-by-patient network is abstracted for these subgroups by a scaled exponential similarity kernel method. It can then obtain the cancer subtypes by spectral clustering.
+<ul>
+<li>https://pubmed.ncbi.nlm.nih.gov/28113782/</li>
+</ul></li>
+<li>SRF : rank based multi-view bi-clustering, very related to NMF, possibly reducible to it, it does subtyping and identification of subtype-specific features simultaneously.
+<ul>
+<li>https://pubmed.ncbi.nlm.nih.gov/27587661/</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="software-and-bibliography" class="level1">
+<h1>Software and bibliography:</h1>
+<ul>
+<li>Python:
+<ul>
+<li>recommender systems library: http://surpriselib.com/</li>
+<li>NMF library: http://nimfa.biolab.si/</li>
+<li>https://scikit-learn.org/stable/modules/classes.html#module-sklearn.decomposition</li>
+</ul></li>
+<li>R:
+<ul>
+<li>general NMF: http://cran.r-project.org/package=NMF</li>
+<li>usage example: https://compgenomr.github.io/book/biological-interpretation-of-latent-factors.html</li>
+<li>joint NMF library: https://github.com/rikenbit/nnTensor/</li>
+</ul></li>
+<li>Deep Semi NMF: https://github.com/trigeorgis/Deep-Semi-NMF</li>
+</ul>
+<p>Rank estimation of NMF: - Jean-Philippe Brunet. et. al., (2004). Metagenes and molecular pattern discovery using matrix factorization. PNAS - Xiaoxu Han. (2007). CANCER MOLECULAR PATTERN DISCOVERY BY SUBSPACE CONSENSUS KERNEL CLASSIFICATION - Attila Frigyesi. et. al., (2008). Non-Negative Matrix Factorization for the Analysis of Complex Gene Expression Data: Identification of Clinically Relevant Tumor Subtypes. Cancer Informatics - Haesun Park. et. al., (2019). Lecture 3: Nonnegative Matrix Factorization: Algorithms and Applications. SIAM Gene Golub Summer School, Aussois France, June 18, 2019 - Chunxuan Shao. et. al., (2017). Robust classification of single-cell transcriptome data by nonnegative matrix factorization. Bioinformatics</p>
+<p>Other integrative NMF:</p>
+<ul>
+<li>intNMF: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0176278</li>
+<li>Simultaneous Non-negative Matrix Factorization (siNMF) : Extracting Gene Expression Profiles Common to Colon and Pancreatic Adenocarcinoma using Simultaneous nonnegative matrix factorization, Liviu Badea, Pacific Symposium on Biocomputing, 13:279-290, 2009,</li>
+<li>Discovery of multi-dimensional modules by integrative analysis of cancer genomic data. Shihua Zhang, et al., Nucleic Acids Research, 40(19), 9379-9391, 2012</li>
+<li>Probabilistic Latent Tensor Factorization, International Conference on Latent Variable Analysis and Signal Separation, Y. Kenan Yilmaz et al., 346-353, 2010</li>
+</ul>
+<p>Fast Tensorial Calculus:</p>
+<ul>
+<li>Non-negative Matrix Factorization (NMF) : <a href="https://pdfs.semanticscholar.org/94cc/6daad548a03c6edb0351d686c2d4aa364634.pdf">Nonnegative Matrix and Tensor Factorizations, Andrzej CICHOCK, et. al., 2009</a>,</li>
+<li><a href="https://eprints.lib.hokudai.ac.jp/dspace/bitstream/2115/65379/1/Keigo_Kimura.pdf">A Study on Efficient Algorithms for Nonnegative Matrix/Tensor Factorization, Keigo Kimura, 2017</a></li>
+</ul>
+<p>Non-negative CP Decomposition (NTF) - α-Divergence (KL, Pearson, Hellinger, Neyman) / β-Divergence (KL, Frobenius, IS) : <a href="http://mlg.postech.ac.kr/static/publications/inter_conf/2007/icassp07_cichocki.pdf">Non-negative Tensor Factorization using Alpha and Beta Divergence, Andrzej CICHOCKI et. al., 2007</a>, <a href="https://gist.github.com/mathieubray/d83ce9c13fcb60f723f957c13ad85ac5">TensorKPD.R (gist of mathieubray)</a> - Fast HALS : <a href="http://www.ieice.org/proceedings/NOLTA2008/articles/A1L-D3-Phan-2045.pdf">Multi-way Nonnegative Tensor Factorization Using Fast Hierarchical Alternating Least Squares Algorithm (HALS), Anh Huy PHAN et. al., 2008</a> - α-HALS/β-HALS : <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.214.6398&amp;rep=rep1&amp;type=pdf">Fast Local Algorithms for Large Scale Nonnegative Matrix and Tensor Factorizations, Andrzej CICHOCKI et. al., 2008</a> - Non-negative Tucker Decomposition (NTD) - KL, Frobenius : <a href="https://pdfs.semanticscholar.org/f388/99be8ebd8b9aa7029b2b4f187dac4b04d816.pdf">Nonnegative Tucker Decomposition, Yong-Deok Kim et. al., 2007</a> - α-Divergence (KL, Pearson, Hellinger, Neyman) / β-Divergence (KL, Frobenius, IS) : <a href="https://pdfs.semanticscholar.org/f01b/7354619f053863048217c58cc517def86aeb.pdf">Nonneegative Tucker Decomposition With Alpha-Divergence, Yong-Deok Kim et. al., 2008</a>, <a href="https://link.springer.com/chapter/10.1007/978-3-540-87734-9_88">Fast and efficient algorithms for nonnegative Tucker decomposition, Anh Huy Phan, 2008</a> - Fast HALS : <a href="https://www.sciencedirect.com/science/article/pii/S0925231211000427">Extended HALS algorithm for nonnegative Tucker decomposition and its applications for multiway analysis and classification, Anh Hyu Phan et. al., 2011</a></p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
