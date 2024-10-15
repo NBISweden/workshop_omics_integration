@@ -264,7 +264,7 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 
 **14.00 - 14.15** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Break
 
-**14.15 - 14.45** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Topology analysis ([Sergiu][3])
+**14.15 - 14.45** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Topology analysis ([Sergiu][3], [Jennifer][5])
 <details>
   <summary>Resources</summary>
   <ul>
