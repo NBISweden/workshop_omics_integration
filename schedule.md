@@ -119,7 +119,7 @@ title:  'Schedule - Omics integration and systems biology - 2024'
   <summary>Resources</summary>
   <ul>
     <li>Launch <code>Lab single cell</code> on <a href="https://serve.scilifelab.se/projects/">Scilifelab Serve</a>, use <code>Rstudio</code> app.</li>
-    <li><a href="./session_ml/SingleCell/lab/__lab_SingleCell_OmicsIntegration.html"> Single cell omics integration lab notebook</a></li>
+    <li><a href="./session_ml/SingleCell/lab/OMICS Integration and Systems Biology Course_ Single Cell Omics Integration.html"> Single cell omics integration lab notebook</a></li>
     <li>Docker image: <code>docker pull rasoolsnbis/omicsint_h24:session_ml_single_cell_amd_v.h24.7054451</code></li>
 <br>
     <li>Launch <code>Lab UMAP</code> on <a href="https://serve.scilifelab.se/projects/">Scilifelab Serve</a>, use <code>Jupyter</code> app.</li>
@@ -135,7 +135,7 @@ title:  'Schedule - Omics integration and systems biology - 2024'
   <summary>Resources</summary>
   <ul>
     <li>Launch <code>Lab single cell</code> on <a href="https://serve.scilifelab.se/projects/">Scilifelab Serve</a>, use <code>Rstudio</code> app.</li>
-    <li><a href="./session_ml/SingleCell/lab/__lab_SingleCell_OmicsIntegration.html"> Single cell omics integration lab notebook</a></li>
+    <li><a href="./session_ml/SingleCell/lab/OMICS Integration and Systems Biology Course_ Single Cell Omics Integration.html"> Single cell omics integration lab notebook</a></li>
     <li>Docker image: <code>docker pull rasoolsnbis/omicsint_h24:session_ml_single_cell_amd_v.h24.7054451</code></li>
 <br>
     <li>Launch <code>Lab UMAP</code> on <a href="https://serve.scilifelab.se/projects/">Scilifelab Serve</a>, use <code>Jupyter</code> app.</li>
