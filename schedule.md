@@ -184,7 +184,7 @@ title:  'Schedule - Omics integration and systems biology - 2024'
   <ul>
     <li><a href="./session_topology/lab/lectures/1Introduction.pdf">Introduction</a></li>
     <li><a href="./session_topology/lab/lectures/2Network_inference.pdf">Network inference</a></li>
-    <li><a href="./session_topology/lab/lectures/3Community_analysis.pdf">Biological network analysis</a></li>
+    <li><a href="./session_topology/lab/lectures/3Community_analysis.pdf">Community analysis</a></li>
   </ul>
 </details>
 
@@ -206,17 +206,7 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 
 **12.00 - 13.00** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Lunch
 
-**13.00 - 14.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Community analysis ([Sergiu][3], [Jennifer][5])
-<details>
-  <summary>Resources</summary>
-  <ul>
-    <li><a href="./session_topology/lab/lectures/3Community_analysis.pdf">Slides</a></li>
-  </ul>
-</details>
-
-**14.00 - 14.15** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Break
-
-**14.15 - 16.15** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Community analysis ([Sergiu][3], [Jennifer][5])
+**13.00 - 14.00** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Introduction to biological network analysis (continued) ([Sergiu][3])
 <details>
   <summary>Resources</summary>
   <ul>
@@ -228,7 +218,24 @@ title:  'Schedule - Omics integration and systems biology - 2024'
   </ul>
 </details>
 
-**16.15 - 16.30** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Lab recap ([Sergiu][3], [Jennifer][5])
+**14.00 - 14.15** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Break
+
+**14.15 - 16.15** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Machine learning on Graphs ([Sergiu][3])
+<details>
+  <summary>Resources</summary>
+  <ul>
+    <li><a href="./session_graphnn/GNN_main.html">Graph neural networks</a></li>
+    <li><a href="./session_graphnn/GNN_lab.ipynb">Graph neural networks lab</a></li>
+  </ul>
+</details>
+
+**16.15 - 16.30** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Lab recap ([Sergiu][3])
+<details>
+  <summary>Resources</summary>
+  <ul>
+    <li><a href="./session_graphnn/environment.html">Data engineering tutorial</a></li>
+  </ul>
+</details>
 
 **16.30 - 17.00** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Assisted exercises
 
@@ -264,35 +271,15 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 
 **14.00 - 14.15** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Break
 
-**14.15 - 14.45** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Topology analysis ([Sergiu][3], [Jennifer][5])
+**14.15 - 14.45** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Non-negative matrix factorization ([Sergiu][3])
 <details>
   <summary>Resources</summary>
   <ul>
-    <li><a href="./session_topology/lab/lectures/1Introduction.pdf">Introduction</a></li>
-    <li><a href="./session_topology/lab/lectures/2Network_inference.pdf">Network inference</a></li>
-    <li><a href="./session_topology/lab/lectures/3Community_analysis.pdf">Community analysis</a></li>
     <li><a href="./session_nmf/NMF_main.html">Non-negative Matrix Factorization</a></li>
-    <li><a href="./session_nmf/SNF_main.ipynb">Similarity network fusion</a></li>
-    <li><a href="./session_nmf/Graph Neural Networks in Integrative Omics.html">Graph neural networks</a></li>
   </ul>
 </details>
 
-**14.45 - 15.15** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Topology analysis ([Sergiu][3], [Jennifer][5])
-<details>
-  <summary>Resources</summary>
-  <ul>
-    <li><a href="./session_topology/lab/lectures/1Introduction.pdf">Introduction</a></li>
-    <li><a href="./session_topology/lab/lectures/2Network_inference.pdf">Network inference</a></li>
-    <li><a href="./session_topology/lab/lectures/3Community_analysis.pdf">Community analysis</a></li>
-    <li><a href="./session_nmf/NMF_main.html">Non-negative Matrix Factorization</a></li>
-    <li><a href="./session_nmf/SNF_main.ipynb">Similarity network fusion</a></li>
-    <li><a href="./session_nmf/Graph Neural Networks in Integrative Omics.html">Graph neural networks</a></li>
-  </ul>
-</details>
-
-**15.15 - 15.30** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Break
-
-**15.30 - 16.00** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Non-negative Matrix Factorization ([Sergiu][3], [Jennifer][5])
+**14.45 - 15.15** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Non-negative matrix factorization ([Sergiu][3])
 <details>
   <summary>Resources</summary>
   <ul>
@@ -302,7 +289,17 @@ title:  'Schedule - Omics integration and systems biology - 2024'
   </ul>
 </details>
 
-**16.00 - 16.30** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Similarity network fusion ([Sergiu][3], [Jennifer][5])
+**15.15 - 15.30** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Break
+
+**15.30 - 16.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Similarity network fusion ([Sergiu][3])
+<details>
+  <summary>Resources</summary>
+  <ul>
+    <li><a href="./session_nmf/SNF_main.ipynb">Similarity network fusion</a></li>
+  </ul>
+</details>
+
+**16.00 - 16.30** <img border="0" src="https://www.svgrepo.com/show/7421/computer.svg" width="15" height="15"> Similarity network fusion ([Sergiu][3])
 <details>
   <summary>Resources</summary>
   <ul>
@@ -312,7 +309,7 @@ title:  'Schedule - Omics integration and systems biology - 2024'
   </ul>
 </details>
 
-**16.30 - 16.45** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Lab recap ([Sergiu][3], [Jennifer][5])
+**16.30 - 16.45** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Lab recap ([Sergiu][3])
 
 <br>
 <br>
