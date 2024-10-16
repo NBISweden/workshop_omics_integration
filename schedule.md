@@ -184,7 +184,7 @@ title:  'Schedule - Omics integration and systems biology - 2024'
   <ul>
     <li><a href="./session_topology/lab/lectures/1Introduction.pdf">Introduction</a></li>
     <li><a href="./session_topology/lab/lectures/2Network_inference.pdf">Network inference</a></li>
-    <li><a href="./session_topology/lab/lectures/lecture_short.pdf">Biological network analysis</a></li>
+    <li><a href="./session_topology/lab/lectures/3Community_analysis.pdf">Biological network analysis</a></li>
   </ul>
 </details>
 
