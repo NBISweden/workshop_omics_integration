@@ -68,6 +68,25 @@ At this point you need to create the two containers for all Rstudio or Jupyter n
   ```
 </details>
 
+##### Mounting a Local Folder to a Docker Container
+
+To mount a local folder to a Docker container when running it, use the `-v` (or `--volume`) option in the `docker run` command. The syntax is:
+
+
+For example, if you want to mount a local folder, such as `/home/user/my_data`, to a directory inside the container, say `/app/data`, the `docker run` command would look like this:
+
+```
+docker run --rm --platform=linux/amd64 -d -p 8888:8888/tcp \
+  -v /home/user/my_data:/app/data \
+  rasoolsnbis/omicsint_h24:session_ml_umap_data_integration_amd_v.h24.6d635ce
+```
+
+In this example:
+
+`/home/user/my_data`: The local folder on your host machine.
+`/app/data`: The directory inside the Docker container where the local folder will be mounted.
+Any files in the local folder will be accessible in the specified directory inside the container, and any changes made inside the container will be reflected in your local folder.
+
 ##### Launch RStudio or Jupyter
 
 Ensure you have followed all the instructions above and that your containers are running. If you have followed the instructions, you can simply access either RStudio or Jupyter from your browser with:
