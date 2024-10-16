@@ -120,6 +120,16 @@ ul.task-list li input[type="checkbox"] {
   docker run --rm --platform=linux/amd64 -d -p 8787:8787/tcp rasoolsnbis/omicsint_h24:session_gsa_amd_v.h24.a1ae0fc</code></pre>
 </details>
 </section>
+<section id="mounting-a-local-folder-to-a-docker-container" class="level5">
+<h5 class="anchored" data-anchor-id="mounting-a-local-folder-to-a-docker-container">Mounting a Local Folder to a Docker Container</h5>
+<p>To mount a local folder to a Docker container when running it, use the <code>-v</code> (or <code>--volume</code>) option in the <code>docker run</code> command. The syntax is:</p>
+<p>For example, if you want to mount a local folder, such as <code>/home/user/my_data</code>, to a directory inside the container, say <code>/app/data</code>, the <code>docker run</code> command would look like this:</p>
+<pre><code>docker run --rm --platform=linux/amd64 -d -p 8888:8888/tcp \
+  -v /home/user/my_data:/app/data \
+  rasoolsnbis/omicsint_h24:session_ml_umap_data_integration_amd_v.h24.6d635ce</code></pre>
+<p>In this example:</p>
+<p><code>/home/user/my_data</code>: The local folder on your host machine. <code>/app/data</code>: The directory inside the Docker container where the local folder will be mounted. Any files in the local folder will be accessible in the specified directory inside the container, and any changes made inside the container will be reflected in your local folder.</p>
+</section>
 <section id="launch-rstudio-or-jupyter" class="level5">
 <h5 class="anchored" data-anchor-id="launch-rstudio-or-jupyter">Launch RStudio or Jupyter</h5>
 <p>Ensure you have followed all the instructions above and that your containers are running. If you have followed the instructions, you can simply access either RStudio or Jupyter from your browser with: - <code>localhost:8888</code> to launch jupyter - <code>localhost:8787</code> to launch rstudio</p>
