@@ -224,8 +224,10 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 <details>
   <summary>Resources</summary>
   <ul>
-    <li><a href="./session_graphnn/GNN_main.html">Graph neural networks</a></li>
-    <li><a href="./session_graphnn/GNN_lab.ipynb">Graph neural networks lab</a></li>
+    <li><a href="./session_graphnn/GNN_main.html">Graph neural networks (html)</a></li>
+    <li><a href="./session_graphnn/GNN_main.ipynb">Graph neural networks (notebook file)</a></li>
+    <li><a href="./session_graphnn/GNN_lab.html">Graph neural networks lab (html)</a></li>
+    <li><a href="./session_graphnn/GNN_lab.ipynb">Graph neural networks lab (notebook file)</a></li>
   </ul>
 </details>
 
