@@ -55,11 +55,13 @@ At this point you need to create the two containers for all Rstudio or Jupyter n
   ```
   ########### For example for GSA and UMAP labs ###########
   # cd to your desired directory
+  
   docker pull rasoolsnbis/omicsint_h24:session_gsa_amd_v.h24.a1ae0fc
-  docker pull rasoolsnbis/omicsint_h24:session_ml_umap_data_integration_amd_v.h24.b327560adfd4536832cbc2fe7451468ee55b6188
+
+  docker pull rasoolsnbis/omicsint_h24:session_ml_umap_data_integration_amd_v.h24.6d635ce
 
   # for Jupyter lab use the following command
-  docker run --rm --platform=linux/amd64 -d -p 8888:8888/tcp rasoolsnbis/omicsint_h24:session_ml_umap_data_integration_amd_v.h24.b327560adfd4536832cbc2fe7451468ee55b6188
+  docker run --rm --platform=linux/amd64 -d -p 8888:8888/tcp rasoolsnbis/omicsint_h24:session_ml_umap_data_integration_amd_v.h24.6d635ce
 
   # for Rstudio lab use the following command
   docker run --rm --platform=linux/amd64 -d -p 8787:8787/tcp rasoolsnbis/omicsint_h24:session_gsa_amd_v.h24.a1ae0fc
