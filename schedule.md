@@ -297,7 +297,7 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 <details>
   <summary>Resources</summary>
   <ul>
-    <li><a href="./session_nmf/SNF_main.ipynb">Similarity network fusion</a></li>
+    <li><a href="./session_nmf/SNF_main.html">Similarity network fusion</a></li>
   </ul>
 </details>
 
