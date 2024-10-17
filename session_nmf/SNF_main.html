@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>NMF_main</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>SNF_main</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7516,16 +7516,11 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="NMF---Non-Negative-Matrix-Factorization">NMF - Non-Negative Matrix Factorization<a class="anchor-link" href="#NMF---Non-Negative-Matrix-Factorization">¶</a></h1><p>by Sergiu Netotea, PhD, NBIS, Chalmers</p>
+<h1 id="Similarity-Network-Fusion---SNF">Similarity Network Fusion - SNF<a class="anchor-link" href="#Similarity-Network-Fusion---SNF">¶</a></h1><p>Sergiu Netotea, PhD, NBIS, Chalmers</p>
 <ul>
-<li>Basic NMF presentation and solving</li>
-<li>Comparisons to SvD and PCA. When to use what?</li>
-<li>Toy dataset example</li>
-<li>More complex NMF methods and their applications in omics integration</li>
-<li>NMF for dimensionality reduction (lab)<ul>
-<li>Reccomend a multi-omic cause (gene/protein/metabolite) for a phenotipic effect, or the opposite.</li>
-</ul>
-</li>
+<li>Similarity networks</li>
+<li>SNF method</li>
+<li>Applications</li>
 </ul>
 </div>
 </div>
@@ -7537,700 +7532,13 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Further read:</p>
+<h2 id="Similarity-networks">Similarity networks<a class="anchor-link" href="#Similarity-networks">¶</a></h2><p>Network models are a very complex representation of data:</p>
 <ul>
-<li>Seminal paper: NMF outperforms similar techniques at learning parts representation</li>
-<li>Lee, D., Seung, H. Learning the parts of objects by non-negative matrix factorization. Nature 401, 788–791 (1999). <a href="https://doi.org/10.1038/44565">https://doi.org/10.1038/44565</a></li>
-</ul>
-<p>Observations:</p>
-<ul>
-<li>NMF was historically the best hidden feature based image segmentation prior to CNNs</li>
-<li>In comparison to other MF methods (especially the orthogonality enforcing methods), NMF hidden features are not independent, but overlapping, in a hierarchical manner (thus good for hierarchical clustering)</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="NMF---Non-Negative-Matrix-Factorization">NMF - Non-Negative Matrix Factorization<a class="anchor-link" href="#NMF---Non-Negative-Matrix-Factorization">¶</a></h2><ul>
-<li><p>Matrix factorization (MF):
-<img alt="No description has been provided for this image" src="./assests/NMF.png" width="300"/>
-[Credit: Wikipedia]</p>
-</li>
-<li><p>Latent (hidden) factors:</p>
-<ul>
-<li>Each sample (feature) can be described by k attributes. Example: How likely is it that a person suffers from a certain type of cancer?</li>
-<li>Each observation (example: gene) can be described by an analagous set of k attributes or features. Example: How likely is it for the gene to be involved/co-regulated/induced etc in a certain type of cancer.</li>
-<li>Hidden features: We don't always know what these features are, how many are relevant. We learn them, or rather let the machines pick.</li>
-</ul>
-</li>
-<li><p>Model constraints: $V\in\mathbb{R}_+^{m \times n}, V \approx WH, W \in \mathbb{R}_+^{m \times k}, H \in \mathbb{R}_+^{k \times n}$</p>
-<ul>
-<li>NMF is a subtype of MF where the additional requirement is that the initial matrix and the decomposed matrices are positive.</li>
-<li>Why is non-negativity important? It implies the additivity of latent factors.</li>
-</ul>
-</li>
-<li><p>As an optimization problem: $ min~\|V-WH\|_F, V \ge 0, W \ge 0, H \ge 0$</p>
-<ul>
-<li>Frobenius norm. Fit function: $ F = \sum_{u,i} (v_{ui} - w_u h_i^T)^2, v_{ui} \approx w_u h_i^T = \sum_k{w_{uk} h_{ki}}$</li>
-<li>This is non convex optimization (no global minima)!</li>
-<li>The number of latent factors is a result of global fitting</li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="NMF---some-intuitive-examples-from-multi-omics:">NMF - some intuitive examples from multi-omics:<a class="anchor-link" href="#NMF---some-intuitive-examples-from-multi-omics:">¶</a></h2><table>
-<thead>
-<tr>
-<th>V matrix (values matrix)</th>
-<th>(weights, scores) W matrix</th>
-<th>(hidden, loadings) H matrix</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>expression values (gene x samples)</td>
-<td>genes x factors (metagenes)</td>
-<td>factors (metagenes) x samples</td>
-</tr>
-<tr>
-<td>protein counts (proteins x samples)</td>
-<td>proteins x factors (domains)</td>
-<td>factors (domains) x samples</td>
-</tr>
-<tr>
-<td>multiomics observations (genes, proteins, etc x samples)</td>
-<td>(genes, proteins, etc) x factors (multiomic features)</td>
-<td>factors (multiomic features) x samples</td>
-</tr>
-<tr>
-<td>multiple datasets (genes x samples x batches)</td>
-<td>genes x factors (multi_batch domains)</td>
-<td>factors (multi_batch domains) x samples</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="NMF---in-general-contexts:">NMF - in general contexts:<a class="anchor-link" href="#NMF---in-general-contexts:">¶</a></h2><table>
-<thead>
-<tr>
-<th>V matrix (values matrix)</th>
-<th>(weights, scores) W matrix</th>
-<th>(hidden, loadings) H matrix</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>recommender systems (item x user)</td>
-<td>items x factors (preferences)</td>
-<td>factors (preferences) x users</td>
-</tr>
-<tr>
-<td>collaborative filtering (user x user connections)</td>
-<td>user x factors (communities)</td>
-<td>factors (communities) x users</td>
-</tr>
-<tr>
-<td>language processing (word distribution x document)</td>
-<td>word x factors (topics)</td>
-<td>factors (topics) x documents</td>
-</tr>
-<tr>
-<td>facial recognition (faces x labels)</td>
-<td>faces x factors (facial features)</td>
-<td>factors (facial features)  x labels</td>
-</tr>
-<tr>
-<td>microscopy pictures (picture x samples)</td>
-<td>pictures x factors (image segments)</td>
-<td>factors x samples</td>
-</tr>
-<tr>
-<td>spectrometry (spectra x sample)</td>
-<td>spectra x factors (component molecules)</td>
-<td>factors (component molecules) x samples</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Solving-NMF">Solving NMF<a class="anchor-link" href="#Solving-NMF">¶</a></h2><ul>
-<li>Similar to ICA, PCA, MFA it can be classified as an unsupervised dimensionality reduction / clustering technique.</li>
-<li>Uses the Frobenius norm, which is the matrix equivalent of the euclidean distance. But other cost functions are possible, that also include regularization.
-$$
-\|X\|_F = \sqrt{\sum_i\sum_jx_{ij}^2}.
-$$</li>
-<li>Many algorithms exist, such as iterated coordinate descent (the original solver), hierarchical alternated least squares.</li>
-<li>Main solver works iteratively via alternating non-negative least squares (ANLS) as:
-$$\begin{align}
-  W_{t+1} &amp;= W_t^T \frac{XH_t^T}{XH_tH_t^T} \\
-  H_{t+1} &amp;= H_t \frac{W_t^TX}{W^T_tW_tX}.
-\end{align}$$</li>
-<li>Weak convergence: it is reinitialized several times to avoid local minima, and the best result is kept.</li>
-<li>Optimal number of k components (RSS scores for example, Silhouettes scores etc)</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Alternating-non-negative-least-squares-(ANLS)">Alternating non-negative least squares (ANLS)<a class="anchor-link" href="#Alternating-non-negative-least-squares-(ANLS)">¶</a></h3><ul>
-<li>the iteration updates all of $W$ together, then all of $H$:
-$$
-W := \operatorname{argmin}_{W \geq 0} \|V-WH\|_F^2 \\
-H := \operatorname{argmin}_{H \geq 0} \|V-WH\|_F^2
-$$</li>
-<li>We can solve for each row of $W$ (or column of $H$) independently by solving a <strong>non-negative least squares problem</strong>.</li>
-<li>Non-negative least squares problems cannot be solved in a simple closed form!
-$$
-\mbox{minimize } \|Vx-b\|^2 \mbox{ such that } x \geq 0;
-$$</li>
-<li>This it is a convex optimization problem that can be solved using any constrained optimization solver.</li>
-<li>Widely used solver is the active set methods, that start from an initial non-negative guess and partitioning the variables into a free set and a constrained set, then updates these sets and the best positive guess.</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="NMF---multi-omics-usage-observations">NMF - multi omics usage observations<a class="anchor-link" href="#NMF---multi-omics-usage-observations">¶</a></h3><ul>
-<li>The different omics datasets have different scales and normalities, and this will impact your results (but it also depends on assumptions, on the goal of your study).</li>
-<li>The second problem is enforcing the non-negativity constraint, which might imply additional transformations such as re-scaling and translating</li>
-<li>To bring the different datasets Frobenius norms to the same baseline one can do:
-$$
-X = \begin{bmatrix}
-  \frac{x^{1j}}{\sum_jx^{1j}} /  \|\frac{x^{1j}}{\sum_jx^{1j}}\|_F \\
-  \frac{x^{2j}}{\sum_jx^{2j}} /  \|\frac{x^{2j}}{\sum_jx^{2j}}\|_F \\
-  \vdots \\
-  \frac{x^{Nj}}{\sum_jx^{Nj}} /  \|\frac{x^{Nj}}{\sum_jx^{Nj}}\|_F \\
-\end{bmatrix},
-$$</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Comparison-to-PCA-and-autoencoders">Comparison to PCA and autoencoders<a class="anchor-link" href="#Comparison-to-PCA-and-autoencoders">¶</a></h2><ul>
-<li>Overall:<ul>
-<li>PCA is good at isolating feature that contain sufficient signal, but will transform the dataset in the direction of maximal variability</li>
-<li>NMF will not have you lose the original features, you can see it as a data compression tool and has superior interpretability</li>
-<li>Autoencoders are good for high dimensional complex datasets, but it is difficult to interpret your findings beside a simple clustering</li>
-</ul>
-</li>
-<li>Factors interpretability:<ul>
-<li>PCA: search for optimal rank k approximations, using it as a linear basis fit to re-write the data.</li>
-<li>NMF: your data is written as a weighted sum of the basis you learn, but multiple basis can be just as good.</li>
-<li>Autoencoder: fators are difficult to interpret, but can capture nonlinear effects.</li>
-</ul>
-</li>
-<li>What it tries to explain:<ul>
-<li>PCA: variation in the data (it is an SvD on the covariation matrix, performing sequential normalizations of data along axes of variation)</li>
-<li>NMF: additive signal, the very purpose of NMF is to isolate distinct and interpretable signals (paterns) within the data</li>
-<li>Autoencoder: an autoencoder simply tries to reproduce it's original signal.</li>
-</ul>
-</li>
-<li>Dimensionality curse:<ul>
-<li>PCA: better at smaller datasets, covariation tends to be equal at large dimensions, good at isolating signal from noise from data</li>
-<li>NMF: even better at small datasets, provided a good signal fit is found, good at isolating paterns</li>
-<li>Autoencoder: better at complex and large datasets, were interpretability is not an end goal</li>
-</ul>
-</li>
-</ul>
-<p>Further read:</p>
-<ul>
-<li><a href="https://towardsdatascience.com/step-by-step-signal-processing-with-machine-learning-pca-ica-nmf-8de2f375c422">https://towardsdatascience.com/step-by-step-signal-processing-with-machine-learning-pca-ica-nmf-8de2f375c422</a></li>
-<li><a href="https://towardsdatascience.com/autoencoders-vs-pca-when-to-use-which-73de063f5d7">https://towardsdatascience.com/autoencoders-vs-pca-when-to-use-which-73de063f5d7</a></li>
-<li><a href="https://iqbalamo93.medium.com/pca-and-nmf-a-quick-walkthrough-f53d30a968fc">https://iqbalamo93.medium.com/pca-and-nmf-a-quick-walkthrough-f53d30a968fc</a></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Toy-dataset">Toy dataset<a class="anchor-link" href="#Toy-dataset">¶</a></h2><ul>
-<li>Lets pretend that we manage to summarise the effective signal from several omics features in a cheap clinical test.</li>
-<li>Each sample is a private individual. Our test is targeted on one of these afflictions: (cancer, melancholy, diabetes). These are hidden factors: We don't always know what these features are, how many are relevant. We learn them, or rather let the machines pick.</li>
-<li>Each individual is summarised by a few omics features. We will use NMF and collaborative filtering to extract knowledge from such a system.</li>
-</ul>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span>
-             <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> 
-             <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span>
-             <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
-             <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
-             <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
-
-<span class="n">dataset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'John'</span><span class="p">,</span> <span class="s1">'Alice'</span><span class="p">,</span> <span class="s1">'Mary'</span><span class="p">,</span> <span class="s1">'Greg'</span><span class="p">,</span> <span class="s1">'Peter'</span><span class="p">,</span> <span class="s1">'Jennifer'</span><span class="p">])</span>
-
-<span class="n">dataset</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'diabetes_gene1'</span><span class="p">,</span> <span class="s1">'diabetes_gene2'</span><span class="p">,</span> <span class="s1">'cancer_protein1'</span><span class="p">,</span> <span class="s1">'unclear'</span><span class="p">,</span> <span class="s1">'melancholy_gene'</span><span class="p">,</span> <span class="s1">'cofee_dependency_gene'</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">groceries</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>                       John  Alice  Mary  Greg  Peter  Jennifer
-diabetes_gene1            0      1     0     1      2         2
-diabetes_gene2            0      1     1     1      3         4
-cancer_protein1           2      3     1     1      2         2
-unclear                   1      1     1     0      1         1
-melancholy_gene           0      2     3     4      1         1
-cofee_dependency_gene     0      0     0     0      1         0
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Intuitively we can see that the users (samples) are conected to their items (genes) via a hidden scheme, that could simplify this table. The elements of such a hidden scheme we call hidden (latent) factors. Here is a possible example:</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">latent_factors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'latent1'</span><span class="p">,</span> <span class="s1">'latent2'</span><span class="p">,</span>  <span class="s1">'latent3'</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">NMF</span>
-
-<span class="n">nmf</span> <span class="o">=</span> <span class="n">NMF</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">V</span> <span class="o">=</span> <span class="n">dataset</span>
-<span class="n">nmf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
-
-<span class="n">H</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">nmf</span><span class="o">.</span><span class="n">components_</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="n">V</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
-<span class="n">H</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">latent_factors</span>
-
-<span class="n">W</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">nmf</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">V</span><span class="p">),</span><span class="mi">2</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="n">H</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
-<span class="n">W</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">V</span><span class="o">.</span><span class="n">index</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n\n</span><span class="s2"> V - Initial Data matrix (features x samples):"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>
-
- V - Initial Data matrix (features x samples):
-                       John  Alice  Mary  Greg  Peter  Jennifer
-diabetes_gene1            0      1     0     1      2         2
-diabetes_gene2            0      1     1     1      3         4
-cancer_protein1           2      3     1     1      2         2
-unclear                   1      1     1     0      1         1
-melancholy_gene           0      2     3     4      1         1
-cofee_dependency_gene     0      0     0     0      1         0
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n\n</span><span class="s2"> W - factors matrix (features, factors):"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>
-
- W - factors matrix (features, factors):
-                       latent1  latent2  latent3
-diabetes_gene1            0.17     0.03     0.37
-diabetes_gene2            0.30     0.00     0.58
-cancer_protein1           0.07     0.47     0.49
-unclear                   0.04     0.21     0.16
-melancholy_gene           0.00     0.00     2.29
-cofee_dependency_gene     0.04     0.00     0.00
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n\n</span><span class="s2"> H - coefficients matrix (factors, samples):"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>
-
- H - coefficients matrix (factors, samples):
-         John  Alice  Mary  Greg  Peter  Jennifer
-latent1  0.00   1.95  0.00  0.41   9.68     11.86
-latent2  4.32   4.96  1.22  0.00   2.48      2.10
-latent3  0.00   0.88  1.30  1.76   0.43      0.44
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Can we figure out the hidden factors? We can do this in one of two ways, if we know the real afflictions, or as it is in our toy model, we only know the effect of our omics features. Thus, we have to look into W (weights or factors matrix)</p>
-<ul>
-<li>melancholy_gene has the strongest weight on latent 3. Latent3 also contains strong weights for all other afflictions but it is separating well only the melancholy factor.</li>
-<li>latent1 contains strong weights for diabetes.</li>
-<li>latent2 contains strong weights for the cancer protein</li>
-</ul>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">latent_factors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Diabetes'</span><span class="p">,</span> <span class="s1">'Cancer'</span><span class="p">,</span> <span class="s1">'Melancholy'</span><span class="p">]</span>
-<span class="n">H</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">nmf</span><span class="o">.</span><span class="n">components_</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="n">V</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
-<span class="n">W</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">nmf</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">V</span><span class="p">),</span><span class="mi">2</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="n">latent_factors</span><span class="p">)</span>
-<span class="n">H</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">latent_factors</span>
-<span class="n">W</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">V</span><span class="o">.</span><span class="n">index</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>            John  Alice  Mary  Greg  Peter  Jennifer
-Diabetes    0.00   1.95  0.00  0.41   9.68     11.86
-Cancer      4.32   4.96  1.22  0.00   2.48      2.10
-Melancholy  0.00   0.88  1.30  1.76   0.43      0.44
-                       Diabetes  Cancer  Melancholy
-diabetes_gene1             0.17    0.03        0.37
-diabetes_gene2             0.30    0.00        0.58
-cancer_protein1            0.07    0.47        0.49
-unclear                    0.04    0.21        0.16
-melancholy_gene            0.00    0.00        2.29
-cofee_dependency_gene      0.04    0.00        0.00
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Example findings:</p>
-<ul>
-<li>What disease is NMF suspeting for Jennifer? Indeed, it is diabetes. We would not know this from a PCA study, because some of the scores can be negative and so are some of the loadings. The cumulative effect is obscured by the linear transformations.</li>
-<li>The "unclear" feature is strongly related to cancer.</li>
-</ul>
-<p>Hipothesis hunting: W x H is an approximation of V, so by transforming the dataset based on the NMF model we can learn some new things.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">reconstructed</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">W</span><span class="p">,</span><span class="n">H</span><span class="p">),</span><span class="mi">2</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="n">V</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
-<span class="n">reconstructed</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">V</span><span class="o">.</span><span class="n">index</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">reconstructed</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>                       John  Alice  Mary  Greg  Peter  Jennifer
-diabetes_gene1         0.13   0.81  0.52  0.72   1.88      2.24
-diabetes_gene2         0.00   1.10  0.75  1.14   3.15      3.81
-cancer_protein1        2.03   2.90  1.21  0.89   2.05      2.03
-unclear                0.91   1.26  0.46  0.30   0.98      0.99
-melancholy_gene        0.00   2.02  2.98  4.03   0.98      1.01
-cofee_dependency_gene  0.00   0.08  0.00  0.02   0.39      0.47
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<ul>
-<li>Jennifer and Peter are both suspected diabetes based on their H values.</li>
-<li>Peter is showing signal on the coffee dependency gene in the initial dataset. The model infers that maybe the signal for that gene was lost during processing. The model predicts even higher signal on that gene than Peter has. This is based on how similar Jeniffer is to Peter compared to all the other patients.</li>
-<li>This is the essence of collaborative filtering: People that share the same signals in certain kind of diseases will also share the same signals in some other kind of features.</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Why-is-NMF-so-important?">Why is NMF so important?<a class="anchor-link" href="#Why-is-NMF-so-important?">¶</a></h3><ul>
-<li>Because it provides an intuitive interpretation of the results, due to its enforcement of the positive values rule.</li>
-<li>The higher the factor weight, the more “determined” the column (segment) is</li>
-<li>First components are more "determined" based on the data.</li>
-<li>During the lab, you will learn to reccomend interesting gene therapies to cancer patients, based on their hidden subtypes!</li>
-</ul>
-<p>Reference: For the toy example I drew inspiration from the following Medium article:</p>
-<ul>
-<li><a href="https://medium.com/logicai/non-negative-matrix-factorization-for-recommendation-systems-985ca8d5c16c">https://medium.com/logicai/non-negative-matrix-factorization-for-recommendation-systems-985ca8d5c16c</a></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="NMF-usage-observations-and-applications">NMF usage observations and applications<a class="anchor-link" href="#NMF-usage-observations-and-applications">¶</a></h2><p>NMF has many solvers, that are ultra efficient:</p>
-<ul>
-<li>multiplicative update algorithms</li>
-<li>Alternating Least Square</li>
-<li>NMF based on projection gradient algorithms</li>
-<li>PNMF probabilistic nonnegative matrix factorization</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Multiple-normalities">Multiple normalities<a class="anchor-link" href="#Multiple-normalities">¶</a></h3><ul>
-<li>A basic transformation to allign the norms was described before!</li>
-<li>However if the omics datasets have widely different distribution it can happen that one omics dataset will drive all variational signal in the data.</li>
-<li>In such case a more thorough transformation may be necessary (for example via methods such as iCluster+, MOFA, etc) prior to applying NMF.</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Should-data-be-normalized-before-coercing-it-into-a-matrix-factorization-model?">Should data be normalized before coercing it into a matrix factorization model?<a class="anchor-link" href="#Should-data-be-normalized-before-coercing-it-into-a-matrix-factorization-model?">¶</a></h3><ul>
-<li>Generally yes, and this generally goes before any application of machine learning to real data.</li>
-<li>If the normalization is a big issue for your data (such as huge differences in scale) then you should opt for Tree Boosting methods (random forest, ensemble learning) or SNF, rather than matrix factorization.</li>
-<li>In matrix factorization the variables are not considered independently, instead everyting is dependent (linearly) on everything else.</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Missingness-and-regularization">Missingness and regularization<a class="anchor-link" href="#Missingness-and-regularization">¶</a></h3><ul>
-<li>Biological data usually contain missing values. How can the matrix factorization handle it?</li>
-<li>Use initialization methods such as nndsvd that are friendlier towards sparse matrices is number one.</li>
-<li>For the optimization norm I would pick KL if you have large matrices with a lot of missingness. Rather than doing distances KL would evaluate changes in how data is distributed.</li>
-<li>Also note that you can add a regularization term to the fitness function. This does not help directly but in sparse datasets it is easy to get trapped in local optima.</li>
-</ul>
-<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.NMF.html">https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.NMF.html</a></p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="SNMF---Sparse-NMF">SNMF - Sparse NMF<a class="anchor-link" href="#SNMF---Sparse-NMF">¶</a></h3><ul>
-<li>Yuan Gao, George Church, Improving molecular cancer class discovery through sparse non-negative matrix factorization, Bioinformatics, Volume 21, Issue 21, , Pages 3970–3975, <a href="https://doi.org/10.1093/bioinformatics/bti653">https://doi.org/10.1093/bioinformatics/bti653</a></li>
-<li>Brunet et al., 2004, Metagenes and molecular pattern discovery using matrix factorization
-PNAS, Mar 2004, 101 (12) 4164-4169; <a href="https://doi.org/10.1073/pnas.0308531101">https://doi.org/10.1073/pnas.0308531101</a></li>
+<li>Power law sophistication: for every n vertices there are up to n(n-1) possible edges</li>
+<li>This fits biological complexity, and draws a paralel to the "curse of dimensionality"</li>
+<li>I like to see graphs as yet another data representation format, along with tabular data, multi channel signal intensities or spatial microscopy..</li>
+<li>Networks too can handle differences in scale, collection bias and noise in each data set</li>
+<li>They can also handle the complementary nature of the information provided by different types of data</li>
 </ul>
 </div>
 </div>
@@ -8243,11 +7551,9 @@ PNAS, Mar 2004, 101 (12) 4164-4169; <a href="https://doi.org/10.1073/pnas.030853
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <ul>
-<li>cancer subtyping in microarrays, dealing with sparse data</li>
-<li>not an integrative example, but one about treating sparsity</li>
-<li>rank estimation of NMF models</li>
-<li>the representation learned is sparse and hierarchical</li>
-<li>$A \approx WH$ The more sparse the matrix of H, the more sparse is the feature matrix W. Therefore, enforcing the sparseness of H will give rise to metagenes that comprised few dominantly deterministic genes.</li>
+<li>the potential for feature cleaning and data transformation using a network structure are great</li>
+<li>one important tradeoff: losing a weak signal due to a poorly made network model</li>
+<li>...one important benefit: recovering a weak signal due to the cummulative power of weak links</li>
 </ul>
 </div>
 </div>
@@ -8259,98 +7565,47 @@ PNAS, Mar 2004, 101 (12) 4164-4169; <a href="https://doi.org/10.1073/pnas.030853
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="jNMF---the-MOFA-of-NMFs">jNMF - the MOFA of NMFs<a class="anchor-link" href="#jNMF---the-MOFA-of-NMFs">¶</a></h3><ul>
-<li>Fujita, N., Mizuarai, S., Murakami, K. et al. Biomarker discovery by integrated joint non-negative matrix factorization and pathway signature analyses. Sci Rep 8, 9743 (2018). <a href="https://doi.org/10.1038/s41598-018-28066-w">https://doi.org/10.1038/s41598-018-28066-w</a></li>
-<li>biomarker discovery</li>
-<li>is theoretically and practically equivalent to a standard NMF method with concatenated inputs</li>
-<li>common clusters (co-modules) from mRNA expression, microRNA expression, and DNA methylation data of cancer patients</li>
-<li>objective function: $\sum_{i=1}^N \|X_i - WH_i\|$</li>
-<li>NMF method was modified to deal with missingness, by using a mask</li>
-<li><a href="https://rdrr.io/cran/nnTensor/man/jNMF.html">https://rdrr.io/cran/nnTensor/man/jNMF.html</a></li>
-<li>single cell follow-up: SC-JNMF: Single-cell clustering integrating multiple quantification methods based on joint non-negative matrix factorization, Shiga et al, 2020, preprint at <a href="https://www.biorxiv.org/content/10.1101/2020.09.30.319921v1.full.pdf">https://www.biorxiv.org/content/10.1101/2020.09.30.319921v1.full.pdf</a></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><img alt="No description has been provided for this image" src="./assests/jnmf_pharma.png" width="500"/></p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="iNMF---for-active-learning">iNMF - for active learning<a class="anchor-link" href="#iNMF---for-active-learning">¶</a></h3><ul>
-<li><p>Zi Yang and George Michailidis, A non-negative matrix factorization method for detecting modules in heterogeneous omics multi-modal data, <a href="https://doi.org/10.1093/bioinformatics/btv544">https://doi.org/10.1093/bioinformatics/btv544</a></p>
-</li>
-<li><p>similar to jNMF (based on it) but it uses online learning, this means that one can add information sequentially to improve the model , code here: <a href="https://github.com/yangzi4/iNMF">https://github.com/yangzi4/iNMF</a></p>
-</li>
-<li><p>got a pytorch module: <a href="https://pypi.org/project/nmf-torch/">https://pypi.org/project/nmf-torch/</a></p>
-</li>
-<li><p>Used recently in a method for online learning of integrative omics for single cell:</p>
+<h3 id="Common-network-(graph)-representation">Common network (graph) representation<a class="anchor-link" href="#Common-network-(graph)-representation">¶</a></h3><p>Typical dataset:</p>
 <ul>
-<li>Gao, C., Liu, J., Kriebel, A.R. et al. Iterative single-cell multi-omic integration using online learning. Nat Biotechnol (2021). <a href="https://doi.org/10.1038/s41587-021-00867-x">https://doi.org/10.1038/s41587-021-00867-x</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Deep-NMF---a-novel-paradigm,-doing-MF-as-part-of-a-deep-NN">Deep NMF - a novel paradigm, doing MF as part of a deep NN<a class="anchor-link" href="#Deep-NMF---a-novel-paradigm,-doing-MF-as-part-of-a-deep-NN">¶</a></h3><ul>
-<li>Flenner, J., &amp; Hunter, B. (2017). A Deep Non-Negative Matrix Factorization Neural Network.<ul>
-<li><a href="https://www1.cmc.edu/pages/faculty/BHunter/papers/deep-negative-matrix.pdf">https://www1.cmc.edu/pages/faculty/BHunter/papers/deep-negative-matrix.pdf</a></li>
-<li>Normal NMF is performed by a single encoding layer</li>
-</ul>
-</li>
-</ul>
-<p><img alt="No description has been provided for this image" src="./assests/nmf_onelayer.png" width="200"/>
-- Deep architecture: CNN, with backpropagation, each NMF layer performs a hierarchical decomposition
-<img alt="No description has been provided for this image" src="./assests/nmf_multilayered.png" width="200"/></p>
-<ul>
-<li>Attention networks<ul>
-<li>NMF can be used to focus attention mechanisms in NNs.</li>
-<li>Chen et al, Attention-Based Multi-NMF Deep Neural Network with Multimodality Data for Breast Cancer Prognosis Model, Volume 2019 |Article ID 9523719 | <a href="https://doi.org/10.1155/2019/9523719">https://doi.org/10.1155/2019/9523719</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="NMF-for-single-cell-experiments">NMF for single cell experiments<a class="anchor-link" href="#NMF-for-single-cell-experiments">¶</a></h3><ul>
-<li>general trends: Bayesian modeling for data sparsity, improvement of model fitting and multi-processing.</li>
-<li>Applications in single cell analysis, pathway enrichment, etc</li>
-<li>Detecting heterogeneity in single-cell RNA-Seq data by non-negative matrix factorization, Zhu et al, 2017, <a href="https://pubmed.ncbi.nlm.nih.gov/28133571/">https://pubmed.ncbi.nlm.nih.gov/28133571/</a></li>
+<li>features: samples, patients, genes, metabolites, clinical descriptors etc</li>
+<li>instances: any repeated measurements of the above!</li>
 </ul>
 <blockquote>
-<p>In comparison to other unsupervised clustering methods including K-means and hierarchical clustering, NMF has higher accuracy in separating similar groups in various datasets. We ranked genes by their importance scores (D-scores) in separating these groups, and discovered that NMF uniquely identifies genes expressed at intermediate levels as top-ranked genes.</p>
+<p>Via network modelling, all instances are turned into feature relationships</p>
 </blockquote>
 <ul>
-<li>CoGAPS 3: Bayesian non-negative matrix factorization for single-cell analysis with asynchronous updates and sparse data structures, Sherman et al, 2020, <a href="https://pubmed.ncbi.nlm.nih.gov/33054706/">https://pubmed.ncbi.nlm.nih.gov/33054706/</a></li>
-<li>Bayesian semi-nonnegative matrix tri-factorization to identify pathways associated with cancer phenotypes, Park et al, <a href="https://pubmed.ncbi.nlm.nih.gov/31797616/">https://pubmed.ncbi.nlm.nih.gov/31797616/</a></li>
+<li>Nodes (vertices): features</li>
+<li>Links (edges): numerical relationship between nodes (directional, boolean, discrete, continuous)</li>
+</ul>
+<blockquote>
+<p>Via <strong>network fusion</strong>, the feature relationships (links) are described based on multiple datasets.</p>
+</blockquote>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><img alt="NF basics" src="./assests/nf_basics.png" title="NF basics"/></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="How-can-networks-be-fused?">How can networks be fused?<a class="anchor-link" href="#How-can-networks-be-fused?">¶</a></h3><p><em>Simple rule: average edge values by summing up adjacency matrices!</em></p>
+<p>Pitfalls:</p>
+<ul>
+<li>Most omics networks are sparse: some feature relationships eh .. are prevalent only on certain 'omics levels!</li>
+<li>Guilt of association is not captured: features similar to pan-omics features should not the treated equally.</li>
 </ul>
 </div>
 </div>
@@ -8362,13 +7617,255 @@ PNAS, Mar 2004, 101 (12) 4164-4169; <a href="https://doi.org/10.1073/pnas.030853
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Matrix-Factorization---beyond-NMF">Matrix Factorization - beyond NMF<a class="anchor-link" href="#Matrix-Factorization---beyond-NMF">¶</a></h3><ul>
-<li>Scluster method (a mix of MF and SNF): integrates different types of data and maps them into an effective low-dimensional subspace. First, Scluster uses adaptive sparse reduced-rank regression (S-rrr) to map the original data into the principal subspaces. Next, a fused patient-by-patient network is abstracted for these subgroups by a scaled exponential similarity kernel method. It can then obtain the cancer subtypes by spectral clustering.<ul>
-<li><a href="https://pubmed.ncbi.nlm.nih.gov/28113782/">https://pubmed.ncbi.nlm.nih.gov/28113782/</a></li>
+<p><em>Complex rule: take in consideration the infomation difussivity in each network when fusing them!</em></p>
+<ul>
+<li>in graph computing this is called "message passing".</li>
+<li>pitfalls: model parametrization</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="(Perceived)-advantages-of-network-fusion">(Perceived) advantages of network fusion<a class="anchor-link" href="#(Perceived)-advantages-of-network-fusion">¶</a></h3><p>Very useful when:</p>
+<ul>
+<li>data is incomplete</li>
+<li>dataset quality is not uniform</li>
+<li>data from multiple sources is used</li>
+<li>networks can be built in complex ways, taking into account additional, annotated information.</li>
+<li>easy to transfer knowledge from alternative models</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>It is a generative model!</p>
+<ul>
+<li>example: generate data from similarity matrix<ul>
+<li><a href="https://en.wikipedia.org/wiki/Multidimensional_scaling">https://en.wikipedia.org/wiki/Multidimensional_scaling</a></li>
 </ul>
 </li>
-<li>SRF : rank based multi-view bi-clustering, very related to NMF, possibly reducible to it, it does subtyping and identification of subtype-specific features simultaneously.<ul>
-<li><a href="https://pubmed.ncbi.nlm.nih.gov/27587661/">https://pubmed.ncbi.nlm.nih.gov/27587661/</a></li>
+<li>the generated networks can be used for graph clustering, regression, classification.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="SNF:-Similarity-Network-Fusion">SNF: Similarity Network Fusion<a class="anchor-link" href="#SNF:-Similarity-Network-Fusion">¶</a></h3><p>Wang, Bo et al. “Similarity network fusion for aggregating data types on a genomic scale.” Nature methods vol. 11,3 (2014): 333-7.</p>
+<p><a href="https://doi.org/10.1038/nmeth.2810">https://doi.org/10.1038/nmeth.2810</a></p>
+<ul>
+<li>mRNA expression, DNA methylation and microRNA (miRNA) expression data for five cancer data sets.</li>
+<li>clustering cancer subtypes and predicting survival</li>
+<li>uses networks of samples (patient networks) as a basis for integration.</li>
+<li>at the time patient-similarity networks have not been used specifically for integrating biological data</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Similarity-networks">Similarity networks<a class="anchor-link" href="#Similarity-networks">¶</a></h3><ul>
+<li>At every 'omics level, there are multiple ways to compute a network.</li>
+<li>Similarity networks are only investigating the similarity of one feature to another, with regards to a distance measure.</li>
+<li>Every similarity distance is different. See <a href="https://en.wikipedia.org/wiki/Metric_space">https://en.wikipedia.org/wiki/Metric_space</a>
+TODO: similarity tables</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><img alt="similarity" src="./assests/similarity.png"/></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="SNF-Method">SNF Method<a class="anchor-link" href="#SNF-Method">¶</a></h2><p>Similarity distance:</p>
+<ul>
+<li>contininuous data: euclidean distance, weighted using an exponential kernel function
+$f(x) = \exp{\left( -\frac{\sum_{i=1}^{n}(x_i-y_j)^2}{2\sigma^2} \right)}$</li>
+<li>discrete data: chi squared distance
+$\sum_{i=1}^{n} \cfrac{(x_i - y_i)^2} {(x_i + y_i)}$</li>
+<li>boolean data: agreement based distances (Jaccard, Hamming)</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="SNF-Method---the-similarity-matrix">SNF Method - the similarity matrix<a class="anchor-link" href="#SNF-Method---the-similarity-matrix">¶</a></h3><ul>
+<li>P measures a given patient's similarity to all other patients</li>
+<li>In order to fuse the supplied m simmilarity (affinity) matrices, each must be normalized.</li>
+<li>A traditional normalization on an affinity matrix would suffer from numerical instabilities due to the self-similarity along the diagonal; thus, a modified normalization is used:</li>
+</ul>
+<p>$$
+      \mathbf{P}(i,j) =
+         \left\{\begin{array}{rr}
+           \frac{\mathbf{W}_(i,j)}
+                 {2 \sum_{k\neq i}^{} \mathbf{W}_(i,k)} ,&amp; j \neq i \\
+                                                       1/2 ,&amp; j = i
+         \end{array}\right.
+$$</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="SNF-Method---the-kernel-matrix">SNF Method - the kernel matrix<a class="anchor-link" href="#SNF-Method---the-kernel-matrix">¶</a></h3><ul>
+<li>Under the assumption that local similarities are more important than distant ones, a more sparse weight matrix is calculated based on a KNN framework:</li>
+<li>S measures a given patient's similarity to the K most similar patients.</li>
+</ul>
+<p>$$
+      \mathbf{S}(i,j) =
+         \left\{\begin{array}{rr}
+           \frac{\mathbf{W}_(i,j)}
+                 {\sum_{k\in N_{i}}^{}\mathbf{W}_(i,k)} ,&amp; j \in N_{i} \\
+                                                         0 ,&amp; \text{otherwise}
+         \end{array}\right.
+$$</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="SNF-Method---Inductive-network-fusion">SNF Method - Inductive network fusion<a class="anchor-link" href="#SNF-Method---Inductive-network-fusion">¶</a></h3><ul>
+<li>The two weight matrices P and S thus provide information about a given patient's similarity to all other patients and the K most similar patients, respectively.</li>
+<li>These m matrices are then iteratively fused. At each iteration, the matrices are made more similar to each other via message passing:</li>
+</ul>
+<p>$$
+\mathbf{P}^{(v)} = \mathbf{S}^{(v)}
+                          \times
+                          \frac{\sum_{k\neq v}^{}\mathbf{P}^{(k)}}{m-1}
+                          \times
+                          (\mathbf{S}^{(v)})^{T},
+                          v = 1, 2, ..., m
+$$</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Obs:</p>
+<ul>
+<li>After each iteration, the resultant P matrices are normalized via the equation above.</li>
+<li>Fusion stops after <code>t</code> iterations, or when the matrices $\mathbf{P}^{(v)}, v = 1, 2, ..., m$ converge.</li>
+<li>The output fused matrix is full rank and can be subjected to clustering and classification.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Different usage of the fused matrix:</p>
+<ul>
+<li>clustering: spectral clustering, consensus clustering</li>
+<li>network model based subtype prediction: label propagation</li>
+<li>network model based feature selection: measuring the change in consistence brought by SNF on a single feature</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Post-fusion-analysis---Spectral-clustering">Post-fusion analysis - Spectral clustering<a class="anchor-link" href="#Post-fusion-analysis---Spectral-clustering">¶</a></h3><p>The fitted model is a similarity network (an affinity matrix). Thus to cluster one must use graph algorithms such as spectral clustering. Other popular graph clustering methods are: K-neighbors clustering, MCL clustering</p>
+<p>Spectral clustering:</p>
+<ul>
+<li>eigenvalues, eigenvectors $A x = \lambda x$</li>
+<li>graph laplacian: degree matrix - adjacency matrix</li>
+<li>the increasing ordered eigenvalues of the graph laplacian matrix are describing the clusters in their increased network effect</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="SNF-usage-examples">SNF usage examples<a class="anchor-link" href="#SNF-usage-examples">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="(latest-trents)-MoGCN,-graph-neural-networks">(latest trents) MoGCN, graph neural networks<a class="anchor-link" href="#(latest-trents)-MoGCN,-graph-neural-networks">¶</a></h3><ul>
+<li>Graph neural networks are a new hot topic in integrative omics.</li>
+<li>MoGCN, a multi-omics integration model based on graph convolutional network (GCN)<ul>
+<li><a href="https://github.com/Lifoof/MoGCN">https://github.com/Lifoof/MoGCN</a></li>
+<li>Li X, Ma J, Leng L, Han M, Li M, He F, Zhu Y. MoGCN: A Multi-Omics Integration Method Based on Graph Convolutional Network for Cancer Subtype Analysis. Front Genet. 2022 Feb 2;13:806842. doi: 10.3389/fgene.2022.806842. PMID: 35186034; PMCID: PMC8847688.</li>
+<li>cancer subtype classification and analysis. Genomics, transcriptomics and proteomics datasets for 511 breast invasive carcinoma (BRCA) samples were downloaded from the Cancer Genome Atlas (TCGA).</li>
+<li>The autoencoder (AE) and the similarity network fusion (SNF) methods were used to reduce dimensionality and construct the patient similarity network (PSN), respectively</li>
+<li>Then the vector features and the PSN were input into the GCN for training and testing. Feature extraction and network visualization were used for further biological knowledge discovery and subtype classification.</li>
 </ul>
 </li>
 </ul>
@@ -8382,52 +7879,390 @@ PNAS, Mar 2004, 101 (12) 4164-4169; <a href="https://doi.org/10.1073/pnas.030853
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Software-and-bibliography:">Software and bibliography:<a class="anchor-link" href="#Software-and-bibliography:">¶</a></h1><ul>
-<li>Python:<ul>
-<li>recommender systems library: <a href="http://surpriselib.com/">http://surpriselib.com/</a></li>
-<li>NMF library: <a href="http://nimfa.biolab.si/">http://nimfa.biolab.si/</a></li>
-<li><a href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.decomposition">https://scikit-learn.org/stable/modules/classes.html#module-sklearn.decomposition</a></li>
+<p><img alt="No description has been provided for this image" src="./assests/MoGCN.png" width="900"/></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Latest-trends---single-cell-integration">Latest trends - single cell integration<a class="anchor-link" href="#Latest-trends---single-cell-integration">¶</a></h3><ul>
+<li>Using SNF and autoencoders for single cell clustering<ul>
+<li>Tran, B., Tran, D., Nguyen, H. et al. scCAN: single-cell clustering using autoencoder and network fusion. Sci Rep 12, 10267 (2022). <a href="https://doi.org/10.1038/s41598-022-14218-6">https://doi.org/10.1038/s41598-022-14218-6</a></li>
 </ul>
 </li>
-<li>R:<ul>
-<li>general NMF: <a href="http://cran.r-project.org/package=NMF">http://cran.r-project.org/package=NMF</a></li>
-<li>usage example: <a href="https://compgenomr.github.io/book/biological-interpretation-of-latent-factors.html">https://compgenomr.github.io/book/biological-interpretation-of-latent-factors.html</a></li>
-<li>joint NMF library: <a href="https://github.com/rikenbit/nnTensor/">https://github.com/rikenbit/nnTensor/</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Consensus-clustering">Consensus clustering<a class="anchor-link" href="#Consensus-clustering">¶</a></h3><ul>
+<li>Monti, S., Tamayo, P., Mesirov, J. et al. Consensus Clustering: A Resampling-Based Method for Class Discovery and Visualization of Gene Expression Microarray Data. Machine Learning 52, 91–118 (2003). <a href="https://doi.org/10.1023/A:1023949509487">https://doi.org/10.1023/A:1023949509487</a></li>
+<li>Implementation: <a href="http://www.bioconductor.org/packages/release/bioc/html/CancerSubtypes.html">http://www.bioconductor.org/packages/release/bioc/html/CancerSubtypes.html</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>SNF drawbacks:</p>
+<ul>
+<li>the unstable nature of kernel-based clustering</li>
+<li>sensitive to small changes in molecular measurements</li>
+<li>need for hyper-parametrization</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Details:</p>
+<ul>
+<li>The data are first partitioned with different values of k (number of clusters).</li>
+<li>For each value of k, we construct the pair-wise connectivity matrix.</li>
+<li>To identify the number of clusters we add noise to the data and then build the pairwise connectivity for the perturbed data.</li>
+<li>We calculate the discrepancy in pairwise connectivity before and after data perturbation. We choose opt_k as the optimal number of clusters for which the pair-wise connectivity is the most stable.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Integrative-SNF-CC-example:">Integrative SNF-CC example:<a class="anchor-link" href="#Integrative-SNF-CC-example:">¶</a></h3><ul>
+<li>Nguyen, Tin et al. “A novel approach for data integration and disease subtyping.” Genome research vol. 27,12 (2017): 2025-2039.</li>
+<li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5741060/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5741060/</a></li>
+</ul>
+<p>Stages:</p>
+<ul>
+<li>construct the combined similarity matrix between patients using the connectivity information from individual data types.</li>
+<li>partition the patients using the integrated similarity matrix.</li>
+<li>further split each discovered group of patients into subgroups if possible.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Weighted-similarity-network-fusion">Weighted similarity network fusion<a class="anchor-link" href="#Weighted-similarity-network-fusion">¶</a></h3><p>Links:</p>
+<ul>
+<li>Xu T, Le TD, Liu L, Wang R, Sun B, et al. (2016) Identifying Cancer Subtypes from miRNA-TF-mRNA Regulatory Networks and Expression Data. PLOS ONE 11(4): e0152792. <a href="https://doi.org/10.1371/journal.pone.0152792">https://doi.org/10.1371/journal.pone.0152792</a></li>
+<li>Implementation:<ul>
+<li><a href="https://rdrr.io/bioc/CancerSubtypes/">https://rdrr.io/bioc/CancerSubtypes/</a></li>
+<li><a href="https://rdrr.io/cran/IntClust/">https://rdrr.io/cran/IntClust/</a></li>
 </ul>
 </li>
-<li>Deep Semi NMF: <a href="https://github.com/trigeorgis/Deep-Semi-NMF">https://github.com/trigeorgis/Deep-Semi-NMF</a></li>
 </ul>
-<p>Rank estimation of NMF:</p>
-<ul>
-<li>Jean-Philippe Brunet. et. al., (2004). Metagenes and molecular pattern discovery using matrix factorization. PNAS</li>
-<li>Xiaoxu Han. (2007). CANCER MOLECULAR PATTERN DISCOVERY BY SUBSPACE CONSENSUS KERNEL CLASSIFICATION</li>
-<li>Attila Frigyesi. et. al., (2008). Non-Negative Matrix Factorization for the Analysis of Complex Gene Expression Data: Identification of Clinically Relevant Tumor Subtypes. Cancer Informatics</li>
-<li>Haesun Park. et. al., (2019). Lecture 3: Nonnegative Matrix Factorization: Algorithms and Applications. SIAM Gene Golub Summer School, Aussois France, June 18, 2019</li>
-<li>Chunxuan Shao. et. al., (2017). Robust classification of single-cell transcriptome data by nonnegative matrix factorization. Bioinformatics</li>
-</ul>
-<p>Other integrative NMF:</p>
-<ul>
-<li>intNMF: <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0176278">https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0176278</a></li>
-<li>Simultaneous Non-negative Matrix Factorization (siNMF) : Extracting Gene Expression Profiles Common to Colon and Pancreatic Adenocarcinoma using Simultaneous nonnegative matrix factorization, Liviu Badea, Pacific Symposium on Biocomputing, 13:279-290, 2009,</li>
-<li>Discovery of multi-dimensional modules by integrative analysis of cancer genomic data. Shihua Zhang, et al., Nucleic Acids Research, 40(19), 9379-9391, 2012</li>
-<li>Probabilistic Latent Tensor Factorization, International Conference on Latent Variable Analysis and Signal Separation, Y. Kenan Yilmaz et al., 346-353, 2010</li>
-</ul>
-<p>Fast Tensorial Calculus:</p>
-<ul>
-<li>Non-negative Matrix Factorization (NMF) : <a href="https://pdfs.semanticscholar.org/94cc/6daad548a03c6edb0351d686c2d4aa364634.pdf">Nonnegative Matrix and Tensor Factorizations, Andrzej CICHOCK, et. al., 2009</a>,</li>
-<li><a href="https://eprints.lib.hokudai.ac.jp/dspace/bitstream/2115/65379/1/Keigo_Kimura.pdf">A Study on Efficient Algorithms for Nonnegative Matrix/Tensor Factorization, Keigo Kimura, 2017</a></li>
-</ul>
-<p>Non-negative CP Decomposition (NTF)</p>
-<ul>
-<li>α-Divergence (KL, Pearson, Hellinger, Neyman) / β-Divergence (KL, Frobenius, IS) : <a href="http://mlg.postech.ac.kr/static/publications/inter_conf/2007/icassp07_cichocki.pdf">Non-negative Tensor Factorization using Alpha and Beta Divergence, Andrzej CICHOCKI et. al., 2007</a>, <a href="https://gist.github.com/mathieubray/d83ce9c13fcb60f723f957c13ad85ac5">TensorKPD.R (gist of mathieubray)</a></li>
-<li>Fast HALS : <a href="http://www.ieice.org/proceedings/NOLTA2008/articles/A1L-D3-Phan-2045.pdf">Multi-way Nonnegative Tensor Factorization Using Fast Hierarchical Alternating Least Squares Algorithm (HALS), Anh Huy PHAN et. al., 2008</a></li>
-<li>α-HALS/β-HALS : <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.214.6398&amp;rep=rep1&amp;type=pdf">Fast Local Algorithms for Large Scale Nonnegative Matrix and Tensor Factorizations, Andrzej CICHOCKI et. al., 2008</a></li>
-<li>Non-negative Tucker Decomposition (NTD)<ul>
-<li>KL, Frobenius : <a href="https://pdfs.semanticscholar.org/f388/99be8ebd8b9aa7029b2b4f187dac4b04d816.pdf">Nonnegative Tucker Decomposition, Yong-Deok Kim et. al., 2007</a></li>
-<li>α-Divergence (KL, Pearson, Hellinger, Neyman) / β-Divergence (KL, Frobenius, IS) : <a href="https://pdfs.semanticscholar.org/f01b/7354619f053863048217c58cc517def86aeb.pdf">Nonneegative Tucker Decomposition With Alpha-Divergence, Yong-Deok Kim et. al., 2008</a>, <a href="https://link.springer.com/chapter/10.1007/978-3-540-87734-9_88">Fast and efficient algorithms for nonnegative Tucker decomposition, Anh Huy Phan, 2008</a></li>
-<li>Fast HALS : <a href="https://www.sciencedirect.com/science/article/pii/S0925231211000427">Extended HALS algorithm for nonnegative Tucker decomposition and its applications for multiway analysis and classification, Anh Hyu Phan et. al., 2011</a></li>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="WSNF---Method-(1)">WSNF - Method (1)<a class="anchor-link" href="#WSNF---Method-(1)">¶</a></h3><ol>
+<li>Compute PageRank based ranking of features. Important features are ranked based on the in-number of TFs.<ul>
+<li>Build the regulatory network where the nodes represent the features, i.e. the microRNAs (miRNAs), transcription factors (TFs) and messenger RNAs (mRNAs) and the edges indicate the interactions between the features.</li>
+<li>The interactions are retrieved from various interatomic databases.</li>
 </ul>
 </li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><img alt="No description has been provided for this image" src="./assests/wsnf_data.png" width="600"/></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="WSNF---Method-(2)">WSNF - Method (2)<a class="anchor-link" href="#WSNF---Method-(2)">¶</a></h3><ol start="2">
+<li>Integrate feature ranking with feature variation. Gene expression based.<ul>
+<li>Use knn based kernels and the expression data of the miRNAs, TFs and mRNAs to calculate the weight of the features, representing the level of importance of the features.</li>
+</ul>
+</li>
+<li>Weighted SNF<ul>
+<li>The feature weight is then integrated into a network fusion approach to cluster the samples (patients) and thus to identify cancer subtypes.</li>
+<li>$D(s_i, s_j) = \sqrt{\sum_{m=1}^p{W(f_m)*(f_m^{s_i}-f_m^{s_j})^2}}$</li>
+</ul>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><img alt="No description has been provided for this image" src="./assests/wsnf.png" width="600"/></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="ANF---Affinity-network-fusion">ANF - Affinity network fusion<a class="anchor-link" href="#ANF---Affinity-network-fusion">¶</a></h3><ul>
+<li>Tianle Ma, Aidong Zhang, Affinity Network Fusion and Semi-supervised Learning for Cancer Patient Clustering, 2019, <a href="https://doi.org/10.1016/j.ymeth.2018.05.020">https://doi.org/10.1016/j.ymeth.2018.05.020</a></li>
+<li>Software: <a href="https://www.bioconductor.org/packages/release/bioc/html/ANF.html">https://www.bioconductor.org/packages/release/bioc/html/ANF.html</a><ul>
+<li><a href="https://github.com/BeautyOfWeb/ANF">https://github.com/BeautyOfWeb/ANF</a></li>
+</ul>
+</li>
+<li>Data: gene expression, miRNA expression and DNA methylation</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><img alt="No description has been provided for this image" src="./assests/anf_alg.jpg" width="600"/></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ul>
+<li>Overall, the methodology is similar to SNF. Weak edges derived from a similarity distance are pruned using a kNN based kernel. The same is acomplished using the message passing kernel in SNF.</li>
+<li>The matrix fusion process is random-walk based, and it is a bit more clear, although it parametrizes feature importance with a set of omics-specific weights:<ul>
+<li>$ W = \sum_{v=1}^n{w_v * W^{(v)}}$, $\sum_{v=1}^n{w_v}=1$</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ul>
+<li>W regarded as a "state transition matrix", and multiplying it r times is a random walk in its generated graph. $W = W^r$<ul>
+<li>this step is similar to the inductive message passing in SNF</li>
+<li>r parameter must be small (2, 3), or W becomes a rank one matrix</li>
+<li>a more complex random walk was also explored, that uses some of the knn pruned weaker edges.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>Obs.</strong> While the SNF fitting process might look long, the patient matrix is usually a small network (most clinical datasets are in the order of tens - hundreds)!</p>
+</blockquote>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="ANF-application---Semi-supervised-learning-on-patient-affinity-networks">ANF application - Semi-supervised learning on patient affinity networks<a class="anchor-link" href="#ANF-application---Semi-supervised-learning-on-patient-affinity-networks">¶</a></h3><p><a href="https://arxiv.org/abs/1805.09673">https://arxiv.org/abs/1805.09673</a></p>
+<ul>
+<li>a good example for the potential of NF to combine supervised and unsupervised learning through good representation learning.</li>
+<li>97% accuracy on test set with training less than 1% of data for classifying patients into correct disease types</li>
+<li>ANF obtains effective kNN-based nonlinear transformations that reduce noise in multi-omic data</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><img alt="No description has been provided for this image" src="./assests/anf_nn.jpg" width="300"/></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Subsequent-SNF-studies:">Subsequent SNF studies:<a class="anchor-link" href="#Subsequent-SNF-studies:">¶</a></h3><ul>
+<li>Guo, Yang et al. “Improvement of cancer subtype prediction by incorporating transcriptome expression data and heterogeneous biological networks.” BMC medical genomics vol. 11,Suppl 6 119. 31 Dec. 2018, doi:10.1186/s12920-018-0435-x</li>
+<li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6311915/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6311915/</a></li>
+</ul>
+<p>Main ideas:</p>
+<ul>
+<li>ANF did not consider the feature importance and the feature relationships in data integration (different regulatory mechanisms may exist in different cancer subtypes).</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ul>
+<li>Method: CSPRV (Cancer Subtype Prediction using RV2)</li>
+</ul>
+<blockquote>
+<p>Given the expression data of genome elements, we first extract multiple expression features for each regulatory element based on the heterogeneous biological networks. Based on the extracted feature matrices of samples, we use a matrix correlation method, RV2, to predict the similarities between samples in each expression data-view, and then fuse the similarity information in samples from all considering data-views according to different integration weights. Finally, we cluster patient samples into different cancer subtypes based on the predicted integrative similarity network between samples.</p>
+</blockquote>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="SKF---Similarity-Kernel-Fusion">SKF - Similarity Kernel Fusion<a class="anchor-link" href="#SKF---Similarity-Kernel-Fusion">¶</a></h3><ul>
+<li><a href="https://en.wikipedia.org/wiki/Kernel_method">https://en.wikipedia.org/wiki/Kernel_method</a></li>
+<li>multiple papers:<ul>
+<li>Jiang, Limin et al. “Discovering Cancer Subtypes via an Accurate Fusion Strategy on Multiple Profile Data.” Frontiers in genetics vol. 10 20. 5 Feb. 2019, doi:10.3389/fgene.2019.00020</li>
+<li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6370730/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6370730/</a></li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/30619454/">https://pubmed.ncbi.nlm.nih.gov/30619454/</a></li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/31514111/">https://pubmed.ncbi.nlm.nih.gov/31514111/</a></li>
+</ul>
+</li>
+<li>Also search for MKL (multiple kernel learning)</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="The-Kernel-trick">The Kernel trick<a class="anchor-link" href="#The-Kernel-trick">¶</a></h3><ul>
+<li>(wikipedia) "kernel functions, enable them to operate in a high-dimensional, implicit feature space without ever computing the coordinates of the data in that space, but rather by simply computing the inner products between the images of all pairs of data in the feature space."</li>
+</ul>
+<p>$P_l^{t+1}=\alpha(S_l \times \frac{\sum_{r \neq l}P_r^t}{n} \times S_l^T) + (1-\alpha) \frac{\sum_{r \neq l}P_r^t}{n}$</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><img alt="No description has been provided for this image" src="./assests/skf.png" width="400"/></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Software,-papers,-further-reading">Software, papers, further reading<a class="anchor-link" href="#Software,-papers,-further-reading">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Papers:">Papers:<a class="anchor-link" href="#Papers:">¶</a></h3><ul>
+<li>SNF similarity network fusion: <a href="https://www.nature.com/articles/nmeth.2810">https://www.nature.com/articles/nmeth.2810</a><ul>
+<li><a href="https://media.nature.com/original/nature-assets/nmeth/journal/v11/n3/extref/nmeth.2810-S1.pdf">https://media.nature.com/original/nature-assets/nmeth/journal/v11/n3/extref/nmeth.2810-S1.pdf</a></li>
+</ul>
+</li>
+<li>SNF.CC: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5741060/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5741060/</a></li>
+<li>WSNF: <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0152792">https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0152792</a></li>
+<li>SKF: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6370730/#:~:text=(2016)%20proposed%20Weighted%20Similarity%20Network,cancer%20types%20to%20demonstrate%20performance">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6370730/#:~:text=(2016)%20proposed%20Weighted%20Similarity%20Network,cancer%20types%20to%20demonstrate%20performance</a>.</li>
+<li>Speicher and Pfeifer (2015) <a href="https://pubmed.ncbi.nlm.nih.gov/26072491/">https://pubmed.ncbi.nlm.nih.gov/26072491/</a> pointed out that iCluster has high computational complexity and proposed a dimensionality reduction method to integrate multiple similarity kernels. This method is evaluated by using five cancer types.</li>
+<li>ANF affinity network fusion: <a href="https://arxiv.org/abs/1805.09673">https://arxiv.org/abs/1805.09673</a></li>
+<li>INF integrative network fusion: <a href="https://www.frontiersin.org/articles/10.3389/fonc.2020.01065/full">https://www.frontiersin.org/articles/10.3389/fonc.2020.01065/full</a></li>
+<li>fusion methods review (2020): <a href="https://www.sciencedirect.com/science/article/pii/S2001037019304155">https://www.sciencedirect.com/science/article/pii/S2001037019304155</a></li>
+<li>icluster: <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0035236">https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0035236</a><ul>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/19759197/">https://pubmed.ncbi.nlm.nih.gov/19759197/</a></li>
+</ul>
+</li>
+<li>IntClust <a href="https://rdrr.io/cran/IntClust/">https://rdrr.io/cran/IntClust/</a></li>
+</ul>
+<h3 id="Software:">Software:<a class="anchor-link" href="#Software:">¶</a></h3><ul>
+<li>ANF: <a href="https://www.bioconductor.org/packages/release/bioc/html/ANF.html">https://www.bioconductor.org/packages/release/bioc/html/ANF.html</a><ul>
+<li><a href="https://github.com/BeautyOfWeb/ANF">https://github.com/BeautyOfWeb/ANF</a></li>
+</ul>
+</li>
+<li>R: CancerSubtypes <a href="https://bioconductor.org/packages/devel/bioc/vignettes/CancerSubtypes/inst/doc/CancerSubtypes-vignette.html">https://bioconductor.org/packages/devel/bioc/vignettes/CancerSubtypes/inst/doc/CancerSubtypes-vignette.html</a></li>
+<li>SNF Python: <a href="https://github.com/rmarkello/snfpy">https://github.com/rmarkello/snfpy</a></li>
+<li>SNF IntClust: <a href="https://rdrr.io/cran/IntClust/man/SNF.html">https://rdrr.io/cran/IntClust/man/SNF.html</a></li>
 </ul>
 </div>
 </div>
