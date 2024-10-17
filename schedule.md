@@ -344,7 +344,14 @@ title:  'Schedule - Omics integration and systems biology - 2024'
 
 **12.00 - 13.10** <img border="0" src="https://www.svgrepo.com/show/21938/time.svg" width="15" height="15"> Lunch
 
-**13.00 - 14.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Discussions and course end
+**13.00 - 14.00** <img border="0" src="https://www.svgrepo.com/show/7321/teacher.svg" width="15" height="15"> Discussions and course end ([Rasool][2])
+<details>
+  <summary>Resources</summary>
+  <ul>
+    <li><a href="./session_intro/closing remark.pdf">Closing remarks!</a></li>
+    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSekELo0i71zPUpH-QYvi2TSFREIDH1g_y6qWZTlI_owLiHdcA/viewform">Course Evaluation</a></li>
+  </ul>
+</details>
 
 <br>
 <br>
