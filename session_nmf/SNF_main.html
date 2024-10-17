@@ -7516,10 +7516,10 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Similarity-Network-Fusion---SNF">Similarity Network Fusion - SNF<a class="anchor-link" href="#Similarity-Network-Fusion---SNF">¶</a></h1><p>Sergiu Netotea, PhD, NBIS, Chalmers</p>
+<h1 id="Network-diffusion-based-methods-in-integrating-'omics-data">Network diffusion based methods in integrating 'omics data<a class="anchor-link" href="#Network-diffusion-based-methods-in-integrating-'omics-data">¶</a></h1><p>Sergiu Netotea, PhD, NBIS, Chalmers</p>
 <ul>
-<li>Similarity networks</li>
-<li>SNF method</li>
+<li>Network fusion</li>
+<li>Similarity network fusion, explained in detail</li>
 <li>Applications</li>
 </ul>
 </div>
@@ -7532,7 +7532,33 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Similarity-networks">Similarity networks<a class="anchor-link" href="#Similarity-networks">¶</a></h2><p>Network models are a very complex representation of data:</p>
+<h2 id="Classification-of-graph-based-integration-methods">Classification of graph based integration methods<a class="anchor-link" href="#Classification-of-graph-based-integration-methods">¶</a></h2><p><strong>Network-Based Approaches:</strong>
+- Graph Construction, Multi-Modal Networks: Integrating multiple omics datasets into one comprehensive graph that allows for the analysis of cross-layer interactions.
+- Node/Edge Weighting: Some methods apply weighting strategies to nodes and edges to emphasize biological relevance, which can assist in identifying key components within the network.</p>
+<p><strong>Algorithmic Methods:</strong></p>
+<ul>
+<li>Network Diffusion/Propagation: Methods that allow information (e.g., signals or perturbations) to propagate through the network to detect influential nodes or subnetworks. Examples: Similarity network fusion, Graph autoencoders</li>
+<li>Causal Inference: Algorithms that attempt to infer causality between nodes based on their interactions and the multi-omics data layers. Example: Graphical models based on statistical learning, Recurrent Graph Learning</li>
+</ul>
+<p><strong>Machine Learning Approaches:</strong></p>
+<ul>
+<li>Integration with Network-Based Approaches: Machine learning models are sometimes used in tandem with network approaches to enhance predictive power and biological insight. These methods are characterized by the existence of a fittness function. Examples: Graph embedding, Graph Neural Networks</li>
+</ul>
+<p>Read mode:</p>
+<blockquote>
+<p>Agamah FE, Bayjanov JR, Niehues A, Njoku KF, Skelton M, Mazandu GK, Ederveen THA, Mulder N, Chimusa ER, 't Hoen PAC. Computational approaches for network-based integrative multi-omics analysis. Front Mol Biosci. 2022 Nov 14;9:967205. doi: 10.3389/fmolb.2022.967205. PMID: 36452456; PMCID: PMC9703081.</p>
+</blockquote>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Network-based-models-in-biology">Network based models in biology<a class="anchor-link" href="#Network-based-models-in-biology">¶</a></h2><p>Network models are a very complex representation of data:</p>
 <ul>
 <li>Power law sophistication: for every n vertices there are up to n(n-1) possible edges</li>
 <li>This fits biological complexity, and draws a paralel to the "curse of dimensionality"</li>
@@ -7590,7 +7616,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><img alt="NF basics" src="./assests/nf_basics.png" title="NF basics"/></p>
+<p><img alt="NF basics" src="img/nf_basics.png" title="NF basics"/></p>
 </div>
 </div>
 </div>
@@ -7702,7 +7728,7 @@ TODO: similarity tables</li>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><img alt="similarity" src="./assests/similarity.png"/></p>
+<p><img alt="similarity" src="img/similarity.png"/></p>
 </div>
 </div>
 </div>
@@ -7858,16 +7884,15 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="(latest-trents)-MoGCN,-graph-neural-networks">(latest trents) MoGCN, graph neural networks<a class="anchor-link" href="#(latest-trents)-MoGCN,-graph-neural-networks">¶</a></h3><ul>
-<li>Graph neural networks are a new hot topic in integrative omics.</li>
-<li>MoGCN, a multi-omics integration model based on graph convolutional network (GCN)<ul>
-<li><a href="https://github.com/Lifoof/MoGCN">https://github.com/Lifoof/MoGCN</a></li>
-<li>Li X, Ma J, Leng L, Han M, Li M, He F, Zhu Y. MoGCN: A Multi-Omics Integration Method Based on Graph Convolutional Network for Cancer Subtype Analysis. Front Genet. 2022 Feb 2;13:806842. doi: 10.3389/fgene.2022.806842. PMID: 35186034; PMCID: PMC8847688.</li>
-<li>cancer subtype classification and analysis. Genomics, transcriptomics and proteomics datasets for 511 breast invasive carcinoma (BRCA) samples were downloaded from the Cancer Genome Atlas (TCGA).</li>
+<h3 id="Paper-study:">Paper study:<a class="anchor-link" href="#Paper-study:">¶</a></h3><blockquote>
+<p>MoGCN, a multi-omics integration model based on graph convolutional network (GCN)
+- <a href="https://github.com/Lifoof/MoGCN">https://github.com/Lifoof/MoGCN</a>
+- Li X, Ma J, Leng L, Han M, Li M, He F, Zhu Y. MoGCN: A Multi-Omics Integration Method Based on Graph Convolutional Network for Cancer Subtype Analysis. Front Genet. 2022 Feb 2;13:806842. doi: 10.3389/fgene.2022.806842. PMID: 35186034; PMCID: PMC8847688</p>
+</blockquote>
+<ul>
+<li>Cancer subtype classification and analysis. Genomics, transcriptomics and proteomics datasets for 511 breast invasive carcinoma (BRCA) samples were downloaded from the Cancer Genome Atlas (TCGA).</li>
 <li>The autoencoder (AE) and the similarity network fusion (SNF) methods were used to reduce dimensionality and construct the patient similarity network (PSN), respectively</li>
 <li>Then the vector features and the PSN were input into the GCN for training and testing. Feature extraction and network visualization were used for further biological knowledge discovery and subtype classification.</li>
-</ul>
-</li>
 </ul>
 </div>
 </div>
@@ -7879,7 +7904,89 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><img alt="No description has been provided for this image" src="./assests/MoGCN.png" width="900"/></p>
+<p><img alt="No description has been provided for this image" src="img/MoGCN.png" width="900"/></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Paper-study:">Paper study:<a class="anchor-link" href="#Paper-study:">¶</a></h2><blockquote>
+<p>Wang, C., Lue, W., Kaalia, R. et al. Network-based integration of multi-omics data for clinical outcome prediction in neuroblastoma. Sci Rep 12, 15425 (2022). <a href="https://doi.org/10.1038/s41598-022-19019-5">https://doi.org/10.1038/s41598-022-19019-5</a></p>
+</blockquote>
+<ul>
+<li><p>Aim: integrate multi-omics data (like gene expression and DNA methylation) for predicting clinical outcomes in neuroblastoma, a pediatric cancer.</p>
+</li>
+<li><p>Using Patient Similarity Networks (PSNs) derived from omics features, they create networks where patients are nodes and edges represent their similarity based on omics data. They apply two methods for data fusion: at feature level and at network level</p>
+</li>
+<li><p>Their results show that network-level fusion generally outperforms feature-level fusion for integrating diverse omics datasets, while feature-level fusion is effective when combining different features within the same omics dataset.</p>
+</li>
+<li><p>Feature-level fusion: Combines features derived from each omics dataset into a single feature set by concatenating or averaging features like centrality and modularity from PSNs. For each omics dataset m, a Patient Similarity Network (PSN) is constructed. Let x_m represent the feature vector of the m-th omics dataset for a subject. The feature-level fusion is performed as follows:</p>
+<ul>
+<li>Extract centrality and modularity features from each PSN.</li>
+<li>Compute the mean of centrality features and concatenate the modularity features from each omics dataset:
+$$
+x_{\text{fused}} = \frac{1}{M} \sum_{m=1}^{M} x_m
+$$
+, where M is the total number of omics datasets.</li>
+</ul>
+</li>
+</ul>
+<p>The fused feature vector $x_{\text{fused}}$ is used as input to machine learning classifiers for clinical outcome prediction.</p>
+<ul>
+<li>Network-level fusion: PSNs from individual omics datasets are combined to form a single multi-omics PSN. The fusion is performed using the Similarity Network Fusion (SNF) algorithm, which combines the similarity matrices (A_m) of individual PSNs:
+$$
+A_{\text{fused}} = \text{SNF}(A_1, A_2, \ldots, A_M)
+$$
+The fused similarity matrix $ A_{\text{fused}} $ represents the multi-omics PSN, which is then used for downstream prediction tasks.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><img alt="No description has been provided for this image" src="img/snf_psn_fusing.png" width="900"/></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Paper-study:">Paper study:<a class="anchor-link" href="#Paper-study:">¶</a></h3><blockquote>
+<p>Wang, J., Liao, N., Du, X. et al. A semi-supervised approach for the integration of multi-omics data based on transformer multi-head self-attention mechanism and graph convolutional networks. BMC Genomics 25, 86 (2024). <a href="https://doi.org/10.1186/s12864-024-09985-7">https://doi.org/10.1186/s12864-024-09985-7</a>
+Searched 2 sites</p>
+</blockquote>
+<ul>
+<li>Uses a semi-supervised learning framework for disease classification, combining transformer multi-head self-attention mechanisms with graph convolutional networks (GCNs) to extract meaningful relationships between samples. The model integrates labeled and unlabeled omics data, using the attention mechanism to capture dependencies across features and GCNs to capture graph-based relationships.</li>
+<li>Omics used: mRNA expression, microRNA expression, and DNA methylation. These data types are integrated to improve the prediction accuracy of disease classifications, such as Alzheimer's disease and breast cancer.</li>
+<li>Self-Attention Mechanism: Captures intra- and inter-modality feature dependencies.</li>
+<li>Graph Convolutional Networks (GCNs): Extract structural information from the multi-omics graph, enabling better representation of relationships between data points.</li>
+<li>Semi-Supervised Learning: Utilizes both labeled and unlabeled data to improve model training, mitigating the limitations of small labeled datasets often found in multi-omics studies.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><img alt="No description has been provided for this image" src="img/snf_mosegcn.png" width="900"/></p>
 </div>
 </div>
 </div>
@@ -8009,7 +8116,7 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><img alt="No description has been provided for this image" src="./assests/wsnf_data.png" width="600"/></p>
+<p><img alt="No description has been provided for this image" src="img/wsnf_data.png" width="600"/></p>
 </div>
 </div>
 </div>
@@ -8041,7 +8148,7 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><img alt="No description has been provided for this image" src="./assests/wsnf.png" width="600"/></p>
+<p><img alt="No description has been provided for this image" src="img/wsnf.png" width="600"/></p>
 </div>
 </div>
 </div>
@@ -8070,7 +8177,7 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><img alt="No description has been provided for this image" src="./assests/anf_alg.jpg" width="600"/></p>
+<p><img alt="No description has been provided for this image" src="img/anf_alg.jpg" width="600"/></p>
 </div>
 </div>
 </div>
@@ -8135,7 +8242,7 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><img alt="No description has been provided for this image" src="./assests/anf_nn.jpg" width="300"/></p>
+<p><img alt="No description has been provided for this image" src="img/anf_nn.jpg" width="300"/></p>
 </div>
 </div>
 </div>
@@ -8215,7 +8322,7 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><img alt="No description has been provided for this image" src="./assests/skf.png" width="400"/></p>
+<p><img alt="No description has been provided for this image" src="img/skf.png" width="400"/></p>
 </div>
 </div>
 </div>
